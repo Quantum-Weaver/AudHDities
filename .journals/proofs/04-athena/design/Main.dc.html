@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9312;</span>
+    <span style="font-size:15px;font-weight:600;">The Library &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library</span>, the halls as doors</span>
+    <span class="src">LibraryHub.tsx &middot; 52 lines, six doors, no counts</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <p style="margin:0 0 10px;text-align:center;">
+            <span class="old" style="border:1px solid rgba(224,224,224,.16);border-radius:9999px;padding:3px 12px;font-size:11.5px;">The Archive</span>
+            <span class="src" style="display:block;margin-top:6px;">the pill retires &mdash; :23&ndash;26 names a hall that is also one of the six below</span>
+          </p>
+
+          <h1 style="margin:0 0 6px;font-size:26px;font-weight:700;text-align:center;">The Library</h1>
+          <p style="margin:0 0 4px;font-size:13px;color:rgba(224,224,224,.78);text-align:center;text-wrap:pretty;">Six halls, open. Wander at whatever pace the day allows.</p>
+          <p class="src" style="margin:0 0 22px;text-align:center;">replaces :29 &mdash; the house&rsquo;s own sentence, borrowed from its own quest</p>
+
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+
+            <div class="hall">
+              <span style="width:34px;height:34px;border-radius:9px;background:rgba(253,203,110,.12);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FDCB6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polygon points="16 8 13.5 13.5 8 16 10.5 10.5"></polygon></svg>
+              </span>
+              <p style="margin:0;font-size:14px;font-weight:600;">The Path</p>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Quests that shape your sovereignty</p>
+              <p class="inv">six quests on the shelf</p>
+              <span class="go">Walk in
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+              </span>
+            </div>
+
+            <div class="hall">
+              <span style="width:34px;height:34px;border-radius:9px;background:rgba(0,184,148,.14);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E6C3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg>
+              </span>
+              <p style="margin:0;font-size:14px;font-weight:600;">The Curriculum</p>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Structured courses for deep learning</p>
+              <p class="inv">one course &middot; six steps</p>
+              <span class="go">Walk in
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+              </span>
+            </div>
+
+            <div class="hall">
+              <span style="width:34px;height:34px;border-radius:9px;background:rgba(108,92,231,.16);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A29BFE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h4"></path></svg>
+              </span>
+              <p style="margin:0;font-size:14px;font-weight:600;">The Lessons</p>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Individual lessons across all domains</p>
+              <p class="inv">six lessons, each with a body</p>
+              <span class="go">Walk in
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+              </span>
+            </div>
+
+            <div class="hall">
+              <span style="width:34px;height:34px;border-radius:9px;background:rgba(232,67,147,.14);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FD79A8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7c0-1.7-2-3-5-3H3v14h4c3 0 5 1.3 5 3z"></path><path d="M12 7c0-1.7 2-3 5-3h4v14h-4c-3 0-5 1.3-5 3z"></path></svg>
+              </span>
+              <p style="margin:0;font-size:14px;font-weight:600;">The Archive</p>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Mythology, taxonomy, and ancient wisdom</p>
+              <p class="inv">one scroll, told whole</p>
+              <span class="go">Walk in
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+              </span>
+            </div>
+
+            <div class="hall">
+              <span style="width:34px;height:34px;border-radius:9px;background:rgba(34,211,238,.13);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.6 14.4 7 22l5-3 5 3-1.6-7.6"></path></svg>
+              </span>
+              <p style="margin:0;font-size:14px;font-weight:600;">The Honors</p>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Sigils earned through sovereignty</p>
+              <p class="inv">ten sigils forged &middot; none awardable yet</p>
+              <span class="go">Walk in
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+              </span>
+            </div>
+
+            <div class="hall">
+              <span style="width:34px;height:34px;border-radius:9px;background:rgba(0,206,201,.14);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00CEC9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 4.2 5.5 7 5.5 9.4A5.5 5.5 0 0 1 12 18a5.5 5.5 0 0 1-5.5-5.6C6.5 10 8.5 7.2 12 3z"></path></svg>
+              </span>
+              <p style="margin:0;font-size:14px;font-weight:600;">The Floating Stars</p>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Stars drift past. Pop what catches your eye.</p>
+              <p class="inv">thirty stars &middot; five collections</p>
+              <span class="go">Walk in
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+              </span>
+            </div>
+
+          </div>
+
+          <p style="margin:20px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Each hall says what is on its shelf. <span class="k">That line is an inventory, never a score</span> &mdash; it counts the house&rsquo;s work, not yours. Nothing here knows how many halls you have entered, and nothing here is going to start.</p>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">A seventh door, drawn shut</p>
+        <div class="second">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+            <p style="margin:0;font-size:14px;font-weight:600;">The Dailies</p><span class="stag">KP&rsquo;s own session &middot; later</span>
+          </div>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Crossword, word find, word scramble, sudoku. Nothing about this door is designed on this canvas. Board &#9318; says why, and stops there.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The build law this canvas is drawn under</p>
+        <p class="q">&ldquo;i magine building the framework for each of the next realms before the features within is a good approach, as some features are cross referenced realm-wise. the game side of the vessel experience, not as vital as a functional bazaar, <span class="k">athena with contents</span>, etc&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. In this realm the frame and the contents are <span class="k">the same thing</span>: a hall is only a door until you can say what is behind it. So every board draws the shelves as they truly stand.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s &#9883; word that opened this canvas</p>
+        <p class="q">&ldquo;bazaar and library go&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">2026-08-24, verbatim. Five standing defaults ruled with it, and each lands on a board below: <span class="k">the two law-failing rooms mend</span> (&#9317;, &#9314;) &middot; <span class="k">the bubble cap speaks in words, no bar</span> (&#9314;) &middot; <span class="k">the stranded tier ladder retired</span> (&#9314;) &middot; <span class="k">the three &#128681; flags held for the second pass</span> &middot; <span class="k">the reduced-motion guard mended</span> (every board).</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What the shelves actually hold</p>
+        <p class="rl-b" style="margin-bottom:9px;">Machine-counted from the seed that filled them, not from a page: <span class="src">docs/sql/008-the-library-first-seeds.sql</span> (its own STEP 6 verify block agrees) and <span class="src">007-archive-provenance-and-first-scroll.sql</span>.</p>
+        <table class="tbl">
+          <thead><tr><th>Hall</th><th>On the shelf</th></tr></thead>
+          <tbody>
+            <tr><td>The Path</td><td>6 quests</td></tr>
+            <tr><td>The Curriculum</td><td>1 course, 6 path steps</td></tr>
+            <tr><td>The Lessons</td><td>6 lessons</td></tr>
+            <tr><td>The Archive</td><td>1 scroll</td></tr>
+            <tr><td>The Honors</td><td>10 sigils</td></tr>
+            <tr><td>The Floating Stars</td><td>30 bubbles, 5 collections<br><span class="src">rarity 10 / 8 / 6 / 4 / 2</span></td></tr>
+          </tbody>
+        </table>
+        <p class="rl-b" style="margin-top:9px;">Every gallery populates through the anon door. <span class="k">This realm is not a shell.</span> It is the one realm on this plan whose rooms are already full, which is why KP named it &ldquo;athena with contents&rdquo; and why the contents are drawn as the frame.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The three things this hub gets wrong today</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The Archive is named twice.</span> The pill at <span class="src">:23&ndash;26</span> reads &ldquo;The Archive&rdquo; and so does the fourth hall at <span class="src">:13</span>. A visitor cannot tell whether they are standing in it or looking at it. Drawn: the pill goes; the h1 already says where you are.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">&ldquo;Explore&rdquo; is invisible until you hover.</span> <span class="src">:44</span> is <span class="src">opacity-0 group-hover:opacity-100</span> &mdash; so on a phone it never appears at all, and a keyboard walker meets a card whose next step is hidden. That is the sensory ten&rsquo;s <em>obvious next steps</em> failing on the realm&rsquo;s front page. Drawn always visible, quiet.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The icon leaps on hover with no guard.</span> <span class="src">:39 group-hover:scale-110 transition-transform</span> and no <span class="src">motion-reduce</span> beside it. One of three unguarded motions in the realm &mdash; the other two are in the game (&#9314;). <span class="ruled">ruled: mend</span></p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; six doors, no order, no first step named. The hub asks nothing of you.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing to save here; the hub is stateless by design. The one place it belongs is the course walk (&#9315;), where it is drawn opt-in.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing pulses on this page.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the hall names are the house&rsquo;s own settled tongue and are kept whole. One description rewritten, below.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; the hover-only &ldquo;Explore&rdquo;, above. Mended by making it visible and by giving each hall its inventory line, so the door tells you what is behind it before you open it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; every hall is itself the door; nothing on the hub is a dead end.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="src">:39</span>, above. The whole realm carries exactly one <span class="src">motion-reduce</span> guard (<span class="src">CourseDetail.tsx:104</span>) across 1,739 lines.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the hall descriptions sit at <span class="src">text-star-dust/50</span> (<span class="k">4.32:1</span>) and the realm&rsquo;s galleries at <span class="src">/40</span> (<span class="k">3.18:1</span>). Measured this sitting; the method reproduces <span class="src">HANDOFF.md</span>&rsquo;s own 14.4:1 and 12.3:1 exactly. Nothing under <span class="src">/55</span> reaches 4.5:1. Drawn at <span class="src">/70</span> &mdash; <span class="k">7.38:1</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; every hall is a real <span class="src">Link</span>; the whole card is the target. Nothing here needs a mouse except the hidden &ldquo;Explore&rdquo;, which stops being hidden.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, here</p>
+        <p class="rl-b">Nothing on this page is a toggle, a checkbox or a switch, so KP&rsquo;s &#9883; word &mdash; <em>&ldquo;make all toggles off by default&rdquo;</em> &mdash; has nothing to bite on. The census confirms it by machine: <span class="k">0 checked inputs in the whole realm</span>. The one place a toggle is proposed anywhere in this realm is board &#9315;&rsquo;s remembering, and it is drawn <span class="k">off</span>.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">LibraryHub.tsx:15</span><br><span class="old">&ldquo;Collect bubbles and earn points&rdquo;</span><br><span class="new">&ldquo;Stars drift past. Pop what catches your eye.&rdquo;</span><br>One of the census&rsquo;s five <em>collect</em> hits, and the only one of them that fails. <em>Earn points</em> is pointsification vocabulary, refused by name on E4&rsquo;s column, and it makes a hall about a score before you have opened it.</p>
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">LibraryHub.tsx:29</span><br><span class="old">&ldquo;Knowledge, quests, and honors await those who seek sovereignty.&rdquo;</span><br><span class="new">&ldquo;Six halls, open. Wander at whatever pace the day allows.&rdquo;</span><br>The old line names three of six halls and makes welcome conditional on <em>seeking</em>. The new one is the house&rsquo;s own sentence, lifted from its own first quest (<span class="src">008-the-library-first-seeds.sql:155</span>) &mdash; the arrival law says coming home, not signing up.</p>
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;The Library&rdquo; <span class="src">:27</span> &middot; &ldquo;The Path&rdquo; / &ldquo;Quests that shape your sovereignty&rdquo; <span class="src">:10</span> &middot; &ldquo;The Curriculum&rdquo; <span class="src">:11</span> &middot; &ldquo;The Lessons&rdquo; <span class="src">:12</span> &middot; &ldquo;The Archive&rdquo; <span class="src">:13</span> &middot; &ldquo;The Honors&rdquo; / &ldquo;Sigils earned through sovereignty&rdquo; <span class="src">:14</span> &middot; &ldquo;The Floating Stars&rdquo; <span class="src">:15</span>. <span class="k">The hall names are the best writing in the realm</span> and none of them moves.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the six inventory lines. <em>Proposed</em>: no ruling names them. They exist because KP&rsquo;s build law says the contents are the frame, and a door that says what is behind it is a kinder door than one that does not.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a &ldquo;halls visited&rdquo; count &middot; a first-time badge on a door &middot; a &ldquo;continue where you left off&rdquo; banner the hub decides for you &middot; any ordering that implies a start &middot; any figure on this page that counts the reader rather than the shelf. The declined page carries the first of those, drawn and set down.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

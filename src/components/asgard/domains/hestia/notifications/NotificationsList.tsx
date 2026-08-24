@@ -11,7 +11,7 @@ import { ArrowLeft, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// The Pulse rides the heralds table (the notifications successor);
+// The Call rides the heralds table (the notifications successor);
 // action_url did not survive the evolution — detail links go by id, and
 // reference_table/reference_id carry the "about what" instead.
 interface Notification {
@@ -66,7 +66,7 @@ export function NotificationsList() {
   }
 
   if (!user) {
-    return (<main className="min-h-screen py-12"><div className="container max-w-2xl mx-auto px-6 text-center"><p className="text-star-dust/60">Sign in to view notifications.</p></div></main>);
+    return (<main className="min-h-screen py-12"><div className="container max-w-2xl mx-auto px-6 text-center"><p className="text-star-dust/60">Enter the Sanctuary to see your vessel.</p></div></main>);
   }
 
   return (
@@ -76,13 +76,13 @@ export function NotificationsList() {
           <div>
             <Link href="/vessel" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"><ArrowLeft className="h-4 w-4" />Return to Vessel</Link>
             <h1 className="text-2xl font-bold text-star-dust">The Call</h1>
-            <p className="text-sm text-star-dust/40 mt-1">{unreadCount > 0 ? `${unreadCount} unread` : 'All caught up'}</p>
+            <p className="text-sm text-star-dust/70 mt-1">{unreadCount > 0 ? `${unreadCount} unread` : 'All caught up'}</p>
           </div>
           {unreadCount > 0 && <Button variant="ghost" size="sm" onClick={markAllRead}>Mark all read</Button>}
         </div>
 
         {notifications.length === 0 ? (
-          <div className="text-center py-20"><Bell className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">The call is quiet</p><p className="text-star-dust/30 text-sm">Notifications will appear here when something seeks your attention</p></div>
+          <div className="text-center py-20"><Bell className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/70 text-lg">The call is quiet</p><p className="text-star-dust/70 text-sm">Notifications will appear here when something seeks your attention</p></div>
         ) : (
           <div className="space-y-2">
             {notifications.map(n => {
@@ -91,12 +91,12 @@ export function NotificationsList() {
                 <Link key={n.id} href={`/notifications/${n.id}`}>
                   <Card data={cd} variant={n.is_read ? 'ghost' : 'glass'} radius="md" shadow="sm" className={cn('p-4', !n.is_read && 'border-l-2 border-l-neurospark')}>
                     <div className="flex items-start gap-3">
-                      <span className="text-xl">{TYPE_EMOJI[n.herald_type] || '📢'}</span>
+                      <span className="text-xl" aria-hidden="true">{TYPE_EMOJI[n.herald_type] || '📢'}</span>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-star-dust">{n.title}</p>
-                        <p className="text-xs text-star-dust/50 line-clamp-1">{n.body}</p>
+                        <p className="text-xs text-star-dust/70 line-clamp-1">{n.body}</p>
                       </div>
-                      <span className="text-xs text-star-dust/30 flex-shrink-0">{formatDate(n.created_at)}</span>
+                      <span className="text-xs text-star-dust/70 flex-shrink-0">{formatDate(n.created_at)}</span>
                     </div>
                   </Card>
                 </Link>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:12px;padding:20px 22px;}
+    .ring{width:44px;height:44px;border-radius:9999px;display:inline-flex;
+      align-items:center;justify-content:center;font-size:16px;font-weight:700;flex:none;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9316;</span>
+    <span style="font-size:15px;font-weight:600;">Energy &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel/energy</span>, listening rather than scoring</span>
+    <span class="src">EnergyLog.tsx &middot; EnergyEntryDetail.tsx</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px;">
+            <div>
+              <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);">&larr; Return to Vessel</a>
+              <h1 style="margin:6px 0 2px;font-size:22px;font-weight:700;">Energy Log</h1>
+              <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);">Listen to your vessel</p>
+            </div>
+            <span style="display:inline-block;padding:7px 14px;border-radius:9px;background:#6C5CE7;color:#FFFFFF;font-size:12.5px;font-weight:500;white-space:nowrap;">+ Log Energy</span>
+          </div>
+
+          <div class="card" style="margin-bottom:16px;">
+            <p style="margin:0 0 5px;font-size:11.5px;color:rgba(224,224,224,.78);">How does your vessel feel? <span style="color:rgba(224,224,224,.55);">&mdash; required</span></p>
+            <div style="border:1px solid rgba(224,224,224,.18);border-radius:7px;padding:8px 12px;font-size:13px;color:rgba(224,224,224,.55);display:flex;justify-content:space-between;margin-bottom:13px;">
+              <span>Select your energy level&hellip;</span><span>&#9662;</span></div>
+            <p style="margin:0 0 5px;font-size:11.5px;color:rgba(224,224,224,.78);">Activity <span style="color:rgba(224,224,224,.55);">&mdash; optional &middot; What were you doing?</span></p>
+            <div style="border:1px solid rgba(224,224,224,.18);border-radius:7px;padding:8px 12px;font-size:13px;color:rgba(224,224,224,.55);display:flex;justify-content:space-between;margin-bottom:13px;">
+              <span>Select activity&hellip;</span><span>&#9662;</span></div>
+            <p style="margin:0 0 5px;font-size:11.5px;color:rgba(224,224,224,.78);">Anything you want to note <span style="color:rgba(224,224,224,.55);">&mdash; optional</span>
+              <span style="color:#FDCB6E;margin-left:6px;">added</span></p>
+            <div style="border:1px solid rgba(224,224,224,.18);border-radius:7px;padding:10px 12px;min-height:52px;font-size:13px;color:rgba(224,224,224,.55);">Only if you want to.</div>
+          </div>
+
+          <div class="card" style="margin-bottom:16px;">
+            <p style="margin:0 0 10px;font-size:14px;font-weight:600;">Your Rhythm</p>
+            <p style="margin:0 0 3px;font-size:13px;color:rgba(224,224,224,.80);">Across your last 30 entries you have mostly sat around <span style="color:#22D3EE;font-weight:700;">Steady</span>.</p>
+            <p style="margin:0 0 12px;font-size:12.5px;color:rgba(224,224,224,.78);text-wrap:pretty;">Your energy is dipping. This is not failure &mdash; it is a signal to rest. You tend to have lower energy on Tuesdays. Would you like to plan rest for those days?</p>
+            <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.70);">no bar drawn &mdash; see the right rail</p>
+          </div>
+
+          <p class="rl-h" style="margin-bottom:11px;">Recent entries</p>
+
+          <div style="background:rgba(224,224,224,.03);border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:14px;">
+            <span class="ring" style="background:rgba(0,206,201,.13);color:#00CEC9;border:2px solid rgba(0,206,201,.25);">5</span>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <span style="font-size:13.5px;font-weight:500;">Steady</span>
+                <span style="display:inline-block;padding:1px 9px;border-radius:9999px;border:1px solid rgba(224,224,224,.20);font-size:10.5px;color:rgba(224,224,224,.78);">resting</span>
+              </div>
+              <p style="margin:5px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);">&#9200; Sat, Aug 22 at 9:14 AM</p>
+            </div>
+            <span style="font-size:11.5px;color:rgba(224,224,224,.70);flex:none;">Open &rarr;</span>
+          </div>
+
+          <div style="background:rgba(224,224,224,.03);border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:14px 16px;display:flex;align-items:center;gap:14px;">
+            <span class="ring" style="background:rgba(116,185,255,.13);color:#74B9FF;border:2px solid rgba(116,185,255,.25);">3</span>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <span style="font-size:13.5px;font-weight:500;">Tired</span>
+                <span style="display:inline-block;padding:1px 9px;border-radius:9999px;border:1px solid rgba(224,224,224,.20);font-size:10.5px;color:rgba(224,224,224,.78);">working</span>
+              </div>
+              <p style="margin:5px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);">&#9200; Fri, Aug 21 at 4:02 PM</p>
+            </div>
+            <span style="font-size:11.5px;color:rgba(224,224,224,.70);flex:none;">Open &rarr;</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The entry &mdash; and the same delete, same four words</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 28px;">
+            <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);margin-bottom:14px;">&larr; Return to Energy Log</a>
+            <div class="card" style="text-align:center;">
+              <span class="ring" style="width:64px;height:64px;font-size:24px;background:rgba(0,206,201,.13);color:#00CEC9;border:3px solid rgba(0,206,201,.25);margin-bottom:14px;">5</span>
+              <h1 style="margin:0 0 7px;font-size:19px;font-weight:700;">Steady</h1>
+              <p style="margin:0 0 16px;font-size:12px;color:rgba(224,224,224,.70);">&#9200; Saturday, August 22, 2026 at 9:14 AM</p>
+              <div style="display:flex;gap:11px;justify-content:center;">
+                <span style="border:1px solid rgba(224,224,224,.20);border-radius:8px;padding:6px 16px;font-size:12.5px;color:rgba(224,224,224,.80);">Back</span>
+                <span style="border:1px solid rgba(225,112,85,.45);border-radius:8px;padding:6px 16px;font-size:12.5px;color:#E17055;">Delete</span>
+              </div>
+              <div style="margin-top:18px;border:1px solid rgba(225,112,85,.35);background:rgba(225,112,85,.06);border-radius:11px;padding:16px;">
+                <p style="margin:0 0 13px;font-size:13px;color:rgba(224,224,224,.86);">Deleting this entry removes it for good. There is no undo.</p>
+                <div style="display:flex;gap:11px;justify-content:center;">
+                  <span style="border:1px solid rgba(224,224,224,.20);border-radius:8px;padding:6px 16px;font-size:12.5px;color:rgba(224,224,224,.80);">Keep it</span>
+                  <span style="border-radius:8px;padding:6px 16px;font-size:12.5px;background:#6C5CE7;color:#FFFFFF;">Delete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q">&ldquo;journal/energy keep the true delete, plain words, one confirming gesture, no guilt&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">Ruling 7, same foot as board &#9315;. The energy room&rsquo;s confirm (<span class="src">EnergyEntryDetail.tsx:93</span>) already reads <em>&ldquo;Delete this entry? There is no undo.&rdquo;</em> &mdash; <span class="k">already plain</span>, unlike the Scroll&rsquo;s. Both rooms now say the same thing the same way, and the wording is taken from this one.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The room the list cannot reach</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">There is no door to the entry.</span> <span class="src">/vessel/energy/[id]</span> is a real route with a real page, a real fetch and a real delete &mdash; and <span class="src">EnergyLog.tsx:370&ndash;415</span> renders each entry as a bare <span class="src">&lt;Card&gt;</span> with <span class="k">no Link around it</span>. Nothing anywhere in the app links to it (searched: zero hits outside the route itself). <span class="k">The only way to delete an energy entry is to type its id into the address bar.</span> Drawn as a link, which is all it needs.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">And no way to write the note it displays.</span> The detail renders <span class="src">entry.notes</span> (<span class="src">:86</span>) and the list previews it (<span class="src">:404</span>); <span class="src">handleCreate</span> sends <span class="src">notes: data.notes || null</span> (<span class="src">:193</span>) &mdash; but the form has only two fields (<span class="src">:297&ndash;318</span>) and neither is notes. <span class="k">The field can be shown and can never be filled.</span> Drawn: an optional note, one line of permission under it.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Anti-scarcity &mdash; the sharpest case in the realm</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The rhythm card draws a person&rsquo;s body as a filling bar.</span> <span class="src">:341&ndash;347</span>: <span class="src">Progress value={average * 10} max={100}</span>, under <span class="k">&ldquo;4.7 / 10 average&rdquo;</span> in 3xl neurospark. A bar has a full state, so a tired week renders as a nearly-empty one. That is a completion meter (E2 &sect;6 forbids them by name) pointed at <em>how a neurodivergent person feels</em> &mdash; which is the one thing in this app that must never have a target.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Drawn: the bar and the /10 go, the sentence stays.</span> The insight text is already the good half and is kept to the word &mdash; <em>&ldquo;This is not failure &mdash; it is a signal to rest&rdquo;</em> is the anti-deficit law spoken plainly (E2 &sect;6 forbids deficit-model framing). The average becomes its own name from the room&rsquo;s own ladder: <span class="k">4.7 reads &ldquo;Steady&rdquo;</span>, using <span class="src">ENERGY_LABELS</span> (<span class="src">:43&ndash;54</span>) which already exist. A word cannot be full or empty.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The ten-point scale itself is honest.</span> Every step is a <em>named feeling</em> &mdash; Drained, Low, Tired, Dim, Steady, Alright, Good, Bright, Glowing, Radiant &mdash; not a grade. &ldquo;Drained&rdquo; is a true thing to be, and the colour ramp for 1&ndash;2 is <span class="src">void.base</span> grey, not red. Kept whole.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The day-of-week reading is a question, not a verdict.</span> <span class="src">:132</span> ends <em>&ldquo;Would you like to plan rest for those days?&rdquo;</em> &mdash; it hands the pattern back rather than prescribing from it. Kept verbatim; this is what pattern-reading should sound like.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">No streak.</span> Nothing counts consecutive days, and the empty state does not ask for one.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Noted, never re-pointed</p>
+        <p class="rl-b"><span class="src">energy_entries</span> is read by hestia here and by mnemosyne as pattern (BRIEF, DEITY DRIFT; corroborated <span class="src">(mnemosyne)/REALM-BUS.md:87&ndash;88</span>), and the day-of-week arithmetic at <span class="src">:112&ndash;133</span> is mnemosyne&rsquo;s work living in hestia&rsquo;s room. KP&rsquo;s ruling 1: <span class="k">the dual-read stays, noted for gaia, nothing changed.</span> This board changes nothing about it and says so here so the next hand does not mistake silence for absence.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; log when you want. Nothing asks daily, nothing marks a gap.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; same toggled-form loss as the Scroll (<span class="src">:289</span>); same mend.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing pulses; the energy rings are static colour.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;How does your vessel feel?&rdquo; is a better question than any 1&ndash;10 label would be alone. Kept.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; one button, one required field.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; an entry that will not load says <em>&ldquo;This moment has faded.&rdquo;</em> with the way back under it (<span class="src">:68</span>). Kept verbatim.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the only transition is the trend bar&rsquo;s width, and the bar is drawn out.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the energy rings are the strong part: each is drawn at full token strength on a 20%-tint ground, and all five clear 4.5:1 against surface. The prose is not. The insight sentence at <span class="src">:348</span> &mdash; the kindest line in the realm &mdash; sits at <span class="src">/50</span>, <span class="k">4.1:1</span>, and everything around it at <span class="src">/40</span> and <span class="src">/30</span>, <span class="k">3.1:1</span> and <span class="k">2.3:1</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; the list is not reachable at all (above), and the detail&rsquo;s delete is another unnamed <span class="src">&lt;Trash2&gt;</span> (<span class="src">:89</span>). Both drawn with words.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; :43&ndash;54 all ten feeling names &middot; :61&ndash;71 the nine activities &middot; :279 &ldquo;Energy Log&rdquo; &middot; :280 &ldquo;Listen to your vessel&rdquo; &middot; :298 &ldquo;How does your vessel feel?&rdquo; &middot; :302 &ldquo;Select your energy level&hellip;&rdquo; &middot; :107&ndash;109 all three insights &middot; :132 the Tuesday question &middot; :333 &ldquo;Your Rhythm&rdquo; &middot; :356 &ldquo;Begin listening to your vessel&rdquo; &middot; EnergyEntryDetail:68 &ldquo;This moment has faded.&rdquo;, :93 the confirm.</p>
+          <p class="rl-b"><span class="k">REWRITE 10</span> &middot; <span class="src">EnergyLog.tsx:336&ndash;347</span><br><span class="old">&ldquo;4.7&rdquo; in 3xl + &ldquo;/ 10 average&rdquo; + a Progress bar to 100</span> &rarr; <span class="new">&ldquo;Across your last 30 entries you have mostly sat around Steady.&rdquo;</span> &mdash; same number, read through the room&rsquo;s own ladder instead of drawn as a fill. No new vocabulary: &ldquo;Steady&rdquo; is <span class="src">ENERGY_LABELS[5]</span>. <em>Proposed</em>: KP ruled the score component retired, not this bar &mdash; but they are the same shape aimed at a more tender number.</p>
+          <p class="rl-b"><span class="k">REWRITE 11</span> &middot; <span class="src">EnergyEntryDetail.tsx:89</span> &middot; <span class="src">EnergyLog.tsx:370</span><br><span class="old">an unnamed trash icon; a card that is not a link</span> &rarr; <span class="new">&ldquo;Delete&rdquo;, worded; each entry a link to its own page</span>.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the notes field. No census string; the column is read in two places and writable in none. <span class="new">&ldquo;Anything you want to note&rdquo;</span> / <span class="new">&ldquo;Only if you want to.&rdquo;</span> &mdash; optional in the label and again in the placeholder, because a log that asks twice is a log nobody feels behind on. <em>Proposed.</em></p>
+          <p class="rl-b"><span class="k">REWRITE 12</span> &middot; <span class="src">EnergyLog.tsx:280, :339, :348, :357, :361</span> &middot; <span class="src">EnergyEntryDetail.tsx:83</span><br><span class="old">/50, /40 and /30 &mdash; 4.1:1, 3.1:1 and 2.3:1</span> &rarr; <span class="new">/70 &mdash; 6.7:1</span>. The insight sentence at :348 is the /50; everything around it is lower.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

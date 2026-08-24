@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:28px 30px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 16px;">
+    <span style="font-size:14px;font-weight:700;color:#E17055;">DECLINED</span>
+    <span style="font-size:14px;font-weight:600;">Velkomin as a gate</span>
+  </div>
+
+  <div style="position:relative;border:1px dashed rgba(224,224,224,.22);border-radius:12px;overflow:hidden;background:#0C0F1D;margin-bottom:18px;">
+    <div class="wash"></div>
+    <div style="position:relative;z-index:1;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+      <p style="margin:0;font-size:26px;font-weight:500;">Velkomin.</p>
+      <span style="display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 22px;border-radius:12px;border:1px solid rgba(224,224,224,.25);font-size:15px;">Enter</span>
+      <p style="margin:0;font-size:11px;color:rgba(224,224,224,.45);">a full-bleed overlay; the page waits behind it until it is dismissed</p>
+    </div>
+  </div>
+
+  <p class="rl-h">What it was</p>
+  <p class="rl-b" style="margin-bottom:14px;">The door&rsquo;s word as a full-screen threshold at <span class="src">/sanctuary</span> &mdash; the page held back until the visitor stepped through. It made the crossing unmistakable, and that was the whole appeal.</p>
+
+  <p class="rl-h">Why it was declined</p>
+  <div style="display:flex;flex-direction:column;gap:9px;">
+    <p class="rl-b"><span class="k">1 &mdash; the component&rsquo;s own law forbids it.</span> VelkominGreeting.tsx:33&ndash;34: &ldquo;A soft opacity fade only; instant under <span class="src">prefers-reduced-motion</span>.&rdquo; A gate is not a fade, it is an interruption.</p>
+    <p class="rl-b"><span class="k">2 &mdash; it fails pace control.</span> A visitor who arrives is made to perform an action before they are allowed to read. The sensory ten&rsquo;s first point is the person setting the pace, not the page.</p>
+    <p class="rl-b"><span class="k">3 &mdash; KP asked for a word, not a door before the door.</span> His stroke is &ldquo;Velkomin at the door + F&aacute;ilte at the Hearth&rdquo; &mdash; a greeting spoken as you come in, which is what board &#9312; draws.</p>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

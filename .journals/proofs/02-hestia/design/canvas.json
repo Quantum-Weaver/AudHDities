@@ -1,0 +1,41 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "The Hearth" },
+    { "id": "page-2", "name": "Declined" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "page": "page-1", "x": 0, "y": 0, "w": 920, "h": 2400, "title": "1 - Arrival at /vessel" },
+    { "file": "Home.dc.html", "page": "page-1", "x": 1000, "y": 0, "w": 920, "h": 1750, "title": "2 - The Home, and the second pass" },
+    { "file": "Sanctum.dc.html", "page": "page-1", "x": 2000, "y": 0, "w": 920, "h": 2250, "title": "3 - The Sanctum" },
+    { "file": "Journal.dc.html", "page": "page-1", "x": 3000, "y": 0, "w": 920, "h": 2200, "title": "4 - The Scroll, and the true delete" },
+    { "file": "Energy.dc.html", "page": "page-1", "x": 0, "y": 2660, "w": 920, "h": 2300, "title": "5 - Energy" },
+    { "file": "Constellation.dc.html", "page": "page-1", "x": 1000, "y": 2660, "w": 920, "h": 2150, "title": "6 - The Constellation, and every count" },
+    { "file": "Notifications.dc.html", "page": "page-1", "x": 2000, "y": 2660, "w": 920, "h": 2100, "title": "7 - The Call, and two retirements" },
+    { "file": "Ways.dc.html", "page": "page-1", "x": 3000, "y": 2660, "w": 920, "h": 1900, "title": "8 - The ways between" },
+    { "file": "DeclinedDormantDelete.dc.html", "page": "page-2", "x": 0, "y": 0, "w": 640, "h": 1000, "title": "Declined - the delete softened toward dormancy" },
+    { "file": "DeclinedHomeAsArrival.dc.html", "page": "page-2", "x": 740, "y": 0, "w": 640, "h": 1000, "title": "Declined - the home as the arrival" },
+    { "file": "DeclinedGardenDesignedNow.dc.html", "page": "page-2", "x": 1480, "y": 0, "w": 640, "h": 1000, "title": "Declined - the garden designed now" }
+  ],
+  "annotations": [
+    {
+      "id": "note-the-hearth",
+      "page": "page-1",
+      "x": 0,
+      "y": -600,
+      "w": 960,
+      "text": "THE HEARTH - realm 2 of THE AUDHDITIES CONDUCTING PLAN, step P.\n\nEight boards, drawn under KP's build law of the same day: FRAMEWORK FIRST. So this canvas draws the frame - the rooms, their honest wiring, the ways between them, and the empty states told true. Top row: 1 arrival at /vessel where Failte fires - 2 the vessel home, with the garden, keepsakes, decorations and companions marked SECOND PASS and drawn only as the places they will fill - 3 the Sanctum, the ceremony switchboard and the Covenant Space - 4 the Scroll and the true delete. Bottom row: 5 energy - 6 the constellation, with every count in the realm ruled one at a time as inventory or as score - 7 the Call, with NotificationBell and SovereigntyScore retired - 8 the ways between, the realm's route graph traced from every Link in it.\n\nEvery board carries the ten-point sensory checklist on its right rail; KP's own ruling verbatim where a board embodies one; and every copy rewrite marked old to new with the file and line it came from. A gold dot means proposed - drawn plainest where the ground is silent, never landed as though it were ruled.\n\nColours are cosmic tokens only. Every contrast figure is measured, not estimated: the method reproduces HANDOFF.md's own 14.4:1 and 12.3:1 exactly. The one figure worth reading twice is on board 1 - the wash the build was going to define at 0.75 opacity would have put starDust at 1.7:1, which is why ruling 6's mend is drawn at the ambient 0.3 and nowhere else.\n\nNothing in src/ was edited to draw this."
+    },
+    {
+      "id": "note-declined",
+      "page": "page-2",
+      "x": 0,
+      "y": -380,
+      "w": 960,
+      "text": "DECLINED - three alternatives drawn and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached. Two of the three were declined by a ruling KP made the same day, which is the point: the first was the brief's own open question 7 and he answered it the other way, and the third is the build law itself deciding what this canvas is allowed to design.\n\nEach board also records what was kept from the idea after the idea was refused - which is usually the part worth having."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}

@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9314;</span>
+    <span style="font-size:15px;font-weight:600;">The Floating Stars &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/bubbles/play</span></span>
+    <span class="src">BubblePopGame.tsx &middot; 542 lines, the realm&rsquo;s heavy room</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:22px 20px 24px;">
+
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:12px;">
+            <div>
+              <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12px;color:rgba(224,224,224,.70);margin-bottom:8px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+                Return to the Floating Stars</a>
+              <h2 style="margin:0 0 2px;font-size:19px;font-weight:700;">Pop the Stars</h2>
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Tap bubbles to collect them</p>
+            </div>
+            <div style="text-align:right;flex:none;">
+              <p style="margin:0 0 2px;font-size:15px;font-weight:700;color:#00E6C3;">47</p>
+              <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.70);">points this session</p>
+              <p style="margin:5px 0 0;font-size:10.5px;color:rgba(224,224,224,.70);">Your own boundary:<br>five hundred a day</p>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 118px;gap:11px;">
+
+            <div style="position:relative;height:250px;border-radius:14px;border:1px solid rgba(255,255,255,.08);overflow:hidden;background-image:radial-gradient(ellipse at center,rgba(108,92,231,.15) 0%,rgba(12,15,29,.95) 70%);">
+              <span style="position:absolute;left:28px;top:150px;width:40px;height:40px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#94a3b855,#94a3b8);box-shadow:0 0 20px #94a3b855;"></span>
+              <span style="position:absolute;left:96px;top:64px;width:48px;height:48px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#22d3ee55,#22d3ee);box-shadow:0 0 24px #22d3ee55;"></span>
+              <span style="position:absolute;left:172px;top:180px;width:56px;height:56px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#a855f755,#a855f7);box-shadow:0 0 28px #a855f755;"></span>
+              <span style="position:absolute;left:236px;top:30px;width:64px;height:64px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#f59e0b55,#f59e0b);box-shadow:0 0 32px #f59e0b55;"></span>
+              <span style="position:absolute;left:60px;top:14px;width:26px;height:26px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#f43f5e55,#f43f5e);box-shadow:0 0 22px #f43f5e55;"></span>
+              <span style="position:absolute;left:8px;bottom:8px;font-size:9.5px;color:rgba(224,224,224,.70);font-family:'JetBrains Mono',Monaco,Consolas,monospace;">common &middot; rare &middot; epic &middot; legendary &middot; mythic &mdash; all five drift for everyone</span>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:9px;">
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.12);border-radius:10px;padding:11px;">
+                <p style="margin:0 0 7px;font-size:11.5px;font-weight:600;">Your Session</p>
+                <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:rgba(224,224,224,.70);">Pops</span><span>23</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;"><span style="color:rgba(224,224,224,.70);">Points</span><span style="color:#00E6C3;">47</span></div>
+                <p style="margin:8px 0 0;font-size:10px;color:rgba(224,224,224,.70);line-height:1.45;">Nothing here counts down.</p>
+              </div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.12);border-radius:10px;padding:11px;">
+                <p style="margin:0 0 7px;font-size:11.5px;font-weight:600;">Found so far</p>
+                <p style="margin:0;font-size:10px;color:rgba(224,224,224,.78);line-height:1.5;">The Hearth Collection &mdash; Kettle Warm, Open Door, Kept Flame.</p>
+                <p style="margin:6px 0 0;font-size:10px;color:rgba(224,224,224,.78);line-height:1.5;">Star Dust &mdash; First Breath.</p>
+              </div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.12);border-radius:10px;padding:11px;">
+                <p style="margin:0 0 5px;font-size:11.5px;font-weight:600;">The Stars</p>
+                <p style="margin:0;font-size:10px;color:rgba(224,224,224,.78);line-height:1.5;">Every rarity drifts here for everyone &mdash; the rarest stars are simply rare, never locked.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="src" style="margin:11px 0 0;">the sidebar as ruled: no daily bar, no n/N, no per-collection bar</p>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The caps, spoken in words <span class="ruled" style="margin-left:6px;">ruled</span></p>
+        <div style="border:1px solid rgba(0,184,148,.30);border-radius:12px;background:rgba(0,184,148,.05);padding:16px 18px;">
+          <p style="margin:0 0 9px;font-size:13px;font-weight:600;">What this room does for you</p>
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;">It stops at <span class="k">five hundred points</span> in a day. That number is yours &mdash; move it, or set it to nothing at all; a rest day is a boundary too.</p>
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;">It stops at <span class="k">a hundred pops</span> in an hour, whatever the day&rsquo;s number says.</p>
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;">After <span class="k">a quarter of an hour</span> of unbroken play it pauses the room itself and asks you to breathe.</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;">And at <span class="k">fifty pops</span> it says the same thing once, gently, and lets you carry on.</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Every figure is the built one: <span class="src">DEFAULT_DAILY_MAX 500 :66</span> &middot; <span class="src">DEFAULT_HOURLY_MAX 100 :67</span> &middot; <span class="src">15 min :246</span> &middot; <span class="src">50 pops :301</span>. Nothing invented; nothing rounded. <span class="k">The room may state its extent</span> &mdash; that is E4&rsquo;s own line, <em>&ldquo;the interface may state extent at the ask, never the remainder.&rdquo;</em></p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The three moments the room stops you</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+          <div class="modal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.55)" stroke-width="1.6" stroke-linecap="round" style="margin-bottom:7px;"><path d="M9 5v14"></path><path d="M15 5v14"></path></svg>
+            <p style="margin:0 0 10px;font-size:13.5px;color:rgba(224,224,224,.82);">Paused</p>
+            <span style="border:1px solid rgba(0,230,195,.45);border-radius:8px;padding:5px 14px;font-size:12px;color:#00E6C3;">Resume</span>
+          </div>
+          <div class="modal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FD79A8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:7px;"><path d="M19 6.5a4.5 4.5 0 0 0-7-1.2A4.5 4.5 0 0 0 5 6.5c0 4 7 9 7 9s7-5 7-9z"></path></svg>
+            <p style="margin:0 0 5px;font-size:13.5px;font-weight:600;">Take a breath</p>
+            <p style="margin:0 0 10px;font-size:11.5px;color:rgba(224,224,224,.78);text-wrap:pretty;">You&rsquo;ve been playing for a while. The stars will still be here when you return.</p>
+            <span style="border:1px solid rgba(0,230,195,.45);border-radius:8px;padding:5px 14px;font-size:12px;color:#00E6C3;">Continue Playing</span>
+          </div>
+        </div>
+        <div class="modal" style="margin-top:11px;text-align:left;">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E6C3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>
+            <p style="margin:0;font-size:13.5px;font-weight:600;">Your day&rsquo;s boundary, met</p>
+          </div>
+          <p style="margin:0 0 12px;font-size:11.5px;color:rgba(224,224,224,.78);text-wrap:pretty;">You set this one yourself. The stars will still be here whenever you come back.</p>
+          <p style="margin:0 0 6px;font-size:10.5px;color:rgba(224,224,224,.70);">Adjust your daily limit &mdash; the boundary is yours</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="flex:1;height:4px;border-radius:9999px;background:rgba(224,224,224,.16);position:relative;"><span style="position:absolute;left:0;top:0;bottom:0;width:25%;border-radius:9999px;background:#00B894;"></span><span style="position:absolute;left:25%;top:-4px;width:12px;height:12px;border-radius:9999px;background:#00E6C3;"></span></span>
+            <span style="font-size:11px;color:rgba(224,224,224,.78);">500</span>
+            <span style="border:1px solid rgba(224,224,224,.20);border-radius:7px;padding:3px 11px;font-size:11px;color:rgba(224,224,224,.78);">Save</span>
+          </div>
+          <p style="margin:6px 0 0;font-size:10px;color:rgba(224,224,224,.70);">0 &mdash; a rest day is a boundary too</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The only slider on this canvas, and the one place a number belongs: <span class="k">it is the ask.</span> A vessel setting their own ceiling must see the ceiling.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Reduced motion, drawn <span class="stag" style="margin-left:6px;">proposed</span></p>
+        <div style="border:1px dashed rgba(253,203,110,.40);border-radius:12px;background:rgba(253,203,110,.035);padding:16px 18px;">
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The stars stop drifting and start arriving.</span> Under <span class="src">prefers-reduced-motion</span> the animation loop keeps its spawn rhythm but not its travel: a star fades in where it belongs, waits its while, and fades out. Same game, same rarities, same caps &mdash; no motion across the screen.</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The pop mark stops pinging.</span> <span class="src">animate-ping</span> becomes a still glyph that fades. And <span class="src">hover:scale-110 active:scale-90</span> get the guard the rest of the house already writes.</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">KP <span class="ruled">ruled the guard mended</span>; he did not rule its shape. This is the plainest shape that keeps the game a game. <span class="src">HANDOFF.md</span> already holds the principle for the whole app: <em>&ldquo;motion is content, so it needs consent.&rdquo;</em></p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling this board is built on</p>
+        <p class="q">&ldquo;the bubble cap speaks in words, no bar&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">One of five standing defaults ruled 2026-08-24 with KP&rsquo;s &#9883; verbatim word <em>&ldquo;bazaar and library go&rdquo;</em>. The wording above is the brief&rsquo;s record of the ruling, not his own sentence. It closes brief question 3 &mdash; <em>may a self-chosen limit speak a number?</em> &mdash; and it closes it precisely: <span class="k">the cap may speak; it may not be a bar.</span> So the daily <span class="src">Progress</span> at <span class="src">:505</span> goes, the &ldquo;Daily progress&rdquo; label at <span class="src">:504</span> goes, the header ratio at <span class="src">:377</span> becomes a sentence, and the four real numbers get said out loud in the panel to the left.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">And the sidebar&rsquo;s subtraction</p>
+        <p class="q">&ldquo;mend the two law-failing rooms (Honors shows only earned sigils; <span class="k">the 3/6 sidebar goes</span>)&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">Same ruling, same record, same day. <span class="src">:509&ndash;524</span> showed <span class="src">{c.collected} / {c.total}</span> and a bar per collection &mdash; E4&rsquo;s <em>&ldquo;who performs the subtraction&rdquo;</em> answered by the interface, every frame, unasked. Drawn instead: <span class="k">the names of what you found.</span> Shape without slots. It is warmer AND shorter.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Rarity as shimmer, never status</p>
+        <p class="q">&ldquo;we can free up the rarity for community bubbles&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim. Already built: <span class="src">RARITY_WEIGHTS :82&ndash;84</span> are drift probabilities, not gates &mdash; every rarity spawns for every vessel, and the room says so in its own words at <span class="src">:534</span>. What rarity buys is <span class="k">size, slowness and glow</span> (<span class="src">RARITY_SIZE :86</span>, <span class="src">RARITY_SPEED :90</span>, <span class="src">RARITY_FILL :74</span>) &mdash; a mythic star is bigger and drifts slower, which is a kindness to the eye, not a rank. <span class="k">Nothing in this room tells anyone what they have not got.</span></p>
+      </div>
+
+      <div>
+        <p class="rl-h">The stranded tier ladder <span class="ruled" style="margin-left:6px;">retire</span></p>
+        <p class="rl-b"><span class="src">src/lib/utils/components/asgard/athena/bubble_limit.utils.ts</span> &mdash; 212 lines, <span class="k">zero importers</span>. It holds <span class="src">TIER_CEILINGS</span> for community / ally / corporate / council: a paying ladder where <em>epic, legendary and mythic have probability 0 for the free tier</em>. That is the exact thing KP&rsquo;s rarity ruling freed, still on disk, and it is a fossil of the ladder he retired 2026-07-31 (<span class="src">BubblePopGame.tsx:2&ndash;9</span> records the retirement). <span class="k">Ruled retired</span> this sitting. Nothing on this canvas reads it; nothing should.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What the game is FOR</p>
+        <p class="q">&ldquo;the game features are simply to replace the &lsquo;profile&rsquo; experience with something fun and personally engaging.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim. This is the sentence that makes every deletion above obvious: a profile page is a place you look at yourself, not a place you are measured. Bars and ratios are measurement furniture. <span class="k">Take them out and what is left is a profile made of stars you found</span> &mdash; which is what the &ldquo;Found so far&rdquo; card is.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The realm law, signed thrice</p>
+        <p class="rl-b"><em>&ldquo;The Floating Stars game guards against its own compulsion loop &mdash; nothing built or redrawn in this realm may undo that. Attention returned, never harvested.&rdquo;</em> <span class="src">(athena)/README.md:111&ndash;113</span>, echoed at <span class="src">REALM-BUS.md:118&ndash;123</span> and countersigned by the reimagining seat. <span class="k">This board removes only measurement, never a guard.</span> All four caps survive intact; two of them get louder.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the realm&rsquo;s strongest row. Pause and resume by hand (<span class="src">:379</span>), a forced pause at fifteen minutes, a breath at fifty pops, and a ceiling the vessel writes themselves and carries to every device.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; every pop is written at once (<span class="src">POST vessel_bubbles :288</span>); the session score is deliberately ephemeral. Nothing is lost, nothing is hoarded.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; <span class="src">animate-ping :426</span> on every pop, unguarded. Thirty pops a minute is thirty pings. Mended above.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; no sound, no video. The stars drift on their own but nothing plays at you.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;Take a breath&rdquo; is the plainest sentence in the app. Two failing lines rewritten, below.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every stop screen offers exactly two doors: carry on, or go back to the gallery.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the new caps panel IS this row. Today the room enforces four rules and explains none of them until you hit one.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="k">the realm&rsquo;s worst row and its most-needed mend.</span> A <span class="src">requestAnimationFrame</span> loop (<span class="src">:230&ndash;254</span>) moves up to thirty objects continuously, plus <span class="src">hover:scale-110 active:scale-90 :405</span>, plus the ping. Not one <span class="src">motion-reduce</span> anywhere in the file. <span class="ruled">ruled: mend</span></p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the subtitle and the header ratio at <span class="src">/40</span> read <span class="k">3.18:1</span>; the breath message and &ldquo;You&rsquo;ve collected&hellip;&rdquo; at <span class="src">/50</span> read <span class="k">4.32:1</span>; &ldquo;Daily progress&rdquo; and the slider&rsquo;s own best line at <span class="src">/30</span> read <span class="k">2.30:1</span>. Measured. Drawn at <span class="src">/70</span> and <span class="src">/82</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; each star IS a real <span class="src">button</span> with an <span class="src">aria-label</span> (<span class="src">:400&ndash;415</span>), which is better than most games manage &mdash; but <span class="src">focus:outline-none</span> at <span class="src">:405</span> removes the focus ring and nothing replaces it. A keyboard walker can reach every star and cannot see which one they are on. <em>Proposed</em>: a visible focus ring, since removing one is never the mend.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, here</p>
+        <p class="rl-b">No toggles in this room; the boundary is a slider that <span class="k">loads the vessel&rsquo;s own row first</span> and falls back to the charter&rsquo;s gentle number, never to a generous one (<span class="src">BubbleLimitSlider.tsx:34&ndash;45</span>). Under KP&rsquo;s &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em>, that is the right shape already: <span class="k">the permissive setting is never the default.</span></p>
+      </div>
+
+      <div>
+        <p class="rl-h">Deity drift &mdash; noted, never re-pointed</p>
+        <p class="rl-b">Three surfaces this room reads and writes live under <span class="src">hestia-core</span> while their canon is athena&rsquo;s: <span class="src">vessel_bubbles</span> (<span class="src">:138, :166, :288</span>) &middot; <span class="src">collection_sets</span> (<span class="src">:167</span>) &middot; <span class="src">vessel_config</span> (<span class="src">:139</span>). KP&rsquo;s &#9883; standing word: hestia was the default catch as backend changes occurred; <span class="k">the fix is gaia&rsquo;s, at a later time, at his word.</span> No lamp re-points a deity, and this canvas does not.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">:377</span><br><span class="old">&ldquo;{daily_points} / {max_daily_points} today&rdquo;</span><br><span class="new">&ldquo;Your own boundary: five hundred a day&rdquo;</span><br>Extent, not remainder. The ratio performed the subtraction on every frame; the sentence states the ceiling once and stops.</p>
+          <p class="rl-b"><span class="k">RETIRED</span> &mdash; <span class="src">:501</span> <span class="old">&ldquo;Daily {n}/{max}&rdquo;</span> &middot; <span class="src">:504</span> <span class="old">&ldquo;Daily progress&rdquo;</span> &middot; <span class="src">:505</span> the daily <span class="old">Progress</span> bar &middot; <span class="src">:518</span> <span class="old">&ldquo;{collected}/{total}&rdquo;</span> and its per-collection bar at <span class="src">:520</span>. <span class="ruled">ruled</span> &mdash; the census&rsquo;s only <em>progress</em> hit and both of its n/N displays leave in one stroke.</p>
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">:466</span><br><span class="old">&ldquo;You&rsquo;ve reached your daily limit&rdquo;</span><br><span class="new">&ldquo;Your day&rsquo;s boundary, met&rdquo;</span><br>The room&rsquo;s own better word is three lines below it at <span class="src">:471</span> &mdash; <em>&ldquo;the boundary is yours.&rdquo;</em> A limit is imposed; a boundary is chosen.</p>
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">:468</span><br><span class="old">&ldquo;You&rsquo;ve collected {n} points today. Come back tomorrow for more stars!&rdquo;</span><br><span class="new">&ldquo;You set this one yourself. The stars will still be here whenever you come back.&rdquo;</span><br>The fifth and last <em>collect</em> hit, and the one that fails hardest &mdash; not for the verb but for the second sentence. <em>Come back tomorrow</em> is the appointment mechanic, refused by name on E4&rsquo;s column, and it fails the metric test outright. The replacement is the room&rsquo;s own breath-reminder sentence, which was already right.</p>
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;Pop the Stars&rdquo; <span class="src">:371</span> &middot; &ldquo;Tap bubbles to collect them&rdquo; <span class="src">:372</span> (a true instruction; <em>collect</em> earns its place) &middot; &ldquo;Take a breath&rdquo; and its message <span class="src">:449&ndash;451</span> &middot; &ldquo;Continue Playing&rdquo; <span class="src">:453</span> &middot; &ldquo;Paused&rdquo; / &ldquo;Resume&rdquo; <span class="src">:438&ndash;439</span> &middot; &ldquo;Return to the Floating Stars&rdquo; <span class="src">:369</span> &middot; &ldquo;Adjust your daily limit &mdash; the boundary is yours&rdquo; <span class="src">:471</span> &middot; the Stars card <span class="src">:534</span> &middot; &ldquo;0 &mdash; a rest day is a boundary too&rdquo; <span class="src">Slider:95</span> &middot; &ldquo;Part of {collection}&rdquo; <span class="src">Detail:115</span> (taxonomy, never demand).</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a leaderboard &middot; a streak or an attendance mark &middot; a countdown to the cap reset &middot; a named rare star to chase &middot; a limited-time star &middot; a &ldquo;one missing&rdquo; state &middot; a completion figure for a collection &middot; any comparison with another vessel &middot; and a &ldquo;come back tomorrow&rdquo; in any wording, which is why <span class="src">:468</span> moves. <span class="k">Also refused: turning the game off under reduced motion.</span> Access is not subtraction either.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

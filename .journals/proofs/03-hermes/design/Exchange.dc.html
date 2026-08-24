@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--sanctuary-green:#00B894;
+      --hearth-gold:#FDCB6E;--error:#E17055;--void-base:#636E72;
+      --mood-creative:#A29BFE;--skald:#FD79A8;--info:#74B9FF;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:48px;
+      border-radius:12px;font-size:16px;font-weight:500;padding:0 20px;}
+    .btn-p{background:#6C5CE7;color:#FFFFFF;}
+    .btn-o{border:1px solid rgba(224,224,224,.30);color:#E0E0E0;}
+    .split{display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+    .tb{width:100%;border-collapse:collapse;font-size:12px;}
+    .tb th{text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);font-weight:600;padding:0 10px 7px 0;
+      border-bottom:1px solid rgba(224,224,224,.12);}
+    .tb td{padding:8px 10px 8px 0;border-bottom:1px solid rgba(224,224,224,.07);
+      color:rgba(224,224,224,.78);vertical-align:top;line-height:1.45;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9317;</span>
+    <span style="font-size:15px;font-weight:600;">The Exchange, and THE DELIVERY</span>
+    <span class="src">/bazaar/checkout (+success +cancel) &middot; useCheckout &rarr; /api/auth/checkout &middot; environment <span style="color:#22D3EE;">home</span></span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:820px;">The split stands before the gesture; Stripe holds the payment; the webhook completes the one row that was already made. <span class="k">Nothing is captured twice.</span> The frame adds exactly one thing to the end of it: the body, handed over.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:22px;">
+
+      <div>
+        <p class="rl-h">The road, as it is wired &mdash; and the one thing the frame adds</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:22px 20px 24px;">
+            <svg viewBox="0 0 426 452" width="100%" height="452" role="img" aria-label="The checkout and delivery flow as wired today, with the delivery step the frame adds">
+              <defs>
+                <marker id="ex-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(224,224,224,.50)"/>
+                </marker>
+                <marker id="ex-arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(253,203,110,.9)"/>
+                </marker>
+              </defs>
+
+              <g stroke="rgba(224,224,224,.34)" stroke-width="1.4" marker-end="url(#ex-ar)" fill="none">
+                <line x1="106" y1="44" x2="106" y2="74"/>
+                <line x1="106" y1="112" x2="106" y2="142"/>
+                <line x1="106" y1="180" x2="106" y2="210"/>
+                <line x1="106" y1="248" x2="106" y2="278"/>
+                <path d="M 186 96 L 300 96 L 300 292"/>
+                <line x1="300" y1="292" x2="192" y2="292"/>
+              </g>
+              <g stroke="rgba(253,203,110,.75)" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ex-arg)" fill="none">
+                <line x1="106" y1="316" x2="106" y2="348"/>
+                <path d="M 240 372 L 330 372 L 330 412 L 192 412"/>
+              </g>
+
+              <rect x="26" y="18" width="160" height="26" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+              <text x="106" y="35" fill="rgba(224,224,224,.88)" font-size="11" text-anchor="middle" font-family="sans-serif">the gesture &#8212; Bring home</text>
+
+              <rect x="26" y="74" width="160" height="38" rx="7" fill="#1A1F35" stroke="rgba(34,211,238,.45)"/>
+              <text x="106" y="90" fill="#22D3EE" font-size="10.5" text-anchor="middle" font-family="monospace">POST /api/auth/checkout</text>
+              <text x="106" y="104" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">reads the ware, status=published</text>
+
+              <rect x="26" y="142" width="160" height="38" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+              <text x="106" y="158" fill="rgba(224,224,224,.88)" font-size="9.5" text-anchor="middle" font-family="monospace">calculate_sovereign_price</text>
+              <text x="106" y="172" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">the acid test &#183; non-fatal</text>
+
+              <rect x="26" y="210" width="160" height="38" rx="7" fill="#1A1F35" stroke="rgba(0,184,148,.55)" stroke-width="1.5"/>
+              <text x="106" y="226" fill="#00B894" font-size="10.5" text-anchor="middle" font-family="monospace">exchanges &#8212; ONE row</text>
+              <text x="106" y="240" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">status: pending &#183; 8 columns</text>
+
+              <rect x="26" y="278" width="166" height="38" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+              <text x="109" y="294" fill="rgba(224,224,224,.88)" font-size="10.5" text-anchor="middle" font-family="sans-serif">the same row, completed</text>
+              <text x="109" y="308" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">webhook UPDATE &#183; 4 columns</text>
+
+              <rect x="222" y="78" width="156" height="36" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+              <text x="300" y="94" fill="rgba(224,224,224,.88)" font-size="11" text-anchor="middle" font-family="sans-serif">Stripe holds the payment</text>
+              <text x="300" y="107" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">the only place money is captured</text>
+
+              <rect x="26" y="348" width="214" height="48" rx="7" fill="#1A1F35" stroke="rgba(253,203,110,.55)" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <text x="133" y="366" fill="#FDCB6E" font-size="10.5" text-anchor="middle" font-family="monospace">file_registry &#8594; signed URL</text>
+              <text x="133" y="379" fill="rgba(224,224,224,.60)" font-size="9" text-anchor="middle" font-family="sans-serif">one per body, minted on the ask</text>
+              <text x="133" y="391" fill="rgba(224,224,224,.50)" font-size="8.5" text-anchor="middle" font-family="sans-serif">THE FRAME ADDS THIS</text>
+
+              <rect x="26" y="394" width="166" height="36" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+              <text x="109" y="410" fill="rgba(224,224,224,.88)" font-size="11" text-anchor="middle" font-family="sans-serif">RECEIVE &#8212; the body</text>
+              <text x="109" y="423" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">three files, in the vessel&#8217;s hands</text>
+
+              <rect x="252" y="354" width="152" height="36" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.14)" stroke-dasharray="4 3"/>
+              <text x="328" y="370" fill="rgba(224,224,224,.55)" font-size="10" text-anchor="middle" font-family="sans-serif">THE HANGING</text>
+              <text x="328" y="382" fill="rgba(224,224,224,.45)" font-size="8.5" text-anchor="middle" font-family="sans-serif">second pass &#183; a place, not a design</text>
+
+              <text x="213" y="447" fill="rgba(224,224,224,.45)" font-size="9" text-anchor="middle" font-family="sans-serif">no ledger row &#183; no second capture &#183; the split flows downstream from the completed exchange</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">RECEIVE &mdash; the body handed over</p>
+        <div style="position:relative;border:1px solid rgba(0,184,148,.30);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:26px 22px 28px;">
+            <div class="card" style="padding:26px 22px;text-align:center;">
+              <div style="width:44px;height:44px;border-radius:9999px;background:rgba(0,184,148,.18);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg>
+              </div>
+              <h2 style="margin:0 0 8px;font-size:19px;font-weight:600;">Resonance Compass &mdash; taken into your keeping.</h2>
+              <p style="margin:0 0 4px;font-size:13.5px;color:rgba(224,224,224,.70);">The exchange is complete.</p>
+              <p style="margin:0 0 22px;font-size:12.5px;font-style:italic;color:rgba(224,224,224,.60);">Gweld ti&rsquo;n fuan &mdash; see you soon.</p>
+
+              <div style="text-align:left;border-top:1px solid rgba(224,224,224,.10);padding-top:18px;">
+                <p class="rl-h" style="margin-bottom:11px;">Your copy is ready</p>
+                <div style="display:flex;flex-direction:column;gap:9px;">
+                  <div style="display:flex;align-items:center;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:10px;padding:11px 13px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+                    <div style="flex:1;min-width:0;">
+                      <p style="margin:0;font-size:12.5px;font-weight:500;">Android</p>
+                      <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.60);font-family:'JetBrains Mono',Monaco,Consolas,monospace;">resonance-compass-v2.3.6.apk &middot; 132 MB</p>
+                    </div>
+                    <span style="display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 15px;border-radius:9px;border:1px solid rgba(224,224,224,.28);font-size:12.5px;flex:none;">Take it</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:10px;padding:11px 13px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    <div style="flex:1;min-width:0;">
+                      <p style="margin:0;font-size:12.5px;font-weight:500;">Windows &mdash; installer</p>
+                      <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.60);font-family:'JetBrains Mono',Monaco,Consolas,monospace;">Resonance Compass_2.3.6_x64-setup.exe &middot; 21 MB</p>
+                    </div>
+                    <span style="display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 15px;border-radius:9px;border:1px solid rgba(224,224,224,.28);font-size:12.5px;flex:none;">Take it</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:10px;padding:11px 13px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                    <div style="flex:1;min-width:0;">
+                      <p style="margin:0;font-size:12.5px;font-weight:500;">Windows &mdash; MSI</p>
+                      <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.60);font-family:'JetBrains Mono',Monaco,Consolas,monospace;">Resonance Compass_2.3.6_x64_en-US.msi &middot; 23 MB</p>
+                    </div>
+                    <span style="display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 15px;border-radius:9px;border:1px solid rgba(224,224,224,.28);font-size:12.5px;flex:none;">Take it</span>
+                  </div>
+                </div>
+                <p style="margin:12px 0 0;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.62);text-wrap:pretty;">A link rests after a while. This is yours to come back to &mdash; its stall will hand you a fresh one whenever you ask.</p>
+              </div>
+
+              <div style="margin-top:20px;padding:13px;border:1px dashed rgba(224,224,224,.14);border-radius:10px;">
+                <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.50);">THE HANGING stands here &mdash; second pass. Drawn as a place, not designed.</p>
+              </div>
+
+              <div style="display:flex;gap:11px;justify-content:center;margin-top:20px;">
+                <span class="btn btn-p" style="height:40px;font-size:14px;">Return to the Tapestry</span>
+                <span class="btn btn-o" style="height:40px;font-size:14px;">Stand in your home</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The adjusted price &mdash; the one screen the acid test asks for</p>
+        <div class="card" style="padding:20px 18px;">
+          <h2 style="margin:0 0 6px;font-size:16px;font-weight:600;">The price for you is lower.</h2>
+          <p style="margin:0 0 16px;font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.70);text-wrap:pretty;">The stall says $3.33. Solidarity pricing has been applied and this is what you would be charged. The split below is the real one.</p>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:16px;">
+            <div class="split"><span style="color:rgba(224,224,224,.60);">Subtotal</span><span style="font-weight:500;">$2.22</span></div>
+            <div class="split"><span style="color:rgba(224,224,224,.60);">Platform fee (10%)</span><span style="color:rgba(224,224,224,.70);">$0.22</span></div>
+            <div class="split" style="padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.10);"><span style="color:rgba(224,224,224,.60);">Artisan earnings</span><span style="color:#00B894;font-weight:500;">$2.00</span></div>
+            <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; Residual pool (30% of fee)</span><span style="color:#A29BFE;">$0.07</span></div>
+            <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; Infrastructure</span><span style="color:#22D3EE;">$0.15</span></div>
+            <div class="split" style="padding-top:11px;border-top:1px solid rgba(224,224,224,.20);"><span style="font-weight:700;">Total</span><span style="font-size:19px;font-weight:700;">$2.22</span></div>
+          </div>
+          <div style="display:flex;gap:11px;align-items:center;">
+            <span class="btn btn-p" style="height:42px;font-size:14px;">Go on to payment</span>
+            <span class="btn" style="height:42px;font-size:14px;color:rgba(224,224,224,.70);">Not now</span>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Shown only when the number changed.</span> When the computed price equals the plate, the gesture goes straight through as it does today &mdash; a confirming step that always fires is friction; one that fires only when the vessel is about to be charged something other than what they read is the protected feature actually working.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The crossing, and the two goings</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <div class="card" style="padding:16px 15px;text-align:center;">
+            <p style="margin:0 0 4px;font-size:14px;font-weight:600;">The exchange is crossing</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.65);">This can take a moment. Nothing is lost while it does.</p>
+          </div>
+          <div class="card" style="padding:16px 15px;text-align:center;border-color:rgba(225,112,85,.30);">
+            <p style="margin:0 0 4px;font-size:14px;font-weight:600;">The exchange did not complete</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.65);">Something interrupted it. Nothing was taken, and it is safe to try again.</p>
+          </div>
+          <div class="card" style="padding:16px 15px;text-align:center;">
+            <p style="margin:0 0 4px;font-size:14px;font-weight:600;">Exchange set aside</p>
+            <p style="margin:0 0 3px;font-size:12px;color:rgba(224,224,224,.65);">Your exchange was set aside. No charges have been made.</p>
+            <p style="margin:0;font-size:11.5px;font-style:italic;color:rgba(224,224,224,.60);">Gweld ti&rsquo;n fuan &mdash; the Bazaar keeps no ledger of this.</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">All three kept verbatim. They are already the settled tongue: what happened, then that nothing was lost, then a way onward. The set-aside page&rsquo;s last line is the whole anti-recovery stance in nine words &mdash; <span class="k">no basket-abandonment mail can be written from a room that keeps no ledger of the leaving.</span></p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board is built on</p>
+        <p class="q">&ldquo;checkout is using stripe, why would we duplicate the data capture?&rdquo;</p>
+        <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim &mdash; RULED, and it withdrew the conductor&rsquo;s own default. There is <span class="k">no ledger row</span>. Stripe holds the payment; the webhook completes the <span class="src">exchanges</span> row that already exists; the split flows downstream from it, as the schema already said. <span class="k">Checkout captures nothing twice.</span></p>
+        <p class="rl-b">The ground agrees, and it is worth reading as a single fact: the POST route inserts <span class="k">one</span> row (<span class="src">checkout/route.ts:95&ndash;108</span>, eight columns) and the webhook performs <span class="k">one UPDATE on that same row</span> (<span class="src">webhook/stripe/route.ts:45&ndash;55</span>, four columns) and inserts nothing at all. The duplication KP refused was already removed once, and its own header says so: <em>&ldquo;the old flow inserted a second sales record here, duplicating every purchase&rdquo;</em>.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The delivery, in the plainest shape the ground allows</p>
+        <p class="rl-b" style="margin-bottom:10px;">KP &#9883; ruled: <span class="k">a <span class="src">file_registry</span> row per body into the bucket KP will create</span>. So the delivery adds one step and no tables:</p>
+        <table class="tb">
+          <thead><tr><th>Step</th><th>What it is</th></tr></thead>
+          <tbody>
+            <tr><td><span class="k">1</span></td><td>The exchange completes &mdash; the webhook sets <span class="src">status: completed</span>. This already happens.</td></tr>
+            <tr><td><span class="k">2</span></td><td>The success page asks the session route for what was kept. This already happens: <span class="src">kept: {kind, id, name}</span> (<span class="src">session/[id]/route.ts:57 :86</span>).</td></tr>
+            <tr><td><span class="k">3</span></td><td><span style="color:#FDCB6E;">NEW</span> &mdash; that same route also returns the bodies: the <span class="src">file_registry</span> rows where <span class="src">related_table = &#39;wares&#39;</span> and <span class="src">related_id = kept.id</span>, each with a signed URL minted on the ask.</td></tr>
+            <tr><td><span class="k">4</span></td><td><span style="color:#FDCB6E;">NEW</span> &mdash; the same ask, from the stall, for a work already in the vessel&rsquo;s keeping. One road, two doors onto it.</td></tr>
+          </tbody>
+        </table>
+        <p class="rl-b" style="margin-top:10px;"><span class="k">The URL rides the spot the plan named.</span> <span class="src">kept</span> is already the place the success page looks; the bodies join it there rather than arriving by a second route. No new table, no new column on <span class="src">wares</span>, no schema change &mdash; <span class="src">related_table</span> + <span class="src">related_id</span> is untyped by design and <span class="src">file_registry</span> is already generated, validated, routed, and <span class="k">entirely uncalled</span>. This is a door someone already built.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Minted, never stored.</span> <span class="src">file_registry.access_token</span> stays null. A stored link is a credential sitting in a row; a minted one is an answer to a question asked by someone the base has just checked.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Two findings, and the second is the important one</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The split shown is not guaranteed to be the split charged.</span> <span class="src">PriceBreakdown</span> renders at the stall against <span class="src">ware.price</span> (<span class="src">CreationDetail.tsx:128&ndash;132</span>). The gesture then posts, the server calls <span class="src">calculate_sovereign_price</span>, and <span class="src">useCheckout.tsx</span> sends the vessel <em>straight to Stripe</em> with whatever came back (<span class="src">:55&ndash;59</span>, a hard <span class="src">window.location.href</span>). Where the acid test moves the number, the vessel reads one price, presses a button, and meets another &mdash; with no screen in between. Law 7 says the buyer sees the split <em>at the moment of purchase</em>. Drawn: the one confirming screen, fired only on a change.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Three defaults for one number, and they disagree.</span> <span class="src">PriceBreakdown.tsx:22</span> defaults <span class="src">residualPoolPercent = 50</span>; the Loom defaults <span class="src">30</span> (<span class="src">StudioCreate.tsx:84</span>); the checkout route writes <span class="src">&#39;30&#39;</span> into Stripe metadata (<span class="src">route.ts:137</span>). Any surface that renders the breakdown without passing the prop tells a vessel 50%. Drawn with no component default at all: the number is the ware&rsquo;s or it is not shown.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One value written and read by nobody.</span> <span class="src">residualPoolPercent</span> goes into Stripe metadata (<span class="src">route.ts:137</span>) and no code anywhere reads it back. Either it is the residual&rsquo;s provenance at the moment of exchange &mdash; in which case it belongs on the row, not in the processor&rsquo;s metadata &mdash; or it is nothing. Named for the spec; not decided here.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Two wiring notes for the spec &mdash; reported, not designed</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b">The webhook&rsquo;s <span class="src">completed</span> branch matches on <span class="src">stripe_session_id</span> alone (<span class="src">webhook/stripe/route.ts:45&ndash;55</span>), with no <span class="src">.eq(&#39;status&#39;, &#39;pending&#39;)</span> guard &mdash; unlike its own failure branch, which has one (<span class="src">:79&ndash;80</span>). A replayed event rewrites a completed row. It matters more once a delivery hangs off that status.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b">The session route&rsquo;s ownership check runs only <em>if an exchange row is found</em> (<span class="src">session/[id]/route.ts:44&ndash;49</span>); with no row it falls through and returns the Stripe session anyway. Today that leaks a session&rsquo;s shape. Once the delivery rides this route, the guard has to be the first thing it does.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the success page polls every 2s and stops itself the moment the state settles (<span class="src">CheckoutForm.tsx:111&ndash;116</span>). No timer is shown to the vessel; the waiting state says <em>&ldquo;this can take a moment&rdquo;</em> and offers <em>Look again</em>. Nothing counts down.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; an unauthenticated gesture stashes the intent and replays it once after the door (<span class="src">useCheckout.tsx:34&ndash;38 :71&ndash;97</span>), so signing in does not cost the vessel their place. And the delivery is not a one-shot: the bodies are re-askable from the stall forever, which is the deepest form of this point on this board.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &middot; <span class="k">no autoplay</span> &mdash; a spinner and nothing else.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; three rewrites below. The success and error copy is already the best-written in the realm and is kept whole.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every state ends with a way onward, including the failed one. The delivery adds three plainly-labelled ones and nothing else competing.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the split is on the page, not behind a link; the residual note explains where the fee goes without being asked.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the spinner is the only motion and it is a status indicator, not decoration.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; on <span class="src">surface</span>: heading starDust <span class="k">12.3:1</span>, body /70 <span class="k">6.7:1</span>, filenames /60 <span class="k">5.3:1</span>, artisan earnings sanctuary.green <span class="k">6.4:1</span>, the success ring <span class="k">6.4:1</span>. <span class="k">One measurement worth reading twice:</span> the <span class="src">home</span> wash is the alchemist gradient, and its far stop is <span class="src">mystical.albedo</span> #E0E0E0 &mdash; <em>the same colour as the text</em>. At the ambient 0.3 the ground becomes #4C4E58 and starDust reads <span class="k">6.3:1</span>. At full strength it reads <span class="k">1.0:1</span> and the page is blank. This one room is where the 0.3 law is not a preference.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; each body&rsquo;s <em>Take it</em> is a real control naming its own file to a screen reader, not a bare icon; the state cards already carry <span class="src">role=&quot;status&quot;</span> where they announce a change (<span class="src">:225 :230</span>).</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6) &mdash; the checkout sleeve-tugs, one by one</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">&ldquo;Customers also bought&rdquo;</span> &mdash; refused. The success page shows what you took and nothing you did not.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Basket-abandonment recovery</span> &mdash; refused, and structurally impossible here: the set-aside page keeps no ledger of the leaving, and the pending row is completed or failed, never mined.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Urgency stock counters</span> &mdash; refused. Nothing on this road prints a quantity.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Exit-intent popups</span> &mdash; refused; nothing listens for a leaving.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The expiring link as urgency</span> &mdash; refused deliberately, because it is the one this frame could have invented. A signed URL does expire; the page says so as a fact about links and never as a clock, and it names the way back in the same breath.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; <span class="src">CheckoutForm:150&ndash;151</span> &ldquo;Completing the exchange&rdquo; / &ldquo;A moment while the exchange is confirmed.&rdquo; &middot; <span class="src">:162&ndash;164</span> the whole crossing card &middot; <span class="src">:175&ndash;176</span> the whole error card &middot; <span class="src">:188 :190 :192</span> &ldquo;{name} &mdash; taken into your keeping.&rdquo; / &ldquo;The exchange is complete.&rdquo; / &ldquo;Gweld ti&rsquo;n fuan &mdash; see you soon.&rdquo; &middot; <span class="src">cancel/page:28&ndash;33</span> the whole set-aside page &middot; <span class="src">CheckoutHub:24</span> &ldquo;Secure, transparent, and designed for dignity.&rdquo; &middot; <span class="src">:91</span> &ldquo;The Exchange completes on each work&rsquo;s page.&rdquo;</p>
+          <p class="rl-b"><span class="k">RETIRED &mdash; KP&rsquo;s ruling</span> &middot; <span class="src">PriceBreakdown.tsx:14&ndash;15 :23&ndash;24 :30 :99&ndash;117</span><br><span class="old">showBigotTax &middot; bigotTaxAmount &middot; the &ldquo;Bigot Tax&rdquo; row and its tooltip</span> &rarr; <span class="new">removed</span>. Off by default and never passed true anywhere in the tree; the split-model verdict does not need it kept warm.</p>
+          <p class="rl-b"><span class="k">REWRITE 18</span> &middot; <span class="src">PriceBreakdown.tsx:59</span><br><span class="old">&ldquo;10% platform fee &mdash; the lowest in the industry. Covers operations and the residual pool.&rdquo;</span> &rarr; <span class="new">&ldquo;10% platform fee. It covers operations and the residual pool.&rdquo;</span> &mdash; a superlative about other companies, unsourced, inside the realm&rsquo;s protected feature. The fee is the fact; the boast is not.</p>
+          <p class="rl-b"><span class="k">REWRITE 19</span> &middot; <span class="src">CheckoutHub.tsx:76&ndash;79</span><br><span class="old">the &ldquo;Industry Standard Platform Fee &middot; 30-50%&rdquo; row</span> &rarr; <span class="new">removed</span> &mdash; a number about other platforms with no provenance, in a table whose other three rows the base can witness. Provenance on every claim: cite it or drop it, and there is nothing here to cite. <span class="k">Proposed &mdash; KP may want the comparison kept with a source.</span></p>
+          <p class="rl-b"><span class="k">REWRITE 20</span> &middot; <span class="src">CheckoutButton.tsx:53</span><br><span class="old">&ldquo;Processing&hellip;&rdquo;</span> &rarr; <span class="new">&ldquo;Crossing&hellip;&rdquo;</span> &mdash; the room next door already calls this moment a crossing (<span class="src">CheckoutForm.tsx:162</span>). One realm, one word.</p>
+          <p class="rl-b"><span class="k">REWRITE 21</span> &middot; <span class="src">CheckoutButton.tsx:39 :56</span><br><span class="old">&ldquo;This ware is not available&rdquo; + &ldquo;This ware is currently not available&rdquo;</span> &rarr; <span class="new">&ldquo;This one is not on the stall right now.&rdquo;</span> &mdash; two strings for one state, both in the machine&rsquo;s register. One sentence, the stall&rsquo;s own voice.</p>
+          <p class="rl-b"><span class="k">REWRITE 22</span> &middot; <span class="src">checkout/success/page.tsx:21</span><br><span class="old">&ldquo;Loading&hellip;&rdquo;</span> &rarr; <span class="new">&ldquo;A moment.&rdquo;</span> &mdash; the fallback that shows before <span class="src">CheckoutForm</span> mounts is the first thing a vessel sees after paying, and it is currently the only untranslated word on the road.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the delivery. No census lines exist; the flow is not in the tree. <span class="new">&ldquo;Your copy is ready&rdquo;</span> &middot; <span class="new">&ldquo;Take it&rdquo;</span> &middot; <span class="new">&ldquo;A link rests after a while. This is yours to come back to &mdash; its stall will hand you a fresh one whenever you ask.&rdquo;</span> <em>Take it</em> rather than <em>Download</em>: the realm&rsquo;s verbs are what a person does, not what a machine does.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the adjusted-price screen: <span class="new">&ldquo;The price for you is lower.&rdquo;</span> / <span class="new">&ldquo;The stall says $3.33. Solidarity pricing has been applied and this is what you would be charged. The split below is the real one.&rdquo;</span> / <span class="new">&ldquo;Go on to payment&rdquo;</span> &middot; <span class="new">&ldquo;Not now&rdquo;</span>. <em>Not now</em>, never <em>Cancel</em> &mdash; leaving is a timing, not a failure.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Marked second pass</p>
+        <p class="rl-b"><span class="k">THE HANGING</span> &mdash; the offer to hang the kept thing in a room of the vessel home (<span class="src">CheckoutForm.tsx:194&ndash;233</span>, live today, opt-in, a button never an automatism). It stays exactly as built and is drawn on this board only as the place it occupies. The cross-realm features come in the second pass across all realms, after the frames stand &mdash; KP&rsquo;s build law. <span class="k">The catalog-share with hestia is closed</span> and is not drawn at all.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

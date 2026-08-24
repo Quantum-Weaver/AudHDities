@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9319;</span>
+    <span style="font-size:15px;font-weight:600;">The ways between, and the empty states</span>
+    <span class="src">14 routes &middot; every Link traced &middot; 13 empty states read whole</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+          <p style="margin:0 0 4px;font-size:14px;font-weight:600;">The Library&rsquo;s route graph</p>
+          <p style="margin:0 0 18px;font-size:11.5px;color:rgba(224,224,224,.70);">Traced from every <span class="src">Link</span> in the realm. The hub, six halls, six detail rooms, one play route &mdash; fourteen.</p>
+
+          <div style="border-left:2px solid rgba(0,230,195,.35);padding-left:14px;">
+            <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#00E6C3;font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library</p>
+
+            <div style="display:flex;flex-direction:column;gap:11px;">
+
+              <div style="border-left:1px solid rgba(224,224,224,.14);padding-left:13px;">
+                <p style="margin:0 0 3px;font-size:12px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.86);">/quests <span style="color:rgba(224,224,224,.55);">&mdash; The Path</span></p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /quests/[slug]</p>
+                <p style="margin:2px 0 0;font-size:10.5px;color:#FDCB6E;">&rarr; leaves the realm: the garden, the journal <span class="src">(board &#9313;)</span></p>
+              </div>
+
+              <div style="border-left:1px solid rgba(224,224,224,.14);padding-left:13px;">
+                <p style="margin:0 0 3px;font-size:12px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.86);">/courses <span style="color:rgba(224,224,224,.55);">&mdash; The Curriculum</span></p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /courses/[slug]</p>
+                <p style="margin:2px 0 0;font-size:10.5px;color:#00E6C3;">&rarr; the one cross-hall edge: each step opens /lessons/[slug]</p>
+              </div>
+
+              <div style="border-left:1px solid rgba(224,224,224,.14);padding-left:13px;">
+                <p style="margin:0 0 3px;font-size:12px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.86);">/lessons <span style="color:rgba(224,224,224,.55);">&mdash; The Lessons</span></p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /lessons/[slug]</p>
+              </div>
+
+              <div style="border-left:1px solid rgba(224,224,224,.14);padding-left:13px;">
+                <p style="margin:0 0 3px;font-size:12px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.86);">/knowledge <span style="color:rgba(224,224,224,.55);">&mdash; The Archive</span></p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /knowledge/[slug]</p>
+              </div>
+
+              <div style="border-left:1px solid rgba(224,224,224,.14);padding-left:13px;">
+                <p style="margin:0 0 3px;font-size:12px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.86);">/badges <span style="color:rgba(224,224,224,.55);">&mdash; The Honors</span></p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /badges/[slug]</p>
+                <p style="margin:2px 0 0;font-size:10.5px;color:#FDCB6E;">weather: observatory, not library</p>
+              </div>
+
+              <div style="border-left:1px solid rgba(224,224,224,.14);padding-left:13px;">
+                <p style="margin:0 0 3px;font-size:12px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.86);">/bubbles <span style="color:rgba(224,224,224,.55);">&mdash; The Floating Stars</span></p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /bubbles/[slug]</p>
+                <p style="margin:0;font-size:11px;font-family:'JetBrains Mono',Monaco,Consolas,monospace;color:rgba(224,224,224,.70);">&rarr; /bubbles/play <span style="color:rgba(224,224,224,.55);">&mdash; its own route, as the house requires</span></p>
+                <p style="margin:2px 0 0;font-size:10.5px;color:#E17055;">weather: unmapped &mdash; all three fall through to lounge</p>
+              </div>
+
+              <div class="second" style="padding:11px 13px;">
+                <p style="margin:0 0 2px;font-size:12px;font-weight:600;">/dailies</p>
+                <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.70);">no route, no room, no name chosen. KP&rsquo;s own session, later.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <p style="margin:18px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);text-wrap:pretty;"><span class="k">Every room below the hub can be left.</span> Six halls carry &ldquo;Return to the Library&rdquo;; six detail rooms carry &ldquo;Return to the&hellip;&rdquo; their own hall; the game carries &ldquo;Return to the Floating Stars&rdquo;, and its breath and boundary screens each carry a second way out. <span class="k">Thirteen rooms, thirteen doors back</span> &mdash; the hub itself needs none, being where the header nav lands. No dead ends.</p>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Every empty state in the realm, read whole</p>
+        <table class="tbl">
+          <thead><tr><th style="width:106px;">Room</th><th>What it says today</th><th style="width:56px;">Verdict</th></tr></thead>
+          <tbody>
+            <tr><td>The Path</td><td>&ldquo;The path unfolds soon&rdquo; &middot; &ldquo;New quests are being woven&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>a quest</td><td>&ldquo;This quest has not been written yet.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>The Curriculum</td><td>&ldquo;The curriculum is being prepared&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>a course</td><td>&ldquo;This course has not been written yet.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>a path</td><td>&ldquo;This course&rsquo;s path is still being laid &mdash; its lessons will appear here as they are written.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>The Lessons</td><td>&ldquo;The lessons are being prepared&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>a lesson</td><td>&ldquo;This lesson has not been written yet.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>The Archive</td><td>&ldquo;The archive awaits its first scrolls&rdquo;</td><td style="color:#FDCB6E;">kept +1</td></tr>
+            <tr><td>a telling</td><td>&ldquo;This scroll has not been written yet.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>The Honors</td><td>&ldquo;The honors await those who walk the path&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>a sigil</td><td>&ldquo;This honor has not been forged yet.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>The Stars</td><td>&ldquo;The floating stars will appear when the Sanctuary is ready&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>a star</td><td>&ldquo;This star has floated beyond view.&rdquo;</td><td style="color:#00E6C3;">kept</td></tr>
+            <tr><td>the game,<br>signed out</td><td>&ldquo;Sign in to play&rdquo; &middot; &ldquo;Enter the Sanctuary&rdquo;</td><td style="color:#E17055;">one line</td></tr>
+          </tbody>
+        </table>
+        <p class="rl-b" style="margin-top:10px;"><span class="k">Thirteen of fourteen are already right</span>, and they are right in the hard way: every one of them says <em>waiting</em>, <em>being written</em>, <em>being prepared</em>, <em>not yet</em> &mdash; never <em>missing</em>, never <em>none found</em>, never an error face. Nothing on this canvas improves them and nothing should.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The one that is a gate, not an empty</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+          <div style="border:1px solid rgba(224,224,224,.12);border-radius:11px;background:#0C0F1D;padding:20px 16px;text-align:center;">
+            <p style="margin:0 0 5px;font-size:13px;" class="old">Sign in to play</p>
+            <p style="margin:0;font-size:11.5px;color:#00E6C3;">Enter the Sanctuary</p>
+            <p class="src" style="margin:8px 0 0;">BubblePopGame.tsx:354&ndash;355</p>
+          </div>
+          <div style="border:1px solid rgba(0,184,148,.30);border-radius:11px;background:rgba(0,184,148,.05);padding:20px 16px;text-align:center;">
+            <p style="margin:0 0 5px;font-size:13px;color:rgba(224,224,224,.86);">The stars are kept for vessels.</p>
+            <p style="margin:0;font-size:11.5px;color:#00E6C3;">Enter the Sanctuary</p>
+            <p class="src" style="margin:8px 0 0;">proposed &mdash; the link was already right</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The house&rsquo;s arrival law is <em>coming home &mdash; not signing up</em>, and its own third lesson teaches the reader that the door says <em>Velkomin</em>, not <em>sign in</em>. This is the realm&rsquo;s only surface that still says the other thing.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">What this realm gets right that others do not</p>
+        <p class="rl-b"><span class="k">The back-link discipline is complete.</span> Thirteen rooms below the hub, every one of them leaveable, every back link written in the same voice with the definite article &mdash; <em>&ldquo;Return to the Library&rdquo;</em>, <em>&ldquo;Return to the Path&rdquo;</em>, <em>&ldquo;Return to the Curriculum&rdquo;</em>, <em>&ldquo;Return to the Lessons&rdquo;</em>, <em>&ldquo;Return to the Archive&rdquo;</em>, <em>&ldquo;Return to the Honors&rdquo;</em>, <em>&ldquo;Return to the Floating Stars&rdquo;</em>. The Hearth&rsquo;s canvas had to add one; <span class="k">this realm needs none.</span> Worth saying out loud, because it is the kind of thing only noticed when it is missing.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The weather is wrong in three rooms</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">All three bubbles routes are unmapped.</span> <span class="src">PAGE_ENVIRONMENT_MAP</span> (<span class="src">page_mapping.ts:145&ndash;200</span>) has rows for nine library routes and two badge routes and <span class="k">none</span> for <span class="src">/library/bubbles</span>, <span class="src">/bubbles/play</span> or <span class="src">/bubbles/[slug]</span> &mdash; so they fall to the default at <span class="src">:676</span> and resolve to <span class="k">lounge</span>. The heaviest room in the realm stands in another realm&rsquo;s weather, and no one would ever see it in the code. <em>Proposed</em>: three rows, library.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">And the Honors wear the observatory&rsquo;s.</span> Both badge routes map to <span class="src">observatory</span>, not <span class="src">library</span>. That may well be deliberate &mdash; with board &#9317;&rsquo;s mend, the Honors become <em>your own sky</em> rather than a catalog, and the observatory is the sky realm. <span class="k">Named as a question for KP, not marked as a fault.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The wash itself is safe here.</span> The library triad over deepSpace at the ambient 0.3 &mdash; <span class="src">library.dark &rarr; .base &rarr; .light</span>, the depth ramp <span class="src">HANDOFF.md</span> already names &mdash; holds starDust between <span class="k">9.13:1</span> and <span class="k">7.01:1</span>. Measured. Raise it to 0.75 and the near end falls to <span class="k">2.07:1</span>, which is the same trap the Hearth&rsquo;s canvas found. It is not raised anywhere on this canvas.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">A hall with nothing in it</p>
+        <p class="rl-b">The realm has thirteen written answers to that question and every one of them is warm. The pattern underneath them is worth naming so the dailies&rsquo; sitting inherits it: <span class="k">an empty room here describes what is coming and who is bringing it, and never what the visitor lacks.</span> &ldquo;Being woven&rdquo; and &ldquo;being prepared&rdquo; and &ldquo;has not been written yet&rdquo; all put the work on the house. That is the whole trick, and this realm found it before anyone wrote it down.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, across the whole realm</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; four caps in the game, no order in the halls, no timer anywhere. The realm&rsquo;s best row.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; pops are written at once; the course walk is not remembered. One opt-in mend, board &#9315;.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; one <span class="src">animate-ping</span>, board &#9314;.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing in this realm plays, anywhere. Clean.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; six rewrites on the whole canvas, from 1,739 lines and every user-facing string the census found.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; three failures: the hover-only Explore (&#9312;), the dead Begin Quest (&#9313;), the search-first Archive (&#9316;).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; every gallery opens a detail; the provenance line is the deepest door in the app.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="k">one guard in 1,739 lines</span> (<span class="src">CourseDetail.tsx:104</span>) against a game loop, a ping, two scale-on-hovers and four <span class="src">transition-all</span> chip rows. <span class="ruled">ruled: mend</span></p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the realm&rsquo;s most-repeated defect and the quietest. <span class="src">/40</span> = <span class="k">3.18:1</span> &middot; <span class="src">/35</span> = <span class="k">2.69:1</span> &middot; <span class="src">/30</span> = <span class="k">2.30:1</span>, and all three carry sentences the house is proud of. Drawn at <span class="src">/70</span> and <span class="src">/78</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; strong everywhere; one hole, the game&rsquo;s <span class="src">focus:outline-none</span> with nothing put back (board &#9314;).</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, across the realm</p>
+        <p class="rl-b">Machine-read: <span class="k">0 pre-checked inputs, 0 defaulted filters, 0 toggles</span> in 31 files. KP&rsquo;s &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em> finds nothing to correct here &mdash; and the one toggle this canvas proposes anywhere (board &#9315;&rsquo;s remembering) is drawn off, because a canvas that adds the realm&rsquo;s first switch had better add it in the state his ruling names.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">BubblePopGame.tsx:354</span><br><span class="old">&ldquo;Sign in to play&rdquo;</span><br><span class="new">&ldquo;The stars are kept for vessels.&rdquo;</span><br>The verb-pair law and the arrival law both land on this one line. <em>Proposed.</em></p>
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; all thirteen other empty states, all thirteen back links, &ldquo;Enter the Sanctuary&rdquo; <span class="src">:355</span>, and every &ldquo;No X match&rdquo; search-empty. <span class="k">This realm writes better empty states than it writes anything else.</span></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a breadcrumb that counts depth &middot; a &ldquo;you have not visited&rdquo; mark on any door &middot; a recently-viewed rail &middot; a recommended-next hall &middot; an interstitial between rooms &middot; a modal that must be dismissed to leave &middot; and any empty state that says <em>none found</em>, <em>no results</em>, or <em>nothing here</em>. <span class="k">An empty room in this house is early, never failed.</span></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:12px;padding:20px 22px;}
+    .sw{width:34px;height:19px;border-radius:9999px;flex:none;position:relative;}
+    .swk{position:absolute;top:2.5px;width:14px;height:14px;border-radius:9999px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9314;</span>
+    <span style="font-size:15px;font-weight:600;">The Sanctum &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel/sanctum</span>, the switchboard</span>
+    <span class="src">SanctumContent.tsx &middot; EnvironmentSelector &middot; CovenantSpace</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);margin-bottom:14px;">&larr; Return to Vessel</a>
+          <h1 style="margin:0 0 20px;font-size:24px;font-weight:700;">Your Sanctum</h1>
+
+          <div class="card" style="margin-bottom:14px;">
+            <h2 style="margin:0 0 4px;font-size:15px;font-weight:600;">Accessibility</h2>
+            <p style="margin:0 0 14px;font-size:12.5px;color:rgba(224,224,224,.70);">Shape the Sanctuary to welcome your nervous system.</p>
+            <div style="display:flex;align-items:center;gap:11px;">
+              <span class="sw" style="background:rgba(224,224,224,.10);border:1px solid rgba(224,224,224,.20);">
+                <span class="swk" style="left:2.5px;background:rgba(224,224,224,.55);"></span></span>
+              <span style="font-size:13px;color:rgba(224,224,224,.88);">Dyslexia-friendly mode</span>
+              <span style="font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);border-radius:9999px;padding:1px 8px;font-weight:600;">off by default</span>
+            </div>
+            <p style="margin:10px 0 0;font-size:12px;color:rgba(224,224,224,.70);">Off unless you turn it on. It stays on once you do.</p>
+          </div>
+
+          <div class="card" style="margin-bottom:14px;">
+            <h2 style="margin:0 0 4px;font-size:15px;font-weight:600;">Your Realm</h2>
+            <p style="margin:0 0 13px;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Choose the environment the Sanctuary wears for you &mdash; previewed as you choose, remembered every time you return.</p>
+            <div style="border:1px solid rgba(224,224,224,.18);border-radius:7px;padding:8px 12px;font-size:13px;color:rgba(224,224,224,.85);display:flex;justify-content:space-between;">
+              <span>The Hearth</span><span style="color:rgba(224,224,224,.45);">&#9662;</span></div>
+            <div style="display:flex;margin-top:5px;">
+              <span style="flex:1;text-align:center;padding:6px 0;font-size:11.5px;border:1px solid rgba(34,211,238,.40);border-radius:6px 0 0 6px;background:rgba(34,211,238,.16);color:#22D3EE;">1</span>
+              <span style="flex:1;text-align:center;padding:6px 0;font-size:11.5px;border:1px solid rgba(255,255,255,.10);color:rgba(224,224,224,.60);">2</span>
+              <span style="flex:1;text-align:center;padding:6px 0;font-size:11.5px;border:1px solid rgba(255,255,255,.10);color:rgba(224,224,224,.60);">3</span>
+              <span style="flex:1;text-align:center;padding:6px 0;font-size:11.5px;border:1px solid rgba(255,255,255,.10);border-radius:0 6px 6px 0;color:rgba(224,224,224,.60);">4</span>
+            </div>
+            <p style="margin:6px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);text-align:center;">Warm</p>
+          </div>
+
+          <div class="card" style="margin-bottom:14px;">
+            <h2 style="margin:0 0 4px;font-size:15px;font-weight:600;">Ceremonies</h2>
+            <p style="margin:0 0 14px;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Small rites at the thresholds &mdash; yours to invite, easy to decline. Nothing plays unless you choose it here.</p>
+            <div style="display:flex;align-items:flex-start;gap:11px;margin-bottom:12px;">
+              <span class="sw" style="background:rgba(224,224,224,.10);border:1px solid rgba(224,224,224,.20);">
+                <span class="swk" style="left:2.5px;background:rgba(224,224,224,.55);"></span></span>
+              <span style="font-size:13px;color:rgba(224,224,224,.88);">A richer arrival &mdash; the welcome ceremony at your crossing</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:11px;">
+              <span class="sw" style="background:rgba(224,224,224,.10);border:1px solid rgba(224,224,224,.20);">
+                <span class="swk" style="left:2.5px;background:rgba(224,224,224,.55);"></span></span>
+              <span style="font-size:13px;color:rgba(224,224,224,.88);">A farewell at your going &mdash; Gweld ti&rsquo;n fuan (see you soon)</span>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom:14px;border-color:rgba(253,203,110,.35);">
+            <h2 style="margin:0 0 8px;font-size:15px;font-weight:600;">&#9825;&nbsp; The Covenant</h2>
+            <p style="margin:0 0 6px;font-size:12.5px;color:rgba(224,224,224,.78);text-wrap:pretty;">The covenant pool is the Sanctuary&rsquo;s shared dividend: a portion of your earnings you choose to send into the commons, divided equally among every active member.</p>
+            <p style="margin:0 0 16px;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Zero is a whole and honorable setting &mdash; the covenant is a gift, never a due. Change it any time; it is yours in both directions.</p>
+            <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:6px;">
+              <span style="color:rgba(224,224,224,.70);">Your pledge</span><span style="color:#22D3EE;font-weight:700;">0%</span></div>
+            <div style="height:4px;border-radius:9999px;background:rgba(224,224,224,.12);margin-bottom:16px;">
+              <span style="display:block;width:3px;height:4px;border-radius:9999px;background:#22D3EE;"></span></div>
+            <span style="display:inline-block;padding:8px 16px;border-radius:9px;background:#6C5CE7;color:#FFFFFF;font-size:13px;font-weight:500;">Set my covenant</span>
+            <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(224,224,224,.10);display:flex;align-items:center;gap:11px;">
+              <span class="sw" style="background:rgba(224,224,224,.10);border:1px solid rgba(224,224,224,.20);">
+                <span class="swk" style="left:2.5px;background:rgba(224,224,224,.55);"></span></span>
+              <span style="font-size:13px;color:rgba(224,224,224,.88);">Display my pledge on my vessel face</span>
+            </div>
+            <p style="margin:9px 0 0;font-size:12px;color:rgba(224,224,224,.70);text-wrap:pretty;">Off by default. Your choice, in both directions, any time &mdash; an undisplayed pledge gives exactly as much.</p>
+          </div>
+
+          <div class="card">
+            <h2 style="margin:0 0 4px;font-size:15px;font-weight:600;">&#9737;&nbsp; Your Daily Rhythm</h2>
+            <p style="margin:0 0 16px;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Your own boundaries for the bubbles &mdash; a kindness to your future self, never a score. They follow your vessel to every device.</p>
+            <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:6px;">
+              <span style="color:rgba(224,224,224,.70);">Daily bubble points</span><span style="color:#22D3EE;font-weight:700;">500</span></div>
+            <div style="height:4px;border-radius:9999px;background:rgba(224,224,224,.12);margin-bottom:18px;">
+              <span style="display:block;width:21%;height:4px;border-radius:9999px;background:#22D3EE;"></span></div>
+            <div style="padding-top:16px;border-top:1px solid rgba(224,224,224,.10);">
+              <div style="display:flex;align-items:center;gap:11px;">
+                <span class="sw" style="background:rgba(224,224,224,.10);border:1px solid rgba(224,224,224,.20);">
+                  <span class="swk" style="left:2.5px;background:rgba(224,224,224,.55);"></span></span>
+                <span style="font-size:13px;color:rgba(224,224,224,.88);">Show a &ldquo;Play bubbles&rdquo; button on my vessel</span>
+                <span style="font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);border-radius:9999px;padding:1px 8px;font-weight:600;">added</span>
+              </div>
+              <p style="margin:9px 0 0;font-size:12px;color:rgba(224,224,224,.70);text-wrap:pretty;">Off by default. Turn it on and the button waits on your vessel; turn it off and it is gone. The bubbles are always at the Library either way.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q">&ldquo;make all toggles off by default.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &mdash; spoken while this board was being drawn, and it <span class="k">overrules the brief&rsquo;s own ruling 7</span>, which had said the dyslexia-font toggle stays on. <span class="k">His later word wins.</span> Every switch in this room now starts OFF, the dyslexia font included.</p>
+        <p class="rl-b" style="margin-top:12px;"><span class="k">It is a simpler law than the one it replaces, and that is the point.</span> The board previously had to argue that an accessibility default is not the kind of pre-checked box THE OPT-IN LAW forbids &mdash; a real distinction, and a distinction a vessel should never have to be told. <em>&ldquo;No oops you forgot to uncheck the thing&rdquo;</em> now has <span class="k">no exceptions to explain</span>: nothing in this room is on until a person turns it on. A rule with no carve-outs is one a vessel can trust without reading it.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Every switch in the room, against the new law</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Dyslexia-friendly mode &mdash; off, and already off.</span> <span class="src">SanctumContent.tsx:40</span> is <span class="src">useState(false)</span>. The ground was right the whole time; it is the brief&rsquo;s ruling that moved. Drawn off.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Both ceremonies &mdash; off.</span> <span class="src">:45&ndash;46</span>, read defensively until their columns land. Unchanged by the new word; they already obeyed it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Display my pledge &mdash; off.</span> <span class="src">CovenantSpace.tsx:36</span>, and its own copy already says so in words (<span class="src">:163</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">But the dyslexia switch cannot be turned on and stay on.</span> Line :282 passes <span class="src">defaultChecked</span> &mdash; uncontrolled. The config read at :72&ndash;77 lands <em>after</em> first paint, so <span class="src">setDyslexiaFont(true)</span> moves the state and never the switch. <span class="k">A vessel who turns this on sees it off when they come back</span>, while the base has it right. The three switches beside it all use <span class="src">checked</span> (:336, :342, CovenantSpace:159). One word&rsquo;s difference &mdash; and under off-by-default it matters <em>more</em>, because now the only way this is ever on is a person having chosen it. Drawn controlled.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The ceremony switchboard &mdash; the opt-in law, whole</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">Both ceremonies default <span class="k">false</span>, read defensively until their columns land (:41&ndash;46). The comment carries KP&rsquo;s own sentence, and the code obeys it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The calm defaults need no toggle &mdash; they ARE the defaults</span> (:317&ndash;319). That is the correct shape: an opt-in surface offers the <em>extra</em>, never the baseline.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">The farewell carries the Third Word verbatim &mdash; <span class="k">Gweld ti&rsquo;n fuan</span>, KP &#9883; (E2 digest &sect;1, L1617), with its English beside it. Kept to the letter.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The Covenant Space</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">A space, not a settings row</span> &mdash; KP&rsquo;s &#9883; stroke, verbatim on the realm bus: <em>&ldquo;this is a ceremonila space in the sanctum, not just in the settings&rdquo;</em> (CHECKLIST.md:86, spelling kept). Drawn with the hearth-gold border the ceremony wears and a full paragraph of its own, not a label and a slider.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Enacted, never dragged into being.</span> The slider moves; nothing saves until &ldquo;Set my covenant&rdquo; &mdash; <em>&ldquo;ceremony is deliberateness&rdquo;</em> (CovenantSpace.tsx:12&ndash;13). Zero is the default and is named honorable in the copy itself.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Display is off by default, both directions.</span> &ldquo;An undisplayed pledge gives exactly as much&rdquo; (:163&ndash;164) is the whole anti-comparison law in nine words. Kept verbatim.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The percent is honest.</span> A covenant percentage is a gift the vessel sets, not a measure of them &mdash; the one number in this realm that grows by giving something away. It is not a score and does not need one drawn out of it.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The bubbles button &mdash; KP&rsquo;s second word today</p>
+        <p class="q">&ldquo;and in the sanctum settings for bubbles, add a toggle that will display a &lsquo;play bubbles&rsquo; button in th vessel screen&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. Drawn as the last row of the Daily Rhythm card, because that is where the bubble settings already live &mdash; <span class="k">his &ldquo;in the sanctum settings for bubbles&rdquo; names the card, not a new one</span>.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Off by default</span>, under the ruling above &mdash; so a vessel who never opens the Sanctum never sees a game offered on their own face. The play is <em>invited in</em>, which is the whole shape of E4&rsquo;s ruling that the games replace the profile rather than run it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">It hides a button, never the bubbles.</span> <span class="src">/library/bubbles</span> stays reachable from the Library and the nav whatever this says. A toggle that could take a room away would be a different and worse thing; this one only decides what stands on the vessel&rsquo;s own face.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">And it settles a tile that was never chosen.</span> Today <span class="src">VesselContent.tsx:127</span> puts &ldquo;Bubbles&rdquo; in the hub grid <em>unconditionally</em>, beside The Home and The Scroll &mdash; a game sitting among the rooms, for everyone, with no way to put it down. His toggle turns that into a choice. Board &#9312; draws both states.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Where it lives:</span> one more <span class="src">vessel_config</span> column beside <span class="src">bubble_daily_max</span> and <span class="src">bubble_hourly_max</span>, written by the same <span class="src">updateConfigField</span> the card already uses (<span class="src">:153&ndash;163</span>). No new plumbing. <em>Proposed name</em> only &mdash; the column is gaia&rsquo;s to mint.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The variant buttons &mdash; left standing, his call</p>
+        <p class="rl-b">1&ndash;4 (Warm / Mystical / Sacred / Ethereal) are <span class="k">image-era limbs</span>: <span class="src">EnvironmentLayer</span> wears one dress per environment and its <span class="src">_variant</span> prop is deliberately unused (EnvironmentLayer.tsx:28&ndash;31). So the buttons change a stored string and nothing a vessel can see. Filed for KP at CHECKLIST.md:86 &mdash; <em>&ldquo;retire-or-commission is his call&rdquo;</em> &mdash; and it is <span class="k">still his</span>. Drawn exactly as they stand; this canvas does not rule them.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; no setting expires, none is timed, and the page never nags.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; toggles and the realm picker write immediately; the bubble sliders debounce 600ms (:61&ndash;68). But the identity form saves only on the button, and a failure prints one line (:191) without saying which field &mdash; drawn with the message beside the button where it can be read.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing here animates beyond a switch travelling.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; the ceremonies are the only sound-adjacent thing in the realm and they are both off.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the strongest copy in the realm. &ldquo;a kindness to your future self, never a score&rdquo; (:382&ndash;383) is the anti-scarcity law written as a sentence a person would say. Nothing rewritten on this board except one fade.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; five cards, each with its own heading and its own sentence of why.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; every card explains itself before it asks anything; the Covenant explains itself twice.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the switch travel is a colour and a position, not a transform.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the cards are solid <span class="src">bg-surface/90</span> since the 08-12 mend (KP&rsquo;s eye: <em>&ldquo;the settings background is absorbing its contents&rdquo;</em>) and starDust reads <span class="k">12.3:1</span> on them. But every explanatory sentence under every heading sits at <span class="src">/40</span> &mdash; <span class="k">3.1:1</span> &mdash; including the one that says this room exists to welcome your nervous system (:275). <span class="k">The accessibility card fails the contrast row.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; every control is a real input with a real label; the back link is a real button.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">A note, reported not mended</p>
+        <p class="rl-b">This realm&rsquo;s own README says named colour utilities <em>&ldquo;mint nothing&rdquo;</em> and to use <span class="src">bg-(--color-*)</span> instead (<span class="src">(hestia)/README.md:123&ndash;130</span>). That was true when written. It stopped being true <span class="k">today</span>: <span class="src">globals.css:19</span> now carries <span class="src">@config &quot;../../tailwind.generated.config.mjs&quot;</span> at KP&rsquo;s &#9883; word 2026-08-24, and <span class="src">surface</span>, <span class="src">error</span> and <span class="src">star-dust</span> all stand in that config (lines 42, 47, 43). So the Sanctum&rsquo;s <span class="src">bg-surface/90</span> mend renders. <span class="k">A voiced page is reported on, never quietly rewritten</span> &mdash; both addresses are here and neither is edited.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; :213 &ldquo;Your Sanctum&rdquo; &middot; :274&ndash;276 the Accessibility card &middot; :300&ndash;303 Your Realm &middot; :327&ndash;331 Ceremonies &middot; :334, :340 both ceremony labels &middot; :379&ndash;383 Your Daily Rhythm &middot; CovenantSpace:126&ndash;135, :157, :163&ndash;164 &mdash; every word.</p>
+          <p class="rl-b"><span class="k">REWRITE 4</span> &middot; <span class="src">SanctumContent.tsx:275, :301, :328, :381</span> &middot; <span class="src">CovenantSpace.tsx:133, :162</span><br><span class="old">text-star-dust/40 &mdash; 3.1:1</span> &rarr; <span class="new">/70 &mdash; 6.7:1</span>. The realm&rsquo;s gentlest explanations are printed in its faintest ink, in the room named for accommodation.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; one line under the dyslexia switch. No census string: the toggle has a label and no explanation. <span class="new">&ldquo;Off unless you turn it on. It stays on once you do.&rdquo;</span> The second half is a promise the code does not currently keep (the <span class="src">defaultChecked</span> finding above) &mdash; drawn because under off-by-default it is the whole of what a vessel needs to trust here. <em>Proposed</em> &mdash; KP ruled the default, not the sentence.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the bubbles toggle, at KP&rsquo;s word. No census string; the control does not exist yet. <span class="new">&ldquo;Show a &lsquo;Play bubbles&rsquo; button on my vessel&rdquo;</span>, and under it <span class="new">&ldquo;Off by default. Turn it on and the button waits on your vessel; turn it off and it is gone. The bubbles are always at the Library either way.&rdquo;</span> The last sentence is the load-bearing one: it says plainly that declining costs a vessel nothing.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

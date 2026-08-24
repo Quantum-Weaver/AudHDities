@@ -45,7 +45,7 @@ export const INPUT_BASE_CLASSES = [
   'transition-all',
   'duration-200',
   'outline-none',
-  'placeholder:text-star-dust/40',
+  'placeholder:text-star-dust/60',
   'disabled:cursor-not-allowed',
   'disabled:opacity-50',
 ] as const;
@@ -55,7 +55,7 @@ export const INPUT_LABEL_CLASSES = 'text-sm font-medium text-star-dust/80' as co
 export const INPUT_LABEL_ERROR_CLASSES = 'text-red-400' as const;
 
 // ─── Helper/Error Text ─────────────────────────────────────────────────────
-export const INPUT_HELPER_CLASSES = 'text-xs text-star-dust/40' as const;
+export const INPUT_HELPER_CLASSES = 'text-xs text-star-dust/70' as const;
 export const INPUT_ERROR_CLASSES = 'text-xs text-red-400' as const;
 
 // ─── Required/Optional Indicators ──────────────────────────────────────────

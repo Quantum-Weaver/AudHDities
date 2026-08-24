@@ -13,6 +13,7 @@ import {
   AUTH_PLACEHOLDERS,
   AUTH_ROUTES,
 } from "@/lib/constants/components/asgard/auth/auth.constants";
+import { authMutedTextVariants } from "@/lib/constants/components/asgard/auth/auth.variants";
 
 export default function ForgotPasswordForm() {
   const { resetPassword } = useAuth();
@@ -41,7 +42,7 @@ export default function ForgotPasswordForm() {
 
   if (sent) {
     return (
-      <div className="w-full max-w-md mx-auto">
+      <div className="w-full">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-star-dust mb-2">The link is on its way</h1>
           <p className="text-star-dust/60">
@@ -49,7 +50,10 @@ export default function ForgotPasswordForm() {
             Take your time — the door will wait.
           </p>
         </div>
-        <p className="text-star-dust/40 text-sm text-center">
+        <p className={`${authMutedTextVariants()} text-center mb-6`}>
+          {AUTH_LABELS.DIDNT_ARRIVE}
+        </p>
+        <p className="text-sm text-center">
           <a href={AUTH_ROUTES.LOGIN} className="text-neurospark hover:underline">
             {AUTH_LABELS.BACK_TO_LOGIN}
           </a>
@@ -59,7 +63,7 @@ export default function ForgotPasswordForm() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full">
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-star-dust mb-2">Reset your password</h1>
         <p className="text-star-dust/60">
@@ -89,7 +93,7 @@ export default function ForgotPasswordForm() {
       </Form>
 
       <div className="mt-6 text-center space-y-2">
-        <p className="text-star-dust/40 text-sm">
+        <p className="text-sm">
           <a href={AUTH_ROUTES.LOGIN} className="text-neurospark hover:underline">
             {AUTH_LABELS.BACK_TO_LOGIN}
           </a>

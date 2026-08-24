@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#FDCB6E;">&#9318;b</span>
+    <span style="font-size:15px;font-weight:600;">The other theme &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/login</span> in the light dress</span>
+    <span class="src">PROPOSED throughout &mdash; the pair to board &#9313;</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;position:relative;border:1px solid rgba(224,224,224,.14);border-radius:12px;overflow:hidden;background:#E0E0E0;">
+      <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid rgba(12,15,29,.12);">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;color:#0C0F1D;">AUDHDITIES</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:12px;border:1px solid rgba(12,15,29,.28);font-size:14px;color:#0C0F1D;">Enter</span>
+        </div>
+
+        <div style="padding:40px 22px 44px;">
+          <div style="background:#F5F5DC;border:1px solid rgba(12,15,29,.14);border-radius:12px;padding:32px 28px;">
+
+            <div style="text-align:center;margin-bottom:28px;">
+              <h1 style="margin:0 0 8px;font-size:28px;font-weight:700;line-height:1.25;color:#0C0F1D;">Return to the Sanctuary</h1>
+              <p style="margin:0;font-size:16px;color:rgba(12,15,29,.70);">Your email and password. Take your time.</p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:18px;">
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(12,15,29,.80);">Email</label>
+                <div style="height:40px;border:1px solid rgba(12,15,29,.22);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(12,15,29,.60);">your@email.com</div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(12,15,29,.80);">Password</label>
+                <div style="height:40px;border:1px solid #5B4CCE;box-shadow:0 0 0 1px rgba(91,76,206,.45);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(12,15,29,.60);">Enter your password</div>
+                <p style="margin:2px 0 0;font-size:11px;color:rgba(12,15,29,.62);">focus state drawn &mdash; the ring changes token with the dress, not shape</p>
+              </div>
+
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#5B4CCE;color:#FFFFFF;font-size:16px;font-weight:500;">Enter the Sanctuary</a>
+
+            </div>
+
+            <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;align-items:center;">
+              <p style="margin:0;font-size:14px;"><a href="#" style="color:#5B4CCE;">Forgot your password?</a></p>
+              <p style="margin:0;font-size:14px;color:rgba(12,15,29,.70);">New to the Sanctuary? <a href="#" style="color:#5B4CCE;">Come in</a></p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The pair, side by side</p>
+        <p class="rl-b">Same copy, same geometry, same tab order, same 48px door, same 40px fields, same 12px radii. <span class="k">Only the four tokens swap.</span> If anything else moved between board &#9313; and this one, the dress would have become a redesign.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What the swap is, exactly</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="src">deepSpace</span> &rarr; <span class="src">starDust</span> (the ground)</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="src">surface</span> &rarr; <span class="src">mystical.moon</span> (the card)</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="src">starDust</span> &rarr; <span class="src">accessibility.text.onLight</span> (the text)</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="src">neurospark</span> and <span class="src">quantum.purple</span> &rarr; <span class="src">quantum.dark</span> (link, focus ring and door)</p></div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Four rows. That is the whole light theme, and it is the size the light theme should be.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Measured, on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">heading and labels on the card &mdash; <span class="k">17.2:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">the sub-line at 70% &mdash; <span class="k">6.9:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">both links &mdash; <span class="k">5.6:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">placeholder at 60% &mdash; <span class="k">4.9:1</span>, which is the same rewrite the dark board asked for, arrived at from the other side</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">door label #FFFFFF on quantum.dark &mdash; <span class="k">6.2:1</span></p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <p class="rl-b">Every point is board &#9313;&rsquo;s, unchanged &mdash; the dress does not touch pace, saving, flashing, autoplay, language, next steps, the more-info door, reduced motion or the keyboard. <span class="k">Only contrast moves</span>, and every figure above was re-measured against this dress rather than carried over.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">One thing this board is not</p>
+        <p class="rl-b">It is not a request to build a theme switch. The plan&rsquo;s verify step names three theme states and the ground has one; this board simply shows that the palette <em>can</em> carry a second dress without a new colour being invented, and what it costs when a token is asked to cross and cannot. <span class="k">Whether the app gets a light dress at all is KP&rsquo;s, unasked and unruled.</span></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9314;</span>
+    <span style="font-size:15px;font-weight:600;">Coming in &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/signup</span>, and the felt &ldquo;not now&rdquo;</span>
+    <span class="src">(auth)/signup/page.tsx &rarr; SignupForm.tsx</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:32px 22px 36px;">
+          <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:30px 28px;">
+
+            <div style="text-align:center;margin-bottom:26px;">
+              <h1 style="margin:0 0 8px;font-size:28px;font-weight:700;line-height:1.25;">Come in</h1>
+              <p style="margin:0;font-size:16px;color:rgba(224,224,224,.70);">Join the Sovereign Sanctuary</p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:15px;">
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Username</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Choose a username</div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Email</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">your@email.com</div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Password</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Create a password (min 6 characters)</div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Confirm Password</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Confirm your password</div>
+              </div>
+
+              <div style="display:flex;gap:10px;align-items:flex-start;padding-top:2px;">
+                <span style="width:18px;height:18px;flex:none;margin-top:2px;border:1px solid rgba(255,255,255,.20);border-radius:4px;background:transparent;"></span>
+                <p style="margin:0;font-size:14px;color:rgba(224,224,224,.80);">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+              </div>
+
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;margin-top:4px;">Join the Sanctuary</a>
+
+            </div>
+
+            <div style="margin-top:22px;text-align:center;">
+              <p style="margin:0;font-size:14px;color:rgba(224,224,224,.70);">Been here before? <a href="#">Return to the Sanctuary</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">What lands next &mdash; the offer, with the felt &ldquo;not now&rdquo;</p>
+        <div style="position:relative;border:1px solid rgba(253,203,110,.35);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:32px 22px 36px;">
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:30px 28px;text-align:center;">
+
+              <h2 style="margin:0 0 10px;font-size:24px;font-weight:700;line-height:1.3;">One more thing, if you want it.</h2>
+              <p style="margin:0 0 24px;font-size:16px;color:rgba(224,224,224,.70);text-wrap:pretty;">The Acid Test is a short, playful set of questions. It sets what you pay &mdash; never what you may reach. Nothing here is gated.</p>
+
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+                <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Take the Acid Test</a>
+                <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;border:1px solid rgba(224,224,224,.30);color:#E0E0E0;font-size:16px;font-weight:500;">Not now</a>
+              </div>
+
+              <p style="margin:16px 0 0;font-size:14px;color:rgba(224,224,224,.70);">It is offered again whenever you want it &mdash; nothing is lost by waiting.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q">&ldquo;need a felt &quot;not now&quot;&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; briefs/01-auth-BRIEF.md, answer 1 &mdash; RULED: the header is not enough.</p>
+        <p class="rl-b" style="margin-top:10px;"><span class="k">Felt</span> is drawn as equal weight: same height, same width, same type size, side by side, both reached by one tab. The refusal is not smaller than the yes.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Where the &ldquo;not now&rdquo; goes</p>
+        <p class="rl-b">To <span class="src">/vessel</span> &mdash; where Velkomin fires. Today signup redirects straight to <span class="src">/questionaire</span>, hardcoded (SignupForm.tsx:19, :73), and the Acid Test form carries no skip of its own. The offer screen is the room that ruling needs.</p>
+        <p class="rl-b" style="margin-top:8px;">On record beside it, the standing word: the acid test is <em>&ldquo;optional at signup; gently re-offered in-experience&rdquo;</em> (FABLE-KERNEL, cited in the brief). The last line under the two doors is that sentence said to a person.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the offer is the pace control. Nothing routes anyone into a questionnaire they did not choose.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; a failed check keeps every field but the two passwords. The breach check runs before the sign-up, so nothing half-exists.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; field errors sit under their own field; the form does not jump.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;Initialize Consciousness&rdquo;, &ldquo;Creating Account&hellip;&rdquo; and &ldquo;Already have an account?&rdquo; all rewritten (below). The password rule is stated in the field, not after failing it.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; two, and both are next steps: one is not an escape hatch.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; Terms and Privacy are links on the page, before the box, not after it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the offer replaces the form in place; no slide, no page transition.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the outline button&rsquo;s border is raised to starDust/30 so &ldquo;Not now&rdquo; reads as a control, not a caption; its label is full starDust, <span class="k">12.3:1</span> on the card.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; the consent box is a real checkbox with a bound label (SignupForm.tsx:126&ndash;136), so space toggles it and the label is a hit target.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The laws standing on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">THE OPT-IN LAW.</span> &ldquo;no oops you forgot to uncheck the thing&rdquo; &mdash; any pre-checked box is a defect (E2 digest &sect;1). The census counted it: <span class="src">accept_terms</span>, SignupForm.tsx:126&ndash;130, <span class="k">not pre-checked</span>, 0 defects (Part 8). Drawn empty, and it stays empty.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">No confirmshaming.</span> The bus forbids it by name (&sect;6). &ldquo;Not now&rdquo; is the whole label &mdash; no &ldquo;no thanks, I&rsquo;d rather not know myself&rdquo;.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Nothing whose metric is retention.</span> The offer is made once and answered once; it does not return as a nag. Re-offering belongs in-experience, at the vessel&rsquo;s own pace.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> from the census &mdash; :80 &ldquo;Join the Sovereign Sanctuary&rdquo; &middot; :88&ndash;:119 every field label and placeholder &middot; :131&ndash;136 the consent sentence &middot; :142 &ldquo;Creating Account&hellip;&rdquo; / &ldquo;Join the Sanctuary&rdquo; &mdash; the idle half only, the loading half being REWRITE 9 &middot; :151 &ldquo;Return to the Sanctuary&rdquo;.</p>
+          <p class="rl-b"><span class="k">REWRITE 8</span> &middot; <span class="src">SignupForm.tsx:79</span><br><span class="old">&ldquo;Initialize Consciousness&rdquo;</span> &rarr; <span class="new">&ldquo;Come in&rdquo;</span>.</p>
+          <p class="rl-b"><span class="k">REWRITE 9</span> &middot; <span class="src">SignupForm.tsx:142</span> (hardcoded; <span class="src">AUTH_LABELS.CREATING_ACCOUNT</span> at auth.constants.ts:31 stands unused)<br><span class="old">&ldquo;Creating Account&hellip;&rdquo;</span> &rarr; <span class="new">&ldquo;Opening the door&hellip;&rdquo;</span> &mdash; the one string the brief named as failing the recognition register outright. KP &#9883;, answer 6, verbatim: &ldquo;fold into build&rdquo;.</p>
+          <p class="rl-b"><span class="k">REWRITE 10</span> &middot; <span class="src">SignupForm.tsx:149</span><br><span class="old">&ldquo;Already have an account?&rdquo;</span> &rarr; <span class="new">&ldquo;Been here before?&rdquo;</span> &mdash; and the page-level twin, <span class="src">AUTH_LABELS.ALREADY_MANIFESTED</span> &ldquo;Already manifested?&rdquo; (auth.constants.ts:44), goes with it.</p>
+          <p class="rl-b"><span class="k">PROPOSED, new</span> &mdash; the offer&rsquo;s heading &ldquo;One more thing, if you want it.&rdquo;, the button pair, and the closing line. The middle sentence is the house&rsquo;s own, lifted whole from SanctuaryAcidTest.tsx:21&ndash;22.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

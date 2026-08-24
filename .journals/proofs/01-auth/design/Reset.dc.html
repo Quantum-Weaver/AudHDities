@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9316;</span>
+    <span style="font-size:15px;font-weight:600;">The recovery visitor &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/reset-password</span></span>
+    <span class="src">(auth)/reset-password/page.tsx &rarr; ResetPasswordForm.tsx, behind AuthGuard</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:32px 22px 36px;">
+          <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:30px 28px;">
+
+            <div style="text-align:center;margin-bottom:24px;">
+              <h1 style="margin:0 0 8px;font-size:28px;font-weight:700;line-height:1.25;">Set a new password</h1>
+              <p style="margin:0;font-size:16px;color:rgba(224,224,224,.70);">Choose a new password for your vessel.</p>
+            </div>
+
+            <div style="border:1px solid rgba(225,112,85,.30);background:rgba(225,112,85,.10);border-radius:8px;padding:12px 14px;margin-bottom:20px;">
+              <p style="margin:0;font-size:14px;color:#E17055;">The passwords do not match &mdash; try them again, no hurry.</p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:18px;">
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">New password</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Choose a new password (min 6 characters)</div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Confirm password</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Confirm your password</div>
+              </div>
+
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Set New Password</a>
+
+            </div>
+
+            <div style="margin-top:22px;text-align:center;">
+              <p style="margin:0;font-size:14px;"><a href="#">Return to login</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The stranger&rsquo;s turn-back &mdash; drawn spoken, marked proposed</p>
+        <div style="border:1px solid rgba(253,203,110,.35);border-radius:12px;background:rgba(224,224,224,.03);padding:18px 20px;">
+          <p style="margin:0 0 8px;font-size:15px;font-weight:600;">On <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/login</span>, when the recovery session is gone:</p>
+          <p style="margin:0;font-size:15px;color:rgba(224,224,224,.80);">That recovery link has expired or has already been used. Ask for a new one whenever you are ready &mdash; nothing on your side is lost.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">Who stands here</p>
+        <p class="rl-b">Only a vessel carrying a recovery session, arriving from the mail through the callback with <span class="src">?next=/reset-password</span>. The page&rsquo;s own header says the guard &ldquo;turns strangers gently back to the login door&rdquo; (page.tsx:6&ndash;9). Read at the source: AuthGuard.tsx:49&ndash;50 pushes them to <span class="src">/login?redirect=/reset-password</span> and <span class="k">says nothing at all</span> &mdash; the redirect is carried, the reason is not.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The law that reaches this board</p>
+        <p class="q">&ldquo;No one transitions unaccompanied.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">The Bird-Wisdom day &middot; docs/design/ziggy-ux-sourcebook-index.md:25&ndash;26 &mdash; &ldquo;This is the UX&rsquo;s deepest law: entrances and exits are ceremonies&hellip;&rdquo;</p>
+        <p class="rl-b" style="margin-top:10px;">KP ruled the <em>callback&rsquo;s</em> dropped error (board &#9317;). The guard&rsquo;s silent turn-back is the same shape and was <span class="k">not asked and not ruled</span> &mdash; so the sentence above is drawn <span class="k">proposed</span>, for his word, not landed as though it were his.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; &ldquo;no hurry&rdquo; is in the error text itself (ResetPasswordForm.tsx:28). Nothing expires while the page is open.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; a mismatch keeps the page and clears only the fields; the recovery session is not spent by a typo.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; the mismatch appears above the fields as an Alert, in place.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; kept whole. &ldquo;The passwords do not match &mdash; try them again, no hurry&rdquo; needs no help from anyone.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; set it, or leave. Today this is the one page of the four with <span class="k">no way out</span>: reset-password/page.tsx renders no footer link. Drawn with &ldquo;Return to login&rdquo;.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the turn-back sentence is the more-info door for the person whose link died. Without it the only information is a page they did not ask for.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; AuthGuard&rsquo;s loading state spins a <span class="src">Loader2</span> (AuthGuard.tsx:60) with no <span class="src">motion-reduce</span> guard, on all four pages. Drawn as the text alone: &ldquo;Loading sanctuary&hellip;&rdquo; under reduced motion.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured: the Alert sits inside the surface card, so its error text on its own 10% wash reads <span class="k">4.54:1</span> &mdash; it clears the 4.5:1 floor, and clears it by nothing. (The same alert laid on deepSpace would read 5.4:1; the card is the ground here.)</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; the Alert carries <span class="src">role="alert"</span> so the mismatch is announced without moving focus off the field being fixed.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> from the census &mdash; :48 &ldquo;Set a new password&rdquo; &middot; :49 &ldquo;Choose a new password for your vessel.&rdquo; &middot; :57 &ldquo;New password&rdquo; &middot; :66 &ldquo;Confirm password&rdquo; &middot; the two placeholders &middot; <span class="src">AUTH_LABELS.SET_NEW_PASSWORD</span>. And ResetPasswordForm.tsx:28 &mdash; &ldquo;The passwords do not match &mdash; try them again, no hurry.&rdquo;</p>
+          <p class="rl-b"><span class="k">NO rewrites on this form.</span> Every word of it already holds the register. The two changes here are structural &mdash; a way out, and a reason given &mdash; not a word of copy.</p>
+          <p class="rl-b"><span class="k">PROPOSED, new</span> &mdash; &ldquo;Return to login&rdquo; on this page (the label already exists: <span class="src">AUTH_LABELS.BACK_TO_LOGIN</span>), and the turn-back sentence above.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

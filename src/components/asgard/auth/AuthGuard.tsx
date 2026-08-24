@@ -6,7 +6,7 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
 import { Loader2 } from 'lucide-react';
@@ -16,6 +16,8 @@ import type { AuthGuardProps } from '@/types/components/asgard/auth/auth.types';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
+  AUTH_ERRORS,
+  AUTH_ERROR_PARAM,
   AUTH_LABELS,
   AUTH_ROUTES,
 } from '@/lib/constants/components/asgard/auth/auth.constants';
@@ -42,13 +44,25 @@ export default function AuthGuard({
   const router = useRouter();
   const pathname = usePathname();
   const { user, loading } = useAuth();
+  const signedInOnArrival = useRef<boolean | null>(null);
 
   useEffect(() => {
     if (loading) return;
 
+    // 2026-08-24: the bounce is an ENTRY check, not a live leash. Read once,
+    // when auth first settles. Signing in ON this page must leave the door's
+    // own landing (the redirect, the Acid Test offer) in charge.
+    if (signedInOnArrival.current === null) signedInOnArrival.current = !!user;
+
     if (requireAuth && !user) {
-      router.push(buildRedirectUrl(redirectTo, pathname));
-    } else if (!requireAuth && user) {
+      const target = buildRedirectUrl(redirectTo, pathname);
+      // No one transitions unaccompanied: a spent recovery link says so.
+      router.push(
+        pathname === AUTH_ROUTES.RESET_PASSWORD
+          ? `${target}&${AUTH_ERROR_PARAM}=${AUTH_ERRORS.RECOVERY_MISSING}`
+          : target
+      );
+    } else if (!requireAuth && user && signedInOnArrival.current) {
       router.push(AUTH_ROUTES.DASHBOARD);
     }
   }, [user, loading, requireAuth, redirectTo, router, pathname]);

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--sanctuary-green:#00B894;--hearth-gold:#FDCB6E;--error:#E17055;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;} a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 4px;">
+    <span style="font-size:13px;font-weight:700;color:#E17055;">&#10005;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; choose your body before you pay</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 18px;">One ware, one body, chosen at the stall. The shape every app store uses.</p>
+
+  <div class="card" style="padding:18px 16px;margin-bottom:18px;opacity:.72;">
+    <p class="rl-h" style="margin-bottom:12px;">What it looked like</p>
+    <p style="margin:0 0 11px;font-size:12.5px;color:rgba(224,224,224,.70);">Which do you need?</p>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(34,211,238,.45);background:rgba(34,211,238,.08);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid #22D3EE;flex:none;display:flex;align-items:center;justify-content:center;"><span style="width:7px;height:7px;border-radius:9999px;background:#22D3EE;"></span></span>
+        <span style="font-size:12.5px;">Android</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid rgba(224,224,224,.35);flex:none;"></span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);">Windows &mdash; installer</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid rgba(224,224,224,.35);flex:none;"></span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);">Windows &mdash; MSI</span>
+      </div>
+    </div>
+    <div style="margin-top:13px;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:11px;background:#6C5CE7;color:#FFFFFF;font-size:14px;">Bring home &mdash; $3.33</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div>
+      <p class="rl-h">The case for it, honestly</p>
+      <p class="rl-b">It is the pattern every vessel has already learned, so nobody has to be taught it. It keeps the success page to one file instead of three. It matches the base as it stands, where a ware could carry one <span class="src">file_registry</span> row and be done. And it is genuinely less to read at the moment of deciding.</p>
+    </div>
+    <div>
+      <p class="rl-h">The ground that declined it</p>
+      <p class="q">&ldquo;they will all be desktop and mobile apps&rdquo;</p>
+      <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim &middot; PLAN &sect;5, ruled the same day as: <span class="k">one <span class="src">works</span> row + one <span class="src">wares</span> row per app carrying <em>all its bodies</em></span>. Not a ware per body &mdash; a ware with bodies. The ruling settles the schema and the interface in one sentence, and a chooser contradicts it.</p>
+      <p class="rl-b">Beneath the ruling, the reason it is right. <span class="src">RELEASE-STRUCTURE.md</span>, via PLAN &sect;5: both desktop bundles are release artifacts &mdash; <em>&ldquo;many people cannot use a phone for this.&rdquo;</em> A chooser asks a vessel to predict, at the moment of exchange, which machine they will be at when they finally have the energy to install something. For this house&rsquo;s people that is not a small question, and getting it wrong should not cost a second exchange.</p>
+      <p class="rl-b" style="margin-top:9px;">And there is a quieter harm. A chooser turns the body into part of the purchase &mdash; the thing you bought was <em>the Android one</em>. It is not. The thing you brought home is the work, and the files are how it reaches you. <span class="k">A radio group at the moment of paying teaches the opposite, in a house whose whole thesis is that worth is not the transaction.</span></p>
+    </div>
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">The list of bodies moved <em>earlier</em> rather than being dropped. It stands on the stall before the gesture, under <em>&ldquo;What you receive&rdquo;</em>, so a vessel still knows exactly what is coming &mdash; which was the chooser&rsquo;s one real virtue. What went is the obligation to pick, and the sentence that replaced it says why: <span class="k">&ldquo;All three come with it. You choose when you have it &mdash; not now, and not once.&rdquo;</span></p>
+      <p class="rl-b" style="margin-top:9px;">Its refusal also forced the re-ask edge onto board &#9318;. If a vessel never has to choose, the delivery cannot be a one-shot &mdash; the bodies must stay askable from the stall forever. The declined design is why that edge exists.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

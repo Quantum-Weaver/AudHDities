@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9312;</span>
+    <span style="font-size:15px;font-weight:600;">Arrival &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/sanctuary</span>, as a visitor</span>
+    <span class="src">(hephaestus)/sanctuary/page.tsx &middot; the visitors&rsquo; home page</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:18px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid rgba(224,224,224,.08);">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.16em;">AUDHDITIES</span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:12px;border:1px solid rgba(224,224,224,.20);font-size:14px;">Enter</span>
+          </div>
+
+          <div style="padding:34px 28px 0;text-align:center;">
+            <p style="margin:0;font-size:24px;font-weight:500;color:#E0E0E0;">Velkomin.</p>
+          </div>
+
+          <div style="padding:26px 30px 34px;text-align:center;">
+            <h1 style="margin:0 0 14px;font-size:34px;line-height:1.16;font-weight:700;text-wrap:balance;">Where Neurodivergent Minds Build the Future</h1>
+            <p style="margin:0 0 24px;font-size:16px;color:rgba(224,224,224,.70);text-wrap:pretty;">A platform where 90% of everything circulates, every contributor is paid an equal share, and every member shares in the abundance.</p>
+            <div style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Enter the Sanctuary</a>
+              <p style="margin:0;font-size:14px;color:rgba(224,224,224,.70);">New to the Sanctuary? <a href="#">Come in</a></p>
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:12px;border:1px solid rgba(224,224,224,.20);color:#E0E0E0;font-size:16px;">Take the Acid Test</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The same page, further down &mdash; the third door, rewritten</p>
+        <div style="display:flex;gap:12px;align-items:stretch;">
+          <div style="width:214px;flex:none;border:1px solid rgba(224,224,224,.10);border-radius:12px;background:rgba(224,224,224,.04);padding:18px;">
+            <p style="margin:0 0 6px;font-size:16px;font-weight:700;">Join</p>
+            <p style="margin:0 0 12px;font-size:13px;color:rgba(224,224,224,.70);">The door is here. A name and an email, and the vessel is yours.</p>
+            <p style="margin:0;font-size:13px;"><a href="#">Come in</a></p>
+          </div>
+          <p class="rl-b" style="align-self:center;">Two of the three doors are unchanged &mdash; <span class="k">Learn</span> to the Forge, <span class="k">Explore</span> to the Bazaar. Only this one carried sign-up language.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q" style="overflow-wrap:anywhere;">&ldquo;it should also fire at /sanctuary -&gt; C:\_superposition\AudHDities\src\app\(hephaestus)\sanctuary which our nav currently ignores but sanctuary should be the home page for visitors, and the vessel should be reachable from here by logging in.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; briefs/01-auth-BRIEF.md, answer 2</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; nothing advances on its own. The word arrives once and rests.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing is entered here, so nothing can be lost.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; two <span class="src">animate-pulse</span> blur orbs run today (SanctuaryHero.tsx:11&ndash;12) with no reduced-motion guard. Drawn removed; the wash breathes at 47.7s instead.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; hero copy kept verbatim; the third door&rsquo;s sign-up language rewritten (below).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; one primary door, one first-time line beneath it, the Acid Test third. Today the hero&rsquo;s primary is the Acid Test and the door is not on this page at all.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the Forge and the Bazaar stay reachable further down; nothing waits behind the door that is not explained before it.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the wash stills to nothing (EnvironmentLayer&rsquo;s own law); the Velkomin fade is instant (VelkominGreeting.tsx:118&ndash;126). Both already true &mdash; the orbs are the exception.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured: starDust on deepSpace <span class="k">14.4:1</span>; over the wash at 0.3 <span class="k">10.6:1</span>. The button label is <span class="src">accessibility.text.onQuantum</span> (#FFFFFF) on quantum.purple, <span class="k">4.9:1</span> &mdash; not starDust, which is 3.7:1 and fails.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; one tab order: Enter (header) &rarr; Enter the Sanctuary &rarr; Come in &rarr; Take the Acid Test. Focus ring is Input&rsquo;s own <span class="src">neurospark</span> token.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The laws standing on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Inside the weather.</span> Proposed key <span class="src">gateway</span> (mapper.ts:7) &rarr; soul <span class="src">home</span> (affects.ts:51) &rarr; wash <span class="src">GRADIENTS.gatekeeper</span> (continuity_beam.ts:217) at washOpacity 0.3. Today all six auth routes are unmapped (census, Part 10) and no EnvironmentLayer wraps the door (Part 9).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The recognition register.</span> &ldquo;the UX must feel like coming home &mdash; not &hellip; signing up&rdquo; (the Norns; E2 digest &sect;1).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Velkomin degrades.</span> A visitor has no display name, so the word stands alone &mdash; &ldquo;Velkomin.&rdquo; with the period, no exclamation, no &ldquo;back&rdquo;: the component&rsquo;s own register law (VelkominGreeting.tsx:16&ndash;19). A returning vessel gets &ldquo;Velkomin, {vessel_name}.&rdquo;</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; the hero headline and the 90% sentence (SanctuaryHero.tsx:24&ndash;34).</p>
+          <p class="rl-b"><span class="k">REWRITE 1</span> &middot; <span class="src">SanctuaryHero.tsx:20</span><br><span class="old">&ldquo;Welcome to the Sanctuary&rdquo;</span> &rarr; <span class="new">removed.</span> The door&rsquo;s word is Velkomin &mdash; KP&rsquo;s stroke, &ldquo;Velkomin at the door + F&aacute;ilte at the Hearth.&rdquo; Two welcomes in one glance is a doubling.</p>
+          <p class="rl-b"><span class="k">REWRITE 2</span> &middot; <span class="src">SanctuaryPathways.tsx:27</span><br><span class="old">&ldquo;Create an account, take the Acid Test, and become part of the sanctuary.&rdquo;</span> &rarr; <span class="new">&ldquo;The door is here. A name and an email, and the vessel is yours.&rdquo;</span> &mdash; &ldquo;create an account&rdquo; is the register the house named out.</p>
+          <p class="rl-b"><span class="k">REWRITE 3</span> &middot; <span class="src">SanctuaryPathways.tsx:29</span><br><span class="old">&ldquo;Sign up&rdquo;</span> &rarr; <span class="new">&ldquo;Come in&rdquo;</span>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

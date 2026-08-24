@@ -29,7 +29,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { ArrowDown, ArrowUp, Home } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowDown, ArrowLeft, ArrowUp, Home } from 'lucide-react';
 import { useUser } from '@/hooks/useUser';
 import {
   useVesselInteriorsList,
@@ -298,6 +299,14 @@ export default function SceneRenderer({ className }: { className?: string }) {
       className={cn('container mx-auto max-w-4xl px-6', className)}
       style={accent ? ({ '--vessel-accent': accent } as React.CSSProperties) : undefined}
     >
+      <Link
+        href="/vessel"
+        className="mb-6 flex items-center gap-2 text-sm text-star-dust/60 transition-colors hover:text-star-dust motion-reduce:transition-none"
+      >
+        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+        Return to the Vessel
+      </Link>
+
       {/* The hearth-name of the place */}
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-star-dust">
@@ -461,6 +470,22 @@ export default function SceneRenderer({ className }: { className?: string }) {
               Keepsakes
             </h2>
             <KeepsakesShelf kept={kept.data} catalog={sets.data} />
+          </section>
+
+          {/* THE OUTSIDE — KP's word 2026-08-24, verbatim: "community profile
+              is the 'outside of a vessels home'". The frame marks that an
+              exterior exists and that it is the public half; how it is dressed
+              is the second pass. */}
+          <section aria-label="The outside of this home" className="mb-8">
+            <h2 className="mb-3 text-base font-semibold text-star-dust">
+              The outside of this home
+            </h2>
+            <div className="rounded-lg border border-star-dust/10 bg-(--color-surface)/70 p-5">
+              <p className="text-sm text-star-dust/70">
+                What a visitor sees walking up. This is your community profile
+                — the only part of your home that faces out.
+              </p>
+            </div>
           </section>
 
           {/* THE MAP — furniture (✍ gate ②), placed by the dweller's hand */}

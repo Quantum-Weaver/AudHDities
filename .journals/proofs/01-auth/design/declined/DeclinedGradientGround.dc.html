@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:28px 30px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 16px;">
+    <span style="font-size:14px;font-weight:700;color:#E17055;">DECLINED</span>
+    <span style="font-size:14px;font-weight:600;">Keeping the full-strength gradient as the ground</span>
+  </div>
+
+  <div style="border:1px dashed rgba(224,224,224,.22);border-radius:12px;overflow:hidden;background-image:linear-gradient(135deg,#0C0F1D 0%,#6C5CE7 100%);padding:30px 24px;text-align:center;margin-bottom:18px;">
+    <h1 style="margin:0 0 8px;font-size:24px;font-weight:700;">Return to the Sanctuary</h1>
+    <p style="margin:0 0 18px;font-size:15px;color:rgba(224,224,224,.70);">Your email and password. Take your time.</p>
+    <div style="height:40px;border:1px solid rgba(255,255,255,.14);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.55);">your@email.com</div>
+    <p style="margin:14px 0 0;font-size:11px;color:rgba(224,224,224,.55);">no card &mdash; text laid straight onto the realm hue at full strength</p>
+  </div>
+
+  <p class="rl-h">What it was</p>
+  <p class="rl-b" style="margin-bottom:14px;">What the door does today: <span class="src">authPageVariants()</span> paints <span class="src">GRADIENTS['cosmicDomain']</span> (auth.constants.ts:111) &mdash; a <span class="src">deepSpace &rarr; quantum.purple</span> diagonal &mdash; and the form sits on it directly. It looks rich, and keeping it would have been the smallest possible change.</p>
+
+  <p class="rl-h">Why it was declined</p>
+  <div style="display:flex;flex-direction:column;gap:9px;">
+    <p class="rl-b"><span class="k">1 &mdash; the 0.3 wash is an accessibility structure, not a taste.</span> HANDOFF.md:62&ndash;67, measured: starDust on a domain colour at full strength runs <span class="k">1.2:1 to 9.6:1 &mdash; mostly failing</span>, against 14.4:1 on the ground. Text legibility must never depend on which realm you are standing in.</p>
+    <p class="rl-b"><span class="k">2 &mdash; the brief already filed it.</span> It is the first entry under law-failing surfaces: a raw <span class="src">linear-gradient()</span> string used as a cva class, with no card beneath.</p>
+    <p class="rl-b"><span class="k">3 &mdash; and the mend is not this canvas&rsquo;s to make.</span> KP &#9883;, answer 3, verbatim: <span class="k">&ldquo;wait for phase 0a&rdquo;</span>. So the boards draw the structure the law asks for &mdash; ground, card, weather at 0.3 &mdash; and leave the gradient-as-classname exactly where he put it.</p>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -15,6 +15,7 @@
 // mirror retired 2026-08-12 after athena's repoint (013) — vessel_config
 // is the one source, both rooms agreeing.
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
 import { Card } from '@/components/runes/Card';
@@ -50,6 +51,9 @@ export function SanctumContent() {
   const [environmentPreference, setEnvironmentPreference] = useState<string>('home:1');
   const [bubbleDailyMax, setBubbleDailyMax] = useState(500);
   const [bubbleHourlyMax, setBubbleHourlyMax] = useState(100);
+  // KP's word 2026-08-24: a switch here puts a "Play bubbles" button on the
+  // vessel's own face. Off by default, like everything else in this room.
+  const [bubbleVesselButton, setBubbleVesselButton] = useState(false);
   // Bubble caps save debounced (slider drags fire many changes); the flag
   // keeps the initial config load from writing itself straight back.
   const [bubbleTouched, setBubbleTouched] = useState(false);
@@ -83,6 +87,7 @@ export function SanctumContent() {
           }
           if (typeof raw.bubble_daily_max === 'number') setBubbleDailyMax(raw.bubble_daily_max);
           if (typeof raw.bubble_hourly_max === 'number') setBubbleHourlyMax(raw.bubble_hourly_max);
+          setBubbleVesselButton(raw.bubble_vessel_button === true);
         }
       })
       .catch(() => {});
@@ -107,7 +112,7 @@ export function SanctumContent() {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6 text-center">
-          <p className="text-star-dust/60">Sign in to access your Sanctum.</p>
+          <p className="text-star-dust/60">Enter the Sanctuary to see your vessel.</p>
         </div>
       </main>
     );
@@ -202,13 +207,15 @@ export function SanctumContent() {
           precedent. A sovereignty surface speaks plainly and reads always. */}
       <div className="container max-w-4xl mx-auto px-6">
 
-        <button
-          onClick={() => router.back()}
+        {/* A real Link, not router.back(): arriving from the home's doorway
+            made a button labelled "Vessel" go back to the home instead. */}
+        <Link
+          href="/vessel"
           className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust mb-8 transition-colors text-sm"
         >
           <ArrowLeft className="h-4 w-4" />
           Return to Vessel
-        </button>
+        </Link>
 
         <h1 className="text-3xl font-bold text-star-dust mb-8">Your Sanctum</h1>
 
@@ -272,16 +279,22 @@ export function SanctumContent() {
           className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Accessibility</h2>
-          <p className="text-sm text-star-dust/40 mb-4">
+          <p className="text-sm text-star-dust/70 mb-4">
             Shape the Sanctuary to welcome your nervous system.
           </p>
           <div className="space-y-4">
+            {/* `checked`, not `defaultChecked`: the config read lands after
+                first paint, so an uncontrolled switch showed OFF for a vessel
+                who had turned it on. */}
             <Switch
               label="Dyslexia-friendly mode"
               size="md"
-              defaultChecked={dyslexiaFont}
+              checked={dyslexiaFont}
               onChange={(checked) => { setDyslexiaFont(checked); updateConfigField('dyslexia_font', checked); }}
             />
+            <p className="text-xs text-star-dust/70">
+              Off unless you turn it on. It stays on once you do.
+            </p>
           </div>
         </Card>
 
@@ -298,7 +311,7 @@ export function SanctumContent() {
           className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Your Realm</h2>
-          <p className="text-sm text-star-dust/40 mb-4">
+          <p className="text-sm text-star-dust/70 mb-4">
             Choose the environment the Sanctuary wears for you — previewed as
             you choose, remembered every time you return.
           </p>
@@ -325,7 +338,7 @@ export function SanctumContent() {
           className="p-8 mb-6 bg-surface/90"
         >
           <h2 className="text-lg font-semibold text-star-dust mb-4">Ceremonies</h2>
-          <p className="text-sm text-star-dust/40 mb-4">
+          <p className="text-sm text-star-dust/70 mb-4">
             Small rites at the thresholds — yours to invite, easy to decline.
             Nothing plays unless you choose it here.
           </p>
@@ -378,7 +391,7 @@ export function SanctumContent() {
             <Shield className="h-4 w-4 text-neurospark" />
             <h2 className="text-lg font-semibold text-star-dust">Your Daily Rhythm</h2>
           </div>
-          <p className="text-sm text-star-dust/40 mb-6">
+          <p className="text-sm text-star-dust/70 mb-6">
             Your own boundaries for the bubbles — a kindness to your future
             self, never a score. They follow your vessel to every device.
           </p>
@@ -407,6 +420,19 @@ export function SanctumContent() {
               step={10}
               onValueChange={([v]) => { setBubbleTouched(true); setBubbleHourlyMax(v); }}
             />
+          </div>
+          <div className="mt-6 border-t border-star-dust/10 pt-6 text-left">
+            <Switch
+              label="Show a “Play bubbles” button on my vessel"
+              size="md"
+              checked={bubbleVesselButton}
+              onChange={(checked) => { setBubbleVesselButton(checked); updateConfigField('bubble_vessel_button', checked); }}
+            />
+            <p className="text-xs text-star-dust/70 mt-2">
+              Off by default. Turn it on and the button waits on your vessel;
+              turn it off and it is gone. The bubbles are always at the Library
+              either way.
+            </p>
           </div>
         </Card>
 

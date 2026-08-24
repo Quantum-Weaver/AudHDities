@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--error:#E17055;--hearth-gold:#FDCB6E;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 6px;">
+    <span style="font-size:14px;font-weight:700;color:#E17055;">&times;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; designing the garden, collections and companions now</span>
+  </div>
+  <p class="src" style="margin:0 0 20px;">board &#9313; &middot; declined by the build law</p>
+
+  <div style="border:1px solid rgba(225,112,85,.28);border-radius:12px;background:rgba(225,112,85,.04);padding:20px 22px;margin-bottom:20px;">
+    <p class="rl-h" style="margin-bottom:10px;">What was drawn, and set down</p>
+    <p class="rl-b" style="margin-bottom:12px;">Three more boards: plot art through the stage ladder, a collection-set shelf with its shimmer, and a companion &mdash; the pet &mdash; standing in the room with its own quiet state.</p>
+    <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:16px;">
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;">
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:8px;padding:12px;text-align:center;">
+          <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.50);">Moonpetal</p>
+          <p style="margin:3px 0 0;font-size:10px;color:rgba(224,224,224,.35);">In bloom</p></div>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:8px;padding:12px;text-align:center;">
+          <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.50);">Emberleaf</p>
+          <p style="margin:3px 0 0;font-size:10px;color:rgba(224,224,224,.35);">Resting</p></div>
+        <div style="border:1px dashed rgba(224,224,224,.14);border-radius:8px;padding:12px;text-align:center;">
+          <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.35);">Waiting for a seed</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <p class="rl-h">Why it was declined &mdash; KP&rsquo;s word the same day</p>
+    <p class="q">&ldquo;i magine building the framework for each of the next realms before the features within is a good approach, as some features are cross referenced realm-wise. the game side of the vessel experience, not as vital as a functional bazaar, athena with contents, etc&rdquo;</p>
+    <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. He names the game side of the vessel <span class="k">by name</span> and puts it after the frame. The garden, the collections and the companions <em>are</em> that side.</p>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <p class="rl-h">And a second reason, from the ground</p>
+    <p class="rl-b"><span class="k">Designing these now would be designing against empty tables.</span> <span class="src">vessel_interiors</span>, <span class="src">vessel_decorations</span>, <span class="src">garden_plots</span> and <span class="src">plant_stages</span> are BUILT schema holding <span class="k">no rows</span> (E2 digest &sect;2), and KP sequenced the seeding himself: <em>&ldquo;we are going to seed the database with assets for the experiences and collections discussed and designed&rdquo;</em> &hellip; <em>&ldquo;after we design the front&rdquo;</em> (E2 &sect;1, L1950&ndash;1954). Drawing a plot that shows &ldquo;Moonpetal&rdquo; invents a seed catalog that is his to seed.</p>
+    <p class="rl-b" style="margin-top:9px;">The companion is the sharpest case. KP&rsquo;s ruling corrects the whole research direction: <em>&ldquo;companion clues is supposed to be a gentle reminder about the vessels actual pets in life&rdquo;</em> (E4 &sect;1). A companion is a person&rsquo;s <span class="k">real animal</span>, remembered. <span class="k">There is no honest way to draw someone else&rsquo;s pet</span>, and a designed placeholder would be exactly the invented-creature attachment his ruling exists to prevent.</p>
+  </div>
+
+  <div>
+    <p class="rl-h">What was kept from it</p>
+    <p class="rl-b">The <span class="k">places</span>. Board &#9313; draws all four as reserved ground with their real empty-state copy quoted verbatim, so the frame shows where they land without pretending to have landed them. That is what a marked second pass is for: <span class="k">a space held open is information; a space filled in early is a decision taken from him.</span></p>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

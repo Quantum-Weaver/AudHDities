@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { BookOpen, Compass, GraduationCap, FileText, Award, Droplets, ArrowRight, Sparkles } from 'lucide-react';
+import { BookOpen, Compass, GraduationCap, FileText, Award, Droplets, Puzzle, ArrowRight, Sparkles } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const SECTIONS = [
@@ -13,6 +13,7 @@ const SECTIONS = [
   { title: 'The Archive', description: 'Mythology, taxonomy, and ancient wisdom', href: '/library/knowledge', icon: BookOpen, color: 'text-rose-400', bg: 'bg-rose-500/10' },
   { title: 'The Honors', description: 'Sigils earned through sovereignty', href: '/library/badges', icon: Award, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
   { title: 'The Floating Stars', description: 'Collect bubbles and earn points', href: '/library/bubbles', icon: Droplets, color: 'text-teal-400', bg: 'bg-teal-500/10' },
+  { title: 'The Dailies', description: 'Word puzzles drawn from the Grammar', href: '/library/dailies', icon: Puzzle, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
 ];
 
 export function LibraryHub() {

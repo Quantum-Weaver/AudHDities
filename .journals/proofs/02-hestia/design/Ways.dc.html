@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .tb{width:100%;border-collapse:collapse;font-size:12px;}
+    .tb th{text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);font-weight:600;padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tb td{padding:8px 10px 8px 0;border-bottom:1px solid rgba(224,224,224,.07);
+      color:rgba(224,224,224,.78);vertical-align:top;line-height:1.45;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9319;</span>
+    <span style="font-size:15px;font-weight:600;">The ways between &mdash; the adjacency law, drawn as a graph</span>
+    <span class="src">every Link in (hestia), traced &middot; the frame KP&rsquo;s build law asks for</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+          <p class="rl-h" style="margin-bottom:14px;">The realm as it is wired today</p>
+          <svg viewBox="0 0 426 372" width="100%" height="372" role="img" aria-label="The hestia realm's route graph as wired today">
+            <defs>
+              <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(224,224,224,.45)"/>
+              </marker>
+              <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(0,184,148,.85)"/>
+              </marker>
+            </defs>
+
+            <g stroke="rgba(224,224,224,.30)" stroke-width="1.4" marker-end="url(#ar)" marker-start="url(#ar)" fill="none">
+              <line x1="213" y1="140" x2="213" y2="60"/>
+              <line x1="182" y1="166" x2="96" y2="200"/>
+              <line x1="244" y1="166" x2="330" y2="200"/>
+              <line x1="196" y1="176" x2="140" y2="272"/>
+              <line x1="230" y1="176" x2="286" y2="272"/>
+            </g>
+
+            <g stroke="rgba(225,112,85,.85)" stroke-width="1.6" stroke-dasharray="5 4" fill="none">
+              <line x1="213" y1="146" x2="213" y2="322" marker-end="url(#ar)"/>
+            </g>
+
+            <g stroke="rgba(0,184,148,.75)" stroke-width="1.4" marker-end="url(#arg)" fill="none">
+              <path d="M 62 226 C 30 268 42 316 96 330"/>
+            </g>
+
+            <rect x="163" y="34" width="100" height="26" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+            <text x="213" y="51" fill="rgba(224,224,224,.85)" font-size="11" text-anchor="middle" font-family="sans-serif">The Sanctum</text>
+
+            <rect x="158" y="140" width="110" height="36" rx="9" fill="#1A1F35" stroke="rgba(34,211,238,.55)" stroke-width="1.5"/>
+            <text x="213" y="156" fill="#22D3EE" font-size="12" text-anchor="middle" font-family="sans-serif" font-weight="600">/vessel</text>
+            <text x="213" y="169" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">the hub</text>
+
+            <rect x="34" y="188" width="118" height="38" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+            <text x="93" y="204" fill="rgba(224,224,224,.85)" font-size="11" text-anchor="middle" font-family="sans-serif">The Scroll</text>
+            <text x="93" y="217" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">list &#8644; entry &#8644; edit</text>
+
+            <rect x="274" y="188" width="118" height="38" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+            <text x="333" y="204" fill="rgba(224,224,224,.85)" font-size="11" text-anchor="middle" font-family="sans-serif">The Call</text>
+            <text x="333" y="217" fill="rgba(224,224,224,.55)" font-size="9" text-anchor="middle" font-family="sans-serif">list &#8644; herald</text>
+
+            <rect x="76" y="264" width="118" height="38" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+            <text x="135" y="280" fill="rgba(224,224,224,.85)" font-size="11" text-anchor="middle" font-family="sans-serif">Energy Log</text>
+            <text x="135" y="293" fill="#E17055" font-size="9" text-anchor="middle" font-family="sans-serif">list &#8594;| entry</text>
+
+            <rect x="232" y="264" width="118" height="38" rx="7" fill="#1A1F35" stroke="rgba(224,224,224,.20)"/>
+            <text x="291" y="280" fill="rgba(224,224,224,.85)" font-size="11" text-anchor="middle" font-family="sans-serif">Constellation</text>
+            <text x="291" y="293" fill="#E17055" font-size="9" text-anchor="middle" font-family="sans-serif">no door from the hub</text>
+
+            <rect x="154" y="322" width="118" height="34" rx="7" fill="#1A1F35" stroke="rgba(225,112,85,.45)"/>
+            <text x="213" y="337" fill="rgba(224,224,224,.85)" font-size="11" text-anchor="middle" font-family="sans-serif">The Home</text>
+            <text x="213" y="349" fill="#E17055" font-size="9" text-anchor="middle" font-family="sans-serif">no way back</text>
+
+            <rect x="8" y="208" width="52" height="24" rx="6" fill="none" stroke="rgba(0,184,148,.45)" stroke-dasharray="3 3"/>
+            <text x="34" y="224" fill="rgba(0,184,148,.85)" font-size="9" text-anchor="middle" font-family="sans-serif">Studio</text>
+          </svg>
+
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;">
+            <span style="display:inline-flex;gap:7px;align-items:center;font-size:10.5px;color:rgba(224,224,224,.70);"><span style="width:16px;height:0;border-top:1.4px solid rgba(224,224,224,.45);"></span>walks both ways</span>
+            <span style="display:inline-flex;gap:7px;align-items:center;font-size:10.5px;color:rgba(224,224,224,.70);"><span style="width:16px;height:0;border-top:1.6px dashed #E17055;"></span>one way only</span>
+            <span style="display:inline-flex;gap:7px;align-items:center;font-size:10.5px;color:rgba(224,224,224,.70);"><span style="width:16px;height:0;border-top:1.4px solid rgba(0,184,148,.85);"></span>the shortest edge, out of the realm</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Every way in and out, counted</p>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:12px;background:#0C0F1D;padding:18px 20px;">
+          <table class="tb">
+            <tr><th style="width:33%;">room</th><th style="width:33%;">way in</th><th>way out</th></tr>
+            <tr><td><span class="src">/dashboard</span></td><td>legacy address</td><td>redirects to <span class="src">/vessel</span> &mdash; holds</td></tr>
+            <tr><td><span class="src">/vessel</span> &mdash; the hub</td><td>login, signup, nav, every room&rsquo;s back link</td><td>six rooms, the Sanctum among them</td></tr>
+            <tr><td><span class="src">/vessel/home</span></td><td>the hub&rsquo;s grid</td><td style="color:#E17055;">the Studio and the Sanctum &mdash; <span class="k" style="color:#E17055;">never the hub</span></td></tr>
+            <tr><td><span class="src">/vessel/sanctum</span></td><td>the hub, the home&rsquo;s doorway</td><td style="color:#FDCB6E;"><span class="src">router.back()</span> labelled &ldquo;Return to Vessel&rdquo;</td></tr>
+            <tr><td><span class="src">/vessel/journal</span></td><td>the hub, a constellation tile</td><td>&ldquo;Return to Vessel&rdquo; &mdash; holds</td></tr>
+            <tr><td><span class="src">/vessel/energy</span></td><td>the hub</td><td>&ldquo;Return to Vessel&rdquo; &mdash; holds</td></tr>
+            <tr><td><span class="src">/vessel/energy/[id]</span></td><td style="color:#E17055;">nothing links to it, anywhere</td><td>&ldquo;Return to Energy Log&rdquo;</td></tr>
+            <tr><td><span class="src">/vessel/constellation</span></td><td style="color:#E17055;">the nav&rsquo;s user menu only</td><td>&ldquo;Return to Vessel&rdquo; &mdash; holds</td></tr>
+            <tr><td><span class="src">/notifications</span></td><td>the hub, the nav</td><td>&ldquo;Return to Vessel&rdquo; &mdash; holds</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The law this board is the whole of</p>
+        <p class="q">&ldquo;the animal crossing type interior and exterior, gardening and flowers blooming nothing dying, all only steps away from the creative studios.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, THE IMMERSION VISION given whole (E2 digest &sect;1, L601&ndash;607). The bus reads &ldquo;only steps away&rdquo; as <span class="k">a distance metric, not a nav tree</span> (&sect;2). So a way between rooms is not a link that exists &mdash; it is a link a vessel can <em>see from where they are standing</em>.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The shape the realm actually has</p>
+        <p class="rl-b"><span class="k">Hub and spoke, and the hub is load-bearing.</span> Five of the seven rooms can be reached from exactly one place &mdash; <span class="src">/vessel</span> &mdash; and every one of them returns there by name. That is a legitimate adjacency pattern (E2 &sect;2, pattern 4: hub-and-spoke with earned folds) and it is <span class="k">intelligible</span>: every room is two steps from every other, and a vessel never has to remember a path.</p>
+        <p class="rl-b" style="margin-top:8px;">It works because <span class="k">the exit is always in the same place</span> &mdash; top left, same words, same arrow, in five of six rooms. The consistency is doing the work, not the link count.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Three breaks in the frame</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The home is a one-way room.</span> <span class="src">SceneRenderer.tsx</span> has no back link at all. It has doorways <em>out of the realm</em> (the Studio) and deeper <em>into</em> it (the Sanctum) &mdash; so the room a vessel is meant to dwell in offers every direction except home. Board &#9313;.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Two rooms have no door from the hub.</span> The Constellation is reachable only from the nav&rsquo;s user menu (navigation.ts:80); an energy entry is reachable from <span class="k">nowhere at all</span>. A room behind a menu is not a step away, and a room behind a URL is not in the house.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One exit is named for a place it may not go.</span> <span class="src">SanctumContent.tsx:206</span> is <span class="src">router.back()</span> under the words &ldquo;Return to Vessel&rdquo;. Arrive at the Sanctum from the <em>home&rsquo;s</em> doorway &mdash; a real path, SceneRenderer:503 &mdash; and the button labelled Vessel returns you to the home. <span class="k">An exit that lies about where it goes is worse than an unnamed one</span>, because a vessel stops trusting the sign. Drawn as a real <span class="src">Link</span> to <span class="src">/vessel</span>; the save at :189 already goes there.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The mend, in four edges</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Home &rarr; hub.</span> The same back link the other five rooms carry, in the same corner.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Hub &rarr; Constellation.</span> One tile in a grid that already holds five. Board &#9312;.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Energy list &rarr; entry.</span> Wrap the card that is already built. Board &#9316;.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Sanctum &rarr; hub, honestly.</span> A <span class="src">Link</span>, not history.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">Four edges, no new rooms, no new copy except one tile name taken from the nav. <span class="k">This is what &ldquo;framework first&rdquo; looks like in a realm that is already built</span> &mdash; the rooms all stand; four of the ways between them do not.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The way out of the realm, and why it is drawn short</p>
+        <p class="rl-b">Home&rarr;Studio is the <span class="k">shortest edge in the house</span>, and it is deliberate: <em>&ldquo;the creative act must be near the safe place&rdquo;</em> (RealmMapFurniture.tsx:13&ndash;14, carrying KP&rsquo;s adjacency law). It is drawn as a <span class="k">sight-line</span> &mdash; the neighbour realm&rsquo;s own beam gradient standing still down the left edge of the doorway, <em>&ldquo;a sliver, not a show&rdquo;</em> (SceneDoorway.tsx:51&ndash;52). The pair&rsquo;s rule, held jointly on the bus: <span class="k">&ldquo;visibility is the invitation; movement is a tap on the shoulder.&rdquo;</span> Nothing pulls; the door is simply visible from inside the room.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">And the map, which is the tenth way</p>
+        <p class="rl-b">The realm map (board &#9313;) is furniture holding <span class="k">ten fixed doors</span> in an order that <em>never shuffles</em> &mdash; <span class="src">REALM_MAP_ORDER</span>, first row the shortest edge, hearth beside studio. Its own law: <em>&ldquo;a layout is a place when its map can be held in the head&rdquo;</em> (RealmMapFurniture.tsx:28&ndash;30). It resolves the bus&rsquo;s one real tension &mdash; positions never shuffle, yet the vessel re-sites things &mdash; the way E2b resolved it: <span class="k">stability is a promise to the walker; re-siting is the dweller&rsquo;s sovereign act</span> (&sect;2). The map&rsquo;s geometry is fixed; where the map is <em>kept</em> is the vessel&rsquo;s to choose.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, applied to movement itself</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; no route redirects on a timer; no room pushes a vessel onward. The one automatic move in the realm is <span class="src">/dashboard &rarr; /vessel</span>, and it is a legacy address finding its room.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; the whole point of the hub. Six named doors, one screen, no submenu.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; nothing animates between rooms; the ContinuityBeam is the only thing that crosses, and it stills under the same law as the wash.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; every exit in the realm is &ldquo;Return to&nbsp;&hellip;&rdquo; plus the room&rsquo;s own name. No &ldquo;Back to dashboard&rdquo;, no breadcrumb trail, no &ldquo;&times;&rdquo;. Kept everywhere.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; every mended edge is a real <span class="src">&lt;Link&gt;</span>, which is the whole reason to prefer a link over <span class="src">router.back()</span>: a link can be focused, opened in a new tab, and read aloud with its destination.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">decompression at the door</span> &mdash; E2 &sect;2&rsquo;s sixth adjacency pattern, and this realm has it without naming it: every room opens with its back link <em>above</em> its title, so the way out is read before the room is.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Second pass, marked on the graph</p>
+        <p class="rl-b">Nothing on this board is second pass. <span class="k">The ways between rooms are the frame itself</span> &mdash; and by KP&rsquo;s build law they are what a realm owes before any feature inside it: <em>&ldquo;building the framework for each of the next realms before the features within&hellip; as some features are cross referenced realm-wise.&rdquo;</em> The two cross-realm edges here prove it: hermes&rsquo; checkout writes decorations into a hestia room, and the map holds ten doors to realms not yet drawn. Both are <span class="k">edges the frame must already have</span> for the features to land into later.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9315;</span>
+    <span style="font-size:15px;font-weight:600;">Asking for a way back &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/forgot-password</span>, both states</span>
+    <span class="src">(auth)/forgot-password/page.tsx &rarr; ForgotPasswordForm.tsx</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Before &mdash; the ask</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:30px 22px 34px;">
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:30px 28px;">
+
+              <div style="text-align:center;margin-bottom:24px;">
+                <h1 style="margin:0 0 8px;font-size:28px;font-weight:700;line-height:1.25;">Reset your password</h1>
+                <p style="margin:0;font-size:16px;color:rgba(224,224,224,.70);">Enter your email and we&rsquo;ll send you a link to set a new one.</p>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:18px;">
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Email</label>
+                  <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">your@email.com</div>
+                </div>
+                <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Send Reset Link</a>
+              </div>
+
+              <div style="margin-top:22px;text-align:center;">
+                <p style="margin:0;font-size:14px;"><a href="#">Return to login</a></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">After &mdash; the sent state, and it discloses nothing</p>
+        <div style="position:relative;border:1px solid rgba(0,184,148,.35);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:30px 22px 34px;">
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:32px 28px;text-align:center;">
+
+              <h1 style="margin:0 0 10px;font-size:28px;font-weight:700;line-height:1.25;">The link is on its way</h1>
+              <p style="margin:0 0 20px;font-size:16px;color:rgba(224,224,224,.70);text-wrap:pretty;">If that address has a home here, a reset link is heading to it now. Take your time &mdash; the door will wait.</p>
+
+              <p style="margin:0 0 22px;font-size:14px;color:rgba(224,224,224,.70);text-wrap:pretty;">Didn&rsquo;t arrive? Check the spam folder, then ask again with the same address. Nothing is spent by asking twice.</p>
+
+              <p style="margin:0;font-size:14px;"><a href="#">Return to login</a></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The no-disclosure register &mdash; already right</p>
+        <p class="rl-b">The sent state never says whether the address exists. <em>&ldquo;If that address has a home here&hellip;&rdquo;</em> is true whichever way it went, so the page cannot be used to ask the base who is a member. This is the door&rsquo;s best sentence and it is kept to the word (ForgotPasswordForm.tsx:46&ndash;49).</p>
+        <p class="rl-b" style="margin-top:8px;">The added &ldquo;Didn&rsquo;t arrive?&rdquo; line keeps the register: it names the ordinary reason and the ordinary remedy, and still tells no one whether anybody lives at that address.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; &ldquo;Take your time &mdash; the door will wait&rdquo; is the pace control written down. No countdown on the link&rsquo;s life is shown, because a clock on the page is a clock on the person.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the sent state is terminal and safe: nothing is half-done and nothing needs finishing in this tab.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; the state swaps in place; no toast, no banner sliding in from an edge.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays, and nothing redirects on a timer.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; kept whole. Not one word of this state is rewritten.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; go to the mail, or return to login. Both are said.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the added &ldquo;Didn&rsquo;t arrive?&rdquo; line. This is the one point of the ten the sent state was missing: it answered the happy path and left the other one silent.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; a state swap, not a transition.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the &ldquo;Return to login&rdquo; line is raised off <span class="src">text-star-dust/40</span> (3.2:1, ForgotPasswordForm.tsx:52, :92) to /70 &mdash; <span class="k">6.7:1</span> on the surface card it sits on (7.4:1 were it on deepSpace). It is the only way out of this state; it cannot be the faintest thing on the page.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; on the swap, focus moves to the new heading so a screen reader is told the state changed rather than left on a button that no longer exists.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> from the census &mdash; :46 &ldquo;The link is on its way&rdquo; &middot; :47&ndash;49 &ldquo;If that address has a home here, a reset link is heading to it now. Take your time &mdash; the door will wait.&rdquo; &middot; :64 &ldquo;Reset your password&rdquo; &middot; :65&ndash;66 &ldquo;Enter your email and we&rsquo;ll send you a link to set a new one.&rdquo; &middot; <span class="src">AUTH_LABELS.SEND_RESET_LINK</span>, <span class="src">BACK_TO_LOGIN</span>.</p>
+          <p class="rl-b"><span class="k">PROPOSED, new</span> &mdash; &ldquo;Didn&rsquo;t arrive? Check the spam folder, then ask again with the same address. Nothing is spent by asking twice.&rdquo; The ground is silent on this state&rsquo;s unhappy path; this is the plainest thing that keeps the register.</p>
+          <p class="rl-b"><span class="k">REWRITE 6 applies here too</span> &mdash; <span class="src">ForgotPasswordForm.tsx:52, :92</span>: text-star-dust/40 &rarr; /70.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

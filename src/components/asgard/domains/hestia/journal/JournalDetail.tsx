@@ -108,7 +108,7 @@ export function JournalDetail() {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
-          <p className="text-star-dust/40">This thread has unraveled.</p>
+          <p className="text-star-dust/70">This thread has unraveled.</p>
           <Link href="/vessel/journal" className="text-neurospark hover:underline mt-4 inline-block">
             Return to the Scroll
           </Link>
@@ -151,7 +151,7 @@ export function JournalDetail() {
                 {entry.title}
               </h1>
               <div className="flex items-center gap-3 flex-wrap">
-                <span className="flex items-center gap-1 text-xs text-star-dust/40">
+                <span className="flex items-center gap-1 text-xs text-star-dust/70">
                   <Clock size={12} />
                   {formatDate(entry.created_at)}
                 </span>
@@ -171,7 +171,7 @@ export function JournalDetail() {
             <div className="flex items-center gap-2">
               <Link href={`/vessel/journal/${entry.journal_entries_id}/edit`}>
                 <Button variant="ghost" size="sm">
-                  <Edit3 className="h-4 w-4" />
+                  <Edit3 className="h-4 w-4 mr-2" />Edit
                 </Button>
               </Link>
               <Button
@@ -179,7 +179,7 @@ export function JournalDetail() {
                 size="sm"
                 onClick={() => setShowConfirm(true)}
               >
-                <Trash2 className="h-4 w-4 text-error" />
+                <Trash2 className="h-4 w-4 mr-2 text-error" />Delete
               </Button>
             </div>
           </div>
@@ -206,18 +206,22 @@ export function JournalDetail() {
           )}
         </Card>
 
+        {/* ECHOES — KP's word 2026-08-24: a scroll answering back, read from
+            the past or moments after writing it. SECOND PASS: its place is
+            here, beneath the words, and nothing is drawn into it today. */}
+
         {/* Delete Confirmation */}
         {showConfirm && (
           <div className="mt-6 p-4 border border-error/30 rounded-xl bg-error/5 text-center">
-            <p className="text-sm text-star-dust/60 mb-4">
-              This thread will be unwoven forever. There is no undo.
+            <p className="text-sm text-star-dust/70 mb-4">
+              Deleting this entry removes it for good. There is no undo.
             </p>
             <div className="flex gap-3 justify-center">
               <Button variant="ghost" size="sm" onClick={() => setShowConfirm(false)}>
-                Keep It
+                Keep it
               </Button>
               <Button variant="primary" size="sm" loading={isDeleting} onClick={handleDelete}>
-                Unweave
+                Delete
               </Button>
             </div>
           </div>

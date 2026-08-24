@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9317;</span>
+    <span style="font-size:15px;font-weight:600;">The Honors &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/badges</span>, earned only</span>
+    <span class="src">BadgesGallery 151 &middot; BadgeDetail 92 &middot; reads sigils</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:24px 22px 28px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:14px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Library</a>
+          <h2 style="margin:0 0 3px;font-size:19px;font-weight:700;">The Honors</h2>
+          <p style="margin:0 0 18px;font-size:12.5px;color:rgba(224,224,224,.78);">Sigils earned through sovereignty</p>
+
+          <div style="display:flex;flex-direction:column;gap:11px;">
+
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:15px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 0 20px rgba(253,203,110,.20);">
+              <span style="width:48px;height:48px;flex:none;border-radius:11px;border:2px solid rgba(255,255,255,.10);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:22px;">&#128367;&#65039;</span>
+              <span style="flex:1;min-width:0;">
+                <span style="display:block;font-size:14px;font-weight:600;">First Light</span>
+                <span style="display:block;font-size:11.5px;color:rgba(224,224,224,.78);margin-bottom:7px;">A vessel is born. Before any word or image &mdash; you are here, and that is the whole threshold.</span>
+                <span style="display:inline-flex;gap:6px;">
+                  <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.22);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">common</span>
+                  <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.22);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">becoming</span>
+                </span>
+              </span>
+            </div>
+
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:15px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 0 12px rgba(34,211,238,.22);">
+              <span style="width:48px;height:48px;flex:none;border-radius:11px;border:2px solid rgba(255,255,255,.10);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:22px;">&#129769;</span>
+              <span style="flex:1;min-width:0;">
+                <span style="display:block;font-size:14px;font-weight:600;">Star Catcher</span>
+                <span style="display:block;font-size:11.5px;color:rgba(224,224,224,.78);margin-bottom:7px;">A first bubble collected. The floating stars know you now.</span>
+                <span style="display:inline-flex;gap:6px;">
+                  <span style="font-size:9.5px;border:1px solid rgba(34,211,238,.30);border-radius:6px;padding:1px 7px;color:#22D3EE;">rare</span>
+                  <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.22);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">first-acts</span>
+                </span>
+              </span>
+            </div>
+
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:15px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 0 12px rgba(34,211,238,.22);">
+              <span style="width:48px;height:48px;flex:none;border-radius:11px;border:2px solid rgba(255,255,255,.10);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:22px;">&#127793;</span>
+              <span style="flex:1;min-width:0;">
+                <span style="display:block;font-size:14px;font-weight:600;">Gardener</span>
+                <span style="display:block;font-size:11.5px;color:rgba(224,224,224,.78);margin-bottom:7px;">A first seed tucked in. Nothing here can be rushed, and you planted anyway.</span>
+                <span style="display:inline-flex;gap:6px;">
+                  <span style="font-size:9.5px;border:1px solid rgba(34,211,238,.30);border-radius:6px;padding:1px 7px;color:#22D3EE;">rare</span>
+                  <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.22);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">first-acts</span>
+                </span>
+              </span>
+            </div>
+
+          </div>
+
+          <div style="margin-top:24px;padding-top:22px;border-top:1px solid rgba(224,224,224,.07);text-align:center;">
+            <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Below this line the page simply ends.<br>No shapes, no shadows, no outlines of what is not here.</p>
+          </div>
+
+          <div style="margin-top:16px;display:flex;align-items:center;gap:10px;">
+            <span class="old" style="display:inline-flex;gap:7px;align-items:center;">
+              <span style="border:1px solid rgba(224,224,224,.16);border-radius:9999px;padding:2px 10px;font-size:10.5px;">All Rarities</span>
+              <span style="border:1px solid rgba(224,224,224,.16);border-radius:9999px;padding:2px 10px;font-size:10.5px;">common</span>
+              <span style="border:1px solid rgba(224,224,224,.16);border-radius:9999px;padding:2px 10px;font-size:10.5px;">rare</span>
+            </span>
+            <span class="stag">catalog furniture, retires</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The honest empty &mdash; what every vessel sees today</p>
+        <div style="border:1px dashed rgba(224,224,224,.18);border-radius:12px;background:#0C0F1D;padding:26px 22px;text-align:center;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.28)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.6 14.4 7 22l5-3 5 3-1.6-7.6"></path></svg>
+          <p style="margin:0;font-size:14px;color:rgba(224,224,224,.72);">The honors await those who walk the path</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="src">BadgesGallery.tsx:117</span>, kept to the word. <span class="k">And it is not hypothetical.</span> The award triggers are not wired &mdash; a &#128681; KP <span class="ruled">held for the second pass</span> &mdash; so with the mend in, <em>this</em> is the whole room for everyone, and it will be until that sitting. Named plainly rather than designed around.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">How a sigil arrives <span class="stag" style="margin-left:6px;">proposed</span></p>
+        <div style="border:1px solid rgba(253,203,110,.35);border-radius:12px;background:rgba(253,203,110,.04);padding:16px 18px;display:flex;gap:14px;align-items:flex-start;">
+          <span style="width:40px;height:40px;flex:none;border-radius:10px;border:1px solid rgba(253,203,110,.35);display:flex;align-items:center;justify-content:center;font-size:19px;">&#128367;&#65039;</span>
+          <span style="flex:1;">
+            <span style="display:block;font-size:13px;font-weight:600;margin-bottom:3px;">First Light</span>
+            <span style="display:block;font-size:11.5px;color:rgba(224,224,224,.82);text-wrap:pretty;">A vessel is born. Before any word or image &mdash; you are here, and that is the whole threshold.</span>
+          </span>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">It appears, and it goes. <span class="k">Nothing preceded it</span> &mdash; no &ldquo;one more and you&rsquo;ll have it&rdquo;, no shelf of what is coming, no ceremony that has to be dismissed. The house already has the word for this arrival and teaches it in its own third lesson: <em>&ldquo;a herald announces gently and leaves; it does not buzz, badge, or beg you back.&rdquo;</em></p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling this board is built on</p>
+        <p class="q">&ldquo;mend the two law-failing rooms (<span class="k">Honors shows only earned sigils</span>; the 3/6 sidebar goes)&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">One of five standing defaults ruled 2026-08-24 with KP&rsquo;s &#9883; verbatim word <em>&ldquo;bazaar and library go&rdquo;</em>. The wording above is the brief&rsquo;s record of the ruling, not his own sentence. It closes the older question in one clause. <span class="src">BadgesGallery.tsx:32&ndash;43</span> fetches the full published catalog with <span class="k">no vessel filter at all</span> &mdash; ten sigils, shown to everyone, whether or not a single one is theirs. That is promise-before, and E4 named it a law-failing built room by name.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Dark sky, never silhouettes</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The tempting middle way is refused, twice over.</span> Showing the unearned as greyed shapes feels kinder than hiding them &mdash; and E4&rsquo;s refusal column names <em>&ldquo;missing-slot silhouettes and the &lsquo;one missing&rsquo; state&rdquo;</em> outright. A silhouette is a hole with a label on it. It performs the subtraction more sharply than a number does.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">So the page just ends.</span> Where the unearned would be there is nothing: no grid of grey, no &ldquo;7 more&rdquo;, no faint outline, no count anywhere on the page. The vessel cannot tell from this room how many sigils exist, and <span class="k">that is the design, not a gap in it.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The endowed-progress trap, avoided by construction.</span> Nunes &amp; Dr&egrave;ze&rsquo;s car-wash study is what grounds every display ruling in E4 &mdash; a part-filled card makes people finish it. Three sigils and an ending page is not a part-filled card; ten slots with three lit is.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The rarity chips retire with the catalog.</span> Filtering three earned things by rarity is browsing furniture left over from a catalog view. The rarity <em>word</em> stays on the card, because a sigil you already hold cannot be chased &mdash; and the glow (<span class="src">RARITY_GLOW :22&ndash;28</span>) stays too. <span class="k">That is rarity as shimmer, which is exactly what it is allowed to be.</span></p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Sigils arrive unannounced</p>
+        <p class="rl-b">E4&rsquo;s synthesis, from the same research that declined <span class="src">completion_points</span>: <em>&ldquo;sigils arrive unannounced.&rdquo;</em> The earned-only room is what makes that possible &mdash; a catalog IS the announcement. Once the room shows only what is yours, the arrival can be the first time you meet the thing, which is what the seed always intended: <em>&ldquo;markers of becoming, never achievements&rdquo;</em> (<span class="src">008:124</span>).</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What is held, and named</p>
+        <p class="rl-b"><span class="k">&#128681; sigil award triggers</span> &mdash; not wired; <span class="ruled">held for the second pass</span> at KP&rsquo;s word this sitting, with completion_points math and quest submission. The seed says so in its own comment (<span class="src">008:126&ndash;127</span>). <span class="k">The mend and the flag interact, and the board says so rather than hiding it:</span> mending the room today makes it empty for everyone until the triggers land. That is honest empty, not broken empty &mdash; and the existing sentence covers it exactly.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The same bug, next door</p>
+        <p class="rl-b">Mnemosyne&rsquo;s &ldquo;Honors to Earn&rdquo; shows the same unfiltered catalog, from the same table, and the census records it unresolved in both places. <span class="k">This canvas does not fix another realm&rsquo;s room</span> &mdash; but the mend here is the pattern that room needs, and the two should be done in one breath so the street does not end up with two answers.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; nothing here can be pursued, so nothing here sets a pace. That is the whole point of the mend.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; a sigil is permanent by nature; there is no state to lose.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; the rarity glow is a static <span class="src">box-shadow</span>, never a pulse. Correct already.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays, and the drawn arrival deliberately has no sound and no modal to dismiss.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the ten sigil descriptions are among the best sentences in the base and none of them moves.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; and deliberately none. This room is a place to look, not a place to do. The empty state points at the path without naming a task.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; each sigil opens to its own page with the description whole.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the filter chips carry <span class="src">transition-all</span> (<span class="src">:100, :106</span>) unguarded; they leave with the chips. Nothing else in the room moves. <span class="ruled">ruled: mend</span></p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the subtitle at <span class="src">/40</span> reads <span class="k">3.18:1</span>, card descriptions and the empty state at <span class="src">/50</span> read <span class="k">4.32:1</span>. Measured. Drawn at <span class="src">/78</span> &mdash; <span class="k">8.99:1</span> &mdash; because on this board the description IS the honor.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; real <span class="src">Link</span>s over whole cards; the emoji sit inside them as text, so a screen reader reads the name, not the glyph alone.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, here</p>
+        <p class="rl-b">Nothing to pre-check, and the rarity filter already starts at <span class="src">null</span> (<span class="src">:41</span>). The deeper reading of KP&rsquo;s &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em> lands on the room itself: <span class="k">a sigil catalog is an opt-out shaped as a page.</span> It shows you a promise you never asked for and leaves you to decline it. The mend is the same law at room scale.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;The Honors&rdquo; / &ldquo;Sigils earned through sovereignty&rdquo; <span class="src">:84&ndash;85</span> &middot; &ldquo;The honors await those who walk the path&rdquo; <span class="src">:117</span> &middot; &ldquo;This honor has not been forged yet.&rdquo; <span class="src">Detail:55</span> &middot; &ldquo;Return to the Honors&rdquo; <span class="src">Detail:69</span> &middot; all ten sigil names and descriptions. <span class="k">No rewrite on this board.</span> The words were never the failure here &mdash; the room was.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; &ldquo;Below this line the page simply ends. No shapes, no shadows, no outlines of what is not here.&rdquo; <em>Proposed</em>, and drawn as an annotation for KP&rsquo;s eye rather than as shipping copy &mdash; the built room should say nothing at all there.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> the full catalog &middot; silhouettes &middot; &ldquo;3 of 10&rdquo; &middot; a completion ring &middot; &ldquo;you are 1 away&rdquo; &middot; a rarest-sigil showcase &middot; any comparison with another vessel &middot; a shareable card &middot; sigils on a public profile as status. E4&rsquo;s floor is <em>gamified social comparison &mdash; badges-as-status</em>, refused by name; this is the one room in the app where that failure is one careless feature away.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -25,18 +25,14 @@ export default function VesselPage() {
       {/* for the full provenance and the sessionStorage crossing gate.  */}
       {/* ══════════════════════════════════════════════════════════════ */}
       <VelkominGreeting />
+      {/* 2026-08-24 — the second wash div is gone. It painted
+          var(--gradient-weaver), a variable defined nowhere in the repo, at
+          0.75; EnvironmentLayer already paints this route's wash at 0.3, and
+          0.3 is the contrast floor (starDust 6.3:1 vs 1.7:1 at 0.75). Do not
+          re-add a page-level wash here. */}
       <main className="min-h-screen py-12 ">
-        <div className="min-h-auto relative">
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'var(--gradient-weaver)',
-              opacity: 0.75
-            }}
-          />
-            <div className="relative z-10 container max-w-4xl mx-auto px-6">
-            <VesselContent />
-          </div>
+        <div className="container max-w-4xl mx-auto px-6">
+          <VesselContent />
         </div>
       </main>
     </Page>

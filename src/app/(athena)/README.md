@@ -36,10 +36,21 @@ src/app/(athena)/
 │   │   ├── page.tsx                  # ✅ The Archive — scrolls gallery (/library/knowledge)
 │   │   └── [slug]/page.tsx           # ✅ Scroll Detail (/library/knowledge/[slug])
 │   │
-│   └── badges/
-│       ├── page.tsx                  # ✅ The Honors — sigils gallery (/library/badges)
-│       └── [slug]/page.tsx           # ✅ Sigil Detail (/library/badges/[slug])
+│   ├── badges/
+│   │   ├── page.tsx                  # ✅ The Honors — sigils gallery (/library/badges)
+│   │   └── [slug]/page.tsx           # ✅ Sigil Detail (/library/badges/[slug])
+│   │
+│   └── dailies/
+│       └── page.tsx                  # ✅ The Dailies — word scramble (/library/dailies)
 ```
+
+**The Dailies (born 2026-08-24)** is the one hall that does NOT read through a
+generated API route. Its shelf is fetched server-side, with the anon key and no
+cookie, and handed to the page whole (`src/lib/dailies/shelf.ts`) — because a
+generated GET carries the vessel's session into the vendor's logs, and a
+per-puzzle request keyed to a person is an attendance ledger however device-local
+the rest of the design is. There is deliberately no `[slug]` route: the whole
+shelf arrives with the page, so the browser never asks for a particular puzzle.
 
 ---
 

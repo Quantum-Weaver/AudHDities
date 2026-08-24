@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9313;</span>
+    <span style="font-size:15px;font-weight:600;">The Path &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/quests</span>, an invitation</span>
+    <span class="src">QuestsGallery.tsx 197 &middot; QuestDetail.tsx 106</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:12px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Library</a>
+          <h2 style="margin:0 0 3px;font-size:19px;font-weight:700;">The Path</h2>
+          <p style="margin:0 0 16px;font-size:12.5px;color:rgba(224,224,224,.70);">Quests that shape your sovereignty</p>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(224,224,224,.18);border-radius:8px;padding:5px 11px;flex:1;min-width:150px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.70)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <span style="font-size:12px;color:rgba(224,224,224,.70);">Search quests&hellip;</span>
+            </span>
+            <span class="chip" style="border-color:rgba(0,230,195,.45);color:#00E6C3;">All Types</span>
+            <span class="chip">exploration</span>
+            <span class="chip">reflection</span>
+            <span class="chip">creation</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px;">
+              <div style="display:flex;justify-content:space-between;gap:6px;margin-bottom:8px;">
+                <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">exploration</span>
+                <span style="font-size:9.5px;border:1px solid rgba(0,184,148,.35);border-radius:6px;padding:1px 7px;color:#00E6C3;">beginner</span>
+              </div>
+              <p style="margin:0 0 6px;font-size:13.5px;font-weight:600;">Walk the Six Halls</p>
+              <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.70);">The Library is open. Wander it once, at whatever pace the day allows &mdash; there is nothing to finish, only rooms to meet.</p>
+            </div>
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px;">
+              <div style="display:flex;justify-content:space-between;gap:6px;margin-bottom:8px;">
+                <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">reflection</span>
+                <span style="font-size:9.5px;border:1px solid rgba(253,203,110,.35);border-radius:6px;padding:1px 7px;color:#FDCB6E;">intermediate</span>
+              </div>
+              <p style="margin:0 0 6px;font-size:13.5px;font-weight:600;">Light Your Lamp</p>
+              <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.70);">A journal entry is a lamp lit in your own window. Write one &mdash; a sentence counts, and no one reads it but you unless you choose.</p>
+            </div>
+          </div>
+
+          <p class="src" style="margin:11px 0 0;">real rows, verbatim from 008-the-library-first-seeds.sql:154&ndash;185 &mdash; six of these stand</p>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The detail, with &ldquo;Begin Quest&rdquo; made honest</p>
+        <div style="border:1px solid rgba(224,224,224,.14);border-radius:12px;background:#1A1F35;padding:22px 22px 24px;">
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:14px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Path</a>
+          <div style="display:flex;gap:7px;margin-bottom:10px;">
+            <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">exploration</span>
+            <span style="font-size:9.5px;border:1px solid rgba(0,184,148,.35);border-radius:6px;padding:1px 7px;color:#00E6C3;">beginner</span>
+          </div>
+          <h3 style="margin:0 0 8px;font-size:19px;font-weight:700;">Walk the Six Halls</h3>
+          <p style="margin:0 0 18px;font-size:13px;color:rgba(224,224,224,.78);text-wrap:pretty;">The Library is open. Wander it once, at whatever pace the day allows &mdash; there is nothing to finish, only rooms to meet.</p>
+
+          <p style="margin:0 0 9px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(224,224,224,.55);font-weight:600;">Where this goes</p>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px;">
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 12px;font-size:12.5px;">The Path <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 12px;font-size:12.5px;">The Curriculum <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 12px;font-size:12.5px;">The Lessons <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 12px;font-size:12.5px;">The Archive <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 12px;font-size:12.5px;">The Honors <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 12px;font-size:12.5px;">The Floating Stars <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg></a>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="old" style="border:1px solid rgba(224,224,224,.16);border-radius:8px;padding:6px 14px;font-size:12.5px;">Begin Quest</span>
+            <span style="border:1px solid rgba(224,224,224,.20);border-radius:8px;padding:6px 14px;font-size:12.5px;color:rgba(224,224,224,.78);">Back</span>
+            <span class="stag">proposed</span>
+          </div>
+          <p class="src" style="margin:9px 0 0;">QuestDetail.tsx:99 &mdash; the button has no handler; nothing begins</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The empty hall, kept whole</p>
+        <div style="border:1px dashed rgba(224,224,224,.18);border-radius:12px;background:#0C0F1D;padding:26px 22px;text-align:center;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.28)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><circle cx="12" cy="12" r="9"></circle><polygon points="16 8 13.5 13.5 8 16 10.5 10.5"></polygon></svg>
+          <p style="margin:0 0 5px;font-size:14px;color:rgba(224,224,224,.72);">The path unfolds soon</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);">New quests are being woven</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="src">QuestsGallery.tsx:143&ndash;147</span>, kept to the word. <span class="k">Waiting, never missing.</span> Only the fade changes.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground this board is drawn on</p>
+        <p class="rl-b">E4&rsquo;s synthesis, <em>&ldquo;Quests as invitations / environmental storytelling&rdquo;</em>: BOTW&rsquo;s sighting model &mdash; <span class="k">you see a thing on the horizon and go, or you do not.</span> Nothing is assigned, nothing is tracked, and the world does not notice either way. That is what this hall already is in its writing, and what its one button is not.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">&ldquo;Begin Quest&rdquo; &mdash; the plainest true thing</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Today it is a lie of omission.</span> <span class="src">QuestDetail.tsx:99</span> renders a primary button with no <span class="src">onClick</span>. A vessel presses it, nothing happens, and the room has told them they failed at something. That is worse than having no button.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Drawn: the button goes and the objectives become the doors.</span> Five of the six seeded quests spell their steps as places &mdash; <em>&ldquo;Visit the Path&rdquo;</em>, <em>&ldquo;Open the Archive&rdquo;</em>, <em>&ldquo;Open your journal&rdquo;</em>. So the honest &ldquo;begin&rdquo; is <span class="k">the first door, already on the page</span>. Nothing starts, because a quest here is not a session; it is a suggestion you can take now.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Why not wire a real Begin?</span> Because submission machinery is one of the three &#128681; flags, <span class="ruled">held for the second pass</span> at KP&rsquo;s word. Drawing a button that <em>would</em> work later is designing the held thing. This draws what is true today and stays out of that sitting&rsquo;s way. <em>Proposed</em>: no ruling names it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">And the seam holds either way.</span> Two of the six doors leave this realm entirely &mdash; <em>&ldquo;Visit your garden&rdquo;</em> and <em>&ldquo;Open your journal&rdquo;</em> land in hestia. Drawn as ordinary doors, because they are.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">What is held, and named</p>
+        <p class="rl-b"><span class="k">&#128681; quest submission machinery</span> &mdash; one of the trio (with completion_points math and sigil award triggers) that KP <span class="ruled">held for the second pass</span> this sitting. Nothing on this board wires it, proposes a schema for it, or draws a state that assumes it. The room works without it: six invitations, twenty-four doors, no ledger.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; whole. No timer, no order, no expiry, no quest that closes. <em>&ldquo;there is nothing to finish&rdquo;</em> is the seed&rsquo;s own sentence.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing to save, deliberately. With submission held, a quest has no state; the room is honest about that rather than faking one.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &middot; <span class="k">no autoplay</span> &mdash; nothing moves in this hall at all.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the quest bodies are the best copy in the realm and are kept to the letter. One heading rewritten, below.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; the whole finding above. A dead button IS the next step today.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; gallery card to detail, and now detail to the rooms themselves.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the filter chips carry <span class="src">transition-all</span> (<span class="src">:104, :117</span>) with no guard. Small, but it is the same unguarded habit as the hub. <span class="ruled">ruled: mend</span></p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the subtitle at <span class="src">:83</span> and every card description at <span class="src">/50</span> read <span class="k">4.32:1</span>; the empty state&rsquo;s second line at <span class="src">/30</span> reads <span class="k">2.30:1</span>. Measured. Drawn at <span class="src">/70</span>, <span class="k">7.38:1</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; real <span class="src">input</span>, real <span class="src">button</span>s for the type chips, real <span class="src">Link</span>s for the cards. Good already.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, here</p>
+        <p class="rl-b">The type filters default to <span class="k">none selected</span> &mdash; <span class="src">useState&lt;string | null&gt;(null)</span> at <span class="src">:35</span>. Nothing is pre-chosen for the visitor. That is the opt-in law already kept, in the place a filter bar most often breaks it.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">QuestDetail.tsx:89</span><br><span class="old">&ldquo;Objectives&rdquo;</span><br><span class="new">&ldquo;Where this goes&rdquo;</span><br><em>Objectives</em> is a task-ledger word &mdash; it implies something checks them off. Nothing does, nothing will unless KP rules it, and the rows underneath are places, not tasks. <em>Proposed</em>.</p>
+          <p class="rl-b"><span class="k">RETIRED</span> &mdash; <span class="src">QuestDetail.tsx:99</span> <span class="old">&ldquo;Begin Quest&rdquo;</span>. Nothing replaces it; the doors are the beginning.</p>
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;The Path&rdquo; and &ldquo;Quests that shape your sovereignty&rdquo; <span class="src">:82&ndash;83</span> &middot; &ldquo;Return to the Library&rdquo; <span class="src">:80</span> &middot; &ldquo;Return to the Path&rdquo; <span class="src">Detail:71</span> &middot; &ldquo;The path unfolds soon&rdquo; / &ldquo;New quests are being woven&rdquo; <span class="src">:143&ndash;147</span> &middot; &ldquo;This quest has not been written yet.&rdquo; <span class="src">Detail:57</span> &middot; and every one of the six quest bodies. <span class="k">This hall&rsquo;s voice needed almost nothing.</span></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a quest log with a count &middot; &ldquo;3 of 6 complete&rdquo; anywhere &middot; a daily or weekly quest that expires &middot; a recommended-next quest &middot; any quest that unlocks another &middot; a reward shown before the doing. The seeded <span class="src">rewards</span> Json exists and is <span class="k">deliberately not rendered</span> (<span class="src">QuestsGallery.tsx:14&ndash;16</span>) &mdash; that was already the right call and it stays.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

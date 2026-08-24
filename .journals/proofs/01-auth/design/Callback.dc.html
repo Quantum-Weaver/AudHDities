@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9317;</span>
+    <span style="font-size:15px;font-weight:600;">The callback &mdash; a link arrives, and both halves are spoken, on <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/login</span></span>
+    <span class="src">(auth)/callback/route.ts:29&ndash;31 &rarr; login/page.tsx &rarr; LoginForm.tsx</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:18px;">
+
+      <div style="border:1px solid rgba(224,224,224,.10);border-radius:12px;background:rgba(224,224,224,.03);padding:14px 18px;">
+        <p style="margin:0;font-size:13px;color:rgba(224,224,224,.78);">The vessel lands here from <span class="src">/login?error=auth_callback_failed</span>. That key is the wire&rsquo;s word, not the person&rsquo;s &mdash; it is never printed.</p>
+      </div>
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid rgba(224,224,224,.08);">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.16em;">AUDHDITIES</span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:12px;border:1px solid rgba(224,224,224,.20);font-size:14px;">Enter</span>
+          </div>
+
+          <div style="padding:34px 22px 40px;">
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:30px 28px;">
+
+              <div style="text-align:center;margin-bottom:22px;">
+                <h1 style="margin:0 0 8px;font-size:28px;font-weight:700;line-height:1.25;">Return to the Sanctuary</h1>
+                <p style="margin:0;font-size:16px;color:rgba(224,224,224,.70);">Your email and password. Take your time.</p>
+              </div>
+
+              <div role="alert" style="border:1px solid rgba(225,112,85,.30);background:rgba(225,112,85,.10);border-radius:8px;padding:16px 18px;margin-bottom:24px;">
+                <p style="margin:0 0 6px;font-size:16px;font-weight:600;color:#E17055;">That link didn&rsquo;t open the door.</p>
+                <p style="margin:0 0 12px;font-size:14px;color:rgba(224,224,224,.85);text-wrap:pretty;">It may have expired, or it may already have been used. Ask for a new one and it will be sent straight away &mdash; nothing on your side is lost.</p>
+                <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center;">
+                  <p style="margin:0;font-size:14px;"><a href="#">Email me a new way in</a></p>
+                  <p style="margin:0;font-size:14px;"><a href="#">Set a new password instead</a></p>
+                </div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:18px;">
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Email</label>
+                  <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">your@email.com</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Password</label>
+                  <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Enter your password</div>
+                </div>
+                <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Enter the Sanctuary</a>
+              </div>
+
+              <div style="margin-top:22px;display:flex;flex-direction:column;gap:8px;align-items:center;">
+                <p style="margin:0;font-size:14px;"><a href="#">Forgot your password?</a></p>
+                <p style="margin:0;font-size:14px;color:rgba(224,224,224,.70);">New to the Sanctuary? <a href="#">Come in</a></p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The other half &mdash; the link works, and the crossing is spoken too</p>
+        <div style="position:relative;border:1px solid rgba(0,184,148,.35);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:44px 28px 46px;text-align:center;">
+            <p style="margin:0;font-size:24px;font-weight:500;color:#E0E0E0;">Velkomin, {vessel_name}.</p>
+            <p style="margin:12px 0 0;font-size:14px;color:rgba(224,224,224,.70);">the vessel lands at <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel</span> &mdash; the one room where the word fires</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q">&ldquo;the callback&rsquo;s dropped - resolve this&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; briefs/01-auth-BRIEF.md, answer 4 &mdash; asked first as &ldquo;what?&rdquo;, ruled once it was explained back. RULED into Build, a lamp&rsquo;s hand: the login page reads <span class="src">?error=</span> and says plainly what happened.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">And what now also arrives here &mdash; KP&rsquo;s ruling 8</p>
+        <p class="q">&ldquo;can we enable magic link as well as the reset password, sometimes a vessel has not the capacity to reset a password.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; briefs/01-auth-BRIEF.md, answer 8 &mdash; RULED.</p>
+        <p class="rl-b" style="margin-top:10px;">A magic link lands on <span class="k">this same route</span> with <span class="src">?next=</span> &mdash; no new road. So this board now owes two sentences, not one: the failure above, and the arrival below.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The success half, and the seam it exposes</p>
+        <p class="rl-b">callback/route.ts:18 defaults <span class="src">next</span> to <span class="src">/vessel/sanctum</span>. VelkominGreeting mounts only at <span class="src">/vessel</span> (VelkominGreeting.tsx:21&ndash;26). So a vessel arriving by link would cross the threshold <span class="k">in silence</span> &mdash; the one crossing the door&rsquo;s own word exists for.</p>
+        <p class="rl-b" style="margin-top:8px;"><span class="k">PROPOSED</span> &mdash; a magic-link arrival carries <span class="src">?next=/vessel</span>, so success is spoken by the word already written rather than by a new one. Nothing is invented; the link is simply pointed at the room where the greeting lives.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What is broken today</p>
+        <p class="rl-b">callback/route.ts:29&ndash;31 redirects to <span class="src">/login?error=auth_callback_failed</span>. LoginForm reads <span class="src">?redirect</span> (:25) and never reads <span class="src">?error</span> &mdash; so the parameter is carried the whole way and then dropped on the floor. The person sees a plain login page and no reason they are looking at it.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The law that rules it</p>
+        <p class="q">&ldquo;No one transitions unaccompanied.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">docs/design/ziggy-ux-sourcebook-index.md:25&ndash;26 &mdash; the flock escorted the departing bird away, then returned to the sky together. &ldquo;errors summon support roles&rdquo;.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the message stays until it is acted on. It does not auto-dismiss, and it does not redirect on a timer.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; &ldquo;nothing on your side is lost&rdquo; is said out loud, because the fear when a link fails is that something was half-done.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; it is present on first paint, not animated in.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; three sentences, no code, no blame, no &ldquo;invalid&rdquo;. The raw key <span class="src">auth_callback_failed</span> stays in the URL and never reaches the eye.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; both remedies sit inside the message &mdash; a new link, or a password reset &mdash; because the route cannot tell which door the person came through, so it offers both rather than guessing.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the second sentence <em>is</em> the more-info door: it names both ordinary causes so nobody has to guess which one it was.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; nothing to still; it is a static block.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured: the heading in <span class="src">error</span> on its own 10% wash <em>over the surface card</em> is <span class="k">4.54:1</span> &mdash; the floor exactly, no margin (on deepSpace the same alert would read 5.4:1); the body sentence is starDust at 85% on the card, <span class="k">9.2:1</span>. The message does not rely on colour alone &mdash; it says what happened in words.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; <span class="src">role="alert"</span> so it is announced on arrival; the two remedies are the first tab stops on the page, ahead of the email field.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">PROPOSED, new</span> &mdash; the whole message. The census has no string for this state (Part 7 lists none) because today there is no state: the parameter is dropped. So this is written, not rewritten, and it is drawn plainest.</p>
+          <p class="rl-b"><span class="k">NOT drawn</span> &mdash; a technical detail, a code, a retry count, or the word &ldquo;error&rdquo;. The visitor is told what happened and what to do; the machine keeps its own vocabulary.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; <span class="new">&ldquo;Email me a new way in&rdquo;</span> and <span class="new">&ldquo;Set a new password instead&rdquo;</span> replace the single remedy this board first drew. No census line: neither flow is spoken in the tree today.</p>
+          <p class="rl-b">The rest of the page is board &#9313; unchanged, so its rewrites 4&ndash;7 and its second door stand here too.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

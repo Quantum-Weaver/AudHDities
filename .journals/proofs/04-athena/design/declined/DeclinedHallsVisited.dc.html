@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <p style="margin:0 0 4px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#E17055;font-weight:600;">declined</p>
+  <h2 style="margin:0 0 6px;font-size:17px;font-weight:700;">The hub&rsquo;s counts, made about you</h2>
+  <p style="margin:0 0 20px;font-size:12px;color:rgba(224,224,224,.78);text-wrap:pretty;">The obvious next step from board &#9312;&rsquo;s inventory lines: if the door can say what is behind it, it can also say how much of it you have met.</p>
+
+  <div style="border:1px solid rgba(225,112,85,.30);border-radius:12px;background:rgba(225,112,85,.05);padding:18px;margin-bottom:20px;">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;">
+      <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:9px;padding:12px;">
+        <p style="margin:0 0 4px;font-size:12.5px;font-weight:600;">The Path</p>
+        <p style="margin:0 0 7px;font-size:10.5px;color:rgba(224,224,224,.70);">Quests that shape your sovereignty</p>
+        <span style="display:block;height:4px;border-radius:9999px;background:rgba(224,224,224,.14);position:relative;"><span style="position:absolute;inset-block:0;left:0;width:33%;border-radius:9999px;background:#E17055;"></span></span>
+        <p style="margin:5px 0 0;font-size:10px;color:rgba(224,224,224,.70);">2 of 6 walked</p>
+      </div>
+      <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:9px;padding:12px;">
+        <p style="margin:0 0 4px;font-size:12.5px;font-weight:600;">The Honors</p>
+        <p style="margin:0 0 7px;font-size:10.5px;color:rgba(224,224,224,.70);">Sigils earned through sovereignty</p>
+        <span style="display:block;height:4px;border-radius:9999px;background:rgba(224,224,224,.14);position:relative;"><span style="position:absolute;inset-block:0;left:0;width:30%;border-radius:9999px;background:#E17055;"></span></span>
+        <p style="margin:5px 0 0;font-size:10px;color:rgba(224,224,224,.70);">3 of 10 earned</p>
+      </div>
+    </div>
+    <p style="margin:14px 0 0;font-size:11px;color:rgba(224,224,224,.78);text-align:center;">&ldquo;You have opened 4 of the 6 halls.&rdquo;</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+
+    <div>
+      <p class="rl-h">Why it was declined</p>
+      <p class="rl-b">It flips the one distinction board &#9312; is built on. An inventory counts the <span class="k">house&rsquo;s</span> work; the moment the same line counts the <span class="k">reader&rsquo;s</span>, the hub becomes a scorecard you meet before you have chosen anything. E4&rsquo;s refusal column names <em>completion percentages</em> and <em>the endowed-progress effect</em> outright, and Nunes &amp; Dr&egrave;ze is the reason: a part-filled bar is not information, it is a pull.</p>
+    </div>
+
+    <div>
+      <p class="rl-b">It also fails the metric test on its own terms. A &ldquo;halls visited&rdquo; figure has exactly one success condition &mdash; the number going up &mdash; and the bus is unambiguous: <em>&ldquo;a pattern fails if its success metric is retention.&rdquo;</em> There is no version of this that is not a retention instrument wearing a helpful face.</p>
+    </div>
+
+    <div>
+      <p class="rl-b">And it would have needed the realm to <span class="k">watch a vessel walk</span>. The bus forbids walk-state as analytics and names surveillance a sensory harm in its own right &mdash; <em>&ldquo;no accessibility standard names freedom-from-observation as an access need. The house does.&rdquo;</em> The Honors half is worse still: it is the unfiltered catalog KP ruled out on board &#9317;, redrawn as a bar.</p>
+    </div>
+
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">The instinct underneath was right: <span class="k">a door should say what is behind it.</span> That survives as board &#9312;&rsquo;s six inventory lines &mdash; <em>six quests on the shelf</em>, <em>one course &middot; six steps</em>, <em>thirty stars &middot; five collections</em> &mdash; which answer the same question honestly, and would read exactly the same on a vessel&rsquo;s first visit as on their thousandth.</p>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

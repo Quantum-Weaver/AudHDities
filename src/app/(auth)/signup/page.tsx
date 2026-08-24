@@ -5,23 +5,20 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { Page } from '@/components/bifrost/Page';
 import SignupForm from '@/components/asgard/auth/SignupForm';
 import AuthGuard from '@/components/asgard/auth/AuthGuard';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
+  AUTH_ENVIRONMENT,
   AUTH_METADATA,
-  AUTH_LABELS,
-  AUTH_ROUTES,
 } from '@/lib/constants/components/asgard/auth/auth.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   authPageVariants,
   authPageContentVariants,
-  authPageFooterVariants,
-  authLinkVariants,
 } from '@/lib/constants/components/asgard/auth/auth.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -39,18 +36,14 @@ export const metadata: Metadata = {
 
 export default function SignupPage() {
   return (
-    <AuthGuard requireAuth={false}>
-      <main className={authPageVariants()}>
-        <div className={authPageContentVariants()}>
-          <SignupForm />
-          <p className={authPageFooterVariants()}>
-            {AUTH_LABELS.ALREADY_MANIFESTED}{' '}
-            <Link href={AUTH_ROUTES.LOGIN} className={authLinkVariants()}>
-              {AUTH_LABELS.RETURN_TO_SANCTUARY}
-            </Link>
-          </p>
-        </div>
-      </main>
-    </AuthGuard>
+    <Page environment={AUTH_ENVIRONMENT} showForeground={false}>
+      <AuthGuard requireAuth={false}>
+        <main className={authPageVariants()}>
+          <div className={authPageContentVariants()}>
+            <SignupForm />
+          </div>
+        </main>
+      </AuthGuard>
+    </Page>
   );
 }

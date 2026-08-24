@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9313;</span>
+    <span style="font-size:15px;font-weight:600;">The Home &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel/home</span>, the interior</span>
+    <span class="src">SceneRenderer.tsx &middot; 513 lines, six organs</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);margin-bottom:16px;">&larr; Return to the Vessel</a>
+          <p style="margin:0 0 2px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#FDCB6E;font-weight:600;">added</p>
+
+          <h1 style="margin:0 0 4px;font-size:22px;font-weight:700;">Kai&rsquo;s home</h1>
+          <p style="margin:0 0 6px;font-size:13px;color:rgba(224,224,224,.70);">Everything here stays as you left it.</p>
+          <p style="margin:0 0 20px;font-size:12px;color:rgba(224,224,224,.70);">
+            <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(224,224,224,.20);border-radius:8px;padding:4px 10px;">&#9834; Play the hearth&rsquo;s music</span>
+            <span style="margin-left:9px;">Plays only when you ask. Stops when you leave.</span>
+          </p>
+
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:14px;">
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:16px;">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
+                <p style="margin:0;font-size:14px;font-weight:600;">The Reading Room</p>
+                <span style="font-size:11px;color:rgba(224,224,224,.45);">&darr;</span>
+              </div>
+              <p style="margin:10px 0 0;font-size:12px;color:rgba(224,224,224,.70);">Bare walls, on purpose &mdash; yours to fill, or not.</p>
+            </div>
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:16px;">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
+                <p style="margin:0;font-size:14px;font-weight:600;">The Workshop</p>
+                <span style="font-size:11px;color:rgba(224,224,224,.45);">&uarr;</span>
+              </div>
+              <div style="margin-top:10px;border:1px solid rgba(224,224,224,.10);border-radius:6px;padding:7px 10px;font-size:12.5px;color:rgba(224,224,224,.78);">A wide oak bench</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:22px;">
+            <div style="flex:1;border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:6px 11px;font-size:12.5px;color:rgba(224,224,224,.45);">Name a new room&hellip;</div>
+            <span style="border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:6px 11px;font-size:11.5px;color:rgba(224,224,224,.78);">Found the room</span>
+          </div>
+
+          <div class="second" style="margin-bottom:14px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <p style="margin:0;font-size:14px;font-weight:600;">The garden</p><span class="stag">second pass</span>
+            </div>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">The soil is ready when you are. Seeds grow on their own time here. Nothing rushes, and nothing dies.</p>
+          </div>
+
+          <div class="second" style="margin-bottom:14px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <p style="margin:0;font-size:14px;font-weight:600;">Keepsakes</p><span class="stag">second pass</span>
+            </div>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Nothing kept yet &mdash; and that is fine. Keepsakes are found, earned, gifted, or grown. Never bought, never rushed.</p>
+          </div>
+
+          <div class="second" style="margin-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <p style="margin:0;font-size:14px;font-weight:600;">Companions</p><span class="stag">second pass &middot; unbuilt</span>
+            </div>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">The place they will stand. Nothing is drawn into it today.</p>
+          </div>
+
+          <div style="border:1px solid rgba(224,224,224,.15);border-radius:12px;background:rgba(224,224,224,.03);padding:16px 18px;margin-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+              <p style="margin:0;font-size:14px;font-weight:600;">The outside of this home</p><span class="stag">added &middot; dressing is second pass</span>
+            </div>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">What a visitor sees walking up. This is your community profile &mdash; the only part of your home that faces out.</p>
+          </div>
+
+          <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.15);border-radius:10px;padding:16px;margin-bottom:9px;">
+            <p style="margin:0;font-size:13.5px;font-weight:600;color:rgba(224,224,224,.80);">&#9635;&nbsp; The map on the table</p>
+            <p style="margin:5px 0 0;font-size:12px;color:rgba(224,224,224,.70);">The Sanctuary, held in the hand. Tap to unfold.</p>
+          </div>
+          <p style="margin:0 0 22px;font-size:11.5px;color:rgba(224,224,224,.70);">Keep the map:
+            <span style="border:1px solid rgba(224,224,224,.20);border-radius:5px;padding:2px 8px;margin-left:5px;">on the table</span>
+            <span style="border:1px solid rgba(224,224,224,.20);border-radius:5px;padding:2px 8px;margin-left:5px;">on the wall</span>
+          </p>
+
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+            <div style="position:relative;background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 14px 14px 18px;overflow:hidden;">
+              <span style="position:absolute;inset-block:0;left:0;width:4px;background-image:linear-gradient(180deg,#E84393,#FD79A8);"></span>
+              <p style="margin:0;font-size:13px;font-weight:600;">The Studio</p>
+              <p style="margin:3px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);">Steps away &mdash; when inspiration comes</p>
+            </div>
+            <div style="position:relative;background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 14px 14px 18px;overflow:hidden;">
+              <span style="position:absolute;inset-block:0;left:0;width:4px;background-image:linear-gradient(180deg,#22D3EE,#E0E0E0);"></span>
+              <p style="margin:0;font-size:13px;font-weight:600;">The Sanctum</p>
+              <p style="margin:3px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);">Shape how your home feels</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The unfurnished home &mdash; the true empty state, kept whole</p>
+        <div style="border:1px dashed rgba(224,224,224,.18);border-radius:12px;background:#0C0F1D;padding:28px 22px;text-align:center;">
+          <p style="margin:0 0 5px;font-size:14px;color:rgba(224,224,224,.72);">Your home is waiting to take shape.</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Rooms, keepsakes, and a garden grow here &mdash; at your pace, by your hand, never anyone else&rsquo;s.</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">This is what a vessel sees on day one, and it is <span class="k">already right</span> &mdash; SceneRenderer.tsx:400&ndash;409, kept to the word. Empty is waiting, never missing. The only change is the fade it is printed in.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The build law this board is drawn under</p>
+        <p class="q">&ldquo;i magine building the framework for each of the next realms before the features within is a good approach, as some features are cross referenced realm-wise. the game side of the vessel experience, not as vital as a functional bazaar, athena with contents, etc&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. So this board draws <span class="k">the frame</span> &mdash; the rooms, the founding hand, the map, the doorways, the honest empty states &mdash; and marks the garden, keepsakes, decorations and companions as the <span class="k">quiet places they will fill</span>, drawn but not designed.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What is frame here, and what is second pass</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">FRAME &mdash; the rooms.</span> Found a room, move it earlier or later. Two real buttons, no drag: <em>&ldquo;the scene never shuffles ITSELF; every re-siting is the dweller&rsquo;s own tap&rdquo;</em> (SceneRenderer.tsx:24&ndash;26). This is the sovereign-ordering law made a hand, and it holds.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">FRAME &mdash; the map.</span> Gate &#9313;&rsquo;s furniture: table or wall, the vessel&rsquo;s own tap creating their own <span class="src">realm_map</span> row at first choice (:272&ndash;292). It is a <em>way between realms</em>, so it is structure, not decoration.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">FRAME &mdash; the doorways.</span> Home&rarr;Studio is the shortest edge, drawn as a sight-line with the neighbour realm&rsquo;s own beam standing still (SceneDoorway.tsx:51&ndash;57). KP&rsquo;s adjacency law: <em>&ldquo;all only steps away from the creative studios.&rdquo;</em></p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">SECOND PASS &mdash; the garden.</span> Built and standing (GardenBed.tsx, 199 lines; <span class="src">REST_DAYS_BY_RARITY</span> 14/21/28 from KP&rsquo;s care-cadence ruling). Its empty state is drawn above verbatim and nothing is redesigned.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">SECOND PASS &mdash; keepsakes / collections.</span> The shelf exists; the catalog is real; the rows are not. Drawn as its dignified empty state, untouched.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">SECOND PASS &mdash; decorations.</span> Rooms already list them (:374&ndash;389), and the way they arrive is a <em>cross-realm seam</em>: hermes checkout writes <span class="src">vessel_decorations</span> into the vessel&rsquo;s room (REALM-BUS.md:354&ndash;366). Exactly the cross-reference KP&rsquo;s build law says to frame first and fill later.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">SECOND PASS &mdash; companions.</span> Nothing is built. Drawn only as a reserved place, because KP&rsquo;s ruling fixes what will stand there: <em>&ldquo;companion clues is supposed to be a gentle reminder about the vessels actual pets in life&rdquo;</em> (E4 digest &sect;1) &mdash; <span class="k">real pets, not invented creatures</span>. That is a fact worth holding a space for and worth not designing today.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The outside of the home &mdash; KP&rsquo;s word, mid-sitting</p>
+        <p class="q">&ldquo;community profile is the &lsquo;outside of a vessels home&rsquo;&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim. It settles a thing this realm never had a place for: <span class="k">the community profile is not a page.</span> It is this home&rsquo;s exterior &mdash; what a visitor sees walking up.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The frame owes it one thing: an outside.</span> Everything drawn on this board is <em>interior</em> &mdash; rooms, garden, keepsakes, the map on the table. The scene renderer has no exterior view at all. That is the gap his sentence names, and it is frame-level: a home that can be visited needs a side that faces out.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">It explains the wall the realm already has.</span> The home is own-only by RLS design &mdash; <em>&ldquo;a visitor cannot window-peek a hearth&rdquo;</em> (SceneRenderer.tsx:24&ndash;25). With the exterior as the community profile, that law stops being a limitation and becomes the shape: <span class="k">the outside is public, the inside is not.</span> A visitor walks up and sees the house; they do not come in.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">And it is the same door from the sky.</span> On board &#9317; the community profile is therefore not a star of its own &mdash; the <em>home</em> is its star, and tapping it arrives at the exterior. One thing, one place, reached the same way from both rooms.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Second pass: everything about how it looks.</span> What a visitor sees, what a vessel may put on the outside, how the facade is dressed &mdash; all of it sits with the decorating, untouched here. <span class="k">The frame marks that an outside exists and that it is public; it does not decorate it.</span></p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The one thing the frame is missing</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The home has no way back.</span> Every other room in this realm opens with &ldquo;Return to Vessel&rdquo; &mdash; JournalList.tsx:167&ndash;173, EnergyLog.tsx:272&ndash;278, NotificationsList.tsx:77, ConstellationContent.tsx:393&ndash;399, SanctumContent.tsx:205&ndash;211. <span class="src">SceneRenderer.tsx</span> imports <span class="src">ArrowDown, ArrowUp, Home</span> and no back arrow at all. The deepest room in the realm is the one you cannot step out of, and it is the room a vessel is meant to <em>dwell</em> in. Drawn: the same back link, same words, same place.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the garden is the whole argument: growth read from real time, no timers shown, no streak, and watering a resting plot simply wakes it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; every gesture writes at once through the generated hooks; a failure says so in one line and keeps the room (:137&ndash;158, <em>&ldquo;It is safe to try again.&rdquo;</em>).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing pulses; the doorway&rsquo;s threshold light is <em>&ldquo;a sliver, not a show&rdquo;</em> and stands still by design.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; the strongest row on any board here. <span class="src">HearthMusic.tsx</span>: <span class="src">preload=&quot;none&quot;</span>, tap to play, tap to still, silence on unmount &mdash; <em>&ldquo;consent STRICTER than any setting&hellip; every play is its own opt-in&rdquo;</em> (:6&ndash;11).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;Found the room&rdquo;, &ldquo;Ready a new plot&rdquo;, &ldquo;Water &mdash; it will wake&rdquo;. Nothing rewritten on this board.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; one form, one field, one button. A room needs a name and nothing else.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the map unfolds to the whole Sanctuary and Escape always folds it (RealmMapFurniture.tsx:63&ndash;70).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="src">motion-reduce:transition-none</span> on every control in this organ; the expansion is instant by its own header law.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the surfaces are right (<span class="src">bg-(--color-surface)/70</span>, starDust <span class="k">12.3:1</span>), but the room&rsquo;s kindest lines are its faintest: &ldquo;Bare walls, on purpose&rdquo; (:391), &ldquo;Nothing rushes, and nothing dies&rdquo; (GardenBed:126) and &ldquo;Never bought, never rushed&rdquo; (KeepsakesShelf:43) all sit at <span class="src">/40</span> &mdash; <span class="k">3.1:1</span>. Same mend as board &#9312;.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; whole. Native <span class="src">select</span>, real buttons, <span class="src">sr-only</span> labels on both the room field and each seed picker, <span class="src">aria-pressed</span> on the map placement, <span class="src">aria-label</span> on every move arrow. This organ is the realm&rsquo;s best keyboard citizen and it is not close.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim, all of it</span> &mdash; :306 &ldquo;{name}&rsquo;s home&rdquo; &middot; :309 &ldquo;Everything here stays as you left it.&rdquo; &middot; :392 &ldquo;Bare walls, on purpose &mdash; yours to fill, or not.&rdquo; &middot; :403&ndash;407 the unfurnished home &middot; :437 &ldquo;Found the room&rdquo; &middot; GardenBed:124&ndash;126 &middot; KeepsakesShelf:41&ndash;44 &middot; HearthMusic:80, :84 &middot; RealmMapFurniture:99, :103, :155. <span class="k">This room&rsquo;s voice needed nothing.</span> It is the register the rest of the realm should be measured against &mdash; and the one place the house already wrote its own best sentence about signing in (:177).</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the back link. Taken verbatim from the five rooms that already have it: <span class="new">&ldquo;Return to Vessel&rdquo;</span> &mdash; drawn here as <span class="new">&ldquo;Return to the Vessel&rdquo;</span> to match this room&rsquo;s own definite-article voice (&ldquo;Return to the Scroll&rdquo;, &ldquo;Return to the Call&rdquo;). <em>Proposed</em>: no ruling names it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { z } from 'zod';
+import type { TablesUpdate } from '@/lib/generated/supabase/database.helpers';
 
 // community_profiles — the vessel's public identity
 const identityUpdateSchema = z.object({
@@ -53,6 +54,9 @@ const configUpdateSchema = z.object({
   // gets its schema home back ('env:variant', the selector's own dialect).
   bubble_daily_max: z.number().int().min(0).max(9999).optional(),
   bubble_hourly_max: z.number().int().min(0).max(999).optional(),
+  // KP's word 2026-08-24: the Sanctum switch that puts a "Play bubbles"
+  // button on the vessel face. Column name proposed here; gaia mints it.
+  bubble_vessel_button: z.boolean().optional(),
   environment_preference: z.string().regex(/^[a-z_]+:[1-4]$/).optional(),
 });
 
@@ -100,12 +104,16 @@ export async function PATCH(request: NextRequest) {
         );
       }
       if (Object.keys(validatedConfig.data).length > 0) {
+        // bubble_vessel_button has no column yet — it is gaia's to mint. Until
+        // it lands the write is sent anyway and simply fails for that one
+        // field; the Sanctum and the vessel both read it defensively. Drop the
+        // cast once the column is in the generated types.
         const { error: configError } = await supabase
           .from('vessel_config')
           .update({
             ...validatedConfig.data,
             updated_at: new Date().toISOString(),
-          })
+          } as TablesUpdate<'vessel_config'>)
           .eq('created_by', user.id);
 
         if (configError) {

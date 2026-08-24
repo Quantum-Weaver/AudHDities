@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9313;</span>
+    <span style="font-size:15px;font-weight:600;">The door &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/login</span></span>
+    <span class="src">(auth)/login/page.tsx &rarr; LoginForm.tsx</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+    <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+      <div class="wash"></div>
+      <div style="position:relative;z-index:1;">
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid rgba(224,224,224,.08);">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;">AUDHDITIES</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:12px;border:1px solid rgba(224,224,224,.20);font-size:14px;">Enter</span>
+        </div>
+
+        <div style="padding:40px 22px 44px;">
+          <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:32px 28px;">
+
+            <div style="text-align:center;margin-bottom:28px;">
+              <h1 style="margin:0 0 8px;font-size:28px;font-weight:700;line-height:1.25;">Return to the Sanctuary</h1>
+              <p style="margin:0;font-size:16px;color:rgba(224,224,224,.70);">Your email and password. Take your time.</p>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:18px;">
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Email</label>
+                <div style="height:40px;border:1px solid rgba(255,255,255,.10);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">your@email.com</div>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <label style="font-size:12px;font-weight:500;color:rgba(224,224,224,.80);">Password</label>
+                <div style="height:40px;border:1px solid #22D3EE;box-shadow:0 0 0 1px rgba(34,211,238,.5);border-radius:8px;display:flex;align-items:center;padding:0 16px;font-size:14px;color:rgba(224,224,224,.60);">Enter your password</div>
+                <p style="margin:2px 0 0;font-size:11px;color:rgba(224,224,224,.55);">focus state drawn &mdash; Input&rsquo;s own neurospark ring</p>
+              </div>
+
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Enter the Sanctuary</a>
+
+              <div style="display:flex;align-items:center;gap:12px;">
+                <span style="flex:1;height:1px;background:rgba(224,224,224,.14);"></span>
+                <span style="font-size:14px;color:rgba(224,224,224,.70);">or</span>
+                <span style="flex:1;height:1px;background:rgba(224,224,224,.14);"></span>
+              </div>
+
+              <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;border-radius:12px;border:1px solid rgba(224,224,224,.30);color:#E0E0E0;font-size:16px;font-weight:500;">Email me a way in</a>
+              <p style="margin:-8px 0 0;font-size:14px;color:rgba(224,224,224,.70);text-align:center;text-wrap:pretty;">No password needed. We send a link to the address above and it opens the door once.</p>
+
+            </div>
+
+            <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;align-items:center;">
+              <p style="margin:0;font-size:14px;"><a href="#">Forgot your password?</a></p>
+              <p style="margin:0;font-size:14px;color:rgba(224,224,224,.70);">New to the Sanctuary? <a href="#">Come in</a></p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <p class="rl-h" style="margin-bottom:9px;">The second door, sent &mdash; and it discloses nothing</p>
+      <div style="position:relative;border:1px solid rgba(0,184,148,.35);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:30px 22px 34px;">
+          <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:32px 28px;text-align:center;">
+            <h1 style="margin:0 0 10px;font-size:28px;font-weight:700;line-height:1.25;">A way in is on its way</h1>
+            <p style="margin:0 0 20px;font-size:16px;color:rgba(224,224,224,.70);text-wrap:pretty;">If that address has a home here, a way in is heading to it now. Take your time &mdash; the door will wait.</p>
+            <p style="margin:0 0 22px;font-size:14px;color:rgba(224,224,224,.70);text-wrap:pretty;">Didn&rsquo;t arrive? Check the spam folder, then ask again with the same address. Nothing is spent by asking twice.</p>
+            <p style="margin:0;font-size:14px;"><a href="#">Enter with a password instead</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q">&ldquo;&hellip; the vessel should be reachable from here by logging in.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; briefs/01-auth-BRIEF.md, answer 2. This board is the &ldquo;here&rdquo; of that sentence made a room.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">And the second door &mdash; KP&rsquo;s ruling 8</p>
+        <p class="q">&ldquo;can we enable magic link as well as the reset password, sometimes a vessel has not the capacity to reset a password.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; briefs/01-auth-BRIEF.md, answer 8 &mdash; RULED.</p>
+        <p class="rl-b" style="margin-top:10px;">Drawn as a <span class="k">door, not a footnote</span>: same 48px height, same full width, same type, one divider below the password door &mdash; not a grey line under the fold. Two doors, <span class="k">one email field</span>: the second way in uses the address already typed, so choosing it costs nothing already given.</p>
+        <p class="rl-b" style="margin-top:8px;">The wire: Supabase <span class="src">signInWithOtp</span>, landing on the existing <span class="src">/callback</span> with <span class="src">?next=</span> &mdash; the same route the recovery link already uses (ForgotPasswordForm.tsx:29). No new route is asked for. Board &#9317; draws the arrival.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; no timer, no auto-submit, no session countdown. The door waits.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; a failed attempt keeps the email in place; only the password clears. And the second door is the deepest form of this point: <span class="k">a vessel who cannot hold a password does not have to hold one.</span> Nothing to remember, nothing to store, nothing to lose &mdash; the way back is an email, and the email is the record.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; an error appears in place, above the fields. No shake, no flash, no colour pulse.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;credentials&rdquo; and &ldquo;Initialize Consciousness&rdquo; both rewritten (below).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; three, in the order they are needed: enter &middot; forgot &middot; come in. Today the third is printed twice on one page.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; &ldquo;Forgot your password?&rdquo; is the way out of the dead end, and it is on the page before anyone is stuck.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the button&rsquo;s <span class="src">active:scale-[0.98]</span> (button.constants.ts:62) is a transform, so it needs a <span class="src">motion-reduce</span> guard; drawn as a colour change alone.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured on the surface card (#1A1F35), which is the ground this text actually sits on: starDust <span class="k">12.3:1</span>; muted at /70 <span class="k">6.7:1</span>; link neurospark <span class="k">9.0:1</span>; button label #FFFFFF on quantum.purple <span class="k">4.9:1</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; every label is bound to its field; tab runs Email &rarr; Password &rarr; Enter &rarr; Forgot &rarr; Come in; the focus ring is drawn, not implied.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The laws standing on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Text carries on the ground.</span> Today <span class="src">authPageVariants()</span> puts the form straight onto <span class="src">GRADIENTS['cosmicDomain']</span> (auth.constants.ts:111) with no card beneath &mdash; against the 0.3-wash law (HANDOFF.md:62&ndash;67), where text on a domain colour at full strength runs 1.2:1 to 9.6:1. Drawn on a <span class="src">surface</span> card, with the realm as weather behind it.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The gradient-as-classname waits.</span> KP &#9883;, verbatim: &ldquo;wait for phase 0a&rdquo; (answer 3). This board draws the <em>structure</em>, not the mend.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Said once.</span> The &ldquo;New to the Sanctuary?&rdquo; pair renders <em>twice</em> today &mdash; LoginForm.tsx:86&ndash;91 and login/page.tsx:50&ndash;55. Drawn once.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> from the census &mdash; :46 &ldquo;Return to the Sanctuary&rdquo; &middot; :55 &ldquo;Email&rdquo; &middot; :59 &ldquo;your@email.com&rdquo; &middot; :64 &ldquo;Password&rdquo; &middot; :68 &ldquo;Enter your password&rdquo; &middot; :75 &ldquo;Entering&hellip;&rdquo; / &ldquo;Enter the Sanctuary&rdquo; &middot; :82 &ldquo;Forgot your password?&rdquo; &middot; :87 &ldquo;New to the Sanctuary?&rdquo;</p>
+          <p class="rl-b"><span class="k">REWRITE 4</span> &middot; <span class="src">LoginForm.tsx:47</span><br><span class="old">&ldquo;Enter your credentials to continue&rdquo;</span> &rarr; <span class="new">&ldquo;Your email and password. Take your time.&rdquo;</span> &mdash; &ldquo;credentials&rdquo; is machine language at a threshold; the new line extends the door&rsquo;s own best sentence, ForgotPasswordForm.tsx:47&ndash;49.</p>
+          <p class="rl-b"><span class="k">REWRITE 5</span> &middot; <span class="src">LoginForm.tsx:89</span> &middot; also login/page.tsx:53 and <span class="src">AUTH_LABELS.INITIALIZE_CONSCIOUSNESS</span> (auth.constants.ts:36)<br><span class="old">&ldquo;Initialize Consciousness&rdquo;</span> &rarr; <span class="new">&ldquo;Come in&rdquo;</span> &mdash; the arriving are recognised, not booted.</p>
+          <p class="rl-b"><span class="k">REWRITE 6</span> &middot; <span class="src">LoginForm.tsx:81, :86</span> &middot; <span class="src">form_field.constants.ts:42</span><br><span class="old">text-star-dust/40 &mdash; measured 3.2:1</span> &rarr; <span class="new">/70 &mdash; 7.4:1 on deepSpace, 6.7:1 on the surface card</span>. Below 4.5:1 is not a shade, it is a wall.</p>
+          <p class="rl-b"><span class="k">REWRITE 7</span> &middot; <span class="src">input.constants.ts:48</span><br><span class="old">placeholder:text-star-dust/40 &mdash; 3.2:1</span> &rarr; <span class="new">/60 &mdash; 5.7:1</span>.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the second door. No census line exists: the string is not in the inventory because the flow is not in the tree. <span class="new">&ldquo;Email me a way in&rdquo;</span>, and under it <span class="new">&ldquo;No password needed. We send a link to the address above and it opens the door once.&rdquo;</span> The words &ldquo;magic link&rdquo; stay in the machine&rsquo;s vocabulary, not the visitor&rsquo;s &mdash; plain language, the fifth point.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the sent state, modelled to the word on the door&rsquo;s own best sentence, <span class="src">ForgotPasswordForm.tsx:46&ndash;49</span>: <span class="new">&ldquo;A way in is on its way&rdquo;</span> / <span class="new">&ldquo;If that address has a home here, a way in is heading to it now. Take your time &mdash; the door will wait.&rdquo;</span> It never says whether the address exists, so the second door cannot be used to ask the base who is a member.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; <span class="new">&ldquo;Enter with a password instead&rdquo;</span>, so the sent state is not a room with one exit; and the &ldquo;Didn&rsquo;t arrive?&rdquo; line carried over from board &#9315; unchanged, because the two sent states are the same state.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

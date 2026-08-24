@@ -12,13 +12,13 @@ import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';
-import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
-import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, HeartHandshake } from 'lucide-react';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, Star, HeartHandshake } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
+import { HOME_LABELS } from '@/lib/constants/components/asgard/domains/hestia/home/home.constants';
 
 interface EarnedSigil {
   id: string;
@@ -42,8 +42,7 @@ const RARITY_COLORS: Record<string, string> = {
   mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 };
 
-// The sovereignty journey, in order. Tier replaces the old numeric score.
-const TIER_ORDER = ['dweller', 'guild', 'outlander', 'sovereign_weaver'] as const;
+// The sovereignty journey. Tier replaces the old numeric score.
 const TIER_LABELS: Record<string, string> = {
   dweller: 'Dweller',
   guild: 'Guild',
@@ -65,6 +64,21 @@ export function VesselContent() {
   const { user, profile, roles, sovereignTier, isQuantumWeaver, isLoading, refetch } = useUser();
   const [sigils, setSigils] = useState<EarnedSigil[]>([]);
   const [events, setEvents] = useState<CurrentEvent[]>([]);
+  // The vessel's own choice, made in the Sanctum's bubble settings. Off
+  // unless a person turned it on; read defensively until the column lands.
+  const [bubblesOnVessel, setBubblesOnVessel] = useState(false);
+  // Failte is the Hearth's standing eyebrow, and home.constants.ts rules it
+  // "never doubled with the door's word in the same glance." Velkomin marks
+  // this sessionStorage flag in an effect; reading it at MOUNT (before that
+  // effect runs) tells us whether this render IS the crossing.
+  const [isCrossing] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    try {
+      return window.sessionStorage.getItem('sanctuary:velkomin-crossed') !== '1';
+    } catch {
+      return true;
+    }
+  });
 
   useEffect(() => { refetch(); }, []);
 
@@ -94,6 +108,20 @@ export function VesselContent() {
       .then(r => r.json()).then(res => { if (res.success) setEvents(res.data?.data || []); }).catch(() => {});
   }, [user]);
 
+  // The bubbles button's switch (KP's word, 2026-08-24) — vessel_config, off
+  // by default, so a vessel who never opens the Sanctum is never offered a
+  // game on their own face.
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
+      .then(r => r.json())
+      .then(res => {
+        const row = res.success ? (res.data?.data ?? [])[0] : undefined;
+        setBubblesOnVessel(!!row && (row as Record<string, unknown>).bubble_vessel_button === true);
+      })
+      .catch(() => {});
+  }, [user]);
+
   if (isLoading) {
     return (
       <div className="container max-w-4xl mx-auto px-6">
@@ -114,17 +142,21 @@ export function VesselContent() {
   if (!user || !profile) {
     return (
       <div className="container max-w-4xl mx-auto px-6 text-center">
-        <p className="text-star-dust/60">Sign in to view your Vessel.</p>
+        <p className="text-star-dust/60">Enter the Sanctuary to see your vessel.</p>
       </div>
     );
   }
 
+  // Six rooms, one grid, one vocabulary. The Sanctum is a place here as it is
+  // everywhere else that names it; the Constellation was reachable only from
+  // the user menu; "Bubbles" left the grid for a button the vessel asks for.
   const quickLinks = [
     // The home — the scene renderer's door (Run 08, the finishing session)
     { href: '/vessel/home', label: 'The Home', icon: Home, id: 'home' },
-    { href: '/vessel/energy', label: 'Energy Log', icon: Zap, id: 'energy' },
+    { href: '/vessel/sanctum', label: 'The Sanctum', icon: Settings, id: 'sanctum' },
     { href: '/vessel/journal', label: 'The Scroll', icon: BookOpen, id: 'journal' },
-    { href: '/library/bubbles', label: 'Bubbles', icon: Droplets, id: 'bubbles' },
+    { href: '/vessel/energy', label: 'Energy Log', icon: Zap, id: 'energy' },
+    { href: '/vessel/constellation', label: 'Constellation', icon: Star, id: 'constellation' },
     { href: '/notifications', label: 'The Call', icon: Bell, id: 'notifications' },
   ];
 
@@ -133,7 +165,6 @@ export function VesselContent() {
   }
 
   const tier = sovereignTier ?? 'dweller';
-  const tierStep = TIER_ORDER.indexOf(tier as (typeof TIER_ORDER)[number]) + 1 || 1;
 
   const sovereigntyCardData: CardData = {
     id: `${user.id}-sovereignty`, type: 'stat', title: 'Sovereign Light',
@@ -150,6 +181,11 @@ export function VesselContent() {
 
       {/* Profile Header */}
       <div className="flex flex-col items-center mb-12">
+        {!isCrossing && (
+          <p className="text-xs font-medium uppercase tracking-widest text-neurospark/70 mb-3">
+            {HOME_LABELS.HEARTH_GREETING}
+          </p>
+        )}
         <Avatar size="xl" className="mb-4">
           <AvatarImage src={profile.avatar_url || undefined} />
           <AvatarFallback>
@@ -185,11 +221,6 @@ export function VesselContent() {
           </div>
         )}
 
-        <div className="mt-2">
-          <Link href="/vessel/sanctum">
-            <Button variant="primary" size="sm"><Settings className="h-4 w-4 mr-2" />Shape Your Vessel</Button>
-          </Link>
-        </div>
       </div>
 
       {/* Cards Grid */}
@@ -198,15 +229,14 @@ export function VesselContent() {
         <Card variant="quantum" data={sovereigntyCardData} radius="lg" shadow="md" className="p-6">
           <div className="flex items-center gap-3 mb-3"><Zap className="h-5 w-5 text-neurospark" /><h3 className="text-lg font-semibold text-star-dust">Sovereign Light</h3></div>
           <div className="text-3xl font-bold text-neurospark mb-2">{TIER_LABELS[tier] ?? prettify(tier)}</div>
-          <Progress value={tierStep} max={TIER_ORDER.length} variant="default" size="sm" />
-          <p className="text-xs text-star-dust/40 mt-2">{TIER_MESSAGES[tier] ?? TIER_MESSAGES.dweller}</p>
+          <p className="text-xs text-star-dust/70 mt-2">{TIER_MESSAGES[tier] ?? TIER_MESSAGES.dweller}</p>
         </Card>
 
         {/* House — awaiting its home in the evolved schema */}
         <Card variant="default" data={profileCardData} radius="lg" shadow="md" className="p-6">
           <div className="flex items-center gap-3 mb-3"><Users className="h-5 w-5 text-star-dust/60" /><h3 className="text-lg font-semibold text-star-dust">Council House</h3></div>
           <p className="text-star-dust/60 text-sm mb-3">You have not yet joined a Council House.</p>
-          <p className="text-xs text-star-dust/40">Complete the Acid Test to discover your house.</p>
+          <p className="text-xs text-star-dust/70">Your house finds you when you take the Acid Test. No hurry.</p>
         </Card>
       </div>
 
@@ -216,7 +246,7 @@ export function VesselContent() {
           a pledge spoken in the vessel's own room. */}
       {profile.covenant_pledge_percent != null && (
         <div className="mb-8">
-          <h3 className="text-sm font-medium text-star-dust/40 mb-3 flex items-center gap-2">
+          <h3 className="text-sm font-medium text-star-dust/70 mb-3 flex items-center gap-2">
             <HeartHandshake className="h-4 w-4" />The Covenant
           </h3>
           <Card
@@ -232,7 +262,7 @@ export function VesselContent() {
               of their earnings to the covenant pool — the commons that flows
               equally to every active member.
             </p>
-            <p className="text-xs text-star-dust/40 mt-2">
+            <p className="text-xs text-star-dust/70 mt-2">
               Displayed by their own choice. The covenant is a gift, never a due.
             </p>
           </Card>
@@ -242,7 +272,7 @@ export function VesselContent() {
       {/* Recent Milestones — the `current` stream */}
       {events.length > 0 && (
         <div className="mb-8">
-          <h3 className="text-sm font-medium text-star-dust/40 mb-3 flex items-center gap-2"><Clock className="h-4 w-4" />Recent Milestones</h3>
+          <h3 className="text-sm font-medium text-star-dust/70 mb-3 flex items-center gap-2"><Clock className="h-4 w-4" />Recent Milestones</h3>
           <div className="space-y-2">
             {events.map(t => (
               <Card key={t.id} data={{ id: t.id, type: 'value', title: prettify(t.event_type), value: '' }} variant="glass" radius="md" shadow="sm" className="p-3">
@@ -260,8 +290,22 @@ export function VesselContent() {
         </div>
       )}
 
-      {/* Quick Links */}
-      <QuickLinks links={quickLinks} userId={user.id} columns={4} />
+      {/* THE ROOMS — every room one step away (KP's adjacency law) */}
+      <h3 className="text-sm font-medium text-star-dust/70 mb-3">The rooms, one step away</h3>
+      <QuickLinks links={quickLinks} userId={user.id} columns={3} />
+
+      {/* PLAY BUBBLES — KP's word, 2026-08-24. Its own thing below the rooms,
+          not a room among them, and only when the Sanctum's switch is on. The
+          bubbles stay reachable at the Library either way. */}
+      {bubblesOnVessel && (
+        <div className="mt-6 flex justify-center">
+          <Link href="/library/bubbles">
+            <Button variant="secondary" size="md">
+              <Droplets className="h-4 w-4 mr-2" />Play bubbles
+            </Button>
+          </Link>
+        </div>
+      )}
 
     </div>
   );

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:28px 30px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 16px;">
+    <span style="font-size:14px;font-weight:700;color:#E17055;">DECLINED</span>
+    <span style="font-size:14px;font-weight:600;">The &ldquo;not now&rdquo; as a quiet skip link</span>
+  </div>
+
+  <div style="border:1px dashed rgba(224,224,224,.22);border-radius:12px;background:#1A1F35;padding:26px 24px;text-align:center;margin-bottom:18px;">
+    <p style="margin:0 0 6px;font-size:20px;font-weight:700;">Take the Acid Test</p>
+    <p style="margin:0 0 18px;font-size:14px;color:rgba(224,224,224,.70);">It sets what you pay &mdash; never what you may reach.</p>
+    <span style="display:inline-flex;align-items:center;justify-content:center;height:48px;width:100%;box-sizing:border-box;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:16px;font-weight:500;">Begin the Acid Test</span>
+    <p style="margin:14px 0 0;font-size:12px;color:rgba(224,224,224,.40);">skip for now</p>
+  </div>
+
+  <p class="rl-h">What it was</p>
+  <p class="rl-b" style="margin-bottom:14px;">The pattern everyone ships: one loud primary, and the refusal as small grey text underneath. It is compact, it is familiar, and it technically satisfies &ldquo;there is a way out&rdquo;.</p>
+
+  <p class="rl-h">Why it was declined</p>
+  <div style="display:flex;flex-direction:column;gap:9px;">
+    <p class="rl-b"><span class="k">1 &mdash; KP ruled the word <em>felt</em>.</span> Verbatim: &ldquo;need a felt &quot;not now&quot;&rdquo; (brief, answer 1) &mdash; and, in the same breath, that leaving via the header is <em>not enough</em>. A 12px grey line is the header in a different place.</p>
+    <p class="rl-b"><span class="k">2 &mdash; it is confirmshaming by weight.</span> The bus forbids &ldquo;pre-checked consent, confirmshaming, roach-motel flows&rdquo; by name (E2 digest &sect;6). Shame does not have to be written into the words; it can be done entirely with type size.</p>
+    <p class="rl-b"><span class="k">3 &mdash; it fails contrast anyway.</span> That grey measures <span class="k">3.2:1</span> &mdash; the same <span class="src">text-star-dust/40</span> the whole door is being raised off. The one control a hesitant person needs would have been the hardest thing on the page to see.</p>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

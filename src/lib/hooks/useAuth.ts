@@ -20,6 +20,7 @@ export interface AuthState {
 export interface AuthActions {
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, metadata?: Record<string, unknown>) => Promise<{ error: Error | null }>;
+  signInWithLink: (email: string, redirectTo: string) => Promise<{ error: Error | null }>;
   resetPassword: (email: string, redirectTo?: string) => Promise<{ error: Error | null }>;
   updatePassword: (password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
@@ -73,6 +74,19 @@ export function useAuth(): AuthState & AuthActions {
     return { error: null };
   }, [supabase]);
 
+  const signInWithLink = useCallback(async (email: string, redirectTo: string) => {
+    setError(null);
+    // shouldCreateUser:false — the second door is a way BACK in. Left true
+    // (the Supabase default) it would mint an account from the login page with
+    // no username and no Terms consent, against the opt-in law.
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: redirectTo, shouldCreateUser: false },
+    });
+    if (error) { setError(error.message); return { error }; }
+    return { error: null };
+  }, [supabase]);
+
   const resetPassword = useCallback(async (email: string, redirectTo?: string) => {
     setError(null);
     const { error } = await supabase.auth.resetPasswordForEmail(
@@ -115,5 +129,5 @@ export function useAuth(): AuthState & AuthActions {
     return () => { subscription.unsubscribe(); };
   }, [supabase, fetchProfile]);
 
-  return { user, profile, loading, error, signIn, signUp, resetPassword, updatePassword, signOut, refreshProfile };
+  return { user, profile, loading, error, signIn, signUp, signInWithLink, resetPassword, updatePassword, signOut, refreshProfile };
 }

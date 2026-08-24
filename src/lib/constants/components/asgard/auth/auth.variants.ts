@@ -12,7 +12,6 @@ import {
   AUTH_TRANSITION_DURATION,
   AUTH_TRANSITION_EASING,
   AUTH_PAGE_PADDING,
-  AUTH_PAGE_GRADIENT,
 } from './auth.constants';
 
 // ─── Auth Button ───────────────────────────────────────────────────────────
@@ -60,22 +59,14 @@ export const authPageVariants = cva(
     'items-center',
     'justify-center',
     `p-[${AUTH_PAGE_PADDING}]`,
-  ].join(' '),
-  {
-    variants: {
-      variant: {
-        default: AUTH_PAGE_GRADIENT,
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
+  ].join(' ')
 );
 
 // ─── Auth Page Content Wrapper ─────────────────────────────────────────────
+// The ground carries the text: the form sits on a surface card and the realm
+// is weather behind it (HANDOFF.md:62-67, the 0.3-wash law).
 export const authPageContentVariants = cva(
-  'w-full max-w-md'
+  'w-full max-w-md rounded-xl border border-star-dust/10 bg-surface p-8'
 );
 
 // ─── Auth Page Footer Text ─────────────────────────────────────────────────
@@ -95,7 +86,7 @@ export const authLoadingVariants = cva(
 
 // ─── Auth Spinner ──────────────────────────────────────────────────────────
 export const authSpinnerVariants = cva(
-  'animate-spin text-neurospark',
+  'animate-spin text-neurospark motion-reduce:hidden',
   {
     variants: {
       size: {
@@ -143,7 +134,7 @@ export const authLinkVariants = cva(
 
 // ─── Auth Muted Text ───────────────────────────────────────────────────────
 export const authMutedTextVariants = cva(
-  'text-star-dust/40 text-sm'
+  'text-star-dust/70 text-sm'
 );
 
 // ─── Auth Label Text ───────────────────────────────────────────────────────

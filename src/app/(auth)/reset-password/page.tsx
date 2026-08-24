@@ -6,14 +6,16 @@
 // The vessel arrives here from the recovery email via the callback route
 // (?next=/reset-password), carrying a recovery session — so this page
 // REQUIRES auth: the guard passes the recovery visitor and turns strangers
-// gently back to the login door.
+// back to the login door, carrying the reason with them.
 
 import { Metadata } from 'next';
+import { Page } from '@/components/bifrost/Page';
 import ResetPasswordForm from '@/components/asgard/auth/ResetPasswordForm';
 import AuthGuard from '@/components/asgard/auth/AuthGuard';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
+  AUTH_ENVIRONMENT,
   AUTH_METADATA,
 } from '@/lib/constants/components/asgard/auth/auth.constants';
 
@@ -38,12 +40,14 @@ export const metadata: Metadata = {
 
 export default function ResetPasswordPage() {
   return (
-    <AuthGuard>
-      <main className={authPageVariants()}>
-        <div className={authPageContentVariants()}>
-          <ResetPasswordForm />
-        </div>
-      </main>
-    </AuthGuard>
+    <Page environment={AUTH_ENVIRONMENT} showForeground={false}>
+      <AuthGuard>
+        <main className={authPageVariants()}>
+          <div className={authPageContentVariants()}>
+            <ResetPasswordForm />
+          </div>
+        </main>
+      </AuthGuard>
+    </Page>
   );
 }

@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:0 14px;height:28px;background:rgba(12,15,29,.4);
+      border-bottom:1px solid rgba(255,255,255,.05);font-size:10px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9312;</span>
+    <span style="font-size:15px;font-weight:600;">Arrival &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel</span>, the hearth&rsquo;s threshold</span>
+    <span class="src">(hestia)/vessel/page.tsx &rarr; VesselContent.tsx</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-bottom:1px solid rgba(224,224,224,.08);">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.16em;">AUDHDITIES</span>
+            <span style="font-size:13px;color:rgba(224,224,224,.70);">The Vessel &middot; <span style="color:rgba(224,224,224,.45);">Your sovereign self</span></span>
+          </div>
+
+          <div class="bar">
+            <span style="color:rgba(224,224,224,.30);">&nbsp;</span>
+            <span style="color:rgba(224,224,224,.22);letter-spacing:.06em;">&mdash; calm emptiness &mdash;</span>
+            <span style="display:inline-flex;gap:12px;align-items:center;color:rgba(224,224,224,.55);">
+              <span>&#9889; 7</span><span style="color:#FDCB6E;">&#9788; 2</span>
+            </span>
+          </div>
+
+          <div style="padding:30px 26px 34px;">
+
+            <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:22px 24px;margin-bottom:22px;">
+              <p style="margin:0 0 3px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(34,211,238,.85);">F&aacute;ilte</p>
+              <div style="display:flex;align-items:center;gap:14px;">
+                <span style="width:52px;height:52px;border-radius:9999px;background:#0C0F1D;border:1px solid rgba(224,224,224,.14);display:inline-flex;align-items:center;justify-content:center;font-size:20px;color:rgba(224,224,224,.70);flex:none;">K</span>
+                <div>
+                  <p style="margin:0;font-size:20px;font-weight:600;">Kai</p>
+                  <p style="margin:3px 0 0;"><span style="display:inline-block;padding:2px 9px;border-radius:9999px;border:1px solid rgba(224,224,224,.20);font-size:11px;color:rgba(224,224,224,.78);">Dweller</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:18px;">
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:18px;">
+                <p style="margin:0 0 6px;font-size:13px;font-weight:600;color:rgba(224,224,224,.80);">Sovereign Light</p>
+                <p style="margin:0 0 4px;font-size:22px;font-weight:700;color:#22D3EE;">Dweller</p>
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);text-wrap:pretty;">Every journey begins with a single step.</p>
+              </div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:18px;">
+                <p style="margin:0 0 6px;font-size:13px;font-weight:600;color:rgba(224,224,224,.80);">Council House</p>
+                <p style="margin:0 0 4px;font-size:13px;color:rgba(224,224,224,.70);">You have not yet joined a Council House.</p>
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Your house finds you when you take the Acid Test. No hurry.</p>
+              </div>
+            </div>
+
+            <p class="rl-h" style="margin-bottom:10px;">The rooms, one step away</p>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 10px;text-align:center;">
+                <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.80);">The Home</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 10px;text-align:center;">
+                <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.80);">The Sanctum</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 10px;text-align:center;">
+                <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.80);">The Scroll</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 10px;text-align:center;">
+                <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.80);">Energy Log</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 10px;text-align:center;">
+                <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.80);">Constellation</p>
+                <p style="margin:2px 0 0;font-size:10px;color:#FDCB6E;">added</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:14px 10px;text-align:center;">
+                <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.80);">The Call</p></div>
+            </div>
+
+            <p style="margin:14px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);">no bubbles button &mdash; the Sanctum toggle is off, which is its default</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The same hub with the Sanctum toggle turned on</p>
+        <div style="position:relative;border:1px solid rgba(253,203,110,.35);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:22px 26px 26px;">
+            <p class="rl-h" style="margin-bottom:10px;">The rooms, one step away</p>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px;">
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:12px 10px;text-align:center;">
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">The Home</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:12px 10px;text-align:center;">
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">The Sanctum</p></div>
+              <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:12px 10px;text-align:center;">
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">The Scroll</p></div>
+            </div>
+            <div style="display:flex;justify-content:center;">
+              <span style="display:inline-flex;align-items:center;gap:9px;padding:11px 22px;border-radius:10px;border:1px solid rgba(34,211,238,.45);background:rgba(34,211,238,.10);color:#22D3EE;font-size:14px;font-weight:500;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <circle cx="9" cy="14" r="5"/><circle cx="16.5" cy="8" r="3.5"/>
+                </svg>
+                Play bubbles
+              </span>
+            </div>
+            <p style="margin:12px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);text-align:center;">Its own thing, below the rooms &mdash; not a room among them.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The crossing state &mdash; and why the two words never collide</p>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:12px;background:#0C0F1D;padding:18px 20px;">
+          <p style="margin:0 0 8px;font-size:22px;font-weight:500;color:rgba(224,224,224,.92);">Velkomin, Kai.</p>
+          <p class="rl-b">Fired <span class="k">once per crossing</span> and then gone &mdash; the door&rsquo;s word, gated in <span class="src">VelkominGreeting.tsx</span> (vessel/page.tsx:20&ndash;27 carries the whole provenance comment). <span class="k">F&aacute;ilte is the standing eyebrow</span>, true every visit, a noun that cannot infer &mdash; <span class="src">home.constants.ts:24&ndash;34</span>, whose own law is &ldquo;never doubled with the door&rsquo;s word in the same glance.&rdquo; So the board above is the <em>resting</em> state; this is the first two seconds of a fresh arrival, and F&aacute;ilte waits behind it.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s rulings this board embodies</p>
+        <p class="q">&ldquo;F&aacute;ilte fires at <span class="src">/vessel</span> too&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">Ruling 5, briefs/02-hestia-BRIEF.md, at his &#9883; &ldquo;go&rdquo;, 2026-08-24. <span class="src">AuthenticatedGreeting.tsx</span> &mdash; which carries <span class="src">HOME_LABELS.HEARTH_GREETING</span>, the F&aacute;ilte &mdash; has <span class="k">0 importers</span> today (BRIEF, Stranded). This board is the home it was ruled into.</p>
+        <p class="q" style="margin-top:14px;">&ldquo;<span class="src">--gradient-weaver</span> mended in the build&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">Ruling 6, same foot. Drawn as a <span class="k">real wash at ambient strength</span> &mdash; the right-hand note below carries the measurement that makes 0.3 the only honest number.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The bubbles button &mdash; KP&rsquo;s word, drawn both ways</p>
+        <p class="q">&ldquo;and in the sanctum settings for bubbles, add a toggle that will display a &lsquo;play bubbles&rsquo; button in th vessel screen&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. The switch itself is drawn on board &#9314;; this board draws what it does.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The default state is the first card above &mdash; no button.</span> Under KP&rsquo;s other word today, <em>&ldquo;make all toggles off by default,&rdquo;</em> a vessel who never opens the Sanctum is never offered a game on their own face.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Turned on, it stands below the rooms, not among them.</span> A game invited onto a vessel&rsquo;s face is not a seventh room &mdash; it is a thing to do, and it reads better as its own object under the grid than as a tile pretending to be a place.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">It replaces a tile nobody chose.</span> Today <span class="src">VesselContent.tsx:127</span> puts &ldquo;Bubbles&rdquo; in this grid <em>unconditionally</em> &mdash; a game standing among The Home, The Scroll and The Call for every vessel, with no way to put it down. That tile is what his toggle turns into a choice, and it is why the grid above has six rooms and no bubbles.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The door is athena&rsquo;s and unchanged</span> &mdash; <span class="src">/library/bubbles</span>, the same href the tile uses today. Nothing about the game moves; only whether the vessel is offered it here.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The wash, mended &mdash; measured</p>
+        <p class="rl-b"><span class="src">vessel/page.tsx:30&ndash;36</span> paints a second full-bleed div over <span class="src">var(--gradient-weaver)</span> at <span class="k">opacity 0.75</span>. That variable is <span class="k">defined nowhere in the repo</span> (one hit, its own use) &mdash; so today it paints nothing, and the header sits un-carded on bare ground.</p>
+        <p class="rl-b" style="margin-top:8px;">The mend is not to define it at 0.75. <span class="k">EnvironmentLayer already paints this exact wash</span> under every Page &mdash; <span class="src">/vessel &rarr; home</span> (page_mapping.ts:19&ndash;23) &rarr; <span class="src">BEAM_COLORS.home = GRADIENTS.alchemist</span> &rarr; <span class="src">washOpacity 0.3</span> (EnvironmentLayer.tsx:46). The second div is a duplicate of the first.</p>
+        <p class="rl-b" style="margin-top:8px;"><span class="k">Why 0.3 and not 0.75, in numbers.</span> The home wash runs <span class="src">#22D3EE &rarr; #E0E0E0</span>. Over deepSpace at <span class="k">0.3</span> its light end lands <span class="src">#4C4E58</span> and starDust reads <span class="k">6.3:1</span>. At <span class="k">0.75</span> that end lands <span class="src">#ABACAF</span> and starDust reads <span class="k">1.7:1</span> &mdash; not a shade, a wall. This is the 0.3-wash law being an accessibility structure rather than a taste (HANDOFF.md:62&ndash;67), stated as arithmetic.</p>
+        <p class="rl-b" style="margin-top:8px;"><span class="k">Drawn:</span> the phantom div goes; the realm&rsquo;s own wash stands at 0.3 behind solid <span class="src">surface</span> cards, which is where hestia sits everywhere else in this realm.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The status bar &mdash; gate &#9315;, calm emptiness</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The left slot is a live score.</span> <span class="src">StatusBar.tsx:40, :68</span> renders <span class="src">SovereigntyDisplay</span> &mdash; <span class="k">&ldquo;250 / 1000&rdquo; with a filling bar</span> &mdash; on every authenticated page in the app, derived from tier by <span class="src">tierLight()</span> (useUser.ts:32). Retiring <span class="src">SovereigntyScore.tsx</span> (ruling 4) does <em>not</em> retire this: the stranded file is the copy, the bar is the original. Drawn empty.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The centre still names the location.</span> <span class="src">RealmDisplay</span> (StatusBar.tsx:234&ndash;256) prints &ldquo;THE HEARTH &middot; WARM&rdquo; directly under a header already printing &ldquo;The Vessel&rdquo; &mdash; the exact doubling KP&rsquo;s stroke names: <em>&ldquo;use the status bar for something other than the location title, as the header is delivering that directly above the status bar&rdquo;</em> (E2 digest &sect;1, L1909&ndash;1911).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The right slot holds.</span> Energy today and unread heralds, both real reads. The herald count wears <span class="src">hearth-gold</span> when anything waits &mdash; <span class="k">12.7:1</span> on deepSpace &mdash; and today&rsquo;s energy wears amber or gold by level, grey when nothing is logged (StatusBar.tsx:316&ndash;341). <span class="k">No red anywhere</span> (README:79&rsquo;s own law).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Left empty, not refilled.</span> KP&rsquo;s gate &#9315; verbatim: <em>&ldquo;calm emptiness for now, i have ideas involving dynamic communication with the vessel from the sanctuary &lsquo;pressence&rsquo;&rdquo;</em> (his spelling). The &ldquo;pressence&rdquo; is <span class="k">seeded, not commissioned</span> &mdash; nothing is drawn into that space.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The realm map is not here &mdash; gate &#9313;</p>
+        <p class="rl-b">Deliberate. KP ruled the map <span class="k">furniture</span>: <em>&ldquo;in the vessel interior either on a table that can expand to the screenor on the wall&rdquo;</em> (E2 digest &sect;1, gate &#9313;, spelling kept). A hub is not an interior. The map stands at <span class="src">/vessel/home</span> &mdash; board &#9313; &mdash; and putting a second one here would make it a nav tree again, which is the thing the adjacency law refuses.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; nothing advances on its own; Velkomin fades once and does not return.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing is entered on the hub, so nothing can be lost.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; the wash breathes at the image era&rsquo;s 47.7s and stills to nothing under reduced motion (EnvironmentLayer.tsx:12&ndash;16).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; the hearth&rsquo;s music lives at <span class="src">/vessel/home</span> and plays only at a tap. Nothing sounds here.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;Sign in to view your Vessel.&rdquo; rewritten (below); the tier messages kept verbatim.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; six rooms, one grid, plain names. Today the Constellation is missing from this grid entirely (VesselContent.tsx:122&ndash;129) though the nav&rsquo;s user menu carries it (navigation.ts:80) &mdash; a room reachable only from a menu is not &ldquo;steps away.&rdquo;</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the Sanctum is on the page before any setting is needed.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the wash stills; the Velkomin fade is already instant (VelkominGreeting.tsx:118&ndash;126).</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured on <span class="src">surface</span>, the ground this text truly sits on: starDust <span class="k">12.3:1</span>; <span class="src">/70</span> <span class="k">6.7:1</span>; neurospark <span class="k">9.0:1</span>. But <span class="src">text-star-dust/40</span> &mdash; which carries the tier message (:202), the house line (:209) and every section head (:219, :235, :245) &mdash; measures <span class="k">3.1:1</span>. Rewritten below.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; every room is a real <span class="src">Link</span>; tab runs F&aacute;ilte &rarr; the six rooms in reading order &rarr; the bubbles button when it stands.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Anti-scarcity, read honestly</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The tier bar is a completion bar.</span> <span class="src">VesselContent.tsx:201</span> renders <span class="src">Progress value={tierStep} max={4}</span> &mdash; a named journey drawn as a filling meter, which is the shape E2 &sect;6 forbids by name (&ldquo;completion percentages&rdquo;). <span class="k">Drawn: the tier name and its sentence stay, the bar goes.</span> Nothing is lost &mdash; &ldquo;Dweller&rdquo; and &ldquo;Every journey begins with a single step&rdquo; already say the whole thing, and neither implies a remainder. <em>Proposed</em>: KP ruled the score retired, not the bar.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The sigils are not a count.</span> They render as named things with their own rarity shimmer (:176&ndash;186), never as &ldquo;6 sigils.&rdquo; That is the found/earned/gifted/grown register and it holds.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The Covenant carries no rank.</span> Rendered only by the vessel&rsquo;s own choice, with &ldquo;Displayed by their own choice. The covenant is a gift, never a due.&rdquo; (:236) beneath it. A percentage that is a <em>pledge</em>, not a score &mdash; the one honest percent in the realm.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; :48&ndash;51 the four tier labels &middot; :54 &ldquo;Every journey begins with a single step.&rdquo; &middot; :139 &ldquo;Sovereign Light&rdquo; &middot; :207 &ldquo;Council House&rdquo; &middot; :208 &ldquo;You have not yet joined a Council House.&rdquo; &middot; :124&ndash;128 the room names &ldquo;The Home&rdquo;, &ldquo;Energy Log&rdquo;, &ldquo;The Scroll&rdquo;, &ldquo;The Call&rdquo; &middot; <span class="src">home.constants.ts:34</span> &ldquo;F&aacute;ilte&rdquo;.</p>
+          <p class="rl-b"><span class="k">REWRITE 1</span> &middot; <span class="src">VesselContent.tsx:117</span> &mdash; and the same sentence at <span class="src">SanctumContent.tsx:110</span>, <span class="src">JournalList.tsx:154</span>, <span class="src">EnergyLog.tsx:251</span>, <span class="src">NotificationsList.tsx:69</span>, <span class="src">ConstellationContent.tsx:381</span><br><span class="old">&ldquo;Sign in to view your Vessel.&rdquo;</span> &rarr; <span class="new">&ldquo;Enter the Sanctuary to see your vessel.&rdquo;</span> &mdash; six rooms say &ldquo;Sign in&rdquo;; a seventh, <span class="src">SceneRenderer.tsx:177</span>, already says <span class="new">&ldquo;Enter the Sanctuary to stand in your home.&rdquo;</span> <span class="k">The realm already contains its own right sentence and uses the wrong one six times.</span> The house named &ldquo;sign up&rdquo; out at the door (Main.dc.html REWRITE 3); &ldquo;sign in&rdquo; is the same register, and this is not a login wall &mdash; it is a home saying who it is for.</p>
+          <p class="rl-b"><span class="k">REWRITE 2</span> &middot; <span class="src">VesselContent.tsx:209</span><br><span class="old">&ldquo;Complete the Acid Test to discover your house.&rdquo;</span> &rarr; <span class="new">&ldquo;Your house finds you when you take the Acid Test. No hurry.&rdquo;</span> &mdash; &ldquo;Complete&rdquo; is a task verb on an empty state. Mnemosyne&rsquo;s law reaches here: empty states read as <em>&ldquo;waiting for stars to align rather than missing data&rdquo;</em> (L1-08, E2 digest &sect;3). <em>Proposed.</em></p>
+          <p class="rl-b"><span class="k">REWRITE 3</span> &middot; <span class="src">VesselContent.tsx:202, :209, :219, :235, :245</span> &mdash; and 20+ siblings across this realm<br><span class="old">text-star-dust/40 &mdash; measured 3.1:1 on surface</span> &rarr; <span class="new">/70 &mdash; 6.7:1 on surface, 7.4:1 on deepSpace</span>. The identical mend the door&rsquo;s board made at <span class="src">LoginForm.tsx:81</span>. Below 4.5:1 is not a shade, it is a wall &mdash; and it is currently carrying the kindest sentences in the realm.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the Constellation tile in the rooms grid. No census line: the string is not in the inventory because the room is not in the grid. Its name is taken verbatim from the nav that already has it, <span class="src">navigation.ts:80</span> &mdash; <span class="new">&ldquo;Constellation&rdquo;</span>.</p>
+          <p class="rl-b"><span class="k">REWRITE 4</span> &middot; <span class="src">VesselContent.tsx:188&ndash;192</span> and the grid at <span class="src">:122&ndash;129</span><br><span class="old">a &ldquo;Shape Your Vessel&rdquo; button above the cards</span> &rarr; <span class="new">&ldquo;The Sanctum&rdquo;, a tile among the rooms</span>. The Sanctum is a <em>place</em> in every other surface that names it &mdash; the nav (<span class="src">navigation.ts:78</span>), the home&rsquo;s doorway (<span class="src">SceneRenderer:504</span>), its own heading &ldquo;Your Sanctum&rdquo;. Only the hub called it an action. Six rooms, one grid, one vocabulary. <em>Proposed.</em></p>
+          <p class="rl-b"><span class="k">MOVED, at KP&rsquo;s word</span> &middot; <span class="src">VesselContent.tsx:127</span><br><span class="old">&ldquo;Bubbles&rdquo; &mdash; a tile in the grid, for everyone, always</span> &rarr; <span class="new">&ldquo;Play bubbles&rdquo; &mdash; a button below the rooms, only when the vessel asks for it</span>. Same href, same game, opposite consent. Board &#9314; holds the switch.</p>
+          <p class="rl-b"><span class="k">UNCHANGED and not drawn</span> &mdash; <span class="src">:131&ndash;133</span> adds &ldquo;The Loom&rdquo; to this grid for creators and the Weaver. It is role-conditional and correct as it stands; the board draws a dweller&rsquo;s hub, so it is absent here rather than removed.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

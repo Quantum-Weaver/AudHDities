@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#7DE7F7;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#FDCB6E;">&#9318;a</span>
+    <span style="font-size:15px;font-weight:600;">The other theme &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/sanctuary</span> in the light dress</span>
+    <span class="src">PROPOSED throughout &mdash; no light theme exists in the tree</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;position:relative;border:1px solid rgba(224,224,224,.14);border-radius:12px;overflow:hidden;background:#E0E0E0;">
+      <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#636E72 0%,#636E72 50%,#0C0F1D 100%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid rgba(12,15,29,.12);">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;color:#0C0F1D;">AUDHDITIES</span>
+          <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:12px;border:1px solid rgba(12,15,29,.28);font-size:14px;color:#0C0F1D;">Enter</span>
+        </div>
+
+        <div style="padding:34px 28px 0;text-align:center;">
+          <p style="margin:0;font-size:24px;font-weight:500;color:#0C0F1D;">Velkomin.</p>
+        </div>
+
+        <div style="padding:26px 30px 34px;text-align:center;">
+          <h1 style="margin:0 0 14px;font-size:34px;line-height:1.16;font-weight:700;color:#0C0F1D;text-wrap:balance;">Where Neurodivergent Minds Build the Future</h1>
+          <p style="margin:0 0 24px;font-size:16px;color:rgba(12,15,29,.75);text-wrap:pretty;">A platform where 90% of everything circulates, every contributor is paid an equal share, and every member shares in the abundance.</p>
+          <div style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+            <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:12px;background:#5B4CCE;color:#FFFFFF;font-size:16px;font-weight:500;">Enter the Sanctuary</a>
+            <span style="display:inline-flex;align-items:center;gap:6px;background:#F5F5DC;border-radius:9999px;padding:6px 14px;font-size:14px;color:rgba(12,15,29,.78);">New to the Sanctuary? <a href="#" style="color:#5B4CCE;">Come in</a></span>
+            <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:12px;border:1px solid rgba(12,15,29,.28);color:#0C0F1D;font-size:16px;">Take the Acid Test</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">Said first, plainly</p>
+        <p class="rl-b"><span class="k">There is no light theme in this app.</span> Measured this sitting across <span class="src">src/</span>: zero <span class="src">prefers-color-scheme</span> rules, zero <span class="src">ThemeProvider</span>, zero <span class="src">'light'</span> mode. <span class="src">globals.css:32&ndash;35</span> sets one ground and one text colour and that is the whole story. So <span class="k">this board is a proposal end to end</span> &mdash; nothing on it is a report of what exists.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The dress, in cosmic tokens only</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">ground</span> <span class="src">starDust #E0E0E0</span>, with the same gatekeeper wash at the same 0.3. The weather does not change with the dress.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">panel</span> <span class="src">mystical.moon #F5F5DC</span> &mdash; it lifts off the ground exactly as <span class="src">surface</span> lifts off deepSpace in the dark.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">text</span> <span class="src">accessibility.text.onLight #0C0F1D</span>. The token is already in colors.ts and already named for exactly this job.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">link and primary</span> <span class="src">quantum.dark #5B4CCE</span>. <span class="src">neurospark</span> cannot cross: it measures <span class="k">1.4:1</span> on this ground. A token that carries the dark does not automatically carry the light, and this is the one that proves it.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Measured, on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">headline and body on the washed ground &mdash; <span class="k">10.2:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">text on the moon panel &mdash; <span class="k">17.2:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">link on the panel &mdash; <span class="k">5.6:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b">button label #FFFFFF on quantum.dark &mdash; <span class="k">6.2:1</span></p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b">the same link laid straight on the washed ground &mdash; <span class="k">3.3:1</span>, and it fails. Hence the small panel behind the &ldquo;New to the Sanctuary?&rdquo; line: <span class="k">in the light dress a link lives on the panel, never on the wash.</span> That is the 0.3-wash law said again in the other direction.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The law behind all of it</p>
+        <p class="q">&ldquo;the ground carries the text and the realm hue is weather over it at ambient strength. Text legibility must never depend on which realm you are standing in.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">HANDOFF.md:62&ndash;67 &mdash; the 0.3 wash is an accessibility structure, not a taste.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <p class="rl-b">Every point is board &#9312;&rsquo;s, unchanged &mdash; the dress does not touch pace, saving, flashing, autoplay, language, next steps, the more-info door, reduced motion or the keyboard. <span class="k">Only contrast moves</span>, and it is the whole reason a second dress has to be measured rather than recoloured by eye.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

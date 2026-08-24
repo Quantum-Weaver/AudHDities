@@ -38,12 +38,13 @@ export default function ResetPasswordForm() {
       return;
     }
 
-    router.push(AUTH_ROUTES.VESSEL_SANCTUM);
+    // KP ⚛ 2026-08-24, answer 9: "/vessel" after sign in.
+    router.push(AUTH_ROUTES.DASHBOARD);
     router.refresh();
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full">
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-star-dust mb-2">Set a new password</h1>
         <p className="text-star-dust/60">Choose a new password for your vessel.</p>
@@ -78,6 +79,14 @@ export default function ResetPasswordForm() {
           </Button>
         </FormActions>
       </Form>
+
+      <div className="mt-6 text-center">
+        <p className="text-sm">
+          <a href={AUTH_ROUTES.LOGIN} className="text-neurospark hover:underline">
+            {AUTH_LABELS.BACK_TO_LOGIN}
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

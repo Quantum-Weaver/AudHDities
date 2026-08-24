@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#22D3EE 0%,#22D3EE 50%,#E0E0E0 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:12px;padding:20px 22px;}
+    .gone{border:1px dashed rgba(225,112,85,.40);border-radius:11px;
+      background:rgba(225,112,85,.045);padding:15px 17px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9318;</span>
+    <span style="font-size:15px;font-weight:600;">The Call &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/notifications</span>, and two retirements</span>
+    <span class="src">NotificationsList &middot; NotificationDetail &middot; rulings 3 and 4</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px;">
+            <div>
+              <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);">&larr; Return to Vessel</a>
+              <h1 style="margin:6px 0 2px;font-size:22px;font-weight:700;">The Call</h1>
+              <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);">2 unread</p>
+            </div>
+            <span style="border:1px solid rgba(224,224,224,.20);border-radius:8px;padding:6px 13px;font-size:12.5px;color:rgba(224,224,224,.80);white-space:nowrap;">Mark all read</span>
+          </div>
+
+          <div style="border:1px solid rgba(224,224,224,.10);border-left:2px solid #22D3EE;border-radius:11px;background:rgba(224,224,224,.03);padding:14px 16px;margin-bottom:9px;display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-size:19px;flex:none;">&#127963;&#65039;</span>
+            <div style="flex:1;min-width:0;">
+              <p style="margin:0;font-size:13.5px;font-weight:500;">Your vessel has arrived</p>
+              <p style="margin:3px 0 0;font-size:12px;color:rgba(224,224,224,.70);">The hearth is lit and your rooms are yours to name.</p>
+            </div>
+            <span style="font-size:11.5px;color:rgba(224,224,224,.70);flex:none;">Aug 22</span>
+          </div>
+
+          <div style="border:1px solid rgba(224,224,224,.10);border-left:2px solid #22D3EE;border-radius:11px;background:rgba(224,224,224,.03);padding:14px 16px;margin-bottom:9px;display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-size:19px;flex:none;">&#128172;</span>
+            <div style="flex:1;min-width:0;">
+              <p style="margin:0;font-size:13.5px;font-weight:500;">Wren replied to your thread</p>
+              <p style="margin:3px 0 0;font-size:12px;color:rgba(224,224,224,.70);">&ldquo;This is the part I keep coming back to&hellip;&rdquo;</p>
+            </div>
+            <span style="font-size:11.5px;color:rgba(224,224,224,.70);flex:none;">Aug 21</span>
+          </div>
+
+          <div style="border:1px solid rgba(224,224,224,.07);border-radius:11px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-size:19px;flex:none;opacity:.65;">&#127941;</span>
+            <div style="flex:1;min-width:0;">
+              <p style="margin:0;font-size:13.5px;font-weight:500;color:rgba(224,224,224,.80);">A sigil found you</p>
+              <p style="margin:3px 0 0;font-size:12px;color:rgba(224,224,224,.70);">First Light &mdash; for the first words written in your Scroll.</p>
+            </div>
+            <span style="font-size:11.5px;color:rgba(224,224,224,.70);flex:none;">Aug 19</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The quiet call &mdash; kept exactly as it is</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:36px 24px 40px;text-align:center;">
+            <p style="margin:0 0 6px;font-size:16px;color:rgba(224,224,224,.78);">The call is quiet</p>
+            <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);">Notifications will appear here when something seeks your attention</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Not one word changed. <span class="k">&ldquo;The call is quiet&rdquo;</span> (<span class="src">:85</span>) is the best empty state in the realm: it describes a room, not a lack &mdash; and it never once suggests the vessel should go and make something happen. Only its ink changes.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Retired &mdash; drawn so the removal is legible</p>
+        <div class="gone" style="margin-bottom:11px;">
+          <p style="margin:0 0 5px;font-size:13px;font-weight:600;color:rgba(224,224,224,.85);">NotificationBell.tsx &mdash; retired (ruling 3)</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">A bell with a <span class="src">bg-red-500</span> count, a live Supabase subscription and its own dropdown copy of the list. 0 importers. <span class="k">The only red badge in the app.</span></p>
+        </div>
+        <div class="gone">
+          <p style="margin:0 0 5px;font-size:13px;font-weight:600;color:rgba(224,224,224,.85);">SovereigntyScore.tsx &mdash; retired (ruling 4)</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">&ldquo;<span class="src">{score}</span> / 1000&rdquo; with a filling bar. 0 importers &mdash; <span class="k">but see the right rail: the original is still lit elsewhere.</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s rulings this board embodies</p>
+        <p class="q">&ldquo;<span class="src">NotificationBell.tsx</span> retired&rdquo;<br>&ldquo;<span class="src">SovereigntyScore.tsx</span> retired&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">Rulings 3 and 4, briefs/02-hestia-BRIEF.md at his &#9883; &ldquo;go&rdquo;, 2026-08-24 &mdash; answering the brief&rsquo;s own &ldquo;wire or retire?&rdquo; and &ldquo;retire, or does the score return?&rdquo;. Both had <span class="k">0 importers</span>; neither retirement removes anything a vessel can currently see.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Retiring the bell settles the red-badge law</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="src">NotificationBell.tsx:93</span> is <span class="k">the only <span class="src">bg-red-500</span> in the realm</span> &mdash; and the realm&rsquo;s own README carries the law it breaks: <em>&ldquo;no red badges anywhere&rdquo;</em> (<span class="src">README.md:79</span>). It never rendered, so the law was never actually broken; it was one import away from being broken. <span class="k">Retiring the file is the law becoming structural instead of lucky.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Nothing needs replacing.</span> The status bar already carries unread heralds, in <span class="src">hearth-gold</span> &mdash; <span class="k">12.7:1</span> on deepSpace, a warm colour on a calm bar (StatusBar.tsx:332&ndash;341). The bell was a second, louder copy of a thing already told quietly.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">And it takes a live socket with it.</span> The bell opens a realtime <span class="src">postgres_changes</span> subscription (<span class="src">:44&ndash;60</span>) that pushes new heralds into view as they arrive. That is the interrupt pattern; the Call is a room you visit. Retiring it removes the only thing in this realm that could tap a vessel on the shoulder unasked.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Retiring the score does NOT retire the score</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The stranded file is a copy. The original is lit.</span> <span class="src">StatusBar.tsx:68</span> renders <span class="src">SovereigntyDisplay</span> &mdash; the same &ldquo;{n} / 1000&rdquo;, the same filling bar, the same four milestone sentences &mdash; on <span class="k">every authenticated page in the app</span>, above every board in this canvas. Its number comes from <span class="src">tierLight(sovereignTier)</span> (useUser.ts:32; StatusBar.tsx:40).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">This is the finding this board exists to state plainly.</span> Deleting <span class="src">SovereigntyScore.tsx</span> is correct and changes nothing a vessel sees. If ruling 4 means <em>the score does not return</em>, then <span class="src">SovereigntyDisplay</span> is what it is about, and board &#9312; draws that slot empty &mdash; which is also where gate &#9315; independently lands. <span class="k">Two laws arrive at the same empty space from different directions.</span> Named here rather than assumed: KP retired a file, and only he can retire the bar.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One more root.</span> <span class="src">navigation.ts:66</span> gates the Observatory on <span class="src">minSovereignty: 100</span> and <span class="src">filterNavItems</span> (<span class="src">:100</span>) still takes a <span class="src">sovereigntyScore</span>. A retired number that still opens and closes doors is not retired. Named, not touched &mdash; it is another realm&rsquo;s door.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The room has two names</p>
+        <p class="rl-b">The page, its metadata and its heading say <span class="k">&ldquo;The Call&rdquo;</span> / &ldquo;What seeks your attention&rdquo; (<span class="src">notifications/page.tsx:6&ndash;7</span>, <span class="src">NotificationsList.tsx:78</span>). The header above it says <span class="k">&ldquo;The Pulse&rdquo;</span> / &ldquo;What matters now&rdquo; (<span class="src">page_mapping.ts:48&ndash;51</span>), and so does the nav that gets you there (<span class="src">navigation.ts:79</span>). <span class="k">A vessel clicks &ldquo;The Pulse&rdquo;, the header says &ldquo;The Pulse&rdquo;, and the page says &ldquo;The Call&rdquo;.</span> Drawn as <span class="k">The Call</span> throughout &mdash; it is the name the room itself uses in three places, and &ldquo;what seeks your attention&rdquo; is the better sentence: a call can be let ring, and a pulse cannot. <em>Proposed</em>: the ground is silent on which name wins, so the canvas takes the room&rsquo;s own.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Anti-scarcity, read honestly</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">&ldquo;2 unread&rdquo; is an honest count.</span> A queue depth, not a score: it falls when you engage, cannot be accumulated, and nobody else can see it. The opposite shape from a sigil total.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">&ldquo;All caught up&rdquo; is not a reward.</span> <span class="src">:79</span> states a fact and offers nothing for reaching it &mdash; no streak, no confetti, no &ldquo;keep it up&rdquo;. Kept verbatim.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">&ldquo;Mark all read&rdquo; is an exit, not a chore.</span> It appears only when there is something to clear (<span class="src">:81</span>) and clears everything at once. A vessel is never asked to work through a list.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Read-on-open, not read-on-scroll.</span> The detail marks its own herald read when opened (<span class="src">NotificationDetail:41&ndash;47</span>) &mdash; the vessel&rsquo;s attention is what marks it, which is the whole of &ldquo;attention returned, never harvested&rdquo; in one effect hook.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; and it becomes true only with the bell retired. Nothing arrives while you are elsewhere; the Call waits until you walk into it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing is entered; read state is written the moment it changes.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; unread is a 2px neurospark rule down the left edge (<span class="src">:92</span>). A line, not a pulse, not a dot, not red.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; nothing rewritten on this board except the two names and the fades.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; read one, or clear them all. Two, and no third.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; a herald that will not load says <em>&ldquo;This call has faded.&rdquo;</em> with the way back (<span class="src">NotificationDetail:50</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; nothing moves.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the unread count (<span class="src">:79</span>), every preview line (<span class="src">:97</span>), every date (<span class="src">:99</span>) and both empty-state lines (<span class="src">:85</span>) sit at <span class="src">/40</span>, <span class="src">/50</span> and <span class="src">/30</span>. <span class="k">The preview text of a message from another person is at 4.1:1.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; whole; every herald is a real link. One note: the type emoji (<span class="src">:94</span>) is decorative and unlabelled, so a screen reader reads it aloud as its unicode name. Drawn <span class="src">aria-hidden</span>.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; :78 &ldquo;The Call&rdquo; &middot; :79 &ldquo;{n} unread&rdquo; and &ldquo;All caught up&rdquo; &middot; :81 &ldquo;Mark all read&rdquo; &middot; :85 &ldquo;The call is quiet&rdquo; and &ldquo;Notifications will appear here when something seeks your attention&rdquo; &middot; page.tsx:6&ndash;7 &middot; NotificationDetail:50 &ldquo;This call has faded.&rdquo;</p>
+          <p class="rl-b"><span class="k">REWRITE 17</span> &middot; <span class="src">page_mapping.ts:48&ndash;51</span> &middot; <span class="src">navigation.ts:79</span><br><span class="old">&ldquo;The Pulse&rdquo; / &ldquo;What matters now&rdquo;</span> &rarr; <span class="new">&ldquo;The Call&rdquo; / &ldquo;What seeks your attention&rdquo;</span> &mdash; taken verbatim from the room&rsquo;s own metadata rather than written new. One room, one name.</p>
+          <p class="rl-b"><span class="k">REWRITE 18</span> &middot; <span class="src">NotificationsList.tsx:79, :85, :97, :99</span><br><span class="old">/40, /30 and /50 &mdash; 3.1:1, 2.3:1, 4.1:1</span> &rarr; <span class="new">/70 &mdash; 6.7:1</span>.</p>
+          <p class="rl-b"><span class="k">DELETED, not rewritten</span> &mdash; every string in <span class="src">NotificationBell.tsx</span>: &ldquo;Notifications&rdquo; (:107), &ldquo;Mark all read&rdquo; (:113), &ldquo;No notifications yet&rdquo; (:120), &ldquo;View all&rdquo; (:158). All four are duplicates of strings the Call already owns, said slightly differently. Retiring the file also retires a second vocabulary for the same room.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

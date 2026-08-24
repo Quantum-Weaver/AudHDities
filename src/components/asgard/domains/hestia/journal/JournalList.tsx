@@ -12,6 +12,7 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { Form, FormActions } from '@/components/forging/Form';
 import { FormField } from '@/components/forging/FormField';
 import { Input } from '@/components/forging/Input';
+import { Textarea } from '@/components/forging/Textarea';
 import { Select } from '@/components/forging/Select';
 import { ArrowLeft, Plus, Feather, Clock, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -151,7 +152,7 @@ export function JournalList() {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
-          <p className="text-star-dust/60">Sign in to view your Scroll.</p>
+          <p className="text-star-dust/60">Enter the Sanctuary to see your vessel.</p>
         </div>
       </main>
     );
@@ -172,7 +173,7 @@ export function JournalList() {
               Return to Vessel
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">The Scroll</h1>
-            <p className="text-sm text-star-dust/40 mt-1">Your words, your story, your truth</p>
+            <p className="text-sm text-star-dust/70 mt-1">Your words, your story, your truth</p>
           </div>
           <Button
             variant="primary"
@@ -205,8 +206,9 @@ export function JournalList() {
                 />
               </FormField>
               <FormField label="Your Words" required>
-                <Input
+                <Textarea
                   name="content"
+                  rows={6}
                   placeholder="Let the words flow..."
                 />
               </FormField>
@@ -237,8 +239,8 @@ export function JournalList() {
         {entries.length === 0 ? (
           <div className="text-center py-20">
             <Feather className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-            <p className="text-star-dust/40 text-lg mb-2">Your scroll awaits your first words</p>
-            <p className="text-star-dust/30 text-sm">Tap &ldquo;Weave a Thread&rdquo; to begin</p>
+            <p className="text-star-dust/70 text-lg mb-2">Your scroll awaits your first words</p>
+            <p className="text-star-dust/70 text-sm">Tap &ldquo;Weave a Thread&rdquo; to begin</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -269,7 +271,7 @@ export function JournalList() {
                           {previewContent(entry.content)}
                         </p>
                         <div className="flex items-center gap-3 mt-3">
-                          <span className="flex items-center gap-1 text-xs text-star-dust/40">
+                          <span className="flex items-center gap-1 text-xs text-star-dust/70">
                             <Clock size={12} />
                             {formatDate(entry.created_at)}
                           </span>

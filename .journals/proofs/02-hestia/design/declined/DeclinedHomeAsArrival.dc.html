@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--error:#E17055;--hearth-gold:#FDCB6E;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 6px;">
+    <span style="font-size:14px;font-weight:700;color:#E17055;">&times;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; the home as the arrival</span>
+  </div>
+  <p class="src" style="margin:0 0 20px;">boards &#9312;, &#9313; and &#9319; &middot; declined by ruling and by shape</p>
+
+  <div style="border:1px solid rgba(225,112,85,.28);border-radius:12px;background:rgba(225,112,85,.04);padding:20px 22px;margin-bottom:20px;">
+    <p class="rl-h" style="margin-bottom:10px;">What was drawn, and set down</p>
+    <p class="rl-b" style="margin-bottom:12px;">Make <span class="src">/vessel/home</span> the landing &mdash; a vessel logs in and stands <em>inside</em> their rooms, with the garden and the map around them, and the hub&rsquo;s cards become one piece of furniture in the corner. Animal Crossing opens in the house, not on a menu.</p>
+    <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:16px;">
+      <p style="margin:0 0 3px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(34,211,238,.70);">F&aacute;ilte</p>
+      <p style="margin:0 0 12px;font-size:17px;font-weight:600;color:rgba(224,224,224,.55);">Kai&rsquo;s home</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;">
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:8px;padding:11px;font-size:11.5px;color:rgba(224,224,224,.50);">The Reading Room</div>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:8px;padding:11px;font-size:11.5px;color:rgba(224,224,224,.50);">The garden</div>
+      </div>
+      <div style="margin-top:9px;border:1px dashed rgba(224,224,224,.16);border-radius:8px;padding:11px;font-size:11.5px;color:rgba(224,224,224,.42);">your vessel &middot; energy &middot; scroll &middot; the call &mdash; a shelf in the corner</div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <p class="rl-h">Why it was declined &mdash; three reasons, none of them taste</p>
+    <p class="q" style="margin-bottom:12px;">&ldquo;F&aacute;ilte fires at <span class="src">/vessel</span> too&rdquo;</p>
+    <p class="rl-b"><span class="k">One &mdash; KP placed the arrival.</span> Ruling 5 puts the hearth&rsquo;s greeting at <span class="src">/vessel</span>. That is where <span class="src">AUTH_ROUTES.DASHBOARD</span> lands both a returning login and a fresh Acid Test (vessel/page.tsx:20&ndash;26), and where the door&rsquo;s own canvas already points: <em>&ldquo;the vessel should be reachable from here by logging in&rdquo;</em> (KP &#9883;, 01-auth). Moving the arrival would quietly overrule a ruling made the same day.</p>
+    <p class="rl-b" style="margin-top:9px;"><span class="k">Two &mdash; the home is the profile, not the dashboard.</span> KP&rsquo;s E4 stroke: <em>&ldquo;the game features are simply to replace the &lsquo;profile&rsquo; experience with something fun and personally engaging&rdquo;</em> (E4 digest &sect;1). A profile is somewhere you <em>go</em>, and something you make yours over time. Landing every session inside it makes the rooms a lobby to be crossed, which is the one thing a dwelling must not become.</p>
+    <p class="rl-b" style="margin-top:9px;"><span class="k">Three &mdash; it costs the frame its intelligibility.</span> The hub is what makes every room two steps from every other (board &#9319;). Fold it into the corner of a scrolling scene and the six doors become furniture to be found &mdash; and &ldquo;only steps away&rdquo; is a distance metric, not a container.</p>
+  </div>
+
+  <div>
+    <p class="rl-h">What was kept from it</p>
+    <p class="rl-b">The instinct was right and it landed elsewhere: the home should be <span class="k">one step from the arrival and easy to return from</span>. That is exactly board &#9319;&rsquo;s missing edge &mdash; the home has no way back &mdash; and the reason board &#9312; keeps <span class="k">The Home first in the rooms grid</span>. <span class="k">The dwelling did not need to become the door; it needed a door that swings both ways.</span></p>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

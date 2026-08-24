@@ -90,3 +90,10 @@ The gaia pipeline (`npm run generate`) is the presumptive healer, but it
 reads the live database — running it belongs to a deliberate refine pass
 (and touches the superposition rebirth question), not to baseline-taking.
 First refine pass's true scope: **heal the generated layer.**
+
+## Seam-note — 2026-08-24 — the theme stitch · the door
+
+- **Who / substrate:** Fable conducting as Battuta (`claude-fable-5`); an Opus hand built the door (`claude-opus-5[1m]`); Sonnet and Haiku hands read and counted.
+- **Scope:** Phase 0a (one `@config` line, `globals.css`) · realm 1, `(auth)` + `/sanctuary` as the visitors' home — 22 files.
+- **Verification:** tsc 0 · build exit 0 on both branches; seven real pictures of the door (`.journals/proofs/01-auth/build/`); KP's glance: *"door looks good"*.
+- **Handoff weather:** two stacked branches await KP's merge; Vercel previews fail until `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` are ticked for Preview (dashboard, KP's hand); every `Button` unstyled app-wide (chassis pass owed); `agentRules` switch KP's.

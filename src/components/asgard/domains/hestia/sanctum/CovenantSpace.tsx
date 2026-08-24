@@ -130,7 +130,7 @@ export function CovenantSpace() {
         your earnings you choose to send into the commons, divided equally
         among every active member.
       </p>
-      <p className="text-sm text-star-dust/40 mb-6">
+      <p className="text-sm text-star-dust/70 mb-6">
         Zero is a whole and honorable setting — the covenant is a gift, never
         a due. Change it any time; it is yours in both directions.
       </p>
@@ -159,7 +159,7 @@ export function CovenantSpace() {
           checked={displayed}
           onChange={handleDisplayToggle}
         />
-        <p className="text-xs text-star-dust/40 mt-2">
+        <p className="text-xs text-star-dust/70 mt-2">
           Off by default. Your choice, in both directions, any time — an
           undisplayed pledge gives exactly as much.
         </p>

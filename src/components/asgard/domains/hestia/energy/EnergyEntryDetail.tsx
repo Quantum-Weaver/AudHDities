@@ -65,7 +65,7 @@ export function EnergyEntryDetail() {
   const formatTime = (dateStr: string) => new Date(dateStr).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
 
   if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);
-  if (!entry) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><Zap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This moment has faded.</p><Link href="/vessel/energy" className="text-neurospark hover:underline mt-4 inline-block">Return to Energy Log</Link></div></main>);
+  if (!entry) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><Zap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/70">This moment has faded.</p><Link href="/vessel/energy" className="text-neurospark hover:underline mt-4 inline-block">Return to Energy Log</Link></div></main>);
 
   const cd: CardData = { id: entry.id, type: 'stat', title: ENERGY_LABELS[entry.energy_level] || 'Energy Entry', value: entry.energy_level };
 
@@ -80,19 +80,19 @@ export function EnergyEntryDetail() {
           </div>
           <h1 className="text-2xl font-bold text-star-dust mb-2">{ENERGY_LABELS[entry.energy_level]}</h1>
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="flex items-center gap-1 text-sm text-star-dust/40"><Clock size={14} />{formatDate(entry.logged_at)} at {formatTime(entry.logged_at)}</span>
+            <span className="flex items-center gap-1 text-sm text-star-dust/70"><Clock size={14} />{formatDate(entry.logged_at)} at {formatTime(entry.logged_at)}</span>
             {entry.mood_tags?.[0] && <Badge variant="outline" size="sm" className="text-[10px]">{entry.mood_tags[0]}</Badge>}
           </div>
           {entry.notes && <p className="text-star-dust/70 max-w-md mx-auto mb-6">{entry.notes}</p>}
           <div className="flex gap-3 justify-center">
             <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
-            <Button variant="ghost" size="md" onClick={() => setShowConfirm(true)}><Trash2 className="h-4 w-4 text-error" /></Button>
+            <Button variant="ghost" size="md" onClick={() => setShowConfirm(true)}><Trash2 className="h-4 w-4 mr-2 text-error" />Delete</Button>
           </div>
           {showConfirm && (
             <div className="mt-6 p-4 border border-error/30 rounded-xl bg-error/5">
-              <p className="text-sm text-star-dust/60 mb-4">Delete this entry? There is no undo.</p>
+              <p className="text-sm text-star-dust/70 mb-4">Deleting this entry removes it for good. There is no undo.</p>
               <div className="flex gap-3 justify-center">
-                <Button variant="ghost" size="sm" onClick={() => setShowConfirm(false)}>Keep</Button>
+                <Button variant="ghost" size="sm" onClick={() => setShowConfirm(false)}>Keep it</Button>
                 <Button variant="primary" size="sm" loading={isDeleting} onClick={handleDelete}>Delete</Button>
               </div>
             </div>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--sanctuary-green:#00B894;--hearth-gold:#FDCB6E;--error:#E17055;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;} a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 4px;">
+    <span style="font-size:13px;font-weight:700;color:#E17055;">&#10005;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; the hub keeps all six doors</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 18px;">Drawn, then set down. Kept on the canvas because a design without its refusals is a claim with no reason attached.</p>
+
+  <div class="card" style="padding:18px 16px;margin-bottom:18px;opacity:.72;">
+    <p class="rl-h" style="margin-bottom:12px;">What it looked like</p>
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:9px;">
+      <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:12px;font-weight:600;">The Tapestry</p></div>
+      <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:12px;font-weight:600;">The Weavers</p></div>
+      <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:12px;font-weight:600;">The Guild</p></div>
+      <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:12px;font-weight:600;">The Loom</p></div>
+      <div style="border:1px solid rgba(253,203,110,.30);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:12px;font-weight:600;">Contributions</p></div>
+      <div style="border:1px solid rgba(225,112,85,.35);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:12px;font-weight:600;">The Exchange</p></div>
+    </div>
+    <p style="margin:12px 0 0;font-size:11.5px;color:rgba(224,224,224,.60);">Six equal tiles, three across, as the room stands today.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div>
+      <p class="rl-h">The case for it, honestly</p>
+      <p class="rl-b">It is what is built, it costs nothing, and the two extra tiles are real rooms a vessel may want. Removing a door from a hub is the kind of tidying that looks like taste and lands like loss &mdash; and the six-tile grid is genuinely tidier at three across than four are at two.</p>
+    </div>
+    <div>
+      <p class="rl-h">The ground that declined it</p>
+      <p class="q">&ldquo;a bazaar experience that is not overwhelming or time consuming&rdquo;</p>
+      <p class="src" style="margin:8px 0 10px;">KP &#9883;, THE IMMERSION VISION, verbatim &middot; E2 bus L606&ndash;607; read on the same bus as <em>&ldquo;in-and-out with dignity&hellip; a REFUSAL of the mall-model&rdquo;</em> (L637&ndash;641).</p>
+      <p class="rl-b">A mall directory lists every unit in the building, because the building&rsquo;s purpose is that you walk past all of them. A bazaar entrance shows you the stalls. Six tiles is not overwhelming by itself &mdash; but two of the six are not stalls at all, and putting them on the same grid at the same weight teaches the eye that this is an inventory of a building rather than a way in.</p>
+      <p class="rl-b" style="margin-top:9px;">The Exchange tile is the sharper half. The room itself says <span class="src">CheckoutHub.tsx:91</span>: <em>&ldquo;The Exchange completes on each work&rsquo;s page.&rdquo;</em> A door to a room that tells you to go somewhere else is a corridor, and a corridor placed at the entrance is the Gruen transfer&rsquo;s smallest brick.</p>
+    </div>
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">Both rooms survive, and neither loses a visitor. Contributions stands as one quiet line below the grid &mdash; still one click, no longer a stall. The Exchange keeps its route and gains a <em>better</em> inbound: a link from the stall, beside the split, where a vessel actually wants to know how an exchange works. <span class="k">It is reached at the moment it means something instead of at the moment it means nothing.</span></p>
+      <p class="rl-b" style="margin-top:9px;">And the refusal produced a finding it would not otherwise have surfaced: taking the tile away exposed that <span class="src">/bazaar/checkout</span> has <span class="k">exactly one inbound link in the whole realm</span>. That is on board &#9318; now, with the mend.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

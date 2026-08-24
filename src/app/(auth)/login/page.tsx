@@ -6,23 +6,20 @@
 
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import Link from 'next/link';
+import { Page } from '@/components/bifrost/Page';
 import LoginForm from '@/components/asgard/auth/LoginForm';
 import AuthGuard from '@/components/asgard/auth/AuthGuard';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
+  AUTH_ENVIRONMENT,
   AUTH_METADATA,
-  AUTH_LABELS,
-  AUTH_ROUTES,
 } from '@/lib/constants/components/asgard/auth/auth.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   authPageVariants,
   authPageContentVariants,
-  authPageFooterVariants,
-  authLinkVariants,
 } from '@/lib/constants/components/asgard/auth/auth.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -40,21 +37,17 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <AuthGuard requireAuth={false}>
-      <main className={authPageVariants()}>
-        <div className={authPageContentVariants()}>
-          {/* Suspense boundary required by Next 16 for useSearchParams (B5) */}
-          <Suspense fallback={null}>
-            <LoginForm />
-          </Suspense>
-          <p className={authPageFooterVariants()}>
-            {AUTH_LABELS.NEW_TO_SANCTUARY}{' '}
-            <Link href={AUTH_ROUTES.SIGNUP} className={authLinkVariants()}>
-              {AUTH_LABELS.INITIALIZE_CONSCIOUSNESS}
-            </Link>
-          </p>
-        </div>
-      </main>
-    </AuthGuard>
+    <Page environment={AUTH_ENVIRONMENT} showForeground={false}>
+      <AuthGuard requireAuth={false}>
+        <main className={authPageVariants()}>
+          <div className={authPageContentVariants()}>
+            {/* Suspense boundary required by Next 16 for useSearchParams (B5) */}
+            <Suspense fallback={null}>
+              <LoginForm />
+            </Suspense>
+          </div>
+        </main>
+      </AuthGuard>
+    </Page>
   );
 }

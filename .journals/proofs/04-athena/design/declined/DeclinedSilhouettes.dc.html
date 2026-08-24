@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <p style="margin:0 0 4px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#E17055;font-weight:600;">declined</p>
+  <h2 style="margin:0 0 6px;font-size:17px;font-weight:700;">The unearned sigils as silhouettes</h2>
+  <p style="margin:0 0 20px;font-size:12px;color:rgba(224,224,224,.78);text-wrap:pretty;">The middle way between the catalog KP ruled out and a page that simply ends: keep the shape, take away the face.</p>
+
+  <div style="border:1px solid rgba(225,112,85,.30);border-radius:12px;background:rgba(225,112,85,.05);padding:18px;margin-bottom:20px;">
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center;">
+        <span style="width:40px;height:40px;flex:none;border-radius:10px;border:2px solid rgba(255,255,255,.10);background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:19px;">&#128367;&#65039;</span>
+        <span><span style="display:block;font-size:13px;font-weight:600;">First Light</span><span style="display:block;font-size:10.5px;color:rgba(224,224,224,.70);">A vessel is born.</span></span>
+      </div>
+      <div style="background:#12162A;border:1px dashed rgba(224,224,224,.14);border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center;opacity:.55;">
+        <span style="width:40px;height:40px;flex:none;border-radius:10px;border:2px dashed rgba(224,224,224,.16);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.35)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+        </span>
+        <span><span style="display:block;font-size:13px;font-weight:600;color:rgba(224,224,224,.45);">&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="display:block;font-size:10.5px;color:rgba(224,224,224,.40);">not yet earned</span></span>
+      </div>
+      <div style="background:#12162A;border:1px dashed rgba(224,224,224,.14);border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center;opacity:.55;">
+        <span style="width:40px;height:40px;flex:none;border-radius:10px;border:2px dashed rgba(224,224,224,.16);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.35)" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+        </span>
+        <span><span style="display:block;font-size:13px;font-weight:600;color:rgba(224,224,224,.45);">&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="display:block;font-size:10.5px;color:rgba(224,224,224,.40);">not yet earned</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+
+    <div>
+      <p class="rl-h">Why it was declined</p>
+      <p class="rl-b">Twice, independently, which is what settled it. E4&rsquo;s refusal column names <em>&ldquo;missing-slot silhouettes and the &lsquo;one missing&rsquo; state&rdquo;</em> by name &mdash; and KP&rsquo;s &#9883; ruling this sitting says <em>&ldquo;Honors shows only earned sigils&rdquo;</em>, which a silhouette is not. A greyed slot is still shown.</p>
+    </div>
+
+    <div>
+      <p class="rl-b">The mechanism is the point. <span class="k">A silhouette performs the subtraction harder than a number does</span> &mdash; &ldquo;3 of 10&rdquo; is a fact you can read past; seven dashed rectangles are a shape your eye finishes for you. That is precisely the effect E4&rsquo;s &ldquo;shape without slots&rdquo; finding was written against: <em>the interface may state extent at the ask, never the remainder.</em></p>
+    </div>
+
+    <div>
+      <p class="rl-b">And it breaks the arrival. E4&rsquo;s synthesis says <span class="k">sigils arrive unannounced</span>; a silhouette is an announcement with a delay on it. Every unearned mark converts a future gift into a debt the vessel already knows they are carrying.</p>
+    </div>
+
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">The worry it came from was real and is answered elsewhere: <em>if the room shows nothing, does a vessel think it is broken?</em> Board &#9317; answers with the sentence the room already had &mdash; <em>&ldquo;The honors await those who walk the path&rdquo;</em> &mdash; which says the shelf is early without ever drawing what is not on it. <span class="k">Waiting is a state; a hole is an accusation.</span></p>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

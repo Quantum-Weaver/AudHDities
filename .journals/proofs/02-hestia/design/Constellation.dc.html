@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#0C0F1D 0%,#6C5CE7 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:12px;padding:20px 22px;}
+    .tile{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:11px;padding:14px 13px;text-align:center;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9317;</span>
+    <span style="font-size:15px;font-weight:600;">The Constellation &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel/constellation</span></span>
+    <span class="src">ConstellationContent.tsx &middot; 528 lines &middot; environment: observatory</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);">&larr; Return to Vessel</a>
+          <h1 style="margin:6px 0 2px;font-size:22px;font-weight:700;">Your Constellation</h1>
+          <p style="margin:0 0 18px;font-size:12.5px;color:rgba(224,224,224,.70);">The web of your sovereign journey, made visible</p>
+
+          <div style="border:1px solid rgba(224,224,224,.10);border-radius:12px;background:rgba(224,224,224,.03);height:210px;position:relative;overflow:hidden;margin-bottom:16px;">
+            <svg viewBox="0 0 400 210" width="100%" height="210" aria-hidden="true">
+              <g stroke="rgba(224,224,224,.16)" stroke-width="1">
+                <line x1="200" y1="105" x2="118" y2="58"/><line x1="200" y1="105" x2="292" y2="62"/>
+                <line x1="200" y1="105" x2="132" y2="158"/><line x1="200" y1="105" x2="286" y2="152"/>
+                <line x1="200" y1="105" x2="200" y2="38"/><line x1="200" y1="105" x2="322" y2="108"/>
+              </g>
+              <circle cx="200" cy="105" r="9" fill="#22D3EE"/>
+              <circle cx="118" cy="58" r="4.5" fill="#FDCB6E"/><circle cx="292" cy="62" r="4.5" fill="#6C5CE7"/>
+              <circle cx="132" cy="158" r="4.5" fill="#00B894"/><circle cx="286" cy="152" r="4.5" fill="#E84393"/>
+              <circle cx="200" cy="38" r="4.5" fill="#22D3EE"/><circle cx="322" cy="108" r="4.5" fill="#0984E3"/>
+              <text x="200" y="127" fill="rgba(224,224,224,.80)" font-size="9" text-anchor="middle" font-family="sans-serif">You</text>
+              <text x="118" y="47" fill="rgba(224,224,224,.62)" font-size="8" text-anchor="middle" font-family="sans-serif">Arrival</text>
+              <text x="292" y="51" fill="rgba(224,224,224,.62)" font-size="8" text-anchor="middle" font-family="sans-serif">Milestone</text>
+              <text x="132" y="176" fill="rgba(224,224,224,.62)" font-size="8" text-anchor="middle" font-family="sans-serif">Your wares</text>
+              <text x="286" y="170" fill="rgba(224,224,224,.62)" font-size="8" text-anchor="middle" font-family="sans-serif">Your channels</text>
+              <text x="200" y="28" fill="rgba(224,224,224,.62)" font-size="8" text-anchor="middle" font-family="sans-serif">Awakening</text>
+              <text x="322" y="97" fill="rgba(224,224,224,.62)" font-size="8" text-anchor="middle" font-family="sans-serif">Your letters</text>
+            </svg>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:16px;">
+            <div class="tile"><p style="margin:0;font-size:12px;font-weight:500;color:rgba(224,224,224,.85);">Your timeline</p></div>
+            <div class="tile"><p style="margin:0;font-size:12px;font-weight:500;color:rgba(224,224,224,.85);">Your sigils</p></div>
+            <div class="tile"><p style="margin:0;font-size:12px;font-weight:500;color:rgba(224,224,224,.85);">Your quests</p></div>
+            <div class="tile"><p style="margin:0;font-size:12px;font-weight:500;color:rgba(224,224,224,.85);">Your creations</p></div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;">
+            <div style="display:flex;gap:7px;align-items:center;"><span style="width:9px;height:9px;border-radius:9999px;background:#FDCB6E;flex:none;"></span><span style="font-size:11px;color:rgba(224,224,224,.70);">Arrival</span></div>
+            <div style="display:flex;gap:7px;align-items:center;"><span style="width:9px;height:9px;border-radius:9999px;background:#22D3EE;flex:none;"></span><span style="font-size:11px;color:rgba(224,224,224,.70);">Awakening</span></div>
+            <div style="display:flex;gap:7px;align-items:center;"><span style="width:9px;height:9px;border-radius:9999px;background:#DA70D6;flex:none;"></span><span style="font-size:11px;color:rgba(224,224,224,.70);">Collaboration</span></div>
+            <div style="display:flex;gap:7px;align-items:center;"><span style="width:9px;height:9px;border-radius:9999px;background:#6C5CE7;flex:none;"></span><span style="font-size:11px;color:rgba(224,224,224,.70);">Milestone</span></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The empty sky &mdash; the state a new vessel actually meets</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+            <div class="card" style="text-align:center;padding:38px 26px;">
+              <p style="margin:0 0 7px;font-size:16px;color:rgba(224,224,224,.78);">Your constellation awaits its first star</p>
+              <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Nothing has been missed. The sky fills as you live here &mdash; a first arrival is already a star.</p>
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">A brand-new vessel <span class="k">always</span> lands here: <span class="src">:353&ndash;358</span> returns zero nodes until a timeline event, a sigil or a quest exists. So this is not an edge case, it is the room&rsquo;s first impression, and today it opens by listing three things the vessel has not done.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The law this board is measured against</p>
+        <p class="q">&ldquo;No leaderboards. No completion percentages. No limited-time items that never return &hellip; Build for joy. Not for completion. Not for comparison&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">L1-13, the Observers&rsquo; own words, quoted verbatim on the bus (E2 digest &sect;1, THE ANTI-SCARCITY LAW). Welded in E4 as <em>&ldquo;no comparison, ever, with anyone&rdquo;</em> (&sect;1). <span class="k">Not KP&rsquo;s sentence &mdash; the audience&rsquo;s</span>, and named as such.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Every count in the realm, ruled one at a time</p>
+        <p class="rl-b" style="margin-bottom:9px;">The census found six count variables (&sect;8). The question is not whether a vessel may see how many things they have &mdash; it is whether the number is <span class="k">an inventory or a measure of them</span>. An inventory answers &ldquo;what do I have?&rdquo; A measure answers &ldquo;how am I doing?&rdquo; Only the second one needs a full state, and only the second one can be lost.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Sigils &mdash; reads as score.</span> <span class="src">:487&ndash;496</span>: a bold numeral under an amber award icon, in a four-across row. A sigil is <em>earned</em>, so its count is an achievement total, and E4 welds the bank&rsquo;s no-leaderboards law directly onto sets. This is the clearest fail on the board.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Quests &mdash; reads as score.</span> <span class="src">:500&ndash;509</span>, and the fetch is filtered <span class="src">status=completed</span> (<span class="src">:300</span>). A count of completions with no denominator is a completion percentage with the denominator hidden.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Events &mdash; honest, badly dressed.</span> <span class="src">:474&ndash;483</span>. Things that <em>happened to</em> a vessel, not things they scored. Arriving is an event. But a bold numeral in a stat row makes &ldquo;3&rdquo; feel like a low one. Drawn as a door with a name.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Products / wares &mdash; genuinely an inventory.</span> <span class="src">:332</span>, the vessel&rsquo;s own rows in plutus. &ldquo;How many things I have for sale&rdquo; is a fact a maker needs. Kept &mdash; but drawn as &ldquo;Your creations&rdquo;, because a door to a shelf should say what is on the shelf.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Posts and channels &mdash; inventory.</span> <span class="src">:334&ndash;335</span>, both scoped <span class="src">created_by</span>. A vessel&rsquo;s own signals and channels. Honest.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Messages &mdash; a number nobody can explain.</span> <span class="src">:333</span> fetches <span class="src">iris-communications/messages?limit=1</span> with <span class="k">no owner filter at all</span>, unlike its three siblings, and shows the pagination total as &ldquo;{n} Messages&rdquo; orbiting the vessel (<span class="src">:215</span>). Whatever RLS returns becomes a star in a person&rsquo;s own sky. <span class="k">A count whose meaning cannot be stated is worse than no count</span> &mdash; drawn as &ldquo;Your letters&rdquo;, scoped like the others.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Unread heralds &mdash; honest, and board &#9318; keeps it.</span> An unread count is a queue depth, not a score: it goes <em>down</em> when you engage and cannot be accumulated.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s word, mid-sitting &mdash; what the sky is <em>of</em></p>
+        <p class="q">&ldquo;contellation is great, but should also link to the other things a vessel &ldquo;owns&rdquo; [collections, works, community profile, creator profile, merchant profile, council house] not sure how or where it all ties into it without overwhelming the screen, open to ideas.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. It reframes the room: the sky is not a record of what a vessel has <em>done</em>, it is the map of what they <span class="k">hold</span>. Everything below is <em>PROPOSED</em> &mdash; his sentence sets the direction; the shape is drawn plainest and is his to rule.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">A star per thing owned.</span> One for each work and each collection actually held &mdash; not a tile summarising them, not a count. A vessel with three works has three stars, and each is <em>that work</em>.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One star per profile the vessel actually holds &mdash; but not the community one.</span> KP &#9883;, same sitting, verbatim: <em>&ldquo;community profile is the &lsquo;outside of a vessels home&rsquo;&rdquo;.</em> So the community profile is <span class="k">not a star and not a page</span> &mdash; it is the home&rsquo;s exterior, what a visitor sees walking up, and its star in this sky <span class="k">is the home itself</span>. That leaves <span class="k">creator</span> and <span class="k">merchant</span> as profile stars, each appearing <em>only once it exists</em>. A profile a vessel does not hold is <span class="k">not in the sky at all</span>: not greyed, not offered, not there.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Dark sky, never a silhouette.</span> The load-bearing one. Nothing unowned is drawn as an outline, a ghost or a locked slot &mdash; empty space stays <em>empty space</em>. A silhouette is a completion percentage with a shape around it, and it would smuggle back the exact thing the anti-scarcity law refuses. <span class="k">A dark sky is not an incomplete sky.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The council house is the line, not a star.</span> It joins <em>this</em> vessel&rsquo;s stars to <em>others&rsquo;</em> &mdash; belonging drawn as connection rather than as a badge beside them. That is what a constellation actually is: stars are only a shape because something joins them, and a house is the only thing here that reaches past one person.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Tap a star &rarr; its room.</span> Work &rarr; the Loom &middot; collection &rarr; the home &middot; creator/merchant profile &rarr; its page &middot; the home star &rarr; the home&rsquo;s own exterior, which is the community profile &middot; house &rarr; the Council. It answers his &ldquo;should also link&rdquo; literally and makes the sky a <span class="k">way of moving</span> rather than a display case &mdash; which is also why it belongs on this canvas at all: ways between rooms are frame, and the collections themselves stay second pass.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">And it resolves this board&rsquo;s own count problem.</span> Everything ruled &ldquo;score&rdquo; above &mdash; sigils, quests &mdash; was a <em>number standing for things</em>. Stars are the things. There is nothing left to total.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">An alternate frame, for the half darkness does not cover</p>
+        <p class="rl-b"><span class="k">Darkness answers the new vessel. It does not answer the prolific one.</span> &ldquo;Only what is real is drawn&rdquo; keeps an empty sky calm &mdash; but KP&rsquo;s worry is <em>&ldquo;without overwhelming the screen&rdquo;</em>, and the screen gets crowded at the <em>other</em> end: a maker with forty works has forty stars, all real, all earned, every one of them legitimately there.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Drawn beside the proposal, not instead of it: the sky already has orbits.</span> <span class="src">buildConstellation</span> places rings at fixed distances today &mdash; events at 160, sigils at 180, quests at 240 (<span class="src">:146, :169, :192</span>). Owned things join as <span class="k">their own ring</span>, and a ring with forty members <em>does not grow outward</em> &mdash; it stays one ring, and the ring is the group. Density reads as a brighter, busier band rather than as forty things competing for the eye.</p>
+        <p class="rl-b" style="margin-top:9px;">Then there are two taps instead of one: <span class="k">the ring &rarr; the room that holds them all</span>, <span class="k">a star &rarr; the one thing</span>. A vessel with three works and one with three hundred get the same calm sky and the same two gestures. <em>PROPOSED, as an alternate frame</em> &mdash; it composes with everything above and changes none of it.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The star labels carry their counts too</p>
+        <p class="rl-b"><span class="src">:213&ndash;222</span> builds companion stars labelled <span class="src">`${productCount} Products`</span>, <span class="src">`${messageCount} Messages`</span>, <span class="src">`${postCount} Posts`</span>. So the numbers appear <span class="k">twice</span> &mdash; once as tiles, once burning in the sky &mdash; and a vessel with nothing yet gets three stars reading &ldquo;0&rdquo;. Drawn: the stars keep their names and drop their numerals. A star is a thing that exists; it does not need to say how many of it there are.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What this room gets right</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Nobody else is in the sky.</span> Every node is the vessel&rsquo;s own; there is no other person to be compared to, anywhere in the organ. The anti-comparison law is satisfied structurally, not by copy.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">It refused to invent what it lost.</span> Three dated mend-notes in the source (<span class="src">:21&ndash;27, :40&ndash;44, :313&ndash;316</span>) record fields that died in the schema settle &mdash; <span class="src">significance_score</span>, <span class="src">earned_reason</span>, quest <span class="src">house</span> &mdash; and each says the same thing: degraded honestly rather than faked. <span class="k">A ring that could have been a ranking is ordered by recency instead</span>, because the score it would have ranked by no longer exists. That is the anti-scarcity law being kept by an engineer at 2am, not by a copywriter.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Rarity is shimmer.</span> Mythic and legendary get a colour, never a rank or a position (<span class="src">:179</span>).</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the sky does not move, expire or refresh itself.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing is entered here.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; stars are static circles.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the empty state rewritten below; the seven event names (Arrival, Awakening, Collaboration, Milestone, Completion, Sigil, Quest) are already plain and stay.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; four doors, now named. And the room itself is missing from the hub&rsquo;s grid (board &#9312;) &mdash; the deeper next-step problem is getting <em>here</em>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; every star opens its own page; a star that will not load says <em>&ldquo;This star has drifted beyond view.&rdquo;</em> with the way back (ConstellationDetail:78&ndash;79). Kept verbatim.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the SVG viewer is static here; <span class="src">ConstellationViewer</span> lives outside this realm (<span class="src">seidr/immersive/</span>) and is not this board&rsquo;s to rule.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the four tile captions (<span class="src">:482, :495, :508, :521</span>), the subtitle (<span class="src">:401</span>) and both empty-state lines sit at <span class="src">/40</span> and <span class="src">/30</span> &mdash; <span class="k">3.1:1</span> and <span class="k">2.3:1</span>. The legend at <span class="src">/50</span> is <span class="k">4.1:1</span>, still under.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; the four tiles are real links. Star selection is click-only (<span class="src">:360&ndash;362</span>) and the selected-node card says &ldquo;Click another star&rdquo; &mdash; the map is a mouse surface. Named, not solved here: the viewer is another realm&rsquo;s organ.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; :400 &ldquo;Your Constellation&rdquo; &middot; :401 &ldquo;The web of your sovereign journey, made visible&rdquo; &middot; :80&ndash;88 all seven event names &middot; :414 &ldquo;Your constellation awaits its first star&rdquo; &middot; ConstellationDetail:78 &ldquo;This star has drifted beyond view.&rdquo;</p>
+          <p class="rl-b"><span class="k">REWRITE 13</span> &middot; <span class="src">ConstellationContent.tsx:416</span><br><span class="old">&ldquo;Complete quests, earn sigils, and connect with others to fill your sky&rdquo;</span> &rarr; <span class="new">&ldquo;Nothing has been missed. The sky fills as you live here &mdash; a first arrival is already a star.&rdquo;</span> &mdash; three imperatives and a quota are the first thing a new vessel reads in this room. Mnemosyne&rsquo;s law governs here by environment as well as by sense: empty states read as <em>&ldquo;waiting for stars to align rather than missing data&rdquo;</em> (L1-08, E2 digest &sect;3) &mdash; and this room is literally about stars aligning. The second clause is true, not consoling: <span class="src">sovereign_joined &rarr; &lsquo;Arrival&rsquo;</span> is a real event type (<span class="src">:81</span>) that fires at birth.</p>
+          <p class="rl-b"><span class="k">REWRITE 14</span> &middot; <span class="src">:474&ndash;523</span> &mdash; the four summary tiles<br><span class="old">a numeral in bold over &ldquo;Events&rdquo; / &ldquo;Sigils&rdquo; / &ldquo;Quests&rdquo; / &ldquo;Products&rdquo;</span> &rarr; <span class="new">&ldquo;Your timeline&rdquo; / &ldquo;Your sigils&rdquo; / &ldquo;Your quests&rdquo; / &ldquo;Your creations&rdquo;</span>. They were always doors &mdash; each one is a <span class="src">&lt;Link&gt;</span> to another realm. The number was decoration on a door, and it was the only decoration that could make a person feel behind. <em>Proposed.</em></p>
+          <p class="rl-b"><span class="k">REWRITE 15</span> &middot; <span class="src">:214, :215, :218, :222</span><br><span class="old">&ldquo;{n} Products&rdquo; &middot; &ldquo;{n} Messages&rdquo; &middot; &ldquo;{n} Posts&rdquo; &middot; &ldquo;{n} Channel&rdquo;</span> &rarr; <span class="new">&ldquo;Your wares&rdquo; &middot; &ldquo;Your letters&rdquo; &middot; &ldquo;Your posts&rdquo; &middot; &ldquo;Your channels&rdquo;</span>. Also fixes a plain bug: <span class="src">:222</span> reads &ldquo;Channel&rdquo; singular whatever the count.</p>
+          <p class="rl-b"><span class="k">REWRITE 16</span> &middot; <span class="src">:381, :401, :416, :450, :461, :482, :495, :508, :521</span><br><span class="old">/40, /30 and /50</span> &rarr; <span class="new">/70 &mdash; 6.7:1</span>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

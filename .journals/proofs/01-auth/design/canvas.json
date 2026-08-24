@@ -1,0 +1,135 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "The door"
+    },
+    {
+      "id": "page-2",
+      "name": "Declined"
+    }
+  ],
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 920,
+      "h": 1950,
+      "title": "1 - Arrival at /sanctuary"
+    },
+    {
+      "file": "Login.dc.html",
+      "page": "page-1",
+      "x": 1000,
+      "y": 0,
+      "w": 920,
+      "h": 2500,
+      "title": "2 - Login"
+    },
+    {
+      "file": "Signup.dc.html",
+      "page": "page-1",
+      "x": 2000,
+      "y": 0,
+      "w": 920,
+      "h": 2300,
+      "title": "3 - Signup + the felt not-now"
+    },
+    {
+      "file": "Forgot.dc.html",
+      "page": "page-1",
+      "x": 3000,
+      "y": 0,
+      "w": 920,
+      "h": 1800,
+      "title": "4 - Forgot password"
+    },
+    {
+      "file": "Reset.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 2660,
+      "w": 920,
+      "h": 2000,
+      "title": "5 - Reset password"
+    },
+    {
+      "file": "Callback.dc.html",
+      "page": "page-1",
+      "x": 1000,
+      "y": 2660,
+      "w": 920,
+      "h": 2450,
+      "title": "6 - The callback: arrival spoken, both ways"
+    },
+    {
+      "file": "SanctuaryLight.dc.html",
+      "page": "page-1",
+      "x": 2000,
+      "y": 2660,
+      "w": 920,
+      "h": 1550,
+      "title": "7a - /sanctuary, light dress"
+    },
+    {
+      "file": "LoginLight.dc.html",
+      "page": "page-1",
+      "x": 3000,
+      "y": 2660,
+      "w": 920,
+      "h": 1550,
+      "title": "7b - /login, light dress"
+    },
+    {
+      "file": "DeclinedVelkominGate.dc.html",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 640,
+      "h": 1050,
+      "title": "Declined - Velkomin as a gate"
+    },
+    {
+      "file": "DeclinedQuietSkip.dc.html",
+      "page": "page-2",
+      "x": 740,
+      "y": 0,
+      "w": 640,
+      "h": 1050,
+      "title": "Declined - the quiet skip link"
+    },
+    {
+      "file": "DeclinedGradientGround.dc.html",
+      "page": "page-2",
+      "x": 1480,
+      "y": 0,
+      "w": 640,
+      "h": 1050,
+      "title": "Declined - the gradient as ground"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-the-door",
+      "page": "page-1",
+      "x": 0,
+      "y": -560,
+      "w": 960,
+      "text": "THE DOOR - realm 1 of THE AUDHDITIES CONDUCTING PLAN, step P.\n\nEight boards. Top row: 1 arrival at /sanctuary as a visitor, the Velkomin moment and the way to the door - 2 login - 3 signup with the felt \"not now\" on the acid-test offer - 4 forgot-password, both states. Bottom row: 5 reset-password, the recovery visitor - 6 the callback's failure spoken, on login - 7a and 7b the same door in the other theme.\n\nEvery board carries the ten-point sensory checklist on its right rail; KP's own ruling verbatim where a board embodies one; and every copy rewrite marked old to new with the file and line it came from. A gold dot means proposed - drawn plainest where the ground is silent, never landed as though it were ruled.\n\nColours are cosmic tokens only. Every contrast figure is measured, not estimated: the method reproduces HANDOFF.md's own 14.4:1 and 12.3:1 exactly.\n\nNothing in src/ was edited to draw this."
+    },
+    {
+      "id": "note-declined",
+      "page": "page-2",
+      "x": 0,
+      "y": -340,
+      "w": 960,
+      "text": "DECLINED - three alternatives considered and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached - and because one of the three, the full-strength gradient ground, is what the door does today, so what was declined is also what is being changed."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}

@@ -8,6 +8,16 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities" layer(utilities);
 
+/* ─── The tokens set, told to Tailwind ─────────────────────────────────── */
+/* The colours (and cosmic's screens/spacing/fontSize/shadows) already stand in
+   tailwind.generated.config.mjs, generated from the cosmic constants. Tailwind 4
+   reads a config only when told to; without this line every named colour
+   utility minted nothing (REALM-BUS.md:192-206, the white dots of 08-12).
+   KP's word, 2026-08-24: "globals.css -> this needs to import the above tokens
+   set" · "if audhdities requires something not within our tokens, author it in
+   the globals.css". Nothing authored here — only the import of what exists. */
+@config "../../tailwind.generated.config.mjs";
+
 * {
   margin: 0;
   padding: 0;

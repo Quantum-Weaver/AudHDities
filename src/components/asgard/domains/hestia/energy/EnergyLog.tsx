@@ -5,13 +5,13 @@ import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import { Card } from '@/components/runes/Card';
-import { Progress } from '@/components/runes/Progress';
 import { Button } from '@/components/yggdrasil/Button';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Form, FormActions } from '@/components/forging/Form';
 import { FormField } from '@/components/forging/FormField';
 import { Select } from '@/components/forging/Select';
+import { Input } from '@/components/forging/Input';
 import { ArrowLeft, Plus, Zap, Clock, TrendingUp, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -248,7 +248,7 @@ export function EnergyLog() {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-2xl mx-auto px-6 text-center">
-          <p className="text-star-dust/60">Sign in to log your energy.</p>
+          <p className="text-star-dust/60">Enter the Sanctuary to see your vessel.</p>
         </div>
       </main>
     );
@@ -277,7 +277,7 @@ export function EnergyLog() {
               Return to Vessel
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">Energy Log</h1>
-            <p className="text-sm text-star-dust/40 mt-1">Listen to your vessel</p>
+            <p className="text-sm text-star-dust/70 mt-1">Listen to your vessel</p>
           </div>
           <Button variant="primary" size="sm" onClick={() => setShowForm(!showForm)}>
             {showForm ? <X className="h-4 w-4 mr-2" /> : <Plus className="h-4 w-4 mr-2" />}
@@ -309,6 +309,9 @@ export function EnergyLog() {
                   placeholder="Select activity..."
                 />
               </FormField>
+              <FormField label="Anything you want to note" optional>
+                <Input name="notes" placeholder="Only if you want to." />
+              </FormField>
               <FormActions>
                 <Button type="submit" variant="primary" loading={isSaving}>
                   <Zap className="h-4 w-4 mr-2" />
@@ -332,20 +335,15 @@ export function EnergyLog() {
               <TrendingUp className="h-5 w-5 text-neurospark" />
               <h3 className="text-lg font-semibold text-star-dust">Your Rhythm</h3>
             </div>
-            <div className="flex items-end gap-3 mb-4">
-              <span className="text-3xl font-bold text-neurospark">
-                {trend.average}
-              </span>
-              <span className="text-sm text-star-dust/40 mb-1">/ 10 average</span>
-            </div>
-            <Progress
-              value={Math.round(trend.average * 10)}
-              max={100}
-              variant="default"
-              size="sm"
-              className="mb-3"
-            />
-            <p className="text-sm text-star-dust/50">{trend.insight}</p>
+            {/* A bar has a full state, so a tired week rendered as an empty
+                one. The same number, read through this room's own ladder —
+                a word cannot be full or empty. */}
+            <p className="text-sm text-star-dust/70 mb-3">
+              Across your last {entries.length}{' '}
+              {entries.length === 1 ? 'entry' : 'entries'} you have mostly sat
+              around {ENERGY_LABELS[Math.round(trend.average)] ?? 'Steady'}.
+            </p>
+            <p className="text-sm text-star-dust/70">{trend.insight}</p>
           </Card>
         )}
 
@@ -353,12 +351,12 @@ export function EnergyLog() {
         {entries.length === 0 ? (
           <div className="text-center py-20">
             <Zap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-            <p className="text-star-dust/40 text-lg mb-2">Begin listening to your vessel</p>
-            <p className="text-star-dust/30 text-sm">Tap &ldquo;Log Energy&rdquo; to record how you feel</p>
+            <p className="text-star-dust/70 text-lg mb-2">Begin listening to your vessel</p>
+            <p className="text-star-dust/70 text-sm">Tap &ldquo;Log Energy&rdquo; to record how you feel</p>
           </div>
         ) : (
           <div className="space-y-3">
-            <h3 className="text-sm font-medium text-star-dust/40 mb-4">Recent Entries</h3>
+            <h3 className="text-sm font-medium text-star-dust/70 mb-4">Recent Entries</h3>
             {entries.map((entry, index) => {
               const cardData: CardData = {
                 id: entry.id,
@@ -371,10 +369,11 @@ export function EnergyLog() {
                 <Card
                   key={entry.id}
                   data={cardData}
+                  href={`/vessel/energy/${entry.id}`}
                   variant="glass"
                   radius="md"
                   shadow="sm"
-                  className="p-4"
+                  className="p-4 block"
                 >
                   <div className="flex items-center gap-4">
                     {/* Energy Level Circle */}
@@ -401,10 +400,10 @@ export function EnergyLog() {
                         )}
                       </div>
                       {entry.notes && (
-                        <p className="text-sm text-star-dust/50 line-clamp-1">{entry.notes}</p>
+                        <p className="text-sm text-star-dust/70 line-clamp-1">{entry.notes}</p>
                       )}
                       <div className="flex items-center gap-3 mt-2">
-                        <span className="flex items-center gap-1 text-xs text-star-dust/30">
+                        <span className="flex items-center gap-1 text-xs text-star-dust/70">
                           <Clock size={10} />
                           {formatDate(entry.logged_at)} at {formatTime(entry.logged_at)}
                         </span>

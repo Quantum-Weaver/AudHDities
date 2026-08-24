@@ -28,12 +28,12 @@ export const AUTH_LABELS = {
   ENTER: 'Enter',
   EXIT: 'Exit',
   LOADING: 'Loading sanctuary...',
-  CREATING_ACCOUNT: 'Creating Account...',
+  OPENING_DOOR: 'Opening the door…',
   JOIN_SANCTUARY: 'Join the Sanctuary',
   ENTER_SANCTUARY: 'Enter the Sanctuary',
   ENTERING: 'Entering...',
   RETURN_SANCTUARY: 'Return to the Sanctuary',
-  INITIALIZE_CONSCIOUSNESS: 'Initialize Consciousness',
+  COME_IN: 'Come in',
   FORGOT_PASSWORD: 'Forgot your password?',
   SEND_RESET_LINK: 'Send Reset Link',
   SENDING_RESET: 'Sending...',
@@ -41,13 +41,52 @@ export const AUTH_LABELS = {
   SETTING_PASSWORD: 'Setting...',
   BACK_TO_LOGIN: 'Return to login',
   NEW_TO_SANCTUARY: 'New to the Sanctuary?',
-  ALREADY_MANIFESTED: 'Already manifested?',
-  ALREADY_HAVE_ACCOUNT: 'Already have an account?',
+  BEEN_HERE_BEFORE: 'Been here before?',
   ACCEPT_TERMS: 'I agree to the',
   TERMS_OF_SERVICE: 'Terms of Service',
   PRIVACY_POLICY: 'Privacy Policy',
   AND: 'and',
   RETURN_TO_SANCTUARY: 'Return to Sanctuary',
+
+  LOGIN_HEADING: 'Return to the Sanctuary',
+  LOGIN_SUBHEADING: 'Your email and password. Take your time.',
+  OR: 'or',
+
+  MAGIC_LINK: 'Email me a way in',
+  MAGIC_LINK_SENDING: 'Sending...',
+  MAGIC_LINK_EXPLAINER:
+    'No password needed. We send a link to the address above and it opens the door once.',
+  MAGIC_LINK_SENT_HEADING: 'A way in is on its way',
+  MAGIC_LINK_SENT_BODY:
+    'If that address has a home here, a way in is heading to it now. Take your time — the door will wait.',
+  PASSWORD_INSTEAD: 'Enter with a password instead',
+
+  DIDNT_ARRIVE:
+    'Didn’t arrive? Check the spam folder, then ask again with the same address. Nothing is spent by asking twice.',
+
+  SIGNUP_HEADING: 'Come in',
+  SIGNUP_SUBHEADING: 'Join the Sovereign Sanctuary',
+
+  ACID_OFFER_HEADING: 'One more thing, if you want it.',
+  ACID_OFFER_BODY:
+    'The Acid Test is a short, playful set of questions. It sets what you pay — never what you may reach. Nothing here is gated.',
+  ACID_OFFER_TAKE: 'Take the Acid Test',
+  ACID_OFFER_NOT_NOW: 'Not now',
+  ACID_OFFER_FOOTNOTE:
+    'It is offered again whenever you want it — nothing is lost by waiting.',
+} as const;
+
+// ─── What the door says when a link does not open it ───────────────────────
+export const AUTH_MESSAGES = {
+  CALLBACK_FAILED: {
+    title: 'That link didn’t open the door.',
+    body: 'It may have expired, or it may already have been used. Ask for a new one and it will be sent straight away — nothing on your side is lost.',
+    newLink: 'Email me a new way in',
+    newPassword: 'Set a new password instead',
+  },
+  RECOVERY_MISSING: {
+    body: 'That recovery link has expired or has already been used. Ask for a new one whenever you are ready — nothing on your side is lost.',
+  },
 } as const;
 
 // ─── Page Metadata ─────────────────────────────────────────────────────────
@@ -92,14 +131,19 @@ export const AUTH_ROUTES = {
   TERMS: '/terms',
   PRIVACY: '/privacy',
   HOME: '/',
+  SANCTUARY: '/sanctuary',
   VESSEL_SANCTUM: '/vessel/sanctum',
 } as const;
 
 // ─── Error Messages ────────────────────────────────────────────────────────
 export const AUTH_ERRORS = {
   CALLBACK_FAILED: 'auth_callback_failed',
+  RECOVERY_MISSING: 'recovery_session_missing',
   LOGOUT_FAILED: 'Logout failed',
 } as const;
+
+// ─── Error Param ───────────────────────────────────────────────────────────
+export const AUTH_ERROR_PARAM = 'error';
 
 // ─── Cookie Names ──────────────────────────────────────────────────────────
 export const AUTH_COOKIES = {
@@ -108,6 +152,9 @@ export const AUTH_COOKIES = {
 } as const;
 
 // ─── Page Background ───────────────────────────────────────────────────────
+// 2026-08-24: no longer worn by authPageVariants — a raw gradient string is
+// not a class. The door's weather is EnvironmentLayer at 0.3. Kept for the
+// @theme bridge (KP ⚛ answer 3, "wait for phase 0a").
 export const AUTH_PAGE_GRADIENT = GRADIENTS['cosmicDomain'];
 
 // ─── Dimensions ────────────────────────────────────────────────────────────
@@ -132,3 +179,6 @@ export const AUTH_TRANSITION_EASING = easing.quantum;
 
 // ─── Redirect Param ────────────────────────────────────────────────────────
 export const AUTH_REDIRECT_PARAM = 'redirect';
+
+// ─── The door's weather ────────────────────────────────────────────────────
+export const AUTH_ENVIRONMENT = 'gateway' as const;

@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --on-quantum:#FFFFFF;--error:#E17055;--success:#00B894;
+      --hearth-gold:#FDCB6E;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:12px;padding:20px 22px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#22D3EE;">&#9315;</span>
+    <span style="font-size:15px;font-weight:600;">The Scroll &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/vessel/journal</span>, and the true delete</span>
+    <span class="src">JournalList &middot; JournalDetail &middot; JournalEdit &middot; environment: library</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:26px 24px 30px;">
+
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px;">
+            <div>
+              <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);">&larr; Return to Vessel</a>
+              <h1 style="margin:6px 0 2px;font-size:22px;font-weight:700;">The Scroll</h1>
+              <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);">Your words, your story, your truth</p>
+            </div>
+            <span style="display:inline-block;padding:7px 14px;border-radius:9px;background:#6C5CE7;color:#FFFFFF;font-size:12.5px;font-weight:500;white-space:nowrap;">+ Weave a Thread</span>
+          </div>
+
+          <div class="card" style="margin-bottom:16px;">
+            <p style="margin:0 0 5px;font-size:11.5px;color:rgba(224,224,224,.78);">Your Words <span style="color:rgba(224,224,224,.55);">&mdash; required</span></p>
+            <div style="border:1px solid rgba(34,211,238,.75);box-shadow:0 0 0 1px rgba(34,211,238,.35);border-radius:7px;padding:11px 13px;min-height:104px;font-size:13px;color:rgba(224,224,224,.55);">Let the words flow&hellip;</div>
+            <p style="margin:7px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);">drawn as a <span style="color:#FDCB6E;">textarea</span> &mdash; today this is a one-line field</p>
+          </div>
+
+          <div style="background:rgba(224,224,224,.03);border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:17px 19px;margin-bottom:11px;">
+            <p style="margin:0 0 4px;font-size:15px;font-weight:600;">The morning the noise stopped</p>
+            <p style="margin:0 0 10px;font-size:12.5px;color:rgba(224,224,224,.70);">I woke before the alarm and the flat was completely still. I sat with a coffee and did not reach for anything&hellip;</p>
+            <div style="display:flex;align-items:center;gap:11px;">
+              <span style="font-size:11.5px;color:rgba(224,224,224,.70);">&#9200; Aug 22, 2026</span>
+              <span style="display:inline-block;padding:1px 9px;border-radius:9999px;border:1px solid rgba(129,236,236,.35);background:rgba(0,206,201,.16);font-size:10.5px;color:#81ECEC;">peaceful</span>
+            </div>
+          </div>
+
+          <div style="background:rgba(224,224,224,.03);border:1px solid rgba(224,224,224,.10);border-radius:12px;padding:17px 19px;">
+            <p style="margin:0 0 4px;font-size:15px;font-weight:600;">Notes toward a shape</p>
+            <p style="margin:0 0 10px;font-size:12.5px;color:rgba(224,224,224,.70);">Three false starts and then the thing itself, which was smaller than I expected and much better&hellip;</p>
+            <div style="display:flex;align-items:center;gap:11px;">
+              <span style="font-size:11.5px;color:rgba(224,224,224,.70);">&#9200; Aug 19, 2026</span>
+              <span style="display:inline-block;padding:1px 9px;border-radius:9999px;border:1px solid rgba(162,155,254,.35);background:rgba(108,92,231,.18);font-size:10.5px;color:#A29BFE;">contemplative</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The entry, and the delete as ruling 7 words it</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 28px;">
+            <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;color:rgba(224,224,224,.70);margin-bottom:14px;">&larr; Return to the Scroll</a>
+            <div class="card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px;">
+                <div>
+                  <h1 style="margin:0 0 6px;font-size:19px;font-weight:700;">The morning the noise stopped</h1>
+                  <span style="font-size:11.5px;color:rgba(224,224,224,.70);">&#9200; Saturday, August 22, 2026</span>
+                </div>
+                <div style="display:flex;gap:7px;flex:none;">
+                  <span style="border:1px solid rgba(224,224,224,.18);border-radius:7px;padding:4px 10px;font-size:11.5px;color:rgba(224,224,224,.78);">Edit</span>
+                  <span style="border:1px solid rgba(225,112,85,.45);border-radius:7px;padding:4px 10px;font-size:11.5px;color:#E17055;">Delete</span>
+                </div>
+              </div>
+              <p style="margin:0;font-size:13px;color:rgba(224,224,224,.80);">I woke before the alarm and the flat was completely still.</p>
+              <div style="margin-top:18px;border:1px dashed rgba(253,203,110,.40);background:rgba(253,203,110,.035);border-radius:11px;padding:15px 17px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                  <p style="margin:0;font-size:13px;font-weight:600;">Echoes</p>
+                  <span style="display:inline-block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);border-radius:9999px;padding:1px 8px;font-weight:600;">second pass</span>
+                </div>
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">The place a scroll answers back &mdash; here, and again in the capture flow. Nothing is drawn into it today.</p>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;border:1px solid rgba(225,112,85,.35);background:rgba(225,112,85,.06);border-radius:12px;padding:18px;text-align:center;">
+              <p style="margin:0 0 14px;font-size:13px;color:rgba(224,224,224,.86);">Deleting this entry removes it for good. There is no undo.</p>
+              <div style="display:flex;gap:11px;justify-content:center;">
+                <span style="border:1px solid rgba(224,224,224,.20);border-radius:8px;padding:6px 16px;font-size:12.5px;color:rgba(224,224,224,.80);">Keep it</span>
+                <span style="border-radius:8px;padding:6px 16px;font-size:12.5px;background:#6C5CE7;color:#FFFFFF;">Delete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s ruling this board embodies</p>
+        <p class="q">&ldquo;journal/energy keep the true delete, plain words, one confirming gesture, no guilt&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">Ruling 7, briefs/02-hestia-BRIEF.md at his &#9883; &ldquo;go&rdquo;, 2026-08-24. It answers the brief&rsquo;s own question 7 &mdash; whether a real delete can stand beside the home&rsquo;s no-delete law. It can, and this board is the four words of it, checked one at a time.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling, four words, four verdicts</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">true delete</span> &mdash; holds. <span class="src">JournalDetail.tsx:68</span> is a real <span class="src">DELETE</span>, and the row is gone. <span class="k">This is not the garden and must not borrow its language.</span> A plant goes dormant because a plant is alive on its own clock; a sentence a person wrote is theirs to unwrite, and dormancy-talk over a delete would be the house lying to be gentle.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">plain words</span> &mdash; fails. <span class="src">:213</span> reads <em>&ldquo;This thread will be unwoven forever&rdquo;</em> and the button is <em>&ldquo;Unweave&rdquo;</em>. The Scroll&rsquo;s weaving idiom is good writing everywhere else in the room; on the one irreversible act in the realm it puts a metaphor between a person and what is about to happen. Rewritten below.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">one confirming gesture</span> &mdash; holds exactly. Trigger opens a panel in place; the panel confirms. Not a modal, not a typed word, not a second dialog (<span class="src">:210&ndash;224</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no guilt</span> &mdash; holds. No &ldquo;are you sure?&rdquo;, no loss-framing, no consequence spelled at the vessel. &ldquo;Keep it&rdquo; is a warm cancel, not a confirmshame. Kept, lowercased only for sentence case.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">What the delete looks like today</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The trigger has no name.</span> <span class="src">:177&ndash;183</span> is a ghost button holding a bare <span class="src">&lt;Trash2&gt;</span> with no <span class="src">aria-label</span> and no text &mdash; and the Edit button beside it (<span class="src">:172&ndash;176</span>) is the same. A screen reader hears two unnamed buttons on a page whose whole subject is a person&rsquo;s own words. <span class="k">Drawn with words on them.</span> Same at <span class="src">EnergyEntryDetail.tsx:89</span> &mdash; board &#9316;.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The confirm button is the primary.</span> <span class="src">:219</span> gives the destructive act <span class="src">variant=&quot;primary&quot;</span> &mdash; quantum-purple, the same weight as &ldquo;Enter the Sanctuary&rdquo; at the door. Kept as drawn, because one confirming gesture should be unmissable; the panel&rsquo;s own <span class="src">error</span> border carries the warning, and #FFFFFF on quantum.purple measures <span class="k">4.9:1</span>.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Echoes &mdash; second pass, at KP&rsquo;s word</p>
+        <p class="q">&ldquo;second pass with the scroll, is the users &lsquo;echoes&rsquo; experience when reading a scroll from the past or even moments after writing it during the capture flow.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim. Drawn as a <span class="k">reserved place inside the entry</span> and named, and nothing more &mdash; the frame shows where it lands, this canvas does not design it.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:12px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Two moments, one place.</span> His sentence names both &mdash; <em>reading a scroll from the past</em>, and <em>moments after writing it, during the capture flow</em>. So the space belongs to the entry itself, not to a separate room: whether a vessel arrives at it years later or seconds later, they are standing in the same spot.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">What the frame owes it now.</span> Only that the entry has room beneath the words and that the capture flow can reach the same view &mdash; which is the second reason the compose field becomes a textarea below: a one-line box has no &ldquo;moments after&rdquo;, because there is nothing on screen to come back to.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Not drawn, deliberately.</span> An echo is a thing the house says back to a person about their own words. What it says, when, and whether at all is his &mdash; and a placeholder here would be a voice invented for the Sanctuary in the one room where the voice is supposed to be the vessel&rsquo;s.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The Scroll writes in a one-line field</p>
+        <p class="rl-b"><span class="src">JournalList.tsx:207&ndash;212</span> and <span class="src">JournalEdit.tsx:178&ndash;184</span> both compose <span class="k">&ldquo;Your Words&rdquo;</span> in <span class="src">&lt;Input&gt;</span>, which renders a bare <span class="src">&lt;input&gt;</span> (Input.tsx:119). A journal entry &mdash; the room subtitled <em>&ldquo;Your words, your story, your truth&rdquo;</em> &mdash; is typed into a box one line tall, where nothing already written stays in sight. <span class="src">src/components/forging/Textarea.tsx</span> exists, in the same folder, unused here. Drawn as a textarea. <em>Proposed</em>: no ruling names it, and it is the plainest thing.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Anti-scarcity, read honestly</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">No count anywhere.</span> The Scroll never says how many entries there are, never a streak, never a &ldquo;days written&rdquo;. Entries are a list of things, in the order they happened. This room passes the anti-scarcity law without having to try, and it is the model for board &#9317;.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Mood is a word, not a score.</span> Eight named moods, no scale, no average, no chart. &ldquo;Stormy&rdquo; sits beside &ldquo;Grateful&rdquo; at equal weight.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; nothing autosaves, nothing expires, nothing counts the days between entries.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the weak row. The compose form lives inside a toggled block (<span class="src">:192</span>): pressing Cancel unmounts it and whatever was typed is gone, with no warning. Drawn: Cancel keeps the draft in place until the entry is added or the vessel clears it themselves.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; no shake, no flash; &ldquo;Nothing changed.&rdquo; (<span class="src">JournalEdit:84</span>) simply appears and rests.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;Weave a Thread&rdquo; and &ldquo;Reweave the Thread&rdquo; are the room&rsquo;s own good idiom and stay. Only the delete leaves it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; one button, four fields, two of them optional and labelled so.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; an entry that will not load says <em>&ldquo;This thread has unraveled.&rdquo;</em> with the way back beneath it (<span class="src">:111&ndash;114</span>) &mdash; a dead end with a door in it. Kept verbatim: this one is a <em>loss</em>, and the weaving idiom is exactly right for a loss.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; only colour transitions, all carrying <span class="src">transition-colors</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; entry body starDust/80 on surface <span class="k">8.3:1</span>, good. But the subtitle (<span class="src">:175</span>), the empty-state line (<span class="src">:240</span>) and every date sit at <span class="src">/40</span> and <span class="src">/30</span> &mdash; <span class="k">3.1:1</span> and <span class="k">2.3:1</span>. The &ldquo;Tap &lsquo;Weave a Thread&rsquo; to begin&rdquo; instruction (<span class="src">:241</span>) is the least legible text in the room and the only instruction in it.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; two unnamed icon buttons on the entry (above). Otherwise whole.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; :174 &ldquo;The Scroll&rdquo; &middot; :175 &ldquo;Your words, your story, your truth&rdquo; &middot; :187 &ldquo;Weave a Thread&rdquo; &middot; :204 &ldquo;What truth wants to be told?&rdquo; &middot; :210 &ldquo;Let the words flow&hellip;&rdquo; &middot; :230 &ldquo;Add to Scroll&rdquo; &middot; :240 &ldquo;Your scroll awaits your first words&rdquo; &middot; :111 &ldquo;This thread has unraveled.&rdquo; &middot; JournalEdit:160 &ldquo;Reweave the Thread&rdquo;, :97 &ldquo;Thread rewoven.&rdquo;</p>
+          <p class="rl-b"><span class="k">REWRITE 5</span> &middot; <span class="src">JournalDetail.tsx:213</span><br><span class="old">&ldquo;This thread will be unwoven forever. There is no undo.&rdquo;</span> &rarr; <span class="new">&ldquo;Deleting this entry removes it for good. There is no undo.&rdquo;</span> &mdash; the second sentence was already right and is kept to the word. The first now says what the button does. Ruling 7&rsquo;s &ldquo;plain words&rdquo;, applied to the only irreversible act in the realm.</p>
+          <p class="rl-b"><span class="k">REWRITE 6</span> &middot; <span class="src">JournalDetail.tsx:221</span><br><span class="old">&ldquo;Unweave&rdquo;</span> &rarr; <span class="new">&ldquo;Delete&rdquo;</span>. A person about to lose something should not have to translate the button.</p>
+          <p class="rl-b"><span class="k">REWRITE 7</span> &middot; <span class="src">JournalDetail.tsx:216</span><br><span class="old">&ldquo;Keep It&rdquo;</span> &rarr; <span class="new">&ldquo;Keep it&rdquo;</span> &mdash; sentence case, matching every other cancel in the realm. The word itself is right and stays.</p>
+          <p class="rl-b"><span class="k">REWRITE 8</span> &middot; <span class="src">JournalDetail.tsx:172&ndash;183</span><br><span class="old">two icon-only buttons</span> &rarr; <span class="new">&ldquo;Edit&rdquo; and &ldquo;Delete&rdquo;, worded</span>. The icons stay beside the words where the room has space for both.</p>
+          <p class="rl-b"><span class="k">REWRITE 9</span> &middot; <span class="src">JournalList.tsx:175, :240, :241</span> &middot; <span class="src">JournalDetail.tsx:154, :212</span><br><span class="old">/40 and /30 &mdash; 3.1:1 and 2.3:1</span> &rarr; <span class="new">/70 &mdash; 6.7:1</span>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

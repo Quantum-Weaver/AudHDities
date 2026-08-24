@@ -9,6 +9,7 @@ import { SanctuaryAcidTest } from '@/components/asgard/domains/hephaestus/sanctu
 import { SanctuaryPathways } from '@/components/asgard/domains/hephaestus/sanctuary/SanctuaryPathways';
 import { SanctuaryTransparency } from '@/components/asgard/domains/hephaestus/sanctuary/SanctuaryTransparency';
 import { SanctuaryFooter } from '@/components/asgard/domains/hephaestus/sanctuary/SanctuaryFooter';
+import VelkominGreeting from '@/components/asgard/auth/VelkominGreeting';
 
 export const metadata: Metadata = {
   title: 'The Sanctuary | AUDHDITIES',
@@ -19,6 +20,7 @@ export default function SanctuaryPage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen">
+        <VelkominGreeting visitors />
         <SanctuaryHero />
         <SanctuaryProblem />
         <SanctuaryPillars />

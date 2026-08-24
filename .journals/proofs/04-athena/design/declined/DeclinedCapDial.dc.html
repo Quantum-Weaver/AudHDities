@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <p style="margin:0 0 4px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#E17055;font-weight:600;">declined</p>
+  <h2 style="margin:0 0 6px;font-size:17px;font-weight:700;">The daily cap as a quiet dial</h2>
+  <p style="margin:0 0 20px;font-size:12px;color:rgba(224,224,224,.78);text-wrap:pretty;">If the bar has to go, a small unlabelled ring could still show the day filling &mdash; ambient, wordless, and easy to ignore.</p>
+
+  <div style="border:1px solid rgba(225,112,85,.30);border-radius:12px;background:rgba(225,112,85,.05);padding:22px;margin-bottom:20px;text-align:center;">
+    <svg width="86" height="86" viewBox="0 0 100 100" style="margin-bottom:10px;">
+      <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(224,224,224,.14)" stroke-width="9"></circle>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#E17055" stroke-width="9" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="163" transform="rotate(-90 50 50)"></circle>
+    </svg>
+    <p style="margin:0;font-size:11px;color:rgba(224,224,224,.70);">no number, no label &mdash; just the day, filling</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+
+    <div>
+      <p class="rl-h">Why it was declined</p>
+      <p class="rl-b">KP&rsquo;s &#9883; ruling is five words long and it closes this: <em>&ldquo;the bubble cap speaks in words, no bar.&rdquo;</em> <span class="k">A dial is a bar bent into a circle.</span> Removing the digits does not change what it does &mdash; it still shows a remainder, continuously, unasked, and it makes the remainder harder to read rather than absent.</p>
+    </div>
+
+    <div>
+      <p class="rl-b">E4&rsquo;s test is <em>&ldquo;who performs the subtraction&rdquo;</em>, and the answer here is still <span class="k">the interface, every frame</span>. Making it wordless arguably worsens it: a number can be glanced at once and dismissed; a filling ring is an ambient countdown, which is close cousin to the appointment mechanic the same column refuses.</p>
+    </div>
+
+    <div>
+      <p class="rl-b">There was a real case for it &mdash; the brief&rsquo;s own question 3, and E4&rsquo;s offered-not-ruled boundary case that <em>a vessel&rsquo;s own chosen cap may speak ambient</em>. A self-set boundary is not scarcity imposed on anyone. <span class="k">But it was offered, not ruled, and then it was ruled the other way</span>, and corpus one outranks corpus two absolutely.</p>
+    </div>
+
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">Everything except the ring. The case was that <span class="k">a vessel should know their own boundary</span> &mdash; and board &#9314; now says all four caps out loud in plain sentences, where before the room enforced them and explained none. The dial would have shown one of them, wordlessly. The panel tells you all four, in words, before you ever meet one. <span class="k">It is a better answer to the same worry, and it is the ruling read literally.</span></p>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

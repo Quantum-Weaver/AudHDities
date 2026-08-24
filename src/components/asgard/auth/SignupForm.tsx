@@ -11,17 +11,30 @@ import { FormField } from "@/components/forging/FormField";
 import { Alert } from "@/components/seidr/Alert";
 import { Button } from "@/components/yggdrasil/Button";
 import { pwnedCount, PWNED_MESSAGE } from "@/lib/auth/pwned";
+import {
+  AUTH_LABELS,
+  AUTH_PLACEHOLDERS,
+  AUTH_ROUTES,
+} from "@/lib/constants/components/asgard/auth/auth.constants";
+import {
+  authHeadingVariants,
+  authLabelTextVariants,
+  authLinkVariants,
+  authMutedTextVariants,
+  authSubtextVariants,
+} from "@/lib/constants/components/asgard/auth/auth.variants";
 
 interface SignupFormProps {
   redirectTo?: string;
 }
 
-export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormProps) {
+export default function SignupForm({ redirectTo = AUTH_ROUTES.QUESTIONNAIRE }: SignupFormProps) {
   const router = useRouter();
   const { signUp } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [offered, setOffered] = useState(false);
 
   const handleSubmit = async (data: Record<string, any>) => {
     setIsLoading(true);
@@ -70,14 +83,47 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
       return;
     }
 
-    router.push(redirectTo);
+    // KP ⚛ 2026-08-24, answer 1: "need a felt 'not now'". The Acid Test is
+    // offered here and answered here; it is never routed into unasked.
+    setIsLoading(false);
+    setOffered(true);
   };
 
+  if (offered) {
+    return (
+      <div className="w-full text-center">
+        <h2 className="text-xl font-bold text-star-dust mb-2">
+          {AUTH_LABELS.ACID_OFFER_HEADING}
+        </h2>
+        <p className={`${authSubtextVariants()} mb-6`}>
+          {AUTH_LABELS.ACID_OFFER_BODY}
+        </p>
+
+        <div className="grid grid-cols-2 gap-3">
+          <Button onClick={() => router.push(redirectTo)} className="w-full">
+            {AUTH_LABELS.ACID_OFFER_TAKE}
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => router.push(AUTH_ROUTES.DASHBOARD)}
+            className="w-full"
+          >
+            {AUTH_LABELS.ACID_OFFER_NOT_NOW}
+          </Button>
+        </div>
+
+        <p className={`${authMutedTextVariants()} mt-4`}>
+          {AUTH_LABELS.ACID_OFFER_FOOTNOTE}
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-star-dust mb-2">Initialize Consciousness</h1>
-        <p className="text-star-dust/60">Join the Sovereign Sanctuary</p>
+        <h1 className={authHeadingVariants()}>{AUTH_LABELS.SIGNUP_HEADING}</h1>
+        <p className={authSubtextVariants()}>{AUTH_LABELS.SIGNUP_SUBHEADING}</p>
       </div>
 
       {error && (
@@ -89,7 +135,7 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
           <Input
             name="username"
             type="text"
-            placeholder="Choose a username"
+            placeholder={AUTH_PLACEHOLDERS.USERNAME}
             disabled={isLoading}
           />
         </FormField>
@@ -98,7 +144,7 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
           <Input
             name="email"
             type="email"
-            placeholder="your@email.com"
+            placeholder={AUTH_PLACEHOLDERS.EMAIL}
             disabled={isLoading}
           />
         </FormField>
@@ -107,7 +153,7 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
           <Input
             name="password"
             type="password"
-            placeholder="Create a password (min 6 characters)"
+            placeholder={AUTH_PLACEHOLDERS.CREATE_PASSWORD}
             disabled={isLoading}
           />
         </FormField>
@@ -116,7 +162,7 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
           <Input
             name="confirm_password"
             type="password"
-            placeholder="Confirm your password"
+            placeholder={AUTH_PLACEHOLDERS.CONFIRM_PASSWORD}
             disabled={isLoading}
           />
         </FormField>
@@ -128,27 +174,31 @@ export default function SignupForm({ redirectTo = "/questionaire" }: SignupFormP
               name="accept_terms"
               disabled={isLoading}
             />
-            <label htmlFor="accept-terms" className="text-sm text-star-dust/80 cursor-pointer select-none">
-              I agree to the{" "}
-              <a href="/terms" className="text-neurospark hover:underline">Terms of Service</a>
-              {" "}and{" "}
-              <a href="/privacy" className="text-neurospark hover:underline">Privacy Policy</a>
+            <label htmlFor="accept-terms" className={`${authLabelTextVariants()} cursor-pointer select-none`}>
+              {AUTH_LABELS.ACCEPT_TERMS}{" "}
+              <a href={AUTH_ROUTES.TERMS} className={authLinkVariants()}>
+                {AUTH_LABELS.TERMS_OF_SERVICE}
+              </a>
+              {" "}{AUTH_LABELS.AND}{" "}
+              <a href={AUTH_ROUTES.PRIVACY} className={authLinkVariants()}>
+                {AUTH_LABELS.PRIVACY_POLICY}
+              </a>
             </label>
           </div>
         </FormField>
 
         <FormActions>
           <Button type="submit" disabled={isLoading} className="w-full">
-            {isLoading ? "Creating Account..." : "Join the Sanctuary"}
+            {isLoading ? AUTH_LABELS.OPENING_DOOR : AUTH_LABELS.JOIN_SANCTUARY}
           </Button>
         </FormActions>
       </Form>
 
       <div className="mt-6 text-center">
-        <p className="text-star-dust/40 text-sm">
-          Already have an account?{" "}
-          <a href="/login" className="text-neurospark hover:underline">
-            Return to the Sanctuary
+        <p className={authMutedTextVariants()}>
+          {AUTH_LABELS.BEEN_HERE_BEFORE}{" "}
+          <a href={AUTH_ROUTES.LOGIN} className={authLinkVariants()}>
+            {AUTH_LABELS.RETURN_SANCTUARY}
           </a>
         </p>
       </div>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9315;</span>
+    <span style="font-size:15px;font-weight:600;">The Curriculum &amp; The Lessons &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/courses</span> &middot; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/lessons</span></span>
+    <span class="src">CourseDetail 145 &middot; LessonDetail 65</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:14px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Curriculum</a>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:9.5px;border:1px solid rgba(0,184,148,.35);border-radius:6px;padding:1px 7px;color:#00E6C3;">beginner</span>
+            <span style="font-size:11px;color:rgba(224,224,224,.70);display:inline-flex;align-items:center;gap:5px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+              about an hour</span>
+          </div>
+
+          <h2 style="margin:0 0 8px;font-size:19px;font-weight:700;">The Settled Tongue</h2>
+          <p style="margin:0 0 16px;font-size:12.5px;color:rgba(224,224,224,.78);text-wrap:pretty;">The Sanctuary speaks its own language, chosen with care: vessel, not user; wares, not products; sigils, not badges. Six short lessons on the words this house keeps and why each was settled.</p>
+
+          <div class="second" style="margin-bottom:16px;padding:13px 15px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);">Remember where I stop</p>
+              <span style="display:inline-flex;align-items:center;gap:7px;">
+                <span style="width:30px;height:17px;border-radius:9999px;background:rgba(224,224,224,.14);border:1px solid rgba(224,224,224,.20);position:relative;display:inline-block;"><span style="position:absolute;left:2px;top:2px;width:11px;height:11px;border-radius:9999px;background:rgba(224,224,224,.45);"></span></span>
+                <span style="font-size:10.5px;color:rgba(224,224,224,.70);">off</span>
+              </span>
+            </div>
+            <p style="margin:6px 0 0;font-size:10.5px;color:rgba(224,224,224,.70);">Kept on this device only, and you can forget it whenever you like.</p>
+          </div>
+
+          <p style="margin:0 0 10px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(224,224,224,.55);font-weight:600;">The path &mdash; 6 steps</p>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+
+            <a href="#" style="display:flex;align-items:flex-start;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:9px;background:rgba(255,255,255,.03);padding:10px 12px;">
+              <span style="width:22px;height:22px;flex:none;border-radius:9999px;background:rgba(0,184,148,.14);color:#00E6C3;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;">1</span>
+              <span style="flex:1;min-width:0;"><span style="display:block;font-size:12.5px;font-weight:600;color:#E0E0E0;">&#127998; Vessel</span><span style="display:block;font-size:11px;color:rgba(224,224,224,.70);">Why nobody here is a &ldquo;user.&rdquo;</span></span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);flex:none;">10 minutes</span>
+            </a>
+
+            <a href="#" style="display:flex;align-items:flex-start;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:9px;background:rgba(255,255,255,.03);padding:10px 12px;">
+              <span style="width:22px;height:22px;flex:none;border-radius:9999px;background:rgba(0,184,148,.14);color:#00E6C3;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;">2</span>
+              <span style="flex:1;min-width:0;"><span style="display:block;font-size:12.5px;font-weight:600;color:#E0E0E0;">&#127873; Works and Wares</span><span style="display:block;font-size:11px;color:rgba(224,224,224,.70);">What is made, and what is offered.</span></span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);flex:none;">10 minutes</span>
+            </a>
+
+            <a href="#" style="display:flex;align-items:flex-start;gap:11px;border:1px solid rgba(0,230,195,.30);border-radius:9px;background:rgba(0,184,148,.06);padding:10px 12px;">
+              <span style="width:22px;height:22px;flex:none;border-radius:9999px;background:rgba(0,184,148,.14);color:#00E6C3;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;">3</span>
+              <span style="flex:1;min-width:0;"><span style="display:block;font-size:12.5px;font-weight:600;color:#E0E0E0;">&#129718; Sigils and Heralds</span><span style="display:block;font-size:11px;color:rgba(224,224,224,.70);">Marks of becoming, and gentle messengers.</span><span style="display:block;font-size:10px;color:#00E6C3;margin-top:3px;">where you stopped last</span></span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);flex:none;">10 minutes</span>
+            </a>
+
+            <a href="#" style="display:flex;align-items:flex-start;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:9px;background:rgba(255,255,255,.03);padding:10px 12px;">
+              <span style="width:22px;height:22px;flex:none;border-radius:9999px;background:rgba(0,184,148,.14);color:#00E6C3;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;">4</span>
+              <span style="flex:1;min-width:0;"><span style="display:block;font-size:12.5px;font-weight:600;color:#E0E0E0;">&#127963;&#65039; The Realms</span><span style="display:block;font-size:11px;color:rgba(224,224,224,.70);">The halls of the house, and who tends them.</span></span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);flex:none;">10 minutes</span>
+            </a>
+
+            <a href="#" style="display:flex;align-items:flex-start;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:9px;background:rgba(255,255,255,.03);padding:10px 12px;">
+              <span style="width:22px;height:22px;flex:none;border-radius:9999px;background:rgba(0,184,148,.14);color:#00E6C3;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;">5</span>
+              <span style="flex:1;min-width:0;"><span style="display:block;font-size:12.5px;font-weight:600;color:#E0E0E0;">&#128167; Imbas</span><span style="display:block;font-size:11px;color:rgba(224,224,224,.70);">The knowledge that arrives whole.</span></span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);flex:none;">10 minutes</span>
+            </a>
+
+            <a href="#" style="display:flex;align-items:flex-start;gap:11px;border:1px solid rgba(224,224,224,.12);border-radius:9px;background:rgba(255,255,255,.03);padding:10px 12px;">
+              <span style="width:22px;height:22px;flex:none;border-radius:9999px;background:rgba(0,184,148,.14);color:#00E6C3;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;">6</span>
+              <span style="flex:1;min-width:0;"><span style="display:block;font-size:12.5px;font-weight:600;color:#E0E0E0;">&#128682; Velkomin</span><span style="display:block;font-size:11px;color:rgba(224,224,224,.70);">The door&rsquo;s word, and why it is said once per crossing.</span></span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);flex:none;">10 minutes</span>
+            </a>
+
+          </div>
+
+          <p style="margin:14px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">Six steps, numbered because they read best in order &mdash; <span class="k">not because six is a target.</span> No percentage, no checkmark, no step that waits on another. Start at four if four is the one you want.</p>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">A lesson, opened</p>
+        <div style="border:1px solid rgba(224,224,224,.14);border-radius:12px;background:#1A1F35;padding:22px;">
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:12px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Lessons</a>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;">
+            <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">text</span>
+            <span style="font-size:11px;color:rgba(224,224,224,.70);">10 minutes</span>
+          </div>
+          <h3 style="margin:0 0 6px;font-size:18px;font-weight:700;">&#128682; Velkomin</h3>
+          <p style="margin:0 0 14px;font-size:12.5px;color:rgba(224,224,224,.78);">The door&rsquo;s word, and why it is said once per crossing.</p>
+          <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:14px 15px;">
+            <p style="margin:0 0 9px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;">Old Norse &mdash; welcome. The door&rsquo;s own word, said once per crossing: every arrival is greeted, and no arrival is interrogated.</p>
+            <p style="margin:0 0 9px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;">The greeting law is small but load-bearing: you are welcomed for existing, not for what you do here. There is no onboarding gauntlet, no engagement streak waiting to be broken, no guilt at the threshold when you have been away.</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);">The stars will still be here when you return. So will the door, and so will the word.</p>
+          </div>
+          <p class="src" style="margin:10px 0 0;">lessons.content jsonb, verbatim &mdash; 008-the-library-first-seeds.sql:227&ndash;231</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The empty curriculum, kept whole</p>
+        <div style="border:1px dashed rgba(224,224,224,.18);border-radius:12px;background:#0C0F1D;padding:24px 22px;text-align:center;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.28)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg>
+          <p style="margin:0;font-size:14px;color:rgba(224,224,224,.72);">The curriculum is being prepared</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">And the course whose path is not laid yet: <em>&ldquo;This course&rsquo;s path is still being laid &mdash; its lessons will appear here as they are written.&rdquo;</em> <span class="src">CourseDetail.tsx:135&ndash;138</span>. Both kept verbatim. <span class="k">Both already say waiting, not missing.</span></p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">This room already refused the thing</p>
+        <p class="q">&ldquo;No completion percentages, no progress race (anti-scarcity; the Honors are emergence-recognition) &mdash; the path simply shows its steps in order, and the vessel walks at their own pace.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">The file&rsquo;s own header, <span class="src">CourseDetail.tsx:2&ndash;8</span>, written at KP&rsquo;s &#9883; word 2026-07-31. The census confirms it by machine: <span class="k">0 percentage renders in the whole realm.</span> Nothing on this board argues with a room that was already right &mdash; it adds the one row the sensory ten still wants.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Progress saving, without progress-shaming</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Today nothing remembers.</span> Close the tab at lesson three and the course opens tomorrow exactly as it did the first time. The sensory ten names <em>progress saving</em> as a feature of access, not of gamification &mdash; and this realm, which is the learning realm, does not have it anywhere.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Drawn: one line, one word, one door.</span> &ldquo;where you stopped last&rdquo; on the step you left, and nothing else changes &mdash; no dimming of what came before, no checkmarks, no figure. <span class="k">It marks a place, not a score.</span> The five other steps stay exactly as bright.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">And it is off until asked.</span> KP&rsquo;s &#9883; word, verbatim: <em>&ldquo;make all toggles off by default.&rdquo;</em> So the remembering is a toggle, and the toggle is drawn <span class="k">off</span>. A vessel who never touches it never has a place kept for them, which is the correct default in a house whose bus forbids <em>walk-state as analytics</em>.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Device-local, and forgettable.</span> The bus&rsquo;s own words for walk-state: <em>&ldquo;own-only or local-first, resumable by choice, forgettable.&rdquo;</em> Drawn that way &mdash; no table, no row, no server. <em>Proposed</em>: no ruling names it, and it deliberately does not touch the &#128681; completion_points math, which is <span class="ruled">held</span>.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The seed already keeps the harder law</p>
+        <p class="rl-b">All six <span class="src">path_lessons</span> rows are inserted with <span class="src">is_required = false</span> (<span class="src">008:233&ndash;237</span>). E4&rsquo;s synthesis: <em>&ldquo;is_required is taxonomy never demand.&rdquo;</em> Here it is not even taxonomy &mdash; it is simply off, everywhere, for every step. <span class="k">Nothing in this course is required, in the database.</span> That is a law kept where it is hardest to see.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The emoji are content, not decoration</p>
+        <p class="rl-b">Every lesson name carries one &mdash; &#127998; &#127873; &#129718; &#127963;&#65039; &#128167; &#128682; &mdash; and they stay. The seed says why in its own comment: <em>&ldquo;L1-14&rsquo;s law carried: every term travels with an emoji &mdash; not decoration; processing relief&rdquo;</em> (<span class="src">008:187</span>). <span class="k">A glyph that helps a mind find its place again is an access feature</span>, and this canvas keeps it while using drawn icons for everything that is only chrome.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What the rooms cannot render yet</p>
+        <p class="rl-b"><span class="src">content</span>, <span class="src">objectives</span> and <span class="src">rewards</span> are all Json, and the rooms honestly render only the shapes they can read &mdash; a string, a body, a url (<span class="src">LessonDetail.tsx:24&ndash;34</span>). Richer structures wait for the second pass, and the code says so rather than guessing. <span class="k">Nothing on this board proposes a shape for them</span>; that would be designing inside a held flag.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the strongest thing in the realm after the game&rsquo;s caps. Six steps, no gate between them, no clock, no order enforced. <em>&ldquo;about an hour&rdquo;</em> is an estimate offered, never a target.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the whole finding above.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &middot; <span class="k">no autoplay</span> &mdash; nothing moves; nothing plays. Text lessons only.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the lesson bodies are the house teaching its own dictionary in its own voice. Not one word rewritten on this board.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every step is a door, and the numbers say what order they read best in.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; course to lesson, and <span class="src">content.url</span> opens outward with <span class="src">rel=&quot;noopener&quot;</span> when a lesson carries one.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="src">CourseDetail.tsx:104</span> is the <span class="k">only</span> <span class="src">motion-reduce</span> guard in the whole realm. It is here. The realm should be measured against this line, not the other way round.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the step descriptions at <span class="src">/50</span> read <span class="k">4.32:1</span>, the durations and the empty-path note at <span class="src">/40</span> read <span class="k">3.18:1</span>. Measured. Drawn at <span class="src">/70</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; a real <span class="src">ol</span> of real <span class="src">Link</span>s; the ordered list is also the screen-reader&rsquo;s own structure. Correct without trying.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">NOTHING REWRITTEN.</span> This is the one board on the canvas where the copy census found nothing to fix and nothing to soften. <span class="k">KEPT verbatim</span> &mdash; &ldquo;The path &mdash; 6 steps&rdquo; <span class="src">CourseDetail:96&ndash;97</span> &middot; the empty path note <span class="src">:135&ndash;138</span> &middot; &ldquo;The curriculum is being prepared&rdquo; <span class="src">CoursesGallery:40</span> &middot; &ldquo;The lessons are being prepared&rdquo; <span class="src">LessonsGallery:42</span> &middot; &ldquo;This course has not been written yet.&rdquo; <span class="src">:78</span> &middot; &ldquo;This lesson has not been written yet.&rdquo; <span class="src">LessonDetail:47</span> &middot; every lesson title, description and body.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; &ldquo;Remember where I stop&rdquo; / &ldquo;Kept on this device only, and you can forget it whenever you like.&rdquo; / &ldquo;where you stopped last&rdquo;. <em>Proposed</em>, all three. Written to say <em>place</em> and never <em>progress</em>.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a percentage &middot; a completion ring &middot; checkmarks on finished steps &middot; dimming or striking a step you have read &middot; a locked step &middot; &ldquo;2 lessons to go&rdquo; &middot; a certificate &middot; a resume banner the room decides for you &middot; and any remembering that leaves the device. <span class="k">The endowed-progress effect is refused by name</span> on E4&rsquo;s column &mdash; which is exactly the trick a part-filled six-step path would perform if a single checkmark landed on step one.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

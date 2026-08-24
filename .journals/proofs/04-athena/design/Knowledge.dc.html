@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;
+      --library-green:#00B894;--library-dark:#00A885;--library-light:#00E6C3;
+      --hearth-gold:#FDCB6E;--error:#E17055;--success:#00B894;--void-base:#636E72;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--library-light);text-decoration:none;}
+    a:hover{color:var(--star-dust);text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;
+      background-image:linear-gradient(135deg,#00A885 0%,#00B894 50%,#00E6C3 100%);
+      pointer-events:none;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(0,184,148,.55);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .second{border:1px dashed rgba(253,203,110,.40);border-radius:12px;
+      background:rgba(253,203,110,.035);padding:16px 18px;}
+    .stag{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#FDCB6E;border:1px solid rgba(253,203,110,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
+      border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+    .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      color:rgba(224,224,224,.70);}
+    .go{font-size:11px;color:#00E6C3;display:inline-flex;align-items:center;gap:5px;}
+    .chip{border:1px solid rgba(224,224,224,.20);border-radius:9999px;
+      padding:3px 10px;font-size:11px;color:rgba(224,224,224,.78);}
+    .modal{border:1px solid rgba(224,224,224,.14);border-radius:14px;
+      background:rgba(12,15,29,.86);padding:20px 22px;text-align:center;}
+    .tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+    .tbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .tbl td{padding:8px 10px 8px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+    <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9316;</span>
+    <span style="font-size:15px;font-weight:600;">The Archive &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/knowledge</span>, the mythologies</span>
+    <span class="src">KnowledgeGallery 61 &middot; KnowledgeDetail 53 &middot; reads mythology</span>
+  </div>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div class="wash"></div>
+        <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:14px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Library</a>
+          <h2 style="margin:0 0 3px;font-size:19px;font-weight:700;">The Archive</h2>
+          <p style="margin:0 0 6px;font-size:12.5px;color:rgba(224,224,224,.78);">Mythology, taxonomy, and ancient wisdom</p>
+          <p style="margin:0 0 18px;font-size:12px;color:rgba(224,224,224,.78);text-wrap:pretty;">The stories the Sanctuary takes its names from, told properly. Walk in by the mythology, or by the one it belongs to.</p>
+
+          <p style="margin:0 0 8px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(224,224,224,.55);font-weight:600;">By mythology</p>
+          <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;">
+            <span class="chip" style="border-color:rgba(0,230,195,.45);color:#00E6C3;">Greek</span>
+            <span class="chip">Norse</span>
+            <span class="chip">Celtic</span>
+          </div>
+
+          <p style="margin:0 0 8px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:rgba(224,224,224,.55);font-weight:600;">By the one it belongs to</p>
+          <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px;">
+            <span class="chip">Athena</span>
+            <span class="chip">Hestia</span>
+            <span class="chip">Hermes</span>
+            <span class="chip">Mnemosyne</span>
+            <span class="chip">Bragi</span>
+            <span class="chip">Brigid</span>
+            <span class="chip">The Morr&iacute;gan</span>
+          </div>
+
+          <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;background:#1A1F35;padding:18px 19px;">
+            <div style="display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap;">
+              <span style="font-size:9.5px;border:1px solid rgba(0,230,195,.35);border-radius:6px;padding:1px 7px;color:#00E6C3;">Greek</span>
+              <span style="font-size:9.5px;border:1px solid rgba(224,224,224,.20);border-radius:6px;padding:1px 7px;color:rgba(224,224,224,.78);">cosmogony</span>
+            </div>
+            <h3 style="margin:0 0 8px;font-size:16px;font-weight:700;">The Opening &mdash; Kaos Before Gaia</h3>
+            <p style="margin:0 0 12px;font-size:12px;font-style:italic;color:rgba(224,224,224,.78);text-wrap:pretty;">The oldest Greek account of beginnings puts Chaos first and Gaia second &mdash; and the word chaos never meant disorder. The house repeated both truths without opening the book.</p>
+            <a href="#" style="font-size:12px;display:inline-flex;align-items:center;gap:6px;">Read the telling
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"></path><path d="m13 6 6 6-6 6"></path></svg>
+            </a>
+          </div>
+
+          <p style="margin:16px 0 0;font-size:11.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">More tellings are being written. They arrive when they are ready, and the shelf will hold them by the mythology they came from.</p>
+
+          <div style="margin-top:16px;display:flex;align-items:center;gap:10px;">
+            <span class="old" style="display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(224,224,224,.16);border-radius:8px;padding:5px 11px;flex:1;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.40)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <span style="font-size:12px;">Search the archive&hellip;</span>
+            </span>
+            <span class="stag">retires until the shelf earns it</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The shelf as it fills &mdash; the shape, not today <span class="stag" style="margin-left:6px;">proposed</span></p>
+        <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;background:#1A1F35;padding:18px 19px;display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <p style="margin:0 0 7px;font-size:12.5px;font-weight:600;color:#00E6C3;">Greek</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <span style="border:1px solid rgba(224,224,224,.12);border-radius:8px;padding:8px 11px;font-size:11.5px;color:rgba(224,224,224,.82);">The Opening &mdash; Kaos Before Gaia</span>
+              <span style="border:1px dashed rgba(224,224,224,.14);border-radius:8px;padding:8px 11px;font-size:11px;color:rgba(224,224,224,.70);">Athena, Hestia, Hermes, Themis, Mnemosyne, Prometheus, Iris &mdash; the halls are named from here.</span>
+            </div>
+          </div>
+          <div>
+            <p style="margin:0 0 7px;font-size:12.5px;font-weight:600;color:rgba(224,224,224,.82);">Norse</p>
+            <span style="display:block;border:1px dashed rgba(224,224,224,.14);border-radius:8px;padding:8px 11px;font-size:11px;color:rgba(224,224,224,.70);">Bragi, Odin, Freya, Idunn &mdash; and Velkomin, the door&rsquo;s own word.</span>
+          </div>
+          <div>
+            <p style="margin:0 0 7px;font-size:12.5px;font-weight:600;color:rgba(224,224,224,.82);">Celtic</p>
+            <span style="display:block;border:1px dashed rgba(224,224,224,.14);border-radius:8px;padding:8px 11px;font-size:11px;color:rgba(224,224,224,.70);">Brigid, The Morr&iacute;gan &mdash; and imbas, the knowledge that arrives whole.</span>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Drawn so KP can see the room he is writing into. <span class="k">The dashed rows are not empty slots and never render as any</span> &mdash; they name which entities each mythology already answers for, read from the house&rsquo;s own <span class="src">entity.*</span> tokens (<span class="src">colors.ts</span>) and its settled tongue. A mythology with no telling yet simply is not on the shelf.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">A telling, opened</p>
+        <div style="border:1px solid rgba(224,224,224,.14);border-radius:12px;background:#1A1F35;padding:22px;">
+          <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(224,224,224,.70);margin-bottom:12px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+            Return to the Archive</a>
+          <h3 style="margin:0 0 10px;font-size:17px;font-weight:700;">The Opening &mdash; Kaos Before Gaia</h3>
+          <p style="margin:0 0 14px;font-size:12px;font-style:italic;color:rgba(224,224,224,.78);text-wrap:pretty;">The oldest Greek account of beginnings puts Chaos first and Gaia second &mdash; and the word chaos never meant disorder.</p>
+          <p style="margin:0 0 16px;font-size:12px;color:rgba(224,224,224,.82);line-height:1.65;text-wrap:pretty;">In Hesiod&rsquo;s Theogony (lines 116&ndash;117), the first coming-to-be is ordered plainly: first Chaos, then broad-breasted Gaia, and from her the pantheon. The word &chi;&#940;&omicron;&sigmaf; descends from &chi;&#940;&sigma;&kappa;&omega;, &ldquo;to gape, to yawn open&rdquo; &mdash; Chaos is the opening, the primal gap everything emerges through&hellip;</p>
+
+          <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:14px 15px;margin-bottom:14px;">
+            <p style="margin:0 0 7px;font-size:11.5px;font-weight:600;color:rgba(224,224,224,.78);">What the telling carries</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);line-height:1.6;text-wrap:pretty;">A label can drift for centuries from the contents it names; the cure on every road is being asked, not told. What looks like disorder may be the opening everything arrives through.</p>
+          </div>
+
+          <p style="margin:0;padding-top:12px;border-top:1px solid rgba(224,224,224,.10);font-size:11px;color:rgba(224,224,224,.78);line-height:1.6;text-wrap:pretty;"><span style="color:#E0E0E0;font-weight:600;">Provenance:</span> Greek, archaic (~700 BC): Hesiod, Theogony 116&ndash;117 &middot; etymology: etymonline &ldquo;chaos&rdquo; &middot; house canon: THE SAGA &sect;VII.</p>
+          <p class="src" style="margin:9px 0 0;">KnowledgeDetail.tsx:44&ndash;48 &mdash; the same line, lifted from /35 to /78</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The empty shelf</p>
+        <div style="border:1px dashed rgba(224,224,224,.18);border-radius:12px;background:#0C0F1D;padding:24px 22px;text-align:center;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.28)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:10px;"><path d="M12 7c0-1.7-2-3-5-3H3v14h4c3 0 5 1.3 5 3z"></path><path d="M12 7c0-1.7 2-3 5-3h4v14h-4c-3 0-5 1.3-5 3z"></path></svg>
+          <p style="margin:0 0 5px;font-size:14px;color:rgba(224,224,224,.72);">The archive awaits its first scrolls</p>
+          <p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">The tellings are being written. They will be here.</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">First line <span class="src">KnowledgeGallery.tsx:45</span>, kept to the word. Second line new, <em>proposed</em>: it names <span class="k">who</span> the shelf is waiting on without ever naming <span class="k">how many</span>. No count, no quota, no bar &mdash; the empty state must never look like a task list handed to its own author.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">KP&rsquo;s &#9883; word that reshaped this board</p>
+        <p class="q">&ldquo;i also think mythology may have been misunderstood, i intend to draft stories of the actual mythologies we reference entities from&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">2026-08-24, verbatim, spelling kept. So the Archive is not a house-lore shelf. <span class="k">It is a shelf of the real mythologies</span> &mdash; Greek, Norse, Celtic &mdash; that this house took its names from, written by KP and read by a vessel as stories. The room is redrawn to say that before it says anything else.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">And the house&rsquo;s own place on it</p>
+        <p class="q">&ldquo;my own is a smal story, still valuable, but not the only story to be told.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">2026-08-24, verbatim, spelling kept. <span class="k">So the one scroll standing today is not the centrepiece and is not drawn as one.</span> It sits under Greek, beside the deities the halls are named for, as one telling among the tellings &mdash; which is also the truer reading of it: it is Hesiod&rsquo;s Theogony first, and the house&rsquo;s own seam is its last movement.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Two ways in, and both are on the ground</p>
+        <p class="rl-b">The <span class="src">mythology</span> table already carries <span class="src">related_entity</span> and <span class="src">related_entity_type</span> (<span class="src">007:42&ndash;44</span>) &mdash; the standing scroll uses them. <span class="k">So &ldquo;by the one it belongs to&rdquo; is a column, not an invention</span>, and &ldquo;by mythology&rdquo; is what <span class="src">myth_type</span> becomes once the shelf holds more than one tradition. Both walks are drawn from what the base can already answer. <em>Proposed</em>: no ruling names the chips.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Walkable, not searched-first</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Today a search box stands over one scroll.</span> <span class="src">KnowledgeGallery.tsx:44</span> renders a full-width field, then <span class="src">:46&ndash;58</span> render the single card beneath it. A search field is a question the room asks the visitor; with one answer on the shelf it is a question with no honest purpose, and it puts a task between a person and a story.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Drawn: the mythologies first, the story second, the field when the shelf earns it.</span> The filter machinery already written (<span class="src">:29&ndash;37</span> searches name, description, story <em>and</em> teachings &mdash; genuinely good) stays in the file and simply waits.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The reading page is already right.</span> Description in italic, story whole with <span class="src">whitespace-pre-wrap</span>, teachings in their own quiet box under the house&rsquo;s own heading <em>&ldquo;What the telling carries&rdquo;</em>, provenance last. <span class="k">Nothing about the reading needs redesigning</span> &mdash; it is already shaped for a long telling, which is exactly what is coming.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The house law its own room hides</p>
+        <p class="rl-b"><em>Provenance on every claim</em> is a ground-file law, and this room is the only place in the app that renders a provenance line for a reader &mdash; and with real mythologies arriving, it becomes the room&rsquo;s most load-bearing element. It sits at <span class="src">text-[11px] text-star-dust/35</span> (<span class="src">KnowledgeDetail.tsx:45</span>) &mdash; measured <span class="k">2.69:1</span>, <span class="k">the least readable text in the realm</span>, at eleven pixels. Drawn at <span class="src">/78</span> and 11.5px: <span class="k">8.99:1</span>. <em>Proposed</em>.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The one shelf that is already home</p>
+        <p class="rl-b">The Archive reads <span class="src">mythology</span>, which came back to this base at KP&rsquo;s word 2026-07-29 (<span class="src">docs/sql/005-mythology-returns.sql</span>; provenance column and first telling in <span class="src">007</span>). <span class="k">This hall is NOT waiting on the Grammar bridge</span> &mdash; the dailies are; the Archive&rsquo;s source arrived. So the room is ready for KP&rsquo;s drafting whenever he opens it: a telling is an insert, not a build.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The dark hall, named and not opened</p>
+        <p class="rl-b">The realm bus records KP&rsquo;s earlier earmark for an Archive of <em>&ldquo;story-frames, personal and shared&rdquo;</em>, convened as <span class="k">one</span> design with the dailies and iris&rsquo;s Voice doorway when the Grammar&rsquo;s front lights (<span class="src">(athena)/REALM-BUS.md:158&ndash;163</span>). Named here so it is not lost &mdash; and noted as a <em>different</em> thing from the tellings KP just described, which need no bridge at all.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; a story with no next-chapter push and no reading timer. It ends and lets you go.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; none today, and none proposed yet. Worth revisiting when a telling runs long: a place-marker in a story is the same opt-in shape drawn on board &#9315;.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &middot; <span class="k">no autoplay</span> &mdash; nothing moves in this hall at all. The realm&rsquo;s quietest room.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; and better than plain: the standing telling teaches an etymology without asking the reader to already know one.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; the search-first order, above. A field is not a next step; a mythology is.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the provenance line IS this row, and it is the best one in the app. It cites the primary text by line number.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; nothing to guard. The only hall on the canvas that passes this row by having no motion at all.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; provenance <span class="src">/35</span> at <span class="k">2.69:1</span> &middot; description <span class="src">/60</span> at <span class="k">5.69:1</span> (passes) &middot; story <span class="src">/70</span> at <span class="k">7.38:1</span> (passes) &middot; gallery previews <span class="src">/50</span> at <span class="k">4.32:1</span>. So the body copy is nearly right and only the citation fails &mdash; the worst possible place for it to.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; a real field, real links, one heading level per section. The drawn chips are real buttons, as the other galleries already write them.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, here</p>
+        <p class="rl-b">Nothing in this hall is a toggle or a checkbox, and the drawn chips start with <span class="k">none selected</span>, as every other gallery in the realm already does (<span class="src">useState&lt;string | null&gt;(null)</span>). Under KP&rsquo;s &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em> there is nothing here to turn off &mdash; and a mythology chip must never arrive pre-chosen, because choosing one for the reader is choosing whose story matters first.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;The Archive&rdquo; / &ldquo;Mythology, taxonomy, and ancient wisdom&rdquo; <span class="src">Gallery:43</span> &middot; &ldquo;The archive awaits its first scrolls&rdquo; <span class="src">:45</span> &middot; &ldquo;No scrolls match&rdquo; <span class="src">:45</span> &middot; &ldquo;What the telling carries&rdquo; <span class="src">Detail:40</span> &middot; &ldquo;Provenance:&rdquo; <span class="src">:46</span> &middot; &ldquo;This scroll has not been written yet.&rdquo; <span class="src">:26</span> &middot; the standing telling, whole. <span class="k">Not one word of this hall fails the register.</span></p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; &ldquo;The stories the Sanctuary takes its names from, told properly. Walk in by the mythology, or by the one it belongs to.&rdquo; <em>Proposed</em>: it replaces the search field as the room&rsquo;s opening move and says what KP just said the room is for.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; &ldquo;More tellings are being written. They arrive when they are ready, and the shelf will hold them by the mythology they came from.&rdquo; and, in the empty state, &ldquo;The tellings are being written. They will be here.&rdquo; <em>Proposed</em>, both. Warm, and <span class="k">countless on purpose</span>.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column, here</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a read/unread mark &middot; a reading-time-remaining figure &middot; &ldquo;scrolls read: 1 of 1&rdquo; &middot; a recommended-next telling &middot; an infinite feed of stories &middot; any counter of how often a telling has been opened &middot; and <span class="k">any figure anywhere that counts how many tellings are written or still to come</span>. The Archive must never learn what it is being read for, and it must never keep score against the hand writing it.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

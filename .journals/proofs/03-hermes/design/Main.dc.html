@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --quantum-light:#7D6CEA;--sanctuary-green:#00B894;--sanctuary-emerald:#00CEC9;
+      --library-dark:#00A885;--hearth-gold:#FDCB6E;--error:#E17055;
+      --void-base:#636E72;--void-light:#B2BEC3;--mood-creative:#A29BFE;
+      --curator:#E84393;--skald:#FD79A8;--info:#74B9FF;--on-quantum:#FFFFFF;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:48px;
+      border-radius:12px;font-size:16px;font-weight:500;padding:0 20px;}
+    .btn-p{background:#6C5CE7;color:#FFFFFF;}
+    .btn-o{border:1px solid rgba(224,224,224,.30);color:#E0E0E0;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9312;</span>
+    <span style="font-size:15px;font-weight:600;">The Bazaar &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/bazaar</span></span>
+    <span class="src">(hermes)/bazaar/page.tsx &rarr; BazaarHub.tsx &middot; environment <span style="color:#00B894;">community</span></span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:820px;">In and out with dignity. <span class="k">Four doors, not six</span> &mdash; the two that left are accounted for on the right rail, with the ground that moved them.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+        <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+        <div style="position:relative;z-index:1;padding:34px 24px 30px;">
+
+          <div style="text-align:center;margin-bottom:26px;">
+            <h1 style="margin:0 0 10px;font-size:30px;font-weight:700;line-height:1.2;">The Bazaar</h1>
+            <p style="margin:0 auto;max-width:340px;font-size:15px;color:rgba(224,224,224,.70);text-wrap:pretty;">Where sovereign souls exchange their gifts. Every exchange supports artisans, contributors, and the community &mdash; forever.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:14px;">
+
+            <div class="card" style="padding:18px 16px 16px;">
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(34,211,238,.10);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v13H3z"/><path d="M3 7l2-4h14l2 4"/><path d="M9 11h6"/></svg>
+              </div>
+              <h3 style="margin:0 0 5px;font-size:15px;font-weight:600;color:#E0E0E0;">The Tapestry</h3>
+              <p style="margin:0 0 12px;font-size:12.5px;color:rgba(224,224,224,.60);line-height:1.45;">Works offered by sovereign souls.</p>
+              <span style="font-size:11.5px;color:rgba(34,211,238,.90);">Go in &rarr;</span>
+            </div>
+
+            <div class="card" style="padding:18px 16px 16px;">
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(162,155,254,.10);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A29BFE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6.2a3 3 0 0 1 0 5.6"/><path d="M18 19a5 5 0 0 0-2.4-4.3"/></svg>
+              </div>
+              <h3 style="margin:0 0 5px;font-size:15px;font-weight:600;color:#E0E0E0;">The Weavers</h3>
+              <p style="margin:0 0 12px;font-size:12.5px;color:rgba(224,224,224,.60);line-height:1.45;">The artisans, and what is on their looms.</p>
+              <span style="font-size:11.5px;color:rgba(34,211,238,.90);">Go in &rarr;</span>
+            </div>
+
+            <div class="card" style="padding:18px 16px 16px;">
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(0,184,148,.12);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+              </div>
+              <h3 style="margin:0 0 5px;font-size:15px;font-weight:600;color:#E0E0E0;">The Guild</h3>
+              <p style="margin:0 0 12px;font-size:12.5px;color:rgba(224,224,224,.60);line-height:1.45;">Vessels who keep a stall here.</p>
+              <span style="font-size:11.5px;color:rgba(34,211,238,.90);">Go in &rarr;</span>
+            </div>
+
+            <div class="card" style="padding:18px 16px 16px;">
+              <div style="width:40px;height:40px;border-radius:12px;background:rgba(253,121,168,.10);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FD79A8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16"/><path d="M20 4v16"/><path d="M4 8h16"/><path d="M4 16h16"/><path d="M9 8v8"/><path d="M15 8v8"/></svg>
+              </div>
+              <h3 style="margin:0 0 5px;font-size:15px;font-weight:600;color:#E0E0E0;">The Loom</h3>
+              <p style="margin:0 0 12px;font-size:12.5px;color:rgba(224,224,224,.60);line-height:1.45;">Where a vessel offers a work of their own.</p>
+              <span style="font-size:11.5px;color:rgba(34,211,238,.90);">Go in &rarr;</span>
+            </div>
+
+          </div>
+
+          <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 14px;border:1px solid rgba(224,224,224,.10);border-radius:10px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.6)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7-4.4-7-9.5a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.1-7 9.5-7 9.5z"/></svg>
+            <span style="font-size:13px;color:rgba(224,224,224,.70);">Your part in every work, recorded</span>
+          </div>
+
+          <div class="card" style="margin-top:20px;padding:22px 20px;">
+            <h2 style="margin:0 0 16px;font-size:16px;font-weight:700;text-align:center;">How the Bazaar works</h2>
+            <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:16px;">
+              <div>
+                <h3 style="margin:0 0 6px;font-size:12.5px;font-weight:600;color:#22D3EE;">1 &middot; Create</h3>
+                <p style="margin:0;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.60);">A weaver makes a work in the Loom, sets its price, and puts it on the stall.</p>
+              </div>
+              <div>
+                <h3 style="margin:0 0 6px;font-size:12.5px;font-weight:600;color:#A29BFE;">2 &middot; Discover</h3>
+                <p style="margin:0;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.60);">Walk the Tapestry. Meet the weavers and the guild who keep it.</p>
+              </div>
+              <div>
+                <h3 style="margin:0 0 6px;font-size:12.5px;font-weight:600;color:#00B894;">3 &middot; Circulate</h3>
+                <p style="margin:0;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.60);">90% to the artisan. 10% platform fee &mdash; up to 50% of it flows to contributors forever.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The empty bazaar &mdash; honest, warm, and it never apologises</p>
+        <div style="position:relative;border:1px dashed rgba(253,203,110,.35);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:30px 24px;">
+            <div style="text-align:center;margin-bottom:22px;">
+              <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;">The Bazaar</h1>
+              <p style="margin:0 auto;max-width:330px;font-size:14px;color:rgba(224,224,224,.70);text-wrap:pretty;">Where sovereign souls exchange their gifts.</p>
+            </div>
+            <div class="card" style="padding:26px 20px;text-align:center;">
+              <p style="margin:0 0 8px;font-size:15px;color:rgba(224,224,224,.70);">The stalls are still being set up.</p>
+              <p style="margin:0;font-size:13px;color:rgba(224,224,224,.60);text-wrap:pretty;">Nothing is on offer here yet. The Loom is open if you have something to bring.</p>
+              <div style="margin-top:16px;"><span class="btn btn-o" style="height:40px;font-size:14px;">Go to the Loom</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The four doors still stand when the shelves are bare &mdash; a door is not a promise that something is behind it. No skeleton cards, no shimmer, no <span class="src">&ldquo;0 results&rdquo;</span>. <span class="k">No countdown to a restock the base cannot witness.</span></p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The build law this whole canvas obeys</p>
+        <p class="q">&ldquo;i magine building the framework for each of the next realms before the features within is a good approach, as some features are cross referenced realm-wise. the game side of the vessel experience, not as vital as a functional bazaar, athena with contents, etc&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept &middot; THE AUDHDITIES CONDUCTING PLAN &sect;2 B. So: rooms, honest wiring, the ways between, true empty states. The hanging and the catalog-share are drawn as <span class="k">places</span>, never designed.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Why four doors and not six</p>
+        <p class="rl-b" style="margin-bottom:10px;"><span class="k">The mall-model refusal is the room&rsquo;s own law.</span> E2 &sect;3, hermes: <em>&ldquo;in-and-out with dignity&hellip; a REFUSAL of the mall-model&rdquo;</em> (bus L637&ndash;641), under KP&rsquo;s <em>&ldquo;a bazaar experience that is not overwhelming or time consuming&rdquo;</em> (L606&ndash;607). A mall directory lists every unit it has. A bazaar entrance shows you the stalls.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The Exchange leaves the grid.</span> Not a judgement &mdash; the room says so itself: <span class="src">CheckoutHub.tsx:91</span> <em>&ldquo;The Exchange completes on each work&rsquo;s page.&rdquo;</em> A threshold you can walk to before you are carrying anything is a shop with an empty till in the window. The route stays; the door goes. Board &#9317; draws where it is actually met.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Contributions leaves the grid</span> and stands as one quiet line beneath it. It is not a stall &mdash; it is the vessel&rsquo;s own record of itself, own-rows-only under RLS. Board &#9316;.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; six static links today, four drawn. Nothing loads, nothing polls, nothing expires.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing to lose here; the hub holds no state.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing blinks. The wash breathes at the image era&rsquo;s 47.7s tempo and stills to nothing under reduced motion (<span class="src">HANDOFF.md:53&ndash;61</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; two rewrites below; &ldquo;Marketplace&rdquo; and &ldquo;Track your distributions and impact&rdquo; are both the wrong register for this door.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; today the only next-step affordance is <span class="src">&ldquo;Explore&rdquo;</span> at <span class="src">opacity-0 group-hover:opacity-100</span> (<span class="src">BazaarHub.tsx:109&ndash;111</span>). A step that exists only under a mouse is not obvious; it is invisible to touch and to the keyboard. Drawn always-on at reduced weight.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; &ldquo;How the Bazaar works&rdquo; carries the whole split before anyone has chosen anything.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="src">group-hover:scale-110</span> on each icon tile (<span class="src">BazaarHub.tsx:100</span>) is a transform with no <span class="src">motion-reduce</span> guard. Drawn as a background-tint change alone.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured on <span class="src">surface</span> #1A1F35: starDust title <span class="k">12.3:1</span>, body at /60 <span class="k">5.3:1</span>, the <span class="src">Go in</span> chip in neurospark <span class="k">9.0:1</span>. Behind the cards, starDust on the community wash at 0.3 runs <span class="k">8.5:1 to 9.1:1</span> across all three gradient stops. At full strength the same wash reads <span class="k">1.9:1</span> &mdash; which is the 0.3 law in one number.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; four links, one tab order, each with a visible focus ring; the always-on <span class="src">Go in</span> means the focused door announces its own action.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6), checked on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The Gruen transfer</span> &mdash; refused. Four doors, all visible at once, all one click deep; no wandering path, no door placed to be passed. E4 &sect;2: Gruen himself disavowed what his name became &mdash; <em>&ldquo;I refuse to pay alimony for those bastard developments.&rdquo;</em></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Countdowns &middot; streaks &middot; leaderboards &middot; pointsification</span> &mdash; none present, none added.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Infinite scroll &amp; variable-reward feeds</span> &mdash; the hub is a fixed grid of four and it ends.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The endowed-progress grid</span> &mdash; no &ldquo;3 of 6 explored&rdquo;, no part-filled anything (Nunes &amp; Dr&egrave;ze, E4 &sect;2).</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every rewrite marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; <span class="src">:74</span> &ldquo;The Bazaar&rdquo; &middot; <span class="src">:76&ndash;78</span> &ldquo;Where sovereign souls exchange their gifts&hellip; forever.&rdquo; &middot; <span class="src">:14</span> &ldquo;The Tapestry&rdquo; &middot; <span class="src">:22</span> &ldquo;The Weavers&rdquo; &middot; <span class="src">:30</span> &ldquo;The Guild&rdquo; &middot; <span class="src">:38</span> &ldquo;The Loom&rdquo; &middot; <span class="src">:126</span> &ldquo;How the Bazaar Works&rdquo; &middot; <span class="src">:131 :141 :151</span> Create &middot; Discover &middot; Circulate &middot; <span class="src">:154&ndash;155</span> the whole 90/10/50 sentence.</p>
+          <p class="rl-b"><span class="k">REWRITE 1</span> &middot; <span class="src">BazaarHub.tsx:70&ndash;73</span><br><span class="old">the &ldquo;The Marketplace&rdquo; pill above the title</span> &rarr; <span class="new">removed</span>. <em>Marketplace</em> is the mall&rsquo;s word for itself, and this realm refused the mall by name; the pill also announces in small type the thing the H1 says underneath it in large type.</p>
+          <p class="rl-b"><span class="k">REWRITE 2</span> &middot; <span class="src">BazaarHub.tsx:31</span><br><span class="old">&ldquo;Ethical merchants serving the community&rdquo;</span> &rarr; <span class="new">&ldquo;Vessels who keep a stall here.&rdquo;</span> &mdash; the base holds no ethics column, so the old line is a claim the room cannot witness. Provenance on every claim.</p>
+          <p class="rl-b"><span class="k">REWRITE 3</span> &middot; <span class="src">BazaarHub.tsx:47</span><br><span class="old">&ldquo;Track your distributions and impact&rdquo;</span> &rarr; <span class="new">&ldquo;Your part in every work, recorded&rdquo;</span> &mdash; lifted from the room&rsquo;s own best sentence, <span class="src">ContributionsGallery.tsx:109</span>. That room is a provenance gallery: <span class="k">credit, not payout math</span> (<span class="src">ContributionsGallery.tsx:2&ndash;4</span>). <em>Track</em> and <em>impact</em> are the metrics register.</p>
+          <p class="rl-b"><span class="k">REWRITE 4</span> &middot; <span class="src">BazaarHub.tsx:15 :23 :39</span><br>Three door descriptions written for a directory rather than a threshold: <span class="old">&ldquo;Discover works from sovereign souls&rdquo; &middot; &ldquo;Meet the artisans of the Sanctuary&rdquo; &middot; &ldquo;Create and share your own works&rdquo;</span> &rarr; <span class="new">&ldquo;Works offered by sovereign souls.&rdquo; &middot; &ldquo;The artisans, and what is on their looms.&rdquo; &middot; &ldquo;Where a vessel offers a work of their own.&rdquo;</span> Each now says what is <em>through</em> the door, not what you are expected to do once inside.</p>
+          <p class="rl-b"><span class="k">REWRITE 5</span> &middot; <span class="src">BazaarHub.tsx:110</span><br><span class="old">&ldquo;Explore&rdquo;, hover-only</span> &rarr; <span class="new">&ldquo;Go in &rarr;&rdquo;, always visible</span>.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the empty bazaar. No census line: the state is not written anywhere. <span class="new">&ldquo;The stalls are still being set up.&rdquo;</span> / <span class="new">&ldquo;Nothing is on offer here yet. The Loom is open if you have something to bring.&rdquo;</span> Present tense, no promised date, and it hands over the one thing a vessel standing in an empty bazaar can actually do.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Colour &mdash; a finding, not a taste</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The hub is painted in framework defaults, not the house palette.</span> <span class="src">BazaarHub.tsx:26&ndash;59</span> carries <span class="src">text-purple-400 &middot; bg-emerald-500/10 &middot; text-rose-400 &middot; text-amber-400 &middot; text-teal-400</span> &mdash; five Tailwind stock colours in the one room whose whole job is to be the realm&rsquo;s face. Redrawn in cosmic tokens: neurospark &middot; mood.creative &middot; sanctuary.green &middot; entity.skald.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Titles carry on the ground, never on the hue.</span> Every door title is starDust at 12.3:1; the token lives in the icon and its tile, which is decorative and <span class="src">aria-hidden</span>. That is the 0.3-wash law applied one level down &mdash; <em>text legibility must never depend on which realm you are standing in</em> (<span class="src">HANDOFF.md:62&ndash;67</span>).</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

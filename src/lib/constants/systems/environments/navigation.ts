@@ -76,7 +76,7 @@ export const NAVIGATION_CONFIG: NavigationConfig = {
   userMenu: [
     { href: '/vessel', label: 'The Vessel', icon: UserCircle, requiresAuth: true },
     { href: '/vessel/sanctum', label: 'Sanctum', icon: Lock, requiresAuth: true },
-    { href: '/notifications', label: 'The Pulse', icon: Bell, requiresAuth: true },
+    { href: '/notifications', label: 'The Call', icon: Bell, requiresAuth: true },
     { href: '/vessel/constellation', label: 'Constellation', icon: Star, requiresAuth: true },
     { href: '/bazaar/contributions', label: 'Contributions', icon: Zap, requiresAuth: true },
     { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, requiresAuth: true, userTiers: ['guild', 'outlander', 'sovereign_weaver'] },

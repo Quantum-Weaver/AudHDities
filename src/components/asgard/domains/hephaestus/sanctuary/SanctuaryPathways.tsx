@@ -25,9 +25,9 @@ const PATHWAYS = [
   {
     icon: Heart,
     title: 'Join',
-    description: 'Create an account, take the Acid Test, and become part of the sanctuary.',
+    description: 'The door is here. A name and an email, and the vessel is yours.',
     link: '/signup',
-    cta: 'Sign up',
+    cta: 'Come in',
     color: 'fire-base',
   },
 ];

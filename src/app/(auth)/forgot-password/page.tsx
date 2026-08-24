@@ -5,23 +5,20 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { Metadata } from 'next';
-import Link from 'next/link';
+import { Page } from '@/components/bifrost/Page';
 import ForgotPasswordForm from '@/components/asgard/auth/ForgotPasswordForm';
 import AuthGuard from '@/components/asgard/auth/AuthGuard';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
+  AUTH_ENVIRONMENT,
   AUTH_METADATA,
-  AUTH_LABELS,
-  AUTH_ROUTES,
 } from '@/lib/constants/components/asgard/auth/auth.constants';
 
 // ─── Variants ──────────────────────────────────────────────────────────────
 import {
   authPageVariants,
   authPageContentVariants,
-  authPageFooterVariants,
-  authLinkVariants,
 } from '@/lib/constants/components/asgard/auth/auth.variants';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -39,18 +36,14 @@ export const metadata: Metadata = {
 
 export default function ForgotPasswordPage() {
   return (
-    <AuthGuard requireAuth={false}>
-      <main className={authPageVariants()}>
-        <div className={authPageContentVariants()}>
-          <ForgotPasswordForm />
-          <p className={authPageFooterVariants()}>
-            {AUTH_LABELS.NEW_TO_SANCTUARY}{' '}
-            <Link href={AUTH_ROUTES.SIGNUP} className={authLinkVariants()}>
-              {AUTH_LABELS.INITIALIZE_CONSCIOUSNESS}
-            </Link>
-          </p>
-        </div>
-      </main>
-    </AuthGuard>
+    <Page environment={AUTH_ENVIRONMENT} showForeground={false}>
+      <AuthGuard requireAuth={false}>
+        <main className={authPageVariants()}>
+          <div className={authPageContentVariants()}>
+            <ForgotPasswordForm />
+          </div>
+        </main>
+      </AuthGuard>
+    </Page>
   );
 }

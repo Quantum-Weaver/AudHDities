@@ -10,8 +10,41 @@ import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment
 // ============================================================================
 
 export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
+  // AUTH (the Door) — the realm is weather, not wallpaper: the gateway key
+  // carries the 'home' soul, so the threshold wears the hearth it opens onto.
+  '/login': {
+    default: 'gateway',
+    title: 'The Door',
+    subtitle: 'Return to the Sanctuary'
+  },
+  '/signup': {
+    default: 'gateway',
+    title: 'The Door',
+    subtitle: 'Come in'
+  },
+  '/forgot-password': {
+    default: 'gateway',
+    title: 'The Door',
+    subtitle: 'A way back in'
+  },
+  '/reset-password': {
+    default: 'gateway',
+    title: 'The Door',
+    subtitle: 'Set a new password'
+  },
+  '/callback': {
+    default: 'gateway',
+    title: 'The Door',
+    subtitle: 'The link is opening'
+  },
+  '/logout': {
+    default: 'gateway',
+    title: 'The Door',
+    subtitle: 'Until next time'
+  },
+
   // HESTIA (Hearth)
-  '/': { 
+  '/': {
     default: 'home',
     title: 'The Hearth',
     subtitle: 'Welcome to your sanctuary'
@@ -48,8 +81,8 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
   },
   '/notifications': { 
     default: 'home',
-    title: 'The Pulse',
-    subtitle: 'What matters now'
+    title: 'The Call',
+    subtitle: 'What seeks your attention'
   },
   
   // HERMES (Bazaar)
@@ -164,6 +197,16 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     default: 'observatory',
     title: 'Badge Detail',
     subtitle: 'A mark of sovereignty'
+  },
+  '/library/dailies': { 
+    default: 'library',
+    title: 'The Dailies',
+    subtitle: 'A word, disarranged'
+  },
+  '/library/dailies/*': { 
+    default: 'library',
+    title: 'The Dailies',
+    subtitle: 'A word, disarranged'
   },
   
   // PROMETHEUS (Stage)

@@ -15,7 +15,9 @@ import {
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const next = searchParams.get('next') ?? AUTH_ROUTES.VESSEL_SANCTUM;
+  // KP ⚛ 2026-08-24, answer 9: "/vessel" after sign in — the one room where
+  // Velkomin fires, so no arrival crosses in silence.
+  const next = searchParams.get('next') ?? AUTH_ROUTES.DASHBOARD;
 
   if (code) {
     const supabase = await createServerSupabase();

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "The Bazaar" },
+    { "id": "page-2", "name": "Declined" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "page": "page-1", "x": 0, "y": 0, "w": 920, "h": 2500, "title": "1 - The Bazaar hub, four doors" },
+    { "file": "Tapestry.dc.html", "page": "page-1", "x": 1000, "y": 0, "w": 920, "h": 2900, "title": "2 - The Tapestry, and a ware's stall" },
+    { "file": "Weavers.dc.html", "page": "page-1", "x": 2000, "y": 0, "w": 920, "h": 2400, "title": "3 - The Weavers and the Guild" },
+    { "file": "Loom.dc.html", "page": "page-1", "x": 3000, "y": 0, "w": 920, "h": 2800, "title": "4 - The Loom, where a work gets a body" },
+    { "file": "Contributions.dc.html", "page": "page-1", "x": 0, "y": 3100, "w": 920, "h": 2200, "title": "5 - Contributions, a provenance gallery" },
+    { "file": "Exchange.dc.html", "page": "page-1", "x": 1000, "y": 3100, "w": 920, "h": 2900, "title": "6 - The Exchange, and THE DELIVERY" },
+    { "file": "Ways.dc.html", "page": "page-1", "x": 2000, "y": 3100, "w": 920, "h": 2100, "title": "7 - The ways between, and every empty state" },
+    { "file": "DeclinedSixDoorHub.dc.html", "page": "page-2", "x": 0, "y": 0, "w": 640, "h": 1080, "title": "Declined - the hub keeps all six doors" },
+    { "file": "DeclinedBodyChooser.dc.html", "page": "page-2", "x": 740, "y": 0, "w": 640, "h": 1180, "title": "Declined - choose your body before you pay" },
+    { "file": "DeclinedLedgerLine.dc.html", "page": "page-2", "x": 1480, "y": 0, "w": 640, "h": 1280, "title": "Declined - a purchase writes a ledger line" }
+  ],
+  "annotations": [
+    {
+      "id": "note-the-bazaar",
+      "page": "page-1",
+      "x": 0,
+      "y": -680,
+      "w": 960,
+      "text": "THE BAZAAR - realm 3 of THE AUDHDITIES CONDUCTING PLAN, step P, with THE DELIVERY inside it.\n\nSeven boards, drawn under KP's build law: FRAMEWORK FIRST. So this canvas draws the frame - the rooms, their honest wiring, the ways between them, and the empty states told true. Top row: 1 the hub, four doors instead of six - 2 the Tapestry, the quiet square and a ware's stall, drawn on KP's own Resonance Compass at the price he named - 3 the Weavers and the Guild, where every count in the realm is ruled one at a time as inventory or as score - 4 the Loom, where a work gets a body and a price. Bottom row: 5 Contributions, a provenance gallery, credit and never payout math - 6 the Exchange and THE DELIVERY, the split before the gesture and the body handed over after it - 7 the ways between, traced from every Link in the realm, and all sixteen empty states.\n\nEvery board carries the ten-point sensory checklist on its right rail, the E4 refusal column checked off, KP's own rulings verbatim where a board embodies one, and every copy rewrite marked old to new with the file and line it came from. A gold dot means proposed - drawn plainest where the ground is silent, never landed as though it were ruled.\n\nColours are cosmic tokens only. Every contrast figure is measured, not estimated. Two worth reading twice: on board 1, the hub is currently painted in five Tailwind stock colours rather than the house palette; and on board 6, the checkout room's wash ends on mystical.albedo - the same colour as the text - which reads 6.3:1 at the ambient 0.3 and 1.0:1 at full strength. That room is where the 0.3 wash law stops being a preference.\n\nThe hanging and the catalog-share are second pass, drawn as places and not designed. Nothing in src/ was edited to draw this."
+    },
+    {
+      "id": "note-declined",
+      "page": "page-2",
+      "x": 0,
+      "y": -420,
+      "w": 960,
+      "text": "DECLINED - three alternatives drawn and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached. Each board makes the honest case for the thing it refused before it refuses it - a set where only the winner gets an argument is a rigged vote.\n\nThe third one is the important one: it was the conductor's own default, and KP withdrew it in a single sentence on the day it was proposed. The record should show who withdrew it and why.\n\nEach board also records what was kept from the idea after the idea was refused - which is usually the part worth having. Two of the three produced findings that would not otherwise have surfaced, and both are now on the boards they belong to."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}
