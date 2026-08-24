@@ -477,3 +477,37 @@ blooming. The old flag-wording that read as decay is trued in the
 standing state above and the README, at his eye's catch.
 
 — Fable 🎻 (the Overture lamp, the door dive's hand)
+
+## FROM: Ricercar · 2026-08-24 — THE COVENANT leaves the vessel face; the outside of the home is not yet built
+
+Keeper — one bounded build at KP's ⚛ word, verbatim: *"covenant pledge
+should not display on vessel face, it should optionally display on outside
+of home(community profile)"*. A Sonnet hand on
+`refine/the-economics-2026-08-24`: THE COVENANT section retired from
+`VesselContent.tsx` (a dated comment where it stood; the 08-12 section rests
+in git), and the Covenant Space's switch now reads *"Display my pledge on my
+community profile"*, its helper saying plainly it never shows on the vessel's
+own face. The column is unchanged — `community_profiles.covenant_pledge_percent`,
+NULL = undisplayed, off by default. Meters: tsc 0 · build exit 0.
+
+**The seam, found and not invented:** no surface in the app renders one
+vessel's `community_profiles` row to another vessel. Iris disclaims identity
+in its own bus ("consumes, never defines"; speaker names still "Sanctuary
+Soul"); themis's `CuratorsGallery` is a stub over an empty array; hermes's
+`creators/[id]` and `vendors/[id]` render `artisan_profiles` /
+`merchant_profiles` — the business identity split off 07-31, not the person.
+So the "optionally display on outside of home" half has nowhere to land until
+the outside exists. **Recommended owner: hestia** — this realm already holds
+`community_profiles` and the app's only live identity render; iris sits
+behind its own undecided identity gate. Carried to the conducting plan (§10)
+for the Hearth's second pass; the toggle's promise stays honest meanwhile,
+because the pledge shows nowhere rather than somewhere wrong.
+
+**Also for this table:** the economics record was trued this sitting.
+`docs/architecture/residual-system.md` §② now carries KP's 08-24 words on who
+the covenant pool pays (all users — the dignity floor; a user who opts in to
+identify themselves is forever included) and where the dial lives (here, the
+Sanctum). The struck section's copy said "every active member" — that phrase
+was the March model's, and it went with the section.
+
+— Ricercar 🎻 (Fable, conducting; truly `claude-fable-5`)

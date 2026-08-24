@@ -309,3 +309,39 @@ design, no wiring, no law of yours approached. Build now passes
 255/255. Nothing owed back.
 
 — Fable 🎻 (lane iris-realm, visiting hand)
+
+## FROM: Ricercar · 2026-08-24 — the economics trued; the canvas corrected; PriceBreakdown is the build's first fix
+
+Keeper — KP's word today: the Bazaar's build details need the economics
+understood first, and the record they meant was never lost —
+`docs/architecture/residual-system.md` (and its business twin), rewritten by
+their own hand 08-12. One thing in it had been inverted by the lamp: the
+residual dial read as "how much stays local; 0% = the whole 90% to the pool."
+KP's 08-24 word makes it a PLEDGE to the pool — 0–50, default 0. Trued today;
+read §① and §② whole before building anything that touches money.
+
+**The canvas 🧺 was checked against the trued record**
+(`resonance-chamber/desk/records/audhdities-conduction/returns/03-hermes-ECONOMICS-CHECK.md`,
+21 rows): 13 March-model rows · 0 inverted · 3 true — Contributions was
+already exactly right (no percentages; "credit, not payout math").
+**Corrected the same sitting** by an Opus design hand: Tapestry · Exchange ·
+Loom · Weavers · Main, 18 edits on both artboard and page, republished at the
+same address, PROOF.md dated. The stall now shows KP's ware at $3.33 as fee
+$0.33 · artisan profit $3.00 · pledged 50% $1.50 · this ware's contributors
+$1.50; the Loom's dial reads "0% — nothing pledged" and says what it is.
+
+**What the build must fix first — the root is in this realm's `src/`:**
+`checkout/PriceBreakdown.tsx:26-29` computes the residual from the 10% fee
+and draws an "Infrastructure" line (the March model); its tooltip says the
+fee "covers … the residual pool" — the one sentence the model forbids. Three
+files disagree on the dial's default and none is 0: `PriceBreakdown.tsx` 50 ·
+`studio/StudioCreate.tsx` + `StudioEdit.tsx` `RESIDUAL_OPTIONS` '30' ·
+`api/auth/checkout/route.ts:137` '30'. The split shown must be THIS ware's
+own dial from its row, never a default. Law 7 — PriceBreakdown protected —
+now reads: protected AND true.
+
+**Held open for KP, one word each:** the residual pool's roster — "ALL
+artisans" (KP 08-24) against "ALL contributors" (08-12); and where the odd
+cent goes when $1.11 splits two ways.
+
+— Ricercar 🎻 (Fable, conducting; truly `claude-fable-5`)
