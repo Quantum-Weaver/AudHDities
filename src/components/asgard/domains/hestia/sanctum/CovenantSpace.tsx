@@ -13,6 +13,16 @@
 // gesture, never auto-saved from a drag: ceremony is deliberateness. The
 // display choice arrives with its public column (docs/sql/021, KP's hand);
 // no control for it is shown until the door it opens exists.
+//
+// RETARGETED 2026-08-24, KP's ⚛ word verbatim: "covenant pledge should not
+// display on vessel face, it should optionally display on outside of home
+// (community profile)." The toggle below still writes the same column
+// (community_profiles.covenant_pledge_percent, null = undisplayed) — only
+// where the pledge is honored changed, from the vessel's own face to the
+// vessel's community profile. THE COVENANT section on /vessel is struck
+// (VesselContent.tsx carries its own dated note); no surface yet renders
+// the pledge outward — a seam for iris's Connect or hestia's own home to
+// pick up, named at the door this sitting.
 
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
@@ -31,8 +41,9 @@ export function CovenantSpace() {
   const [percent, setPercent] = useState(0);
   const [isSetting, setIsSetting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-  // THE DISPLAY CHOICE — the pledge shown on the vessel face only by the
-  // vessel's own hand; null in community_profiles means not displayed.
+  // THE DISPLAY CHOICE — the pledge shown on the vessel's community profile
+  // (never the vessel's own face) only by the vessel's own hand; null in
+  // community_profiles means not displayed.
   const [displayed, setDisplayed] = useState(false);
 
   useEffect(() => {
@@ -154,14 +165,15 @@ export function CovenantSpace() {
 
       <div className="mt-6 border-t border-star-dust/10 pt-6">
         <Switch
-          label="Display my pledge on my vessel face"
+          label="Display my pledge on my community profile"
           size="md"
           checked={displayed}
           onChange={handleDisplayToggle}
         />
         <p className="text-xs text-star-dust/70 mt-2">
-          Off by default. Your choice, in both directions, any time — an
-          undisplayed pledge gives exactly as much.
+          Off by default. Never on your own vessel face — only outside, on
+          the community profile others may see. Your choice, in both
+          directions, any time — an undisplayed pledge gives exactly as much.
         </p>
       </div>
     </div>

@@ -97,3 +97,10 @@ First refine pass's true scope: **heal the generated layer.**
 - **Scope:** Phase 0a (one `@config` line, `globals.css`) · realm 1, `(auth)` + `/sanctuary` as the visitors' home — 22 files.
 - **Verification:** tsc 0 · build exit 0 on both branches; seven real pictures of the door (`.journals/proofs/01-auth/build/`); KP's glance: *"door looks good"*.
 - **Handoff weather:** two stacked branches await KP's merge; Vercel previews fail until `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` are ticked for Preview (dashboard, KP's hand); every `Button` unstyled app-wide (chassis pass owed); `agentRules` switch KP's.
+
+## Seam-note — 2026-08-24 — the economics · the covenant display · the Bazaar canvas
+
+- **Who / substrate:** Fable conducting as Ricercar (`claude-fable-5`); Sonnet hands read, checked and built; a Haiku hand counted; an Opus hand corrected the canvas.
+- **Scope:** the two economics documents trued to KP's 08-24 words (the residual dial is a pledge, default 0; the covenant's roster and opt-in; the display moves); THE COVENANT section off the vessel face (`VesselContent.tsx`, `CovenantSpace.tsx`); the Bazaar canvas's five boards corrected and republished; hephaestus's Understanding opened (brief · census · 46-claim truth table).
+- **Verification:** tsc 0 · build exit 0 (the covenant hand's run, explicit exit-code capture); every canvas edit script-verified exactly-once on both artboard and page.
+- **Handoff weather:** `main` is merged as we go now (KP's word 08-24); the branch shelf holds `main` and the sitting's one; `PriceBreakdown.tsx` and the three disagreeing residual defaults are the Bazaar build's first correction; the Terms' 30/70 is at KP's eye; no outward community-profile surface exists yet (hestia's, second pass); Vercel previews still want the two `NEXT_PUBLIC_SUPABASE_*` names.

@@ -1,0 +1,3 @@
+# Hephaestus Realm Census — 2026-08-24
+
+The Forge stood whole. Twenty pages, one hundred files, eleven thousand lines — all accounted for. No Suspense boundaries; seventy 'use client' directives scattered across the sacred pages and their companion components. Every route mapped, from the Origin to the Prophecy to the Ledger. One place reads markdown at build time — privacy and terms, as they should. Contact form reaches toward the generated door, but nothing else does. No dead imports, no mojibake, no addresses. The economic strings remain, testimony to what was, all bound within the doctrine pages where they belong. The Forge is knowable.

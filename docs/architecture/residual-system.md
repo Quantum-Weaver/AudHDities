@@ -7,6 +7,19 @@ ranked by each contributor's `percent_share`. It carried the same $100 sale as
 **$3, $5, $9 and $9** in four places, and one passage reasoned aloud through its own
 confusion. **None of that survives below.***
 
+**Corrected again 2026-08-24 at KP ⚛'s word, the model restated whole in their own
+voice (Ricercar 🎻, the teller's seat).** *The 08-12 pass kept KP's quotes faithfully
+and inverted one thing between them: it read the residual dial as "how much stays
+LOCAL — a lower setting sends MORE to the commons; at 0% the whole 90% goes to the
+pool." KP, 2026-08-24, verbatim, spelling kept: **"redidual pool , set per product by
+the main artisan, comes out of the profit after the platform fee of 10% is taken,
+default to 0% up to 50%, pays to ALL artisans on the platform when payouts occur."**
+The dial is a PLEDGE TO the pool; zero pledges nothing. At 50% both readings give
+45/45 — the only number KP ever used — which is how the inversion hid. The column's
+own name, `residual_pool_percent`, always said so. Also landed 08-24: who the
+covenant pool pays and the opt-in (§②); where the covenant dial lives and where it
+may display. The 08-12 text rests whole in git (`4d37d5048`).*
+
 ---
 
 ## The whole model, in one line
@@ -37,28 +50,41 @@ confusion. **None of that survives below.***
                     ┌──────────────────────────┐        ┌──────────────────────────┐
                     │  THIS ITEM'S             │        │  THE RESIDUAL POOL       │
                     │  CONTRIBUTORS            │        │                          │
-                    │  divided EQUALLY         │        │  ALL contributors on the │
+                    │  divided EQUALLY         │        │  ALL artisans on the     │
                     │                          │        │  platform, EQUALLY,      │
-                    │  the creator is ONE      │        │  at intervals as allowed │
-                    │  of them                 │        │                          │
+                    │  the main artisan is     │        │  at intervals as allowed │
+                    │  ONE of them             │        │                          │
                     └──────────────────────────┘        └──────────────────────────┘
-                         the dial's share                    everything remaining
+                         everything remaining                the dial's PLEDGE
 ```
 
-**The residual dial (0–50%) does not measure generosity — it measures how much stays
-LOCAL.** At 50% the split is even: half to the hands that made this thing, half into
-the commons. **At a lower setting MORE goes to the commons**, not less.
+**The residual dial (0–50%) is the main artisan's PLEDGE of this item's profit to the
+residual pool — set per product, default 0.** *KP ⚛, 2026-08-24, verbatim: "redidual
+pool , set per product by the main artisan, comes out of the profit after the
+platform fee of 10% is taken, default to 0% up to 50%, pays to ALL artisans on the
+platform when payouts occur."* At 50% the split is even: half to the hands that made
+this thing, half into the commons. **At a lower setting LESS goes to the commons; at
+0% — the default — nothing does, and the item's contributors keep the whole 90%.**
 
-| dial | to this item's contributors | to the residual pool |
+| dial | to the residual pool | to this item's contributors |
 |---|---|---|
-| **50%** | 45% of the sale | 45% of the sale |
+| **50%** *(KP's own, on every own ware)* | 45% of the sale | 45% of the sale |
 | 30% | 27% of the sale | 63% of the sale |
-| 0% | nothing | **the whole 90%** |
+| **0%** *(the default)* | nothing | **the whole 90%** |
+
+*One word held open, not decided here: the pool pays "ALL artisans" (KP, 08-24 —
+also "all creators") where the 08-12 text said "ALL contributors." Whether the
+roster is every vessel holding an artisan profile, or every vessel who has ever
+stood on a ware's contributor roster, is KP's to say; the build will ask it once.*
 
 **The creator is one of the item's contributors and takes an equal share** — *KP ⚛,
 confirmed 2026-08-12.* There is no separate creator line, no premium, and no
 percentage ranking anywhere: **whoever made the thing divides that share evenly,
-the creator among them.**
+the creator among them.** *KP ⚛, 2026-08-24, verbatim: "artisan profits per sale are
+divided equally per contributor, no setting this value. one contributor, gets all
+after the residual pool pledge and their own covenant pledge."* *And, looking at the public page
+that still said otherwise, KP ⚛, 2026-08-24: "to be clear there is no special
+ranking for the creator and contributors, divide is equal regardles of role."*
 
 ## ② Then covenant applies wherever money lands on a person
 
@@ -77,9 +103,30 @@ covenant pool at that step.**
               └──  the rest    ──▶  theirs
 ```
 
+**Who the covenant pool pays, and where the dial lives — KP ⚛, 2026-08-24, verbatim,
+spelling kept:** *"covenant pool, set by vessel in sanctum, 0 by default no more than
+50% - this  only comes out of my profit at my end. - pays 100% of users on the
+audhdities sanctuary, this is the dignity floor. if a user opts in to identify
+themselves, they are forever included when payouts from the covenant pool occur."*
+
+So: **every user is the pool's intended recipient — that is the dignity floor.** A
+disbursement can only reach a person who has opted in to identify themselves (a
+payout needs someone to pay), and **once opted in, a user is included in every
+covenant disbursement from then on — forever; never re-asked, never dropped for
+inactivity.** The dial itself lives in the Sanctum (`CovenantSpace`, built 2026-08-12:
+0–50, default 0, enacted by gesture, on `user_financial.covenant_pool_percent`).
+**Where a pledge may show — KP ⚛, 2026-08-24, verbatim:** *"covenant pledge should
+not display on vessel face, it should optionally display on outside of home(community
+profile)"* — the 08-12 build placed it on the vessel face; that moves to the vessel's
+community profile, still by the vessel's own choice, off by default.
+
 **This is why the system circulates rather than settles.** A payout is income; income
 is dialled; the dialled part becomes someone else's income. *KP ⚛: "if contributors
-have a covenant pool set up, it comes from this payout amount and step."*
+have a covenant pool set up, it comes from this payout amount and step."* *KP ⚛,
+2026-08-24: "a contributor gets their per sale equal share of the artisan profits
+after the residual pool (if any) and after their own covenant pool (if any). they also
+get the residual pool payments equally distributed among all creators on the
+platform. and covenant pool payments when available as distributed."*
 
 ---
 
@@ -102,6 +149,23 @@ $100 sale
 
 **Nobody in this diagram is paid more than anybody beside them.** The creator of the
 item receives $15.00 — the same as the other two.
+
+**The same sale at the DEFAULTS — residual 0%, covenant 0%, one contributor:** $10.00
+funds the machine · **$90.00 to the one contributor, whole.** Nothing enters either
+pool until a dial is raised. *(The 08-12 record's inverted dial would have sent the
+whole $90 to the pool and $0 to the maker — the reason the 08-24 correction exists.)*
+
+**KP's own case — one contributor at 50/50:** $10.00 machine · $45.00 to the residual
+pool · $45.00 to KP, of which $22.50 goes on to the covenant pool and $22.50 is theirs.
+
+**The first real test — KP ⚛, 2026-08-24:** *"the lantern, and sirens apps are the
+ones i need to include a contributor on, so we get to test this right away with my
+wifes profile. i can manually add her in the auth table on supabase dashboard to
+enable this setup. i currently have "allow users to sign up" turned off until we are
+ready for users."* Lantern at $1.11, two contributors, residual 50%: $0.111 machine ·
+$0.4995 residual pool · $0.4995 split two ways — and the split lands in minor units,
+so **the schema and the code must say where the odd cent goes** (a build question,
+asked once, never silently rounded in the platform's favour).
 
 ### What a 50/50 vessel actually is
 
@@ -220,8 +284,10 @@ that it takes 10% while the industry takes 30–50%.
 
 | Table / column | Was | **Is** |
 |---|---|---|
-| `products.residual_pool_percent` | % of **platform fee** to contributors | **% of the 90% that stays with this item's contributors**, 0–50; the remainder goes to the pool |
-| `profiles.covenant_percent` | *(`residual_pledge_percent`)*, % of sale | **% of everything this vessel receives**, 0–50, applied at every landing |
+| `wares.residual_pool_percent` · `works.residual_pool_percent` *(`products` was the March name; the live tables are these two — `database.types.ts`)* | % of **platform fee** to contributors *(March)* · % that **stays local** *(08-12, inverted)* | **% of the 90% PLEDGED TO the residual pool**, 0–50, default 0, set per product by the main artisan; the remainder stays with this item's contributors *(08-24)* |
+| `user_financial.covenant_pool_percent` *(`profiles.covenant_percent` was the March name)* | *(`residual_pledge_percent`)*, % of sale | **% of everything this vessel receives**, 0–50, default 0, set in the Sanctum, applied at every landing |
+| `community_profiles.covenant_pledge_percent` | — | the vessel's **chosen display** of their pledge, NULL = undisplayed (021, 08-12); shown on the community profile, never the vessel face *(08-24)* |
+| *(missing)* covenant **opt-in to identify** | — | **a column the base does not hold yet**: the user's opt-in to be identified for covenant payouts, with forever semantics — set once, never unset by the platform. DRAFT SQL for KP's hand when the payout organ is built |
 | `contributions.percent_share` | each contributor's ranked share | **REMOVED.** Equal division needs to know *who*, never *by how much* |
 | `contributions` | who contributed what to which product | **a roster** — it confers contributor standing and nothing else |
 | `residual_payouts.sale_id` | one payout per sale | **`period_id`** — the pool accumulates and pays at intervals |
@@ -240,6 +306,12 @@ that it takes 10% while the industry takes 30–50%.
    what is owed** — there is nothing to owe individually until the division happens,
    and a per-person balance would reintroduce exactly the attribution this model
    removed.
+5. **The covenant recipients are the users who opted in to identify themselves, and
+   the opt-in is forever** *(KP ⚛ 2026-08-24)*. The headcount at a covenant
+   disbursement is that roster; nobody on it is ever removed by the platform.
+6. **The residual dial defaults to 0 and is a pledge** — a ware whose main artisan
+   never touched the dial sends nothing to the pool and pays its contributors the
+   whole 90%. Any surface that renders the split must compute it this way round.
 
 ---
 
@@ -247,9 +319,10 @@ that it takes 10% while the industry takes 30–50%.
 
 - **The platform fee is 10%, fixed, always.** *There is no 30% in this system; any
   document still saying so is out of date.*
-- Both dials belong to the vessel and are changeable at any time; the platform sets
-  neither.
-- Contributor standing is granted by the item's creator.
+- The residual dial belongs to the item's main artisan, per product; the covenant
+  dial to each vessel, in the Sanctum. Both are changeable at any time; the platform
+  sets neither.
+- Contributor standing is granted by the item's main artisan *(KP's word, 08-24)*.
 - **Distribution is equal by construction — there is no ranking to audit, because
   there is no ranking.** *The advertising stream already states the same law in its
   own words: "ALL participants receive the same. Not a competition."*

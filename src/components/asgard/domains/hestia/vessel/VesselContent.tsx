@@ -14,7 +14,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
-import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, Star, HeartHandshake } from 'lucide-react';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
@@ -240,34 +240,13 @@ export function VesselContent() {
         </Card>
       </div>
 
-      {/* THE COVENANT — displayed honorably in its own section, only when
-          the vessel chose display (KP's ⚛ strokes 2026-08-12; the toggle
-          lives in the Sanctum's Covenant Space). No rank, no comparison —
-          a pledge spoken in the vessel's own room. */}
-      {profile.covenant_pledge_percent != null && (
-        <div className="mb-8">
-          <h3 className="text-sm font-medium text-star-dust/70 mb-3 flex items-center gap-2">
-            <HeartHandshake className="h-4 w-4" />The Covenant
-          </h3>
-          <Card
-            variant="sanctuary"
-            data={{ id: `${user.id}-covenant`, type: 'value', title: 'The Covenant', value: '' }}
-            radius="lg"
-            shadow="md"
-            className="p-6 bg-surface/90"
-          >
-            <p className="text-star-dust">
-              This vessel pledges{' '}
-              <span className="font-bold text-neurospark">{profile.covenant_pledge_percent}%</span>{' '}
-              of their earnings to the covenant pool — the commons that flows
-              equally to every active member.
-            </p>
-            <p className="text-xs text-star-dust/70 mt-2">
-              Displayed by their own choice. The covenant is a gift, never a due.
-            </p>
-          </Card>
-        </div>
-      )}
+      {/* THE COVENANT retired from the vessel face, KP's ⚛ word 2026-08-24,
+          verbatim: "covenant pledge should not display on vessel face, it
+          should optionally display on outside of home (community profile)."
+          The section that stood here (2026-08-12) is struck, not forgotten —
+          its history is this file's own git log. The toggle in the Sanctum's
+          Covenant Space now sends the pledge outward instead, to the vessel's
+          community profile; see CovenantSpace.tsx for that half. */}
 
       {/* Recent Milestones — the `current` stream */}
       {events.length > 0 && (

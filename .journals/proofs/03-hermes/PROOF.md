@@ -31,3 +31,6 @@ dailies — untouched here.
 |---|---|
 | U — the brief, engraved | closed |
 | **P — ① canvas at KP's eye** | **open** |
+
+## Correction
+**2026-08-24** — the economics, corrected to THE STANDING MODEL (KP ⚛ 2026-08-24, `docs/architecture/residual-system.md`): the platform fee is the only money that leaves, and the residual pool is a per-ware PLEDGE out of the 90%, 0–50%, default 0. Five boards changed — ① the hub line, ② the stall split, ④ the Loom dial, ⑥ the Exchange split and REWRITE 18, ③ the covenant clause. Answers `resonance-chamber/desk/records/audhdities-conduction/returns/03-hermes-ECONOMICS-CHECK.md` rows 1, 3, 4, 5, 6, 13, 14, 15. Rows on `src/` files are the build's; nothing under `src/` was touched. Republished to the same URL, favicon 🧺 held. Opus, `claude-opus-5[1m]`.
