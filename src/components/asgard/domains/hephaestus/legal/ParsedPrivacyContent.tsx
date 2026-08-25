@@ -15,7 +15,9 @@ import {
   BabyIcon, 
   Mail,
   AlertCircle,
-  Scale
+  Scale,
+  HardDrive,
+  Wifi
 } from 'lucide-react';
 import type { ParsedPrivacySection, ParsedPrivacy } from '@/lib/markdown/parsePrivacy';
 import ReactMarkdown from 'react-markdown';
@@ -35,6 +37,19 @@ const iconMap: Record<string, React.ReactNode> = {
   'Contact Us': <Mail className="text-green-400" size={20} />,
   'California Privacy Rights': <Scale className="text-blue-400" size={20} />,
   'GDPR Compliance': <Shield className="text-neurospark" size={20} />,
+  // 2026-08-25, fix 3 — the app policy's own headings
+  // (docs/privacy-apps/privacy-apps.md). Without these every section of
+  // /apps/privacy fell to the grey default, which reads as a page the
+  // house did not finish.
+  'Our promise': <Shield className="text-neurospark" size={20} />,
+  'What we collect': <Database className="text-purple-400" size={20} />,
+  'Where your data lives': <HardDrive className="text-blue-400" size={20} />,
+  'What each app does with the network': <Wifi className="text-yellow-400" size={20} />,
+  'Your control': <Eye className="text-green-400" size={20} />,
+  'Special care for neurodivergent data': <Heart className="text-pink-400" size={20} />,
+  'Children': <BabyIcon className="text-pink-400" size={20} />,
+  'Changes to this policy': <AlertCircle className="text-yellow-400" size={20} />,
+  'Contact': <Mail className="text-green-400" size={20} />,
 };
 
 function renderMarkdown(content: string) {

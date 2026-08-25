@@ -158,6 +158,11 @@ export const THE_STREET: StreetRealm[] = [
       // once — the map never lies. The tiers are a WARE of KP's and belong
       // to the Bazaar's spec, not to a Forge room.
       { href: '/privacy', label: 'The Covenant' },
+      // 2026-08-25, board ①. KP ⚛ 2026-08-24, verbatim: "we already have a
+      // terms/ and privacy/ we will need an apps/privacy". The apps are
+      // local-first and collect nothing; the site has accounts and
+      // payments. Two different truths need two different pages.
+      { href: '/apps/privacy', label: 'App Privacy' },
       { href: '/terms', label: 'The Agreement' },
     ],
   },

@@ -529,10 +529,16 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Forge',
     subtitle: 'Living wisdom of the Sanctuary'
   },
-  '/privacy': { 
+  '/privacy': {
     default: 'home',
     title: 'The Covenant',
     subtitle: 'Your data is yours. Always.'
+  },
+  // 2026-08-25, board ① — the apps' own policy, beside the site's.
+  '/apps/privacy': {
+    default: 'home',
+    title: 'App Privacy',
+    subtitle: 'The apps collect nothing. This is the policy that says so.'
   },
   '/terms': { 
     default: 'council',

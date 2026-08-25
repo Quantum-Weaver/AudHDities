@@ -10,7 +10,7 @@ import {
   Shield, Database, Infinity, Feather, Truck, Brain,
   ArrowRight, Briefcase, Map, DollarSign, Sparkles,
   Heart, Compass, Eye, Users, Mail, Globe, FileText,
-  Lock, Accessibility, Star, BookOpen, ScrollText
+  Lock, Accessibility, Star, BookOpen, ScrollText, Smartphone
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -84,6 +84,8 @@ const DOC_SECTIONS: DocSection[] = [
       // names the one a reader arriving here is asking for.
       { title: 'The Ledger', path: '/transparency', description: 'Every exchange visible. Every distribution recorded.', icon: ScrollText, badge: 'Transparency', badgeColor: 'cyan' },
       { title: 'The Covenant', path: '/privacy', description: 'Your data is yours. Always.', icon: Lock, badge: 'Privacy', badgeColor: 'emerald' },
+      // 2026-08-25, board ①/⑤ — the apps' own policy, beside the site's.
+      { title: 'App Privacy', path: '/apps/privacy', description: 'The apps collect nothing. This is the policy that says so.', icon: Smartphone, badge: 'Privacy', badgeColor: 'emerald' },
       { title: 'The Agreement', path: '/terms', description: 'Terms of service and community guidelines', icon: FileText, badge: 'Terms', badgeColor: 'cyan' },
       { title: 'The Welcome', path: '/accessibility', description: 'Everyone belongs here — our accessibility commitment', icon: Accessibility, badge: 'Access', badgeColor: 'pink' },
       { title: 'The Hearth Call', path: '/contact', description: 'We are here for you — reach out anytime', icon: Mail, badge: 'Contact', badgeColor: 'purple' },
