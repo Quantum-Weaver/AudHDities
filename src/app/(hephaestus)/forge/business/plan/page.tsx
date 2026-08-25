@@ -24,12 +24,12 @@ export default function BusinessPlanPage() {
                 The Problem We Solve
               </h2>
               <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
-                Platforms extract. Creators starve. Contributors are forgotten. Disabled people are left behind.
+                Platforms extract. Artisans starve. Contributors are forgotten. Disabled people are left behind.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* 2026-08-24, the truth pass — two of these four read "0%
-                  Creator Ownership · On most platforms" and "0 Residual
+                  Artisan Ownership · On most platforms" and "0 Residual
                   Recipients · On most platforms": a competitor comparison
                   stated as measured fact, with no source anywhere behind it.
                   No source was invented; the comparison is gone instead, and
@@ -101,12 +101,12 @@ export default function BusinessPlanPage() {
                 <p className="text-star-dust/60">Vessels retain full ownership of their data. Compensated for opt-in exchanges.</p>
               </Card>
               <Card 
-                data={{ id: 'pillar-creator', type: 'pillar', title: 'Creator Empowerment', description: 'Set your own pricing.' }}
+                data={{ id: 'pillar-creator', type: 'pillar', title: 'Artisan Empowerment', description: 'Set your own pricing.' }}
                 variant="glass" radius="lg" shadow="md"
                 className="p-6 border-l-4 border-l-purple-400"
               >
                 <Target className="text-purple-400 mb-4" size={28} />
-                <h3 className="text-xl font-bold text-star-dust mb-2">Creator Empowerment</h3>
+                <h3 className="text-xl font-bold text-star-dust mb-2">Artisan Empowerment</h3>
                 <p className="text-star-dust/60">Set your own pricing. Retain full ownership. The ware keeps 90% of every sale. Zero tolerance for hate.</p>
               </Card>
               <Card 
@@ -139,7 +139,7 @@ export default function BusinessPlanPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-star-dust mb-4">How It Works</h2>
               <p className="text-xl text-star-dust/60 max-w-2xl mx-auto">
-                A sustainable model built for creators, not extraction.
+                A sustainable model built for artisans, not extraction.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -150,7 +150,7 @@ export default function BusinessPlanPage() {
                 <h3 className="text-star-dust font-bold mb-2">Platform Fee</h3>
                 <p className="text-star-dust/60 text-sm">Fixed, transparent, industry-low. 70% of it funds the machine; 30% returns to the residual pool.</p>
               </Card>
-              <Card data={{ id: 'econ-creator', type: 'value', title: 'Creator Share', value: '90%' }} variant="glass" radius="lg" shadow="md" className="p-6 text-center">
+              <Card data={{ id: 'econ-creator', type: 'value', title: 'Artisan Share', value: '90%' }} variant="glass" radius="lg" shadow="md" className="p-6 text-center">
                 <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
                   <span className="text-purple-400 font-bold text-xl">90%</span>
                 </div>
@@ -176,7 +176,7 @@ export default function BusinessPlanPage() {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-star-dust mb-4">Join the Sanctuary</h2>
               <p className="text-xl text-star-dust/60 max-w-2xl mx-auto mb-8">
-                We don't measure success by profits. We measure it by how many creators can make a living, how many contributors are remembered, and how many community members have dignity.
+                We don't measure success by profits. We measure it by how many artisans can make a living, how many contributors are remembered, and how many community members have dignity.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="/questionaire"><Button size="lg">Take the Acid Test</Button></Link>

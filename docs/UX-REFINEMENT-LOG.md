@@ -118,3 +118,10 @@ First refine pass's true scope: **heal the generated layer.**
 - **Scope:** the eighteen non-economics pages of (hephaestus) made true to the realms they describe — no shape changed; the fabricated press coverage and dead downloads removed; the interview form wired to the real contact door; auth-flow rewritten to the door as built.
 - **Verification:** tsc 0 · build 0 (262 pages); the three ? claims verified against the tree (one exists, two softened).
 - **Handoff weather:** the shape half waits on the canvas (`/apps/privacy` · the nav · `/donate` · `/press` · the transparency pair); the Terms' seven non-economics mechanisms are KP's; `/enter` in the chassis constants; the push needs KP's sign-in.
+
+## Seam-note — 2026-08-25 — the Forge's second movement, the shape half
+
+- **Who / substrate:** Fable conducting as Anacrusis (`claude-fable-5`); an Opus lead built on `refine/hephaestus-2026-08-24`; three Sonnet lenses verified; an Opus hand drew, an Opus hand specified.
+- **Scope:** ② the four-item nav from the street · ③ `/press` one card + the form · ④ `/council/ledger` per-entry with the link up · ⑤ `/donate` retired across five files · ① `/apps/privacy` from `docs/privacy-apps/privacy-apps.md` · the fix list (the parser's date read; motion asks; the words — the two guides renamed with redirects) · the reduced-motion blank-page fix in the three legal components.
+- **Verification:** tsc 0 · build 0 (262 pages) · thirteen pictures read · V: 48/52 pass, 2 refuted non-blocking (the map's focus return, pre-existing; the signed-in ledger read not logged), 2 unreached (live POSTs), 0 unaccounted files, 0 generated files touched.
+- **Handoff weather:** `023-the-ledger-door-DRAFT.sql` asks KP which door the ledger gets (A/B/C); `LEDGER_DOOR_CONFIRMED` flips to true when the read is proven; weaver's place on `/apps/privacy` is KP's; the ~45 framer fade-ins under `src/` that vanish under reduced motion are the chassis's sweep; the map's focus return is one ref away; the Bazaar's build rides beside this in its own worktree.

@@ -7,11 +7,38 @@
 // navigation somehow. many things are out of reach"): ✍ gate ② ruled the
 // realm map is furniture in the vessel home — "potentailly an expanable
 // element of the navigation bar." This is that element: the bar stays
-// calm (six realms, three side-doors), and THE MAP unfolds the whole
-// street — every realm, every real room, one fixed geometry that never
-// shuffles (the same order the home's map-furniture keeps). The mobile
-// drawer renders the same street, so nothing is out of reach anywhere.
+// calm, and THE MAP unfolds the whole street — every realm, every real
+// room, one fixed geometry that never shuffles (the same order the home's
+// map-furniture keeps). The mobile drawer renders the same street, so
+// nothing is out of reach anywhere.
 // Every href below is a route that exists on disk — the map never lies.
+//
+// ───────────────────────────────────────────────────────────────────────────
+// THE FOUR-ITEM BAR — 2026-08-24, board ② of the Forge canvas
+// (.journals/proofs/11-hephaestus/design/Nav.dc.html · SPEC.md ②).
+//
+// KP ⚛ 2026-08-24, verbatim, spelling and brackets kept:
+//   "i think the navigation should be simplified, since we have the map
+//    for the full navigation. [Vessel, Bazaar, Playground, Sanctum
+//    (hephaestus) ]"
+// KP ⚛ 2026-08-24, same sitting, verbatim:
+//   "the collision is my mispelling, it is sanctuary in hephaestus"
+// KP ⚛ 2026-08-24, verbatim, on the (cosmic) item:
+//   "effects, playground, environments, theater are all (cosmic) pages"
+// KP ⚛ 2026-08-24, verbatim, on Vessel signed out going to the auth door
+// and on four fixed items whatever the state: "yes"
+//
+// The six realms and the SECONDARY three retired from the bar on that word.
+// NOTHING LOST ITS DOOR: every one of them already stands in the map and in
+// the mobile drawer, which render the whole street and always did. The bar
+// is now DERIVED from `the-street.ts` rather than hand-kept beside it —
+// the duplication that street file was extracted to end (the-street.ts:5-8)
+// and which the bar had never joined.
+//
+// What `/` does on the desktop bar is UNWRITTEN — KP's to rule. `/` itself
+// is untouched here; the mend that keeps it reachable is a room in the
+// street's Hearth group, not an item on this bar.
+// ───────────────────────────────────────────────────────────────────────────
 
 'use client';
 
@@ -19,31 +46,75 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
 import {
-  Menu, X, Home, Store, Library, Music, Shield, Network, Compass, User,
+  Menu, X, Store, Shield, Compass, User,
   Map as MapIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
 import { THE_STREET } from '@/lib/constants/systems/the-street';
+import type { RealmKey } from '@/lib/constants/systems/trio';
 import Learscail from '@/components/seidr/immersive/Learscail';
 
 // ═══════════════════════════════════════════════════════════════════════════
-// THE BAR — calm, six realms + three side-doors (unchanged reach)
+// THE BAR — four items, every href read from the street
 // ═══════════════════════════════════════════════════════════════════════════
 
-const REALMS = [
-  { href: '/', label: 'Hearth', icon: Home },
-  { href: '/bazaar', label: 'Bazaar', icon: Store },
-  { href: '/library', label: 'Library', icon: Library },
-  { href: '/stage', label: 'Stage', icon: Music },
-  { href: '/council', label: 'Council', icon: Shield },
-  { href: '/nexus', label: 'Nexus', icon: Network },
-];
+/**
+ * The auth door. One definition, used by the signed-out Vessel item and by
+ * the auth affordance on the right, so the two can never disagree.
+ */
+const AUTH_DOOR = '/login';
 
-const SECONDARY = [
-  { href: '/observatory', label: 'Observatory', icon: Compass },
-  { href: '/connect', label: 'Bridge', icon: Compass },
-  { href: '/studio', label: 'Studio', icon: Compass },
+/** A realm's own front door, by its deity key. Never a second copy of a route. */
+function realmDoor(realm: RealmKey): string {
+  const found = THE_STREET.find((r) => r.realm === realm);
+  if (!found) {
+    // Fails loudly rather than rendering a silent wrong link. This throws at
+    // module scope, so `npm run build` catches it while prerendering — the
+    // loudest and safest place for a street that has drifted.
+    throw new Error(`Navigation: no realm "${realm}" in THE_STREET`);
+  }
+  return found.href;
+}
+
+/** A named room inside a realm. Same law: read, never re-typed. */
+function realmRoom(realm: RealmKey, label: string): string {
+  const found = THE_STREET.find((r) => r.realm === realm);
+  const room = found?.rooms.find((rm) => rm.label === label);
+  if (!room) {
+    throw new Error(`Navigation: no room "${label}" in realm "${realm}"`);
+  }
+  return room.href;
+}
+
+interface BarItem {
+  label: string;
+  /** Where the item goes when a vessel is signed in. */
+  href: string;
+  /** Where it goes to a visitor. Same as `href` for three of the four. */
+  visitorHref: string;
+  icon: typeof User;
+}
+
+const THE_FOUR: BarItem[] = [
+  // Vessel — the Hearth realm's own door. Signed out it goes to the auth
+  // door, and the LABEL DOES NOT SHAPESHIFT: the name is the place, the href
+  // is the door that leads there (KP ⚛ "yes").
+  { label: 'Vessel', href: realmDoor('hestia'), visitorHref: AUTH_DOOR, icon: User },
+  { label: 'Bazaar', href: realmDoor('hermes'), visitorHref: realmDoor('hermes'), icon: Store },
+  // Playground — the (cosmic) REALM's door as the street defines it, not a
+  // route typed here. Realm 10's own pass may re-home that door; this item
+  // follows it without an edit.
+  { label: 'Playground', href: realmDoor('cosmic'), visitorHref: realmDoor('cosmic'), icon: Compass },
+  // Sanctuary — the visitors' front door. A ROOM in the Forge group rather
+  // than that realm's door (the Forge's own door is /forge), so it is read
+  // by its street label.
+  {
+    label: 'Sanctuary',
+    href: realmRoom('hephaestus', 'The Sanctuary'),
+    visitorHref: realmRoom('hephaestus', 'The Sanctuary'),
+    icon: Shield,
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -61,6 +132,11 @@ const SECONDARY = [
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
+
+/** A 2px hearth-gold ring at 2px offset — 12.7:1 on the bar ground. Drawn on
+ *  its own so it can never be confused with the active tint. */
+const FOCUS_RING =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space';
 
 export function Navigation({ className }: { className?: string }) {
   const pathname = usePathname();
@@ -88,7 +164,7 @@ export function Navigation({ className }: { className?: string }) {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════ */}
-      {/* DESKTOP — REALM BAR                                               */}
+      {/* DESKTOP — THE FOUR                                                */}
       {/* ════════════════════════════════════════════════════════════════ */}
       <nav className={cn(
         'hidden md:flex items-center justify-center w-full h-12',
@@ -96,22 +172,27 @@ export function Navigation({ className }: { className?: string }) {
         className
       )}>
         <div className="flex items-center gap-1 h-full">
-          {REALMS.map((realm) => {
-            const Icon = realm.icon;
-            const active = isActive(realm.href);
+          {THE_FOUR.map((item) => {
+            const Icon = item.icon;
+            const href = user ? item.href : item.visitorHref;
+            // The active read follows the place, not the auth door: a
+            // visitor standing on /sanctuary sees Sanctuary already lit.
+            const active = isActive(item.href);
             return (
               <Link
-                key={realm.href}
-                href={realm.href}
+                key={item.label}
+                href={href}
+                aria-current={active ? 'page' : undefined}
                 className={cn(
                   'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 motion-reduce:transition-none',
+                  FOCUS_RING,
                   active
                     ? 'bg-neurospark/15 text-neurospark'
                     : 'text-star-dust/50 hover:text-star-dust/80 hover:bg-white/5'
                 )}
               >
-                <Icon className="h-4 w-4" />
-                <span>{realm.label}</span>
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                <span>{item.label}</span>
               </Link>
             );
           })}
@@ -119,25 +200,8 @@ export function Navigation({ className }: { className?: string }) {
           {/* Divider */}
           <div className="h-5 w-px bg-white/10 mx-2" />
 
-          {/* Secondary */}
-          {SECONDARY.map((link) => {
-            const Icon = link.icon;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 motion-reduce:transition-none',
-                  'text-star-dust/40 hover:text-star-dust/70 hover:bg-white/5'
-                )}
-              >
-                <Icon className="h-3.5 w-3.5" />
-                <span>{link.label}</span>
-              </Link>
-            );
-          })}
-
-          {/* THE MAP — gate ②'s nav echo: the whole street, one tap */}
+          {/* THE MAP — gate ②'s nav echo: the whole street, one tap. It is
+              where every retired door went, by KP's own sentence. */}
           <button
             type="button"
             onClick={() => setMapOpen(true)}
@@ -145,27 +209,34 @@ export function Navigation({ className }: { className?: string }) {
             aria-expanded={mapOpen}
             className={cn(
               'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 motion-reduce:transition-none',
-              'text-star-dust/40 hover:text-star-dust/70 hover:bg-white/5'
+              FOCUS_RING,
+              'text-star-dust/62 hover:text-star-dust/90 hover:bg-white/5'
             )}
           >
-            <MapIcon className="h-3.5 w-3.5" />
+            <MapIcon className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Map</span>
           </button>
 
-          {/* Right: Vessel */}
+          {/* Right: who you are — not the same control as the Vessel item */}
           <div className="ml-auto flex items-center gap-3 pr-2">
             {user ? (
               <Link
-                href="/vessel"
-                className="flex items-center gap-1.5 text-xs text-star-dust/50 hover:text-neurospark transition-colors motion-reduce:transition-none"
+                href={THE_FOUR[0].href}
+                className={cn(
+                  'flex items-center gap-1.5 rounded-lg px-1.5 py-1 text-xs text-star-dust/62 hover:text-neurospark transition-colors motion-reduce:transition-none',
+                  FOCUS_RING
+                )}
               >
-                <User className="h-3.5 w-3.5" />
+                <User className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>{profile?.display_name || 'Vessel'}</span>
               </Link>
             ) : (
               <Link
-                href="/login"
-                className="text-xs text-star-dust/50 hover:text-star-dust transition-colors motion-reduce:transition-none"
+                href={AUTH_DOOR}
+                className={cn(
+                  'rounded-lg px-1.5 py-1 text-xs text-star-dust/62 hover:text-star-dust transition-colors motion-reduce:transition-none',
+                  FOCUS_RING
+                )}
               >
                 Enter
               </Link>
@@ -192,7 +263,7 @@ export function Navigation({ className }: { className?: string }) {
                 type="button"
                 onClick={closeMap}
                 aria-label="Fold the map"
-                className="rounded p-1 text-star-dust/60 hover:text-star-dust focus-visible:text-star-dust"
+                className={cn('rounded p-1 text-star-dust/60 hover:text-star-dust focus-visible:text-star-dust', FOCUS_RING)}
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
@@ -208,7 +279,7 @@ export function Navigation({ className }: { className?: string }) {
             <div className="grid flex-1 auto-rows-min grid-cols-2 gap-x-8 gap-y-6 overflow-y-auto lg:grid-cols-3">
               {THE_STREET.map((realm) => (
                 <section key={realm.name} aria-label={realm.name}>
-                  <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/40">
+                  <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/62">
                     {realm.name}
                   </h3>
                   <ul className="space-y-1">
@@ -216,8 +287,10 @@ export function Navigation({ className }: { className?: string }) {
                       <li key={room.href}>
                         <Link
                           href={room.href}
+                          aria-current={isActive(room.href) ? 'page' : undefined}
                           className={cn(
                             'block rounded px-2 py-1 text-sm transition-colors motion-reduce:transition-none',
+                            FOCUS_RING,
                             isActive(room.href)
                               ? 'text-neurospark'
                               : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
@@ -231,7 +304,7 @@ export function Navigation({ className }: { className?: string }) {
                 </section>
               ))}
             </div>
-            <p className="mt-4 text-xs text-star-dust/40">
+            <p className="mt-4 text-xs text-star-dust/62">
               Every door stays where you left it. Esc folds the map.
             </p>
           </div>
@@ -239,7 +312,10 @@ export function Navigation({ className }: { className?: string }) {
       )}
 
       {/* ════════════════════════════════════════════════════════════════ */}
-      {/* MOBILE — FLOATING BUTTON + DRAWER (the whole street)              */}
+      {/* MOBILE — FLOATING BUTTON + DRAWER (the four, then the whole      */}
+      {/* street). A phone reader has no bar to compare against, so        */}
+      {/* without the four-strip the simplification does not exist for     */}
+      {/* them. Board ②, 2026-08-24.                                       */}
       {/* ════════════════════════════════════════════════════════════════ */}
       <div className="md:hidden">
         {/* Overlay */}
@@ -261,16 +337,48 @@ export function Navigation({ className }: { className?: string }) {
             <Link href="/" className="text-base font-bold bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent">
               Sanctuary
             </Link>
-            <button onClick={() => setDrawerOpen(false)} className="p-1.5 rounded-lg text-star-dust/60 hover:text-star-dust hover:bg-white/5">
+            <button onClick={() => setDrawerOpen(false)} className={cn('p-1.5 rounded-lg text-star-dust/60 hover:text-star-dust hover:bg-white/5', FOCUS_RING)}>
               <X className="h-5 w-5" />
             </button>
           </div>
 
-          {/* The street, whole — same map, drawer form */}
           <div className="flex-1 overflow-y-auto py-3 px-3 flex flex-col gap-4">
+            {/* THE FOUR — named at the top, the same four the bar carries */}
+            <section aria-label="The four">
+              <h3 className="mb-1 px-3 text-[10px] font-medium uppercase tracking-wide text-star-dust/62">
+                The four
+              </h3>
+              <div className="flex flex-col">
+                {THE_FOUR.map((item) => {
+                  const Icon = item.icon;
+                  const active = isActive(item.href);
+                  return (
+                    <Link
+                      key={item.label}
+                      href={user ? item.href : item.visitorHref}
+                      aria-current={active ? 'page' : undefined}
+                      className={cn(
+                        'flex min-h-11 items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all motion-reduce:transition-none',
+                        FOCUS_RING,
+                        active
+                          ? 'bg-neurospark/20 text-neurospark'
+                          : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
+                      )}
+                    >
+                      <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+
+            <div className="h-px bg-white/10" />
+
+            {/* The street, whole — same map, drawer form */}
             {THE_STREET.map((realm) => (
               <section key={realm.name} aria-label={realm.name}>
-                <h3 className="mb-1 px-3 text-[10px] font-medium uppercase tracking-wide text-star-dust/40">
+                <h3 className="mb-1 px-3 text-[10px] font-medium uppercase tracking-wide text-star-dust/62">
                   {realm.name}
                 </h3>
                 <div className="flex flex-col">
@@ -278,8 +386,10 @@ export function Navigation({ className }: { className?: string }) {
                     <Link
                       key={room.href}
                       href={room.href}
+                      aria-current={isActive(room.href) ? 'page' : undefined}
                       className={cn(
-                        'rounded-lg px-3 py-2 text-sm transition-all motion-reduce:transition-none',
+                        'flex min-h-11 items-center rounded-lg px-3 py-2 text-sm transition-all motion-reduce:transition-none',
+                        FOCUS_RING,
                         isActive(room.href)
                           ? 'bg-neurospark/20 text-neurospark'
                           : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
@@ -294,10 +404,13 @@ export function Navigation({ className }: { className?: string }) {
 
             <div className="h-px bg-white/10" />
 
-            <Link href={user ? '/vessel' : '/login'}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-star-dust/50 hover:text-star-dust hover:bg-white/5 transition-all motion-reduce:transition-none"
+            <Link href={user ? THE_FOUR[0].href : AUTH_DOOR}
+              className={cn(
+                'flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-star-dust/62 hover:text-star-dust hover:bg-white/5 transition-all motion-reduce:transition-none',
+                FOCUS_RING
+              )}
             >
-              <User className="h-5 w-5" />
+              <User className="h-5 w-5" aria-hidden="true" />
               <span>{user ? 'Your Vessel' : 'Enter the Sanctuary'}</span>
             </Link>
           </div>
@@ -311,7 +424,8 @@ export function Navigation({ className }: { className?: string }) {
             'bg-(--color-deep-space)/90 backdrop-blur-lg border border-white/10',
             'text-star-dust/80 shadow-lg',
             'flex items-center justify-center',
-            'active:scale-95 transition-all duration-200 motion-reduce:transition-none',
+            'active:scale-95 transition-all duration-200 motion-reduce:transition-none motion-reduce:active:scale-100',
+            FOCUS_RING,
           )}
           aria-label="Menu"
         >

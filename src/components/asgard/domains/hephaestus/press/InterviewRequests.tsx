@@ -162,7 +162,10 @@ export function InterviewRequests() {
     >
       <div>
         <h2 className="text-xl font-semibold text-star-dust">Interview Requests</h2>
-        <p className="text-sm text-star-dust/40 mt-1">
+        {/* /40 read 3.2:1 on the ground — below 4.5:1 at this size.
+            Raised to /62 (5.6:1 on surface, 6.0:1 on deep space)
+            2026-08-24, board ③'s contrast line. */}
+        <p className="text-sm text-star-dust/62 mt-1">
           Ask for an interview with the Quantum Weaver
         </p>
       </div>
@@ -269,7 +272,11 @@ export function InterviewRequests() {
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? (
             <>
-              <div className="w-4 h-4 border-2 border-star-dust border-t-transparent rounded-full animate-spin mr-2" />
+              {/* Motion is content, so it needs consent (HANDOFF.md).
+                  Under reduced motion the ring does not turn — the label
+                  and the disabled button carry the state instead.
+                  2026-08-24, board ③. */}
+              <div className="w-4 h-4 border-2 border-star-dust border-t-transparent rounded-full animate-spin motion-reduce:animate-none mr-2" />
               Sending...
             </>
           ) : (
@@ -281,7 +288,8 @@ export function InterviewRequests() {
         </Button>
       </form>
 
-      <div className="pt-4 border-t border-star-dust/10 text-center text-sm text-star-dust/40">
+      {/* /40 → /62, same contrast line as :165. */}
+      <div className="pt-4 border-t border-star-dust/10 text-center text-sm text-star-dust/62">
         <p>Prefer email? Write to us directly at</p>
         <a
           href={`mailto:${CONTACT_LABELS.EMAIL_ADDRESS}`}

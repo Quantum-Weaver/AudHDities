@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--sanctuary-green:#00B894;--hearth-gold:#FDCB6E;--error:#E17055;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;} a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;color:rgba(224,224,224,.5);}
+    .mono{font-family:"JetBrains Mono",Monaco,Consolas,monospace;}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 4px;">
+    <span style="font-size:13px;font-weight:700;color:#E17055;">&#10005;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; merge the two transparency surfaces into one room</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 18px;">Drawn, then set down. Kept on the canvas because a design without its refusals is a claim with no reason attached.</p>
+
+  <div class="card" style="padding:16px 15px;margin-bottom:18px;opacity:.74;">
+    <p class="rl-h" style="margin-bottom:11px;">What it looked like</p>
+    <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:13px 12px;">
+      <p style="margin:0 0 3px;font-size:12.5px;font-weight:700;">Every Dollar, Visible</p>
+      <p style="margin:0 0 10px;font-size:11px;color:rgba(224,224,224,.60);">one route &middot; the aggregates &middot; the fee-flow prose &middot; the admin log &middot; and every entry beneath them</p>
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:6px;margin-bottom:9px;">
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:7px;padding:8px;text-align:center;font-size:10px;color:rgba(224,224,224,.62);">Gross</div>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:7px;padding:8px;text-align:center;font-size:10px;color:rgba(224,224,224,.62);">Artisan</div>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:7px;padding:8px;text-align:center;font-size:10px;color:rgba(224,224,224,.62);">Fees</div>
+      </div>
+      <div style="border:1px solid rgba(224,224,224,.10);border-radius:7px;padding:8px 10px;font-size:10.5px;color:rgba(224,224,224,.62);margin-bottom:6px;">where the fee goes &mdash; the prose</div>
+      <div style="border:1px solid rgba(224,224,224,.10);border-radius:7px;padding:8px 10px;font-size:10.5px;color:rgba(224,224,224,.62);margin-bottom:6px;">the admin log</div>
+      <div style="border:1px solid rgba(34,211,238,.28);border-radius:7px;padding:8px 10px;font-size:10.5px;color:rgba(224,224,224,.75);">every ledger entry, one line each &mdash; absorbed from the council room</div>
+    </div>
+    <p style="margin:11px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);"><span class="mono">/council/ledger</span> retires; its per-entry list moves up into the public page, and the client-side fetch is replaced by the server-side read that is already there.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div>
+      <p class="rl-h">The case for it, honestly</p>
+      <p class="rl-b">It is the tidiest answer and it fixes three things at once. One route means one fetch path instead of two, the client-side <span class="mono">limit=50</span> read disappears in favour of the server-side one that already works, and the &ldquo;Total Volume&rdquo; card stops being a sum of fifty rows dressed as a lifetime total. Two rooms reading one table under different labels is genuinely the kind of thing that goes wrong later.</p>
+      <p class="rl-b" style="margin-top:9px;">And there is a principled version of it: <em>everything is public, so why is there a second room at all?</em> The <span class="mono">ledger</span> table is public-readable and the house&rsquo;s whole claim is radical transparency. On that reading a &ldquo;council&rsquo;s working ledger&rdquo; is a distinction the model does not actually contain.</p>
+    </div>
+    <div>
+      <p class="rl-h">The ground that declined it</p>
+      <p class="rl-b">KP &#9883; 2026-08-24, the third waking, ruled by choosing the option: <span class="k">keep the public one; council links to it</span>. Merge and redirect were both on the table, named neutrally in the truth reading, and he took neither. The brief records the shape: <em>&ldquo;One table, two rooms, no duplicated prose.&rdquo;</em></p>
+      <p class="rl-b" style="margin-top:9px;">The two rooms answer different questions, and merging them makes the page answer neither well. <span class="k">A public reader wants to know where the money goes</span> &mdash; a claim, its evidence, and the shape of the arrangement. <span class="k">A councillor wants to find one entry</span> &mdash; a specific fee, on a specific day, out of a specific sale. The first is a page you read once; the second is a page you search. Merged, the aggregates become a preamble a councillor scrolls past every time, and the entry list becomes a wall a public reader has to get through before they reach the explanation.</p>
+      <p class="rl-b" style="margin-top:9px;">The street had also already picked this side. <span class="src">the-street.ts:124</span> lists <span class="mono">/transparency</span> under The Council as &ldquo;The Ledger&rdquo; &mdash; the public page is <em>already</em> the map&rsquo;s ledger door, and the merge would have made that mapping accidental rather than deliberate.</p>
+    </div>
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">Every one of its three fixes, landed on the council room instead of by deleting it. The three stat cards go (they counted a page and called it a ledger), the duplicated covenant prose goes (<span class="src">LedgerHub.tsx:152&ndash;158</span>), and the limit is now stated out loud in the one line that says how much of the ledger you are looking at. <span class="k">The merge&rsquo;s whole argument survives; only the deletion is refused.</span></p>
+      <p class="rl-b" style="margin-top:9px;">The &ldquo;why is there a second room&rdquo; question is kept as an open one on board &#9315; rather than answered by architecture: whose eye the council ledger is for &mdash; the council&rsquo;s or anyone&rsquo;s &mdash; has not been ruled, and the two are different rooms. <span class="k">Unwritten &mdash; his to rule.</span></p>
+      <p class="rl-b" style="margin-top:9px;">And the refusal produced two findings. <span class="mono">/council/ledger</span> is <span class="k">in no realm&rsquo;s room list in the street</span>, so it is unreachable from the map and the drawer; and its one inbound in the whole site is the Forge hub&rsquo;s &ldquo;The Ledger&rdquo; card (<span class="src">DocsContent.tsx:81</span>), which sends a documentation reader into a working page instead of the public telling. Both are on board &#9315; now, with the mends.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

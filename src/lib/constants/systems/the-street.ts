@@ -47,6 +47,11 @@ export const THE_STREET: StreetRealm[] = [
     whisper: 'Home — you are here',
     alwaysOpen: true,
     rooms: [
+      // 2026-08-24, board ②'s mend (the four-item bar). `/` was the one door
+      // that lost its bar item and landed NOWHERE — it appears in no other
+      // realm's rooms, and the Header's wordmark points at /vessel. The map
+      // is where retired doors go, by KP's own sentence, so `/` goes here.
+      { href: '/', label: 'The Hearth' },
       { href: '/vessel', label: 'The Vessel' },
       { href: '/vessel/home', label: 'The Home' },
       { href: '/vessel/sanctum', label: 'The Sanctum' },
@@ -121,7 +126,13 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/council', label: 'The Chamber' },
       { href: '/council/proposals', label: 'Proposals' },
       { href: '/council/voting', label: 'The Vote' },
+      // 2026-08-24, board ④. Two rooms, one table, and now two distinct
+      // labels: /transparency is the PUBLIC TELLING (lifetime totals, where
+      // the fee goes, the admin log — read by anyone); /council/ledger is
+      // the ENTRIES THEMSELVES, one line each. It was in no realm's rooms
+      // before this pass and so stood in no map.
       { href: '/transparency', label: 'The Ledger' },
+      { href: '/council/ledger', label: 'The Ledger — every entry' },
     ],
   },
   {
@@ -138,8 +149,20 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/accessibility', label: 'The Welcome' },
       { href: '/contact', label: 'The Hearth Call' },
       { href: '/press', label: 'The Scroll (Press)' },
-      { href: '/donate', label: 'The Offering' },
+      // { href: '/donate', label: 'The Offering' } — RETIRED 2026-08-24 at
+      // KP's ⚛ word, verbatim, spacing kept: "retire the donate and create
+      // subscription tiers for me rather than the platform, and  i will
+      // still have my covenant set to 50%. the donations tab was before we
+      // had a built sanctuary and had different outlooks."
+      // The route is gone with it, so this line leaves map and drawer at
+      // once — the map never lies. The tiers are a WARE of KP's and belong
+      // to the Bazaar's spec, not to a Forge room.
       { href: '/privacy', label: 'The Covenant' },
+      // 2026-08-25, board ①. KP ⚛ 2026-08-24, verbatim: "we already have a
+      // terms/ and privacy/ we will need an apps/privacy". The apps are
+      // local-first and collect nothing; the site has accounts and
+      // payments. Two different truths need two different pages.
+      { href: '/apps/privacy', label: 'App Privacy' },
       { href: '/terms', label: 'The Agreement' },
     ],
   },

@@ -349,10 +349,14 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'Curators',
     subtitle: 'Trusted voices guiding the Sanctuary'
   },
-  '/council/ledger': { 
+  // 2026-08-25, board ④ — the Header strip reads from here, so it carried
+  // the old line after the page's own had been trued. The two rooms are
+  // told apart by their subtitles now: /transparency is the public telling,
+  // this one is the entries themselves.
+  '/council/ledger': {
     default: 'architecture',
     title: 'The Ledger',
-    subtitle: 'Complete transparency, every transaction visible'
+    subtitle: 'Every entry, one line each, in the order they were written'
   },
   '/council/reports': { 
     default: 'council',
@@ -529,10 +533,16 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Forge',
     subtitle: 'Living wisdom of the Sanctuary'
   },
-  '/privacy': { 
+  '/privacy': {
     default: 'home',
     title: 'The Covenant',
     subtitle: 'Your data is yours. Always.'
+  },
+  // 2026-08-25, board ① — the apps' own policy, beside the site's.
+  '/apps/privacy': {
+    default: 'home',
+    title: 'App Privacy',
+    subtitle: 'The apps collect nothing. This is the policy that says so.'
   },
   '/terms': { 
     default: 'council',
@@ -561,11 +571,12 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Calling',
     subtitle: 'Just us, and the community that arrives'
   },
-  '/donate': { 
-    default: 'home',
-    title: 'The Offering',
-    subtitle: 'Your contribution keeps the Sanctuary alive'
-  },  
+  // '/donate' — RETIRED 2026-08-24 at KP's ⚛ word, verbatim, spacing kept:
+  // "retire the donate and create subscription tiers for me rather than the
+  // platform, and  i will still have my covenant set to 50%. the donations
+  // tab was before we had a built sanctuary and had different outlooks."
+  // The route is gone from src/app; a mapping for a page that does not
+  // exist is a claim the house cannot keep.
   // AUTH
   '/enter': { 
     default: 'origin',

@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --quantum-light:#7D6CEA;--sanctuary-green:#00B894;--sanctuary-emerald:#00CEC9;
+      --library-dark:#00A885;--hearth-gold:#FDCB6E;--hearth-orange:#C44B2D;
+      --error:#E17055;--void-dark:#2D3436;--void-base:#636E72;--void-light:#B2BEC3;
+      --mood-creative:#A29BFE;--skald:#FD79A8;--info:#74B9FF;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .mono{font-family:"JetBrains Mono",Monaco,Consolas,monospace;}
+    .kind{display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:9999px;
+      font-size:10px;letter-spacing:.03em;border:1px solid;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9315;</span>
+    <span style="font-size:15px;font-weight:600;">One table, two rooms &mdash; <span class="mono">/transparency</span> and <span class="mono">/council/ledger</span></span>
+    <span class="src">(hephaestus)/transparency/page.tsx &middot; (themis)/council/ledger &rarr; LedgerHub.tsx</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">Both rooms read <span class="mono" style="color:#E0E0E0;">ledger</span>. The public one keeps the telling; the council one becomes the working page &mdash; <span class="k">every entry, one per line, with the exchange it hangs from</span> &mdash; and links up. No prose is written twice.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <!-- /transparency, unchanged, reference only -->
+      <div>
+        <p class="rl-h"><span class="mono" style="font-size:11px;color:rgba(224,224,224,.55);">/transparency</span> &mdash; the public telling. NO SHAPE CHANGE. Reference only.</p>
+        <div style="border:1px solid rgba(0,184,148,.30);border-radius:12px;background:#0C0F1D;padding:16px 15px;">
+          <div style="text-align:center;margin-bottom:13px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 10px;border-radius:9999px;font-size:10.5px;border:1px solid rgba(224,224,224,.20);color:rgba(224,224,224,.78);">Radical Transparency</span>
+            <p style="margin:8px 0 4px;font-size:17px;font-weight:700;">Every Dollar, Visible</p>
+            <p style="margin:0;font-size:11px;color:rgba(224,224,224,.62);">the fee-flow prose, already true after the economics pass</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px;margin-bottom:10px;">
+            <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 8px;text-align:center;"><p style="margin:0;font-size:11px;color:rgba(224,224,224,.70);">Lifetime Gross Sales</p><p style="margin:2px 0 0;font-size:10px;color:rgba(0,184,148,.85);">exchanges, all completed</p></div>
+            <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 8px;text-align:center;"><p style="margin:0;font-size:11px;color:rgba(224,224,224,.70);">Artisan Profit</p><p style="margin:2px 0 0;font-size:10px;color:rgba(0,184,148,.85);">exchanges, all completed</p></div>
+            <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 8px;text-align:center;"><p style="margin:0;font-size:11px;color:rgba(224,224,224,.70);">Fees</p><p style="margin:2px 0 0;font-size:10px;color:rgba(0,184,148,.85);">gross minus net</p></div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <div style="flex:1;border:1px solid rgba(224,224,224,.10);border-radius:9px;padding:9px 10px;"><p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.65);">last 10 <span class="mono">ledger</span> rows, server-side</p></div>
+            <div style="flex:1;border:1px solid rgba(224,224,224,.10);border-radius:9px;padding:9px 10px;"><p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.65);">last 10 <span class="mono">admin_actions</span>, server-side</p></div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Three live server-side reads, confirmed at <span class="src">transparency/page.tsx:47&ndash;72</span>: <span class="mono">ledger</span>, <span class="mono">admin_actions</span> and every completed <span class="mono">exchanges</span> row for the aggregates. <span class="k">This is the only room in the realm that reads the base at page load</span>, and this canvas does not touch it. Its numbers are real and its prose was corrected in the economics pass the same day.</p>
+      </div>
+
+      <!-- /council/ledger, redrawn -->
+      <div>
+        <p class="rl-h"><span class="mono" style="font-size:11px;color:rgba(224,224,224,.55);">/council/ledger</span> &mdash; the council&rsquo;s working ledger, redrawn</p>
+        <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="padding:20px 18px 18px;">
+
+            <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(224,224,224,.62);margin-bottom:9px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.62)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+              Return to the Council
+            </div>
+            <h1 style="margin:0 0 3px;font-size:21px;font-weight:700;">The Ledger</h1>
+            <p style="margin:0 0 14px;font-size:12.5px;color:rgba(224,224,224,.68);">Every entry, one line each, in the order they were written.</p>
+
+            <!-- LINK UP -->
+            <div style="border:1px solid rgba(34,211,238,.30);background:rgba(34,211,238,.05);border-radius:11px;padding:12px 13px;margin-bottom:15px;display:flex;align-items:center;gap:11px;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
+              <div>
+                <p style="margin:0;font-size:12.5px;color:#E0E0E0;"><span style="color:#22D3EE;">The public telling lives at Transparency</span></p>
+                <p style="margin:2px 0 0;font-size:11px;color:rgba(224,224,224,.65);line-height:1.45;">Lifetime totals, where the fee goes, and the admin log &mdash; written once, and read by anyone. This page is the entries themselves.</p>
+              </div>
+            </div>
+
+            <!-- FILTER -->
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+              <span class="kind" style="height:28px;padding:0 12px;font-size:11.5px;border-color:rgba(34,211,238,.45);background:rgba(34,211,238,.12);color:#22D3EE;">All entries</span>
+              <span class="kind" style="height:28px;padding:0 12px;font-size:11.5px;border-color:rgba(224,224,224,.16);color:rgba(224,224,224,.70);">exchange</span>
+              <span class="kind" style="height:28px;padding:0 12px;font-size:11.5px;border-color:rgba(224,224,224,.16);color:rgba(224,224,224,.70);">platform fee</span>
+              <span class="kind" style="height:28px;padding:0 12px;font-size:11.5px;border-color:rgba(224,224,224,.16);color:rgba(224,224,224,.70);">residual distribution</span>
+              <span class="kind" style="height:28px;padding:0 12px;font-size:11.5px;border-color:rgba(224,224,224,.16);color:rgba(224,224,224,.70);">covenant distribution</span>
+              <span class="kind" style="height:28px;padding:0 12px;font-size:11.5px;border-color:rgba(224,224,224,.16);color:rgba(224,224,224,.70);">infrastructure</span>
+            </div>
+
+            <!-- TABLE HEAD -->
+            <div style="display:grid;grid-template-columns:74px 132px 1fr 92px;gap:10px;padding:0 12px 7px;border-bottom:1px solid rgba(224,224,224,.10);">
+              <span style="font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(224,224,224,.55);">Date</span>
+              <span style="font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(224,224,224,.55);">Kind</span>
+              <span style="font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(224,224,224,.55);">What it hangs from</span>
+              <span style="font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(224,224,224,.55);text-align:right;">Amount</span>
+            </div>
+
+            <!-- ROWS -->
+            <div style="display:flex;flex-direction:column;">
+              <div style="display:grid;grid-template-columns:74px 132px 1fr 92px;gap:10px;padding:11px 12px;border-bottom:1px solid rgba(224,224,224,.06);align-items:center;">
+                <span class="mono" style="font-size:11px;color:rgba(224,224,224,.68);">Aug 24</span>
+                <span class="kind" style="border-color:rgba(34,211,238,.30);background:rgba(34,211,238,.12);color:#22D3EE;">exchange</span>
+                <span style="font-size:11.5px;color:rgba(224,224,224,.78);">Resonance Compass <span class="mono" style="color:rgba(224,224,224,.45);">&middot; exchanges/&hellip;</span></span>
+                <span class="mono" style="font-size:12px;font-weight:700;color:#22D3EE;text-align:right;">$3.29</span>
+              </div>
+              <div style="display:grid;grid-template-columns:74px 132px 1fr 92px;gap:10px;padding:11px 12px;border-bottom:1px solid rgba(224,224,224,.06);align-items:center;">
+                <span class="mono" style="font-size:11px;color:rgba(224,224,224,.68);">Aug 24</span>
+                <span class="kind" style="border-color:rgba(162,155,254,.30);background:rgba(162,155,254,.12);color:#A29BFE;">platform fee</span>
+                <span style="font-size:11.5px;color:rgba(224,224,224,.78);">from the same exchange <span class="mono" style="color:rgba(224,224,224,.45);">&middot; exchanges/&hellip;</span></span>
+                <span class="mono" style="font-size:12px;color:rgba(224,224,224,.68);text-align:right;">$0.33</span>
+              </div>
+              <div style="display:grid;grid-template-columns:74px 132px 1fr 92px;gap:10px;padding:11px 12px;border-bottom:1px solid rgba(224,224,224,.06);align-items:center;">
+                <span class="mono" style="font-size:11px;color:rgba(224,224,224,.68);">Aug 24</span>
+                <span class="kind" style="border-color:rgba(0,184,148,.32);background:rgba(0,184,148,.12);color:#00B894;">residual distribution</span>
+                <span style="font-size:11.5px;color:rgba(224,224,224,.78);">30% of that fee, into the pool <span class="mono" style="color:rgba(224,224,224,.45);">&middot; pool</span></span>
+                <span class="mono" style="font-size:12px;color:rgba(224,224,224,.68);text-align:right;">$0.10</span>
+              </div>
+              <div style="display:grid;grid-template-columns:74px 132px 1fr 92px;gap:10px;padding:11px 12px;border-bottom:1px solid rgba(224,224,224,.06);align-items:center;">
+                <span class="mono" style="font-size:11px;color:rgba(224,224,224,.68);">Aug 22</span>
+                <span class="kind" style="border-color:rgba(253,203,110,.32);background:rgba(253,203,110,.12);color:#FDCB6E;">covenant distribution</span>
+                <span style="font-size:11.5px;color:rgba(224,224,224,.78);">a pledge honoured <span class="mono" style="color:rgba(224,224,224,.45);">&middot; pool &rarr; sovereign</span></span>
+                <span class="mono" style="font-size:12px;color:rgba(224,224,224,.68);text-align:right;">$1.44</span>
+              </div>
+              <div style="display:grid;grid-template-columns:74px 132px 1fr 92px;gap:10px;padding:11px 12px;align-items:center;">
+                <span class="mono" style="font-size:11px;color:rgba(224,224,224,.68);">Aug 20</span>
+                <span class="kind" style="border-color:rgba(178,190,195,.30);background:rgba(178,190,195,.10);color:#B2BEC3;">infrastructure</span>
+                <span style="font-size:11.5px;color:rgba(224,224,224,.78);">machine cost, out of the fee&rsquo;s 70%</span>
+                <span class="mono" style="font-size:12px;color:rgba(224,224,224,.68);text-align:right;">$9.00</span>
+              </div>
+            </div>
+
+            <p style="margin:12px 0 0;padding-top:11px;border-top:1px solid rgba(224,224,224,.08);font-size:11px;color:rgba(224,224,224,.62);line-height:1.5;">Showing the <span style="color:#E0E0E0;">50 most recent</span> entries. Older entries are behind &ldquo;show earlier&rdquo;; nothing is hidden, and this line never says a number the page did not actually count.</p>
+
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Four columns and nothing else.</span> Date, kind, the thing it hangs from, amount. That last column is the one the room did not have &mdash; every ledger row already carries <span class="mono">reference_table</span> and <span class="mono">reference_id</span> (<span class="src">plutus-economics/ledger.ts:39&ndash;40</span>) and today the page never renders them, so a councillor could see that a fee happened but not <em>which sale it came out of</em>.</p>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div>
+        <p class="rl-h">Nought rows &mdash; and no number that pretends to be a fact</p>
+        <div style="border:1px dashed rgba(253,203,110,.35);border-radius:12px;background:#0C0F1D;padding:20px 18px;">
+          <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(224,224,224,.62);margin-bottom:9px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.62)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+            Return to the Council
+          </div>
+          <h1 style="margin:0 0 3px;font-size:20px;font-weight:700;">The Ledger</h1>
+          <p style="margin:0 0 16px;font-size:12.5px;color:rgba(224,224,224,.68);">Every entry, one line each, in the order they were written.</p>
+          <div style="border:1px solid rgba(224,224,224,.10);border-radius:11px;background:#1A1F35;padding:26px 20px;text-align:center;">
+            <div style="width:44px;height:44px;border-radius:9999px;background:rgba(224,224,224,.05);display:flex;align-items:center;justify-content:center;margin:0 auto 13px;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.35)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
+            </div>
+            <p style="margin:0 0 7px;font-size:14.5px;font-weight:600;color:#E0E0E0;">The ledger has not been written in yet</p>
+            <p style="margin:0 auto;max-width:330px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.72);text-wrap:pretty;">Nothing has moved through the Sanctuary so far. This is a page waiting for its first line, not a page that lost one &mdash; when an exchange happens, it writes itself here and on the public telling in the same breath.</p>
+            <div style="margin-top:15px;"><span style="display:inline-flex;align-items:center;height:40px;padding:0 15px;border-radius:10px;border:1px solid rgba(224,224,224,.22);font-size:13px;color:#E0E0E0;">Read the public telling</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:11px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">No zeros.</span> The three stat cards are gone from this room, so an empty ledger no longer renders <span class="mono">$0.00 &middot; 0 &middot; 0</span> &mdash; three numbers that look like measurements of a running economy and are actually the absence of one.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">It says which kind of empty it is.</span> &ldquo;Waiting for its first line, not a page that lost one&rdquo; &mdash; the difference between a quiet ledger and a broken fetch is the only thing a councillor actually needs from this screen.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">And a failed fetch is drawn as its own state</span>, not as emptiness. Today <span class="src">LedgerHub.tsx:42</span> sends the error to <span class="mono">console.error</span> and leaves the page looking exactly like a healthy zero. Drawn: one line saying the ledger could not be read, and a retry.</p></div>
+        </div>
+      </div>
+
+      <!-- LIGHT -->
+      <div>
+        <p class="rl-h">Light &mdash; proposed, cosmic tokens only</p>
+        <div style="border:1px solid rgba(12,15,29,.14);border-radius:12px;background:#E0E0E0;padding:16px 15px;">
+          <p style="margin:0 0 3px;font-size:16px;font-weight:700;color:#0C0F1D;">The Ledger</p>
+          <p style="margin:0 0 12px;font-size:11.5px;color:#2D3436;">Every entry, one line each, in the order they were written.</p>
+          <div style="border:1px solid rgba(91,76,206,.32);background:rgba(91,76,206,.07);border-radius:10px;padding:10px 11px;margin-bottom:11px;">
+            <p style="margin:0;font-size:11.5px;color:#5B4CCE;font-weight:600;">The public telling lives at Transparency</p>
+          </div>
+          <div style="background:#F5F5DC;border:1px solid rgba(12,15,29,.10);border-radius:10px;">
+            <div style="display:grid;grid-template-columns:60px 118px 1fr 78px;gap:8px;padding:9px 11px;border-bottom:1px solid rgba(12,15,29,.10);align-items:center;">
+              <span class="mono" style="font-size:10.5px;color:#2D3436;">Aug 24</span>
+              <span class="kind" style="border-color:rgba(91,76,206,.35);background:rgba(91,76,206,.10);color:#5B4CCE;">exchange</span>
+              <span style="font-size:11px;color:#2D3436;">Resonance Compass</span>
+              <span class="mono" style="font-size:11.5px;font-weight:700;color:#5B4CCE;text-align:right;">$3.29</span>
+            </div>
+            <div style="display:grid;grid-template-columns:60px 118px 1fr 78px;gap:8px;padding:9px 11px;align-items:center;">
+              <span class="mono" style="font-size:10.5px;color:#2D3436;">Aug 24</span>
+              <span class="kind" style="border-color:rgba(196,75,45,.35);background:rgba(196,75,45,.09);color:#C44B2D;">platform fee</span>
+              <span style="font-size:11px;color:#2D3436;">from the same exchange</span>
+              <span class="mono" style="font-size:11.5px;color:#2D3436;text-align:right;">$0.33</span>
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">The kind badges are where a light theme bites hardest here.</span> Five entry kinds means five tints, and a set that reads clearly on deepSpace can collapse into one pale wash on a light ground. Drawn with the darker end of each triad (<span class="src">quantum.dark</span>, <span class="src">hearth.orange</span>) rather than the same hue lightened &mdash; and the kind is always spelled out in words, never carried by colour alone.</p>
+      </div>
+
+      <!-- THEME STATES -->
+      <div>
+        <p class="rl-h">The three theme states</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Explicit dark</span> &mdash; drawn above, the only state the ground has today.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Explicit light</span> &mdash; proposed above, cosmic tokens only. The amounts stay monospace in both, because a column of money that does not align is a column you cannot scan.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">System</span> &mdash; resolves to dark today whatever the OS asks; nothing in the repo reads the preference. The base names five themes, including <span class="mono">high_contrast</span>, which a money table would benefit from more than most rooms.</p></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling this board draws</p>
+        <p class="rl-b">KP &#9883; 2026-08-24, the third waking, ruled by choosing the option: <span class="k">keep the public one; council links to it</span>. The brief records it as: <em>&ldquo;<span class="mono">/transparency</span> stays the public telling (aggregates + the fee-flow prose); <span class="mono">/council/ledger</span> becomes the council&rsquo;s per-entry working ledger that links up to the public page. One table, two rooms, no duplicated prose.&rdquo;</em></p>
+        <p class="rl-b" style="margin-top:9px;">So the merge was <span class="k">not</span> chosen and the redirect was <span class="k">not</span> chosen. Both rooms survive, each doing the one thing the other should not: <span class="k">aggregate and explain</span> up there, <span class="k">enumerate and trace</span> down here.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">For the build &mdash; two street entries to mend</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The map lists <span class="mono" style="color:#E0E0E0;">/transparency</span> under The Council, labelled &ldquo;The Ledger&rdquo;</span> (<span class="src">the-street.ts:124</span>) &mdash; even though the file lives at <span class="src">(hephaestus)/transparency</span>. The street already treats the public page as the Council&rsquo;s ledger door, which is exactly the shape KP just ruled.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">And <span class="mono" style="color:#E17055;">/council/ledger</span> is not in the street at all.</span> It appears in no realm&rsquo;s room list, so it is unreachable from the map and the drawer. Its one inbound in the whole site is the Forge hub&rsquo;s &ldquo;The Ledger&rdquo; card (<span class="src">DocsContent.tsx:81</span>), which sends a <em>documentation</em> reader into the council&rsquo;s working page. <span class="k">The mend, both halves:</span> add <span class="mono">/council/ledger</span> to the Council&rsquo;s rooms, and repoint the Forge hub card at <span class="mono">/transparency</span> &mdash; the public telling is what a docs reader wanted.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">For the build &mdash; six things to fix in the council room</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">&ldquo;Total Volume&rdquo; is not a total.</span> <span class="src">LedgerHub.tsx:37</span> fetches <span class="mono">limit=50</span>, and <span class="src">:47</span> sums <em>those fifty rows</em> into a card labelled &ldquo;Total Volume&rdquo; (<span class="src">:95&ndash;100</span>). The same is true of &ldquo;Exchanges&rdquo; and &ldquo;Distributions&rdquo;: all three count a page, not a ledger, and the label says otherwise. The moment there are 51 entries this page starts stating a false figure with a straight face. <span class="k">The three cards leave</span> &mdash; the real aggregates are one link up, computed server-side over every completed exchange.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The prose is duplicated, and this is the copy the ruling removes.</span> <span class="src">LedgerHub.tsx:152&ndash;158</span> &mdash; <em>&ldquo;Every exchange is public. Every fee is visible. Every distribution is recorded. This is the covenant of transparency.&rdquo;</em> The public page carries the same promise at length and with the numbers behind it. Said twice in two rooms it is a slogan; said once with evidence it is a covenant.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">A failure is drawn as an emptiness.</span> <span class="src">:42</span> &mdash; <span class="mono">.catch(console.error)</span>, then <span class="mono">finally</span> stops the loading state. A dead fetch and a quiet ledger render identically. On a money page that is the one confusion that matters.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Five skeleton cards shimmer while it loads.</span> <span class="src">:65&ndash;79</span>. Loading placeholders that pulse are motion nobody consented to, and they promise a shape the data may not have. Drawn as: a single still line, or nothing at all.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Five framework colours in the one room about money.</span> <span class="src">:16&ndash;22</span> carries <span class="mono">purple-500 &middot; emerald-500 &middot; amber-500 &middot; slate-500</span> beside the one real token, <span class="mono">neurospark</span>. Redrawn in cosmic tokens: neurospark &middot; mood.creative &middot; sanctuary.green &middot; hearth.gold &middot; void.light. Measured on surface, the four stock colours read 6.2 to 9.7:1 &mdash; they are not <em>illegible</em>, they are simply not the house.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The row is a Card and should be a row.</span> <span class="src">:129</span> renders every entry as a shadowed 12px-radius card. Fifty cards is fifty boxes; a ledger is a list, and a list scans.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; one fetch on mount, no polling, no live ticker. Money that updates while you are reading it is money you cannot check. &ldquo;Show earlier&rdquo; is a button, never an infinite scroll.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the filter is the only state; it belongs in the URL so a councillor can send a colleague the exact view they are looking at.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; five pulsing skeletons today (above). Drawn still.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays, nothing counts up. A number that animates from zero to its value is a number you have to wait for.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the kind labels are already the house&rsquo;s own translation of the enum (<span class="src">:24&ndash;30</span>: <span class="mono">sale</span> &rarr; &ldquo;exchange&rdquo;, <span class="mono">residual_payout</span> &rarr; &ldquo;residual distribution&rdquo;) and are kept verbatim. The new column header is four words of English: <em>what it hangs from</em>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; two, both at the top: back to the Council, up to the public telling. A working page should say where the finished version of itself lives.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the link up <em>is</em> the more-info door, and it is the reason no prose needs repeating here.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; stills to nothing. No skeleton pulse, no row entrance, no filter transition beyond an instant colour change.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured on <span class="src">surface #1A1F35</span>: heading starDust <span class="k">12.3:1</span>, row text at /78 <span class="k">8.0:1</span>, the date in mono at /68 <span class="k">6.4:1</span>, the exchange amount in neurospark <span class="k">9.0:1</span>. <span class="k">Today&rsquo;s dates are the failure</span>: <span class="src">:143</span> sets them at <span class="mono">/30</span>, which reads <span class="k">2.3:1</span> &mdash; the one field on a ledger that must be legible, drawn fainter than anything else on the row.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; two links, then six filter chips as real buttons, then the rows. The rows are not links (nothing to open yet) so they take no tab stop and do not pretend to.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6), checked on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">A count that is not a count</span> &mdash; refused, and this is the board&rsquo;s main removal. No figure appears on this page that the page did not actually compute over the rows it holds, and the one line that states a limit says the limit out loud.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Vanity metrics &middot; growth theatre</span> &mdash; none. No sparkline, no &ldquo;up 12% this month&rdquo;, no trend arrow. <span class="src">TrendingUp</span> and <span class="src">TrendingDown</span> are imported at <span class="src">:9</span> today; the second is not even used.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Infinite scroll</span> &mdash; refused. A page of fifty, then a button. A ledger that never ends is a ledger you can never finish reading.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Colour as the only carrier</span> &mdash; refused. Every kind is spelled out in words beside its tint; the tint is a convenience, never the information.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every change marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; <span class="src">LedgerHub.tsx:87</span> &ldquo;Return to the Council&rdquo; &middot; <span class="src">:89</span> &ldquo;The Ledger&rdquo; &middot; <span class="src">:24&ndash;30</span> all five plain-English kind labels.</p>
+          <p class="rl-b"><span class="k">REWRITE 1</span> &middot; <span class="src">LedgerHub.tsx:90</span><br><span class="old">&ldquo;Complete transparency, every exchange visible&rdquo;</span> &rarr; <span class="new">&ldquo;Every entry, one line each, in the order they were written.&rdquo;</span> The old line is the public page&rsquo;s claim, said in the working room; the new one says what this particular screen is.</p>
+          <p class="rl-b"><span class="k">REWRITE 2</span> &middot; <span class="src">LedgerHub.tsx:119&ndash;120</span><br><span class="old">&ldquo;The ledger awaits its first entry&rdquo; / &ldquo;Exchanges will appear here when the economy begins to flow.&rdquo;</span> &rarr; <span class="new">&ldquo;The ledger has not been written in yet&rdquo; / &ldquo;Nothing has moved through the Sanctuary so far. This is a page waiting for its first line, not a page that lost one&hellip;&rdquo;</span> The old pair was already close to right in tone &mdash; the change is that the new one distinguishes an empty ledger from a broken one, which is the thing this screen must never blur.</p>
+          <p class="rl-b"><span class="k">RETIRED</span> &middot; <span class="src">LedgerHub.tsx:152&ndash;158</span> the Transparency Covenant card &mdash; true, and said better one link up. This is the &ldquo;no duplicated prose&rdquo; half of the ruling, made concrete.</p>
+          <p class="rl-b"><span class="k">RETIRED</span> &middot; <span class="src">LedgerHub.tsx:94&ndash;113</span> the three stat cards &mdash; not for taste, for arithmetic (above).</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the link-up card, and the limit line. Both exist because a working page owes the reader two facts: where the finished telling is, and how much of the ledger it is currently showing them.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Second pass &mdash; framework first</p>
+        <p class="rl-b">Drawn: the frame &mdash; the row, the filter, the link up, the two empty states. <span class="k">Not drawn</span>, and belonging to later: opening a row into the exchange it hangs from (the room it would open into is the Bazaar&rsquo;s and is itself mid-build); export; a date range; and anything that reads <span class="mono">breakdown</span>, the row&rsquo;s JSON column, which no page in the house renders yet.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">One thing is deliberately not drawn at all:</span> whose eye this room is for. It is the council&rsquo;s working page and the ledger table is public-readable, so it is not obvious that anything on it should be gated &mdash; but &ldquo;the admin&rsquo;s eye&rdquo; and &ldquo;anyone&rsquo;s eye&rdquo; are different rooms, and which one this is has not been ruled. <span class="k">Unwritten &mdash; his to rule.</span></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

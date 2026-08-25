@@ -1,4 +1,4 @@
-// app/(hephaestus)/forge/guides/creator-onboarding/page.tsx
+// app/(hephaestus)/forge/guides/artisan-onboarding/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { OnboardingHero } from '@/components/asgard/domains/hephaestus/onboarding/OnboardingHero';
@@ -8,16 +8,16 @@ import { NextSteps } from '@/components/asgard/domains/hephaestus/onboarding/Nex
 import { Palette, Sparkles, CreditCard, Package, Users, Rocket, TrendingUp, Heart, HandCoins } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Creator Onboarding | AUDHDITIES',
-  description: 'Learn how to become a creator on AUDHDITIES and share your gifts with the world',
+  title: 'Artisan Onboarding | AUDHDITIES',
+  description: 'Learn how to become an artisan on AUDHDITIES and share your gifts with the world',
 };
 
-export default function CreatorOnboardingPage() {
+export default function ArtisanOnboardingPage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen">
         <OnboardingHero 
-          title="Creator Onboarding"
+          title="Artisan Onboarding"
           subtitle="Share your gifts with the sanctuary community and earn residual income"
           icon={<Palette size={14} className="text-purple-400" />}
           lastUpdated="March 29, 2026"
@@ -31,7 +31,7 @@ export default function CreatorOnboardingPage() {
               <span className="text-purple-400 text-sm">You are an artist. A maker. A visionary.</span>
             </div>
             <p className="text-star-dust/70 text-lg max-w-2xl mx-auto">
-              Welcome, creator! This guide walks you through becoming a creator on AUDHDITIES—someone who can list products, earn money, and build a following.
+              Welcome, artisan! This guide walks you through becoming an artisan on AUDHDITIES—someone who can list products, earn money, and build a following.
             </p>
           </div>
           
@@ -47,10 +47,10 @@ export default function CreatorOnboardingPage() {
             </div>
           </div>
           
-          <StepCard step={1} title="Apply for Creator Status">
+          <StepCard step={1} title="Apply for Artisan Status">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
               <li>Log in to your dashboard</li>
-              <li>Click &ldquo;Become a Creator&rdquo; in the sidebar</li>
+              <li>Click &ldquo;Become an Artisan&rdquo; in the sidebar</li>
               <li>Fill out the application:
                 <ul className="list-disc list-inside ml-8 mt-2 space-y-1">
                   <li><strong className="text-star-dust">Portfolio URL</strong>: Link to your work</li>
@@ -92,7 +92,7 @@ export default function CreatorOnboardingPage() {
           
           <StepCard step={3} title="Set Up Payments (Stripe Connect)">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
-              <li>Go to Creator Dashboard → Payments</li>
+              <li>Go to Artisan Dashboard → Payments</li>
               <li>Click &ldquo;Connect Stripe Account&rdquo;</li>
               <li>Follow Stripe&apos;s onboarding (takes 5-10 minutes)</li>
               <li>Verify your identity and bank details</li>
@@ -105,7 +105,7 @@ export default function CreatorOnboardingPage() {
           
           <StepCard step={4} title="Create Your First Product">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
-              <li>Go to Creator Dashboard → Products</li>
+              <li>Go to Artisan Dashboard → Products</li>
               <li>Click &ldquo;New Product&rdquo;</li>
               <li>Fill in:
                 <ul className="list-disc list-inside ml-8 mt-2 space-y-1">
@@ -252,13 +252,13 @@ export default function CreatorOnboardingPage() {
           
           <NextSteps 
             steps={[
-              "Complete creator application",
+              "Complete artisan application",
               "Connect Stripe account",
               "Create first product",
               "Add first contributor",
               "Make first sale!"
             ]}
-            actionText="Apply to Become a Creator"
+            actionText="Apply to Become an Artisan"
             actionLink="/council/applications/creator"
           />
           

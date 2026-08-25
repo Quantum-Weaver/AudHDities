@@ -1,4 +1,26 @@
 // src/components/supporting/ImpactCalculator.tsx
+// ═════════════════════════════════════════════════════════════════════════
+// RETIRED — 2026-08-24, at KP's word.
+//
+// KP ⚛ 2026-08-24, verbatim, spacing kept:
+//   "retire the donate and create subscription tiers for me rather than
+//    the platform, and  i will still have my covenant set to 50%. the
+//    donations tab was before we had a built sanctuary and had different
+//    outlooks."
+//
+// The /donate room retired across five files that day. This component is
+// kept on disk and imported by nothing — lose-nothing.
+//
+// WHAT REPLACES IT IS NOT A FORGE ROOM. The subscription tiers are a WARE
+// of KP's — recurring, KP the sole artisan — so they are the BAZAAR's
+// spec (realm 03), not a room here. A subscription is a work on a stall
+// with a renewal attached: Stripe's subscription mode carries the
+// recurrence, and each renewal writes one `exchanges` row that becomes
+// ledger rows like any other sale. The covenant at 50% is KP's own pledge
+// on his own ware under the standing model, and needs no new machinery.
+//
+// Board ⑤: .journals/proofs/11-hephaestus/design/Ways.dc.html · SPEC.md ⑤
+// ═════════════════════════════════════════════════════════════════════════
 "use client";
 
 import { useEffect, useState } from "react";
@@ -20,7 +42,7 @@ interface ImpactMetric {
 }
 
 const IMPACT_METRICS: ImpactMetric[] = [
-  { label: "Creator Support", description: "Funds a creator for one day", unitCost: 5, icon: "🎨" },
+  { label: "Artisan Support", description: "Funds an artisan for one day", unitCost: 5, icon: "🎨" },
   { label: "Server Time", description: "Keeps the Sanctuary online", unitCost: 0.10, icon: "🖥️" },
   { label: "Accessibility Tools", description: "Provides screen reader licenses", unitCost: 20, icon: "♿" },
   { label: "Community Events", description: "Sponsors a community gathering", unitCost: 50, icon: "🎉" },

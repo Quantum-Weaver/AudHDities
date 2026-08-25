@@ -1,0 +1,39 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "The Forge" },
+    { "id": "page-2", "name": "Declined" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "page": "page-1", "x": 0, "y": 0, "w": 920, "h": 3000, "title": "1 - /apps/privacy, the family's one policy" },
+    { "file": "Nav.dc.html", "page": "page-1", "x": 1000, "y": 0, "w": 920, "h": 3300, "title": "2 - The four-item nav, and the map" },
+    { "file": "Press.dc.html", "page": "page-1", "x": 2000, "y": 0, "w": 920, "h": 2900, "title": "3 - /press, one card and one form" },
+    { "file": "Ledger.dc.html", "page": "page-1", "x": 3000, "y": 0, "w": 920, "h": 3000, "title": "4 - The transparency pair, one table two rooms" },
+    { "file": "Ways.dc.html", "page": "page-1", "x": 4000, "y": 0, "w": 920, "h": 3300, "title": "5 - The ways between, /donate retires, every empty state" },
+    { "file": "DeclinedSixItemBar.dc.html", "page": "page-2", "x": 0, "y": 0, "w": 640, "h": 1180, "title": "Declined - the bar keeps its six realms" },
+    { "file": "DeclinedPressThreeFrames.dc.html", "page": "page-2", "x": 740, "y": 0, "w": 640, "h": 1320, "title": "Declined - /press keeps its empty frames" },
+    { "file": "DeclinedDonateStripe.dc.html", "page": "page-2", "x": 1480, "y": 0, "w": 640, "h": 1260, "title": "Declined - wire /donate up instead of retiring it" },
+    { "file": "DeclinedTransparencyMerged.dc.html", "page": "page-2", "x": 2220, "y": 0, "w": 640, "h": 1300, "title": "Declined - merge the two transparency surfaces" }
+  ],
+  "annotations": [
+    {
+      "id": "note-the-forge",
+      "page": "page-1",
+      "x": 0,
+      "y": -700,
+      "w": 960,
+      "text": "THE FORGE - realm 11 of THE AUDHDITIES CONDUCTING PLAN, step P.\n\nFive boards, drawn under KP's build law: FRAMEWORK FIRST. So this canvas draws only the pages whose SHAPE changes, and it draws the frame - the rooms, their honest wiring, the ways between them, and the empty states told true.\n\n1 - /apps/privacy, a new room under (hephaestus), built the way /privacy and /terms are built: a build-time read of a markdown held in THIS repo. Compass's text is the sample, and the effective date is drawn as a field for the build to fill. 2 - the four-item bar, signed in and signed out, with the map keeping every retired door. 3 - /press shrinks to one honest card and the interview form that was made real this morning. 4 - the transparency pair: the public telling untouched, the council's ledger redrawn as a per-entry working page that links up. 5 - the ways between, the retirement of /donate across five files, and every empty state this pass touches, in one place.\n\nEvery board carries the ten-point sensory checklist on its right rail, the E4 refusal column checked off, KP's own rulings verbatim where a board embodies one, and every copy rewrite marked old to new with the file and line it came from. A gold dot means proposed - drawn plainest where the ground is silent, never landed as though it were ruled.\n\nColours are cosmic tokens only. Every contrast figure is measured, not estimated. Three calm notes for the build, each with its address on the board it belongs to: the Forge and the Bazaar resolve to the same wash stops (#00B894, #00A885, #00B894), so if the two realms should differ, one gradient wants choosing. A light theme wants a different link token - neurospark reads 10.5:1 on deepSpace and 1.6:1 on a light ground. And the council ledger's \"Total Volume\" card should either count the whole table or say it is counting the fifty rows it fetched; board 4 draws it moved to the public page, where the aggregate is already computed over every completed exchange.\n\nAll four open questions were answered by KP the same day and are now landed as rulings on boards 1, 2 and 3: the apps keep their own address; Playground is the (cosmic) REALM and the item follows the street's door for it; Vessel signed out goes to /login; the six brand colours leave /press and return with the logos. The subscription tiers that replace /donate are a WARE of KP's and belong to the Bazaar's spec - named on board 5, drawn nowhere. Nothing in src/ was edited to draw this."
+    },
+    {
+      "id": "note-declined",
+      "page": "page-2",
+      "x": 0,
+      "y": -440,
+      "w": 960,
+      "text": "DECLINED - four alternatives drawn and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached. Each board makes the honest case for the thing it refused before it refuses it - a set where only the winner gets an argument is a rigged vote.\n\nTwo of the four were withdrawn by KP himself on the day they were live, in his own words and for his own reasons: the six-item bar and the donation page. The record should show who withdrew them and why, and both boards quote him verbatim rather than summarising.\n\nEach board also records what was kept from the idea after the idea was refused - which is usually the part worth having. The merge's three arithmetic fixes all landed; the four press frames' sentences all survive inside one card; the donation page's recurrence became the subscription tiers. Three of the four produced findings that would not otherwise have surfaced, and all of them are now on the boards they belong to."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}

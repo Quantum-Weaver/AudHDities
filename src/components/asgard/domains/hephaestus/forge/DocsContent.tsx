@@ -10,7 +10,7 @@ import {
   Shield, Database, Infinity, Feather, Truck, Brain,
   ArrowRight, Briefcase, Map, DollarSign, Sparkles,
   Heart, Compass, Eye, Users, Mail, Globe, FileText,
-  Lock, Accessibility, Gem, Star, BookOpen, ScrollText
+  Lock, Accessibility, Star, BookOpen, ScrollText, Smartphone
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -65,8 +65,8 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Compass,
     description: 'Paths to participation and sovereignty within the sanctuary',
     pages: [
-      { title: 'Creator Onboarding', path: '/forge/guides/creator-onboarding', description: 'Share your gifts with the sanctuary and earn residuals forever', icon: Feather, badge: 'Create', badgeColor: 'purple' },
-      { title: 'Vendor Onboarding', path: '/forge/guides/vendor-onboarding', description: 'Help creators reach their audience through ethical services', icon: Truck, badge: 'Support', badgeColor: 'cyan' },
+      { title: 'Artisan Onboarding', path: '/forge/guides/artisan-onboarding', description: 'Share your gifts with the sanctuary and earn residuals forever', icon: Feather, badge: 'Create', badgeColor: 'purple' },
+      { title: 'Merchant Onboarding', path: '/forge/guides/merchant-onboarding', description: 'Help artisans reach their audience through ethical services', icon: Truck, badge: 'Support', badgeColor: 'cyan' },
       { title: 'Neurodivergent UX', path: '/forge/guides/neurodivergent-ux', description: 'Our design philosophy — built by and for all minds', icon: Brain, badge: 'Accessibility', badgeColor: 'pink' },
     ],
   },
@@ -78,8 +78,14 @@ const DOC_SECTIONS: DocSection[] = [
     pages: [
       { title: 'The Origin', path: '/about', description: 'The story of a sanctuary born from survival and collaboration', icon: Star, badge: 'Story', badgeColor: 'amber' },
       { title: 'The Prophecy', path: '/observatory/prophecy', description: 'A glimpse of what is coming — our vision for the future', icon: Eye, badge: 'Vision', badgeColor: 'purple' },
-      { title: 'The Ledger', path: '/council/ledger', description: 'Every transaction visible. Every decision transparent.', icon: ScrollText, badge: 'Transparency', badgeColor: 'cyan' },
+      // Repointed 2026-08-24, board ④: a docs reader wants the PUBLIC
+      // telling — lifetime totals, where the fee goes, the admin log — not
+      // the council's per-entry working page. Both rooms stand; this card
+      // names the one a reader arriving here is asking for.
+      { title: 'The Ledger', path: '/transparency', description: 'Every exchange visible. Every distribution recorded.', icon: ScrollText, badge: 'Transparency', badgeColor: 'cyan' },
       { title: 'The Covenant', path: '/privacy', description: 'Your data is yours. Always.', icon: Lock, badge: 'Privacy', badgeColor: 'emerald' },
+      // 2026-08-25, board ①/⑤ — the apps' own policy, beside the site's.
+      { title: 'App Privacy', path: '/apps/privacy', description: 'The apps collect nothing. This is the policy that says so.', icon: Smartphone, badge: 'Privacy', badgeColor: 'emerald' },
       { title: 'The Agreement', path: '/terms', description: 'Terms of service and community guidelines', icon: FileText, badge: 'Terms', badgeColor: 'cyan' },
       { title: 'The Welcome', path: '/accessibility', description: 'Everyone belongs here — our accessibility commitment', icon: Accessibility, badge: 'Access', badgeColor: 'pink' },
       { title: 'The Hearth Call', path: '/contact', description: 'We are here for you — reach out anytime', icon: Mail, badge: 'Contact', badgeColor: 'purple' },
@@ -89,28 +95,47 @@ const DOC_SECTIONS: DocSection[] = [
       // ("we have no company" · "no 'careers'" · "just us"). The page it
       // points at says so itself — (hephaestus)/REALM-BUS.md:216-219.
       { title: 'The Calling', path: '/calling', description: 'No company, no careers — just us, and the community that arrives', icon: Users, badge: 'Invitation', badgeColor: 'emerald' },
-      { title: 'The Offering', path: '/donate', description: 'Your contribution keeps the Sanctuary alive', icon: Gem, badge: 'Donate', badgeColor: 'amber' },
+      // 'The Offering' → /donate — RETIRED 2026-08-24 at KP's ⚛ word,
+      // verbatim, spacing kept: "retire the donate and create subscription
+      // tiers for me rather than the platform, and  i will still have my
+      // covenant set to 50%. the donations tab was before we had a built
+      // sanctuary and had different outlooks." The route is gone; this was
+      // the live card a reader met. The tiers are a WARE of KP's and belong
+      // to the Bazaar's spec, not to a Forge room.
     ],
   },
 ];
+
+/**
+ * How many documents this hub actually holds. DERIVED — DocsHero printed a
+ * typed "18 documents" that had already drifted once, from 8 (2026-08-24,
+ * board ⑤). One card leaving and one arriving must never need a hand here.
+ */
+export const DOC_PAGE_COUNT = DOC_SECTIONS.reduce((n, s) => n + s.pages.length, 0);
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COLOR MAP
 // ═══════════════════════════════════════════════════════════════════════════
 
+// 2026-08-24, fix 7: stock Tailwind ramps → the house's own cosmic tokens.
+// The slot names stay (they are the DocPage type's five badge slots, not
+// colour claims); the values are now the palette the rest of the house
+// reads, so a token change moves this hub with everything else.
+//   cyan → neurospark · purple → mood.creative · pink → sirens.rose
+//   emerald → sanctuary.green · amber → hearth.gold
 const badgeColors: Record<string, string> = {
-  cyan: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  purple: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  pink: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
-  emerald: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  amber: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  cyan: 'bg-neurospark/15 text-neurospark border-neurospark/30',
+  purple: 'bg-mood-creative/15 text-mood-creative border-mood-creative/30',
+  pink: 'bg-sirens-rose/15 text-sirens-rose border-sirens-rose/30',
+  emerald: 'bg-sanctuary-green/15 text-sanctuary-green border-sanctuary-green/30',
+  amber: 'bg-hearth-gold/15 text-hearth-gold border-hearth-gold/30',
 };
 
 const sectionIconColors: Record<string, string> = {
-  architecture: 'text-cyan-400 bg-cyan-500/10',
-  business: 'text-emerald-400 bg-emerald-500/10',
-  guides: 'text-purple-400 bg-purple-500/10',
-  sanctuary: 'text-amber-400 bg-amber-500/10',
+  architecture: 'text-neurospark bg-neurospark/10',
+  business: 'text-sanctuary-green bg-sanctuary-green/10',
+  guides: 'text-mood-creative bg-mood-creative/10',
+  sanctuary: 'text-hearth-gold bg-hearth-gold/10',
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -124,7 +149,7 @@ export function DocsContent() {
 
   return (
     <main className="min-h-screen">
-      <DocsHero />
+      <DocsHero documentCount={DOC_PAGE_COUNT} />
 
       <div className="container mx-auto px-6 pb-20">
         

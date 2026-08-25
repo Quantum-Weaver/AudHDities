@@ -35,10 +35,10 @@ export default function VisionPage() {
                 title: 'Emergence Economics',
                 // 2026-08-24, the truth pass — "Creators keep 90%" named one
                 // person; the 90% goes to the ware's contributors and is
-                // divided equally among them, the creator among them and
+                // divided equally among them, the artisan among them and
                 // ranked no higher (docs/architecture/residual-system.md:107,
                 // :114). The fee language is untouched.
-                description: 'Platform fee is fixed at 10% (industry standard is 30-50%). The ware’s contributors keep 90%, divided equally. Contributors earn forever from residual pools. A voluntary Covenant Pool lets creators support community dignity. Every transaction is public.',
+                description: 'Platform fee is fixed at 10% (industry standard is 30-50%). The ware’s contributors keep 90%, divided equally. Contributors earn forever from residual pools. A voluntary Covenant Pool lets artisans support community dignity. Every transaction is public.',
                 icon: <DollarSign size={24} />,
                 order: 1,
               }}

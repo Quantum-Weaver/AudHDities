@@ -1,4 +1,28 @@
 // src/components/supporting/DonationTiers.tsx
+// ═════════════════════════════════════════════════════════════════════════
+// RETIRED — 2026-08-24, at KP's word.
+//
+// KP ⚛ 2026-08-24, verbatim, spacing kept:
+//   "retire the donate and create subscription tiers for me rather than
+//    the platform, and  i will still have my covenant set to 50%. the
+//    donations tab was before we had a built sanctuary and had different
+//    outlooks."
+//
+// The /donate room retired across five files that day. This component is
+// kept on disk and imported by nothing — lose-nothing.
+//
+// WHAT REPLACES IT IS NOT A FORGE ROOM. The subscription tiers are a WARE
+// of KP's — recurring, KP the sole artisan — so they are the BAZAAR's
+// spec (realm 03), not a room here. A subscription is a work on a stall
+// with a renewal attached: Stripe's subscription mode carries the
+// recurrence, and each renewal writes one `exchanges` row that becomes
+// ledger rows like any other sale. The covenant at 50% is KP's own pledge
+// on his own ware under the standing model, and needs no new machinery.
+//
+// Board ⑤: .journals/proofs/11-hephaestus/design/Ways.dc.html · SPEC.md ⑤
+// ═════════════════════════════════════════════════════════════════════════
+// KEEP THIS FILE'S `TIERS` ARRAY INTACT. It is the ruled set the Bazaar
+// will reuse when it draws KP's subscription tiers. Do not prune it.
 // Donation Tiers - Selectable donation amounts
 "use client";
 
@@ -14,7 +38,7 @@ interface DonationTiersProps {
 
 const TIERS = [
   { amount: 10, label: "Supporter", description: "Helps keep the lights on", icon: "🕯️" },
-  { amount: 25, label: "Guardian", description: "Supports a creator for a month", icon: "🛡️" },
+  { amount: 25, label: "Guardian", description: "Supports an artisan for a month", icon: "🛡️" },
   { amount: 50, label: "Steward", description: "Funds accessibility tools", icon: "🌿" },
   { amount: 100, label: "Visionary", description: "Supports new feature development", icon: "🔮" },
   { amount: 250, label: "Sovereign", description: "Major impact, major gratitude", icon: "👑" },

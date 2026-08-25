@@ -12,9 +12,24 @@ export interface ParsedPrivacySection {
 
 export interface ParsedPrivacy {
   title: string;
+  /**
+   * The date the markdown itself states. EMPTY STRING when the markdown
+   * states none — never a default. A hero that prints a hardcoded date for
+   * a document that does not carry one is telling the reader something the
+   * document never said. 2026-08-24, fix 1.
+   */
   lastUpdated: string;
   sections: ParsedPrivacySection[];
 }
+
+/**
+ * The two labels a policy in this house may date itself with. `Last
+ * updated:` is what docs/privacy/privacy.md carries; `Effective date:` is
+ * what the shipped app policies carry (resonance-compass/PRIVACY.md and its
+ * siblings). The parser read only the first, so an app policy's real date
+ * fell to a hardcoded March 19, 2026. 2026-08-24, fix 1.
+ */
+const DATE_LABELS = ['Effective date:', 'Last updated:'];
 
 export function parsePrivacyMarkdown(markdown: string): ParsedPrivacy {
   const lines = markdown.split('\n');
@@ -24,23 +39,36 @@ export function parsePrivacyMarkdown(markdown: string): ParsedPrivacy {
   let inTable = false;
   let tableHeaders: string[] = [];
   let tableRows: string[][] = [];
-  let title = 'Privacy Policy';
-  let lastUpdated = 'March 19, 2026';
+  // Both start EMPTY. The old file initialised these to 'Privacy Policy' and
+  // 'March 19, 2026', which made the H1 branch below unreachable (it was
+  // guarded by `!title` on an already-truthy value) and made every policy
+  // without a "Last updated:" line print a date it never carried.
+  // 2026-08-24, fixes 1 and 2.
+  let title = '';
+  let lastUpdated = '';
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    // Check for title (first H1)
+    // Check for title (first H1) — now actually reachable.
     if (line.startsWith('# ') && !title) {
-      title = line.replace('# ', '');
+      title = line.replace('# ', '').trim();
       continue;
     }
 
-    // Check for last updated
-    if (line.includes('Last updated:')) {
-      const match = line.match(/Last updated:\s*(.*)/);
-      if (match) lastUpdated = match[1];
-      continue;
+    // Check for the document's own date, under either label it may use.
+    if (!lastUpdated) {
+      const label = DATE_LABELS.find((l) => line.includes(l));
+      if (label) {
+        const match = line.match(new RegExp(`${label}\\s*(.*)`));
+        if (match) {
+          // Strip markdown emphasis the label may be wearing (**Effective
+          // date:** March 19, 2026) so the hero prints the date, not the
+          // asterisks.
+          lastUpdated = match[1].replace(/\*/g, '').trim();
+        }
+        continue;
+      }
     }
 
     // Check for markdown tables
