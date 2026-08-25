@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Droplets, Search } from 'lucide-react';
+import { ArrowLeft, Droplets, Play, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useBubblesList } from '@/lib/generated/hooks/athena-gamification/bubbles';
 import { useCollectionSetsList } from '@/lib/generated/hooks/hestia-core/collection_sets';
@@ -102,8 +102,26 @@ export function BubblesGallery() {
           <Link href="/library" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2">
             <ArrowLeft className="h-4 w-4" />Return to the Library
           </Link>
-          <h1 className="text-2xl font-bold text-star-dust">The Floating Stars</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Collect bubbles and earn sovereignty</p>
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h1 className="text-2xl font-bold text-star-dust">The Floating Stars</h1>
+              <p className="text-sm text-star-dust/40 mt-1">Collect bubbles and earn sovereignty</p>
+            </div>
+            {/* KP's ⚛ word, 2026-08-25, verbatim: "the floating stars currently
+                has no entry to "/play"". The gallery room had no door to the
+                pop room (BubblePopGame.tsx lives at /library/bubbles/play but
+                nothing linked to it) — this is that door. Words carried from
+                the room's own header, :371-372. */}
+            <Link
+              href="/library/bubbles/play"
+              className="inline-flex flex-col gap-0.5 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-star-dust transition-colors hover:bg-white/10 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
+            >
+              <span className="flex items-center gap-2 text-sm font-semibold">
+                <Play className="h-4 w-4" />Pop the Stars
+              </span>
+              <span className="text-xs text-star-dust/40">Tap bubbles to collect them</span>
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col gap-4 mb-8">
