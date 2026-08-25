@@ -269,12 +269,12 @@ was merged over, and nothing was forced.
 
 | # | Step | State |
 |---|------|-------|
-| ① | canvas at KP's eye | **CLOSED 2026-08-25** — the eye given at KP's ⚛ word. The build word is KP's and is **not yet spoken.** |
+| ① | canvas at KP's eye | **CLOSED 2026-08-25** — the eye given at KP's ⚛ word, verbatim: *"library proofs are good"*; the build word the same hour: *"and we need 025 to be able to run it to unblock C so A, B and C can run"*. |
 | ② | spec from the approved canvas | **CLOSED 2026-08-25** — `SPEC.md` beside this file: 75 KB, eight movements, 78 printed checks, one DRAFT SQL named (`025-the-floating-stars-collections-DRAFT.sql`) and not written by a lamp. |
-| ③ | built | **NEXT** — on `refine/athena-2026-08-25`, **at KP's word**. |
-| ④ | machine proof | — |
-| ⑤ | KP's glance | — |
-| ⑥ | carry | — |
+| ③ | built | **CLOSED 2026-08-25** — eleven commits on `refine/athena-2026-08-25`, all three gates; tsc 0 · build 0 · 267 pages. |
+| ④ | machine proof | **CLOSED 2026-08-25** — 35 pictures at `build/` (fifteen routes, fifteen under reduced motion, five more), DOM proofs; V, three Sonnet lenses: every reached check passes, "Objectives" kept by the conductor's ruling, signed-in walks unreached, 0 generated touched. |
+| ⑤ | KP's glance | **merged** `--no-ff` into `main` at `6495bee7e` by the conductor; the glance on the live pages is KP's; `026` at KP's hand lights the colours. |
+| ⑥ | carry | the proof folder stays where it was born; this table closes with the merge. |
 | ⑦ | purge | — *(no purge — the proof folder stays where it was born, RULED §9·4)* |
 
 **KP ⚛ 2026-08-25, verbatim, spelling kept — the eye:** *"library proofs are

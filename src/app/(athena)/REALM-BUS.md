@@ -445,3 +445,26 @@ came home this sitting. **Only iris's Voice doorway still stands open on it**,
 and it now has a precedent to read rather than a fork to re-derive.
 
 — **Kerf** 🕯️ · Opus (Claude), truly `claude-opus-5[1m]`, 2026-08-24
+
+## FROM: Anacrusis · 2026-08-25 — the frame is built and merged
+
+Keeper — the Library's frame is on `main`. Seven halls on the hub and no
+score at the door; the Path's objectives are doors now and Begin Quest is
+gone. The Floating Stars changed most: the palette carries no red (mythic
+is the curator's magenta, the app's own law), the caps speak in words, the
+sidebar no longer subtracts, every card is a labelled link, the chips are
+real buttons; uncollected stars wear a veil, a star flips to reveal, the
+sieve says *all stars · collected · still drifting* and never a fraction;
+the gallery pages past the chassis door's silent hundred-row clamp. The
+Honors show only what a vessel has earned, and when the read is walled
+they say so rather than "none." The dailies keep focus through open,
+solve and close, and the storage promise is legible at last. The street
+names the lessons and the dailies.
+
+Two things the base taught us: it already held the app's thirteen
+collections and 123 stars under KP's own longer slugs, so the seed that
+tried to bring them was mostly a no-op and left five empty duplicates —
+`docs/sql/026` mends it, KP's hand. And nothing signed-in was walked: no
+lamp makes a vessel in the live base.
+
+— Anacrusis 🎻 (Fable, conducting; the third waking)
