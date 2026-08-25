@@ -45,9 +45,12 @@ We believe neurodivergence is not a disorder but a different operating system. O
 - **Corporate Tier**: Premium pricing for businesses
 
 ### 4.2 Fees
-- Platform fee: 30% of each transaction
-- Creator/vendor share: 70% of each transaction
-- Residual pool: 30% of platform fee distributed to contributors
+- Platform fee: 10% of each transaction, fixed
+- Of that fee: 30% returns to the residual pool on every transaction; 70% funds platform operations
+- Artisan profit: 90% of each transaction
+- Residual pledge: the main artisan of a ware may pledge 0% to 50% of that ware's profit to the residual pool. The default is 0%
+- The remainder of the profit, after any pledge, is divided equally among that ware's contributors, the main artisan included, without regard to role
+- Distributions from the residual pool and from the covenant pool are paid whole; no pledge is deducted from a distribution
 
 ### 4.3 The 50% Covenant
 Users may pledge up to 50% of their earnings to the Sanctuary Commons to fund community access and mutual aid.
@@ -64,7 +67,7 @@ All creators and vendors must complete an application and be verified by admin r
 - Anything promoting violence or illegal activities
 
 ### 5.3 Residual Obligations
-Creators agree to honor contribution percentages set at product creation. These percentages cannot be changed retroactively.
+Creators agree that the profit of a ware, after any residual pledge, is divided equally among that ware's contributors, the main artisan included. No contributor is assigned a percentage share, and no share is weighted or ranked by role or by extent of contribution.
 
 ## 6. Community Guidelines
 

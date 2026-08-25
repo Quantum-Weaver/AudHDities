@@ -122,11 +122,14 @@
               <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:18px;">
                 <div class="split"><span style="color:rgba(224,224,224,.60);">Subtotal</span><span style="font-weight:500;">$3.33</span></div>
                 <div class="split"><span style="color:rgba(224,224,224,.60);">Platform fee (10%)</span><span style="color:rgba(224,224,224,.70);">$0.33</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; 30% to the residual pool <span style="color:rgba(224,224,224,.40);">&dagger;</span></span><span style="color:#A29BFE;">$0.10</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; 70% funds the machine</span><span style="color:rgba(224,224,224,.70);">$0.23</span></div>
                 <div class="split" style="padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.10);"><span style="color:rgba(224,224,224,.60);">Artisan profit (90%)</span><span style="color:#00B894;font-weight:500;">$3.00</span></div>
-                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; Residual pool &mdash; pledged 50%</span><span style="color:#A29BFE;">$1.50</span></div>
-                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; This ware&rsquo;s contributors</span><span style="color:#22D3EE;">$1.50</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; Pledged 50% to the residual pool</span><span style="color:#A29BFE;">$1.50</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; This ware&rsquo;s contributors, equally</span><span style="color:#22D3EE;">$1.50</span></div>
                 <div class="split" style="padding-top:11px;border-top:1px solid rgba(224,224,224,.20);"><span style="font-weight:700;">Total</span><span style="font-size:19px;font-weight:700;">$3.33</span></div>
               </div>
+              <p style="margin:0 0 9px;font-size:10.5px;color:rgba(224,224,224,.48);text-align:center;text-wrap:pretty;">&dagger; 30% of $0.333 is $0.0999 &mdash; where the cent will not divide, it is an open build question, never rounded toward the platform</p>
               <p style="margin:0 0 20px;font-size:11px;color:rgba(224,224,224,.60);text-align:center;text-wrap:pretty;">Half this ware&rsquo;s profit is pledged to the residual pool, shared by every artisan; the rest divides equally among this ware&rsquo;s contributors</p>
 
               <p class="rl-h" style="margin-bottom:10px;">What you receive</p>
@@ -224,7 +227,7 @@
         <p class="rl-h">The price as invitation &mdash; the law it obeys</p>
         <p class="q">&ldquo;No dark patterns. No hidden fees &hellip; Price should feel like an invitation, not a demand.&rdquo;</p>
         <p class="src" style="margin:8px 0 10px;">L1-01, the verb-pair / commerce law &middot; E2 &sect;1, Row 5 (bus L495&ndash;499). Hence: <span class="k">Receive</span> &middot; <span class="k">Bring home</span>, never <em>Buy</em>. The census found no &ldquo;buy&rdquo;, &ldquo;cart&rdquo; or &ldquo;purchase&rdquo; string anywhere in the realm &mdash; that law already holds and this board does not disturb it.</p>
-        <p class="rl-b"><span class="k">The split is on the stall, not behind the gesture.</span> <span class="src">PriceBreakdown</span> renders at the detail page before the button is ever pressed (<span class="src">CreationDetail.tsx:126&ndash;134</span>) &mdash; law 7 of this realm&rsquo;s bus, <em>&ldquo;a protected feature&rdquo;</em> (<span class="src">REALM-BUS.md:18&ndash;19</span>). Every figure drawn above is the standing model at $3.33 with this ware&rsquo;s own <span class="src">residual_pool_percent = 50</span> &mdash; KP&rsquo;s setting on their own wares &mdash; and it balances at two decimals: 0.33 + 3.00 = 3.33; 1.50 + 1.50 = 3.00. <span class="src">PriceBreakdown.tsx:26&ndash;29</span> still carves the residual out of the fee; the card above draws it corrected.</p>
+        <p class="rl-b"><span class="k">The split is on the stall, not behind the gesture.</span> <span class="src">PriceBreakdown</span> renders at the detail page before the button is ever pressed (<span class="src">CreationDetail.tsx:126&ndash;134</span>) &mdash; law 7 of this realm&rsquo;s bus, <em>&ldquo;a protected feature&rdquo;</em> (<span class="src">REALM-BUS.md:18&ndash;19</span>). Every figure drawn above is the standing model at $3.33 with this ware&rsquo;s own <span class="src">residual_pool_percent = 50</span> &mdash; KP&rsquo;s setting on their own wares &mdash; and it balances at two decimals: 0.33 + 3.00 = 3.33; 0.10 + 0.23 = 0.33; 1.50 + 1.50 = 3.00. <span class="src">PriceBreakdown.tsx:26&ndash;29</span> still carves the residual out of the fee; the card above draws it corrected.</p>
       </div>
 
       <div>

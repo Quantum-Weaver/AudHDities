@@ -32,7 +32,7 @@ export default function ResidualSystemPage() {
               ideas, or testing to a product, you deserve ongoing payment—not just a one-time fee.
             </p>
             <p className="text-lg text-star-dust/60 mt-4">
-              And creators who choose to share their success with the community through the <span className="text-green-400">Covenant Pool</span> ensure dignity for all.
+              And any vessel who chooses to pass on part of their own share through the <span className="text-green-400">Covenant Pool</span> holds the dignity floor open for everyone.
             </p>
           </section>
           
@@ -60,13 +60,13 @@ export default function ResidualSystemPage() {
                   <h3 className="text-xl font-bold text-star-dust">Residual Pool</h3>
                 </div>
                 <p className="text-star-dust/70 text-sm mb-3">
-                  <span className="text-pink-400 font-medium">Source:</span> 0-50% of the platform fee (creator chooses per product)
+                  <span className="text-pink-400 font-medium">Source:</span> 30% of every sale&apos;s platform fee, always &mdash; plus the residual pledge, 0-50% of a ware&apos;s profit, set per ware by its main artisan (default 0)
                 </p>
                 <p className="text-star-dust/70 text-sm mb-3">
-                  <span className="text-pink-400 font-medium">Purpose:</span> Reward contributors who helped create the product
+                  <span className="text-pink-400 font-medium">Purpose:</span> Pay every artisan on the platform &mdash; anyone who has ever stood as an artisan or on a contributor roster
                 </p>
                 <p className="text-star-dust/70 text-sm">
-                  <span className="text-pink-400 font-medium">Distribution:</span> Split according to contribution percentages set by creator
+                  <span className="text-pink-400 font-medium">Distribution:</span> Equal shares to all of them, at intervals, arriving whole
                 </p>
               </Card>
               <Card 
@@ -83,13 +83,13 @@ export default function ResidualSystemPage() {
                   <h3 className="text-xl font-bold text-star-dust">Covenant Pool</h3>
                 </div>
                 <p className="text-star-dust/70 text-sm mb-3">
-                  <span className="text-green-400 font-medium">Source:</span> 0-50% of creator earnings (voluntary, set in profile)
+                  <span className="text-green-400 font-medium">Source:</span> 0-50% of a vessel&apos;s own share of a sale, set once in the Sanctum (default 0)
                 </p>
                 <p className="text-star-dust/70 text-sm mb-3">
-                  <span className="text-green-400 font-medium">Purpose:</span> Support community dignity fund for all active members
+                  <span className="text-green-400 font-medium">Purpose:</span> The dignity floor &mdash; held for every user of the Sanctuary
                 </p>
                 <p className="text-star-dust/70 text-sm">
-                  <span className="text-green-400 font-medium">Distribution:</span> Equal share to all active community members
+                  <span className="text-green-400 font-medium">Distribution:</span> Equal shares to every user who has opted in to be identified, at intervals, arriving whole
                 </p>
               </Card>
             </div>
@@ -125,23 +125,23 @@ export default function ResidualSystemPage() {
               <div className="text-center">
                 <div className="text-3xl font-bold text-neurospark mb-2">10%</div>
                 <div className="text-star-dust font-medium">Platform Fee</div>
-                <div className="text-star-dust/40 text-sm">Fixed, industry-low</div>
+                <div className="text-star-dust/40 text-sm">Fixed &mdash; 30% of it returns to the residual pool, 70% funds the machine</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-400 mb-2">90%</div>
-                <div className="text-star-dust font-medium">Creator Share</div>
-                <div className="text-star-dust/40 text-sm">Your work, your value</div>
+                <div className="text-star-dust font-medium">Artisan Profit</div>
+                <div className="text-star-dust/40 text-sm">The ware&apos;s own &mdash; divided equally among its contributors</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-400 mb-2">0-50%</div>
-                <div className="text-star-dust font-medium">Covenant Pledge</div>
-                <div className="text-star-dust/40 text-sm">Voluntary community support</div>
+                <div className="text-star-dust font-medium">The Two Dials</div>
+                <div className="text-star-dust/40 text-sm">Residual pledge per ware, covenant per vessel &mdash; both default 0</div>
               </div>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10 text-center">
               <p className="text-star-dust/50 text-sm">
-                Residual pool: 0-50% of platform fee (creator chooses per product)<br />
-                Covenant pool: 0-50% of creator earnings (creator chooses in profile)
+                Residual pledge: 0-50% of this ware&apos;s profit &mdash; the 90% after the fee &mdash; set per ware by its main artisan, default 0. The residual pool receives it, and 30% of every sale&apos;s fee besides.<br />
+                Covenant pledge: 0-50% of your own share of a sale, set once in the Sanctum, default 0. Neither dial ever touches a pool payout.
               </p>
             </div>
           </section>
@@ -150,11 +150,11 @@ export default function ResidualSystemPage() {
           <section className="text-center">
             <div className="inline-flex flex-wrap items-center justify-center gap-2 px-6 py-3 bg-white/5 rounded-full">
               <Infinity size={14} className="text-neurospark" />
-              <span className="text-sm text-star-dust/60">Only product creators can add contributors</span>
+              <span className="text-sm text-star-dust/60">Only a ware&apos;s main artisan can add contributors</span>
               <span className="text-star-dust/30">•</span>
-              <span className="text-sm text-star-dust/60">Percentages must sum to ≤100</span>
+              <span className="text-sm text-star-dust/60">Contributors divide equally &mdash; no roles, no ranking</span>
               <span className="text-star-dust/30">•</span>
-              <span className="text-sm text-star-dust/60">Covenant pledge is voluntary and changeable</span>
+              <span className="text-sm text-star-dust/60">Both dials are voluntary and changeable at any time</span>
               <span className="text-star-dust/30">•</span>
               <span className="text-sm text-star-dust/60">All transactions visible in public ledger</span>
             </div>

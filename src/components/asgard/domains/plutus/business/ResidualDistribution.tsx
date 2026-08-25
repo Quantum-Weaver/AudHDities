@@ -2,48 +2,46 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Heart, TrendingUp, Award, HandCoins, Shield } from 'lucide-react';
+import { Users, TrendingUp, Award, HandCoins } from 'lucide-react';
 
+// A fifth recipient, a "Mutual Aid Reserve" funded from an operations surplus,
+// stood in this list until 2026-08-24. No such reserve exists: a sale has exactly
+// four destinations, and the 7% that funds the machine is the only money that leaves.
 const recipients = [
   {
     icon: Award,
-    label: 'Product Contributors',
-    description: 'Anyone who helped create the product—code, design, testing, ideas—receives their share forever',
+    label: "This Ware's Contributors",
+    description:
+      'Everyone on the ware’s roster — code, design, testing, ideas — with the main artisan one of them',
     color: 'cyan',
-    source: 'Residual Pool (30-50% of platform fee)',
-    distribution: 'Based on contribution percentage set by creator',
-  },
-  {
-    icon: Users,
-    label: 'Community Members',
-    description: 'Every active community member receives a dignity share, regardless of activity level',
-    color: 'pink',
-    source: 'Covenant Pool (0-50% of creator earnings)',
-    distribution: 'Equal distribution among all active members',
-  },
-  {
-    icon: HandCoins,
-    label: 'Creator Immediate',
-    description: 'The creator keeps their share after covenant pledge',
-    color: 'purple',
-    source: '90% of sale minus covenant pledge',
-    distribution: 'Direct payout at time of sale',
+    source: 'What is left of the 90% after the residual pledge',
+    distribution: 'Divided equally — no roles, no ranking, no percentages',
   },
   {
     icon: TrendingUp,
-    label: 'Platform Operations',
-    description: 'Hosting, development, support, and future growth',
-    color: 'green',
-    source: '70% of platform fee (7% of sale)',
-    distribution: 'Platform sustainability',
+    label: 'Every Artisan on the Platform',
+    description:
+      'Any vessel who has ever appeared, even once, as an artisan or on a contributor roster. Once on the roster, never off',
+    color: 'pink',
+    source: 'Residual pool: 30% of every fee, plus each ware’s pledge (0-50% of its profit)',
+    distribution: 'Equal shares at intervals, arriving whole',
   },
   {
-    icon: Shield,
-    label: 'Mutual Aid Reserve',
-    description: 'Emergency support for community members in crisis',
-    color: 'yellow',
-    source: 'Discretionary from platform operations surplus',
-    distribution: 'Community-led with transparency',
+    icon: Users,
+    label: 'Every User Who Has Opted In',
+    description:
+      'The dignity floor. A user who opts in to be identified is included in every distribution from then on',
+    color: 'green',
+    source: 'Covenant pool: each vessel’s own 0-50% of their share of a sale',
+    distribution: 'Equal shares at intervals, arriving whole',
+  },
+  {
+    icon: HandCoins,
+    label: 'The Machine',
+    description: 'Hosting, development, support, payment costs',
+    color: 'purple',
+    source: '70% of the platform fee (7% of the sale)',
+    distribution: 'The only money that ever leaves',
   },
 ];
 
@@ -74,9 +72,9 @@ export function ResidualDistribution() {
       
       <div className="bg-white/5 rounded-xl p-4 mt-4">
         <p className="text-star-dust/60 text-sm text-center">
-          ✦ The platform fee is fixed at <span className="text-neurospark">10%</span> (industry standard is 30-50%)<br />
-          ✦ Creators set <span className="text-purple-400">residual percentage</span> (0-50% of fee) per product<br />
-          ✦ Creators set <span className="text-green-400">covenant pledge</span> (0-50% of earnings) in their profile
+          ✦ The platform fee is fixed at <span className="text-neurospark">10%</span> (industry standard is 30-50%) — 70% of it funds the machine, 30% returns to the residual pool<br />
+          ✦ A ware’s main artisan sets its <span className="text-purple-400">residual pledge</span> (0-50% of that ware’s profit, default 0)<br />
+          ✦ Each vessel sets their own <span className="text-green-400">covenant pledge</span> (0-50% of their own share of a sale, default 0) in the Sanctum
         </p>
       </div>
     </div>

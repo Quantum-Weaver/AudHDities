@@ -25,11 +25,11 @@ This guide walks you through becoming a creator on AUDHDITIES—someone who can 
    - **Portfolio URL**: Link to your work
    - **Creative categories**: Writing, art, code, etc.
    - **Description**: Tell us about yourself
-   - **Residual pool percentage** (per product): 0-50% of platform fee to contributors
+   - **Residual pledge** (per ware): 0-50% of that ware's profit to the residual pool, default 0
 
 4. Submit for review
 
-> 💡 **Tip:** The residual pool comes from the platform fee, not your earnings. You keep 90% of every sale (minus any Covenant pledge you choose).
+> 💡 **Tip:** The residual pledge comes out of the ware's profit — the 90% left after the fee — and it defaults to 0. The residual pool also receives 30% of every sale's fee, whatever you set. What is left of the profit divides equally among the ware's contributors, you among them.
 
 ---
 
@@ -59,11 +59,11 @@ Stripe handles all the complex financial compliance. We never see your banking i
 The Covenant Pool is your voluntary pledge to support the community:
 
 1. Go to Creator Dashboard → Settings
-2. Under "Covenant Pledge," choose 0-50% of your earnings
-3. This amount is distributed equally to all active community members
+2. Under "Covenant Pledge," choose 0-50% of your own share of a sale (it defaults to 0)
+3. That amount is distributed equally to every user who has opted in to be identified
 4. You can change this anytime
 
-> 💡 **Tip:** Even 5% helps create dignity for disabled and inactive members. It's completely voluntary and can be public or private.
+> 💡 **Tip:** Even 5% helps hold the dignity floor open — nobody is dropped for inactivity, and an opt-in holds forever. It's completely voluntary, and you choose whether it shows on your community profile.
 
 ---
 
@@ -75,7 +75,7 @@ The Covenant Pool is your voluntary pledge to support the community:
    - **Title**: Clear, descriptive
    - **Description**: What is it?
    - **Price tiers**: Community (discount), Ally (standard), Corporate (premium)
-   - **Residual pool**: What % of platform fee goes to contributors? (0-50%)
+   - **Residual pledge**: what share of this ware's profit goes to the residual pool? (0-50%, default 0)
    - **Media**: Images, previews, downloads
 
 4. Save as draft or publish immediately
@@ -89,10 +89,12 @@ If others helped create this product:
 1. Edit your product
 2. Go to "Contributors" tab
 3. Add by username or email
-4. Assign percentage of the residual pool
-5. They'll be notified and must accept
+4. They'll be notified and must accept
 
-> 💡 **Example:** If you set residual pool to 30% and have two contributors with 60% and 40% shares, they split that 30% of the platform fee.
+> 💡 **There is no percentage to assign.** Whatever is left of the ware's profit after
+> your pledge divides **equally** among its contributors, you among them — no roles, no
+> ranking. Standing as a contributor once, ever, also puts a vessel on the residual pool's
+> roster for life.
 
 ---
 
@@ -107,53 +109,41 @@ If others helped create this product:
 
 ## Earnings Breakdown
 
-### Example: $100 Sale with No Contributors, Covenant Pledge 10%
+### Example: a $100 sale, three contributors, residual pledge 50%, every covenant dial 50%
 
 ```
 $100 Sale
-    │
-    ├── $10 → Platform Fee (10% fixed)
-    │       └── $10 → Operations
-    │
-    └── $90 → Creator Earnings
-            │
-            ├── $81 → Creator Immediate (90% after Covenant)
-            │
-            └── $9 → Covenant Pool (10% of earnings)
-                    └── Distributed equally to all active community members
+    |
+    +-- $10.00 -> Platform Fee (10%, fixed)
+    |          +-- $3.00 -> Residual Pool (30% of the fee, always)
+    |          +-- $7.00 -> The machine (70% of the fee) - the only money that leaves
+    |
+    +-- $90.00 -> The Ware's Profit (90%)
+               +-- $45.00 -> Residual Pool (the 50% residual pledge)
+               |            (this sale puts $48.00 in the pool all told)
+               +-- $45.00 -> What is left, divided equally by three -> $15.00 each
+                            +-- $7.50 -> each vessel's covenant pledge (50% of their share)
+                            +-- $7.50 -> each vessel keeps
 ```
 
-### Example: $100 Sale with Contributors, Covenant Pledge 10%
+At the defaults - both dials at 0, one contributor - the same sale is $3.00 to the
+residual pool, $7.00 to the machine, and $90.00 whole to the maker.
 
-```
-$100 Sale
-    │
-    ├── $10 → Platform Fee (10% fixed)
-    │       │
-    │       ├── $5 → Residual Pool (50% of fee, set by creator)
-    │       │      ├── Contributor A (60%): $3.00
-    │       │      └── Contributor B (40%): $2.00
-    │       │
-    │       └── $5 → Operations
-    │
-    └── $90 → Creator Earnings
-            │
-            ├── $81 → Creator Immediate (90% after Covenant)
-            │
-            └── $9 → Covenant Pool (10% of earnings)
-                    └── Distributed equally to all active community members
-```
+Both pools pay at intervals, in equal shares, and both arrive whole: no pledge is
+ever taken from a payout.
 
 ### Key Numbers
 
 | Element | Percentage | Notes |
 |---------|------------|-------|
-| **Platform Fee** | 10% of sale | Fixed, covers operations |
-| **Creator Earnings** | 90% of sale | Before Covenant pledge |
-| **Residual Pool** | 0-50% of platform fee | Set per product, for contributors |
-| **Covenant Pool** | 0-50% of creator earnings | Set in profile, for community |
+| **Platform fee** | 10% of sale | Fixed. 70% funds the machine, 30% returns to the residual pool |
+| **The ware's profit** | 90% of sale | The pledge comes out of this; the rest divides equally |
+| **Residual pledge** | 0-50% of the ware's profit | Set per ware by its main artisan, default 0 |
+| **Covenant pledge** | 0-50% of your own share of a sale | Set in the Sanctum, default 0 |
 
-> 💡 **You keep 90% of every sale minus your Covenant pledge. Contributors are paid from the platform fee, not your earnings.**
+> 💡 **90% of every sale is the ware's own.** Your pledge leaves it first; what remains
+> divides equally among the ware's contributors, you among them. The residual pool pays every
+> artisan on the platform; the covenant pool pays every opted-in user; both arrive whole.
 
 ---
 
@@ -161,9 +151,9 @@ $100 Sale
 
 | Setting | Where | What You Control |
 |---------|-------|------------------|
-| **Residual Pool** | Per product | 0-50% of platform fee to contributors |
-| **Covenant Pledge** | Profile settings | 0-50% of your earnings to community |
-| **Pledge Privacy** | Profile settings | Public (shows on profile) or private |
+| **Residual pledge** | Per ware | 0-50% of that ware's profit to the residual pool (default 0) |
+| **Covenant pledge** | The Sanctum | 0-50% of your own share of a sale to the covenant pool (default 0) |
+| **Pledge display** | The Sanctum | Whether your pledge shows on your community profile |
 | **Prices** | Per product | Community, Ally, Corporate tiers |
 
 ---
@@ -175,7 +165,7 @@ $100 Sale
 - **Engage with buyers** in comments/DMs
 - **Update products** regularly
 - **Add contributors generously**—it builds community
-- **Consider a small Covenant pledge**—even 5% helps create dignity for all
+- **Consider a small Covenant pledge**—even 5% helps hold the dignity floor open for everyone
 - **Make your pledge public**—it signals community values
 
 ---

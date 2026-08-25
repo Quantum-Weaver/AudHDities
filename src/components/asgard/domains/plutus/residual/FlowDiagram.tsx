@@ -16,7 +16,7 @@ const flowDiagramData: CardData = {
   id: 'residual-flow-diagram',
   type: 'value',
   title: 'How the Value Flows',
-  description: 'Visual breakdown of a $100 sale through the residual system',
+  description: 'A $100 sale, followed all the way through — residual pledge at 50%, three contributors, each covenant at 50%',
   value: '$100',
 };
 
@@ -61,19 +61,19 @@ export function FlowDiagram() {
 
           <ArrowDivider />
 
-          {/* First Split: Platform Fee / Creator Earnings */}
+          {/* First Split: Platform Fee / Artisan Profit */}
           <div className="grid md:grid-cols-2 gap-6">
             <FlowStep
               label="Platform Fee"
               amount="$10"
-              description="10% of sale → Fixed platform fee"
+              description="10% of sale → Fixed, always"
               color="cyan"
               delay={0.2}
             />
             <FlowStep
-              label="Creator Earnings"
+              label="Artisan Profit"
               amount="$90"
-              description="90% of sale → Creator receives"
+              description="90% of sale → This ware's own"
               color="purple"
               delay={0.3}
             />
@@ -81,19 +81,19 @@ export function FlowDiagram() {
 
           <ArrowDivider />
 
-          {/* Platform Fee Split */}
+          {/* Platform Fee Split — fixed, no dial */}
           <div className="grid md:grid-cols-2 gap-6">
             <FlowStep
-              label="Operations"
+              label="The Machine"
               amount="$7"
-              description="70% of platform fee → Hosting, tools, development"
+              description="70% of the fee → Hosting, tools, development — the only money that leaves"
               color="cyan"
               delay={0.4}
             />
             <FlowStep
               label="Residual Pool"
               amount="$3"
-              description="30% of platform fee → Shared with contributors"
+              description="30% of the fee → The pool, on every sale, dial or no dial"
               color="pink"
               delay={0.5}
             />
@@ -101,51 +101,56 @@ export function FlowDiagram() {
 
           <ArrowDivider />
 
-          {/* Creator Earnings Split */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <FlowStep
-              label="Creator Immediate"
-              amount="$72"
-              description="80% of earnings → Instant payout"
-              color="purple"
-              delay={0.4}
-            />
-            <FlowStep
-              label="Covenant Pool"
-              amount="$18"
-              description="20% of earnings → Community dignity fund"
-              color="green"
-              delay={0.5}
-            />
+          {/* Artisan Profit Split — the residual pledge, set per ware (0-50%, default 0; shown here at 50%) */}
+          <div className="space-y-4">
+            <div className="text-center text-[var(--color-star-dust)]/60 text-sm">
+              This ware&apos;s residual pledge is set at 50% — the dial runs 0-50%, and its default is 0
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <FlowStep
+                label="Pledged to the Residual Pool"
+                amount="$45"
+                description="50% of the profit → the pool, which now holds $48 from this sale"
+                color="pink"
+                delay={0.4}
+              />
+              <FlowStep
+                label="Left for the Contributors"
+                amount="$45"
+                description="What remains after the pledge → divided equally"
+                color="purple"
+                delay={0.5}
+              />
+            </div>
           </div>
 
           <ArrowDivider />
 
-          {/* Residual Pool Distribution */}
+          {/* The Contributors' Equal Division */}
           <div className="space-y-4">
             <div className="text-center text-[var(--color-star-dust)]/60 text-sm">
-              Distributed by contribution percentage
+              Divided equally among this ware&apos;s three contributors — the main artisan one of them, no roles, no ranking
             </div>
             <div className="grid md:grid-cols-3 gap-4">
               <FlowStep
                 label="Contributor A"
-                amount="$1.20"
-                description="40% of residual pool"
-                color="pink"
+                amount="$15.00"
+                description="An equal third of $45.00"
+                color="purple"
                 delay={0.6}
               />
               <FlowStep
                 label="Contributor B"
-                amount="$1.05"
-                description="35% of residual pool"
-                color="pink"
+                amount="$15.00"
+                description="An equal third of $45.00"
+                color="purple"
                 delay={0.7}
               />
               <FlowStep
-                label="Contributor C"
-                amount="$0.75"
-                description="25% of residual pool"
-                color="pink"
+                label="Contributor C (the main artisan)"
+                amount="$15.00"
+                description="An equal third of $45.00"
+                color="purple"
                 delay={0.8}
               />
             </div>
@@ -153,33 +158,36 @@ export function FlowDiagram() {
 
           <ArrowDivider />
 
-          {/* Covenant Pool Distribution */}
+          {/* Covenant, then the pools */}
           <div className="space-y-4">
             <div className="text-center text-[var(--color-star-dust)]/60 text-sm">
-              Distributed equally among active community members
+              Each vessel&apos;s own covenant dial then takes a slice of their own share — here all three stand at 50%
             </div>
             <div className="grid md:grid-cols-3 gap-4">
               <FlowStep
-                label="Community Member"
-                amount="$0.036"
-                description="Equal share for 500 members"
+                label="To the Covenant Pool"
+                amount="$22.50"
+                description="Three pledges of $7.50 → every opted-in user, equally"
                 color="green"
                 delay={0.9}
               />
               <FlowStep
-                label="Community Member"
-                amount="$0.036"
-                description="Equal share for 500 members"
-                color="green"
+                label="Each Vessel Keeps"
+                amount="$7.50"
+                description="The rest of their own share, theirs"
+                color="purple"
                 delay={1.0}
               />
               <FlowStep
-                label="Community Member"
-                amount="$0.036"
-                description="Equal share for 500 members"
-                color="green"
+                label="The Residual Pool Holds"
+                amount="$48.00"
+                description="$3 of the fee + the $45 pledge → every artisan, equally"
+                color="pink"
                 delay={1.1}
               />
+            </div>
+            <div className="text-center text-[var(--color-star-dust)]/40 text-xs">
+              Both pools pay at intervals, and both arrive whole: no pledge is ever taken from a payout.
             </div>
           </div>
         </div>
@@ -197,7 +205,7 @@ export function FlowDiagram() {
           >
             <div className="inline-flex items-center gap-2 text-[var(--color-star-dust)]/40 text-sm">
               <Infinity size={14} className="text-[var(--color-fire-base)]" />
-              <span>Residuals flow forever • Covenant flows to community</span>
+              <span>Both pools pay everyone equally • Distributions arrive whole</span>
               <Heart size={12} className="text-[var(--color-sanctuary-green)]" />
             </div>
           </motion.div>,

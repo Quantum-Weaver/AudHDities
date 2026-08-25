@@ -42,12 +42,12 @@ const PRICING_MODELS = [
 ];
 
 const RESIDUAL_OPTIONS = [
-  { value: '0', label: '0% â€” No residual pool' },
+  { value: '0', label: '0%, nothing pledged (the default)' },
   { value: '10', label: '10%' },
   { value: '20', label: '20%' },
-  { value: '30', label: '30% â€” Standard' },
+  { value: '30', label: '30%' },
   { value: '40', label: '40%' },
-  { value: '50', label: '50% â€” Maximum' },
+  { value: '50', label: '50%, the maximum' },
 ];
 
 function slugify(name: string): string {
@@ -81,7 +81,7 @@ export function StudioCreate() {
         ware_type: data.ware_type || 'digital',
         pricing_model: data.pricing_model || 'free',
         price: data.price ? parseFloat(data.price) : null,
-        residual_pool_percent: data.residual_pool_percent ? parseInt(data.residual_pool_percent) : 30,
+        residual_pool_percent: data.residual_pool_percent ? parseInt(data.residual_pool_percent) : 0,
         status: isDraft ? 'draft' : 'published',
         created_by: user.id,
       };
@@ -244,15 +244,15 @@ export function StudioCreate() {
 
             {/* Residual Pool */}
             <FormField
-              label="Residual Pool"
+              label="Residual Pledge"
               optional
-              helper="Percentage of platform fee shared with contributors who helped create this work"
+              helper="The share of this ware's profit, the 90% left after the platform fee, that you pledge to the residual pool, which pays every artisan on the platform. 0 to 50%, default 0, and the pool receives 30% of every sale's fee besides. What is left divides equally among this ware's contributors, you among them."
             >
               <Select
                 name="residual_pool_percent"
                 options={RESIDUAL_OPTIONS}
-                placeholder="30% â€” Standard"
-                defaultValue="30"
+                placeholder="0%, nothing pledged (the default)"
+                defaultValue="0"
                 disabled={isSaving}
               />
             </FormField>
@@ -330,15 +330,17 @@ export function StudioCreate() {
             </div>
             <div>
               <p className="text-purple-400 font-bold">90%</p>
-              <p className="text-star-dust/40 text-xs">Your Earnings</p>
+              <p className="text-star-dust/40 text-xs">This Ware&apos;s Profit</p>
             </div>
             <div>
               <p className="text-emerald-400 font-bold">0-50%</p>
-              <p className="text-star-dust/40 text-xs">Residual Pool</p>
+              <p className="text-star-dust/40 text-xs">Residual Pledge</p>
             </div>
           </div>
           <p className="text-xs text-star-dust/30 mt-3 text-center">
-            The residual pool comes from your chosen percentage of the 10% platform fee â€” rewarding contributors forever.
+            30% of the 10% fee returns to the residual pool on every sale. Your pledge, if you set
+            one, comes out of this ware&apos;s own 90% profit; what is left divides equally among
+            this ware&apos;s contributors, you among them.
           </p>
         </Card>
       </div>

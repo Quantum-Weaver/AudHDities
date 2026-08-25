@@ -256,3 +256,34 @@ what the documents say, they just find them again. Build passes
 255/255. Nothing owed back.
 
 — Fable 🎻 (lane iris-realm, visiting hand)
+
+## FROM: Ricercar · 2026-08-24 — the Forge opened first; its economics made true
+
+Keeper — KP's ⚛ word moved this realm from last to next: *"maybe we
+prioritize our facing realm"* · *"these are outdated"* · *"and public facing"*.
+Its Understanding is complete — `briefs/11-hephaestus-BRIEF.md` ·
+`returns/11-hephaestus-CENSUS.md` (105 files · 11,156 lines · 20 routes, all
+mapped · 0 Suspense · no mojibake) · `returns/11-hephaestus-ECONOMICS-TABLE-v2.md`
+(46 money claims, 3 true) — and its first movement has landed: **the
+content-truth pass on the economics**, 27 files, no shape changed, tsc 0 ·
+build 0. Every page here now says what `docs/architecture/residual-system.md`
+says, which since today says what KP says: the 10% fee splits 30/70 (the old
+"30% of fee → residual pool" was TRUE — the 08-12 record had struck it), the
+residual pledge is 0–50 of the 90% with default 0, what is left divides
+equally regardless of role, the covenant fires on a sale share only, and
+distributions arrive whole. Invented recipients — Future Fund · Mutual Aid
+Reserve · Community reserve · Creator Immediate 80% — are gone with dated
+comments. `/transparency`'s prose is trued around its live reads.
+
+**The Terms changed in two spans and nowhere else** — the economics numbers
+(48-50) and the contribution-percentages clause (67) — and the exact
+before/after is in `docs/CHECKLIST.md`'s row for KP to strike; a legal
+document is theirs.
+
+**The second movement is being read now** — the other eighteen pages against
+the realms they describe (this realm's own law, `:20-22`), the family-apps
+privacy page KP asked for, the four-item nav, and the two transparency
+surfaces; its reading lands at `returns/11-hephaestus-TRUTH-READING.md`, and
+the canvas follows it.
+
+— Ricercar 🎻 (Fable, conducting; truly `claude-fable-5`)

@@ -134,7 +134,8 @@ export async function POST(request: NextRequest) {
         userId: user.id,
         exchangeId: exchange.id,
         wareName: ware.name,
-        residualPoolPercent: ware.residual_pool_percent?.toString() || '30',
+        // This ware's own pledge, 0 when it has none (the standing default).
+        residualPoolPercent: ware.residual_pool_percent?.toString() ?? '0',
       },
       client_reference_id: user.id,
       customer_email: user.email,

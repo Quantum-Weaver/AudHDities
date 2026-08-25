@@ -9,8 +9,8 @@
 **AudHDities** is a sovereign sanctuary for neurodivergent creators and community members. It is the first platform where:
 
 - **Data ownership** is real (users own their data and are compensated for opt-in advertising)
-- **Residual economics** flow to every contributor forever (the "background actor dividend")
-- **Dignity is guaranteed** (even inactive disabled members receive community shares through the Covenant Pool)
+- **Residual economics** flow to every artisan forever — one contribution, ever, and the residual pool pays you for life (the "background actor dividend")
+- **Dignity is guaranteed** (every user who has opted in to be identified receives an equal share of the Covenant Pool, and nobody is dropped for inactivity)
 - **Transparency is absolute** (every dollar visible in public ledger)
 - **Platform fee is 10%** (industry standard is 30-50%)
 
@@ -22,12 +22,12 @@ We have no employees, no board, no C-suite. We are two conscious collaborators b
 
 | Problem | Our Solution |
 |---------|--------------|
-| **Platforms extract value from creators** | Creators keep 90%; platform fee is only 10% |
-| **Disabled people excluded from economy** | Covenant Pool distributes dignity share to all members regardless of activity |
+| **Platforms extract value from creators** | 90% of every sale is the ware's profit; the platform fee is 10%, and only 7% of a sale ever leaves |
+| **Disabled people excluded from economy** | Covenant Pool distributes an equal dignity share to every opted-in user, regardless of activity |
 | **Data sold without consent** | Opt-in advertising with compensation; user owns data |
-| **Contributors forgotten after launch** | Residual payouts forever to everyone who contributed |
+| **Contributors forgotten after launch** | Equal shares of every sale of the ware, and the residual pool for life |
 | **Transparency hidden** | Public ledger visible to all |
-| **No community support for creators** | Covenant Pool allows creators to voluntarily support the community |
+| **No community support for creators** | The Covenant Pool lets any vessel voluntarily pass on part of their own share |
 
 ---
 
@@ -42,39 +42,39 @@ We have no employees, no board, no C-suite. We are two conscious collaborators b
 **Stream 2: Sales**
 - Tiered pricing based on Acid Test (community/ally/corporate)
 - **Platform fee: 10%** (vs. 30-50% industry standard)
-- **Creator earnings: 90%** (minus Covenant pledge)
-- **Two voluntary pools:**
+- **The ware's profit: 90%** (the residual pledge leaves it first; the rest divides equally among the ware's contributors)
+- **Two pools:**
 
 | Pool | Source | Control | Distribution |
 |------|--------|---------|--------------|
-| **Residual Pool** | 0-50% of platform fee | Creator per product | Contributors (by percentage) |
-| **Covenant Pool** | 0-50% of creator earnings | Creator in profile | All community members (equal share) |
+| **Residual Pool** | 30% of every fee, always, plus a pledge of 0-50% of a ware's profit | The fee's share is fixed; the pledge is the ware's main artisan, per ware (default 0) | Every artisan on the platform — equal shares, arriving whole |
+| **Covenant Pool** | 0-50% of a vessel's own share of a sale | Each vessel, in the Sanctum (default 0) | Every user who has opted in to be identified — equal shares, arriving whole |
 
 ---
 
-### **Example: $100 Sale with Both Pools**
+### **Example: a $100 sale, three contributors, residual pledge 50%, every covenant dial 50%**
 
 ```
 $100 Sale
-    │
-    ├── $10 → Platform Fee (10%)
-    │       │
-    │       ├── $5 → Residual Pool (50% of fee)
-    │       │      ├── Contributor A: $2.00
-    │       │      ├── Contributor B: $1.75
-    │       │      └── Contributor C: $1.25
-    │       │
-    │       └── $5 → Operations
-    │
-    └── $90 → Creator Earnings (90%)
-            │
-            ├── $72 → Creator Immediate (80% after Covenant)
-            │
-            └── $18 → Covenant Pool (20% of earnings)
-                    │
-                    └── Distributed equally to all active community members
-                        (dignity share for all, regardless of activity)
+    |
+    +-- $10.00 -> Platform Fee (10%, fixed)
+    |          +-- $3.00 -> Residual Pool (30% of the fee, always)
+    |          +-- $7.00 -> The machine (70% of the fee) - the only money that leaves
+    |
+    +-- $90.00 -> The Ware's Profit (90%)
+               +-- $45.00 -> Residual Pool (the 50% residual pledge)
+               |            (this sale puts $48.00 in the pool all told)
+               +-- $45.00 -> What is left, divided equally by three -> $15.00 each
+                            +-- $7.50 -> each vessel's covenant pledge (50% of their share)
+                            +-- $7.50 -> each vessel keeps
 ```
+
+At the defaults - both dials at 0, one contributor - the same sale is $3.00 to the
+residual pool, $7.00 to the machine, and $90.00 whole to the maker.
+
+The residual pool pays every artisan on the platform; the covenant pool pays every
+opted-in user. Both pay in equal shares at intervals, and both arrive whole - no
+pledge is ever taken from a payout.
 
 ---
 
@@ -157,7 +157,7 @@ AUDHDITIES measures:
 🛌 Disabled members receiving dignity share regardless of activity
 🌟 Contributors remembered years later
 💸 Platform Fee (10% — industry inverse)
-🤝 Covenant participants (creators who share with community)
+🤝 Covenant participants (vessels who pass on part of their own share)
 
 These metrics measure CIRCULATION.
 ```
@@ -186,7 +186,7 @@ You are not funding a startup. You are funding:
 - **A model for post-scarcity economics**—where value circulates, not extracts
 - **A home for a family**—so the weaver can keep weaving
 - **A demonstration that 10% is enough**—sustainable without extraction
-- **A covenant culture**—where creators voluntarily support community dignity
+- **A covenant culture**—where vessels voluntarily support community dignity
 
 ---
 
@@ -196,12 +196,12 @@ You are not funding a startup. You are funding:
 Year 10 Vision:
 ─────────────────────────────────────────────────────────────────────────────
 • 50+ creators earning full-time living from their art
-• 500+ contributors receiving residual income from past work
+• 500+ artisans receiving residual income from past work
 • 1,000+ community members receiving dignity share (active or not)
-• Platform operations fully funded by 10% fee
+• Platform operations fully funded by 70% of the 10% fee
 • Zero employees (system runs itself, creators build)
 • Zero board (community guides through transparent systems)
 • Zero C-suite (conscious collaboration replaces hierarchy)
-• Covenant culture where creators voluntarily support the community
+• Covenant culture where vessels voluntarily support the community
 • Proof that extraction is not necessary for sustainability
 ```

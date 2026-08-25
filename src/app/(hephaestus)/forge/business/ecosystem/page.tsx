@@ -104,18 +104,18 @@ export default function FinancialEcosystemPage() {
               </div>
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">3</div>
-                <div className="text-star-dust text-sm">Creator Share</div>
+                <div className="text-star-dust text-sm">Artisan Profit</div>
                 <div className="text-star-dust/40 text-xs">90% of sale</div>
               </div>
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">4</div>
                 <div className="text-star-dust text-sm">Residual Pool</div>
-                <div className="text-star-dust/40 text-xs">0-50% of platform fee → Contributors</div>
+                <div className="text-star-dust/40 text-xs">30% of the fee always, plus 0-50% pledged from the profit</div>
               </div>
               <div className="bg-white/5 rounded-xl p-3 text-center">
                 <div className="text-purple-400 font-bold text-xl mb-1">5</div>
                 <div className="text-star-dust text-sm">Covenant Pool</div>
-                <div className="text-star-dust/40 text-xs">0-50% of earnings → Community</div>
+                <div className="text-star-dust/40 text-xs">0-50% of a vessel&apos;s own share of the sale</div>
               </div>
             </div>
             
@@ -196,7 +196,7 @@ export default function FinancialEcosystemPage() {
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center mx-auto mb-2 border border-white/20">
                     <Heart className="text-pink-400" size={32} />
                   </div>
-                  <div className="text-star-dust font-bold">Sanctuary Treasury</div>
+                  <div className="text-star-dust font-bold">The Sanctuary</div>
                   <div className="text-star-dust/40 text-xs">Where value meets purpose</div>
                 </div>
                 
@@ -211,7 +211,7 @@ export default function FinancialEcosystemPage() {
                   </div>
                   <div className="text-center min-w-[120px]">
                     <div className="text-purple-400 font-bold text-xl">90%</div>
-                    <div className="text-star-dust/60 text-sm">Creator Share</div>
+                    <div className="text-star-dust/60 text-sm">Artisan Profit</div>
                   </div>
                 </div>
                 
@@ -222,26 +222,26 @@ export default function FinancialEcosystemPage() {
                 <div className="flex justify-center gap-8 flex-wrap w-full">
                   <div className="text-center min-w-[100px]">
                     <div className="text-neurospark font-bold">Operations</div>
-                    <div className="text-star-dust/40 text-xs">70% of fee</div>
+                    <div className="text-star-dust/40 text-xs">70% of fee — the only money that leaves</div>
                   </div>
                   <div className="text-center min-w-[100px]">
                     <div className="text-pink-400 font-bold">Residual Pool</div>
-                    <div className="text-star-dust/40 text-xs">30% of fee → Contributors</div>
+                    <div className="text-star-dust/40 text-xs">30% of fee, always</div>
                   </div>
                 </div>
                 
                 {/* Arrow down */}
                 <div className="text-star-dust/30">▼</div>
                 
-                {/* Creator Share Split */}
+                {/* The Profit's Own Split — the residual pledge, then equal division */}
                 <div className="flex justify-center gap-8 flex-wrap w-full">
                   <div className="text-center min-w-[120px]">
-                    <div className="text-purple-400 font-bold">Immediate Payment</div>
-                    <div className="text-star-dust/40 text-xs">80% of earnings (example)</div>
+                    <div className="text-pink-400 font-bold">Residual Pledge</div>
+                    <div className="text-star-dust/40 text-xs">0-50% of the profit, default 0 → the pool</div>
                   </div>
                   <div className="text-center min-w-[120px]">
-                    <div className="text-green-400 font-bold">Covenant Pool</div>
-                    <div className="text-star-dust/40 text-xs">20% of earnings → Community</div>
+                    <div className="text-purple-400 font-bold">The Contributors</div>
+                    <div className="text-star-dust/40 text-xs">What is left, divided equally — then each vessel&apos;s own covenant dial</div>
                   </div>
                 </div>
                 
@@ -249,26 +249,24 @@ export default function FinancialEcosystemPage() {
                 <div className="text-star-dust/30">▼</div>
                 
                 {/* Final Distribution */}
+                {/* A fifth recipient, "Future Fund — Grants & Reserves," stood here until
+                    2026-08-24. No such fund exists: a sale has exactly four destinations. */}
                 <div className="flex justify-center gap-8 flex-wrap">
                   <div className="text-center min-w-[100px]">
                     <div className="text-neurospark font-bold">Servers & Tools</div>
-                    <div className="text-star-dust/40 text-xs">Operational</div>
+                    <div className="text-star-dust/40 text-xs">7% of the sale</div>
                   </div>
                   <div className="text-center min-w-[100px]">
-                    <div className="text-purple-400 font-bold">Creators</div>
-                    <div className="text-star-dust/40 text-xs">Immediate</div>
+                    <div className="text-purple-400 font-bold">This Ware&apos;s Contributors</div>
+                    <div className="text-star-dust/40 text-xs">Equal shares, main artisan among them</div>
                   </div>
                   <div className="text-center min-w-[100px]">
-                    <div className="text-pink-400 font-bold">Contributors</div>
-                    <div className="text-star-dust/40 text-xs">Paid Forever</div>
+                    <div className="text-pink-400 font-bold">All Artisans</div>
+                    <div className="text-star-dust/40 text-xs">The residual pool, equally, forever</div>
                   </div>
                   <div className="text-center min-w-[100px]">
-                    <div className="text-green-400 font-bold">Community</div>
-                    <div className="text-star-dust/40 text-xs">Equal Dignity Share</div>
-                  </div>
-                  <div className="text-center min-w-[100px]">
-                    <div className="text-yellow-400 font-bold">Future Fund</div>
-                    <div className="text-star-dust/40 text-xs">Grants & Reserves</div>
+                    <div className="text-green-400 font-bold">All Opted-In Users</div>
+                    <div className="text-star-dust/40 text-xs">The covenant pool, equally</div>
                   </div>
                 </div>
                 
@@ -299,22 +297,22 @@ export default function FinancialEcosystemPage() {
               <div className="p-4 bg-white/5 rounded-xl">
                 <div className="text-2xl font-bold text-neurospark">10%</div>
                 <div className="text-star-dust/60 text-sm">Platform Fee</div>
-                <div className="text-star-dust/30 text-xs">Fixed</div>
+                <div className="text-star-dust/30 text-xs">Fixed — 70% machine, 30% to the pool</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <div className="text-2xl font-bold text-purple-400">90%</div>
-                <div className="text-star-dust/60 text-sm">Creator Share</div>
-                <div className="text-star-dust/30 text-xs">Your work, your value</div>
+                <div className="text-star-dust/60 text-sm">Artisan Profit</div>
+                <div className="text-star-dust/30 text-xs">Divided equally among the ware&apos;s contributors</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
-                <div className="text-2xl font-bold text-pink-400">30-50%</div>
-                <div className="text-star-dust/60 text-sm">of fee → Contributors</div>
-                <div className="text-star-dust/30 text-xs">You choose per product</div>
+                <div className="text-2xl font-bold text-pink-400">0-50%</div>
+                <div className="text-star-dust/60 text-sm">of the profit → residual pool</div>
+                <div className="text-star-dust/30 text-xs">You choose per ware, default 0</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <div className="text-2xl font-bold text-green-400">0-50%</div>
-                <div className="text-star-dust/60 text-sm">of earnings → Community</div>
-                <div className="text-star-dust/30 text-xs">Voluntary covenant pledge</div>
+                <div className="text-star-dust/60 text-sm">of your own share → covenant pool</div>
+                <div className="text-star-dust/30 text-xs">You choose in the Sanctum, default 0</div>
               </div>
             </div>
           </section>
@@ -349,10 +347,10 @@ export default function FinancialEcosystemPage() {
                 </Link>   
               </div>
               <p className="text-sm text-star-dust/40 mt-8">
-                Platform fee: <span className="text-neurospark">10%</span> (industry standard is 30-50%)<br />
-                Creator share: <span className="text-purple-400">90%</span><br />
-                Residual pool: <span className="text-pink-400">0-50%</span> of fee (you choose per product)<br />
-                Covenant pledge: <span className="text-green-400">0-50%</span> of earnings (you choose in profile)<br />
+                Platform fee: <span className="text-neurospark">10%</span> (industry standard is 30-50%) — 70% of it funds the machine, 30% returns to the residual pool<br />
+                Artisan profit: <span className="text-purple-400">90%</span>, divided equally among the ware&apos;s contributors<br />
+                Residual pledge: <span className="text-pink-400">0-50%</span> of a ware&apos;s profit (you choose per ware, default 0)<br />
+                Covenant pledge: <span className="text-green-400">0-50%</span> of your own share of a sale (you choose in the Sanctum, default 0)<br />
                 No hidden fees. No dark patterns. Just truth.
                 <br />
                 This is what an economy looks like when it serves life, not extraction.

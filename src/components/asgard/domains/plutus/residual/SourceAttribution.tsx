@@ -25,34 +25,39 @@ interface AttributionSource {
 
 const sources: AttributionSource[] = [
   {
-    name: 'products.residual_pool_percent',
+    name: 'wares.residual_pool_percent · works.residual_pool_percent',
     icon: Database,
     color: 'cyan',
-    description: 'Sets the percentage of platform fees that flow to contributors',
+    description:
+      "The residual pledge, per ware: 0-50% of that ware's profit — the 90% left after the fee — set by its main artisan, default 0",
   },
   {
-    name: 'contributions table',
+    name: 'ware_participants · work_participants · artisan_profiles',
     icon: Database,
     color: 'purple',
-    description: 'Stores who contributed what and their share percentage',
+    description:
+      'Who contributed — never by how much. The residual pool’s headcount is every distinct vessel standing on any of the three, ever',
   },
   {
-    name: 'residual_payouts table',
+    name: 'residual_pool · covenant_pool',
     icon: Database,
     color: 'pink',
-    description: 'Records every residual payment to every contributor',
+    description:
+      'One balance each, and that balance is the whole state. A share is worked out at the moment of distribution: pool divided by recipients, less the transaction cost',
   },
   {
-    name: 'Database Triggers',
+    name: 'user_financial.covenant_pool_percent',
     icon: Code,
     color: 'green',
-    description: 'Automatically calculate and create payouts on every sale',
+    description:
+      "Each vessel's own covenant dial, set in the Sanctum: 0-50% of their own share of a sale, default 0, never applied to a pool payout",
   },
   {
-    name: 'Public Ledger View',
+    name: 'ledger',
     icon: FileText,
     color: 'cyan',
-    description: 'Viewable by anyone for full transparency',
+    description:
+      "Every movement, viewable by anyone — the fee's own 70/30 split included, and what each pool is holding",
   },
 ];
 

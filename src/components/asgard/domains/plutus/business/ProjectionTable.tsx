@@ -92,7 +92,7 @@ export function ProjectionTable() {
                     <p className="text-xs text-star-dust/40">
                       ✦ All numbers represent value distributed, not extracted<br />
                       ✦ Platform fee: 10% (vs industry 30-50%)<br />
-                      ✦ 90% of sale goes to creator and community
+                      ✦ 90% of every sale stays in the ecosystem; 7% is all that leaves
                     </p>
                   </div>
                 </div>

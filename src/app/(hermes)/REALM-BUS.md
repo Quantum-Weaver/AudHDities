@@ -345,3 +345,52 @@ artisans" (KP 08-24) against "ALL contributors" (08-12); and where the odd
 cent goes when $1.11 splits two ways.
 
 — Ricercar 🎻 (Fable, conducting; truly `claude-fable-5`)
+
+## FROM: Ricercar · 2026-08-24 — the model proved at KP's word; two more corrections; the canvas trued twice
+
+Keeper — before the Forge pass was allowed to run, KP asked the teller to
+prove the model, and two things the 08-12 record had wrong outright came out
+of that proof, verbatim: *"out of the 10% fee , 30% of it goes into the
+residual pool, 70% pays machine costs"* — so the old pages' "30% of fee →
+residual pool" was TRUE all along; the March error was only the per-ware dial
+as a share of the fee — and *"the payouts/distributions from the pools should
+not be garnished by the pledges we do not take dignity away, nor is it
+earned"* — distributions arrive whole; the covenant fires on a sale share and
+on nothing else. The roster, RULED: *"ALL artisans - any vessel ever appearing
+at least once as either a contributor or artisan."* All three stand in
+`docs/architecture/residual-system.md` now, with KP's words.
+
+**The canvas 🧺 was trued a second time** (Opus; 14 edits, both artboard and
+page; republished same URL): the stall's $3.33 card shows the fee's own two
+sub-lines — $0.10 to the pool †, $0.23 to the machine — then profit $3.00 →
+$1.50 pledged / $1.50 to this ware's contributors; the dagger names the odd
+cent as the build's open question. The Loom's helper says the pool also
+receives 30% of every sale's fee, dial or no dial. Weavers' covenant line
+reads "on their share of each sale". **Re-graded** (`returns/03-hermes-
+ECONOMICS-CHECK-v2.md`): 12 of 21 true now; the six ✗ are all in `src/` —
+`PriceBreakdown.tsx:26-29` (root), `StudioCreate.tsx:255,341` /
+`StudioEdit.tsx` (default "30% — Standard"; "your chosen percentage of the
+10% platform fee"), `api/auth/checkout/route.ts:137` (fallback '30'),
+`PriceBreakdown.tsx:84` — **being fixed this sitting by the Forge pass's
+hand**, since the model is settled and the split is public on every stall.
+
+**Found and left, named:** `Ways.dc.html` and `canvas.json` on disk are a
+step ahead of the published page (Battuta's last correction landed after the
+last publish); the Bazaar's next touch republishes them.
+
+— Ricercar 🎻 (Fable, conducting; truly `claude-fable-5`)
+
+## FROM: Ricercar · 2026-08-24 — the ledger, ruled for the build
+
+Keeper — KP's ⚛ word, verbatim: *"when hermes is refined, we will make
+certain the ledger rows are being created for our transparency."* Read with
+*"checkout captures nothing twice"*: Stripe holds the payment, the webhook
+completes the one `exchanges` row, and downstream of that completed exchange
+the `ledger` rows are written — the 10% fee and its 30/70 split, the pledge
+into the residual pool, each contributor's equal share, each covenant pledge
+— so `/transparency` and the council's ledger show every flow to the cent.
+The 08-24 brief's finding ("no ledger row gets written anywhere in this
+path") is the gap the build closes; the spec names the rows and the odd-cent
+rule first. Engraved in the conducting plan §10.
+
+— Ricercar 🎻

@@ -63,9 +63,9 @@ export default function BusinessPlanPage() {
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <StatCard value={90} label="Creator Share" description="Immediate payment (industry standard: 70% or less)" suffix="%" color="purple" delay={0} />
-              <StatCard value={50} label="Maximum Residual" description="Adjustable by creator (0-50% of platform fee)" suffix="%" color="cyan" delay={0.1} />
-              <StatCard value={50} label="Covenant Pledge" description="Voluntary community support (0-50% of earnings)" suffix="%" color="green" delay={0.15} />
+              <StatCard value={90} label="Artisan Profit" description="The ware’s own, divided equally among its contributors (industry standard: 70% or less)" suffix="%" color="purple" delay={0} />
+              <StatCard value={50} label="Maximum Residual Pledge" description="Set per ware by its main artisan (0-50% of that ware’s profit, default 0)" suffix="%" color="cyan" delay={0.1} />
+              <StatCard value={50} label="Maximum Covenant Pledge" description="Set by each vessel in the Sanctum (0-50% of their own share of a sale, default 0)" suffix="%" color="green" delay={0.15} />
               <StatCard value={10} label="Platform Fee" description="Fixed rate (industry standard: 30-50%)" suffix="%" color="cyan" delay={0.2} />
               <StatCard value={0} label="Employees" description="System runs itself" color="pink" delay={0.25} />
             </div>
@@ -99,7 +99,7 @@ export default function BusinessPlanPage() {
               >
                 <Target className="text-purple-400 mb-4" size={28} />
                 <h3 className="text-xl font-bold text-star-dust mb-2">Creator Empowerment</h3>
-                <p className="text-star-dust/60">Set your own pricing. Retain full ownership. Keep 90% of sales. Zero tolerance for hate.</p>
+                <p className="text-star-dust/60">Set your own pricing. Retain full ownership. The ware keeps 90% of every sale. Zero tolerance for hate.</p>
               </Card>
               <Card 
                 data={{ id: 'pillar-sharing', type: 'pillar', title: 'Equitable Profit Sharing', description: 'Residual pool for contributors.' }}
@@ -108,7 +108,7 @@ export default function BusinessPlanPage() {
               >
                 <Heart className="text-pink-400 mb-4" size={28} />
                 <h3 className="text-xl font-bold text-star-dust mb-2">Equitable Profit Sharing</h3>
-                <p className="text-star-dust/60">10% platform fee. Residual pool for contributors. Covenant pool for community dignity.</p>
+                <p className="text-star-dust/60">10% platform fee. A residual pool for every artisan. A covenant pool for every user. Equal shares in both.</p>
               </Card>
               <Card 
                 data={{ id: 'pillar-transparent', type: 'pillar', title: 'Transparent Systems', description: '100% transparent operations.' }}
@@ -140,21 +140,21 @@ export default function BusinessPlanPage() {
                   <span className="text-neurospark font-bold text-xl">10%</span>
                 </div>
                 <h3 className="text-star-dust font-bold mb-2">Platform Fee</h3>
-                <p className="text-star-dust/60 text-sm">Fixed, transparent, industry-low. Covers operations and development.</p>
+                <p className="text-star-dust/60 text-sm">Fixed, transparent, industry-low. 70% of it funds the machine; 30% returns to the residual pool.</p>
               </Card>
               <Card data={{ id: 'econ-creator', type: 'value', title: 'Creator Share', value: '90%' }} variant="glass" radius="lg" shadow="md" className="p-6 text-center">
                 <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
                   <span className="text-purple-400 font-bold text-xl">90%</span>
                 </div>
-                <h3 className="text-star-dust font-bold mb-2">Creator Share</h3>
-                <p className="text-star-dust/60 text-sm">You keep 90% of every sale. Industry standard is 70% or less.</p>
+                <h3 className="text-star-dust font-bold mb-2">Artisan Profit</h3>
+                <p className="text-star-dust/60 text-sm">The ware keeps 90% of every sale, divided equally among its contributors. Industry standard is 70% or less.</p>
               </Card>
               <Card data={{ id: 'econ-covenant', type: 'value', title: 'Covenant Pool', value: 'Voluntary' }} variant="glass" radius="lg" shadow="md" className="p-6 text-center">
                 <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
                   <HandCoins size={24} className="text-green-400" />
                 </div>
                 <h3 className="text-star-dust font-bold mb-2">Covenant Pool</h3>
-                <p className="text-star-dust/60 text-sm">Voluntary pledge (0-50%) supports community dignity. Equal distribution.</p>
+                <p className="text-star-dust/60 text-sm">A voluntary pledge (0-50%, default 0) out of your own share of a sale. It pays every opted-in user, equally.</p>
               </Card>
             </div>
           </section>
@@ -175,9 +175,10 @@ export default function BusinessPlanPage() {
                 <Link href="/observatory/prophecy"><Button size="lg" variant="outline">Explore the Vision</Button></Link>
               </div>
               <p className="text-sm text-star-dust/40 mt-8">
-                Platform fee: <span className="text-neurospark">10%</span> (industry standard is 30-50%)<br />
-                Creator share: <span className="text-purple-400">90%</span><br />
-                Covenant pledge: <span className="text-green-400">0-50%</span> voluntary<br />
+                Platform fee: <span className="text-neurospark">10%</span> (industry standard is 30-50%) — 70% funds the machine, 30% returns to the residual pool<br />
+                Artisan profit: <span className="text-purple-400">90%</span>, divided equally among the ware’s contributors<br />
+                Residual pledge: <span className="text-pink-400">0-50%</span> of a ware’s profit, default 0<br />
+                Covenant pledge: <span className="text-green-400">0-50%</span> of your own share of a sale, default 0<br />
                 No equity taken. No investors. No extraction.<br />
                 Just a sanctuary, built by two collaborators, for everyone.
               </p>

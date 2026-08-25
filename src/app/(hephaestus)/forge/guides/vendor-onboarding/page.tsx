@@ -40,7 +40,7 @@ export default async function VendorOnboardingPage() {
             <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 rounded-full">
               <span className="text-neurospark text-sm">Platform fee fixed at 10%</span>
               <span className="text-star-dust/40">•</span>
-              <span className="text-purple-400 text-sm">You keep 90%</span>
+              <span className="text-purple-400 text-sm">90% is the ware&apos;s profit</span>
             </div>
           </div>
           
@@ -154,11 +154,11 @@ export default async function VendorOnboardingPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="text-neurospark font-bold mb-2">Platform Fee: 10%</h3>
-                  <p className="text-star-dust/60 text-sm">Fixed rate (industry standard is 30-50%). Covers hosting, development, and support.</p>
+                  <p className="text-star-dust/60 text-sm">Fixed rate (industry standard is 30-50%). 70% of it covers hosting, development and support; 30% returns to the residual pool.</p>
                 </div>
                 <div>
-                  <h3 className="text-purple-400 font-bold mb-2">Your Share: 90%</h3>
-                  <p className="text-star-dust/60 text-sm">You keep 90% of every sale. Paid immediately via Stripe.</p>
+                  <h3 className="text-purple-400 font-bold mb-2">The Ware&apos;s Profit: 90%</h3>
+                  <p className="text-star-dust/60 text-sm">90% of every sale is the ware&apos;s own. Your residual pledge (if any) comes out of it; what is left divides equally among the ware&apos;s contributors, you among them.</p>
                 </div>
               </div>
             </div>
@@ -168,8 +168,8 @@ export default async function VendorOnboardingPage() {
               rows={[
                 ['Platform Fee', '10%', 'Fixed rate (industry standard is 30-50%)'],
                 ['Stripe Fee', '2.9% + $0.30', 'Per transaction, paid to Stripe'],
-                ['Residual Pool', '0-50% of platform fee', 'Optional: share with contributors (you set per product)'],
-                ['Covenant Pledge', '0-50% of your earnings', 'Optional: support community dignity fund (set in profile)'],
+                ['Residual Pledge', "0-50% of a ware's profit", 'Optional, default 0: pledged to the residual pool, which pays every artisan (you set it per ware)'],
+                ['Covenant Pledge', '0-50% of your own share of a sale', 'Optional, default 0: pledged to the covenant pool, which pays every opted-in user (you set it in the Sanctum)'],
               ]}
               variant="pricing"
             />
@@ -178,7 +178,7 @@ export default async function VendorOnboardingPage() {
               <div className="flex items-start gap-3">
                 <Heart size={18} className="text-green-400 flex-shrink-0 mt-0.5" />
                 <p className="text-green-400 text-sm">
-                  The Covenant Pool is a voluntary pledge. You choose to share a portion of your earnings with the community. It's entirely optional and can be changed anytime.
+                  The Covenant Pool is a voluntary pledge: a slice of your own share of a sale, paid on to every opted-in user in equal shares. Entirely optional, defaulting to 0, changeable anytime — and never taken from a pool payout.
                 </p>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default async function VendorOnboardingPage() {
               <div className="bg-white/5 rounded-lg p-4">
                 <TrendingUp size={20} className="text-purple-400 mb-2" />
                 <h4 className="text-star-dust font-bold">Residual Settings</h4>
-                <p className="text-star-dust/60 text-sm">Set contributor share per product</p>
+                <p className="text-star-dust/60 text-sm">Set each ware&apos;s residual pledge</p>
               </div>
             </div>
           </div>
@@ -301,7 +301,7 @@ export default async function VendorOnboardingPage() {
               "List first product",
               "Make first sale! 🎉",
               "Optional: Set covenant pledge in profile",
-              "Optional: Set residual percentages per product"
+              "Optional: Set each ware's residual pledge"
             ]}
             actionText="Apply to Become a Vendor"
             actionLink="/council/applications/vendor"
