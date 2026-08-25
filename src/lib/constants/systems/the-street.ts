@@ -47,6 +47,11 @@ export const THE_STREET: StreetRealm[] = [
     whisper: 'Home — you are here',
     alwaysOpen: true,
     rooms: [
+      // 2026-08-24, board ②'s mend (the four-item bar). `/` was the one door
+      // that lost its bar item and landed NOWHERE — it appears in no other
+      // realm's rooms, and the Header's wordmark points at /vessel. The map
+      // is where retired doors go, by KP's own sentence, so `/` goes here.
+      { href: '/', label: 'The Hearth' },
       { href: '/vessel', label: 'The Vessel' },
       { href: '/vessel/home', label: 'The Home' },
       { href: '/vessel/sanctum', label: 'The Sanctum' },
