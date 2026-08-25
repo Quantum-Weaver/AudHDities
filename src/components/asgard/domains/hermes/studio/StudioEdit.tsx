@@ -204,18 +204,18 @@ export function StudioEdit() {
               href={`/bazaar/wares/${ware.id}`}
               className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               Back to work
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">Refine Your Thread</h1>
             <p className="text-sm text-star-dust/40 mt-1">{ware.name}</p>
           </div>
           <div className="flex items-center gap-2">
-            {ware.status === 'published' ? (
-              <Badge variant="outline" size="sm" className="text-[10px] bg-emerald-500/20 text-emerald-400">Published</Badge>
-            ) : (
-              <Badge variant="outline" size="sm" className="text-[10px] bg-amber-500/20 text-amber-400 capitalize">{ware.status}</Badge>
-            )}
+            <Badge variant="outline" size="sm" className="text-[10px]">
+              {ware.status === 'published' ? 'On the stall'
+                : ware.status === 'archived' ? 'Set aside'
+                  : 'Draft'}
+            </Badge>
           </div>
         </div>
 

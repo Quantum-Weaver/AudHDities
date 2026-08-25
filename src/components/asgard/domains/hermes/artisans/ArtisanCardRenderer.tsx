@@ -81,12 +81,6 @@ export const ArtisanCardRenderer: React.FC<ArtisanCardRendererProps> = ({
       {creator.description && (
         <CardContent description={creator.description} />
       )}
-      {creator.productCount !== undefined && (
-        <div className="flex items-center gap-1 text-xs text-star-dust/40 mt-2">
-          <Package size={12} />
-          <span>{creator.productCount} works</span>
-        </div>
-      )}
     </Card>
   );
 };

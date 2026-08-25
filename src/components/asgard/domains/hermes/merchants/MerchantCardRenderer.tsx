@@ -73,11 +73,6 @@ export const MerchantCardRenderer: React.FC<MerchantCardRendererProps> = ({
         <CardContent description={vendor.description} />
       )}
       <div className="flex items-center gap-3 mt-2 flex-wrap">
-        {vendor.productCount !== undefined && (
-          <span className="flex items-center gap-1 text-xs text-star-dust/40">
-            <Package size={12} />{vendor.productCount} wares
-          </span>
-        )}
         {vendor.website && (
           <span className="flex items-center gap-1 text-xs text-star-dust/40">
             <Globe size={12} />{vendor.website}
