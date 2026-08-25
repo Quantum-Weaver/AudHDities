@@ -89,36 +89,41 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
   '/bazaar': { 
     default: 'community',
     title: 'The Bazaar',
-    subtitle: 'Discover creations from sovereign souls'
+    subtitle: 'Works offered by sovereign souls'
   },
-  '/bazaar/creations': { 
+  '/bazaar/wares': { 
     default: 'community',
-    title: 'Creations',
-    subtitle: 'Explore the collective'
+    title: 'The Tapestry',
+    subtitle: 'What sovereign souls have made, and what they offer'
   },
-  '/bazaar/creations/*': { 
+  '/bazaar/wares/*': { 
     default: 'community',
-    title: 'Creation Detail',
+    title: 'A ware',
     subtitle: 'A sovereign offering'
   },
-  '/bazaar/creators': { 
+  '/bazaar/works/*': { 
     default: 'community',
-    title: 'Creators',
-    subtitle: 'Meet the weavers'
+    title: 'A work',
+    subtitle: 'Here because it was made'
   },
-  '/bazaar/creators/*': { 
+  '/bazaar/artisans': { 
     default: 'community',
-    title: 'Creator Sanctuary',
+    title: 'The Weavers',
+    subtitle: 'The artisans, and what is on their looms'
+  },
+  '/bazaar/artisans/*': { 
+    default: 'community',
+    title: 'A weaver',
     subtitle: 'Their sovereign journey'
   },
-  '/bazaar/vendors': { 
+  '/bazaar/merchants': { 
     default: 'community',
-    title: 'Vendors',
-    subtitle: 'Sovereign commerce'
+    title: 'The Guild',
+    subtitle: 'Vessels who keep a stall here'
   },
-  '/bazaar/vendors/*': { 
+  '/bazaar/merchants/*': { 
     default: 'community',
-    title: 'Vendor Sanctuary',
+    title: 'A guild member',
     subtitle: 'Their craft, their sovereignty'
   },
   '/bazaar/studio': { 
@@ -126,15 +131,28 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Loom',
     subtitle: 'Create your offering'
   },
+  // 2026-08-25 — V refuted the two new doors falling to the edit wildcard
+  // ("Edit Creation" — a retired word, live). Exact entries first; the
+  // wildcard keeps the id-edit room only, in the ruled words.
+  '/bazaar/studio/work': { 
+    default: 'music',
+    title: 'A new work',
+    subtitle: 'Every work begins with a single thread'
+  },
+  '/bazaar/studio/ware': { 
+    default: 'music',
+    title: 'A new ware',
+    subtitle: 'Every work begins with a single thread'
+  },
   '/bazaar/studio/*': { 
     default: 'music',
-    title: 'Edit Creation',
+    title: 'Edit your work or ware',
     subtitle: 'Refine your offering'
   },
   '/bazaar/contributions': { 
     default: 'library',
-    title: 'Contributions Ledger',
-    subtitle: 'Your impact, recorded'
+    title: 'Contributions',
+    subtitle: 'Your part in every work, recorded'
   },
   '/bazaar/checkout': { 
     default: 'home',

@@ -1,24 +1,9 @@
-// src/app/(hermes)/bazaar/creations/page.tsx
-import { Suspense } from 'react';
-import { Page } from '@/components/bifrost/Page';
-import { CreationsGallery } from '@/components/asgard/domains/hermes/creations/CreationsGallery';
+// src/app/(hermes)/bazaar/creations/page.tsx - the old word, kept as a door.
+// The route was renamed 2026-08-25 (KP's word: creations should be wares,
+// creators should be artisans, vendors should be merchants). A saved or pasted
+// link still lands.
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'The Tapestry | Sovereign Sanctuary',
-  description: 'Discover works from sovereign souls',
-};
-
-export default function CreationsPage() {
-  return (
-    <Page showForeground={false} showContinuityBeam={true}>
-      {/* Suspense boundary required by Next 16 for useSearchParams (B5) */}
-      <Suspense fallback={
-        <div className="text-center py-12">
-          <div className="animate-pulse text-star-dust/40">Loading...</div>
-        </div>
-      }>
-        <CreationsGallery />
-      </Suspense>
-    </Page>
-  );
+export default function CreationsRedirect() {
+  permanentRedirect('/bazaar/wares');
 }

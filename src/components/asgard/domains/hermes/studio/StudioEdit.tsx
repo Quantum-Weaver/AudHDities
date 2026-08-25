@@ -1,6 +1,6 @@
-﻿// src/components/asgard/domains/hermes/studio/StudioEdit.tsx
+// src/components/asgard/domains/hermes/studio/StudioEdit.tsx
 // Wares edition (2026-07-31): the tier ladder died with the products
-// table â€” one base price + pricing_model, status enum instead of
+// table — one base price + pricing_model, status enum instead of
 // is_published/active. The publish switch is now genuinely wired (the
 // old form's switch was decorative: no name, no state, never saved).
 'use client';
@@ -23,9 +23,9 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables, TablesUpdate } from '@/lib/generated/supabase/database.helpers.js';
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════════════
 // CONSTANTS
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════════════
 
 const WARE_TYPES = [
   { value: 'digital', label: 'Digital' },
@@ -34,10 +34,10 @@ const WARE_TYPES = [
 ];
 
 const PRICING_MODELS = [
-  { value: 'free', label: 'Free â€” given to anyone who receives it' },
-  { value: 'fixed', label: 'Fixed â€” one base price, solidarity-adjusted at the Exchange' },
-  { value: 'pay_what_you_want', label: 'Pay what you want â€” the price is a floor, not a wall' },
-  { value: 'patronage_only', label: 'Patronage only â€” for patrons of your work' },
+  { value: 'free', label: 'Gifted — given to anyone who receives it' },
+  { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
+  { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
+  { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
 ];
 
 const RESIDUAL_OPTIONS = [
@@ -51,9 +51,9 @@ const RESIDUAL_OPTIONS = [
 
 type WareItem = Tables<'wares'>;
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════════════
 // COMPONENT
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════════════
 
 export function StudioEdit() {
   const params = useParams();
@@ -129,13 +129,13 @@ export function StudioEdit() {
       if (result.success) {
         setSaveMessage('Work updated.');
         setTimeout(() => {
-          router.push(`/bazaar/creations/${ware.id}`);
+          router.push(`/bazaar/wares/${ware.id}`);
         }, 800);
       } else {
-        setSaveMessage(result.error || 'Failed to update');
+        setSaveMessage(result.error || 'The change was not saved this time. It is safe to try again.');
       }
     } catch (err) {
-      setSaveMessage('Failed to save. Please try again.');
+      setSaveMessage('The change was not saved this time. It is safe to try again.');
     } finally {
       setIsSaving(false);
       if (saveMessage) setTimeout(() => setSaveMessage(null), 3000);
@@ -161,7 +161,7 @@ export function StudioEdit() {
     }
   };
 
-  // â”€â”€â”€ Loading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Loading ─────────────────────────────────────────────────────
   if (loading) {
     return (
       <main className="min-h-screen py-12">
@@ -174,7 +174,7 @@ export function StudioEdit() {
     );
   }
 
-  // â”€â”€â”€ Not Found â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Not Found ───────────────────────────────────────────────────
   if (!ware) {
     return (
       <main className="min-h-screen py-12">
@@ -201,21 +201,21 @@ export function StudioEdit() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <Link
-              href={`/bazaar/creations/${ware.id}`}
+              href={`/bazaar/wares/${ware.id}`}
               className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               Back to work
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">Refine Your Thread</h1>
             <p className="text-sm text-star-dust/40 mt-1">{ware.name}</p>
           </div>
           <div className="flex items-center gap-2">
-            {ware.status === 'published' ? (
-              <Badge variant="outline" size="sm" className="text-[10px] bg-emerald-500/20 text-emerald-400">Published</Badge>
-            ) : (
-              <Badge variant="outline" size="sm" className="text-[10px] bg-amber-500/20 text-amber-400 capitalize">{ware.status}</Badge>
-            )}
+            <Badge variant="outline" size="sm" className="text-[10px]">
+              {ware.status === 'published' ? 'On the stall'
+                : ware.status === 'archived' ? 'Set aside'
+                  : 'Draft'}
+            </Badge>
           </div>
         </div>
 
@@ -274,7 +274,7 @@ export function StudioEdit() {
               <FormField
                 label="Base Price"
                 optional
-                helper="Leave empty for free or patronage-only works. For pay-what-you-want, this is the suggested floor."
+                helper="Leave empty for gifted or patronage-only works. For pay-what-you-want, this is the suggested floor."
               >
                 <Input
                   name="price"

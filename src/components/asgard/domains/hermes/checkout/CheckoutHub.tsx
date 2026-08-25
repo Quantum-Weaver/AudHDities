@@ -16,7 +16,7 @@ export function CheckoutHub() {
           href="/bazaar"
           className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-8"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Return to the Bazaar
         </Link>
 
@@ -39,14 +39,14 @@ export function CheckoutHub() {
               <p className="text-xs text-star-dust/50">Browse the Tapestry and find a work you love.</p>
             </div>
             <div className="text-center">
-              <CreditCard className="h-8 w-8 text-purple-400 mx-auto mb-2" />
+              <CreditCard className="h-8 w-8 text-quantum-purple mx-auto mb-2" />
               <h3 className="text-sm font-medium text-star-dust mb-1">2. Bring home</h3>
               <p className="text-xs text-star-dust/50">Secure payment via Stripe. Solidarity pricing, computed for you — the full split shown before anything is charged.</p>
             </div>
             <div className="text-center">
-              <Shield className="h-8 w-8 text-emerald-400 mx-auto mb-2" />
+              <Shield className="h-8 w-8 text-sanctuary-green mx-auto mb-2" />
               <h3 className="text-sm font-medium text-star-dust mb-1">3. Circulate</h3>
-              <p className="text-xs text-star-dust/50">90% to artisan. 10% platform fee — up to 50% flows to contributors forever.</p>
+              <p className="text-xs text-star-dust/50">90% to the ware&apos;s contributors, divided equally. 10% platform fee, of which 30% returns to the residual pool on every sale.</p>
             </div>
           </div>
         </Card>
@@ -67,22 +67,22 @@ export function CheckoutHub() {
             </div>
             <div className="flex justify-between py-2 border-b border-white/5">
               <span className="text-star-dust/60">Artisan Share</span>
-              <span className="text-purple-400 font-medium">90%</span>
+              <span className="text-quantum-purple font-medium">90%</span>
             </div>
             <div className="flex justify-between py-2 border-b border-white/5">
-              <span className="text-star-dust/60">Residual Pool</span>
-              <span className="text-emerald-400 font-medium">0-50% of platform fee</span>
+              <span className="text-star-dust/60">Of the fee, to the residual pool</span>
+              <span className="text-sanctuary-green font-medium">30%, fixed</span>
             </div>
             <div className="flex justify-between py-2">
-              <span className="text-star-dust/60">Industry Standard Platform Fee</span>
-              <span className="text-star-dust/30">30-50%</span>
+              <span className="text-star-dust/60">The artisan&apos;s own pledge, out of their 90%</span>
+              <span className="text-star-dust/60 font-medium">0-50%, their choice</span>
             </div>
           </div>
         </Card>
 
         {/* CTA */}
         <div className="text-center">
-          <Link href="/bazaar/creations">
+          <Link href="/bazaar/wares">
             <Button variant="primary" size="lg">
               Browse the Tapestry
             </Button>

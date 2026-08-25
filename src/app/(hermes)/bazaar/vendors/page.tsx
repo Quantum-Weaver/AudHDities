@@ -1,16 +1,9 @@
-// src/app/(hermes)/bazaar/vendors/page.tsx
-import { Page } from '@/components/bifrost/Page';
-import { VendorsGallery } from '@/components/asgard/domains/hermes/vendors/VendorsGallery';
+// src/app/(hermes)/bazaar/vendors/page.tsx - the old word, kept as a door.
+// The route was renamed 2026-08-25 (KP's word: creations should be wares,
+// creators should be artisans, vendors should be merchants). A saved or pasted
+// link still lands.
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'The Guild | Sovereign Sanctuary',
-  description: 'Meet the merchants of the Sanctuary',
-};
-
-export default function VendorsPage() {
-  return (
-    <Page showForeground={false} showContinuityBeam={true}>
-      <VendorsGallery />
-    </Page>
-  );
+export default function VendorsRedirect() {
+  permanentRedirect('/bazaar/merchants');
 }

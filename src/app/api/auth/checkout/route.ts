@@ -8,6 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { stripe as getStripe } from '@/lib/stripe/server';
+import { recurrenceOf, stripePriceIdOf } from '@/lib/economics/recurrence';
 
 interface CheckoutRequest {
   wareId?: string;
@@ -112,21 +113,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Failed to create exchange record' }, { status: 500 });
     }
 
-    const session = await getStripe().checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: [{
-        price_data: {
-          currency: ware.currency || 'usd',
-          product_data: {
-            name: ware.name,
-            description: ware.description || undefined,
-            images: ware.cover_url ? [ware.cover_url] : undefined,
-          },
-          unit_amount: Math.round(finalAmount * 100),
-        },
-        quantity,
-      }],
-      mode: 'payment',
+    // A RUNG IS A WARE THAT REPEATS. The `payment` path below is untouched for
+    // every one-time ware; the subscription path stands BESIDE it and is taken
+    // only where the ware carries a recurrence.
+    //
+    // A LAMP CREATES NO STRIPE OBJECT. The Price for a rung is made by KP's own
+    // hand in the dashboard; this route reads its id and never mints one.
+    const common = {
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/bazaar/checkout/success?session_id={CHECKOUT_SESSION_ID}&exchange_id=${exchange.id}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/bazaar/checkout/cancel`,
       metadata: {
@@ -139,7 +132,42 @@ export async function POST(request: NextRequest) {
       },
       client_reference_id: user.id,
       customer_email: user.email,
-    });
+    };
+
+    const recurrence = recurrenceOf(ware);
+    let session;
+    if (recurrence) {
+      const priceId = stripePriceIdOf(ware);
+      if (!priceId) {
+        return NextResponse.json(
+          { error: 'This rung has no Stripe price behind it yet.' },
+          { status: 409 },
+        );
+      }
+      session = await getStripe().checkout.sessions.create({
+        ...common,
+        line_items: [{ price: priceId, quantity: 1 }],
+        mode: 'subscription',
+      });
+    } else {
+      session = await getStripe().checkout.sessions.create({
+        ...common,
+        payment_method_types: ['card'],
+        line_items: [{
+          price_data: {
+            currency: ware.currency || 'usd',
+            product_data: {
+              name: ware.name,
+              description: ware.description || undefined,
+              images: ware.cover_url ? [ware.cover_url] : undefined,
+            },
+            unit_amount: Math.round(finalAmount * 100),
+          },
+          quantity,
+        }],
+        mode: 'payment',
+      });
+    }
 
     await supabase
       .from('exchanges')
@@ -150,6 +178,14 @@ export async function POST(request: NextRequest) {
       sessionId: session.id,
       url: session.url,
       exchangeId: exchange.id,
+      // The plate's number and the number that would actually be charged, so
+      // the crossing can show the difference where the acid test moved it and
+      // pass straight through where it did not. Law 7: the buyer sees the
+      // split at the moment of purchase.
+      plateAmount: baseAmount,
+      chargedAmount: finalAmount,
+      residualPoolPercent: ware.residual_pool_percent ?? 0,
+      recurring: Boolean(recurrence),
     });
 
   } catch (error) {

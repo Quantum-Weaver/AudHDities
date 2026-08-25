@@ -16,15 +16,37 @@ interface CheckoutParams {
   amount?: number; // pay_what_you_want offers (floor enforced server-side)
 }
 
+/**
+ * THE ADJUSTED-PRICE SCREEN (SPEC §3⑥).
+ *
+ * Until 2026-08-25 this hook sent the vessel straight to Stripe with whatever
+ * came back, so where the acid test moved the number a vessel read one price on
+ * the plate and met another at the till with no screen in between — and law 7
+ * says the buyer sees the split AT THE MOMENT OF PURCHASE.
+ *
+ * The crossing is held ONLY when the number changed. Where it did not, this is
+ * null and the road is exactly what it was.
+ */
+export interface HeldCrossing {
+  url: string;
+  plateAmount: number;
+  chargedAmount: number;
+  residualPoolPercent: number;
+}
+
 interface UseCheckoutReturn {
   initiateCheckout: (params: CheckoutParams) => Promise<void>;
   loading: boolean;
   error: string | null;
+  heldCrossing: HeldCrossing | null;
+  goOnToPayment: () => void;
+  notNow: () => void;
 }
 
 export function useCheckout(): UseCheckoutReturn {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [heldCrossing, setHeldCrossing] = useState<HeldCrossing | null>(null);
   const router = useRouter();
   const { user } = useAuth();
 
@@ -56,6 +78,22 @@ export function useCheckout(): UseCheckoutReturn {
         throw new Error('No checkout URL returned');
       }
 
+      const plate = typeof checkoutData.plateAmount === 'number' ? checkoutData.plateAmount : null;
+      const charged = typeof checkoutData.chargedAmount === 'number' ? checkoutData.chargedAmount : null;
+      const moved =
+        plate !== null && charged !== null &&
+        Math.round(plate * 100) !== Math.round(charged * 100);
+
+      if (moved) {
+        setHeldCrossing({
+          url: checkoutData.url,
+          plateAmount: plate as number,
+          chargedAmount: charged as number,
+          residualPoolPercent: Number(checkoutData.residualPoolPercent ?? 0),
+        });
+        return;
+      }
+
       window.location.href = checkoutData.url;
     } catch (err) {
       console.error('Checkout error:', err);
@@ -65,7 +103,15 @@ export function useCheckout(): UseCheckoutReturn {
     }
   }, [user, router]);
 
-  return { initiateCheckout, loading, error };
+  const goOnToPayment = useCallback(() => {
+    if (heldCrossing) window.location.href = heldCrossing.url;
+  }, [heldCrossing]);
+
+  // Not now. Nothing is charged, nothing is chased, nothing is remembered at
+  // the vessel to be offered back later.
+  const notNow = useCallback(() => setHeldCrossing(null), []);
+
+  return { initiateCheckout, loading, error, heldCrossing, goOnToPayment, notNow };
 }
 
 export function usePendingPurchase() {

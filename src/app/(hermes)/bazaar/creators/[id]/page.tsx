@@ -1,16 +1,10 @@
-// src/app/(hermes)/bazaar/creators/[id]/page.tsx
-import { Page } from '@/components/bifrost/Page';
-import { CreatorDetail } from '@/components/asgard/domains/hermes/creators/CreatorDetail';
+// src/app/(hermes)/bazaar/creators/[id]/page.tsx - the old word, kept as a door.
+// The route was renamed 2026-08-25 (KP's word: creations should be wares,
+// creators should be artisans, vendors should be merchants). A saved or pasted
+// link still lands, id and all.
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Weaver | The Weavers | Sovereign Sanctuary',
-  description: 'A sovereign journey',
-};
-
-export default function CreatorDetailPage() {
-  return (
-    <Page showForeground={false} showContinuityBeam={true}>
-      <CreatorDetail />
-    </Page>
-  );
+export default async function CreatorRedirect({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  permanentRedirect(`/bazaar/artisans/${id}`);
 }

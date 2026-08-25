@@ -23,6 +23,7 @@ import { Card } from "@/components/runes/Card";
 import { Spinner } from "@/components/yggdrasil/Spinner";
 import { CheckCircle, AlertCircle, Home } from "lucide-react";
 import { useUser } from "@/hooks/useUser";
+import { TheBodies } from "@/components/asgard/domains/hermes/wares/TheBodies";
 import { useVesselRoomsList } from "@/lib/generated/hooks/hestia-core/vessel_rooms";
 import { useCreateVesselDecorations } from "@/lib/generated/hooks/hestia-core/vessel_decorations";
 
@@ -191,6 +192,14 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       {/* The third word at the going — a goodbye carrying a return inside it */}
       <p className="text-star-dust/40 text-sm italic mb-6">Gweld ti&apos;n fuan — see you soon.</p>
 
+      {/* THE DELIVERY (§9) — your copy is ready. The link is minted at the ask
+          and a fresh one is handed over whenever it is asked for again. */}
+      {kept?.kind === "ware" && (
+        <div className="mb-6 text-left">
+          <TheBodies wareId={kept.id} heading="Your copy is ready" />
+        </div>
+      )}
+
       {/* THE HANGING — the loop's last link, offered never imposed.
           The exchange completes at the vessel's fire. */}
       {kept && !hungIn && rooms.data.length > 0 && (
@@ -233,7 +242,7 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       )}
 
       <div className="flex gap-3 justify-center">
-        <Button onClick={() => router.push("/bazaar/creations")}>Return to the Tapestry</Button>
+        <Button onClick={() => router.push("/bazaar/wares")}>Return to the Tapestry</Button>
         <Button variant="outline" onClick={() => router.push("/vessel/home")}>Stand in your home</Button>
       </div>
     </Card>

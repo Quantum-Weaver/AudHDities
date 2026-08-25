@@ -388,11 +388,11 @@ export function ConstellationContent() {
 
           const artisan = aRes?.success ? (aRes.data?.data || [])[0] : undefined;
           if (artisan) {
-            heldStars.push({ id: 'creator-profile', label: 'Your creator profile', href: `/bazaar/creators/${artisan.id}`, color: '#6C5CE7' });
+            heldStars.push({ id: 'creator-profile', label: 'Your artisan profile', href: `/bazaar/artisans/${artisan.id}`, color: '#6C5CE7' });
           }
           const merchant = mRes?.success ? (mRes.data?.data || [])[0] : undefined;
           if (merchant) {
-            heldStars.push({ id: 'merchant-profile', label: 'Your merchant profile', href: `/bazaar/vendors/${merchant.id}`, color: '#E84393' });
+            heldStars.push({ id: 'merchant-profile', label: 'Your merchant profile', href: `/bazaar/merchants/${merchant.id}`, color: '#E84393' });
           }
         } catch {
           // A door that will not open is not a star that gets invented.
@@ -612,7 +612,7 @@ export function ConstellationContent() {
                 <p className="text-sm text-star-dust/80">Your quests</p>
               </Card>
             </Link>
-            <Link href="/bazaar/creations">
+            <Link href="/bazaar/wares">
               <Card
                 data={{ id: 'summary-products', type: 'value', title: 'Your creations', value: '' }}
                 variant="interactive"
