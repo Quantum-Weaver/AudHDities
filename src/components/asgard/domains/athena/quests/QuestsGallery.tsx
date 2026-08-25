@@ -17,7 +17,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 const DIFFICULTY_COLORS: Record<string, string> = {
   beginner: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
   intermediate: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  advanced: 'bg-red-500/20 text-red-400 border-red-500/30',
+  advanced: 'bg-fire-base/20 text-fire-light border-fire-base/30',
   master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
 
@@ -80,7 +80,7 @@ export function QuestsGallery() {
             Return to the Library
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Path</h1>
-          <p className="text-sm text-star-dust/40 mt-1">Quests that shape your sovereignty</p>
+          <p className="text-sm text-star-dust/70 mt-1">Quests that shape your sovereignty</p>
         </div>
 
         {/* Filters */}
@@ -101,7 +101,7 @@ export function QuestsGallery() {
               <button
                 onClick={() => setSelectedType(null)}
                 className={cn(
-                  'px-3 py-1.5 rounded-full text-xs font-medium border transition-all',
+                  'px-3 py-1.5 rounded-full text-xs font-medium border transition-all motion-reduce:transition-none',
                   !selectedType
                     ? 'bg-neurospark/20 text-neurospark border-neurospark/40'
                     : 'bg-white/5 text-star-dust/50 border-white/10 hover:text-star-dust hover:border-white/20'
@@ -114,7 +114,7 @@ export function QuestsGallery() {
                   key={t}
                   onClick={() => setSelectedType(selectedType === t ? null : t)}
                   className={cn(
-                    'px-3 py-1.5 rounded-full text-xs font-medium border transition-all capitalize',
+                    'px-3 py-1.5 rounded-full text-xs font-medium border transition-all motion-reduce:transition-none capitalize',
                     selectedType === t ? 'ring-1 ring-current bg-white/10 text-star-dust' : 'bg-white/5 text-star-dust/50 border-white/10'
                   )}
                 >
@@ -142,7 +142,7 @@ export function QuestsGallery() {
             <p className="text-star-dust/40 text-lg mb-2">
               {searchTerm ? 'No quests match your search' : 'The path unfolds soon'}
             </p>
-            <p className="text-star-dust/30 text-sm">
+            <p className="text-star-dust/70 text-sm">
               {searchTerm ? 'Try a different search term' : 'New quests are being woven'}
             </p>
           </div>
@@ -183,7 +183,7 @@ export function QuestsGallery() {
                   <h3 className="text-lg font-semibold text-star-dust mb-2">
                     {quest.name}
                   </h3>
-                  <p className="text-sm text-star-dust/50 line-clamp-3 mb-4">
+                  <p className="text-sm text-star-dust/70 line-clamp-3 mb-4">
                     {quest.description}
                   </p>
                 </Card>
