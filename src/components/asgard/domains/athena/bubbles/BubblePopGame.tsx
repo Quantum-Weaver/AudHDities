@@ -14,10 +14,11 @@ import Link from 'next/link';
 import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Button } from '@/components/yggdrasil/Button';
-import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Droplets, Star, Heart, Pause, Play, Sparkles } from 'lucide-react';
 import { BubbleLimitSlider } from './BubbleLimitSlider';
+import { pageTheDoor } from './pageTheDoor';
+import { paintStar, readStarColours } from './starPaint';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TYPES
@@ -30,6 +31,11 @@ interface BubbleDef {
   name: string;
   rarity: string;
   collection_id: string | null;
+  // The colour columns land with docs/sql/025 (KP's hand). Nullable on
+  // purpose — until that file is run they are simply absent, and a star with
+  // no palette wears its rarity exactly as it always has.
+  palette?: string[] | null;
+  ring?: string | null;
 }
 
 interface FloatingBubble {
@@ -41,6 +47,9 @@ interface FloatingBubble {
   speed: number;
   opacity: number;
   popped: boolean;
+  /** When it arrived. Under the reduced-motion guard a star waits its while
+      here rather than travelling; see the loop below. */
+  bornAt: number;
 }
 
 interface UserLimits {
@@ -50,10 +59,14 @@ interface UserLimits {
   max_hourly_pops: number;
 }
 
-interface CollectionProgress {
+// FOUND SO FAR — the names of what you found, grouped by collection. This
+// replaced {collected}/{total} and a bar per collection, retired 2026-08-25
+// at the ruling recorded as "the 3/6 sidebar goes": the interface was
+// performing the subtraction for the vessel, every frame, unasked. Shape
+// without slots.
+interface CollectionFinds {
   name: string;
-  total: number;
-  collected: number;
+  found: string[];
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -67,16 +80,46 @@ const DEFAULT_DAILY_MAX = 500;
 const DEFAULT_HOURLY_MAX = 100;
 const SPAWN_INTERVAL_MS = 1200;
 
+// The two stopping moments, hoisted 2026-08-25 so the panel that SAYS them
+// and the loop that ENFORCES them read the same numbers and cannot drift.
+const BREATH_AFTER_MINUTES = 15;
+const BREATH_AFTER_POPS = 50;
+
+// How long a star stays when it is not allowed to travel (the reduced-motion
+// guard). Same spawn rhythm, same rarities, same caps — no motion across the
+// screen.
+const STILL_LIFETIME_MS = 6000;
+
+// The caps, spoken in words. Only the numbers the room actually builds get a
+// word; anything the vessel's own row says instead is printed as itself,
+// because a boundary they chose must be legible as the number they chose.
+const NUMBER_WORDS: Record<number, string> = {
+  0: 'nothing',
+  15: 'a quarter of an hour',
+  50: 'fifty',
+  100: 'a hundred',
+  500: 'five hundred',
+};
+function inWords(n: number): string {
+  return NUMBER_WORDS[n] ?? String(n);
+}
+
 const RARITY_POINTS: Record<string, number> = {
   common: 1, rare: 3, epic: 5, legendary: 10, mythic: 25,
 };
 
+// The app's five cosmic tokens, adopted 2026-08-25: common void.light · rare
+// neurospark · epic quantum.light · legendary hearth.gold · mythic
+// entity.curator. The mythic move is the one law of the four — #f43f5e is
+// rose-500, and the app moved mythic off exactly that colour on 2026-08-10
+// ("Mythic wears the curator's magenta, not the old rose: no red anywhere",
+// resonance-bubbles/src/lib/bubbles/dress.ts:39-40).
 const RARITY_FILL: Record<string, { color: string; glow: string }> = {
-  common: { color: '#94a3b8', glow: '#94a3b855' },
-  rare: { color: '#22d3ee', glow: '#22d3ee55' },
-  epic: { color: '#a855f7', glow: '#a855f755' },
-  legendary: { color: '#f59e0b', glow: '#f59e0b55' },
-  mythic: { color: '#f43f5e', glow: '#f43f5e55' },
+  common: { color: '#B2BEC3', glow: '#B2BEC355' },
+  rare: { color: '#22D3EE', glow: '#22D3EE55' },
+  epic: { color: '#7D6CEA', glow: '#7D6CEA55' },
+  legendary: { color: '#FDCB6E', glow: '#FDCB6E55' },
+  mythic: { color: '#E84393', glow: '#E8439355' },
 };
 
 const RARITY_WEIGHTS: Record<string, number> = {
@@ -96,11 +139,37 @@ const RARITY_POP_EMOJI: Record<string, string> = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
+// THE GUARD
+// ═══════════════════════════════════════════════════════════════════════════
+// The global CSS guard in globals.css:41-48 kills CSS animation and
+// transition DURATIONS. It cannot reach a requestAnimationFrame loop moving
+// thirty objects, so this room asks matchMedia directly — the same shape the
+// newest room in the realm already uses (DailiesHall.tsx:46-60).
+//
+// THE ROOM IS NEVER TURNED OFF UNDER THE GUARD. That is refused by name:
+// access is not subtraction. The stars still arrive, still carry every
+// rarity, still can be popped, and every cap still holds. They simply stop
+// travelling.
+function useReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return reduced;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
 
 export function BubblePopGame() {
   const { user, isLoading: authLoading } = useUser();
+  const reduced = useReducedMotion();
   const gameAreaRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
   const lastSpawnRef = useRef<number>(0);
@@ -116,17 +185,25 @@ export function BubblePopGame() {
   const [showBreathReminder, setShowBreathReminder] = useState(false);
   const [isDailyLimitReached, setIsDailyLimitReached] = useState(false);
   const [popEffects, setPopEffects] = useState<Array<{ id: string; x: number; y: number; emoji: string; }>>([]);
-  const [collections, setCollections] = useState<CollectionProgress[]>([]);
+  const [collections, setCollections] = useState<CollectionFinds[]>([]);
   const [loading, setLoading] = useState(true);
   const [customDailyMax, setCustomDailyMax] = useState<number>(DEFAULT_DAILY_MAX);
 
   // ─── Fetch bubble definitions ────────────────────────────────────────
+  // PAGED, never silently short. auth.ts:142-149 clamps every generated
+  // door's limit to 100 without a word, so the old `limit=200` here was
+  // being served 100. Thirty stars stand today; if docs/sql/025 lands the
+  // spawn pool is 123 and an unpaged read would quietly lose twenty-three.
   useEffect(() => {
-    fetch('/api/generated/athena-gamification/bubbles?status=published&sort=display_order&order=asc&limit=200')
-      .then(r => r.json())
-      .then(result => { if (result.success) setBubbles(result.data?.data || result.data || []); })
+    let alive = true;
+    pageTheDoor<BubbleDef>(
+      '/api/generated/athena-gamification/bubbles',
+      'status=published&sort=display_order&order=asc',
+    )
+      .then((res) => { if (alive) setBubbles(res.rows); })
       .catch(console.error)
-      .finally(() => setLoading(false));
+      .finally(() => { if (alive) setLoading(false); });
+    return () => { alive = false; };
   }, []);
 
   // ─── Limits: usage counted from today's collections (vessel_bubbles IS
@@ -135,11 +212,16 @@ export function BubblePopGame() {
   useEffect(() => {
     if (!user || bubbles.length === 0) return;
     Promise.all([
-      fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&sort=collected_at&order=desc&limit=100`).then(r => r.json()),
+      // PAGED: a vessel past a hundred pops read short, and the day's
+      // arithmetic below was computed from that short list.
+      pageTheDoor<{ bubble_id: string; collected_at: string }>(
+        '/api/generated/hestia-core/vessel_bubbles',
+        `user_id=${encodeURIComponent(user.id)}&sort=collected_at&order=desc`,
+      ),
       fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`).then(r => r.json()),
     ])
       .then(([popsRes, configRes]) => {
-        const rows: Array<{ bubble_id: string; collected_at: string }> = popsRes.success ? (popsRes.data?.data || []) : [];
+        const rows = popsRes.rows;
         const config = configRes.success ? (configRes.data?.data ?? [])[0] : null;
         const maxDaily = typeof config?.bubble_daily_max === 'number' ? config.bubble_daily_max : DEFAULT_DAILY_MAX;
         const maxHourly = typeof config?.bubble_hourly_max === 'number' ? config.bubble_hourly_max : DEFAULT_HOURLY_MAX;
@@ -159,30 +241,34 @@ export function BubblePopGame() {
       .catch(() => {});
   }, [user, bubbles]);
 
-  // ─── Fetch collection progress (vessel_bubbles ⨝ collection_sets) ────
+  // ─── What you found, by collection (vessel_bubbles ⨝ collection_sets) ─
+  //     Both reads PAGE — the door clamps at 100 in silence.
   useEffect(() => {
     if (!user || bubbles.length === 0) return;
+    let alive = true;
     Promise.all([
-      fetch(`/api/generated/hestia-core/vessel_bubbles?user_id=${user.id}&limit=100`).then(r => r.json()),
-      fetch('/api/generated/hestia-core/collection_sets?limit=100').then(r => r.json()),
+      pageTheDoor<{ bubble_id: string }>(
+        '/api/generated/hestia-core/vessel_bubbles',
+        `user_id=${encodeURIComponent(user.id)}`,
+      ),
+      pageTheDoor<{ id: string; name?: string }>('/api/generated/hestia-core/collection_sets'),
     ])
       .then(([popsRes, setsRes]) => {
-        const pops = popsRes.success ? (popsRes.data?.data || []) : [];
-        const sets: Array<{ id: string; name?: string }> = setsRes.success ? (setsRes.data?.data || []) : [];
-        const setNames = new Map(sets.map(s => [s.id, s.name || 'Collection']));
-        const poppedIds = new Set(pops.map((p: { bubble_id: string }) => p.bubble_id));
-        const collectionMap: Record<string, { total: number; collected: number }> = {};
+        if (!alive) return;
+        const setNames = new Map(setsRes.rows.map(s => [s.id, s.name || 'Collection']));
+        const poppedIds = new Set(popsRes.rows.map((p) => p.bubble_id));
+        const found: Record<string, string[]> = {};
         bubbles.forEach(b => {
-          if (b.collection_id) {
+          if (b.collection_id && poppedIds.has(b.id)) {
             const name = setNames.get(b.collection_id) || 'Collection';
-            if (!collectionMap[name]) collectionMap[name] = { total: 0, collected: 0 };
-            collectionMap[name].total++;
-            if (poppedIds.has(b.id)) collectionMap[name].collected++;
+            if (!found[name]) found[name] = [];
+            found[name].push(b.name);
           }
         });
-        setCollections(Object.entries(collectionMap).map(([name, data]) => ({ name, ...data })));
+        setCollections(Object.entries(found).map(([name, names]) => ({ name, found: names })));
       })
       .catch(() => {});
+    return () => { alive = false; };
   }, [user, bubbles]);
 
   // ─── Pick a random bubble by rarity weight (every rarity, every vessel —
@@ -212,14 +298,19 @@ export function BubblePopGame() {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       bubble,
       x: Math.random() * (areaWidth - size),
-      y: gameArea.clientHeight + size,
+      // Under the guard a star arrives WHERE IT BELONGS rather than climbing
+      // in from below; it waits its while and goes. Same rhythm, no travel.
+      y: reduced
+        ? Math.random() * Math.max(0, gameArea.clientHeight - size)
+        : gameArea.clientHeight + size,
       size,
       speed: (RARITY_SPEED[bubble.rarity] || 0.5) * (0.8 + Math.random() * 0.4),
       opacity: 1,
       popped: false,
+      bornAt: Date.now(),
     };
     setFloating(prev => [...prev, newBubble]);
-  }, [isPaused, isDailyLimitReached, pickBubble]);
+  }, [isPaused, isDailyLimitReached, pickBubble, reduced]);
 
   // ─── Animation loop ──────────────────────────────────────────────────
   useEffect(() => {
@@ -235,15 +326,17 @@ export function BubblePopGame() {
         spawnBubble();
       }
 
-      // Move bubbles upward
+      // The travel — and its absence. Under the guard the loop keeps its
+      // spawn rhythm and loses its motion: a star simply stands where it
+      // arrived until its while is up.
       setFloating(prev => prev
-        .map(b => ({ ...b, y: b.y - b.speed }))
-        .filter(b => b.y > -100 && !b.popped)
+        .map(b => (reduced ? b : { ...b, y: b.y - b.speed }))
+        .filter(b => !b.popped && (reduced ? now - b.bornAt < STILL_LIFETIME_MS : b.y > -100))
       );
 
-      // Check cooldown (15 min continuous play)
+      // Check cooldown (a quarter of an hour of continuous play)
       const sessionDuration = (now - sessionStartRef.current) / 60000;
-      if (sessionDuration > 15 && totalPopsRef.current > 50) {
+      if (sessionDuration > BREATH_AFTER_MINUTES && totalPopsRef.current > BREATH_AFTER_POPS) {
         setIsPaused(true);
         setShowBreathReminder(true);
       }
@@ -253,7 +346,7 @@ export function BubblePopGame() {
 
     animationRef.current = requestAnimationFrame(animate);
     return () => { if (animationRef.current) cancelAnimationFrame(animationRef.current); };
-  }, [isPaused, isDailyLimitReached, spawnBubble]);
+  }, [isPaused, isDailyLimitReached, spawnBubble, reduced]);
 
   // ─── Handle pop ──────────────────────────────────────────────────────
   const handlePop = useCallback(async (bubble: FloatingBubble) => {
@@ -297,8 +390,8 @@ export function BubblePopGame() {
       });
     } catch (err) { console.error('Failed to record pop:', err); }
 
-    // Breath reminder after 50 pops
-    if (totalPopsRef.current === 50) {
+    // Breath reminder after fifty pops
+    if (totalPopsRef.current === BREATH_AFTER_POPS) {
       setShowBreathReminder(true);
     }
   }, [user, limits, isPaused, isDailyLimitReached]);
@@ -351,7 +444,9 @@ export function BubblePopGame() {
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6 text-center">
           <Droplets className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-          <p className="text-star-dust/40 text-lg mb-2">Sign in to play</p>
+          {/* The house's arrival law is "coming home — not signing up", and
+              this was the realm's only surface still saying the other thing. */}
+          <p className="text-star-dust/70 text-lg mb-2">The stars are kept for vessels.</p>
           <Link href="/login" className="text-neurospark hover:underline">Enter the Sanctuary</Link>
         </div>
       </main>
@@ -369,12 +464,16 @@ export function BubblePopGame() {
               <ArrowLeft className="h-4 w-4" />Return to the Floating Stars
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">Pop the Stars</h1>
-            <p className="text-sm text-star-dust/40 mt-1">Tap bubbles to collect them</p>
+            <p className="text-sm text-star-dust/70 mt-1">Tap bubbles to collect them</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <div className="flex items-center gap-1 text-neurospark"><Star className="h-4 w-4" /><span className="font-bold">{score}</span></div>
-              <div className="text-xs text-star-dust/40">{limits.daily_points} / {limits.max_daily_points} today</div>
+              <div className="flex items-center gap-1 text-neurospark"><Star className="h-4 w-4" aria-hidden="true" /><span className="font-bold">{score}</span></div>
+              {/* EXTENT, NOT REMAINDER. The ratio here performed the
+                  subtraction on every frame; the sentence states the ceiling
+                  once and stops. E4's own line: "the interface may state
+                  extent at the ask, never the remainder." */}
+              <div className="text-xs text-star-dust/70">Your own boundary: {inWords(limits.max_daily_points)} a day</div>
             </div>
             <Button variant="ghost" size="sm" onClick={() => setIsPaused(!isPaused)}>
               {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
@@ -399,32 +498,45 @@ export function BubblePopGame() {
               onClick={() => {}} // Prevent background click issues
             >
               {/* Floating Bubbles */}
-              {floating.filter(b => !b.popped).map(bubble => (
+              {floating.filter(b => !b.popped).map(bubble => {
+                const fill = RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common;
+                // The star's own colours when the row carries them
+                // (bubbles.palette / bubbles.ring — docs/sql/025, KP's hand).
+                // Null today: a star with no palette wears its rarity.
+                const orb = paintStar(fill, readStarColours(bubble.bubble), bubble.size);
+                return (
                 <button
                   key={bubble.id}
-                  className="absolute rounded-full transition-transform active:scale-90 hover:scale-110 cursor-pointer focus:outline-none"
+                  className="absolute rounded-full transition-transform active:scale-90 hover:scale-110 motion-reduce:transition-none motion-reduce:hover:scale-100 motion-reduce:active:scale-100 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
                   style={{
                     left: bubble.x,
                     top: bubble.y,
                     width: bubble.size,
                     height: bubble.size,
-                    background: `radial-gradient(circle at 30% 30%, ${(RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common).glow}, ${(RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common).color})`,
-                    boxShadow: `0 0 ${bubble.size / 2}px ${(RARITY_FILL[bubble.bubble.rarity] || RARITY_FILL.common).glow}`,
+                    background: orb.background,
+                    boxShadow: orb.boxShadow,
                     opacity: bubble.opacity,
-                    transition: 'transform 0.15s ease-out',
+                    transition: reduced ? undefined : 'transform 0.15s ease-out',
                   }}
                   onClick={handleBubbleInteraction(bubble)}
                   onTouchStart={handleBubbleInteraction(bubble)}
                   aria-label={`Pop ${bubble.bubble.name}`}
                 />
-              ))}
+                );
+              })}
 
-              {/* Pop Effects */}
+              {/* Pop Effects — thirty pops a minute was thirty pings.
+                  Under the guard the mark becomes a still glyph that goes. */}
               {popEffects.map(effect => (
                 <span
                   key={effect.id}
-                  className="absolute pointer-events-none text-xl animate-ping"
-                  style={{ left: effect.x, top: effect.y, animation: 'ping 0.8s ease-out forwards' }}
+                  aria-hidden="true"
+                  className={`absolute pointer-events-none text-xl${reduced ? '' : ' animate-ping'}`}
+                  style={{
+                    left: effect.x,
+                    top: effect.y,
+                    animation: reduced ? undefined : 'ping 0.8s ease-out forwards',
+                  }}
                 >
                   {effect.emoji}
                 </span>
@@ -445,9 +557,11 @@ export function BubblePopGame() {
               {showBreathReminder && (
                 <div className="absolute inset-0 bg-deep-space/80 backdrop-blur-md flex items-center justify-center z-20">
                   <div className="text-center max-w-sm">
-                    <Heart className="h-10 w-10 text-rose-400 mx-auto mb-3" />
+                    {/* entity.curator, not rose: no red anywhere in this
+                        realm (resonance-bubbles/CLAUDE.md:34). */}
+                    <Heart className="h-10 w-10 text-entity-curator mx-auto mb-3" aria-hidden="true" />
                     <p className="text-star-dust text-lg font-semibold mb-2">Take a breath</p>
-                    <p className="text-star-dust/50 text-sm mb-6">
+                    <p className="text-star-dust/70 text-sm mb-6">
                       You've been playing for a while. The stars will still be here when you return.
                     </p>
                     <Button variant="primary" onClick={handleResume}><Play className="h-4 w-4 mr-2" />Continue Playing</Button>
@@ -463,12 +577,15 @@ export function BubblePopGame() {
                 <div className="absolute inset-0 bg-deep-space/80 backdrop-blur-md flex items-center justify-center z-20">
                   <div className="text-center max-w-sm">
                     <Sparkles className="h-10 w-10 text-neurospark mx-auto mb-3" />
-                    <p className="text-star-dust text-lg font-semibold mb-2">You've reached your daily limit</p>
-                    <p className="text-star-dust/50 text-sm mb-4">
-                      You've collected {limits.daily_points} points today. Come back tomorrow for more stars!
+                    {/* A limit is imposed; a boundary is chosen. And "come
+                        back tomorrow" is the appointment mechanic, refused by
+                        name — it does not appear anywhere in this realm. */}
+                    <p className="text-star-dust text-lg font-semibold mb-2">Your day&apos;s boundary, met</p>
+                    <p className="text-star-dust/70 text-sm mb-4">
+                      You set this one yourself. The stars will still be here whenever you come back.
                     </p>
                     <div className="mb-6 px-4">
-                      <p className="text-xs text-star-dust/40 mb-2">Adjust your daily limit — the boundary is yours</p>
+                      <p className="text-xs text-star-dust/70 mb-2">Adjust your daily limit — the boundary is yours</p>
                       <div className="flex items-center gap-3">
                         <input
                           type="range"
@@ -490,44 +607,72 @@ export function BubblePopGame() {
             </div>
           </div>
 
-          {/* Sidebar — Stats + Collections */}
+          {/* Sidebar — the session, what you found, and what this room does
+              for you. RETIRED here 2026-08-25, at the ruling recorded as
+              "the bubble cap speaks in words, no bar" and "the 3/6 sidebar
+              goes": the daily ratio row, the daily-progress label and its
+              bar, and the per-collection ratio and its bar. E4's question —
+              who performs the subtraction — was being answered by the
+              interface, every frame, unasked. */}
           <div className="space-y-4">
             {/* Stats Card */}
             <Card data={{ id: 'bubble-stats', type: 'stat', title: 'Session', value: sessionPops }} variant="glass" radius="lg" shadow="sm" className="p-4">
               <h3 className="text-sm font-semibold text-star-dust mb-3">Your Session</h3>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between"><span className="text-star-dust/50">Pops</span><span className="text-star-dust">{sessionPops}</span></div>
-                <div className="flex justify-between"><span className="text-star-dust/50">Points</span><span className="text-neurospark font-medium">{score}</span></div>
-                <div className="flex justify-between"><span className="text-star-dust/50">Daily</span><span className="text-star-dust">{limits.daily_points}/{limits.max_daily_points}</span></div>
+                <div className="flex justify-between"><span className="text-star-dust/70">Pops</span><span className="text-star-dust">{sessionPops}</span></div>
+                <div className="flex justify-between"><span className="text-star-dust/70">Points</span><span className="text-neurospark font-medium">{score}</span></div>
               </div>
-              <div className="mt-3">
-                <p className="text-xs text-star-dust/30 mb-1">Daily progress</p>
-                <Progress value={limits.daily_points} max={limits.max_daily_points} variant="default" size="sm" />
-              </div>
+              <p className="mt-3 text-xs text-star-dust/70">Nothing here counts down.</p>
             </Card>
 
-            {/* Collections */}
+            {/* FOUND SO FAR — the names of what you found, grouped by
+                collection. Shape without slots. */}
             {collections.length > 0 && (
-              <Card data={{ id: 'bubble-collections', type: 'value', title: 'Collections', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-4">
-                <h3 className="text-sm font-semibold text-star-dust mb-3">Collections</h3>
+              <Card data={{ id: 'bubble-collections', type: 'value', title: 'Found so far', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-4">
+                <h3 className="text-sm font-semibold text-star-dust mb-3">Found so far</h3>
                 <div className="space-y-2">
                   {collections.map(c => (
-                    <div key={c.name}>
-                      <div className="flex justify-between text-xs mb-1">
-                        <span className="text-star-dust/50">{c.name}</span>
-                        <span className="text-star-dust/30">{c.collected}/{c.total}</span>
-                      </div>
-                      <Progress value={c.collected} max={c.total} variant="default" size="sm" />
-                    </div>
+                    <p key={c.name} className="text-xs text-star-dust/70 leading-relaxed">
+                      <span className="text-star-dust/82">{c.name}</span> — {c.found.join(', ')}.
+                    </p>
                   ))}
                 </div>
               </Card>
             )}
 
+            {/* THE CAPS, SPOKEN IN WORDS (KP's ruling: the bubble cap speaks
+                in words, no bar). Every figure is the room's own built one —
+                DEFAULT_DAILY_MAX, DEFAULT_HOURLY_MAX, BREATH_AFTER_MINUTES,
+                BREATH_AFTER_POPS — and the first two say the vessel's own row
+                where it answers with another number. Nothing invented,
+                nothing rounded. Until today the room enforced four rules and
+                explained none of them until you hit one. */}
+            <Card data={{ id: 'bubble-caps', type: 'value', title: 'What this room does for you', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-4">
+              <h3 className="text-sm font-semibold text-star-dust mb-2">What this room does for you</h3>
+              <ul className="space-y-2 text-xs text-star-dust/70 leading-relaxed">
+                <li>
+                  It stops at {inWords(limits.max_daily_points)} points in a day. That number is
+                  yours — move it, or set it to nothing at all; a rest day is a boundary too.
+                </li>
+                <li>
+                  It stops at {inWords(limits.max_hourly_pops)} pops in an hour, whatever the
+                  day&apos;s number says.
+                </li>
+                <li>
+                  After {inWords(BREATH_AFTER_MINUTES)} of unbroken play it pauses the room itself
+                  and asks you to breathe.
+                </li>
+                <li>
+                  And at {inWords(BREATH_AFTER_POPS)} pops it says the same thing once, gently, and
+                  lets you carry on.
+                </li>
+              </ul>
+            </Card>
+
             {/* Every rarity drifts for everyone */}
             <Card data={{ id: 'bubble-stars', type: 'value', title: 'The Stars', value: '' }} variant="glass" radius="lg" shadow="sm" className="p-4">
               <h3 className="text-sm font-semibold text-star-dust mb-2">The Stars</h3>
-              <p className="text-xs text-star-dust/40">
+              <p className="text-xs text-star-dust/70">
                 Every rarity drifts here for everyone — the rarest stars are simply rare, never locked. Common to Mythic, all within reach of a patient eye.
               </p>
             </Card>

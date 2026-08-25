@@ -91,7 +91,7 @@ export function BubbleLimitSlider() {
               step={50}
               onValueChange={([v]) => setDailyPoints(v)}
             />
-            <div className="flex justify-between text-[10px] text-star-dust/30 mt-1">
+            <div className="flex justify-between text-[10px] text-star-dust/70 mt-1">
               <span>0 — a rest day is a boundary too</span>
               <span>{DAILY_RANGE_MAX}</span>
             </div>
