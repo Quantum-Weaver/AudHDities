@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--sanctuary-green:#00B894;--hearth-gold:#FDCB6E;--error:#E17055;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;} a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;color:rgba(224,224,224,.5);}
+    .mono{font-family:"JetBrains Mono",Monaco,Consolas,monospace;}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .it{display:inline-flex;align-items:center;height:30px;padding:0 11px;border-radius:8px;
+      font-size:12.5px;border:1px solid rgba(224,224,224,.12);color:rgba(224,224,224,.72);}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 4px;">
+    <span style="font-size:13px;font-weight:700;color:#E17055;">&#10005;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; the bar keeps its six realms</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 18px;">Drawn, then set down. Kept on the canvas because a design without its refusals is a claim with no reason attached.</p>
+
+  <div class="card" style="padding:16px 15px;margin-bottom:18px;opacity:.74;">
+    <p class="rl-h" style="margin-bottom:11px;">What it looked like</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+      <span class="it">Hearth</span><span class="it">Bazaar</span><span class="it">Library</span>
+      <span class="it">Stage</span><span class="it">Council</span><span class="it">Nexus</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+      <span class="it" style="height:26px;font-size:11px;opacity:.75;">Observatory</span>
+      <span class="it" style="height:26px;font-size:11px;opacity:.75;">Bridge</span>
+      <span class="it" style="height:26px;font-size:11px;opacity:.75;">Studio</span>
+      <span class="it" style="height:26px;font-size:11px;opacity:.75;">Map</span>
+    </div>
+    <p style="margin:11px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);">Ten controls plus an auth link, exactly as the room stands today &mdash; with Vessel, Playground and Sanctuary added as a fourth, fifth and sixth item rather than replacing anything.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div>
+      <p class="rl-h">The case for it, honestly</p>
+      <p class="rl-b">It is what is built, it costs nothing, and every one of the nine is a real realm someone may want. Nine one-tap doors is objectively <em>more reach</em> than four, and a bar is the cheapest reach a site has. There is also a real accessibility argument for it: a visible link is discoverable in a way that a link behind a Map button is not, and screen-reader users in particular pay a cost every time something moves from a landmark into a dialog.</p>
+      <p class="rl-b" style="margin-top:9px;">And the bar is calm already. It was <em>designed</em> calm &mdash; <span class="src">Navigation.tsx:31</span> literally says <em>&ldquo;THE BAR &mdash; calm, six realms + three side-doors (unchanged reach)&rdquo;</em>. Removing five items from something whose own comment claims calm is the kind of change that looks like taste.</p>
+    </div>
+    <div>
+      <p class="rl-h">The ground that declined it</p>
+      <p class="q">&ldquo;i think the navigation should be simplified, since we have the map for the full navigation. [Vessel, Bazaar, Playground, Sanctum (hephaestus) ]&rdquo;</p>
+      <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim &middot; THE AUDHDITIES CONDUCTING PLAN &sect;0. The ruling is not &ldquo;fewer items&rdquo; in the abstract &mdash; it names the four, and it names why: <span class="k">the map already does the other job</span>.</p>
+      <p class="rl-b">The reach argument also does not survive contact with the file. The bar&rsquo;s nine are <em>realms</em>; the map&rsquo;s ten groups carry <span class="k">forty-one rooms</span> (<span class="src">the-street.ts:42&ndash;171</span>). So the bar was never the reach &mdash; it was a shortcut to nine of forty-one, chosen by hand, in a second list that the street file was extracted specifically to stop existing (<span class="src">the-street.ts:5&ndash;8</span>).</p>
+      <p class="rl-b" style="margin-top:9px;">And the second row was the tell. Three 12px items at <span class="mono">/40</span> opacity &mdash; <span class="k">3.2:1</span>, below the floor &mdash; is what a bar does when it has more doors than it has room for. A tier of links too faint to read is not reach; it is a list with the difficult part made quiet.</p>
+    </div>
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">The accessibility objection is kept whole, and it changed the drawing: the Map stays a real <span class="mono">button</span> with <span class="mono">aria-haspopup</span> and <span class="mono">aria-expanded</span>, Esc folds it, focus returns to the button, and the mobile drawer keeps rendering the entire street as a plain list of links rather than as a dialog. <span class="k">Nothing that was one tap away became two taps and a modal on a phone.</span></p>
+      <p class="rl-b" style="margin-top:9px;">Bazaar is kept exactly as it was &mdash; the one item of the six that survives, unchanged in label and href, because it was already right.</p>
+      <p class="rl-b" style="margin-top:9px;">And the refusal produced a finding that would not otherwise have surfaced: taking Hearth off the bar exposed that <span class="mono">/</span> <span class="k">appears nowhere in the street</span> and that the Header&rsquo;s wordmark points at <span class="mono">/vessel</span> instead (<span class="src">Header.tsx:66</span>). That is on board &#9313; now, with the mend.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

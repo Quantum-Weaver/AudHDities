@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;--hearth-gold:#FDCB6E;
+      --hearth-orange:#C44B2D;--error:#E17055;--void-dark:#2D3436;--void-base:#636E72;
+      --mood-creative:#A29BFE;--albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .lab{display:block;font-size:12.5px;font-weight:500;color:#E0E0E0;margin-bottom:5px;}
+    .inp{height:44px;border-radius:10px;border:1px solid rgba(224,224,224,.16);
+      background:rgba(12,15,29,.55);display:flex;align-items:center;padding:0 12px;
+      font-size:12.5px;color:rgba(224,224,224,.45);}
+    .req{color:var(--error);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9314;</span>
+    <span style="font-size:15px;font-weight:600;">The Scroll &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/press</span></span>
+    <span class="src">(hephaestus)/press/page.tsx &rarr; five components &rarr; <span style="color:#E0E0E0;">two</span></span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">The page shrinks to what is actually true: <span class="k">one honest card and one working form</span>. Four sections that were emptied this morning stop being four empty rooms and become one honest line.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <!-- BEFORE -->
+      <div>
+        <p class="rl-h">This morning &mdash; five sections, four of them now empty frames</p>
+        <div style="border:1px solid rgba(225,112,85,.28);border-radius:12px;background:#0C0F1D;padding:14px;opacity:.72;">
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px;">
+            <div style="grid-column:span 2;display:flex;flex-direction:column;gap:10px;">
+              <div style="border:1px dashed rgba(224,224,224,.20);border-radius:9px;padding:14px 12px;"><p style="margin:0;font-size:12px;font-weight:600;">Press Kit</p><p style="margin:3px 0 0;font-size:10.5px;color:rgba(224,224,224,.45);">&ldquo;A press kit is not yet prepared&rdquo;</p></div>
+              <div style="border:1px dashed rgba(224,224,224,.20);border-radius:9px;padding:14px 12px;"><p style="margin:0;font-size:12px;font-weight:600;">Media Assets</p><p style="margin:3px 0 0;font-size:10.5px;color:rgba(224,224,224,.45);">&ldquo;No media assets are prepared yet&rdquo;</p></div>
+              <div style="border:1px dashed rgba(224,224,224,.20);border-radius:9px;padding:14px 12px;"><p style="margin:0;font-size:12px;font-weight:600;">Coverage Highlights</p><p style="margin:3px 0 0;font-size:10.5px;color:rgba(224,224,224,.45);">&ldquo;No coverage to show yet&rdquo;</p></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="border:1px dashed rgba(224,224,224,.20);border-radius:9px;padding:14px 12px;"><p style="margin:0;font-size:12px;font-weight:600;">Logos &amp; Brand</p><p style="margin:3px 0 0;font-size:10.5px;color:rgba(224,224,224,.45);">&ldquo;No logo files&rdquo; + 6 real colours</p></div>
+              <div style="border:1px solid rgba(0,184,148,.35);border-radius:9px;padding:14px 12px;"><p style="margin:0;font-size:12px;font-weight:600;">Interview Requests</p><p style="margin:3px 0 0;font-size:10.5px;color:rgba(0,184,148,.85);">live &rarr; contact_submissions</p></div>
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The copy half did the honest thing and emptied four sections that pointed at a <span class="src">public/press/</span> which does not exist. But <span class="k">four empty rooms in a row is its own kind of untrue</span> &mdash; a page that is 80% apology reads as a page that failed, when in fact nothing failed: nothing was ever made.</p>
+      </div>
+
+      <!-- AFTER, dark -->
+      <div>
+        <p class="rl-h">The page &mdash; dark, as the ground is built</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:28px 22px 26px;">
+
+            <div style="text-align:center;margin-bottom:22px;">
+              <h1 style="margin:0 0 8px;font-size:26px;font-weight:700;line-height:1.2;">The Scroll</h1>
+              <p style="margin:0 auto;max-width:320px;font-size:14px;color:rgba(224,224,224,.72);text-wrap:pretty;">Resources for media and storytellers</p>
+            </div>
+
+            <!-- THE ONE CARD -->
+            <div class="card" style="padding:20px 18px;margin-bottom:14px;">
+              <div style="display:flex;align-items:flex-start;gap:13px;">
+                <div style="width:40px;height:40px;border-radius:12px;background:rgba(34,211,238,.10);display:flex;align-items:center;justify-content:center;flex:none;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+                </div>
+                <div>
+                  <h2 style="margin:0 0 6px;font-size:16px;font-weight:700;">Write to a person</h2>
+                  <p style="margin:0 0 12px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.75);text-wrap:pretty;">There is no press kit, no media pack and no coverage yet &mdash; nothing has been written about the Sanctuary so far, and nothing is sitting behind a download button waiting for you. Ask for what you need and it will be written for you by hand.</p>
+                  <div style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 15px;border-radius:10px;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.06);">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+                    <span style="font-size:13px;color:#22D3EE;">the house&rsquo;s one public address</span>
+                  </div>
+                  <p style="margin:9px 0 0;font-size:11px;color:rgba(224,224,224,.62);">Read from <span class="src" style="color:rgba(224,224,224,.62);">CONTACT_LABELS.EMAIL_ADDRESS</span>. Never typed into a component, and never a domain that is not ours.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- THE FORM -->
+            <div class="card" style="padding:20px 18px;">
+              <div style="margin-bottom:15px;">
+                <h2 style="margin:0 0 3px;font-size:16px;font-weight:700;">Interview Requests</h2>
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.62);">Ask for an interview with the Quantum Weaver</p>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;">
+                  <div><span class="lab">Full Name <span class="req">*</span></span><div class="inp">Your name</div></div>
+                  <div><span class="lab">Email <span class="req">*</span></span><div class="inp">your@email.com</div></div>
+                </div>
+                <div><span class="lab">Media Outlet <span class="req">*</span></span><div class="inp">Name of publication / show / platform</div></div>
+                <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;">
+                  <div><span class="lab">Interview Type <span class="req">*</span></span><div class="inp" style="justify-content:space-between;color:rgba(224,224,224,.80);">Podcast Interview <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div></div>
+                  <div><span class="lab">Proposed Date / Timeframe</span><div class="inp">e.g., the week of the 15th</div></div>
+                </div>
+                <div><span class="lab">Topics to Discuss</span><div class="inp" style="height:66px;align-items:flex-start;padding-top:11px;">What would you like to cover?</div></div>
+                <div><span class="lab">Additional Information</span><div class="inp" style="height:66px;align-items:flex-start;padding-top:11px;">Any other details we should know&hellip;</div></div>
+                <div style="display:flex;align-items:center;justify-content:center;height:48px;border-radius:12px;background:#6C5CE7;color:#FFFFFF;font-size:15px;font-weight:500;gap:8px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 3L10 14"/><path d="M21 3l-7 18-4-8-8-4z"/></svg>
+                  Send Request
+                </div>
+                <p style="margin:2px 0 0;text-align:center;font-size:11.5px;color:rgba(224,224,224,.62);">Prefer email? Write to us directly at <span style="color:#22D3EE;">the same one address</span>.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">One column, not three.</span> With four sections gone the three-column grid (<span class="src">press/page.tsx:30</span>) has nothing to balance; a single narrow column reads faster and stops the form being demoted to a sidebar. The form is the only thing on this page that <em>does</em> anything.</p>
+      </div>
+
+      <!-- THE ONE EMPTY STATE -->
+      <div>
+        <p class="rl-h">The page&rsquo;s one empty state &mdash; and the only one it has</p>
+        <div style="border:1px dashed rgba(253,203,110,.35);border-radius:12px;background:#1A1F35;padding:20px 18px;">
+          <div style="display:flex;align-items:flex-start;gap:13px;">
+            <div style="width:38px;height:38px;border-radius:9999px;background:rgba(224,224,224,.05);display:flex;align-items:center;justify-content:center;flex:none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.35)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13a2 2 0 0 1 2 2v12H6a2 2 0 0 1-2-2z"/><path d="M8 9h7"/><path d="M8 13h5"/></svg>
+            </div>
+            <div>
+              <p style="margin:0 0 6px;font-size:13.5px;font-weight:600;color:#E0E0E0;">There is no press kit, no media pack and no coverage yet</p>
+              <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.75);text-wrap:pretty;">Nothing has been written about the Sanctuary so far, and nothing is sitting behind a download button waiting for you. Ask for what you need and it will be written for you by hand.</p>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:11px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Present tense, no promised date.</span> It does not say &ldquo;coming soon&rdquo;, which would be the same absence in a slower tense, and it does not apologise.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">It hands over the one thing a journalist standing here can actually do.</span> Every empty state in this house owes the reader a next move, and this one is a live address and a live form.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">It is stitched from the four the copy half wrote</span>, not invented: <span class="src">PressKit.tsx:47&ndash;51</span>, <span class="src">MediaAssets.tsx:41&ndash;46</span>, <span class="src">CoverageHighlights.tsx:48&ndash;53</span>, <span class="src">LogoDownloads.tsx:60&ndash;64</span>. Four true sentences become one true sentence.</p></div>
+        </div>
+      </div>
+
+      <!-- LIGHT + FORM SUCCESS -->
+      <div>
+        <p class="rl-h">Light &mdash; proposed &middot; and the form&rsquo;s answer state</p>
+        <div style="display:flex;gap:12px;align-items:stretch;">
+          <div style="flex:1;position:relative;background:#E0E0E0;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+            <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;padding:18px 16px;">
+              <h1 style="margin:0 0 5px;font-size:19px;font-weight:700;color:#0C0F1D;text-align:center;">The Scroll</h1>
+              <p style="margin:0 0 13px;font-size:12px;color:#2D3436;text-align:center;">Resources for media and storytellers</p>
+              <div style="background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:11px;padding:13px 12px;">
+                <h2 style="margin:0 0 5px;font-size:13.5px;font-weight:700;color:#0C0F1D;">Write to a person</h2>
+                <p style="margin:0 0 10px;font-size:11.5px;line-height:1.55;color:#2D3436;">Nothing is sitting behind a download button waiting for you. Ask for what you need and it will be written for you by hand.</p>
+                <span style="display:inline-flex;align-items:center;height:38px;padding:0 13px;border-radius:9px;border:1px solid rgba(91,76,206,.4);font-size:12px;color:#5B4CCE;">the house&rsquo;s one public address</span>
+              </div>
+            </div>
+          </div>
+          <div style="flex:1;border:1px solid rgba(0,184,148,.30);border-radius:12px;background:#1A1F35;padding:18px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
+            <div style="width:44px;height:44px;border-radius:9999px;background:rgba(0,184,148,.20);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+            </div>
+            <h3 style="margin:0 0 7px;font-size:15px;font-weight:600;">Your request arrived</h3>
+            <p style="margin:0 0 14px;font-size:12px;line-height:1.55;color:rgba(224,224,224,.72);">It landed with every other message the Sanctuary receives. There is no media desk here &mdash; a person reads it, and a person answers you.</p>
+            <span style="display:inline-flex;align-items:center;justify-content:center;height:40px;border-radius:10px;border:1px solid rgba(224,224,224,.24);font-size:13px;color:#E0E0E0;">Send another</span>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The answer state is <span class="k">kept exactly as the copy half wrote it</span> (<span class="src">InterviewRequests.tsx:139&ndash;143</span>) &mdash; it names the true destination and refuses the invented 48-hour promise it replaced. Nothing about it is redrawn here.</p>
+      </div>
+
+      <!-- THEME STATES -->
+      <div>
+        <p class="rl-h">The three theme states</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Explicit dark</span> &mdash; the only state the ground has. No <span class="src">prefers-color-scheme</span>, no <span class="src">data-theme</span>, no <span class="src">dark:</span> variants anywhere in the repo.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Explicit light</span> &mdash; proposed above. The form is the hard part: <span class="src">Input</span>, <span class="src">Textarea</span> and <span class="src">Select</span> all paint a translucent dark fill (<span class="src">bg-deep-space/55</span> shape) that becomes an ink blot on a light ground. A light theme is a <em>forms</em> problem before it is a colour problem.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">System</span> &mdash; resolves to dark today whatever the OS says. The base names <span class="src">cosmic_light</span> and <span class="src">high_contrast</span> among its five <span class="src">display_theme</span> values; the CSS implements one.</p></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling this board draws</p>
+        <p class="rl-b">KP &#9883; 2026-08-24, the third waking, ruled by choosing the option: <span class="k">one honest card + the interview form</span>. The brief records it as: <em>&ldquo;a press-contact card (the house&rsquo;s one address) and the interview form already wired to <span class="src">contact_submissions</span>; the kit/media/logo frames leave until assets exist, and come back around real files by KP&rsquo;s hand.&rdquo;</em></p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">So this board removes nothing that works and keeps nothing that does not.</span> The form was made real this morning; the four frames have nothing behind them and will have when KP makes a kit.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What the form actually does now &mdash; and the one thing to look at</p>
+        <p class="rl-b">It POSTs to <span class="src">/api/generated/iris-communications/contact_submissions</span> with <span class="src">category: &ldquo;press&rdquo;</span> and a subject that marks it an interview request (<span class="src">InterviewRequests.tsx:93&ndash;109</span>), folding its seven fields into the four the wire takes. Failures are spoken, not swallowed (<span class="src">:116&ndash;121</span>). This is the realm&rsquo;s <em>one</em> live wire, shared with iris&rsquo;s Support hub.</p>
+        <div class="row10" style="margin-top:9px;"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">It inserts with <span class="src" style="color:#E0E0E0;">status: &ldquo;draft&rdquo;</span></span> (<span class="src">:99</span>). If &ldquo;draft&rdquo; means unsent in the reading room, a press request could sit looking like something nobody finished writing. Named here for the build to check against the contact form&rsquo;s own insert, not changed on this canvas.</p></div>
+      </div>
+
+      <div>
+        <p class="rl-h">For the build &mdash; four things to fix on this page</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The page&rsquo;s quietest text fails contrast.</span> <span class="src">text-star-dust/40</span> reads <span class="k">3.2:1</span> on the ground and is used for every section subtitle (<span class="src">PressKit.tsx:29</span>, <span class="src">MediaAssets.tsx:24</span>, <span class="src">LogoDownloads.tsx:51,84,98</span>, <span class="src">CoverageHighlights.tsx:32</span>, <span class="src">InterviewRequests.tsx:165,284</span>). Redrawn at <span class="src">/62</span> &mdash; <span class="k">5.6:1</span> on surface, <span class="k">6.0:1</span> on the ground &mdash; which is still visibly secondary and actually readable.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The submit spinner has no consent.</span> <span class="src">InterviewRequests.tsx:272</span> &mdash; <span class="src">animate-spin</span> with no <span class="src">motion-reduce</span> guard. Drawn as: the button&rsquo;s label changes to &ldquo;Sending&hellip;&rdquo; and it disables; under reduced motion the ring does not turn.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">This page opts into breathing and its neighbours do not.</span> <span class="src">press/page.tsx:19</span> sets <span class="src">animated={true}</span> while <span class="src">privacy/page.tsx:32</span> sets <span class="src">animated={false}</span>. Two reading rooms in one realm, two answers. Drawn still, matching privacy, and flagged for the realm&rsquo;s own consistency rather than ruled here.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The three-column grid loses its reason.</span> <span class="src">press/page.tsx:30&ndash;39</span> splits 2 columns of sections against 1 of sidebar. With two survivors, the sidebar column holds the only working control on the page &mdash; a form should not be furniture.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">RULED &mdash; where the six brand colours go</p>
+        <div style="border:1px solid rgba(0,184,148,.35);border-radius:10px;padding:14px 13px;">
+          <p class="q" style="border-left-color:rgba(0,184,148,.6);">&ldquo;yes&rdquo;</p>
+          <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim, on the drawn lean.</p>
+          <p class="rl-b"><span class="k">The six leave <span class="mono" style="color:#E0E0E0;">/press</span>, and they come back with the logos.</span> <span class="src">LogoDownloads.tsx:23&ndash;30</span> is true &mdash; six real house colours read from <span class="src">colors.ts</span>, each with a working copy button &mdash; but a colour list without a logo is a brand kit with the brand missing, and the ruling on this page is that the logo frames leave until assets exist. When a kit is made, the colours return beside it, in a card that is about something.</p>
+          <p class="rl-b" style="margin-top:8px;">The &ldquo;Usage Guidelines&rdquo; list (<span class="src">LogoDownloads.tsx:99&ndash;103</span>) leaves with them: its five rules describe a logo that has not been drawn. Meanwhile the same six live in the (cosmic) Playground, the room whose whole job is the design system.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; nothing loads, nothing polls. The form is the reader&rsquo;s to fill at their own speed; nothing times out and nothing is lost if they leave the tab.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; a seven-field form with no draft persistence. A failed POST keeps the fields (<span class="src">:114&ndash;115</span> only clears on success, which is right), but a reload loses everything. <span class="k">The realm&rsquo;s own guide claims autosave</span> (<span class="src">neurodivergent-ux</span>, unverified in the truth reading). Named, not solved on this canvas.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing blinks. No &ldquo;new&rdquo; badge, no attention pulse on the send button.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays. The 45 MB promo video that used to be claimed here never existed.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the empty line says what is true in one sentence and offers the next move in the second. No &ldquo;media team&rdquo;, no &ldquo;we&rsquo;ll be in touch shortly&rdquo;: <em>&ldquo;a person reads it, and a person answers you.&rdquo;</em></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; exactly two on the whole page, and they are the same next step twice: write, or fill the form. A press page with one job is easier to use than a press page with five.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the contact card <em>is</em> the more-info door. There is nothing to link to that a person would not have to write anyway.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; the spinner and the page&rsquo;s <span class="src">animated={true}</span>, both above. Drawn as: stills to nothing.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured on <span class="src">surface #1A1F35</span>: heading starDust <span class="k">12.3:1</span>, body at /75 <span class="k">7.5:1</span>, the address chip in neurospark <span class="k">9.0:1</span>, white on the quantum send button <span class="k">4.9:1</span>. The required-field asterisk is <span class="src">fire.base</span> at <span class="k">5.2:1</span> &mdash; and it is never the only marker: every required label also carries <span class="src">required</span> and reads it aloud.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; one address link, then seven fields in source order, then submit. Every field has a real <span class="src">label</span> already (<span class="src">:174,187,201,214,232,244,257</span>); the error <span class="src">Alert</span> sits above the form so a screen reader meets it before the fields it is about.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6), checked on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Fabricated social proof</span> &mdash; refused, and this page is where the house learned the lesson twice. Six invented outlets with invented pull-quotes and every <span class="src">url:&ldquo;#&rdquo;</span> stood here this morning, with three counters computed from them (<span class="src">CoverageHighlights.tsx</span>, before the truth pass) &mdash; the same shape as the retired TeamStories. Nothing replaces them; an empty coverage section is the honest one.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Invented file sizes and update dates</span> &mdash; refused. Five downloads with stated sizes and an &ldquo;Updated 2026-04-01&rdquo; badge pointed into a <span class="src">public/press/</span> that does not exist. Every one 404&rsquo;d.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">A receipt for a message that never left</span> &mdash; refused. The old submit was a bare <span class="src">setTimeout</span> that then said &ldquo;Request Sent!&rdquo; and promised a 48-hour reply from a media team that does not exist. It now posts to a real table and speaks its failures.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">A borrowed domain</span> &mdash; refused. Three addresses on this page belonged to a domain that appears nowhere else in the codebase and to no one here. One house address, read from the constant.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every change marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; <span class="src">press/page.tsx:24</span> &ldquo;The Scroll&rdquo; &middot; <span class="src">:27</span> &ldquo;Resources for media and storytellers&rdquo; &middot; <span class="src">InterviewRequests.tsx:164&ndash;167</span> the form&rsquo;s title and its line &middot; <span class="src">:139&ndash;143</span> the whole answer state &middot; <span class="src">:120</span> the failure sentence.</p>
+          <p class="rl-b"><span class="k">REWRITE 1</span> &middot; four headings into one<br><span class="old">&ldquo;Press Kit&rdquo; &middot; &ldquo;Media Assets&rdquo; &middot; &ldquo;Coverage Highlights&rdquo; &middot; &ldquo;Logos &amp; Brand&rdquo;, each with its own empty card</span> &rarr; <span class="new">&ldquo;Write to a person&rdquo;</span>, one card, carrying the four absences in a single sentence.</p>
+          <p class="rl-b"><span class="k">REWRITE 2</span> &middot; <span class="src">CoverageHighlights.tsx:58&ndash;65</span><br><span class="old">&ldquo;Are you a journalist? Write to &hellip; and a person will answer you.&rdquo;</span> &rarr; <span class="new">folded into the one card</span> &mdash; true, and it was saying the same thing the press-kit footer four inches above it already said.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; nothing. Every sentence on the drawn page is either kept from the copy half or stitched from two of its own. <span class="k">A page that shrinks should not need new words.</span></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Second pass &mdash; and what comes back</p>
+        <p class="rl-b">Drawn: the frame. <span class="k">What returns when KP makes a kit</span> &mdash; the cards come back around real files, one card per real file, each with the size the file actually is and the date it was actually made. Until then no frame stands waiting for them, because an empty frame is a promise the house did not make.</p>
+        <p class="rl-b" style="margin-top:9px;">Also second pass, not here: whether <span class="src">/press</span> keeps its street label &ldquo;The Scroll (Press)&rdquo; (<span class="src">the-street.ts:140</span>) &mdash; the only room in the street whose label carries a parenthetical gloss, which usually means the name is not doing its job.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

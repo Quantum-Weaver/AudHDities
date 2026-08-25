@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --quantum-light:#7D6CEA;--sanctuary-green:#00B894;--sanctuary-emerald:#00CEC9;
+      --library-dark:#00A885;--library-light:#00E6C3;--hearth-gold:#FDCB6E;
+      --hearth-orange:#C44B2D;--error:#E17055;--fire-dark:#D15F44;
+      --void-dark:#2D3436;--void-base:#636E72;--void-light:#B2BEC3;
+      --mood-creative:#A29BFE;--curator:#E84393;--skald:#FD79A8;--info:#74B9FF;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;--on-quantum:#FFFFFF;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;
+      border-radius:9999px;font-size:11.5px;border:1px solid rgba(224,224,224,.16);
+      color:rgba(224,224,224,.82);}
+    .field{border:1px dashed rgba(253,203,110,.55);border-radius:6px;padding:1px 7px;
+      font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11.5px;
+      color:var(--hearth-gold);}
+    .lt-card{background:var(--moon);border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9312;</span>
+    <span style="font-size:15px;font-weight:600;">The apps&rsquo; one privacy policy &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/apps/privacy</span></span>
+    <span class="src">NEW room under (hephaestus) &middot; built as <span style="color:#E0E0E0;">/privacy</span> is &middot; environment <span style="color:#00B894;">forge</span></span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">One page for the whole app family, held in this repo, so every Play listing stops pointing at a GitHub blob. <span class="k">Compass&rsquo;s text is the sample</span> &mdash; consolidating the five existing policies is the build&rsquo;s work, not this canvas&rsquo;s.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the ground as it is built today</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:30px 22px 26px;">
+
+            <div style="text-align:center;margin-bottom:22px;">
+              <span class="chip" style="margin-bottom:14px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+                Your device, your data
+              </span>
+              <h1 style="margin:0 0 10px;font-size:28px;font-weight:700;line-height:1.2;">App Privacy Policy</h1>
+              <p style="margin:0 auto 14px;max-width:330px;font-size:14.5px;color:rgba(224,224,224,.70);text-wrap:pretty;">The Sanctuary&rsquo;s apps are local-first and collect nothing. This is their policy, in one place.</p>
+              <div style="display:flex;justify-content:center;gap:10px;align-items:center;font-size:12px;color:rgba(224,224,224,.60);flex-wrap:wrap;">
+                <span>Effective <span class="field">read from the markdown</span></span>
+                <span style="color:rgba(224,224,224,.35);">&middot;</span>
+                <span>Version <span class="field">from the markdown</span></span>
+              </div>
+            </div>
+
+            <div class="card" style="padding:16px 15px;margin-bottom:16px;">
+              <h2 style="margin:0 0 4px;font-size:13.5px;font-weight:700;">Which apps this covers</h2>
+              <p style="margin:0 0 11px;font-size:11.5px;color:rgba(224,224,224,.60);line-height:1.45;">If you only use the apps, only this page applies to you. The website has its own policy.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:7px;">
+                <span class="chip" style="height:24px;font-size:11px;">Resonance Bubbles</span>
+                <span class="chip" style="height:24px;font-size:11px;">Resonance Compass</span>
+                <span class="chip" style="height:24px;font-size:11px;">Resonance Echoes</span>
+                <span class="chip" style="height:24px;font-size:11px;">Resonance Lantern</span>
+                <span class="chip" style="height:24px;font-size:11px;">Resonance Sirens</span>
+                <span class="chip" style="height:24px;font-size:11px;border-style:dashed;border-color:rgba(253,203,110,.45);color:rgba(253,203,110,.9);">Resonance Skapa</span>
+                <span class="chip" style="height:24px;font-size:11px;border-style:dashed;border-color:rgba(253,203,110,.45);color:rgba(253,203,110,.9);">Resonance Standards</span>
+                <span class="chip" style="height:24px;font-size:11px;border-style:dashed;border-color:rgba(253,203,110,.45);color:rgba(253,203,110,.9);">Resonance Tarocchi</span>
+                <span class="chip" style="height:24px;font-size:11px;border-style:dashed;border-color:rgba(253,203,110,.45);color:rgba(253,203,110,.9);">Resonance Weaver</span>
+              </div>
+              <p style="margin:11px 0 0;font-size:11px;color:rgba(224,224,224,.55);line-height:1.5;">Solid: the app already carries this policy. Dashed: the app is named here and its text is still to be written &mdash; <span style="color:#E0E0E0;">the build confirms the list</span> before this strip ships.</p>
+            </div>
+
+            <div class="card" style="padding:18px 16px;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+                <h3 style="margin:0;font-size:14px;font-weight:600;">Our promise</h3>
+              </div>
+              <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);text-wrap:pretty;">Your data belongs to you. We are temporary stewards at most &mdash; and for most of what these apps do, we are not even that, because your data never reaches us. These apps are <strong style="color:#E0E0E0;">local-first</strong>: they run on your device and keep your information on your device.</p>
+            </div>
+
+            <div class="card" style="padding:18px 16px;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#A29BFE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+                <h3 style="margin:0;font-size:14px;font-weight:600;">What we collect</h3>
+              </div>
+              <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);text-wrap:pretty;"><strong style="color:#E0E0E0;">We collect nothing.</strong> We operate no accounts, no servers that receive your content, no analytics, no advertising, no tracking or telemetry, and no third-party SDKs that phone home. We do not know who you are, we cannot see your entries, your library, or your activity, and we have nothing to sell because we hold nothing.</p>
+            </div>
+
+            <div style="border:1px solid rgba(253,203,110,.35);border-radius:12px;background:#1A1F35;padding:18px 16px;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FDCB6E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+                <h3 style="margin:0;font-size:14px;font-weight:600;">One exception &mdash; Resonance Compass</h3>
+              </div>
+              <p style="margin:0 0 10px;font-size:11px;color:rgba(253,203,110,.85);letter-spacing:.04em;text-transform:uppercase;font-weight:600;">Optional &middot; user-initiated &middot; never in the background</p>
+              <p style="margin:0 0 10px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);text-wrap:pretty;">Resonance Compass can, <strong style="color:#E0E0E0;">only when you tap to do so</strong>, look up album cover art and song lyrics from third-party services:</p>
+              <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
+                <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">MusicBrainz</span> and the <span class="k">Cover Art Archive</span> &mdash; cover art</p></div>
+                <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">LRCLIB</span> &mdash; lyrics</p></div>
+              </div>
+              <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);text-wrap:pretty;">When you request this, the app sends <strong style="color:#E0E0E0;">only the search terms for that one track</strong> &mdash; the artist, album, or title. It never sends your library, your journal, your identity, or anything else.</p>
+              <p style="margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(224,224,224,.10);font-size:11.5px;color:rgba(224,224,224,.62);line-height:1.5;">Every other app in the family makes <strong style="color:#E0E0E0;">no network requests at all</strong>. This block is the <em>shape</em> an exception takes: named app, named service, named payload, named trigger. An app with no exception gets no block.</p>
+            </div>
+
+            <div class="card" style="padding:18px 16px;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>
+                <h3 style="margin:0;font-size:14px;font-weight:600;">Your control</h3>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Export</span> &mdash; you can export your data at any time, from within the app.</p></div>
+                <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Delete / purge</span> &mdash; you can erase all app data at any time. When you purge, it is truly gone &mdash; the purge is real, not a soft-delete.</p></div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+              <div class="card" style="padding:13px 15px;"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.72);"><span class="k">Special care for neurodivergent data</span> &mdash; the protection is architectural, not a promise.</p></div>
+              <div class="card" style="padding:13px 15px;"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.72);"><span class="k">Children</span> &middot; <span class="k">Security</span> &middot; <span class="k">Changes to this policy</span> &middot; <span class="k">Contact</span></p></div>
+            </div>
+
+            <div style="border:1px solid rgba(224,224,224,.14);border-radius:12px;padding:20px 18px;text-align:center;">
+              <h3 style="margin:0 0 8px;font-size:16px;font-weight:700;">The apps hold nothing of yours</h3>
+              <p style="margin:0 auto 14px;max-width:340px;font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.70);text-wrap:pretty;">There is nothing here for us to misuse, leak, sell, or be compelled to hand over. Sovereignty is the safeguard.</p>
+              <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+                <span style="display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 15px;border-radius:10px;border:1px solid rgba(224,224,224,.22);font-size:12.5px;color:#E0E0E0;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+                  The website&rsquo;s own policy
+                </span>
+                <span style="display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 15px;border-radius:10px;border:1px solid rgba(224,224,224,.16);font-size:12.5px;color:rgba(224,224,224,.80);">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.6)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                  Terms of Service
+                </span>
+              </div>
+              <p style="margin:14px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);">Questions about privacy or these apps &mdash; <span style="color:#22D3EE;">the apps&rsquo; own address, the one already in all five policies</span></p>
+            </div>
+
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Two ways out, both named.</span> The apps&rsquo; policy and the website&rsquo;s policy are different documents about different things; a reader who lands here from a store listing must be able to tell in one line which one they are reading, and the first line of the room says so.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed, cosmic tokens only. No light theme is built today.</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:24px 20px;">
+            <div style="text-align:center;margin-bottom:16px;">
+              <span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:9999px;font-size:11px;border:1px solid rgba(12,15,29,.20);color:#2D3436;margin-bottom:11px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5B4CCE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+                Your device, your data
+              </span>
+              <h1 style="margin:0 0 8px;font-size:23px;font-weight:700;line-height:1.2;color:#0C0F1D;">App Privacy Policy</h1>
+              <p style="margin:0 auto;max-width:300px;font-size:13px;color:#2D3436;text-wrap:pretty;">The Sanctuary&rsquo;s apps are local-first and collect nothing.</p>
+              <p style="margin:9px 0 0;font-size:11.5px;color:#636E72;">Effective <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;border:1px dashed rgba(196,75,45,.6);border-radius:6px;padding:1px 6px;color:#C44B2D;">read from the markdown</span></p>
+            </div>
+            <div class="lt-card" style="padding:14px 13px;margin-bottom:9px;">
+              <h3 style="margin:0 0 6px;font-size:13px;font-weight:700;color:#0C0F1D;">Our promise</h3>
+              <p style="margin:0;font-size:12px;line-height:1.55;color:#2D3436;">Your data belongs to you. We are temporary stewards at most &mdash; and for most of what these apps do, we are not even that, because your data never reaches us.</p>
+            </div>
+            <div style="background:#F5F5DC;border:1px solid rgba(196,75,45,.35);border-radius:12px;padding:14px 13px;">
+              <h3 style="margin:0 0 5px;font-size:13px;font-weight:700;color:#0C0F1D;">One exception &mdash; Resonance Compass</h3>
+              <p style="margin:0 0 6px;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:#C44B2D;">Optional &middot; user-initiated</p>
+              <p style="margin:0;font-size:12px;line-height:1.55;color:#2D3436;">Only when you tap to do so, it sends the search terms for that one track &mdash; nothing else.</p>
+            </div>
+            <p style="margin:12px 0 0;text-align:center;font-size:11.5px;"><span style="color:#5B4CCE;">The website&rsquo;s own policy</span> <span style="color:#636E72;">&middot;</span> <span style="color:#5B4CCE;">Terms of Service</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The three theme states, told honestly</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Explicit dark</span> &mdash; drawn above, and it is the only state the ground actually has. <span class="src">globals.css</span> sets one body ground (<span class="src">--color-deep-space</span>); there is no <span class="src">prefers-color-scheme</span> query, no <span class="src">data-theme</span> attribute and no <span class="src">dark:</span> variant anywhere in this repo.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Explicit light</span> &mdash; drawn above as a PROPOSAL, cosmic tokens only: ground <span class="src">mystical.albedo #E0E0E0</span>, raised <span class="src">mystical.moon #F5F5DC</span>, text <span class="src">mystical.nigredo #0C0F1D</span>, muted <span class="src">void.dark</span>, faint <span class="src">void.base</span>, link <span class="src">quantum.dark</span>. Measured on moon: text <span class="k">17.2:1</span>, muted <span class="k">11.5:1</span>, faint <span class="k">4.7:1</span>, link <span class="k">5.6:1</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The house link colour does not survive the inversion.</span> <span class="src">neurospark #22D3EE</span> reads <span class="k">10.5:1</span> on deepSpace and <span class="k">1.6:1</span> on the light ground. Any light theme must swap the link token, not tint it &mdash; that is why the light board above is drawn in <span class="src">quantum.dark</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">System</span> &mdash; today it resolves to dark whatever the reader&rsquo;s OS asks for, because nothing reads the preference. The base names five themes (<span class="src">display_theme</span>: cosmic_dark, cosmic_light, quantum, sanctuary, high_contrast) and the CSS implements one. Until the light tokens are authored, the room should not offer a control that does nothing.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The 0.3 law survives the inversion.</span> The forge wash at 0.3 over the light ground leaves nigredo at <span class="k">11.5:1</span> and void.dark at <span class="k">7.7:1</span> &mdash; the ground still carries the text, which is the whole point of the law.</p></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling this room exists because of</p>
+        <p class="q">&ldquo;we already have a terms/ and privacy/ we will need an apps/privacy&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim &middot; the brief, answer 3. And, the same minute: <em>&ldquo;we need to add a page in here for our apps privacy page to get away from using github for it.&rdquo;</em></p>
+        <p class="rl-b" style="margin-top:9px;">Every pointer today is a GitHub blob URL &mdash; <span class="src">bubbles PLAY-TRACK.md:17</span> &middot; <span class="src">echoes docs/listings/PLAY-TRACK.md:93</span> &middot; <span class="src">lantern PLAY-TRACK.md:36</span> &middot; <span class="src">sirens docs/listings/PLAY-TRACK.md:21</span>, and compass&rsquo;s in <span class="src">docs/</span> only. That is exactly the dependency the ruling leaves behind.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">How it is built &mdash; the shape it inherits</p>
+        <p class="rl-b"><span class="k">A build-time read of a markdown held in THIS repo</span>, exactly as its two neighbours: <span class="src">privacy/page.tsx:19&ndash;22</span> and <span class="src">terms/page.tsx:18&ndash;21</span> each <span class="src">fs.readFile</span> from <span class="src">docs/</span>. Never a live cross-repo read &mdash; a sibling <span class="src">resonance-*</span> repo is not present in a deploy&rsquo;s build container, only on KP&rsquo;s own disk.</p>
+        <p class="rl-b" style="margin-top:9px;">So <span class="src">docs/privacy-apps/</span> holds the consolidated markdown, the room parses it with the same parser and dresses it with the same three components. Four of the five existing files are already near-identical; sirens&rsquo; is the newest and differs most.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">For the build &mdash; four things to fix in the shape this room inherits</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The date is invented if the markdown says the wrong word.</span> <span class="src">parsePrivacy.ts:40</span> matches only <span class="src">&ldquo;Last updated:&rdquo;</span>; every family <span class="src">PRIVACY.md</span> writes <span class="src">&ldquo;Effective date:&rdquo;</span>. With no match the parser returns its hardcoded default at <span class="src">parsePrivacy.ts:28</span> &mdash; <span class="k">March 19, 2026</span> &mdash; and the hero prints it as fact (<span class="src">PrivacyHero.tsx:11,41</span> carries the same default a second time). A copy-paste into <span class="src">docs/</span> ships a false effective date and nothing warns. <span class="k">Drawn as a field, never as a date.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The H1 is never read.</span> <span class="src">parsePrivacy.ts:27</span> initialises <span class="src">title = &lsquo;Privacy Policy&rsquo;</span> and <span class="src">:34</span> guards the H1 branch with <span class="src">!title</span>, which can never be true. The markdown&rsquo;s own title is discarded &mdash; latent on <span class="src">/privacy</span>, and it would silently swallow this document&rsquo;s title too.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Every section falls to the grey default icon.</span> <span class="src">ParsedPrivacyContent.tsx:23&ndash;38</span> keys its icon map on exact English headings (<em>Information We Collect</em>, <em>Your Rights</em>&hellip;). None of the app policy&rsquo;s headings match &mdash; <em>What we collect</em>, <em>Where your data lives</em>, <em>Your control</em>. Either the headings are renamed to the map or the map learns the new ones; the drawing assumes the map learns them.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The hero breathes with no consent.</span> <span class="src">PrivacyHero.tsx:16&ndash;17</span> &mdash; two blurred blobs on <span class="src">animate-pulse</span> with <span class="src">delay-700</span> and no <span class="src">motion-reduce</span> guard; <span class="src">:20&ndash;24</span> and <span class="src">PrivacyFooter.tsx:10&ndash;14</span> add framer-motion entrances with none either. Motion is content and needs consent. <span class="k">Drawn still.</span></p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; a static document. Nothing loads, nothing polls, nothing expires; it is read at the reader&rsquo;s speed or not at all.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; nothing to lose; the room holds no state and asks for nothing.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; two <span class="src">animate-pulse</span> blobs in the inherited hero, unguarded. Drawn still; the wash alone carries the room.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the source is already the plainest legal writing in the house: <em>&ldquo;We collect nothing.&rdquo;</em> in three words, and <em>&ldquo;the purge is real, not a soft-delete&rdquo;</em>. Nothing in the body was rewritten.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; a policy page&rsquo;s next step is leaving it. Two named ways out at the foot, always visible, never hover-only.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the &ldquo;which apps this covers&rdquo; strip stands <em>above</em> the policy rather than below it, so a reader who arrived from one app&rsquo;s store listing learns in one glance whether this page is about their app.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; inherited unguarded (above). Drawn as: the wash breathes at the image era&rsquo;s 47.7s tempo and stills to nothing; the blobs and the entrances go.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured, not estimated. On <span class="src">surface #1A1F35</span>: title starDust <span class="k">12.3:1</span>, body at /78 <span class="k">8.0:1</span>, the exception&rsquo;s gold label <span class="k">10.8:1</span>. Behind the cards, starDust on the forge wash at 0.3 runs <span class="k">8.6:1 to 9.1:1</span> across its three stops; the same wash at full strength reads <span class="k">1.9:1 to 2.3:1</span>. That gap is the 0.3 law in two numbers.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; two links, one tab order, visible focus rings. No traps, no dialogs, no form on this page.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6), checked on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Consent theatre</span> &mdash; refused structurally. No cookie banner, no &ldquo;manage preferences&rdquo; maze, no accept-all, because there is nothing to consent to: the apps collect nothing. The one thing that <em>is</em> optional gets its own bordered block with the trigger named.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Urgency &middot; scarcity &middot; counts</span> &mdash; none present, none added. No &ldquo;updated 2 days ago&rdquo;, no version badge that implies churn.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Legalese as a wall</span> &mdash; refused. Nine short sections, each answerable in one read; the longest paragraph on the page is four sentences.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Surveillance as a sensory harm</span> &mdash; this page is the house&rsquo;s own answer to it: <em>&ldquo;no accessibility standard names freedom-from-observation as an access need. The house does.&rdquo;</em></p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; what is kept and what is new</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> from <span class="src">resonance-compass/PRIVACY.md</span> &mdash; the promise, <em>&ldquo;We collect nothing.&rdquo;</em>, the exception&rsquo;s three services and its <em>&ldquo;only the search terms for that one track&rdquo;</em>, export/purge, and <em>&ldquo;the purge is real, not a soft-delete&rdquo;</em>. Nothing in the policy body is this canvas&rsquo;s writing.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the &ldquo;which apps this covers&rdquo; strip. Compass&rsquo;s file says <em>&ldquo;Resonance Echoes, Resonance Compass, and future Sanctuary apps&rdquo;</em>; sirens&rsquo; says <em>&ldquo;Resonance Sirens (and, as the family policy, &hellip;)&rdquo;</em>. Two different lists in two files is exactly what one page fixes. Drawn as named chips, with the four unwritten ones marked rather than quietly folded in.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the exception block&rsquo;s closing line, which turns one app&rsquo;s carve-out into a repeatable shape: <span class="new">&ldquo;named app, named service, named payload, named trigger. An app with no exception gets no block.&rdquo;</span> Nothing else in the house tells the next app how to write its own exception.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The nine, as the inventory found them &mdash; a census, not a claim</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">bubbles</span> &middot; <span class="k">compass</span> &middot; <span class="k">echoes</span> &middot; <span class="k">lantern</span> &middot; <span class="k">sirens</span> &mdash; each has a <span class="src">PRIVACY.md</span>. Four are near-identical; sirens&rsquo; differs most (no network at all, plus a paragraph about calendars no other app needs).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">skapa</span> &middot; <span class="k">tarocchi</span> &middot; <span class="k">weaver</span> &mdash; no privacy file anywhere in the repo. Named on the strip, marked unwritten.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">standards</span> &mdash; no <span class="src">PRIVACY.md</span>, and <span class="src">settings/+page.svelte:8</span> links to one that does not exist. A live broken link, still open at the 08-21 re-check. This room is where that link should land.</p></div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Nine names is what the inventory found. <span class="k">The build confirms the list</span> against the repos on the day it ships, and prints what it found rather than what this board drew.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">RULED &mdash; which address the apps&rsquo; policy carries</p>
+        <div style="border:1px solid rgba(0,184,148,.35);border-radius:10px;padding:14px 13px;">
+          <p class="q" style="border-left-color:rgba(0,184,148,.6);">&ldquo;apps keep theirs&rdquo;</p>
+          <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim.</p>
+          <p class="rl-b"><span class="k">So the apps&rsquo; own address stands on this page</span>, exactly as it stands in all five shipped <span class="src">PRIVACY.md</span> files and in the store listings that will point here. <span class="k">No substitution of the site&rsquo;s constant</span> &mdash; <span class="src">CONTACT_LABELS.EMAIL_ADDRESS</span> stays the website&rsquo;s, on the website&rsquo;s policy. Two documents, two doors, both the house&rsquo;s under the ward.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Second pass &mdash; framework first</p>
+        <p class="rl-b">This board draws the FRAME: the room, its honest wiring, the ways out, the states told true. Not drawn, and belonging to a later pass: a per-app anchor (<span class="src">/apps/privacy#compass</span>) so a store listing can deep-link its own section; a machine-readable data-safety block for the Play form; and the consolidation itself, which is the build&rsquo;s careful reading of five files rather than this canvas&rsquo;s guess at them.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

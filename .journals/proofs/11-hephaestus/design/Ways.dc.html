@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;--hearth-gold:#FDCB6E;
+      --hearth-orange:#C44B2D;--error:#E17055;--void-dark:#2D3436;--void-base:#636E72;
+      --void-light:#B2BEC3;--mood-creative:#A29BFE;--skald:#FD79A8;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .mono{font-family:"JetBrains Mono",Monaco,Consolas,monospace;}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .doc{border:1px solid rgba(224,224,224,.10);border-radius:9px;padding:10px 10px;background:#1A1F35;}
+    .badge{display:inline-flex;align-items:center;height:18px;padding:0 7px;border-radius:9999px;
+      font-size:9.5px;border:1px solid;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9316;</span>
+    <span style="font-size:15px;font-weight:600;">The ways between &middot; the retirement of <span class="mono">/donate</span> &middot; every empty state</span>
+    <span class="src">the-street.ts &middot; DocsContent.tsx &middot; DocsConstellation.tsx &middot; page_mapping.ts &middot; footer.constants.ts</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">One room leaves the realm and five files stop naming it. One room arrives and four surfaces learn it. <span class="k">Every door in this realm accounted for, and every empty state told true.</span></p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <!-- THE RETIREMENT -->
+      <div>
+        <p class="rl-h"><span class="mono" style="font-size:11px;color:rgba(224,224,224,.55);">/donate</span> retires &mdash; the five places that name it</p>
+        <div style="border:1px solid rgba(225,112,85,.30);border-radius:12px;background:#0C0F1D;padding:16px 15px;">
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.07);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E17055" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              <div><p style="margin:0;font-size:12.5px;color:#E0E0E0;">The room itself</p><p style="margin:2px 0 0;font-size:11px;" class="src">(hephaestus)/donate/page.tsx &middot; and the five donation components it mounts</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.07);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E17055" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              <div><p style="margin:0;font-size:12.5px;color:#E0E0E0;">&ldquo;The Offering&rdquo; on the street</p><p style="margin:2px 0 0;font-size:11px;" class="src">the-street.ts:141 &mdash; so it leaves the map and the drawer at once</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.07);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E17055" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              <div><p style="margin:0;font-size:12.5px;color:#E0E0E0;">The hub&rsquo;s card</p><p style="margin:2px 0 0;font-size:11px;" class="src">DocsContent.tsx:92 &mdash; the live one, rendered to readers today</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.07);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E17055" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              <div><p style="margin:0;font-size:12.5px;color:#E0E0E0;">The constellation&rsquo;s card</p><p style="margin:2px 0 0;font-size:11px;" class="src">DocsConstellation.tsx:213&ndash;220 &mdash; imported nowhere, trued anyway so it cannot come back wrong</p></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E17055" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex:none;margin-top:3px;"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              <div><p style="margin:0;font-size:12.5px;color:#E0E0E0;">The environment mapping</p><p style="margin:2px 0 0;font-size:11px;" class="src">page_mapping.ts:564&ndash;568 &mdash; the route&rsquo;s title, subtitle and environment key</p></div>
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">The room was never wired.</span> <span class="src">donate/page.tsx:16</span> declares <span class="mono">setDonationComplete</span> and never calls it, so the Thank You and Tax Receipt branch at <span class="src">:19&ndash;30</span> is unreachable code promising a receipt no one could ever have been sent. Nothing is lost by its going; a dead path that claims to issue tax receipts is worse than no path.</p>
+      </div>
+
+      <!-- THE TIERS -->
+      <div>
+        <p class="rl-h">What replaces it is not drawn here, and that is deliberate</p>
+        <div style="border:1px solid rgba(253,203,110,.35);border-radius:12px;background:#1A1F35;padding:17px 16px;">
+          <p class="q" style="border-left-color:rgba(253,203,110,.6);">&ldquo;retire the donate and create subscription tiers for me rather than the platform, and  i will still have my covenant set to 50%. the donations tab was before we had a built sanctuary and had different outlooks.&rdquo;</p>
+          <p class="src" style="margin:9px 0 12px;">KP &#9883; 2026-08-24, verbatim, spacing kept.</p>
+          <p class="rl-b"><span class="k">The tiers are a ware of KP&rsquo;s &mdash; recurring, KP the sole artisan &mdash; so they are the Bazaar&rsquo;s spec, not a Forge room.</span> A subscription is a work on a stall with a renewal attached: the recurrence is named in the Bazaar&rsquo;s spec, Stripe&rsquo;s subscription mode carries it, and each renewal writes one <span class="mono">exchanges</span> row that becomes ledger rows like any other sale. <span class="k">Nothing is drawn for them on this canvas.</span></p>
+          <p class="rl-b" style="margin-top:9px;">The covenant at 50% is KP&rsquo;s own pledge on his own ware, under the standing model &mdash; a per-ware pledge out of the 90%, 0 to 50%. It needs no new machinery and no new room.</p>
+        </div>
+      </div>
+
+      <!-- THE HUB WITHOUT IT -->
+      <div>
+        <p class="rl-h">The Forge hub, Sanctuary section &mdash; without The Offering, with App Privacy</p>
+        <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;background:#0C0F1D;padding:16px 15px;">
+          <p style="margin:0 0 3px;font-size:13.5px;font-weight:700;">Sanctuary</p>
+          <p style="margin:0 0 12px;font-size:11px;color:rgba(224,224,224,.62);">The living documents of our sovereign home</p>
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px;">
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Origin</p><span class="badge" style="border-color:rgba(253,203,110,.32);color:#FDCB6E;margin-top:4px;">Story</span></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Prophecy</p><span class="badge" style="border-color:rgba(162,155,254,.32);color:#A29BFE;margin-top:4px;">Vision</span></div>
+            <div class="doc" style="border-color:rgba(253,203,110,.40);"><p style="margin:0;font-size:11.5px;font-weight:600;">The Ledger</p><span class="badge" style="border-color:rgba(34,211,238,.32);color:#22D3EE;margin-top:4px;">Transparency</span><p style="margin:5px 0 0;font-size:9.5px;color:rgba(253,203,110,.85);">repointed &rarr; /transparency</p></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Covenant</p><span class="badge" style="border-color:rgba(0,184,148,.32);color:#00B894;margin-top:4px;">Privacy</span></div>
+            <div class="doc" style="border-color:rgba(0,184,148,.45);"><p style="margin:0;font-size:11.5px;font-weight:600;">App Privacy</p><span class="badge" style="border-color:rgba(0,184,148,.32);color:#00B894;margin-top:4px;">Privacy</span><p style="margin:5px 0 0;font-size:9.5px;color:rgba(0,184,148,.85);">new &rarr; /apps/privacy</p></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Agreement</p><span class="badge" style="border-color:rgba(34,211,238,.32);color:#22D3EE;margin-top:4px;">Terms</span></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Welcome</p><span class="badge" style="border-color:rgba(253,121,168,.32);color:#FD79A8;margin-top:4px;">Access</span></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Hearth Call</p><span class="badge" style="border-color:rgba(162,155,254,.32);color:#A29BFE;margin-top:4px;">Contact</span></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Scroll</p><span class="badge" style="border-color:rgba(34,211,238,.32);color:#22D3EE;margin-top:4px;">Press</span></div>
+            <div class="doc"><p style="margin:0;font-size:11.5px;font-weight:600;">The Calling</p><span class="badge" style="border-color:rgba(0,184,148,.32);color:#00B894;margin-top:4px;">Invitation</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;margin-top:12px;padding:9px 11px;border:1px dashed rgba(225,112,85,.35);border-radius:9px;opacity:.6;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E17055" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            <p style="margin:0;font-size:11px;color:rgba(224,224,224,.62);"><span class="old">The Offering &middot; Donate &middot; &ldquo;Your contribution keeps the Sanctuary alive&rdquo;</span></p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">One card leaves, one card arrives &mdash; and the hero&rsquo;s count does not move.</span> <span class="src">DocsHero.tsx:44</span> reads <span class="mono">18 documents</span>, hand-counted this morning from <span class="src">DocsContent</span>&rsquo;s own sections (3 + 2 + 3 + 10). One card leaves and one arrives, so 18 stays true by luck rather than by construction. <span class="k">The mend: derive it</span> &mdash; the file already holds the array; a count that is typed will drift again, and this one already did once, from 8.</p>
+      </div>
+
+      <!-- THE FOOTER -->
+      <div>
+        <p class="rl-h">The footer &mdash; two pointers today, six proposed</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <div style="border:1px solid rgba(225,112,85,.28);border-radius:11px;background:rgba(12,15,29,.4);padding:14px 15px;opacity:.75;">
+            <p style="margin:0 0 9px;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(224,224,224,.5);">Today</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;color:rgba(224,224,224,.75);">
+              <span>Terms of Service</span><span style="color:rgba(224,224,224,.4);">&#9878;</span><span>Privacy Policy</span>
+            </div>
+            <p style="margin:9px 0 0;text-align:center;font-size:10.5px;" class="src">footer.constants.ts:12&ndash;15 &mdash; FOOTER_LINKS holds exactly two</p>
+          </div>
+          <div style="border:1px solid rgba(253,203,110,.35);border-radius:11px;background:#1A1F35;padding:14px 15px;">
+            <p style="margin:0 0 9px;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(253,203,110,.8);">Proposed</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:11.5px;color:rgba(224,224,224,.78);flex-wrap:wrap;">
+              <span>Privacy</span><span style="color:rgba(224,224,224,.35);">&middot;</span>
+              <span style="color:#00B894;">App Privacy</span><span style="color:rgba(224,224,224,.35);">&middot;</span>
+              <span>Terms</span><span style="color:rgba(224,224,224,.35);">&middot;</span>
+              <span>Transparency</span><span style="color:rgba(224,224,224,.35);">&middot;</span>
+              <span>Press</span><span style="color:rgba(224,224,224,.35);">&middot;</span>
+              <span>Contact</span>
+            </div>
+            <p style="margin:9px 0 0;text-align:center;font-size:10.5px;color:rgba(224,224,224,.6);">Six, in the order a reader would want them: what we hold, what the apps hold, what we agreed, where the money went, who to talk to.</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">The footer is the second half of the nav ruling.</span> With four items on the bar, the legal and contact doors need a home that is not the map &mdash; a reader looking for a privacy policy looks at the bottom of the page, not at a map button. The separator today is an emoji (<span class="src">footer.constants.ts:18</span>, <span class="mono">&#9878;</span>); drawn as a middle dot, since the scales glyph reads as a judicial claim rather than punctuation.</p>
+      </div>
+
+      <!-- THE WAYS -->
+      <div>
+        <p class="rl-h">The ways between, after the pass</p>
+        <div class="card" style="padding:16px 15px;">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k"><span class="mono">/sanctuary</span> &rarr; the bar</span>. The visitors&rsquo; front door becomes a first-class nav item, and <span class="mono">/</span> already sends every signed-out reader to it (<span class="src">app/page.tsx:42</span>). The page keeps its eight sections and its login/signup CTAs; nothing about it changes on this canvas beyond being reachable in one tap.</p></div>
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k"><span class="mono">/apps/privacy</span> &rarr; four surfaces learn it</span>: the Forge hub&rsquo;s Sanctuary section (above), the footer (above), the street&rsquo;s Forge rooms (so it is in the map and the drawer), and every Play listing, which is the whole reason it exists.</p></div>
+            <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k"><span class="mono">/council/ledger</span> &rarr; the street</span>, and the hub&rsquo;s &ldquo;The Ledger&rdquo; card repoints to <span class="mono">/transparency</span>. Board &#9315; carries the reasoning; the change lands here because it is a way-between.</p></div>
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k"><span class="mono">/calling</span></span> &mdash; the two stale <span class="mono">/careers</span> entries were fixed in the copy half (<span class="src">DocsContent.tsx:91</span>, <span class="src">DocsConstellation.tsx:204&ndash;211</span>). Named here only so the ways-between board is complete; nothing further is owed.</p></div>
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k"><span class="mono">/calling</span>&rsquo;s two doors &mdash; already mended this morning.</span> Both pointed at <span class="mono">/enter</span>, which has no page anywhere under <span class="src">src/app</span>; the first now goes to <span class="mono">/sanctuary</span> (<span class="src">calling/page.tsx:99</span>) and the second to <span class="mono">/nexus/api</span> (<span class="src">:106</span>). Verified on disk this sitting; nothing further is owed by this canvas.</p></div>
+            <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k"><span class="mono">/enter</span> itself still stands as a route with no page</span> &mdash; <span class="src">page_mapping.ts:570&ndash;579</span> and <span class="src">trio.ts:181</span> both treat it as real. Nothing links to it any more, so it harms no reader today; whether the route should exist at all is the chassis&rsquo;s question, not this pass&rsquo;s. <span class="k">Unwritten &mdash; his to rule.</span></p></div>
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k"><span class="mono">/forge/business/plan</span>&rsquo;s CTA &mdash; already mended this morning.</span> &ldquo;Explore the Vision&rdquo; now points at the public <span class="mono">/vision</span> rather than the login-gated <span class="mono">/observatory/prophecy</span> (<span class="src">plan/page.tsx:187</span>). Verified on disk; named here only so the ways-between board is complete.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMPTY STATES -->
+      <div>
+        <p class="rl-h">Every empty state this pass touches, in one place</p>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="border:1px solid rgba(224,224,224,.10);border-radius:10px;background:#1A1F35;padding:12px 13px;">
+            <p style="margin:0 0 4px;font-size:11px;" class="src">/apps/privacy &mdash; four apps with no policy yet</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.80);">Named on the strip, marked unwritten. <span class="k">Not silently included</span>, and not silently dropped &mdash; either would be a claim about an app nobody has written a policy for.</p>
+          </div>
+          <div style="border:1px solid rgba(224,224,224,.10);border-radius:10px;background:#1A1F35;padding:12px 13px;">
+            <p style="margin:0 0 4px;font-size:11px;" class="src">/press &mdash; no kit, no assets, no coverage</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.80);">One line, present tense, no promised date, ending in the one thing a journalist can actually do. Four empty frames become one honest sentence.</p>
+          </div>
+          <div style="border:1px solid rgba(224,224,224,.10);border-radius:10px;background:#1A1F35;padding:12px 13px;">
+            <p style="margin:0 0 4px;font-size:11px;" class="src">/council/ledger &mdash; nought rows</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.80);">&ldquo;A page waiting for its first line, not a page that lost one.&rdquo; No <span class="mono">$0.00</span>, no zero counts, and a failed read gets its own state instead of borrowing this one.</p>
+          </div>
+          <div style="border:1px solid rgba(224,224,224,.10);border-radius:10px;background:#1A1F35;padding:12px 13px;">
+            <p style="margin:0 0 4px;font-size:11px;" class="src">/transparency &mdash; nought exchanges</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.80);">Untouched by this canvas, and named here for completeness: its aggregates are computed from real rows and render <span class="mono">$0.00</span> honestly when there are none. <span class="k">Worth one look in the build</span> &mdash; three zeros under &ldquo;Every Dollar, Visible&rdquo; is true, and the sentence beside them should say which kind of zero it is.</p>
+          </div>
+          <div style="border:1px solid rgba(253,203,110,.35);border-radius:10px;background:#1A1F35;padding:12px 13px;">
+            <p style="margin:0 0 4px;font-size:11px;color:rgba(253,203,110,.8);">/donate &mdash; the empty state that was never reachable</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.80);">The Thank You and Tax Receipt screens had no way in and no way to have been earned. They retire with the room. <span class="k">Lose-nothing:</span> git keeps them, and the tiers that replace them are the Bazaar&rsquo;s to draw.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIGHT + THEMES -->
+      <div>
+        <p class="rl-h">Light &mdash; the footer and a hub card, proposed &middot; and the three theme states</p>
+        <div style="border:1px solid rgba(12,15,29,.14);border-radius:12px;background:#E0E0E0;padding:15px 14px;margin-bottom:11px;">
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px;margin-bottom:12px;">
+            <div style="background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:9px;padding:10px;"><p style="margin:0;font-size:11.5px;font-weight:600;color:#0C0F1D;">The Covenant</p><span class="badge" style="border-color:rgba(0,168,133,.5);color:#00A885;margin-top:4px;">Privacy</span></div>
+            <div style="background:#F5F5DC;border:1px solid rgba(0,168,133,.45);border-radius:9px;padding:10px;"><p style="margin:0;font-size:11.5px;font-weight:600;color:#0C0F1D;">App Privacy</p><span class="badge" style="border-color:rgba(0,168,133,.5);color:#00A885;margin-top:4px;">Privacy</span></div>
+          </div>
+          <div style="border-top:1px solid rgba(12,15,29,.12);padding-top:11px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;color:#2D3436;flex-wrap:wrap;">
+            <span>Privacy</span><span style="color:#636E72;">&middot;</span><span style="color:#5B4CCE;">App Privacy</span><span style="color:#636E72;">&middot;</span><span>Terms</span><span style="color:#636E72;">&middot;</span><span>Transparency</span><span style="color:#636E72;">&middot;</span><span>Press</span><span style="color:#636E72;">&middot;</span><span>Contact</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Explicit dark</span> &mdash; drawn above, the only state the ground has.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Explicit light</span> &mdash; the hub&rsquo;s badges are the trouble. <span class="src">DocsContent.tsx:100&ndash;106</span> paints five badge colours in Tailwind stock at <span class="mono">/20</span> fill and <span class="mono">-400</span> text; on a light ground a 20%-alpha fill of a 400-weight colour is nearly invisible. Redrawn in the <span class="mono">.dark</span> end of each cosmic triad, which is the ramp&rsquo;s own answer to this (far/mid/near = dark/base/light).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">System</span> &mdash; resolves to dark today. Named on every board of this canvas because it is one fact, not five: nothing in the repo reads the preference.</p></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The build law this whole canvas obeys</p>
+        <p class="q">&ldquo;i magine building the framework for each of the next realms before the features within is a good approach, as some features are cross referenced realm-wise. the game side of the vessel experience, not as vital as a functional bazaar, athena with contents, etc&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept &middot; THE AUDHDITIES CONDUCTING PLAN &sect;2 B. So: rooms, honest wiring, the ways between, true empty states. Features that cross realms are marked, never designed.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Marked as second pass, drawn as places</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The subscription tiers</span> &mdash; a place in the Bazaar, named on this board and drawn nowhere. Their spec is S&rsquo;s, in that realm.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The press kit&rsquo;s return</span> &mdash; a place on <span class="mono">/press</span>, drawn as an absence rather than an empty frame, because a frame is a promise.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Per-app anchors on <span class="mono">/apps/privacy</span></span> &mdash; needed when store listings deep-link a section; not needed for the page to be true.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">A row that opens into its exchange</span> on the council ledger &mdash; the room it would open into is the Bazaar&rsquo;s and is itself mid-build.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">A light theme, properly</span> &mdash; four boards propose one and none of them build it. It is a cross-realm feature by definition: one set of tokens, every room. Named on every board, ruled on none.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the hub is a fixed catalog of four sections that ends. Nothing loads on scroll, nothing reorders, nothing expires.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the hub holds no state; the footer holds none. Nothing on this board can lose a reader&rsquo;s work.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing blinks. No &ldquo;new&rdquo; badge on the App Privacy card: it is new to the house, not new to the reader, and marking it would be a nudge.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays anywhere in this realm.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the footer&rsquo;s six are the plainest words available: <em>Privacy &middot; App Privacy &middot; Terms &middot; Transparency &middot; Press &middot; Contact</em>. Deliberately not the house names (The Covenant, The Agreement, The Scroll) &mdash; a footer is where a stranger goes when they need the boring true thing, and the poetry lives one click in.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every card on the hub states its destination in words; every footer link is a noun a person can already spell.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the hub <em>is</em> the realm&rsquo;s more-info door, and after this pass every card on it points at a page that exists.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; stills to nothing. The hub&rsquo;s card hovers become tint-only; nothing scales.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured. Hub card titles starDust on surface <span class="k">12.3:1</span>; the footer at <span class="mono">opacity-80</span> over the footer&rsquo;s own ground <span class="k">9.4:1</span>. The badges as they stand read 6.2 to 9.7:1 in Tailwind stock &mdash; legible, but not the house palette, which is the finding rather than the failure.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; the hub is a plain list of links in reading order; the footer is six more. One card leaves the tab order and one joins it, so the count does not change.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6), checked on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The donation ask</span> &mdash; refused, by KP&rsquo;s own hand and for his own reason: <em>&ldquo;the donations tab was before we had a built sanctuary and had different outlooks.&rdquo;</em> No tip jar, no &ldquo;support us&rdquo; banner, no suggested amounts anywhere in the realm after this pass. A house with a working economy does not pass a hat.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The impact calculator</span> &mdash; refused with the room. <span class="src">ImpactCalculator</span> turned an amount into claimed outcomes; the house has no measured outcomes to turn it into, which is the definition of the thing E4 names.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">A count that drifts</span> &mdash; the hub&rsquo;s &ldquo;18 documents&rdquo; is named, not accepted. It was wrong once already (it read 8), and a typed count in a room whose whole job is documenting the house is the sharpest possible version of the realm&rsquo;s own law.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">A door on a wall</span> &mdash; <span class="mono">/enter</span> named, <span class="mono">/donate</span> removed rather than left dark. The street&rsquo;s own promise is <em>&ldquo;Every href below is a route that exists on disk &mdash; the map never lies&rdquo;</em> (<span class="src">Navigation.tsx:14</span>), and this board is that promise being kept.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The realm&rsquo;s own law, checked</p>
+        <p class="q">&ldquo;The Forge documents the whole house &mdash; a page in this realm is true only if the realm it describes agrees.&rdquo;</p>
+        <p class="src" style="margin:8px 0 10px;">(hephaestus)/REALM-BUS.md:20&ndash;22.</p>
+        <p class="rl-b">Every change on this board is that law applied to the Forge&rsquo;s own doors rather than to its prose: a card that names a room the house no longer has is exactly as untrue as a paragraph that does. <span class="k">The five removals are one deletion in five places</span>, and the realm is only true when all five land together.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every change marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; <span class="src">DocsContent.tsx:77</span> &ldquo;The living documents of our sovereign home&rdquo; &middot; every surviving card title and description in the Sanctuary section &middot; <span class="src">footer.constants.ts:9</span> the copyright line.</p>
+          <p class="rl-b"><span class="k">REMOVED</span> &middot; <span class="src">DocsContent.tsx:92</span> &middot; <span class="src">DocsConstellation.tsx:213&ndash;220</span> &middot; <span class="src">the-street.ts:141</span> &middot; <span class="src">page_mapping.ts:564&ndash;568</span><br><span class="old">&ldquo;The Offering&rdquo; &middot; &ldquo;Your contribution keeps the Sanctuary alive&rdquo;</span> &rarr; <span class="new">gone from all four, with the room</span>.</p>
+          <p class="rl-b"><span class="k">NEW</span> &middot; the hub&rsquo;s App Privacy card<br><span class="new">&ldquo;App Privacy&rdquo; &middot; &ldquo;The apps collect nothing. This is the policy that says so.&rdquo;</span> &mdash; written to sit beside &ldquo;The Covenant&rdquo; without repeating it: one is about the website, one about the apps, and the pair only works if each says which.</p>
+          <p class="rl-b"><span class="k">CHANGE</span> &middot; <span class="src">footer.constants.ts:18</span><br><span class="old">&#9878; as the link separator</span> &rarr; <span class="new">&middot;</span> &mdash; the scales glyph reads as a claim about justice rather than as punctuation, and it sits between two legal documents where that reading is loudest.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">What this board does not decide</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Whether <span class="mono" style="color:#E0E0E0;">/</span> gets a desktop door back.</span> Board &#9313; carries the finding and the lean (add it to the street&rsquo;s Hearth rooms). <span class="k">Unwritten &mdash; his to rule.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">What <span class="mono" style="color:#E0E0E0;">/enter</span> is.</span> A route named in <span class="src">page_mapping.ts:570&ndash;579</span> and <span class="src">trio.ts:181</span> with no page behind it. Nothing links to it any more; whether the route should exist is the chassis&rsquo;s question. <span class="k">Unwritten &mdash; his to rule.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Whether the footer grows at all.</span> Six pointers is this board&rsquo;s proposal because four bar items leave the legal doors homeless &mdash; but a footer is a place a reader learns once, and doubling it three times over is a real change to a surface KP has not asked about. <span class="k">Drawn as a proposal, gold-dotted, not landed.</span></p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

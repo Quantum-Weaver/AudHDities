@@ -42,7 +42,7 @@ interface ImpactMetric {
 }
 
 const IMPACT_METRICS: ImpactMetric[] = [
-  { label: "Creator Support", description: "Funds a creator for one day", unitCost: 5, icon: "🎨" },
+  { label: "Artisan Support", description: "Funds an artisan for one day", unitCost: 5, icon: "🎨" },
   { label: "Server Time", description: "Keeps the Sanctuary online", unitCost: 0.10, icon: "🖥️" },
   { label: "Accessibility Tools", description: "Provides screen reader licenses", unitCost: 20, icon: "♿" },
   { label: "Community Events", description: "Sponsors a community gathering", unitCost: 50, icon: "🎉" },

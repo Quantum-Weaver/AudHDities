@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;--hearth-gold:#FDCB6E;
+      --hearth-orange:#C44B2D;--error:#E17055;--void-dark:#2D3436;--void-base:#636E72;
+      --mood-creative:#A29BFE;--skald:#FD79A8;--albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .old{color:rgba(224,224,224,.5);text-decoration:line-through;}
+    .new{color:var(--star-dust);}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .bar{display:flex;align-items:center;height:48px;background:rgba(12,15,29,.40);
+      border-bottom:1px solid rgba(255,255,255,.05);border-radius:10px 10px 0 0;padding:0 8px;gap:4px;}
+    .item{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;
+      border-radius:8px;font-size:14px;font-weight:500;color:rgba(224,224,224,.50);}
+    .item-on{background:rgba(34,211,238,.15);color:#22D3EE;}
+    .item-sm{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;
+      border-radius:8px;font-size:12px;font-weight:500;color:rgba(224,224,224,.40);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9313;</span>
+    <span style="font-size:15px;font-weight:600;">The four-item bar, and the map that carries the rest</span>
+    <span class="src">bifrost/Navigation.tsx &middot; systems/the-street.ts &middot; the LÉARSCÁIL</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">Six realms and three side-doors leave the bar. <span class="k">Four items and the Map stay.</span> Nothing loses its door &mdash; the map already holds every room, and it is the only thing that ever did.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <!-- TODAY -->
+      <div>
+        <p class="rl-h">Today &mdash; a hardcoded six, a secondary three, the Map, and a right-aligned Vessel</p>
+        <div style="border:1px solid rgba(225,112,85,.30);border-radius:12px;overflow:hidden;background:#0C0F1D;opacity:.78;">
+          <div class="bar" style="flex-wrap:wrap;height:auto;padding:8px;">
+            <span class="item">Hearth</span><span class="item">Bazaar</span><span class="item">Library</span>
+            <span class="item">Stage</span><span class="item">Council</span><span class="item">Nexus</span>
+            <span style="height:20px;width:1px;background:rgba(255,255,255,.10);margin:0 8px;"></span>
+            <span class="item-sm">Observatory</span><span class="item-sm">Bridge</span><span class="item-sm">Studio</span>
+            <span class="item-sm">Map</span>
+            <span style="margin-left:auto;font-size:12px;color:rgba(224,224,224,.50);padding-right:6px;">Enter</span>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Ten controls and an auth link on one bar, <span class="k">none of them derived from the street</span>. <span class="src">Navigation.tsx:34&ndash;41</span> is a second, hand-kept list; <span class="src">the-street.ts</span> is the one the map and the LÉARSCÁIL read. Two definitions of the same landscape is the drift the street file was extracted to end &mdash; and the bar never joined it.</p>
+      </div>
+
+      <!-- NEW, signed in -->
+      <div>
+        <p class="rl-h">The bar &mdash; signed in</p>
+        <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="bar">
+            <span class="item item-on">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+              Vessel</span>
+            <span class="item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v13H3z"/><path d="M3 7l2-4h14l2 4"/><path d="M9 11h6"/></svg>
+              Bazaar</span>
+            <span class="item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><circle cx="17" cy="7" r="4"/><path d="M13 21l4-7 4 7z"/></svg>
+              Playground</span>
+            <span class="item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+              Sanctuary</span>
+            <span style="height:20px;width:1px;background:rgba(255,255,255,.10);margin:0 8px;"></span>
+            <span class="item-sm" style="color:rgba(224,224,224,.55);border:1px solid rgba(224,224,224,.14);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.55)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4L3 7v13l6-3 6 3 6-3V4l-6 3z"/><path d="M9 4v13"/><path d="M15 7v13"/></svg>
+              Map</span>
+            <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(224,224,224,.50);padding-right:6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+              KP</span>
+          </div>
+          <div style="padding:14px 14px 16px;">
+            <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.60);line-height:1.55;">Four items, one divider, the Map, and the signed-in name where it already sits (<span class="src">Navigation.tsx:156&ndash;173</span>). The right-hand name and the Vessel item are <em>not</em> the same control: the name is who you are, the item is where you live.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW, signed out -->
+      <div>
+        <p class="rl-h">The bar &mdash; signed out, a visitor who has never been here</p>
+        <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="bar">
+            <span class="item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+              Vessel</span>
+            <span class="item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v13H3z"/><path d="M3 7l2-4h14l2 4"/><path d="M9 11h6"/></svg>
+              Bazaar</span>
+            <span class="item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.5)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><circle cx="17" cy="7" r="4"/><path d="M13 21l4-7 4 7z"/></svg>
+              Playground</span>
+            <span class="item item-on">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+              Sanctuary</span>
+            <span style="height:20px;width:1px;background:rgba(255,255,255,.10);margin:0 8px;"></span>
+            <span class="item-sm" style="color:rgba(224,224,224,.55);border:1px solid rgba(224,224,224,.14);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.55)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4L3 7v13l6-3 6 3 6-3V4l-6 3z"/><path d="M9 4v13"/><path d="M15 7v13"/></svg>
+              Map</span>
+            <span style="margin-left:auto;font-size:12px;color:rgba(224,224,224,.55);padding-right:6px;">Enter</span>
+          </div>
+          <div style="padding:14px 14px 16px;">
+            <p style="margin:0 0 8px;font-size:11.5px;color:rgba(224,224,224,.62);line-height:1.55;"><span class="k" style="font-size:12px;">The visitor lands on Sanctuary and it is already lit</span> &mdash; <span class="src">/</span> redirects a signed-out reader to <span class="src">/sanctuary</span> (<span class="src">app/page.tsx:42</span>), which is the confirmed visitors&rsquo; front door (<span class="src">01-auth/PROOF.md:15&ndash;16</span>). So the active item and the page agree from the first second, with no login asked for.</p>
+            <p style="margin:0;font-size:11.5px;color:rgba(0,184,148,.88);line-height:1.55;"><span style="font-weight:600;">RULED &mdash; Vessel, signed out, goes to <span class="src" style="color:rgba(0,184,148,.88);">/login</span></span>. The label stays &ldquo;Vessel&rdquo; and does not shapeshift into &ldquo;Enter&rdquo;: the name is the place, the href is the door that leads there. KP &#9883; 2026-08-24, verbatim: <em>&ldquo;yes&rdquo;</em>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATES -->
+      <div>
+        <p class="rl-h">Active &middot; focus &middot; hover &middot; reduced motion</p>
+        <div class="card" style="padding:16px 15px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="item item-on" style="flex:none;">Bazaar</span>
+              <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);line-height:1.5;"><span class="k">Active</span> &mdash; <span class="src">bg-neurospark/15 text-neurospark</span>, and it stays lit for every room beneath it (<span class="src">isActive</span>, <span class="src">Navigation.tsx:86</span>). Colour is not the only signal: <span class="src">aria-current=&ldquo;page&rdquo;</span> rides with it.</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="item" style="flex:none;outline:2px solid #FDCB6E;outline-offset:2px;color:rgba(224,224,224,.80);">Playground</span>
+              <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);line-height:1.5;"><span class="k">Keyboard focus</span> &mdash; a 2px hearth-gold ring at 2px offset, <span class="k">12.7:1</span> on the bar ground. Drawn on its own so it can never be confused with the active state, and so a keyboard reader can see where they are on a bar whose active item is already tinted.</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="item" style="flex:none;background:rgba(255,255,255,.05);color:rgba(224,224,224,.80);">Sanctuary</span>
+              <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);line-height:1.5;"><span class="k">Hover</span> &mdash; a background tint and a lift in text opacity. No scale, no translate: a transform on a nav item is motion a reader did not ask for.</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="item" style="flex:none;border:1px dashed rgba(0,184,148,.5);color:rgba(224,224,224,.70);">Vessel</span>
+              <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);line-height:1.5;"><span class="k">Reduced motion</span> &mdash; stills to nothing. The bar is already correct here: every transition on it carries <span class="src">motion-reduce:transition-none</span> (<span class="src">Navigation.tsx:107,130,147,160,168</span>). The four-item bar keeps that guard on every item it inherits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE -->
+      <div>
+        <p class="rl-h">Mobile &mdash; the drawer carries the same street, in the same order, forever</p>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:210px;flex:none;border:1px solid rgba(224,224,224,.12);border-radius:12px;overflow:hidden;background:rgba(12,15,29,.95);">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 12px;border-bottom:1px solid rgba(255,255,255,.10);">
+              <span style="font-size:14px;font-weight:700;color:#22D3EE;">Sanctuary</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.6)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </div>
+            <div style="padding:10px 10px;display:flex;flex-direction:column;gap:11px;">
+              <div>
+                <p style="margin:0 0 4px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,224,224,.40);padding-left:8px;">The four</p>
+                <div style="display:flex;flex-direction:column;gap:2px;">
+                  <span style="padding:7px 10px;border-radius:8px;font-size:12.5px;color:rgba(224,224,224,.70);">Vessel</span>
+                  <span style="padding:7px 10px;border-radius:8px;font-size:12.5px;color:rgba(224,224,224,.70);">Bazaar</span>
+                  <span style="padding:7px 10px;border-radius:8px;font-size:12.5px;color:rgba(224,224,224,.70);">Playground</span>
+                  <span style="padding:7px 10px;border-radius:8px;font-size:12.5px;background:rgba(34,211,238,.20);color:#22D3EE;">Sanctuary</span>
+                </div>
+              </div>
+              <div style="height:1px;background:rgba(255,255,255,.10);"></div>
+              <div>
+                <p style="margin:0 0 4px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,224,224,.40);padding-left:8px;">The Hearth</p>
+                <div style="display:flex;flex-direction:column;gap:2px;">
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.70);">The Vessel</span>
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.70);">The Home</span>
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.70);">The Sanctum</span>
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.45);">Energy Log &middot; The Scroll &hellip;</span>
+                </div>
+              </div>
+              <div>
+                <p style="margin:0 0 4px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,224,224,.40);padding-left:8px;">The Forge</p>
+                <div style="display:flex;flex-direction:column;gap:2px;">
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.70);">The Forge</span>
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.70);">The Covenant</span>
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(0,184,148,.9);">App Privacy</span>
+                  <span style="padding:6px 10px;border-radius:8px;font-size:12px;color:rgba(224,224,224,.45);">and the rest of the street&hellip;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <p class="rl-b"><span class="k">One change on mobile: the four are named at the top.</span> The drawer already renders the whole street (<span class="src">Navigation.tsx:271&ndash;293</span>) and will keep doing so &mdash; but a phone reader has no bar to compare against, so without the four-strip the simplification simply does not exist for them.</p>
+            <p class="rl-b" style="margin-top:9px;">The floating button, the overlay, the slide and its <span class="src">motion-reduce</span> guard are unchanged (<span class="src">:244&ndash;319</span>). The drawer&rsquo;s own wordmark is the one remaining chrome link to <span class="src">/</span> &mdash; see the rail.</p>
+            <p class="rl-b" style="margin-top:9px;"><span class="k">44px minimum on every row.</span> The drawer&rsquo;s rows are drawn at 40px here for the artboard&rsquo;s scale; at real size they are 44 and up, the whole width of the drawer tappable.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIGHT -->
+      <div>
+        <p class="rl-h">Light &mdash; proposed, cosmic tokens only</p>
+        <div style="border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;background:#E0E0E0;">
+          <div style="display:flex;align-items:center;height:48px;background:rgba(245,245,220,.7);border-bottom:1px solid rgba(12,15,29,.10);padding:0 8px;gap:4px;">
+            <span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:8px;font-size:14px;font-weight:500;color:#2D3436;">Vessel</span>
+            <span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:8px;font-size:14px;font-weight:500;color:#2D3436;">Bazaar</span>
+            <span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:8px;font-size:14px;font-weight:500;color:#2D3436;">Playground</span>
+            <span style="display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:8px;font-size:14px;font-weight:600;background:rgba(91,76,206,.14);color:#5B4CCE;">Sanctuary</span>
+            <span style="height:20px;width:1px;background:rgba(12,15,29,.14);margin:0 8px;"></span>
+            <span style="display:inline-flex;align-items:center;height:30px;padding:0 10px;border-radius:8px;font-size:12px;color:#636E72;border:1px solid rgba(12,15,29,.14);">Map</span>
+            <span style="margin-left:auto;font-size:12px;color:#636E72;padding-right:6px;">Enter</span>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The active tint moves from <span class="src">neurospark</span> to <span class="src">quantum.dark</span>, because neurospark reads <span class="k">1.6:1</span> on the light ground and <span class="k">10.5:1</span> on the dark one. <span class="k">The active state is the first thing a light theme breaks</span> &mdash; a tint chosen for a dark bar becomes invisible, and an invisible active state is a reader who cannot tell where they are.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ruling this board draws</p>
+        <p class="q">&ldquo;i think the navigation should be simplified, since we have the map for the full navigation. [Vessel, Bazaar, Playground, Sanctum (hephaestus) ]&rdquo;</p>
+        <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim, spelling and brackets kept &middot; THE AUDHDITIES CONDUCTING PLAN &sect;0.</p>
+        <p class="q">&ldquo;the collision is my mispelling, it is sanctuary in hephaestus&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, same sitting, verbatim. So the fourth item is <span class="k">Sanctuary</span> &rarr; <span class="src">/sanctuary</span>, and the Vessel&rsquo;s settings room keeps the name <span class="k">Sanctum</span> at <span class="src">/vessel/sanctum</span> (<span class="src">the-street.ts:52</span>). <span class="k">No collision, and no rename anywhere.</span></p>
+      </div>
+
+      <div>
+        <p class="rl-h">What leaves the bar, and where it lands</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Library &middot; Stage &middot; Council &middot; Nexus</span> (<span class="src">Navigation.tsx:37&ndash;40</span>) &mdash; all four already stand in the map as realm groups with their rooms (<span class="src">the-street.ts:69,59,115,146</span>). They lose a bar item and keep every door.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Observatory &middot; Bridge &middot; Studio</span> (<span class="src">Navigation.tsx:43&ndash;47</span>) &mdash; the same. <span class="src">/observatory</span>, <span class="src">/connect</span> and <span class="src">/studio</span> are all in the street (<span class="src">:113,102,66</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Hearth &rarr; <span class="src" style="color:#E17055;">/</span> is the one that does NOT land anywhere.</span> <span class="src">/</span> appears nowhere in <span class="src">the-street.ts</span>, and the Header&rsquo;s wordmark points at <span class="src">/vessel</span>, not <span class="src">/</span> (<span class="src">Header.tsx:66</span>). Retire the Hearth item and a signed-in vessel&rsquo;s only remaining chrome link to <span class="src">/</span> is the mobile drawer&rsquo;s wordmark (<span class="src">Navigation.tsx:261</span>). <span class="k">The mend: add <span class="src" style="color:#E0E0E0;">{ href: &lsquo;/&rsquo;, label: &lsquo;The Hearth&rsquo; }</span> to the street&rsquo;s Hearth rooms</span> &mdash; the map is where retired doors go, by KP&rsquo;s own sentence.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The bar should be derived, not re-typed</p>
+        <p class="rl-b">Today the bar is a second hand-kept list (<span class="src">Navigation.tsx:34&ndash;41</span>) beside the street&rsquo;s own (<span class="src">the-street.ts:42</span>), and the street file exists <em>because</em> that duplication drifted once already: <em>&ldquo;so the NAV and the LÉARSCÁIL read the same ground and cannot drift apart&rdquo;</em> (<span class="src">the-street.ts:5&ndash;8</span>). The four items are four <span class="src">href</span>s that already live in the street; drawing them from it is one line of code and one class of bug gone.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">After the Playground ruling, three of the four are the street&rsquo;s own realm doors</span> &mdash; <span class="src">/vessel</span> (The Hearth), <span class="src">/bazaar</span> (The Bazaar), <span class="src">/environments</span> (The Realms). The fourth, <span class="src">/sanctuary</span>, is a room inside the Forge group (<span class="src">the-street.ts:135</span>) rather than that realm&rsquo;s door, because it is the visitors&rsquo; front door and the Forge&rsquo;s own door is <span class="src">/forge</span>. So a derived bar reads four hrefs from the street; it does not read four realms.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">RULED &mdash; the two items that were open</p>
+        <div style="border:1px solid rgba(0,184,148,.35);border-radius:10px;padding:14px 13px;margin-bottom:11px;">
+          <p class="rl-b" style="margin-bottom:9px;"><span class="k">1 &middot; Playground is the realm, not the room.</span></p>
+          <p class="q" style="border-left-color:rgba(0,184,148,.6);">&ldquo;effects, playground, environments, theater are all (cosmic) pages&rdquo;</p>
+          <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim.</p>
+          <p class="rl-b">So the item lands on <span class="k">the realm&rsquo;s own door as the street defines it</span> &mdash; <span class="src">/environments</span> today (<span class="src">the-street.ts:162</span>, &ldquo;The Realms&rdquo;, whisper <em>&ldquo;The design playground&rdquo;</em>) &mdash; and its four pages are its rooms beneath it: The Crossing Hall, The Sandbox, The Theater, The Grimoire (<span class="src">:165&ndash;168</span>). All four stay one tap away in the map.</p>
+          <p class="rl-b" style="margin-top:8px;">This also makes the bar consistent: <span class="k">all four items are realm doors</span>, and a bar derived from the street picks four realms rather than four rooms.</p>
+          <p class="rl-b" style="margin-top:8px;"><span class="k">One line for the build:</span> (cosmic) is the realm that builds whole rather than frame-then-features, so its own pass &mdash; realm 10 &mdash; may re-home this door. The item follows the street&rsquo;s <span class="src">href</span> for that realm, whatever it becomes; it does not hardcode a route.</p>
+        </div>
+        <div style="border:1px solid rgba(0,184,148,.35);border-radius:10px;padding:14px 13px;">
+          <p class="rl-b" style="margin-bottom:9px;"><span class="k">2 &middot; Vessel signed out goes to <span class="src" style="color:#E0E0E0;">/login</span>.</span></p>
+          <p class="q" style="border-left-color:rgba(0,184,148,.6);">&ldquo;yes&rdquo;</p>
+          <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim, on the drawn lean.</p>
+          <p class="rl-b">The label stays &ldquo;Vessel&rdquo; in both states and the href becomes <span class="src">/login</span> when signed out. <span class="k">Four fixed items in a fixed order, whatever your state</span> &mdash; the geometry law is that a place does not move (<span class="src">the-street.ts:10&ndash;13</span>), and a door that renames itself depending on who is looking is a door you cannot learn.</p>
+          <p class="rl-b" style="margin-top:8px;"><span class="k">Not chosen, and recorded:</span> pointing signed-out Vessel at <span class="src">/sanctuary</span>, which would make two of the four items the same destination on a visitor&rsquo;s first screen; and hiding the item when signed out, which shrinks the bar to three and teaches the wrong geometry.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; the bar is static and fixed. Ten controls become five; nothing on it loads, polls, badges, or changes while you look at it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the bar holds no state of its own; the drawer and map both close on navigation (<span class="src">Navigation.tsx:71&ndash;74</span>) so nothing is left half-open behind you.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; nothing blinks. No notification dot, no pulse, no attention-seeking badge on any of the four.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; nothing plays. The map does not open itself, ever.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; four house words instead of nine. <em>Vessel &middot; Bazaar &middot; Playground &middot; Sanctuary</em> are all named in KP&rsquo;s own sentence; the two that are not obvious on sight (Vessel, Sanctuary) are the two a reader meets first anyway.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; this is the board&rsquo;s whole argument. Nine near-identical items is a directory; four is a way in. The Map is where the directory belongs, and it says so on its own foot: <em>&ldquo;Every door stays where you left it.&rdquo;</em> (<span class="src">Navigation.tsx:235</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the Map, unchanged: the LÉARSCÁIL drawn, then every realm and every real room beneath it (<span class="src">:200&ndash;233</span>). Esc folds it (<span class="src">:79&ndash;81</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; already guarded on every transition in the file, and kept. Stills to nothing; nothing on the bar scales or slides.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; measured on the bar&rsquo;s ground. Resting label at /50 <span class="k">4.3:1</span>, hover at /80 <span class="k">9.4:1</span>, active neurospark on its own <span class="src">/15</span> tint <span class="k">8.0:1</span>, the focus ring in hearth-gold <span class="k">12.7:1</span>. <span class="k">Resting /50 is the weak one</span> &mdash; it clears 4.5:1 only because the item is 14px semibold; the secondary row&rsquo;s /40 (<span class="src">:131</span>) reads <span class="k">3.2:1</span> at 12px and is one of the things that leaves with it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; four links, then Map, then the auth link: six stops instead of eleven. The Map is a real <span class="src">button</span> with <span class="src">aria-haspopup</span> and <span class="src">aria-expanded</span> already (<span class="src">:144&ndash;145</span>); focus returns to it when Esc folds the map.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The refusal column (E4 &sect;6), checked on this board</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The Gruen transfer</span> &mdash; refused. Four items, all visible at once, all one tap deep, in a fixed order that never shuffles. No item is placed to be passed on the way to another.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Badges &middot; counts &middot; streaks</span> &mdash; none on any item, none added. A nav that counts at you is a nav that decides your next move for you.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Metaphor never obscures the exit</span> &mdash; the sovereignty rider, already in the street as <span class="src">alwaysOpen</span> on the Hearth (<span class="src">the-street.ts:33&ndash;38,48</span>). The way home is never a puzzle, and on this bar it is the first item.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Hover-only affordances</span> &mdash; refused. Every one of the four states its own name at rest; nothing appears only under a mouse.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Copy &mdash; every change marked</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; <span class="src">:152</span> &ldquo;Map&rdquo; &middot; <span class="src">:190</span> &ldquo;The Sanctuary &mdash; every door&rdquo; &middot; <span class="src">:235</span> &ldquo;Every door stays where you left it. Esc folds the map.&rdquo; &middot; <span class="src">:301</span> &ldquo;Enter the Sanctuary&rdquo; in the drawer.</p>
+          <p class="rl-b"><span class="k">CHANGE 1</span> &middot; <span class="src">Navigation.tsx:34&ndash;41</span><br><span class="old">Hearth &middot; Bazaar &middot; Library &middot; Stage &middot; Council &middot; Nexus</span> &rarr; <span class="new">Vessel &middot; Bazaar &middot; Playground &middot; Sanctuary</span>. Bazaar is the only one of the six that survives, and it survives unchanged.</p>
+          <p class="rl-b"><span class="k">CHANGE 2</span> &middot; <span class="src">Navigation.tsx:43&ndash;47</span><br><span class="old">the SECONDARY row &mdash; Observatory &middot; Bridge &middot; Studio</span> &rarr; <span class="new">removed</span>. Three 12px items at /40 opacity below the main row were a second tier no one asked for, and all three are in the map.</p>
+          <p class="rl-b"><span class="k">CHANGE 3</span> &middot; <span class="src">Navigation.tsx:170</span><br><span class="old">&ldquo;Enter&rdquo; as the signed-out Vessel affordance</span> &rarr; <span class="new">kept, as the auth link</span> &mdash; but it is no longer the <em>only</em> thing a visitor can press to reach their own room, because Vessel now stands on the bar in both states.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the drawer&rsquo;s &ldquo;The four&rdquo; strip. Without it the simplification is invisible on a phone, where there is no bar to have been simplified.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Second pass &mdash; framework first</p>
+        <p class="rl-b">Drawn here: the frame &mdash; four items, their states, the drawer, the map that keeps every door. <span class="k">Not drawn</span>, and belonging to the cross-realm pass: any notification affordance on the bar (the Call lives at <span class="src">/notifications</span> in the street and stays there), a realm-tinted bar (the 0.3 law would have to be re-argued for a 48px strip), and whatever the Playground grows once (cosmic) builds whole.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

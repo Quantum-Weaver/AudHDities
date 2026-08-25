@@ -38,7 +38,7 @@ interface DonationTiersProps {
 
 const TIERS = [
   { amount: 10, label: "Supporter", description: "Helps keep the lights on", icon: "🕯️" },
-  { amount: 25, label: "Guardian", description: "Supports a creator for a month", icon: "🛡️" },
+  { amount: 25, label: "Guardian", description: "Supports an artisan for a month", icon: "🛡️" },
   { amount: 50, label: "Steward", description: "Funds accessibility tools", icon: "🌿" },
   { amount: 100, label: "Visionary", description: "Supports new feature development", icon: "🔮" },
   { amount: 250, label: "Sovereign", description: "Major impact, major gratitude", icon: "👑" },

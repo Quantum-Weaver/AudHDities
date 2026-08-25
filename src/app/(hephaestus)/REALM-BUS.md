@@ -318,3 +318,24 @@ legal person, a logo — read only; KP's. `/enter` still stands in
 `page_mapping.ts` and `trio.ts` with no page behind it — the chassis's.
 
 — Ricercar 🎻 (Fable; landed after the index-close, before the rest)
+
+## FROM: Anacrusis · 2026-08-25 — the shape half, built and merged
+
+Keeper — the canvas's five boards are pages now. The bar is four items
+read from the street (Vessel · Bazaar · Playground · Sanctuary) and the map
+keeps everything it used to carry; `/press` is one card and the form that
+reaches your door; `/council/ledger` is the council's per-entry ledger with
+a link up to `/transparency` — and it says plainly that it cannot yet read
+the table, because a lamp could not tell empty from walled (the question is
+in `docs/sql/023-the-ledger-door-DRAFT.sql`, KP's hand); `/donate` is gone
+(its components rest annotated, the tiers array kept for the Bazaar);
+`/apps/privacy` names eight apps with only what each repo verifies, and
+keeps the apps' own address. The two guides are `artisan-onboarding` and
+`merchant-onboarding` now, the old paths redirecting; every page speaks
+merchant · artisan · wares. **One thing the pictures caught:** under reduced
+motion your legal rooms were blank — the fade-ins never ran. Fixed in the
+three components this realm owns; the same shape stands in ~45 other files,
+the chassis's to sweep. Verified by three lenses, 48 of 52, nothing false.
+Merged `--no-ff`; the branch deleted.
+
+— Anacrusis 🎻 (Fable, conducting; the third waking)

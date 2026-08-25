@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum-purple:#6C5CE7;--sanctuary-green:#00B894;
+      --hearth-gold:#FDCB6E;--error:#E17055;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;} a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;color:rgba(224,224,224,.5);}
+    .mono{font-family:"JetBrains Mono",Monaco,Consolas,monospace;}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 4px;">
+    <span style="font-size:13px;font-weight:700;color:#E17055;">&#10005;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; wire <span class="mono">/donate</span> up properly instead of retiring it</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 18px;">Drawn, then set down. Kept on the canvas because a design without its refusals is a claim with no reason attached.</p>
+
+  <div class="card" style="padding:16px 15px;margin-bottom:18px;opacity:.74;">
+    <p class="rl-h" style="margin-bottom:11px;">What it looked like</p>
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px;margin-bottom:9px;">
+      <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:12px 9px;text-align:center;"><p style="margin:0;font-size:11.5px;font-weight:600;">Tier</p><p style="margin:3px 0 0;font-size:16px;font-weight:700;color:rgba(224,224,224,.55);">&mdash;</p></div>
+      <div style="border:1px solid rgba(108,92,231,.40);border-radius:9px;padding:12px 9px;text-align:center;"><p style="margin:0;font-size:11.5px;font-weight:600;">Tier</p><p style="margin:3px 0 0;font-size:16px;font-weight:700;color:rgba(224,224,224,.55);">&mdash;</p></div>
+      <div style="border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:12px 9px;text-align:center;"><p style="margin:0;font-size:11.5px;font-weight:600;">Tier</p><p style="margin:3px 0 0;font-size:16px;font-weight:700;color:rgba(224,224,224,.55);">&mdash;</p></div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <div style="flex:1;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:11.5px;">Impact calculator</p></div>
+      <div style="flex:1;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:11px 10px;"><p style="margin:0;font-size:11.5px;">Recurring options</p></div>
+    </div>
+    <div style="margin-top:8px;display:flex;align-items:center;justify-content:center;height:42px;border-radius:10px;background:#6C5CE7;color:#FFFFFF;font-size:13px;">Checkout &rarr; Thank You &rarr; Tax Receipt</div>
+    <p style="margin:11px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);">The room exactly as it stands, with the dead submit path replaced by a real payment session and the receipt screens made reachable.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div>
+      <p class="rl-h">The case for it, honestly</p>
+      <p class="rl-b">The room is already written &mdash; five components, tiers, a recurring option, a thank-you and a receipt &mdash; and the house already has a payment integration. Wiring it is a smaller change than removing it from five files, and it turns a dead page into a working one in an afternoon. Money arriving is money arriving.</p>
+      <p class="rl-b" style="margin-top:9px;">There is a decent argument that support and commerce are different acts. Someone who wants to help without buying anything has, after this pass, no way to do it. That is a real thing to give up, and it should be said out loud rather than quietly folded into &ldquo;the Bazaar handles it.&rdquo;</p>
+    </div>
+    <div>
+      <p class="rl-h">The ground that declined it</p>
+      <p class="q">&ldquo;retire the donate and create subscription tiers for me rather than the platform, and  i will still have my covenant set to 50%. the donations tab was before we had a built sanctuary and had different outlooks.&rdquo;</p>
+      <p class="src" style="margin:8px 0 10px;">KP &#9883; 2026-08-24, verbatim, spacing kept. <span class="k">This is a withdrawal by the person whose page it was</span>, giving his own reason, on the day the option was live.</p>
+      <p class="rl-b">He is also naming a design fact, not just a preference. A donation page and a subscription tier ask for the same money in two different registers: one asks you to give to an institution, the other sells you a thing on a stall. The house&rsquo;s whole economic model is the second &mdash; <span class="k">artisans with wares, a fee, a residual pool</span> &mdash; and a donation route sits outside all of it: it produces no <span class="mono">exchanges</span> row, no ware, no pledge, and nothing the ledger knows how to describe.</p>
+      <p class="rl-b" style="margin-top:9px;">The two hardest pieces would also have been the ones nobody has ruled. <span class="k">&ldquo;Tax Receipt&rdquo; is a legal claim</span> about an entity&rsquo;s status, and the realm&rsquo;s own bus says <em>&ldquo;we have no company&rdquo;</em> (<span class="src">(hephaestus)/REALM-BUS.md:216&ndash;219</span>). And <span class="src">ImpactCalculator</span> turns an amount into claimed outcomes the house has no way to measure &mdash; which is the exact shape E4 names and this realm has retired twice already.</p>
+    </div>
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">The recurrence, which was the genuinely good idea inside it. <span class="src">RecurringOptions</span> is the ancestor of KP&rsquo;s subscription tiers &mdash; the same monthly relationship, moved into the register where the house can actually account for it: a ware on a stall, KP the sole artisan, a renewal writing one <span class="mono">exchanges</span> row and its ledger lines like any other sale.</p>
+      <p class="rl-b" style="margin-top:9px;">The &ldquo;support without buying&rdquo; objection is kept as an open thing rather than answered. Whether a tier at the lowest price <em>is</em> that door, or whether the house wants a separate one, is not this canvas&rsquo;s to decide. <span class="k">Unwritten &mdash; his to rule.</span></p>
+      <p class="rl-b" style="margin-top:9px;">And the refusal produced a finding: the submit path was never live at all. <span class="src">donate/page.tsx:16</span> declares <span class="mono">setDonationComplete</span> and nothing in the file calls it, so the Thank You and Tax Receipt branch at <span class="src">:19&ndash;30</span> has been unreachable for its entire existence. <span class="k">The page has never issued a receipt to anyone</span>, which is the one good thing about it.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
