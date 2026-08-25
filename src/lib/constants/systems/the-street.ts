@@ -126,7 +126,13 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/council', label: 'The Chamber' },
       { href: '/council/proposals', label: 'Proposals' },
       { href: '/council/voting', label: 'The Vote' },
+      // 2026-08-24, board ④. Two rooms, one table, and now two distinct
+      // labels: /transparency is the PUBLIC TELLING (lifetime totals, where
+      // the fee goes, the admin log — read by anyone); /council/ledger is
+      // the ENTRIES THEMSELVES, one line each. It was in no realm's rooms
+      // before this pass and so stood in no map.
       { href: '/transparency', label: 'The Ledger' },
+      { href: '/council/ledger', label: 'The Ledger — every entry' },
     ],
   },
   {
