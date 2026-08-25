@@ -209,14 +209,14 @@ const docCategories: DocCategory[] = [
         badge: 'Invitation',
         badgeColor: 'emerald',
       },
-      {
-        title: 'The Offering',
-        path: '/donate',
-        description: 'Your contribution keeps the Sanctuary alive',
-        icon: Gem,
-        badge: 'Donate',
-        badgeColor: 'amber',
-      },
+      // 'The Offering' → /donate — RETIRED 2026-08-24 at KP's ⚛ word,
+      // verbatim, spacing kept: "retire the donate and create subscription
+      // tiers for me rather than the platform, and  i will still have my
+      // covenant set to 50%. the donations tab was before we had a built
+      // sanctuary and had different outlooks." This component is imported
+      // nowhere and renders to no one today, so the card was latent rather
+      // than live — removed anyway, so it cannot come back wrong the day
+      // something mounts it. The tiers are the Bazaar's spec.
     ],
   },
 ];

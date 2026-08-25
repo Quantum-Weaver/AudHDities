@@ -41,8 +41,6 @@ src/app/(hephaestus)/
 │   └── page.tsx                      # The Calling (/calling — was /careers; renamed 2026-07-31, KP's ⚛ ruling: no company, no careers)
 ├── contact/
 │   └── page.tsx                      # The Hearth Call (/contact)
-├── donate/
-│   └── page.tsx                      # The Offering (/donate)
 ├── press/
 │   └── page.tsx                      # The Scroll (/press)
 ├── privacy/
@@ -85,7 +83,7 @@ src/app/(hephaestus)/
 | The Welcome | `/accessibility` | ✅ | Accessibility commitment |
 | The Calling | `/calling` | ✅ | The truth season, 2026-07-31 — no company, no careers: just us and the community that arrives (KP's ⚛ ruling). Fabricated team retired; voices wait for real ones; the repo set shows at the Nexus Gateway |
 | The Hearth Call | `/contact` | ✅ | Contact form → `contact_submissions` (iris) |
-| The Offering | `/donate` | ✅ | Donation page |
+| ~~The Offering~~ | ~~`/donate`~~ | — | **Retired 2026-08-24** at KP's ⚛ word: *"retire the donate and create subscription tiers for me rather than the platform, and  i will still have my covenant set to 50%. the donations tab was before we had a built sanctuary and had different outlooks."* Route removed; the five donation components stay on disk annotated. The subscription tiers are a WARE of KP's and belong to the Bazaar's spec (realm 03), not to a Forge room |
 | The Scroll | `/press` | ✅ | Press kit |
 | The Covenant | `/privacy` | ✅ | Privacy policy |
 | The Sanctuary | `/sanctuary` | ✅ | Eight-section showpiece — hero, problem, pillars, economics, Acid Test, pathways, transparency, footer |

@@ -4,7 +4,14 @@
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-export function DocsHero() {
+interface DocsHeroProps {
+  /** Counted from DocsContent's own DOC_SECTIONS. Required on purpose — a
+   *  typed count drifts, and this one already did, from 8 to 18.
+   *  2026-08-24, board ⑤. */
+  documentCount: number;
+}
+
+export function DocsHero({ documentCount }: DocsHeroProps) {
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
@@ -37,11 +44,11 @@ export function DocsHero() {
             
           <div className="flex flex-wrap justify-center gap-3">
             {/* 2026-08-24, the truth pass — this read "8 documents" while
-                DocsContent listed 18 (3 architecture + 2 business +
-                3 guides + 10 sanctuary). Counted from DocsContent's own
-                DOC_SECTIONS; recount there before changing it here. */}
-            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
-            📚 18 documents
+                DocsContent listed 18. 2026-08-24, board ⑤ — now DERIVED
+                from DocsContent's own DOC_SECTIONS and passed in, so a card
+                arriving or leaving can never make it lie again. */}
+            <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/70">
+            📚 {documentCount} documents
             </span>
             <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
             🔄 Living wisdom

@@ -149,7 +149,14 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/accessibility', label: 'The Welcome' },
       { href: '/contact', label: 'The Hearth Call' },
       { href: '/press', label: 'The Scroll (Press)' },
-      { href: '/donate', label: 'The Offering' },
+      // { href: '/donate', label: 'The Offering' } — RETIRED 2026-08-24 at
+      // KP's ⚛ word, verbatim, spacing kept: "retire the donate and create
+      // subscription tiers for me rather than the platform, and  i will
+      // still have my covenant set to 50%. the donations tab was before we
+      // had a built sanctuary and had different outlooks."
+      // The route is gone with it, so this line leaves map and drawer at
+      // once — the map never lies. The tiers are a WARE of KP's and belong
+      // to the Bazaar's spec, not to a Forge room.
       { href: '/privacy', label: 'The Covenant' },
       { href: '/terms', label: 'The Agreement' },
     ],

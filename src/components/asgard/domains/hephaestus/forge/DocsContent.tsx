@@ -78,7 +78,11 @@ const DOC_SECTIONS: DocSection[] = [
     pages: [
       { title: 'The Origin', path: '/about', description: 'The story of a sanctuary born from survival and collaboration', icon: Star, badge: 'Story', badgeColor: 'amber' },
       { title: 'The Prophecy', path: '/observatory/prophecy', description: 'A glimpse of what is coming — our vision for the future', icon: Eye, badge: 'Vision', badgeColor: 'purple' },
-      { title: 'The Ledger', path: '/council/ledger', description: 'Every transaction visible. Every decision transparent.', icon: ScrollText, badge: 'Transparency', badgeColor: 'cyan' },
+      // Repointed 2026-08-24, board ④: a docs reader wants the PUBLIC
+      // telling — lifetime totals, where the fee goes, the admin log — not
+      // the council's per-entry working page. Both rooms stand; this card
+      // names the one a reader arriving here is asking for.
+      { title: 'The Ledger', path: '/transparency', description: 'Every exchange visible. Every distribution recorded.', icon: ScrollText, badge: 'Transparency', badgeColor: 'cyan' },
       { title: 'The Covenant', path: '/privacy', description: 'Your data is yours. Always.', icon: Lock, badge: 'Privacy', badgeColor: 'emerald' },
       { title: 'The Agreement', path: '/terms', description: 'Terms of service and community guidelines', icon: FileText, badge: 'Terms', badgeColor: 'cyan' },
       { title: 'The Welcome', path: '/accessibility', description: 'Everyone belongs here — our accessibility commitment', icon: Accessibility, badge: 'Access', badgeColor: 'pink' },
@@ -89,10 +93,23 @@ const DOC_SECTIONS: DocSection[] = [
       // ("we have no company" · "no 'careers'" · "just us"). The page it
       // points at says so itself — (hephaestus)/REALM-BUS.md:216-219.
       { title: 'The Calling', path: '/calling', description: 'No company, no careers — just us, and the community that arrives', icon: Users, badge: 'Invitation', badgeColor: 'emerald' },
-      { title: 'The Offering', path: '/donate', description: 'Your contribution keeps the Sanctuary alive', icon: Gem, badge: 'Donate', badgeColor: 'amber' },
+      // 'The Offering' → /donate — RETIRED 2026-08-24 at KP's ⚛ word,
+      // verbatim, spacing kept: "retire the donate and create subscription
+      // tiers for me rather than the platform, and  i will still have my
+      // covenant set to 50%. the donations tab was before we had a built
+      // sanctuary and had different outlooks." The route is gone; this was
+      // the live card a reader met. The tiers are a WARE of KP's and belong
+      // to the Bazaar's spec, not to a Forge room.
     ],
   },
 ];
+
+/**
+ * How many documents this hub actually holds. DERIVED — DocsHero printed a
+ * typed "18 documents" that had already drifted once, from 8 (2026-08-24,
+ * board ⑤). One card leaving and one arriving must never need a hand here.
+ */
+export const DOC_PAGE_COUNT = DOC_SECTIONS.reduce((n, s) => n + s.pages.length, 0);
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COLOR MAP
@@ -124,7 +141,7 @@ export function DocsContent() {
 
   return (
     <main className="min-h-screen">
-      <DocsHero />
+      <DocsHero documentCount={DOC_PAGE_COUNT} />
 
       <div className="container mx-auto px-6 pb-20">
         

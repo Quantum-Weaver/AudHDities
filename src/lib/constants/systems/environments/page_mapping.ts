@@ -561,11 +561,12 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Calling',
     subtitle: 'Just us, and the community that arrives'
   },
-  '/donate': { 
-    default: 'home',
-    title: 'The Offering',
-    subtitle: 'Your contribution keeps the Sanctuary alive'
-  },  
+  // '/donate' — RETIRED 2026-08-24 at KP's ⚛ word, verbatim, spacing kept:
+  // "retire the donate and create subscription tiers for me rather than the
+  // platform, and  i will still have my covenant set to 50%. the donations
+  // tab was before we had a built sanctuary and had different outlooks."
+  // The route is gone from src/app; a mapping for a page that does not
+  // exist is a claim the house cannot keep.
   // AUTH
   '/enter': { 
     default: 'origin',
