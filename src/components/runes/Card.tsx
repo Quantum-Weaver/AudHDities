@@ -34,8 +34,8 @@ import { ProductCardRenderer } from './cards/ProductCardRenderer';
 import { QuestCardRenderer } from './cards/QuestCardRenderer';
 import { ProposalCardRenderer } from './cards/ProposalCardRenderer';
 import { EventCardRenderer } from '../asgard/domains/prometheus/EventCard';
-import { CreatorCardRenderer } from '../asgard/domains/hermes/creators/CreatorCardRenderer';
-import { VendorCardRenderer } from '../asgard/domains/hermes/vendors/VendorCardRenderer';
+import { ArtisanCardRenderer } from '../asgard/domains/hermes/artisans/ArtisanCardRenderer';
+import { MerchantCardRenderer } from '../asgard/domains/hermes/merchants/MerchantCardRenderer';
 import { EntityCardRenderer } from '../asgard/domains/aethelred/nexus/EntityCardRenderer';
 import { StatCardRenderer } from '../asgard/domains/hephaestus/StatCard';
 import { UserCardRenderer } from '../asgard/domains/hestia/vessel/UserCard';
@@ -178,11 +178,11 @@ export const SmartCard: React.FC<SmartCardProps> = ({ data, variant, ...props })
   }
 
   if (data.type === 'creator') {
-    return <CreatorCardRenderer data={data} variant={effectiveVariant} {...props} />;
+    return <ArtisanCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }
 
   if (data.type === 'vendor') {
-    return <VendorCardRenderer data={data} variant={effectiveVariant} {...props} />;
+    return <MerchantCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }
 
   if (data.type === 'entity') {

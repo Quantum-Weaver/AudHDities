@@ -1,13 +1,13 @@
-﻿// src/components/asgard/domains/hermes/creators/CreatorDetail.tsx
+// src/components/asgard/domains/hermes/artisans/ArtisanDetail.tsx
 // Artisan edition (2026-07-31): creator_profiles (hestia-core, extinct)
 // became artisan_profiles (hermes-social). The stats grid follows the
 // new columns: creations + followers (total_sales and the residual
 // default were the old table's; earnings never belonged on a public
-// profile). The works link filters wares by created_by â€” the profile's
-// owner â€” because wares knows makers by user id, not profile id.
+// profile). The works link filters wares by created_by — the profile's
+// owner — because wares knows makers by user id, not profile id.
 //
 // The maker's room (2026-08-01, KP's word via the E4 study): the stall
-// is the artisan's own small room â€” "At the loom" shows their works,
+// is the artisan's own small room — "At the loom" shows their works,
 // the making itself, so worth is felt as human before price is read as
 // number. Presence, never pressure: the works display; nothing sells.
 'use client';
@@ -32,7 +32,7 @@ const WORK_TYPE_LABELS: Record<string, string> = {
   performance: 'Performance', code: 'Code', other: 'Craft',
 };
 
-export function CreatorDetail() {
+export function ArtisanDetail() {
   const params = useParams();
   const router = useRouter();
   const [artisan, setArtisan] = useState<ArtisanItem | null>(null);
@@ -71,7 +71,7 @@ export function CreatorDetail() {
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <p className="text-star-dust/40">This weaver has not yet arrived.</p>
-          <Link href="/bazaar/creators" className="text-neurospark hover:underline mt-4 inline-block">Return to the Weavers</Link>
+          <Link href="/bazaar/artisans" className="text-neurospark hover:underline mt-4 inline-block">Return to the Weavers</Link>
         </div>
       </main>
     );
@@ -87,7 +87,7 @@ export function CreatorDetail() {
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-3xl mx-auto px-6">
-        <Link href="/bazaar/creators" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6">
+        <Link href="/bazaar/artisans" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6">
           <ArrowLeft className="h-4 w-4" />Return to the Weavers
         </Link>
 
@@ -143,7 +143,7 @@ export function CreatorDetail() {
 
           {artisan.total_creations !== null && artisan.total_creations > 0 && (
             <Link
-              href={`/bazaar/creations?creator_id=${artisan.created_by}`}
+              href={`/bazaar/wares?artisan_id=${artisan.created_by}`}
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
             >
               <Package size={14} />
@@ -154,7 +154,7 @@ export function CreatorDetail() {
           <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
         </Card>
 
-        {/* At the loom â€” the making itself, visible. Presence, never pressure. */}
+        {/* At the loom — the making itself, visible. Presence, never pressure. */}
         {works.length > 0 && (
           <div className="mt-8">
             <h2 className="text-lg font-semibold text-star-dust mb-1">At the loom</h2>

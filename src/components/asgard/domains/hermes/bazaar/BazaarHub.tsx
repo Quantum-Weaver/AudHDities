@@ -13,7 +13,7 @@ const SECTIONS = [
   {
     title: 'The Tapestry',
     description: 'Discover works from sovereign souls',
-    href: '/bazaar/creations',
+    href: '/bazaar/wares',
     icon: Package,
     color: 'text-neurospark',
     bg: 'bg-neurospark/10',
@@ -21,7 +21,7 @@ const SECTIONS = [
   {
     title: 'The Weavers',
     description: 'Meet the artisans of the Sanctuary',
-    href: '/bazaar/creators',
+    href: '/bazaar/artisans',
     icon: Users,
     color: 'text-purple-400',
     bg: 'bg-purple-500/10',
@@ -29,7 +29,7 @@ const SECTIONS = [
   {
     title: 'The Guild',
     description: 'Ethical merchants serving the community',
-    href: '/bazaar/vendors',
+    href: '/bazaar/merchants',
     icon: Building2,
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10',

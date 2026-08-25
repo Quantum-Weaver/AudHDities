@@ -1,6 +1,6 @@
-﻿// components/asgard/domains/hermes/checkout/CheckoutButton.tsx
+// components/asgard/domains/hermes/checkout/CheckoutButton.tsx
 // Wares edition (2026-07-18): one base price + pricing_model; the tier prop
-// died with the products table â€” solidarity pricing happens server-side.
+// died with the products table — solidarity pricing happens server-side.
 'use client';
 
 import { useState } from 'react';

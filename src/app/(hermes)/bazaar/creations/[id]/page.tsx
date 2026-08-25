@@ -1,16 +1,10 @@
-// src/app/(hermes)/bazaar/creations/[id]/page.tsx
-import { Page } from '@/components/bifrost/Page';
-import { CreationDetail } from '@/components/asgard/domains/hermes/creations/CreationDetail';
+// src/app/(hermes)/bazaar/creations/[id]/page.tsx - the old word, kept as a door.
+// The route was renamed 2026-08-25 (KP's word: creations should be wares,
+// creators should be artisans, vendors should be merchants). A saved or pasted
+// link still lands, id and all.
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Work | The Tapestry | Sovereign Sanctuary',
-  description: 'A sovereign offering',
-};
-
-export default function CreationDetailPage() {
-  return (
-    <Page showForeground={false} showContinuityBeam={true}>
-      <CreationDetail />
-    </Page>
-  );
+export default async function CreationRedirect({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  permanentRedirect(`/bazaar/wares/${id}`);
 }

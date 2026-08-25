@@ -1,8 +1,8 @@
-﻿// src/components/asgard/domains/hermes/studio/StudioCreate.tsx
+// src/components/asgard/domains/hermes/studio/StudioCreate.tsx
 // Wares edition (2026-07-31): the tier ladder (community/ally/corporate)
 // died with the products table. A ware carries one base price plus a
 // pricing_model; solidarity pricing is computed server-side at the
-// Exchange. The model defaults to 'free' â€” worth is not priced unless
+// Exchange. The model defaults to 'free' — worth is not priced unless
 // the maker chooses (the zero-default is the realm's own thesis).
 'use client';
 
@@ -35,10 +35,10 @@ const WARE_TYPES = [
 ];
 
 const PRICING_MODELS = [
-  { value: 'free', label: 'Free â€” given to anyone who receives it' },
-  { value: 'fixed', label: 'Fixed â€” one base price, solidarity-adjusted at the Exchange' },
-  { value: 'pay_what_you_want', label: 'Pay what you want â€” the price is a floor, not a wall' },
-  { value: 'patronage_only', label: 'Patronage only â€” for patrons of your work' },
+  { value: 'free', label: 'Free — given to anyone who receives it' },
+  { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
+  { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
+  { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
 ];
 
 const RESIDUAL_OPTIONS = [
@@ -99,7 +99,7 @@ export function StudioCreate() {
         if (isDraft) {
           router.push(`/bazaar/studio/${wareId}`);
         } else {
-          router.push(`/bazaar/creations/${wareId}`);
+          router.push(`/bazaar/wares/${wareId}`);
         }
       } else {
         setSaveMessage(result.error || 'Failed to create work');
@@ -214,7 +214,7 @@ export function StudioCreate() {
             <div className="border-t border-white/10 pt-6 mt-2 mb-4">
               <h3 className="text-lg font-semibold text-star-dust mb-1">Pricing</h3>
               <p className="text-sm text-star-dust/40 mb-4">
-                One base price, one model. Solidarity pricing is applied per person at the Exchange â€”
+                One base price, one model. Solidarity pricing is applied per person at the Exchange —
                 the buyer always sees the full split before anything is charged.
               </p>
 
@@ -222,7 +222,7 @@ export function StudioCreate() {
                 <Select
                   name="pricing_model"
                   options={PRICING_MODELS}
-                  placeholder="Free â€” given to anyone who receives it"
+                  placeholder="Free — given to anyone who receives it"
                   defaultValue="free"
                   disabled={isSaving}
                 />

@@ -82,7 +82,7 @@ export function CheckoutHub() {
 
         {/* CTA */}
         <div className="text-center">
-          <Link href="/bazaar/creations">
+          <Link href="/bazaar/wares">
             <Button variant="primary" size="lg">
               Browse the Tapestry
             </Button>

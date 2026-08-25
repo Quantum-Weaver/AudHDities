@@ -87,8 +87,8 @@ export const THE_STREET: StreetRealm[] = [
     whisper: 'In and out with dignity',
     rooms: [
       { href: '/bazaar', label: 'The Bazaar' },
-      { href: '/bazaar/creations', label: 'The Tapestry' },
-      { href: '/bazaar/creators', label: 'The Weavers' },
+      { href: '/bazaar/wares', label: 'The Tapestry' },
+      { href: '/bazaar/artisans', label: 'The Weavers' },
       { href: '/bazaar/studio', label: 'The Loom (Bazaar)' },
       { href: '/bazaar/contributions', label: 'Contributions' },
     ],

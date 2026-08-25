@@ -233,7 +233,7 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       )}
 
       <div className="flex gap-3 justify-center">
-        <Button onClick={() => router.push("/bazaar/creations")}>Return to the Tapestry</Button>
+        <Button onClick={() => router.push("/bazaar/wares")}>Return to the Tapestry</Button>
         <Button variant="outline" onClick={() => router.push("/vessel/home")}>Stand in your home</Button>
       </div>
     </Card>

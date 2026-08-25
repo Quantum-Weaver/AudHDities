@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hermes/vendors/VendorCardRenderer.tsx
+// src/components/asgard/domains/hermes/merchants/MerchantCardRenderer.tsx
 'use client';
 
 import React from 'react';
@@ -23,7 +23,7 @@ interface VendorCardData {
   website?: string;
 }
 
-interface VendorCardRendererProps {
+interface MerchantCardRendererProps {
   data: CardData;
   variant: CardProps['variant'];
   radius: CardProps['radius'];
@@ -36,7 +36,7 @@ const BUSINESS_TYPE_LABELS: Record<string, string> = {
   corporation: 'Corporation', partnership: 'Partnership',
 };
 
-export const VendorCardRenderer: React.FC<VendorCardRendererProps> = ({
+export const MerchantCardRenderer: React.FC<MerchantCardRendererProps> = ({
   data,
   variant = 'interactive',
   radius = 'lg',
@@ -88,4 +88,4 @@ export const VendorCardRenderer: React.FC<VendorCardRendererProps> = ({
   );
 };
 
-VendorCardRenderer.displayName = 'VendorCardRenderer';
+MerchantCardRenderer.displayName = 'MerchantCardRenderer';

@@ -1,6 +1,6 @@
-﻿// src/components/asgard/domains/hermes/studio/StudioEdit.tsx
+// src/components/asgard/domains/hermes/studio/StudioEdit.tsx
 // Wares edition (2026-07-31): the tier ladder died with the products
-// table â€” one base price + pricing_model, status enum instead of
+// table — one base price + pricing_model, status enum instead of
 // is_published/active. The publish switch is now genuinely wired (the
 // old form's switch was decorative: no name, no state, never saved).
 'use client';
@@ -34,10 +34,10 @@ const WARE_TYPES = [
 ];
 
 const PRICING_MODELS = [
-  { value: 'free', label: 'Free â€” given to anyone who receives it' },
-  { value: 'fixed', label: 'Fixed â€” one base price, solidarity-adjusted at the Exchange' },
-  { value: 'pay_what_you_want', label: 'Pay what you want â€” the price is a floor, not a wall' },
-  { value: 'patronage_only', label: 'Patronage only â€” for patrons of your work' },
+  { value: 'free', label: 'Free — given to anyone who receives it' },
+  { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
+  { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
+  { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
 ];
 
 const RESIDUAL_OPTIONS = [
@@ -129,7 +129,7 @@ export function StudioEdit() {
       if (result.success) {
         setSaveMessage('Work updated.');
         setTimeout(() => {
-          router.push(`/bazaar/creations/${ware.id}`);
+          router.push(`/bazaar/wares/${ware.id}`);
         }, 800);
       } else {
         setSaveMessage(result.error || 'Failed to update');
@@ -201,7 +201,7 @@ export function StudioEdit() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <Link
-              href={`/bazaar/creations/${ware.id}`}
+              href={`/bazaar/wares/${ware.id}`}
               className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"
             >
               <ArrowLeft className="h-4 w-4" />

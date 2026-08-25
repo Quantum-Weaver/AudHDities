@@ -1,7 +1,7 @@
-﻿// src/components/asgard/domains/hermes/vendors/VendorDetail.tsx
+// src/components/asgard/domains/hermes/merchants/MerchantDetail.tsx
 // Merchant edition (2026-07-31): vendor_profiles (hestia-core, extinct)
 // became merchant_profiles (hermes-social). The wares link filters by
-// created_by â€” the profile's owner â€” because wares knows makers by
+// created_by — the profile's owner — because wares knows makers by
 // user id, not profile id.
 'use client';
 
@@ -23,7 +23,7 @@ const BUSINESS_TYPE_LABELS: Record<string, string> = {
   corporation: 'Corporation', partnership: 'Partnership',
 };
 
-export function VendorDetail() {
+export function MerchantDetail() {
   const params = useParams();
   const router = useRouter();
   const [merchant, setMerchant] = useState<MerchantItem | null>(null);
@@ -54,7 +54,7 @@ export function VendorDetail() {
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Building2 className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
           <p className="text-star-dust/40">This guild member has not yet arrived.</p>
-          <Link href="/bazaar/vendors" className="text-neurospark hover:underline mt-4 inline-block">Return to the Guild</Link>
+          <Link href="/bazaar/merchants" className="text-neurospark hover:underline mt-4 inline-block">Return to the Guild</Link>
         </div>
       </main>
     );
@@ -70,7 +70,7 @@ export function VendorDetail() {
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-3xl mx-auto px-6">
-        <Link href="/bazaar/vendors" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6">
+        <Link href="/bazaar/merchants" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6">
           <ArrowLeft className="h-4 w-4" />Return to the Guild
         </Link>
 
@@ -128,7 +128,7 @@ export function VendorDetail() {
 
           {merchant.total_products !== null && merchant.total_products > 0 && (
             <Link
-              href={`/bazaar/creations?vendor_id=${merchant.created_by}`}
+              href={`/bazaar/wares?merchant_id=${merchant.created_by}`}
               className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
             >
               <Package size={14} />

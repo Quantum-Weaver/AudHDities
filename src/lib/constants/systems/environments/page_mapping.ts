@@ -91,32 +91,32 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Bazaar',
     subtitle: 'Discover creations from sovereign souls'
   },
-  '/bazaar/creations': { 
+  '/bazaar/wares': { 
     default: 'community',
     title: 'Creations',
     subtitle: 'Explore the collective'
   },
-  '/bazaar/creations/*': { 
+  '/bazaar/wares/*': { 
     default: 'community',
     title: 'Creation Detail',
     subtitle: 'A sovereign offering'
   },
-  '/bazaar/creators': { 
+  '/bazaar/artisans': { 
     default: 'community',
     title: 'Creators',
     subtitle: 'Meet the weavers'
   },
-  '/bazaar/creators/*': { 
+  '/bazaar/artisans/*': { 
     default: 'community',
     title: 'Creator Sanctuary',
     subtitle: 'Their sovereign journey'
   },
-  '/bazaar/vendors': { 
+  '/bazaar/merchants': { 
     default: 'community',
     title: 'Vendors',
     subtitle: 'Sovereign commerce'
   },
-  '/bazaar/vendors/*': { 
+  '/bazaar/merchants/*': { 
     default: 'community',
     title: 'Vendor Sanctuary',
     subtitle: 'Their craft, their sovereignty'

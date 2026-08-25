@@ -131,7 +131,7 @@ export function ContributionsGallery() {
               </div>
               {i.notes && <p className="text-sm text-star-dust/50 mb-3">{i.notes}</p>}
               {i.kind === 'ware' && (
-                <Link href={`/bazaar/creations/${i.targetId}`} className="text-sm text-neurospark hover:underline">View the work</Link>
+                <Link href={`/bazaar/wares/${i.targetId}`} className="text-sm text-neurospark hover:underline">View the work</Link>
               )}
               <div className="flex items-center gap-2 mt-4 pt-3 border-t border-white/10">
                 {i.isPublic

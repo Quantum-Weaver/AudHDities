@@ -1,4 +1,4 @@
-// src/components/asgard/domains/hermes/creators/CreatorCardRenderer.tsx
+// src/components/asgard/domains/hermes/artisans/ArtisanCardRenderer.tsx
 'use client';
 
 import React from 'react';
@@ -24,7 +24,7 @@ interface CreatorCardData {
   isVerified?: boolean;
 }
 
-interface CreatorCardRendererProps {
+interface ArtisanCardRendererProps {
   data: CardData;
   variant: CardProps['variant'];
   radius: CardProps['radius'];
@@ -38,7 +38,7 @@ const HOUSE_LABELS: Record<string, string> = {
   skald: 'Skald', codex: 'Codex', executioner: 'Executioner',
 };
 
-export const CreatorCardRenderer: React.FC<CreatorCardRendererProps> = ({
+export const ArtisanCardRenderer: React.FC<ArtisanCardRendererProps> = ({
   data,
   variant = 'interactive',
   radius = 'lg',
@@ -91,4 +91,4 @@ export const CreatorCardRenderer: React.FC<CreatorCardRendererProps> = ({
   );
 };
 
-CreatorCardRenderer.displayName = 'CreatorCardRenderer';
+ArtisanCardRenderer.displayName = 'ArtisanCardRenderer';
