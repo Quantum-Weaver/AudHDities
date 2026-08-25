@@ -40,8 +40,17 @@ export async function GET(
       console.error('Error fetching exchange:', saleError);
     }
 
-    // Verify access
-    if (sale && !isAdmin && sale.buyer_id !== user.id) {
+    // FIX 31 · THE GUARD IS THE FIRST THING THIS ROUTE DOES, before any Stripe
+    // call. It used to run only when an exchange row was found: with no row it
+    // fell through and returned the Stripe session anyway. With the delivery
+    // riding this route, that is not a tidiness fix.
+    if (!sale) {
+      return NextResponse.json(
+        { error: 'No exchange session was found.' },
+        { status: 404 }
+      );
+    }
+    if (!isAdmin && sale.buyer_id !== user.id) {
       return NextResponse.json(
         { error: 'Access denied' },
         { status: 403 }
@@ -55,14 +64,14 @@ export async function GET(
     // taken into keeping so the threshold can offer to hang it at home —
     // the exchange completes at the vessel's fire, not at a checkout.
     let kept: { kind: 'ware' | 'work'; id: string; name: string } | null = null;
-    if (sale?.ware_id) {
+    if (sale.ware_id) {
       const { data: ware } = await supabase
         .from('wares')
         .select('id, name')
         .eq('id', sale.ware_id)
         .maybeSingle();
       if (ware) kept = { kind: 'ware', id: ware.id, name: ware.name };
-    } else if (sale?.work_id) {
+    } else if (sale.work_id) {
       const { data: work } = await supabase
         .from('works')
         .select('id, name')
@@ -84,6 +93,10 @@ export async function GET(
       expires_at: session.expires_at ? new Date(session.expires_at * 1000).toISOString() : null,
       payment_intent: session.payment_intent,
       kept,
+      // THE DELIVERY (§9) — the bodies ride the spot the plan already named.
+      // The URL is minted at the ask and never stored; the .aab is withheld by
+      // the bodies route and named nowhere.
+      bodiesHref: kept?.kind === 'ware' ? `/api/auth/wares/${kept.id}/bodies` : null,
     };
     
     return NextResponse.json(response);

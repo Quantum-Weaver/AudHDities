@@ -23,6 +23,7 @@ import { Card } from "@/components/runes/Card";
 import { Spinner } from "@/components/yggdrasil/Spinner";
 import { CheckCircle, AlertCircle, Home } from "lucide-react";
 import { useUser } from "@/hooks/useUser";
+import { TheBodies } from "@/components/asgard/domains/hermes/wares/TheBodies";
 import { useVesselRoomsList } from "@/lib/generated/hooks/hestia-core/vessel_rooms";
 import { useCreateVesselDecorations } from "@/lib/generated/hooks/hestia-core/vessel_decorations";
 
@@ -190,6 +191,14 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
       <p className="text-star-dust/60 mb-1">The exchange is complete.</p>
       {/* The third word at the going — a goodbye carrying a return inside it */}
       <p className="text-star-dust/40 text-sm italic mb-6">Gweld ti&apos;n fuan — see you soon.</p>
+
+      {/* THE DELIVERY (§9) — your copy is ready. The link is minted at the ask
+          and a fresh one is handed over whenever it is asked for again. */}
+      {kept?.kind === "ware" && (
+        <div className="mb-6 text-left">
+          <TheBodies wareId={kept.id} heading="Your copy is ready" />
+        </div>
+      )}
 
       {/* THE HANGING — the loop's last link, offered never imposed.
           The exchange completes at the vessel's fire. */}
