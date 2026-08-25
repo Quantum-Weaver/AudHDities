@@ -25,13 +25,13 @@ export function TwoStreamFlow() {
         <div className="space-y-4">
           <FlowItem 
             from="Advertiser" 
-            to="Sanctuary Treasury" 
+            to="The Sanctuary" 
             amount="100%" 
             color="cyan"
             description="Payment for ethical ad placement"
           />
           <FlowItem 
-            from="Sanctuary Treasury" 
+            from="The Sanctuary" 
             to="Operations" 
             amount="First" 
             color="cyan"
@@ -72,7 +72,7 @@ export function TwoStreamFlow() {
         <div className="space-y-4">
           <FlowItem 
             from="Buyer" 
-            to="Sanctuary Treasury" 
+            to="The Sanctuary" 
             amount="100%" 
             color="purple"
             description="Tiered pricing based on Acid Test"
@@ -80,7 +80,7 @@ export function TwoStreamFlow() {
           
           {/* UPDATED: 90% Creator, 10% Platform */}
           <div className="grid grid-cols-2 gap-2 my-2">
-            <FlowItemMini label="Creator" percent="90%" color="purple" />
+            <FlowItemMini label="Artisan Profit" percent="90%" color="purple" />
             <FlowItemMini label="Platform Fee" percent="10%" color="cyan" />
           </div>
           
@@ -89,34 +89,41 @@ export function TwoStreamFlow() {
             <FlowItem 
               from="Platform Fee (10%)" 
               to="Operations" 
-              amount="50-70%" 
+              amount="70%" 
               color="cyan"
-              description="Hosting, tools, development"
+              description="Hosting, tools, development — the only money that leaves"
             />
             <FlowItem 
               from="Platform Fee (10%)" 
               to="Residual Pool" 
-              amount="30-50%" 
+              amount="30%" 
               color="pink"
-              description="Shared with product contributors (creator sets per product)"
+              description="Returns to the pool on every sale, whatever the dials are set to"
             />
           </div>
           
-          {/* UPDATED: Creator Earnings splits into Immediate + Covenant Pool */}
+          {/* The profit splits by the ware's own pledge, then divides equally */}
           <div className="ml-4 pl-4 border-l-2 border-white/10">
-            <FlowItem 
-              from="Creator Earnings (90%)" 
-              to="Immediate Payment" 
-              amount="50-100%" 
-              color="purple"
-              description="Creator keeps after covenant pledge"
+            <FlowItem
+              from="Artisan Profit (90%)"
+              to="Residual Pool"
+              amount="0-50%"
+              color="pink"
+              description="The residual pledge, set per ware by its main artisan, default 0"
             />
-            <FlowItem 
-              from="Creator Earnings (90%)" 
-              to="Covenant Pool" 
-              amount="0-50%" 
+            <FlowItem
+              from="Artisan Profit (90%)"
+              to="This Ware's Contributors"
+              amount="What is left"
+              color="purple"
+              description="Divided equally, the main artisan one of them — no roles, no ranking"
+            />
+            <FlowItem
+              from="A vessel's own share"
+              to="Covenant Pool"
+              amount="0-50%"
               color="green"
-              description="Voluntary pledge to community dignity fund (creator sets in profile)"
+              description="Each vessel's own dial, set in the Sanctum, default 0 — never taken from a pool payout"
             />
           </div>
         </div>
@@ -124,7 +131,7 @@ export function TwoStreamFlow() {
         <div className="mt-6 pt-4 border-t border-purple-500/20">
           <p className="text-purple-400 text-sm flex items-center gap-2">
             <Heart size={12} />
-            Creators set residual percentage (0-50% of platform fee) and covenant pledge (0-50% of earnings)
+            A ware's main artisan sets its residual pledge (0-50% of that ware's profit); each vessel sets their own covenant pledge (0-50% of their own share). Both default to 0.
           </p>
         </div>
       </motion.div>

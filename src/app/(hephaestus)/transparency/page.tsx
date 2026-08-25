@@ -92,7 +92,8 @@ export default async function TransparencyPage() {
               <span className="text-neurospark font-bold">{PLATFORM_FEE_PERCENT}%</span>
               {' '}(industry standard is 30-50%).{' '}
               <span className="text-quantum-purple font-bold">{CREATOR_SHARE_PERCENT}%</span>
-              {' '}goes to creators and community.
+              {' '}is the ware&apos;s own profit, and 30% of the fee returns to the residual pool — so 93% of
+              every sale stays in the ecosystem.
             </p>
           </section>
 
@@ -133,7 +134,7 @@ export default async function TransparencyPage() {
             </Card>
 
             <Card
-              data={statCardData('creator-earnings', 'Paid to Creators')}
+              data={statCardData('creator-earnings', 'Artisan Profit')}
               variant="interactive"
               radius="lg"
               shadow="md"
@@ -145,7 +146,7 @@ export default async function TransparencyPage() {
               <div className="text-3xl font-bold text-star-dust mb-1">
                 {formatCurrency(totalCreatorEarnings)}
               </div>
-              <div className="text-sm text-star-dust/40">Paid to Creators ({CREATOR_SHARE_PERCENT}% of sales)</div>
+              <div className="text-sm text-star-dust/40">Artisan Profit ({CREATOR_SHARE_PERCENT}% of sales)</div>
             </Card>
           </div>
 
@@ -176,7 +177,7 @@ export default async function TransparencyPage() {
                     <tr>
                       <th className="text-left p-4 text-star-dust/60 text-sm font-medium">Product</th>
                       <th className="text-left p-4 text-star-dust/60 text-sm font-medium">Amount</th>
-                      <th className="text-left p-4 text-star-dust/60 text-sm font-medium">To Creator ({CREATOR_SHARE_PERCENT}%)</th>
+                      <th className="text-left p-4 text-star-dust/60 text-sm font-medium">Artisan Profit ({CREATOR_SHARE_PERCENT}%)</th>
                       <th className="text-left p-4 text-star-dust/60 text-sm font-medium">Platform Fee ({PLATFORM_FEE_PERCENT}%)</th>
                       <th className="text-left p-4 text-star-dust/60 text-sm font-medium">Date</th>
                     </tr>
@@ -298,24 +299,23 @@ export default async function TransparencyPage() {
                     Platform Fee <span className="text-neurospark">({PLATFORM_FEE_PERCENT}%)</span>
                   </h3>
                 </div>
+                {/* The fee has exactly two destinations. A third line, a
+                    "Community reserve (remainder)," stood here until 2026-08-24;
+                    no such reserve exists. */}
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-star-dust/70">
                     <span className="w-2 h-2 bg-neurospark rounded-full" />
-                    <span>Operations (hosting, tools, development) <span className="text-star-dust/40 text-sm">(5-7%)</span></span>
+                    <span>The machine (hosting, tools, development) <span className="text-star-dust/40 text-sm">(70% of the fee — 7% of the sale, and the only money that leaves)</span></span>
                   </li>
                   <li className="flex items-center gap-3 text-star-dust/70">
-                    <span className="w-2 h-2 bg-neurospark rounded-full" />
-                    <span>Residual Pool <span className="text-star-dust/40 text-sm">(0-50% of fee, creator sets per product)</span></span>
-                  </li>
-                  <li className="flex items-center gap-3 text-star-dust/70">
-                    <span className="w-2 h-2 bg-neurospark rounded-full" />
-                    <span>Community reserve <span className="text-star-dust/40 text-sm">(remainder)</span></span>
+                    <span className="w-2 h-2 bg-fire-base rounded-full" />
+                    <span>Residual Pool <span className="text-star-dust/40 text-sm">(30% of the fee — 3% of the sale, on every sale, whatever the dials are set to)</span></span>
                   </li>
                 </ul>
               </Card>
 
               <Card
-                data={statCardData('creator-share-detail', 'Creator Share')}
+                data={statCardData('creator-share-detail', 'Artisan Profit')}
                 variant="default"
                 radius="lg"
                 shadow="sm"
@@ -326,21 +326,21 @@ export default async function TransparencyPage() {
                     <Users size={20} className="text-quantum-purple" />
                   </div>
                   <h3 className="text-xl font-bold text-star-dust">
-                    Creator Share <span className="text-quantum-purple">({CREATOR_SHARE_PERCENT}%)</span>
+                    Artisan Profit <span className="text-quantum-purple">({CREATOR_SHARE_PERCENT}%)</span>
                   </h3>
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-star-dust/70">
+                    <span className="w-2 h-2 bg-fire-base rounded-full" />
+                    <span>Residual pledge <span className="text-star-dust/40 text-sm">(0-50% of this ware&apos;s profit, set per ware by its main artisan, default 0)</span></span>
+                  </li>
+                  <li className="flex items-center gap-3 text-star-dust/70">
                     <span className="w-2 h-2 bg-quantum-purple rounded-full" />
-                    <span>Immediate payment to creator <span className="text-star-dust/40 text-sm">(50-100%, after covenant)</span></span>
+                    <span>What is left <span className="text-star-dust/40 text-sm">(divided equally among this ware&apos;s contributors, the main artisan one of them)</span></span>
                   </li>
                   <li className="flex items-center gap-3 text-star-dust/70">
                     <span className="w-2 h-2 bg-sanctuary-green rounded-full" />
-                    <span>Covenant Pool <span className="text-star-dust/40 text-sm">(0-50% of earnings, creator sets in profile)</span></span>
-                  </li>
-                  <li className="flex items-center gap-3 text-star-dust/70">
-                    <span className="w-2 h-2 bg-fire-base rounded-full" />
-                    <span>→ Distributed equally to all active community members</span>
+                    <span>Covenant Pool <span className="text-star-dust/40 text-sm">(0-50% of a vessel&apos;s own share, set in the Sanctum, default 0)</span></span>
                   </li>
                 </ul>
               </Card>
@@ -361,14 +361,18 @@ export default async function TransparencyPage() {
                 <h3 className="text-xl font-bold text-star-dust">The Residual Pool</h3>
               </div>
               <p className="text-star-dust/70 mb-3">
-                Creators can set aside{' '}
-                <span className="text-fire-base">0-50% of the platform fee</span>
-                {' '}to reward contributors who helped create the product.
+                The pool takes{' '}
+                <span className="text-fire-base">30% of every sale&apos;s fee</span>
+                , always, plus whatever a ware&apos;s main artisan pledges out of that ware&apos;s
+                profit —{' '}
+                <span className="text-fire-base">0-50%</span>
+                , default 0. It pays every artisan on the platform.
               </p>
               <ul className="space-y-2 text-star-dust/60 text-sm">
-                <li>• Contributors earn forever from every sale</li>
-                <li>• Percentages are set at product creation</li>
-                <li>• Fully transparent — every payout is recorded</li>
+                <li>• Any vessel who has ever stood as an artisan or on a contributor roster is on the roster — once in, never out</li>
+                <li>• Equal shares, at intervals: the pool divided by its recipients, less the transaction cost</li>
+                <li>• Distributions arrive whole — no pledge is ever taken from a payout</li>
+                <li>• Fully transparent — every distribution is recorded</li>
               </ul>
             </Card>
 
@@ -387,14 +391,15 @@ export default async function TransparencyPage() {
                 <h3 className="text-xl font-bold text-star-dust">The Covenant Pool</h3>
               </div>
               <p className="text-star-dust/70 mb-3">
-                Creators can voluntarily pledge{' '}
-                <span className="text-sanctuary-green">0-50% of their earnings</span>
-                {' '}to the community dignity fund.
+                Every vessel may voluntarily pledge{' '}
+                <span className="text-sanctuary-green">0-50% of their own share of a sale</span>
+                , set once in the Sanctum and defaulting to 0. It fires on a sale share and on
+                nothing else.
               </p>
               <ul className="space-y-2 text-star-dust/60 text-sm">
-                <li>• Distributed equally to all active community members</li>
-                <li>• Includes disabled members regardless of activity</li>
-                <li>• Pledge is visible on creator profile (if public)</li>
+                <li>• Distributed equally to every user who has opted in to be identified</li>
+                <li>• An opt-in holds forever — nobody is dropped for inactivity</li>
+                <li>• A vessel may choose to show their pledge on their community profile</li>
                 <li>• Can be changed at any time</li>
               </ul>
             </Card>

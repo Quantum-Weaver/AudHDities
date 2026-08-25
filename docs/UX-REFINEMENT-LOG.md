@@ -104,3 +104,10 @@ First refine pass's true scope: **heal the generated layer.**
 - **Scope:** the two economics documents trued to KP's 08-24 words (the residual dial is a pledge, default 0; the covenant's roster and opt-in; the display moves); THE COVENANT section off the vessel face (`VesselContent.tsx`, `CovenantSpace.tsx`); the Bazaar canvas's five boards corrected and republished; hephaestus's Understanding opened (brief · census · 46-claim truth table).
 - **Verification:** tsc 0 · build exit 0 (the covenant hand's run, explicit exit-code capture); every canvas edit script-verified exactly-once on both artboard and page.
 - **Handoff weather:** `main` is merged as we go now (KP's word 08-24); the branch shelf holds `main` and the sitting's one; `PriceBreakdown.tsx` and the three disagreeing residual defaults are the Bazaar build's first correction; the Terms' 30/70 is at KP's eye; no outward community-profile surface exists yet (hestia's, second pass); Vercel previews still want the two `NEXT_PUBLIC_SUPABASE_*` names.
+
+## Seam-note — 2026-08-24 — the Forge's economics pass
+
+- **Who / substrate:** Fable conducting as Ricercar (`claude-fable-5`); an Opus hand built (`claude-opus-5[1m]`); Sonnet hands re-graded and read.
+- **Scope:** the model proved to KP and corrected in two places (the fee's 30/70; distributions arrive whole; the roster ruled); the record rewritten; the content-truth pass on every economics surface in (hephaestus) + the plutus families + the four hermes split files + the Terms' two spans — 27 files, no shape changed.
+- **Verification:** tsc 0 · build 0 (explicit exit codes); the dead-phrase sweep across src/ and docs/ with every remaining hit named and justified.
+- **Handoff weather:** the Terms' before/after is at KP's strike; "Creators keep 90%" on /vision is loose with contributors; the Studio files' double-encoded em dashes are the Bazaar build's; the Forge's second movement (eighteen pages · the privacy page · the nav · the transparency pair) is being read.

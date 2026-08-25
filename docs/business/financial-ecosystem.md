@@ -115,9 +115,9 @@
 │  │                                                                      │    │
 │  │  Total Sale                                                          │    │
 │  │       │                                                              │    │
-│  │       ├──▶ Platform Fee (10%) ───────┼──▶ Funds the machine          │    │
-│  │       │                              │    (hosting, dev, support)    │    │
-│  │       │                              │                               │    │
+│  │       ├──▶ Platform Fee (10%) ───────┼──▶ the fee's own split:       │    │
+│  │       │                              │    30% → the residual pool    │    │
+│  │       │                              │    70% → the machine          │    │
 │  │       └──▶ Artisan profit (90%) ─────┼──▶ the residual PLEDGE        │    │
 │  │                                      │    (0-50%, default 0) → pool  │    │
 │  │                                      │    the rest → this item's     │    │
@@ -142,23 +142,23 @@
 │  │                          • no ranking, no percentage shares          │    │
 │  │                                                                      │    │
 │  │  ② THE COVENANT DIAL (0-50%) is NOT a slice of the sale — it is a   │    │
-│  │     slice of each vessel's OWN INCOME, wherever money lands:         │    │
+│  │     slice of each vessel's OWN SHARE OF A SALE — never of a payout:  │    │
 │  │                                                                      │    │
 │  │                      ──▶ THE COVENANT POOL                          │    │
 │  │                          • ALL users on the platform, EQUALLY       │    │
 │  │                          • including those who cannot be active     │    │
 │  │                          • dignity for all, regardless of output    │    │
 │  │                                                                      │    │
-│  │  NOTHING IN THE 90% IS HELD BACK. Both destinations are GROUPS.     │    │
+│  │  NOTHING IN THE 90% IS HELD BACK; 30% of the FEE joins the pool too. │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                              │
 │  KEY PRINCIPLES:                                                             │
-│  • 90% OF EVERYTHING CIRCULATES. 10% FUNDS THE MACHINE.                     │
+│  • 90% CIRCULATES; OF THE 10% FEE, 30% GOES TO THE POOL, 70% TO THE MACHINE  │
 │  • Platform fee is 10%, fixed, always (industry standard is 30-50%)         │
 │  • The creator takes an EQUAL SHARE beside everyone who made the thing      │
 │  • Equal shares, not ranked shares. Not a competition.                      │
-│  • A payout is income: the recipient's covenant fires again on arrival,     │
-│    which is why the system circulates instead of settling                    │
+│  • A pool payout arrives WHOLE — no pledge is taken from it: "we do not      │
+│    take dignity away, nor is it earned" (KP ⚛ 08-24). Sales trigger pledges. │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -216,21 +216,23 @@
 
 | Fee Type | Percentage | Notes |
 |----------|------------|-------|
-| **Platform Fee** | **10% of sale, fixed, always** | The only money that leaves the ecosystem — hosting, development, support, processing |
+| **Platform Fee** | **10% of sale, fixed, always** | **Split 30/70: 30% returns to the residual pool; 70% funds the machine** — hosting, development, support, processing. 7% of the sale is the only money that leaves |
 | **The Ecosystem's Share** | **90% of sale** | Nothing here is held back; both destinations are groups |
 | **Residual dial** | **0–50%**, default 0, set per product by the main artisan | The share of the 90% **pledged to the residual pool** |
-| → *the residual pool* | the dial's pledge | **EQUALLY to ALL artisans on the platform**, at intervals |
+| → *the residual pool* | the dial's pledge | **EQUALLY to ALL artisans on the platform** — any vessel ever appearing at least once as a contributor or an artisan — at intervals, arriving whole |
+| → *and from the fee, always* | **3% of every sale** | 30% of the 10% fee, dial or no dial — the floor fills on every sale |
 | → *this item's contributors* | **everything remaining** | **Divided EQUALLY by headcount. The main artisan is one of them.** |
-| **Covenant dial** | **0–50%**, default 0, set per vessel in the Sanctum | **A share of the vessel's own income, wherever it lands** — not a slice of the sale |
+| **Covenant dial** | **0–50%**, default 0, set per vessel in the Sanctum | **A share of the vessel's own share of each sale** — never taken from a pool payout |
 | → *the covenant pool* | 100% of it | **EQUALLY to ALL users on the platform — the dignity floor**, at intervals; a user who opts in to identify themselves is **forever included** at every payout from then on |
 
 *A **higher** residual dial sends **more** to the commons: at 50% the split is 45/45
 of the sale; at 30% it is 27 to the pool and 63 to the item's contributors; at 0% —
 the default — nothing enters the pool and the item's contributors keep the whole 90%.
-**There is no 30% platform fee anywhere in this system** — any document still saying
-so is out of date. (Corrected 2026-08-24 at KP ⚛'s word: the 08-12 pass had this
-dial inverted; the mechanism and KP's words verbatim stand in
-`../architecture/residual-system.md`, which wins where the two disagree.)*
+**There is no 30% platform FEE — the fee is 10%. The 30% that is real is the fee's own
+share returned to the residual pool, always** (KP ⚛ 08-24 — the 08-12 pass of this
+document struck it, wrongly). The 08-12 pass also had the dial inverted; the mechanism
+and KP's words verbatim stand in `../architecture/residual-system.md`, which wins
+where the two disagree.*
 
 ---
 
@@ -261,18 +263,17 @@ is either true or it is a lie, and the float is the first place it would be brok
 ```
 $100 Sale · residual dial 50% · three contributors, creator among them
     │
-    ├── $10.00 → 10%, funds the machine (fixed, always)
+    ├── $10.00 → the fee: $3.00 to THE RESIDUAL POOL (30%) · $7.00 to the machine (70%)
     │
     └── $90.00 → THE ECOSYSTEM
             │
             ├── $45.00 → THIS ITEM'S CONTRIBUTORS, divided EQUALLY
             │            └── $15.00 each — the creator included, no premium
-            │                 └── each vessel's covenant fires here on its own income
+            │                 └── each vessel's covenant fires here, on their share of the sale
             │
             └── $45.00 → THE RESIDUAL POOL
                          └── EQUALLY to ALL artisans on the platform,
-                             at intervals — and covenant fires again as each
-                             share lands
+                             at intervals — arriving WHOLE; no pledge touches a payout
 ```
 
 **The same sale at the defaults — residual 0%, covenant 0%, one contributor:** $10.00
@@ -328,8 +329,8 @@ worth more than being told it will be.
 **This is the sentence that turns the early advantage from a projection into a
 standing fact.** The obvious objection to everything above is *"an empty pool divides
 to nothing"* — and the answer is that **the founder's entire catalogue runs at the
-maximum contribution, permanently.** Every sale of his work pushes 45% of the sale
-into the residual pool and puts half of everything he personally receives into the
+maximum contribution, permanently.** Every sale of his work pushes 48% of the sale
+into the residual pool (45 pledged, 3 from the fee) and puts half of everything he personally receives into the
 covenant pool.
 
 **So the earliest arrivals are drawing from pools that his own output is filling** —

@@ -56,8 +56,8 @@ export default function CreatorOnboardingPage() {
                   <li><strong className="text-star-dust">Portfolio URL</strong>: Link to your work</li>
                   <li><strong className="text-star-dust">Creative categories</strong>: Writing, art, code, music, etc.</li>
                   <li><strong className="text-star-dust">Description</strong>: Tell us about your creative journey</li>
-                  <li><strong className="text-star-dust">Residual percentage</strong>: 0-50% of platform fee for contributors</li>
-                  <li><strong className="text-star-dust">Covenant pledge</strong>: 0-50% of earnings for community dignity fund (optional)</li>
+                  <li><strong className="text-star-dust">Residual pledge</strong>: 0-50% of a ware&apos;s profit to the residual pool (default 0)</li>
+                  <li><strong className="text-star-dust">Covenant pledge</strong>: 0-50% of your own share of a sale to the covenant pool (optional, default 0)</li>
                 </ul>
               </li>
               <li>Submit for review</li>
@@ -66,13 +66,13 @@ export default function CreatorOnboardingPage() {
               <div className="p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
                 <p className="text-purple-400 text-sm flex items-start gap-2">
                   <Heart size={16} className="flex-shrink-0 mt-0.5" />
-                  <span><strong className="text-star-dust">Residual percentage</strong>: This determines how much of the platform fee goes to contributors who helped create your product.</span>
+                  <span><strong className="text-star-dust">Residual pledge</strong>: the share of a ware&apos;s profit — the 90% left after the fee — that you pledge to the residual pool, which pays every artisan on the platform. The pool also receives 30% of every sale&apos;s fee, whatever you set here.</span>
                 </p>
               </div>
               <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
                 <p className="text-green-400 text-sm flex items-start gap-2">
                   <HandCoins size={16} className="flex-shrink-0 mt-0.5" />
-                  <span><strong className="text-star-dust">Covenant pledge</strong>: A voluntary donation to the community dignity fund. Changeable anytime.</span>
+                  <span><strong className="text-star-dust">Covenant pledge</strong>: a voluntary slice of your own share of a sale, paid on to every opted-in user equally. Set in the Sanctum, changeable anytime, and never taken from a pool payout.</span>
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function CreatorOnboardingPage() {
                   <li><strong className="text-star-dust">Title</strong>: Clear, descriptive, captivating</li>
                   <li><strong className="text-star-dust">Description</strong>: What is it? Why buy it?</li>
                   <li><strong className="text-star-dust">Price tiers</strong>: Community (discount), Ally (standard), Corporate (premium)</li>
-                  <li><strong className="text-star-dust">Residual pool</strong>: % of platform fee to contributors</li>
+                  <li><strong className="text-star-dust">Residual pledge</strong>: 0-50% of this ware&apos;s profit to the residual pool</li>
                   <li><strong className="text-star-dust">Media</strong>: Images, previews, downloads</li>
                 </ul>
               </li>
@@ -121,7 +121,7 @@ export default function CreatorOnboardingPage() {
             <div className="mt-4 p-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg">
               <p className="text-star-dust/70 text-sm flex items-start gap-2">
                 <TrendingUp size={16} className="text-neurospark flex-shrink-0 mt-0.5" />
-                <span><strong className="text-star-dust">The Economics:</strong> Platform fee fixed at <span className="text-neurospark">10%</span>. You keep <span className="text-purple-400">90%</span> of all sales.</span>
+                <span><strong className="text-star-dust">The Economics:</strong> platform fee fixed at <span className="text-neurospark">10%</span> — 70% of it funds the machine, 30% returns to the residual pool. The remaining <span className="text-purple-400">90%</span> is the ware&apos;s profit: your pledge comes out of it, and what is left divides equally among the ware&apos;s contributors, you among them.</span>
               </p>
             </div>
           </StepCard>
@@ -132,12 +132,11 @@ export default function CreatorOnboardingPage() {
               <li>Edit your product</li>
               <li>Go to &ldquo;Contributors&rdquo; tab</li>
               <li>Add by username or email</li>
-              <li>Assign percentage of residual pool</li>
               <li>They will be notified and must accept</li>
             </ol>
             <div className="mt-4 flex items-start gap-3 p-4 bg-pink-500/10 border border-pink-500/30 rounded-lg">
               <Users size={20} className="text-pink-400 flex-shrink-0 mt-0.5" />
-              <p className="text-star-dust/60 text-sm">Every contributor receives their share forever. The &ldquo;background actor dividend&rdquo; honors everyone who helped.</p>
+              <p className="text-star-dust/60 text-sm">There is no percentage to assign: whatever is left of the ware&apos;s profit after your pledge divides equally among its contributors, you among them. And standing as a contributor once, ever, puts a vessel on the residual pool&apos;s roster for life — the &ldquo;background actor dividend.&rdquo;</p>
             </div>
           </StepCard>
           
@@ -163,28 +162,48 @@ export default function CreatorOnboardingPage() {
               <div className="text-center mb-4">
                 <span className="text-green-400 font-mono text-2xl font-bold">Sale Price: $100</span>
               </div>
+              <p className="text-center text-star-dust/40 text-sm mb-4">
+                A ware with three contributors, its residual pledge at 50%, every covenant dial at 50%.
+              </p>
               <div className="space-y-2 font-mono text-sm">
                 <div className="flex justify-between items-center py-2 border-b border-white/10">
                   <span className="text-star-dust/60">Platform Fee (fixed at 10%)</span>
-                  <span className="text-neurospark font-bold">$10</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-white/10">
-                  <span className="text-star-dust/60">Your Earnings</span>
-                  <span className="text-purple-400 font-bold">$90</span>
+                  <span className="text-neurospark font-bold">$10.00</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-white/10 ml-4">
-                  <span className="text-star-dust/40">→ Immediate Payment</span>
-                  <span className="text-star-dust">$72</span>
+                  <span className="text-star-dust/40">→ The machine (70% of the fee)</span>
+                  <span className="text-star-dust">$7.00</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-white/10 ml-4">
-                  <span className="text-star-dust/40">→ Covenant Pool (20% pledge)</span>
-                  <span className="text-green-400">$18</span>
+                  <span className="text-star-dust/40">→ Residual pool (30% of the fee, always)</span>
+                  <span className="text-pink-400">$3.00</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-white/10">
-                  <span className="text-star-dust/60">Residual Pool (30% of fee)</span>
-                  <span className="text-pink-400">$3</span>
+                  <span className="text-star-dust/60">The Ware&apos;s Profit</span>
+                  <span className="text-purple-400 font-bold">$90.00</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-white/10 ml-4">
+                  <span className="text-star-dust/40">→ Residual pledge (50% of the profit)</span>
+                  <span className="text-pink-400">$45.00</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-white/10 ml-4">
+                  <span className="text-star-dust/40">→ What is left, divided equally by three</span>
+                  <span className="text-star-dust">$15.00 each</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-white/10 ml-8">
+                  <span className="text-star-dust/40">→ Each vessel&apos;s covenant pledge (50% of their share)</span>
+                  <span className="text-green-400">$7.50</span>
+                </div>
+                <div className="flex justify-between items-center py-2 ml-8">
+                  <span className="text-star-dust/40">→ Each vessel keeps</span>
+                  <span className="text-star-dust">$7.50</span>
                 </div>
               </div>
+              <p className="text-center text-star-dust/40 text-xs mt-4">
+                This one sale puts $48.00 in the residual pool and $22.50 in the covenant pool; $7.00
+                leaves. At the defaults — both dials at 0, one contributor — it is $3.00 to the pool,
+                $7.00 to the machine, and $90.00 whole to the maker.
+              </p>
             </div>
           </div>
           

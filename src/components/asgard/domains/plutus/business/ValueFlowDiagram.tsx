@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { DollarSign, Users, Palette, Heart, TrendingUp, Share2, Shield } from 'lucide-react';
+import { DollarSign, Users, Palette, Heart, TrendingUp, Share2 } from 'lucide-react';
 
 const streams = [
   {
@@ -22,19 +22,21 @@ const streams = [
     color: 'purple',
     description: 'Creator products and services',
     flow: [
-      { label: 'Creator', to: '90% → Immediate + Covenant', color: 'purple' },
-      { label: 'Platform Fee', to: '10% → Operations + Residual', color: 'cyan' },
-      { label: 'Residual Pool', to: '30-50% of fee → Contributors', color: 'pink' },
-      { label: 'Covenant Pool', to: '0-50% of earnings → Community', color: 'green' },
+      { label: 'Artisan Profit', to: '90% → the pledge, then equal shares', color: 'purple' },
+      { label: 'Platform Fee', to: '10% → 70% machine, 30% residual pool', color: 'cyan' },
+      { label: 'Residual Pledge', to: '0-50% of the profit → residual pool', color: 'pink' },
+      { label: 'Covenant Pledge', to: '0-50% of your own share → covenant pool', color: 'green' },
     ],
   },
 ];
 
+// A fourth recipient, "Mutual Aid — emergency support," stood here until 2026-08-24.
+// No such fund exists; the four below are all of them.
 const residualRecipients = [
-  { icon: Users, label: 'Contributors', description: 'Paid forever for past work (from residual pool)', color: 'cyan' },
-  { icon: Heart, label: 'Community Members', description: 'Dignity share from covenant pool (equal distribution)', color: 'pink' },
-  { icon: TrendingUp, label: 'Platform Fund', description: 'Operations & future development (from platform fee)', color: 'purple' },
-  { icon: Shield, label: 'Mutual Aid', description: 'Emergency support for members in crisis', color: 'green' },
+  { icon: Users, label: "This Ware's Contributors", description: 'What is left of the 90% after the pledge, divided equally', color: 'cyan' },
+  { icon: Share2, label: 'Every Artisan', description: 'The residual pool, in equal shares — one contribution ever is enough', color: 'pink' },
+  { icon: Heart, label: 'Every Opted-In User', description: 'The covenant pool, in equal shares — the dignity floor', color: 'green' },
+  { icon: TrendingUp, label: 'The Machine', description: '70% of the fee — 7% of the sale, and the only money that leaves', color: 'purple' },
 ];
 
 export function ValueFlowDiagram() {
@@ -120,9 +122,9 @@ export function ValueFlowDiagram() {
         
         <div className="mt-8 pt-4 border-t border-white/10">
           <p className="text-sm text-star-dust/40">
-            ✦ Platform fee is fixed at 10% (industry standard is 30-50%)<br />
-            ✦ Creators set residual percentage (0-50% of fee) per product<br />
-            ✦ Creators set covenant pledge (0-50% of earnings) in profile
+            ✦ Platform fee is fixed at 10% (industry standard is 30-50%) — 70% funds the machine, 30% returns to the residual pool<br />
+            ✦ A ware’s main artisan sets its residual pledge (0-50% of that ware’s profit, default 0)<br />
+            ✦ Each vessel sets their own covenant pledge (0-50% of their own share of a sale, default 0) in the Sanctum
           </p>
         </div>
       </motion.div>

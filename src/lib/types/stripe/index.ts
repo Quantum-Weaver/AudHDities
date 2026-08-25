@@ -416,14 +416,21 @@ export interface FormatPriceOptions {
  */
 export interface PriceBreakdown {
   subtotal: number;
+  /** 10% of the subtotal, fixed. */
   platformFee: number;
   platformFeePercent: number;
-  creatorEarnings: number;
-  creatorEarningsPercent: number;
-  residualPool: number;
+  /** 30% of the fee, returned to the residual pool on every sale. */
+  feeToResidualPool: number;
+  /** 70% of the fee: the machine, and the only money that leaves. */
+  feeToMachine: number;
+  /** The remaining 90%: this ware's profit. */
+  artisanProfit: number;
+  artisanProfitPercent: number;
+  /** The residual pledge, taken out of the profit (0-50%, default 0). */
+  pledgedToResidualPool: number;
   residualPoolPercent: number;
-  infrastructure: number;
-  infrastructurePercent: number;
+  /** What is left of the profit, divided equally among the ware's contributors. */
+  toContributors: number;
 }
 
 /**

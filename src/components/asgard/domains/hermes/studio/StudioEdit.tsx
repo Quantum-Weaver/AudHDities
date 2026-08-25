@@ -41,12 +41,12 @@ const PRICING_MODELS = [
 ];
 
 const RESIDUAL_OPTIONS = [
-  { value: '0', label: '0% â€” No residual pool' },
+  { value: '0', label: '0%, nothing pledged (the default)' },
   { value: '10', label: '10%' },
   { value: '20', label: '20%' },
-  { value: '30', label: '30% â€” Standard' },
+  { value: '30', label: '30%' },
   { value: '40', label: '40%' },
-  { value: '50', label: '50% â€” Maximum' },
+  { value: '50', label: '50%, the maximum' },
 ];
 
 type WareItem = Tables<'wares'>;
@@ -287,11 +287,11 @@ export function StudioEdit() {
             </div>
 
             {/* Residual Pool */}
-            <FormField label="Residual Pool" optional>
+            <FormField label="Residual Pledge" optional>
               <Select
                 name="residual_pool_percent"
                 options={RESIDUAL_OPTIONS}
-                defaultValue={ware.residual_pool_percent?.toString() || '30'}
+                defaultValue={ware.residual_pool_percent?.toString() ?? '0'}
                 disabled={isSaving}
               />
             </FormField>

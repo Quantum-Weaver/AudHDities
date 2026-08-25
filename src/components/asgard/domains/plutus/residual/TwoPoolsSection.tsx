@@ -14,7 +14,7 @@ const residualPoolData: CardData = {
   id: 'residual-pool',
   type: 'value',
   title: 'Residual Pool',
-  description: 'Reward contributors who helped create the product',
+  description: 'Pays every artisan on the platform, equally',
   value: '0-50%',
 };
 
@@ -22,7 +22,7 @@ const covenantPoolData: CardData = {
   id: 'covenant-pool',
   type: 'value',
   title: 'Covenant Pool',
-  description: 'Support community dignity fund for all active members',
+  description: 'The dignity floor — pays every opted-in user, equally',
   value: '0-50%',
 };
 
@@ -35,21 +35,22 @@ const residualMetadata = [
     label: 'Source',
     value: (
       <span className="text-[var(--color-fire-base)] font-medium">
-        0-50% of the platform fee
+        30% of every sale&apos;s fee, always &mdash; plus a pledge of 0-50% of a ware&apos;s profit
       </span>
     ),
   },
   {
     label: 'Purpose',
-    value: 'Reward contributors who helped create the product',
+    value:
+      'Pay every artisan on the platform — any vessel ever standing as an artisan or on a contributor roster',
   },
   {
     label: 'Distribution',
-    value: 'Split according to contribution percentages set by creator',
+    value: 'Equal shares, at intervals, arriving whole',
   },
   {
     label: 'Set By',
-    value: 'Creator per product',
+    value: "The ware's main artisan, per ware (default 0)",
   },
 ];
 
@@ -58,21 +59,21 @@ const covenantMetadata = [
     label: 'Source',
     value: (
       <span className="text-[var(--color-sanctuary-green)] font-medium">
-        0-50% of creator earnings
+        0-50% of a vessel&apos;s own share of a sale
       </span>
     ),
   },
   {
     label: 'Purpose',
-    value: 'Support community dignity fund for all active members',
+    value: 'The dignity floor, held open for every user of the Sanctuary',
   },
   {
     label: 'Distribution',
-    value: 'Equal share to all active community members',
+    value: 'Equal shares to every user who has opted in to be identified, arriving whole',
   },
   {
     label: 'Set By',
-    value: 'Creator in profile (voluntary)',
+    value: 'Each vessel, in the Sanctum (voluntary, default 0)',
   },
 ];
 
@@ -107,7 +108,7 @@ export function TwoPoolsSection() {
             }
           />
           <CardContent
-            description="0-50% of the platform fee (creator chooses per product) flows to contributors who helped create the product."
+            description="The residual pool takes 30% of every sale's fee, always, plus whatever a ware's main artisan pledges out of that ware's profit — 0-50%, default 0. It pays every artisan on the platform in equal shares."
             metadata={residualMetadata}
           />
         </Card>
@@ -131,7 +132,7 @@ export function TwoPoolsSection() {
             }
           />
           <CardContent
-            description="0-50% of creator earnings (voluntary, set in profile) supports the community dignity fund for all active members."
+            description="Every vessel sets one covenant dial in the Sanctum — 0-50% of their own share of a sale, default 0. It pays every user who has opted in to be identified, in equal shares, forever."
             metadata={covenantMetadata}
           />
         </Card>
