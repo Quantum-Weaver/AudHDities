@@ -17,7 +17,7 @@ const PATHWAYS = [
   {
     icon: Palette,
     title: 'Explore',
-    description: 'Browse creators, vendors, and products from the neurodivergent community.',
+    description: 'Browse artisans, merchants, and products from the neurodivergent community.',
     link: '/bazaar',
     cta: 'Discover',
     color: 'quantum-purple',

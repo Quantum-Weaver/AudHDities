@@ -26,12 +26,12 @@ src/app/(hephaestus)/
 │   │   └── plan/
 │   │       └── page.tsx              # Business Plan
 │   └── guides/
-│       ├── creator-onboarding/
-│       │   └── page.tsx              # Creator Onboarding
+│       ├── artisan-onboarding/
+│       │   └── page.tsx              # Artisan Onboarding
 │       ├── neurodivergent-ux/
 │       │   └── page.tsx              # Neurodivergent UX
-│       └── vendor-onboarding/
-│           └── page.tsx              # Vendor Onboarding
+│       └── merchant-onboarding/
+│           └── page.tsx              # Merchant Onboarding
 │
 ├── about/
 │   └── page.tsx                      # The Origin (/about)
@@ -71,9 +71,9 @@ src/app/(hephaestus)/
 | Residual System | `/forge/architecture/residual-system` | ✅ | Value flow documentation |
 | Financial Ecosystem | `/forge/business/ecosystem` | ✅ | Two-stream economic model |
 | Business Plan | `/forge/business/plan` | ✅ | Projections, pillars, economics |
-| Creator Onboarding | `/forge/guides/creator-onboarding` | ✅ | Step-by-step creator guide |
+| Artisan Onboarding | `/forge/guides/artisan-onboarding` | ✅ | Step-by-step artisan guide |
 | Neurodivergent UX | `/forge/guides/neurodivergent-ux` | ✅ | Design philosophy |
-| Vendor Onboarding | `/forge/guides/vendor-onboarding` | ✅ | Step-by-step vendor guide |
+| Merchant Onboarding | `/forge/guides/merchant-onboarding` | ✅ | Step-by-step merchant guide |
 
 ### Sanctuary Pages (Static Content)
 

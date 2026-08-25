@@ -184,7 +184,7 @@ export default function FinancialEcosystemPage() {
                       <DollarSign className="text-purple-400" size={28} />
                     </div>
                     <div className="text-purple-400 font-bold">Sales</div>
-                    <div className="text-star-dust/40 text-xs">Creator Products</div>
+                    <div className="text-star-dust/40 text-xs">Artisan Products</div>
                   </div>
                 </div>
                 
@@ -203,7 +203,7 @@ export default function FinancialEcosystemPage() {
                 {/* Arrow down */}
                 <div className="text-star-dust/30">▼</div>
                 
-                {/* First Split: Platform Fee (10%) vs Creator (90%) */}
+                {/* First Split: Platform Fee (10%) vs Artisan (90%) */}
                 <div className="flex justify-center gap-8 flex-wrap w-full">
                   <div className="text-center min-w-[120px]">
                     <div className="text-neurospark font-bold text-xl">10%</div>

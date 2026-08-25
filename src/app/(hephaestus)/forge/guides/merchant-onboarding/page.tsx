@@ -1,4 +1,4 @@
-// app/(hephaestus)/forge/guides/vendor-onboarding/page.tsx
+// app/(hephaestus)/forge/guides/merchant-onboarding/page.tsx
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { OnboardingHero } from '@/components/asgard/domains/hephaestus/onboarding/OnboardingHero';
@@ -9,11 +9,11 @@ import { NextSteps } from '@/components/asgard/domains/hephaestus/onboarding/Nex
 import { Store, CreditCard, Package, Truck, BarChart3, Heart, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Vendor Onboarding | AUDHDITIES',
-  description: 'Learn how to become a vendor on AUDHDITIES and start selling your products',
+  title: 'Merchant Onboarding | AUDHDITIES',
+  description: 'Learn how to become a merchant on AUDHDITIES and start selling your products',
 };
 
-export default async function VendorOnboardingPage() {
+export default async function MerchantOnboardingPage() {
   return (
     <Page 
       variant={1}
@@ -24,7 +24,7 @@ export default async function VendorOnboardingPage() {
     >  
       <main className="min-h-screen">
         <OnboardingHero 
-          title="Vendor Onboarding"
+          title="Merchant Onboarding"
           subtitle="Start selling your products to the sanctuary community"
           icon={<Store size={14} className="text-neurospark" />}
           lastUpdated="March 29, 2026"
@@ -35,7 +35,7 @@ export default async function VendorOnboardingPage() {
           {/* Welcome Section */}
           <div className="mb-12 text-center">
             <p className="text-star-dust/70 text-lg max-w-2xl mx-auto">
-              Welcome, vendor! This guide walks you through becoming a vendor on AUDHDITIES—someone who sells physical or digital goods through our marketplace.
+              Welcome, merchant! This guide walks you through becoming a merchant on AUDHDITIES—someone who sells physical or digital goods through our marketplace.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 rounded-full">
               <span className="text-neurospark text-sm">Platform fee fixed at 10%</span>
@@ -58,10 +58,10 @@ export default async function VendorOnboardingPage() {
           </div>
           
           {/* Step 1: Apply */}
-          <StepCard step={1} title="Apply for Vendor Status">
+          <StepCard step={1} title="Apply for Merchant Status">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
               <li>Log in to your dashboard</li>
-              <li>Click "Become a Vendor" in the sidebar</li>
+              <li>Click "Become a Merchant" in the sidebar</li>
               <li>Fill out the application:
                 <ul className="list-disc list-inside ml-8 mt-2 space-y-1">
                   <li><strong className="text-star-dust">Business name</strong>: Your public-facing name</li>
@@ -77,7 +77,7 @@ export default async function VendorOnboardingPage() {
           
           {/* Step 2: Verification */}
           <StepCard step={2} title="Verification Process">
-            <p className="text-star-dust/70 mb-4">Vendor applications require additional verification:</p>
+            <p className="text-star-dust/70 mb-4">Merchant applications require additional verification:</p>
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
               <li>Identity check (for individuals)</li>
               <li>Business registration (for companies)</li>
@@ -91,7 +91,7 @@ export default async function VendorOnboardingPage() {
           {/* Step 3: Stripe Connect */}
           <StepCard step={3} title="Set Up Payments (Stripe Connect)">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
-              <li>Go to Vendor Dashboard → Payments</li>
+              <li>Go to Merchant Dashboard → Payments</li>
               <li>Click "Connect Stripe Account"</li>
               <li>Complete Stripe onboarding (tax info, bank details)</li>
               <li>Stripe verifies and activates your account</li>
@@ -105,7 +105,7 @@ export default async function VendorOnboardingPage() {
           {/* Step 4: List Product */}
           <StepCard step={4} title="List Your First Product">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
-              <li>Go to Vendor Dashboard → Products</li>
+              <li>Go to Merchant Dashboard → Products</li>
               <li>Click "New Product"</li>
               <li>Fill in:
                 <ul className="list-disc list-inside ml-8 mt-2 space-y-1">
@@ -184,11 +184,11 @@ export default async function VendorOnboardingPage() {
             </div>
           </div>
           
-          {/* Vendor Dashboard */}
+          {/* Merchant Dashboard */}
           <div className="mt-12">
             <h2 className="text-2xl font-bold text-star-dust mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-purple-400 rounded-full" />
-              Vendor Dashboard
+              Merchant Dashboard
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white/5 rounded-lg p-4">
@@ -295,7 +295,7 @@ export default async function VendorOnboardingPage() {
           {/* Next Steps */}
           <NextSteps 
             steps={[
-              "Complete vendor application",
+              "Complete merchant application",
               "Pass verification",
               "Connect Stripe",
               "List first product",
@@ -303,7 +303,7 @@ export default async function VendorOnboardingPage() {
               "Optional: Set covenant pledge in profile",
               "Optional: Set each ware's residual pledge"
             ]}
-            actionText="Apply to Become a Vendor"
+            actionText="Apply to Become a Merchant"
             actionLink="/council/applications/vendor"
           />
         </div>

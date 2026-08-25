@@ -10,7 +10,7 @@ import {
   Shield, Database, Infinity, Feather, Truck, Brain,
   ArrowRight, Briefcase, Map, DollarSign, Sparkles,
   Heart, Compass, Eye, Users, Mail, Globe, FileText,
-  Lock, Accessibility, Gem, Star, BookOpen, ScrollText
+  Lock, Accessibility, Star, BookOpen, ScrollText
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -65,8 +65,8 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Compass,
     description: 'Paths to participation and sovereignty within the sanctuary',
     pages: [
-      { title: 'Creator Onboarding', path: '/forge/guides/creator-onboarding', description: 'Share your gifts with the sanctuary and earn residuals forever', icon: Feather, badge: 'Create', badgeColor: 'purple' },
-      { title: 'Vendor Onboarding', path: '/forge/guides/vendor-onboarding', description: 'Help creators reach their audience through ethical services', icon: Truck, badge: 'Support', badgeColor: 'cyan' },
+      { title: 'Artisan Onboarding', path: '/forge/guides/artisan-onboarding', description: 'Share your gifts with the sanctuary and earn residuals forever', icon: Feather, badge: 'Create', badgeColor: 'purple' },
+      { title: 'Merchant Onboarding', path: '/forge/guides/merchant-onboarding', description: 'Help artisans reach their audience through ethical services', icon: Truck, badge: 'Support', badgeColor: 'cyan' },
       { title: 'Neurodivergent UX', path: '/forge/guides/neurodivergent-ux', description: 'Our design philosophy — built by and for all minds', icon: Brain, badge: 'Accessibility', badgeColor: 'pink' },
     ],
   },

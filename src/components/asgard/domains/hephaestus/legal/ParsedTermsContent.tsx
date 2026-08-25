@@ -11,6 +11,11 @@ const iconMap: Record<string, React.ReactNode> = {
   'User Accounts': <Users className="text-purple-400" size={20} />,
   'Neurodivergent Accessibility': <Heart className="text-pink-400" size={20} />,
   'Economic Terms': <DollarSign className="text-green-400" size={20} />,
+  // THE WORDS, 2026-08-24 — this key is NOT renamed, on purpose. It must
+  // match the heading in KP's own legal text verbatim
+  // (docs/terms/terms-of-service.md:58, "## 5. Creator and Vendor Terms").
+  // Rename the key and the section loses its icon. The heading is KP's to
+  // change; a word law is not a licence to edit his legal document.
   'Creator and Vendor Terms': <Palette className="text-purple-400" size={20} />,
   'Community Guidelines': <Heart className="text-pink-400" size={20} />,
   'Privacy': <Lock className="text-neurospark" size={20} />,

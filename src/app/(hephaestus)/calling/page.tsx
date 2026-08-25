@@ -62,7 +62,7 @@ export default function CallingPage() {
                 <InfinityIcon className="text-neurospark mx-auto mb-3" size={28} />
                 <h3 className="text-star-dust font-bold mb-2">No applications, by design</h3>
                 <p className="text-star-dust/60 text-sm">
-                  The residual system, covenant pool, and creator economy are
+                  The residual system, covenant pool, and artisan economy are
                   designed so that contributing sustains the contributor. The
                   design is documented in the Forge, open for inspection —
                   what it promises is what its tables enforce.

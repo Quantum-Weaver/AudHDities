@@ -108,7 +108,7 @@ export default function AboutPage() {
               shadow="md"
             />
             <ValueCardRenderer
-              data={{ id: 'residual', type: 'value', title: 'Residual Economics', value: 'Fairness', description: 'When you contribute to something, you earn from it forever. Value flows to creators, not just once, but always.' }}
+              data={{ id: 'residual', type: 'value', title: 'Residual Economics', value: 'Fairness', description: 'When you contribute to something, you earn from it forever. Value flows to artisans, not just once, but always.' }}
               radius="lg"
               shadow="md"
             />

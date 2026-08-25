@@ -15,7 +15,7 @@ const PROBLEMS = [
   {
     icon: Users,
     title: 'Exclusion',
-    description: 'Disabled people, neurodivergent minds, and creators are left behind.',
+    description: 'Disabled people, neurodivergent minds, and artisans are left behind.',
     color: 'quantum',
     borderClass: 'border-l-quantum-purple',
   },

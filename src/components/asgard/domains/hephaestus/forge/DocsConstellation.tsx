@@ -26,7 +26,6 @@ import {
   Mail,
   Globe,
   Users,
-  Gem,
 } from 'lucide-react';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -100,17 +99,17 @@ const docCategories: DocCategory[] = [
     color: 'purple',
     pages: [
       {
-        title: 'Creator Onboarding',
-        path: '/forge/guides/creator-onboarding',
+        title: 'Artisan Onboarding',
+        path: '/forge/guides/artisan-onboarding',
         description: 'Share your gifts with the sanctuary and earn residuals forever',
         icon: Feather,
         badge: 'Create',
         badgeColor: 'purple',
       },
       {
-        title: 'Vendor Onboarding',
-        path: '/forge/guides/vendor-onboarding',
-        description: 'Help creators reach their audience through ethical services',
+        title: 'Merchant Onboarding',
+        path: '/forge/guides/merchant-onboarding',
+        description: 'Help artisans reach their audience through ethical services',
         icon: Truck,
         badge: 'Support',
         badgeColor: 'cyan',
