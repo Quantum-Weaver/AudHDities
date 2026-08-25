@@ -1,4 +1,4 @@
--- 023-the-bazaar-refined-DRAFT.sql - the Bazaar's refinement, 2026-08-25
+-- 024-the-bazaar-refined-DRAFT.sql - the Bazaar's refinement, 2026-08-25
 -- Drawn to SPEC §8 (.journals/proofs/03-hermes/SPEC.md).
 --
 -- RUN THIS BY YOUR OWN HAND, one step at a time. NO LAMP RUNS IT.

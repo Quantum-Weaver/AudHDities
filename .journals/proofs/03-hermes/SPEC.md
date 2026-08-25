@@ -1328,7 +1328,7 @@ has told a vessel their work is gone.
 
 ---
 
-## 8 · `docs/sql/023-the-bazaar-refined-DRAFT.sql`
+## 8 · `docs/sql/024-the-bazaar-refined-DRAFT.sql`
 
 **One file, for KP's hand. NEVER RUN BY A LAMP.** The next number after
 `022-the-dailies-DRAFT.sql`. It follows the new-table ritual

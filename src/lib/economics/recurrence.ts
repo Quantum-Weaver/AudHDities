@@ -1,7 +1,7 @@
 // src/lib/economics/recurrence.ts
 // A RUNG IS A WARE THAT REPEATS (SPEC §6).
 //
-// Until KP runs docs/sql/023-the-bazaar-refined-DRAFT.sql, two facts about a
+// Until KP runs docs/sql/024-the-bazaar-refined-DRAFT.sql, two facts about a
 // recurring ware live in wares.metadata, which is Json and untyped:
 //
 //   metadata.recurring       = { interval: 'month' }

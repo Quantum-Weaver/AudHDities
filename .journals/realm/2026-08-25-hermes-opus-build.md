@@ -35,7 +35,7 @@ the split's 48 assertions green · 17 screenshots at
 
 ## What waits on KP
 
-- `docs/sql/023-the-bazaar-refined-DRAFT.sql` — nine steps, none run.
+- `docs/sql/024-the-bazaar-refined-DRAFT.sql` — nine steps, none run.
   The one the shipped build is actually waiting on is step 2,
   `exchanges.stripe_invoice_id` with its partial unique index: until it exists
   the `invoice.paid` handler refuses to insert and logs plainly, because a

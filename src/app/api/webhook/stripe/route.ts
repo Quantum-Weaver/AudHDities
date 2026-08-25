@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
       console.error(
         'invoice.paid received and REFUSED: exchanges.stripe_invoice_id does not exist, so a ' +
         're-fired event would write a second row for one payment. No row was written and nothing ' +
-        'was deleted. Run docs/sql/023-the-bazaar-refined-DRAFT.sql step 2 to open this road. ' +
+        'was deleted. Run docs/sql/024-the-bazaar-refined-DRAFT.sql step 2 to open this road. ' +
         `invoice=${invoice?.id ?? 'unknown'} amount_paid=${invoice?.amount_paid ?? 'unknown'}`,
       );
       break;
