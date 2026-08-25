@@ -48,6 +48,7 @@ import { useState, useEffect, useCallback } from 'react';
 import {
   Menu, X, Store, Shield, Compass, User,
   Map as MapIcon,
+  Library,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
@@ -102,10 +103,10 @@ const THE_FOUR: BarItem[] = [
   // is the door that leads there (KP ⚛ "yes").
   { label: 'Vessel', href: realmDoor('hestia'), visitorHref: AUTH_DOOR, icon: User },
   { label: 'Bazaar', href: realmDoor('hermes'), visitorHref: realmDoor('hermes'), icon: Store },
-  // Playground — the (cosmic) REALM's door as the street defines it, not a
+  // Library — the (Athena) REALM's door as the street defines it, not a
   // route typed here. Realm 10's own pass may re-home that door; this item
   // follows it without an edit.
-  { label: 'Playground', href: realmDoor('cosmic'), visitorHref: realmDoor('cosmic'), icon: Compass },
+  { label: 'Library', href: realmDoor('athena'), visitorHref: realmDoor('athena'), icon: Library},
   // Sanctuary — the visitors' front door. A ROOM in the Forge group rather
   // than that realm's door (the Forge's own door is /forge), so it is read
   // by its street label.
@@ -171,7 +172,7 @@ export function Navigation({ className }: { className?: string }) {
         'bg-deep-space/40 backdrop-blur-sm border-b border-white/5',
         className
       )}>
-        <div className="flex items-center gap-1 h-full">
+        <div className="flex items-center gap-3 h-full">
           {THE_FOUR.map((item) => {
             const Icon = item.icon;
             const href = user ? item.href : item.visitorHref;
@@ -199,23 +200,6 @@ export function Navigation({ className }: { className?: string }) {
 
           {/* Divider */}
           <div className="h-5 w-px bg-white/10 mx-2" />
-
-          {/* THE MAP — gate ②'s nav echo: the whole street, one tap. It is
-              where every retired door went, by KP's own sentence. */}
-          <button
-            type="button"
-            onClick={() => setMapOpen(true)}
-            aria-haspopup="dialog"
-            aria-expanded={mapOpen}
-            className={cn(
-              'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 motion-reduce:transition-none',
-              FOCUS_RING,
-              'text-star-dust/62 hover:text-star-dust/90 hover:bg-white/5'
-            )}
-          >
-            <MapIcon className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Map</span>
-          </button>
 
           {/* Right: who you are — not the same control as the Vessel item */}
           <div className="ml-auto flex items-center gap-3 pr-2">
