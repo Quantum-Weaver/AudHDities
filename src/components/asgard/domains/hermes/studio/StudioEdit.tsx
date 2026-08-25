@@ -34,7 +34,7 @@ const WARE_TYPES = [
 ];
 
 const PRICING_MODELS = [
-  { value: 'free', label: 'Free — given to anyone who receives it' },
+  { value: 'free', label: 'Gifted — given to anyone who receives it' },
   { value: 'fixed', label: 'Fixed — one base price, solidarity-adjusted at the Exchange' },
   { value: 'pay_what_you_want', label: 'Pay what you want — the price is a floor, not a wall' },
   { value: 'patronage_only', label: 'Patronage only — for patrons of your work' },
@@ -132,10 +132,10 @@ export function StudioEdit() {
           router.push(`/bazaar/wares/${ware.id}`);
         }, 800);
       } else {
-        setSaveMessage(result.error || 'Failed to update');
+        setSaveMessage(result.error || 'The change was not saved this time. It is safe to try again.');
       }
     } catch (err) {
-      setSaveMessage('Failed to save. Please try again.');
+      setSaveMessage('The change was not saved this time. It is safe to try again.');
     } finally {
       setIsSaving(false);
       if (saveMessage) setTimeout(() => setSaveMessage(null), 3000);
@@ -274,7 +274,7 @@ export function StudioEdit() {
               <FormField
                 label="Base Price"
                 optional
-                helper="Leave empty for free or patronage-only works. For pay-what-you-want, this is the suggested floor."
+                helper="Leave empty for gifted or patronage-only works. For pay-what-you-want, this is the suggested floor."
               >
                 <Input
                   name="price"
