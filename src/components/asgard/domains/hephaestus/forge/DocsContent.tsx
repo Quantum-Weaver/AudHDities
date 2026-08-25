@@ -41,7 +41,10 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Shield,
     description: 'The technical foundation that makes sovereignty possible',
     pages: [
-      { title: 'Authentication Flow', path: '/forge/architecture/auth-flow', description: 'How we verify and protect your identity with magic links', icon: Shield, badge: 'Security', badgeColor: 'cyan' },
+      // 2026-08-24, the truth pass: "with magic links" described a door the
+      // house does not have. The built door is password-primary with a
+      // magic-link door beside it (.journals/proofs/01-auth/PROOF.md, ruling 8).
+      { title: 'Authentication Flow', path: '/forge/architecture/auth-flow', description: 'How we verify and protect your identity — a password, or a link if a password is too much', icon: Shield, badge: 'Security', badgeColor: 'cyan' },
       { title: 'Database Schema', path: '/forge/architecture/database-schema', description: 'The living blueprint — always accurate, always transparent', icon: Database, badge: 'Living Doc', badgeColor: 'purple' },
       { title: 'Residual System', path: '/forge/architecture/residual-system', description: 'How value flows to every contributor, forever', icon: Infinity, badge: 'Economics', badgeColor: 'pink' },
     ],
@@ -81,7 +84,11 @@ const DOC_SECTIONS: DocSection[] = [
       { title: 'The Welcome', path: '/accessibility', description: 'Everyone belongs here — our accessibility commitment', icon: Accessibility, badge: 'Access', badgeColor: 'pink' },
       { title: 'The Hearth Call', path: '/contact', description: 'We are here for you — reach out anytime', icon: Mail, badge: 'Contact', badgeColor: 'purple' },
       { title: 'The Scroll', path: '/press', description: 'Resources for media and storytellers', icon: Globe, badge: 'Press', badgeColor: 'cyan' },
-      { title: 'The Calling', path: '/careers', description: 'Join us in weaving a new reality', icon: Users, badge: 'Careers', badgeColor: 'emerald' },
+      // '/careers' → '/calling' 2026-08-24, the truth pass: this card still
+      // carried the pre-rename path, badge and copy after KP's ⚛ ruling
+      // ("we have no company" · "no 'careers'" · "just us"). The page it
+      // points at says so itself — (hephaestus)/REALM-BUS.md:216-219.
+      { title: 'The Calling', path: '/calling', description: 'No company, no careers — just us, and the community that arrives', icon: Users, badge: 'Invitation', badgeColor: 'emerald' },
       { title: 'The Offering', path: '/donate', description: 'Your contribution keeps the Sanctuary alive', icon: Gem, badge: 'Donate', badgeColor: 'amber' },
     ],
   },

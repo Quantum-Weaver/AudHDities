@@ -32,8 +32,16 @@ export const CONTACT_LABELS = {
   PRIVACY_HEADING: 'Privacy',
   PRIVACY_BODY: 'Your information is never shared',
   PRIVACY_LINK_TEXT: 'Read our privacy policy →',
-  APPLICATION_NOTE_TITLE: 'For creator/vendor applications:',
-  APPLICATION_NOTE_BODY: 'Please use the dedicated application forms in your dashboard for faster processing.',
+  // 2026-08-24, the truth pass — RETIRED. The body read "Please use the
+  // dedicated application forms in your dashboard for faster processing."
+  // There are no application forms in a dashboard: "dashboard" is only a
+  // legacy redirect stub to /vessel, and the rooms that do exist stand in
+  // the Council, at /council/applications/creator and
+  // /council/applications/vendor. "Faster processing" named a queue nobody
+  // runs — there is no company here to run one
+  // ((hephaestus)/REALM-BUS.md:216-219). Reborn as the true pointer.
+  APPLICATION_NOTE_TITLE: 'Standing as a creator or a vendor:',
+  APPLICATION_NOTE_BODY: 'Those rooms are in the Council, at /council/applications. This door is for everything else — and for anything you would rather just ask.',
   ALTERNATIVE_CONTACT: 'Or reach us directly at',
   FORM_HEADING: 'Send us a message',
   SUCCESS_HEADING: 'Message Sent!',

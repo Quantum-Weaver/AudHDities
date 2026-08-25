@@ -71,8 +71,12 @@ export function ThankYouNote({ amount, className }: ThankYouNoteProps) {
         </Link>
       </div>
 
+      {/* 2026-08-24, the truth pass — this read "A receipt has been sent to
+          your email. You can also download it below." Nothing is sent: there
+          is no mailer anywhere in this repo behind a donation. The download
+          below is the only copy that exists, and the line now says so. */}
       <p className="text-xs text-star-dust/30 mt-8">
-        A receipt has been sent to your email. You can also download it below.
+        Your record of this gift is below, to download and keep. Nothing is emailed.
       </p>
     </Card>
   );

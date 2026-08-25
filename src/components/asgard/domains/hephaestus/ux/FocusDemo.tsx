@@ -116,8 +116,16 @@ export function FocusDemo() {
           </div>
         </div>
         
+        {/* 2026-08-24, the truth pass — this read "On AUDHDITIES, forms
+            auto-save, timers are optional, and you can always 'continue
+            later'". Timers are optional and that half stays. Nothing in this
+            tree auto-saves a form, and there is no "continue later" anywhere;
+            the one place the question came up decided the other way on
+            purpose — CovenantSpace.tsx:13, "never auto-saved from a drag:
+            ceremony is deliberateness." Softened to intent for the half that
+            is not built. */}
         <p className="text-star-dust/40 text-xs text-center">
-          On AUDHDITIES, forms auto-save, timers are optional, and you can always "continue later"
+          On AUDHDITIES, timers are optional. Forms that hold your place so you can continue later are intended, and not yet built.
         </p>
       </div>
     </motion.div>

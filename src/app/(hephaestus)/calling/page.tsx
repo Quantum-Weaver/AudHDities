@@ -85,8 +85,19 @@ export default function CallingPage() {
               >
                 <h3 className="text-star-dust font-bold mb-3">If this calls to you</h3>
                 <div className="space-y-2">
+                  {/* 2026-08-24 — the truth pass: this door pointed at
+                      `/enter`, which has no page anywhere under src/app. It
+                      now points at `/sanctuary`, the visitors' home the door
+                      was built to (`.journals/proofs/01-auth/PROOF.md:15-16`
+                      — "sanctuary should be the home page for visitors, and
+                      the vessel should be reachable from here by logging
+                      in"). `/sanctuary` also keeps this card's own promise
+                      below — it asks nothing of a reader first; `/login`
+                      would. `/enter` still stands as a route in
+                      page_mapping.ts:570-579 and trio.ts:181 — the chassis's
+                      to rule, not this pass's. */}
                   <Link
-                    href="/enter"
+                    href="/sanctuary"
                     className="flex items-center gap-2 rounded-lg border border-star-dust/15 p-3 text-sm text-star-dust/80 transition-colors hover:border-star-dust/30 motion-reduce:transition-none"
                   >
                     <DoorOpen className="h-4 w-4 text-neurospark" aria-hidden="true" />

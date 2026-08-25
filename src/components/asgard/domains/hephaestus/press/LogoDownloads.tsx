@@ -1,88 +1,24 @@
 // src/components/asgard/domains/hephaestus/press/LogoDownloads.tsx
 // Logo Downloads - All logo variations in one place
+// ─────────────────────────────────────────────────────────────────────────
+// 2026-08-24 — THE TRUTH PASS. Six logo files stood here — primary, white,
+// black, icon-only, horizontal and a favicon pack — each with a stated size
+// in kilobytes, all pointing into /press/logos/*. There is no public/press/
+// directory in this repo: every button 404'd and every file size was
+// invented. Removed, with an honest line in their place; the section's frame
+// stays for the canvas.
+// KEPT, because they are true: the Brand Colors below are the house's real
+// tokens, read from src/lib/constants/cosmic/colors.ts, and the copy button
+// works. The usage guidelines are kept too — their last line pointed at
+// brand@sovereignsanctuary.com, a domain that appears nowhere else in this
+// codebase; the house has one public address (root CLAUDE.md ward).
 
 "use client";
 
 import { useState } from "react";
 import { Card } from "@/components/runes/Card";
-import { Button } from "@/components/yggdrasil/Button";
-import { Badge } from "@/components/runes/Badge";
-import { Download, Copy, Check } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-interface LogoVariant {
-  id: string;
-  name: string;
-  description: string;
-  format: "svg" | "png" | "pdf" | "zip";
-  backgroundColor: "transparent" | "dark" | "light";
-  previewColor: string;
-  downloadUrl: string;
-  size?: string;
-}
-
-const logoVariants: LogoVariant[] = [
-  {
-    id: "primary-color",
-    name: "Primary Logo",
-    description: "Full color logo for light backgrounds",
-    format: "svg",
-    backgroundColor: "transparent",
-    previewColor: "bg-white",
-    downloadUrl: "/press/logos/logo-primary.svg",
-    size: "48 KB",
-  },
-  {
-    id: "primary-white",
-    name: "White Logo",
-    description: "White logo for dark backgrounds",
-    format: "svg",
-    backgroundColor: "dark",
-    previewColor: "bg-deep-space",
-    downloadUrl: "/press/logos/logo-white.svg",
-    size: "45 KB",
-  },
-  {
-    id: "primary-black",
-    name: "Black Logo",
-    description: "Black logo for light backgrounds",
-    format: "svg",
-    backgroundColor: "light",
-    previewColor: "bg-white",
-    downloadUrl: "/press/logos/logo-black.svg",
-    size: "46 KB",
-  },
-  {
-    id: "icon-only",
-    name: "Icon Only",
-    description: "Sanctuary symbol without text",
-    format: "svg",
-    backgroundColor: "transparent",
-    previewColor: "bg-white",
-    downloadUrl: "/press/logos/logo-icon.svg",
-    size: "12 KB",
-  },
-  {
-    id: "horizontal",
-    name: "Horizontal Logo",
-    description: "Logo with text on the side",
-    format: "svg",
-    backgroundColor: "transparent",
-    previewColor: "bg-white",
-    downloadUrl: "/press/logos/logo-horizontal.svg",
-    size: "52 KB",
-  },
-  {
-    id: "favicon",
-    name: "Favicon Pack",
-    description: "Favicon files for web use",
-    format: "zip",
-    backgroundColor: "transparent",
-    previewColor: "bg-white",
-    downloadUrl: "/press/logos/favicon-pack.zip",
-    size: "256 KB",
-  },
-];
+import { Copy, Check, Shapes } from "lucide-react";
+import { CONTACT_LABELS } from "@/lib/constants/components/asgard/domains/iris/contact/contact.constants";
 
 const brandColors = [
   { name: "Quantum Purple", value: "#6C5CE7", variable: "--quantum-purple" },
@@ -95,20 +31,6 @@ const brandColors = [
 
 export function LogoDownloads() {
   const [copied, setCopied] = useState<string | null>(null);
-  const [downloading, setDownloading] = useState<string | null>(null);
-
-  const handleDownload = async (logo: LogoVariant) => {
-    setDownloading(logo.id);
-    setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = logo.downloadUrl;
-      link.download = `${logo.id}.${logo.format}`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setDownloading(null);
-    }, 500);
-  };
 
   const handleCopyColor = (color: string) => {
     navigator.clipboard.writeText(color);
@@ -125,56 +47,23 @@ export function LogoDownloads() {
       className="p-6 space-y-6"
     >
       <div>
-        <h2 className="text-xl font-semibold text-star-dust">Logo Downloads</h2>
+        <h2 className="text-xl font-semibold text-star-dust">Logos &amp; Brand</h2>
         <p className="text-sm text-star-dust/40 mt-1">
-          All logo variations for media use
+          What there is to use, and how to use it
         </p>
       </div>
 
-      <div className="space-y-4">
-        {logoVariants.map((logo) => (
-          <div
-            key={logo.id}
-            className={cn(
-              "p-4 rounded-lg border transition-all",
-              logo.backgroundColor === "dark"
-                ? "bg-deep-space border-star-dust/10"
-                : "bg-star-dust/5 border-star-dust/10"
-            )}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-star-dust">{logo.name}</h3>
-                  <Badge variant="outline" size="sm">
-                    {logo.format.toUpperCase()}
-                  </Badge>
-                </div>
-                <p className="text-sm text-star-dust/40 mt-1">{logo.description}</p>
-                {logo.size && (
-                  <span className="text-xs text-star-dust/30 mt-2 inline-block">
-                    {logo.size}
-                  </span>
-                )}
-              </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleDownload(logo)}
-                disabled={downloading === logo.id}
-              >
-                {downloading === logo.id ? (
-                  <div className="w-4 h-4 border-2 border-neurospark border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download
-                  </>
-                )}
-              </Button>
-            </div>
+      <div className="p-4 rounded-lg border border-star-dust/10 bg-star-dust/5">
+        <div className="flex items-start gap-3">
+          <Shapes className="w-5 h-5 text-star-dust/30 shrink-0 mt-0.5" />
+          <div>
+            <h3 className="font-semibold text-star-dust">No logo files are prepared yet</h3>
+            <p className="text-sm text-star-dust/50 mt-1">
+              There is no pack of logo variants to download. The colours below
+              are real and yours to use.
+            </p>
           </div>
-        ))}
+        </div>
       </div>
 
       <div className="pt-4 border-t border-star-dust/10">
@@ -211,7 +100,7 @@ export function LogoDownloads() {
           <li>Maintain clear space around the logo (half the logo height)</li>
           <li>Use white logo on dark backgrounds, color logo on light backgrounds</li>
           <li>Minimum size: 32px height for digital, 0.5 inches for print</li>
-          <li>For questions, contact brand@sovereignsanctuary.com</li>
+          <li>For questions, write to {CONTACT_LABELS.EMAIL_ADDRESS}</li>
         </ul>
       </div>
     </Card>

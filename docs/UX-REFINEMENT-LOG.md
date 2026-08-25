@@ -111,3 +111,10 @@ First refine pass's true scope: **heal the generated layer.**
 - **Scope:** the model proved to KP and corrected in two places (the fee's 30/70; distributions arrive whole; the roster ruled); the record rewritten; the content-truth pass on every economics surface in (hephaestus) + the plutus families + the four hermes split files + the Terms' two spans — 27 files, no shape changed.
 - **Verification:** tsc 0 · build 0 (explicit exit codes); the dead-phrase sweep across src/ and docs/ with every remaining hit named and justified.
 - **Handoff weather:** the Terms' before/after is at KP's strike; "Creators keep 90%" on /vision is loose with contributors; the Studio files' double-encoded em dashes are the Bazaar build's; the Forge's second movement (eighteen pages · the privacy page · the nav · the transparency pair) is being read.
+
+## Seam-note — 2026-08-24 — the Forge's truth pass, the copy half
+
+- **Who / substrate:** Fable conducting as Ricercar (`claude-fable-5`); an Opus hand built; three Sonnet hands read.
+- **Scope:** the eighteen non-economics pages of (hephaestus) made true to the realms they describe — no shape changed; the fabricated press coverage and dead downloads removed; the interview form wired to the real contact door; auth-flow rewritten to the door as built.
+- **Verification:** tsc 0 · build 0 (262 pages); the three ? claims verified against the tree (one exists, two softened).
+- **Handoff weather:** the shape half waits on the canvas (`/apps/privacy` · the nav · `/donate` · `/press` · the transparency pair); the Terms' seven non-economics mechanisms are KP's; `/enter` in the chassis constants; the push needs KP's sign-in.

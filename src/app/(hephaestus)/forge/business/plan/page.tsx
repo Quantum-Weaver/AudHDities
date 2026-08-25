@@ -28,9 +28,17 @@ export default function BusinessPlanPage() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <StatCard value={0} label="Creator Ownership" description="On most platforms" suffix="%" color="pink" delay={0} />
+              {/* 2026-08-24, the truth pass — two of these four read "0%
+                  Creator Ownership · On most platforms" and "0 Residual
+                  Recipients · On most platforms": a competitor comparison
+                  stated as measured fact, with no source anywhere behind it.
+                  No source was invented; the comparison is gone instead, and
+                  the cards now state only what this house can stand behind —
+                  both already written plainly at the foot of this same page,
+                  "No equity taken. No investors." */}
+              <StatCard value={0} label="Equity Taken" description="On AUDHDITIES" suffix="%" color="pink" delay={0} />
               <StatCard value={100} label="Data Ownership" description="On AUDHDITIES" suffix="%" color="cyan" delay={0.1} />
-              <StatCard value={0} label="Residual Recipients" description="On most platforms" color="purple" delay={0.2} />
+              <StatCard value={0} label="Investors" description="On AUDHDITIES" color="purple" delay={0.2} />
               <StatCard value={100} label="Transparency" description="On AUDHDITIES" suffix="%" color="green" delay={0.3} />
             </div>
           </section>
@@ -172,7 +180,11 @@ export default function BusinessPlanPage() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="/questionaire"><Button size="lg">Take the Acid Test</Button></Link>
-                <Link href="/observatory/prophecy"><Button size="lg" variant="outline">Explore the Vision</Button></Link>
+                {/* 2026-08-24, the truth pass — this sent a public reader to
+                  /observatory/prophecy, which is the logged-in personal
+                  dashboard, not the manifesto. /vision is the public page
+                  this button's own words name. */}
+              <Link href="/vision"><Button size="lg" variant="outline">Explore the Vision</Button></Link>
               </div>
               <p className="text-sm text-star-dust/40 mt-8">
                 Platform fee: <span className="text-neurospark">10%</span> (industry standard is 30-50%) — 70% funds the machine, 30% returns to the residual pool<br />

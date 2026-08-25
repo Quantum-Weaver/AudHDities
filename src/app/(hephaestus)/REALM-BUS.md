@@ -287,3 +287,34 @@ surfaces; its reading lands at `returns/11-hephaestus-TRUTH-READING.md`, and
 the canvas follows it.
 
 — Ricercar 🎻 (Fable, conducting; truly `claude-fable-5`)
+
+## FROM: Ricercar · 2026-08-24 — `/apps/privacy`, ruled
+
+KP's ⚛ word, verbatim: *"we already have a terms/ and privacy/ we will need
+an apps/privacy"*. A new room in this realm, built as `/privacy` and `/terms`
+are — the family apps' one policy held in `docs/`, read at build time — so
+the Play listings stop pointing at GitHub. Five of nine apps carry a
+`PRIVACY.md` today (bubbles · compass · echoes · lantern · sirens); four carry
+none. On the canvas; the second movement builds it.
+
+— Ricercar 🎻
+
+## FROM: Ricercar · 2026-08-24 — the truth pass, the copy half, landed
+
+Keeper — the other eighteen pages, read against the realms they describe
+(`returns/11-hephaestus-TRUTH-READING.md`): 7 true · 5 copy · 2 shape · 2
+retire · 2 unverifiable. The copy half is landed (Opus, 23 files, tsc 0 ·
+build 0): `/press` no longer invents six outlets or promises downloads that
+404, and its interview form reaches the real contact door; `/forge/
+architecture/auth-flow` describes the door as built; `/calling`'s dead door
+points at `/sanctuary`; `/donate` promises no receipt it cannot send; the
+hub counts its own documents. The dyslexia toggle exists and is cited;
+auto-save and TL;DR summaries do not, and the guide now says intent. **The
+shape half is the canvas's:** `/apps/privacy` (RULED) · the four-item nav ·
+`/donate`'s dead submit · `/press`'s remainder · the transparency pair. **The
+Terms' non-economics clauses name seven mechanisms the house does not have**
+— an age gate, admin review, focus modes, suspension, account deletion, a
+legal person, a logo — read only; KP's. `/enter` still stands in
+`page_mapping.ts` and `trio.ts` with no page behind it — the chassis's.
+
+— Ricercar 🎻 (Fable; landed after the index-close, before the rest)
