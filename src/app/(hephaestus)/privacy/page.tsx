@@ -33,7 +33,13 @@ export default async function PrivacyPage() {
       showContinuityBeam={true}
     >  
       <main className="min-h-screen">
-        <PrivacyHero lastUpdated={parsedPrivacy.lastUpdated} />
+        {/* 2026-08-24, fix 2: the title is the markdown's own H1 now, which
+            the parser could never reach before. `docs/privacy/privacy.md` is
+            KP's legal text and is not touched by this pass. */}
+        <PrivacyHero
+          title={parsedPrivacy.title || 'Privacy Policy'}
+          lastUpdated={parsedPrivacy.lastUpdated}
+        />
         
         <div className="container max-w-4xl mx-auto px-6 pb-20">
           <ParsedPrivacyContent privacy={parsedPrivacy} />

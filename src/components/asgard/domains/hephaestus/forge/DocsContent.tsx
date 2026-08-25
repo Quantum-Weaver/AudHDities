@@ -115,19 +115,25 @@ export const DOC_PAGE_COUNT = DOC_SECTIONS.reduce((n, s) => n + s.pages.length, 
 // COLOR MAP
 // ═══════════════════════════════════════════════════════════════════════════
 
+// 2026-08-24, fix 7: stock Tailwind ramps → the house's own cosmic tokens.
+// The slot names stay (they are the DocPage type's five badge slots, not
+// colour claims); the values are now the palette the rest of the house
+// reads, so a token change moves this hub with everything else.
+//   cyan → neurospark · purple → mood.creative · pink → sirens.rose
+//   emerald → sanctuary.green · amber → hearth.gold
 const badgeColors: Record<string, string> = {
-  cyan: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  purple: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  pink: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
-  emerald: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  amber: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+  cyan: 'bg-neurospark/15 text-neurospark border-neurospark/30',
+  purple: 'bg-mood-creative/15 text-mood-creative border-mood-creative/30',
+  pink: 'bg-sirens-rose/15 text-sirens-rose border-sirens-rose/30',
+  emerald: 'bg-sanctuary-green/15 text-sanctuary-green border-sanctuary-green/30',
+  amber: 'bg-hearth-gold/15 text-hearth-gold border-hearth-gold/30',
 };
 
 const sectionIconColors: Record<string, string> = {
-  architecture: 'text-cyan-400 bg-cyan-500/10',
-  business: 'text-emerald-400 bg-emerald-500/10',
-  guides: 'text-purple-400 bg-purple-500/10',
-  sanctuary: 'text-amber-400 bg-amber-500/10',
+  architecture: 'text-neurospark bg-neurospark/10',
+  business: 'text-sanctuary-green bg-sanctuary-green/10',
+  guides: 'text-mood-creative bg-mood-creative/10',
+  sanctuary: 'text-hearth-gold bg-hearth-gold/10',
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
