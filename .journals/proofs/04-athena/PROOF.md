@@ -108,6 +108,165 @@ answers").
 live page was read and extracted first: no GUI saves had diverged, so nothing
 was merged over and nothing was forced.
 
+---
+
+## CORRECTION — 2026-08-25, board ③ redrawn to carry the app
+
+**KP ⚛ 2026-08-25, verbatim, spelling kept**
+
+- "and should gather what has evolved within resonance-bubbles for collections,
+  bubbles colors and gallery design"
+- "the floating stars currently has no entry to "/play""
+
+**What the ground now holds.** The second word was already mended by another
+hand the same day: a *"Pop the Stars"* door in the gallery's header
+(`BubblesGallery.tsx:115–123`) carrying the play room's own two lines verbatim
+from `BubblePopGame.tsx:371–372`, plus a street row at `the-street.ts:90`. It
+landed on `mend/floating-stars-play-door-2026-08-25` and **KP merged it to main
+mid-sitting** (`c8ebaebca`), the branch then deleted — so every line number this
+board cites is main's own, re-read after the merge. The first word was answered
+by a read-only gather at
+`resonance-chamber/desk/records/audhdities-conduction/returns/04-athena-BUBBLES-EVOLUTION.md`,
+whose figures this board re-counted from the app's own files rather than
+carrying forward.
+
+The app's ground, machine-counted from
+`resonance-bubbles/src/lib/data/bubbles-set.json`: **13 collections, 123
+stars**, the pyramid 47 · 32 · 24 · 13 · 7 (common → mythic). **93 of the 123
+carry `addition: true`**, and the 30 that do not are — slug for slug — exactly
+the 30 the base already holds (`docs/sql/008-the-library-first-seeds.sql:83–120`).
+Nothing collides.
+
+**What ③ now draws.** Both rooms, where it drew one. *The gallery* — the header
+as the mend landed it, with the play door and its hearth-gold focus ring (the
+realm's only visible one, 12.66:1); the search drawn at the app's veil-respecting
+scope; the fold drawn shut. *The card in its states* — waiting (dashed, dimmed,
+words veiled, "··· pop to read ···"), popped (words up), flipped (the star large,
+"popped ×2", "··· turn back ···"), a flag with its stripes inside the circle and
+the chrome still the rarity's, and the intersex ring at `#7902AA`, the one raw
+hex in the whole set. *The sieve in words* — all stars / collected / still
+drifting, and the collection banner with its accent, rule, dot, name and
+description and **nothing else**: the app's own header tally and per-collection
+bar do not come across, because KP's 2026-08-24 ruling took exactly those two
+shapes out of this realm. *The palette by rarity* as a table, five swatches
+against five. *The collections*, thirteen by name with counts and colours beside
+the base's five. Then the play room, the caps in words, the three stopping
+moments and the reduced-motion mend, all unchanged, with one paragraph added:
+the card's flip stills to a plain reveal under the guard. On the rail: the
+delta table, the schema lines, the read the card model stands on, the sensory
+ten twice (the room's, then the gallery's), and the unwritten list.
+
+**The palette as adopted** — the app's five cosmic tokens, whole:
+common `void.light` #B2BEC3 · rare `neurospark` #22D3EE · epic `quantum.light`
+#7D6CEA · legendary `hearth.gold` #FDCB6E · mythic `entity.curator` #E84393.
+Four of the Library's five differ; only rare agrees. **Only one of the four is a
+law**: `#f43f5e` is rose-500, and the app moved mythic off exactly that colour
+on 2026-08-10 — *"Mythic wears the curator's magenta, not the old rose: no red
+anywhere"* (`resonance-bubbles/src/lib/bubbles/dress.ts:39–40`), against its
+standing rule *"No streaks, no combos, no timers shown, **no red anywhere**"*
+(`resonance-bubbles/CLAUDE.md:34`).
+
+**Fix lines printed for the build** (never findings; nothing in `src/` was
+touched):
+
+- the five-row rarity map, written three times over: `BubblesGallery.tsx:23–27` ·
+  `BubbleDetail.tsx:24–28` · `BubblePopGame.tsx:75–79` — and the Tailwind class
+  maps beside them carrying the same red by another name, `rose-500` at
+  `BubblesGallery.tsx:35` and `BubbleDetail.tsx:36`.
+- six dimmed lines in the gallery below the realm's floor — `/40` = **3.18:1** at
+  `:108`, `:122`, `:162` · `white/40` = **3.80:1** at `:132` · `/50` = **4.32:1**
+  at `:137`, `:148`, `:152`, `:181` · and `/30` = **2.30:1** at `:187`, the
+  faintest line in the realm. Drawn at `/70` = 7.38:1 and `/82` = 9.84:1.
+- the card is a bare `<Link>` around a `Card` with no `aria-label` and no focus
+  style of its own (`:173–190`); the rarity and collection chips carry no
+  `aria-pressed` and sit in no `role="group"` (`:136–154`). The app does all
+  four (`gallery/+page.svelte:338–343`, `:259`, `:279`), and the ring the mend
+  landed at `:117` is the one to reuse.
+- both of the game's reads of `vessel_bubbles` cap at `limit=100`
+  (`BubblePopGame.tsx:138`, `:166`). Thirty stars stand today so nothing shows —
+  but a vessel past a hundred pops already reads short, and the catalogue alone
+  is 123 if the additions land.
+- there is **no generated hook** for `vessel_bubbles` — `src/lib/generated/hooks/hestia-core/`
+  holds fourteen and that table is not among them, while the gallery is built
+  entirely on `useBubblesList` and `useCollectionSetsList`.
+
+**The schema lines, named — not written.** Neither table has anywhere to put a
+colour, and neither carries a `metadata jsonb` to lean on: `bubbles` holds
+nineteen columns, none of them `palette`, `ring` or `metadata`
+(`src/lib/generated/supabase/database.types.ts:823–843`); `collection_sets` holds
+fifteen, none of them `accent`, `palette` or `metadata` (`:1132–1147`). The
+minimum is four lines — `bubbles + palette text[]` · `bubbles + ring text` ·
+`collection_sets + accent text` · `collection_sets + palette text[]` — or a
+`metadata jsonb` on each, which does the same work in two. They would hold
+cosmic token **keys**, not hex, as the app stores them.
+
+**The read the card model stands on.** `vessel_bubbles` — `user_id` ·
+`bubble_id` · `collected_at` · `collection_method` · `collection_context jsonb`
+(`database.types.ts:5904–5943`). The game writes one row per pop
+(`BubblePopGame.tsx:288–297`), so *"popped ×3"* is a count of rows and is
+derivable today. The gallery route **can** read it — the door answers a filter
+on any column (`src/app/api/generated/hestia-core/vessel_bubbles/route.ts:14–44`,
+called as `?user_id=…` at `BubblePopGame.tsx:138`, `:166`) — but not through a
+hook, because none is generated. The veiled card, the waiting state and the
+status sieve all wait on that one read.
+
+**The seed, named — not written.**
+`docs/sql/02N-the-floating-stars-collections-DRAFT.sql` — eight `collection_sets`
+rows and ninety-three `bubbles` rows, generated from `bubbles-set.json` by a
+bridge-pattern script and read by KP before it is run. The number is **the next
+free one**: the shelf stands at `023` and board ⑦ already names `024`/`025`/`026`
+for the three daily forms.
+
+**Unwritten — his to rule**, every line the record is silent on:
+
+- *the eight and the ninety-three* — whether they land in the base at all
+  (`bubbles-set.json` provenance: *"offered upward to the online set at KP's
+  gate"*, echoed at `resonance-bubbles/docs/THE-GAME.md:39–40`, whose 55/6 counts
+  read stale against the live 123/13).
+- *the colour columns* — whether they land, and in which shape: four typed
+  columns or a `metadata jsonb` on each. And whether `008`'s GATE 3 — *"bubble
+  colors derive from rarity in code, never from rows"* (`sql/008…:31–33`) —
+  moves to make room for a flag, whose stripes cannot derive from its rarity.
+- *the mythic swap* — whether the Library's rose becomes the app's magenta. The
+  board recommends it and names the law it rests on; it is still a colour in his
+  house.
+- *the slug seam* — the base seeded `the-hearth-collection`, `the-elemental-set`,
+  `the-council-collection`; the app says `hearth`, `elemental`, `council`. Two of
+  the five already agree. Whether the seed maps, renames, or keeps both.
+- *the veil* — whether the Library's gallery adopts veiled words and the flip at
+  all. It cannot today: it does not read what a vessel has collected.
+- *the search* — whether it narrows to name and collection, which is what makes
+  the veil hold, or keeps reading descriptions.
+- *the points on a card* — the app never shows them in the gallery; the Library
+  shows `+N` on every card (`BubblesGallery.tsx:166`) and `+N points` on every
+  detail page (`BubbleDetail.tsx:109`). A price tag on a star is not a count of
+  the vessel, so no ruling closes it.
+- *the sieve's own readout* — the app prints `{n} of {total}` beside the sieve
+  (`+page.svelte:224–227`). It counts the shelf, not the vessel — but it is still
+  a fraction on a page where fractions were ruled out.
+- *the word for waiting* — the app says *still drifting*; the Library's own empty
+  state says *will appear*. Both refuse *missing*.
+- *the ×N pill* — it depends on more than one row per vessel per star, which the
+  room already writes and the generated types do not show constrained either way.
+- *where the five colours live* — one shared module, as `dress.ts` is for the
+  app, or three copies.
+- *the caps in the gallery* — whether the room holding the shelf says anything
+  about the boundaries governing the room next door.
+- *the seed's number* — `02N` until the shelf is read on the day it is written.
+- and the five the gather itself marked *"Not mine to decide"*, carried whole.
+
+**Also trued this pass** (the other seven boards and the three declined stay
+byte-identical — ⑧ Ways gained no state, because none of the gallery's proposed
+empty states is built): `canvas.json` — ③'s title, its height (2600 → 7300), the
+bottom row's `y` (2860 → 7500, so the taller ③ does not crowd it), and the ③
+clause of the `note-the-library` sticky.
+
+**Republished** to the same URL, favicon 📚 held, label `three-gathers-the-app`.
+The live page was read and extracted into a fresh directory first and compared
+file by file: every artboard was byte-identical to the working files and
+`canvas.json` differed only in whitespace, so no GUI saves had diverged, nothing
+was merged over, and nothing was forced.
+
 | # | Step | State |
 |---|------|-------|
 | ① | canvas at KP's eye | **open** |

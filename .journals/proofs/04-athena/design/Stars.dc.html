@@ -57,19 +57,275 @@
       padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
     .tbl td{padding:8px 10px 8px 0;vertical-align:top;
       color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+
+    /* THE ORB — the app's own recipe, carried from
+       resonance-bubbles/src/lib/bubbles/orb.css:20-59. A color-mix against
+       transparent is alpha, so each mix is written here as rgba of the same
+       triplet: the identical paint, with no dependency on color-mix. */
+    .orb{border-radius:50%;flex:none;
+      border:1.5px solid rgba(var(--c),.85);
+      background:
+        radial-gradient(circle at 32% 26%,rgba(255,255,255,.55),transparent 52%),
+        radial-gradient(circle at 68% 76%,rgba(var(--c),.75),transparent 68%),
+        rgba(var(--c),.40);
+      box-shadow:0 0 24px rgba(var(--c),.50),inset 0 0 20px rgba(var(--c),.32);}
+    .orb.flag{background:
+        radial-gradient(circle at 32% 26%,rgba(255,255,255,.5),transparent 48%),
+        radial-gradient(circle at 70% 78%,rgba(255,255,255,.14),transparent 60%),
+        var(--flag);
+      border-color:rgba(255,255,255,.5);
+      box-shadow:0 0 26px rgba(var(--c),.55),0 0 46px rgba(var(--c),.28),
+        inset 0 0 16px rgba(255,255,255,.18);}
+    .orb.ringed{border:4px solid var(--ring);}
+    .orb.dimmed{opacity:.45;filter:saturate(.5);}
+
+    /* THE CARD — the app's gallery card in the Library's tokens.
+       --t is the CHROME's tint (always the rarity's colour); --c is the
+       orb's own (a flag's first stripe, else the rarity). */
+    .card{position:relative;border-radius:16px;padding:24px 12px 12px;
+      display:flex;flex-direction:column;align-items:center;gap:6px;
+      text-align:center;overflow:hidden;min-height:200px;box-sizing:border-box;}
+    .card-on{background:linear-gradient(180deg,rgba(var(--t),.13),rgba(26,31,53,0) 72%),#1A1F35;
+      border:1px solid rgba(var(--t),.55);
+      box-shadow:0 8px 22px -14px rgba(var(--t),.70);}
+    .card-off{background:rgba(26,31,53,.72);border:1px dashed rgba(var(--t),.28);}
+    .card-rule{position:absolute;left:0;right:0;top:0;height:3px;}
+    .cname{font-size:12.5px;line-height:1.2;font-weight:600;margin:6px 0 0;}
+    .cpill{border-radius:9999px;border:1px solid rgba(var(--t),.38);
+      background:rgba(var(--t),.16);padding:1px 8px;font-size:9.5px;
+      letter-spacing:.06em;margin:0;}
+    .cpill.dim{border-color:rgba(var(--t),.22);background:rgba(var(--t),.08);}
+    .ccoll{font-size:9.5px;color:rgba(224,224,224,.70);margin:0;max-width:100%;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .cprev{font-size:10.5px;line-height:1.4;color:rgba(224,224,224,.78);
+      margin:auto 0 0;padding-top:4px;}
+    .cwait{font-size:9.5px;letter-spacing:.12em;color:rgba(224,224,224,.70);
+      margin:auto 0 0;padding-top:6px;}
+    .cx{position:absolute;top:9px;right:9px;}
+    .sw{width:15px;height:15px;border-radius:5px;flex:none;
+      border:1px solid rgba(255,255,255,.14);}
+    .dtbl{width:100%;border-collapse:collapse;font-size:10.5px;line-height:1.4;}
+    .dtbl th{text-align:left;font-weight:600;color:rgba(224,224,224,.55);
+      font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+      padding:0 7px 6px 0;border-bottom:1px solid rgba(224,224,224,.12);}
+    .dtbl td{padding:7px 7px 7px 0;vertical-align:top;
+      color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
   </style>
 </helmet>
 <div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
 
-  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;flex-wrap:wrap;">
     <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9314;</span>
-    <span style="font-size:15px;font-weight:600;">The Floating Stars &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/bubbles/play</span></span>
-    <span class="src">BubblePopGame.tsx &middot; 542 lines, the realm&rsquo;s heavy room</span>
+    <span style="font-size:15px;font-weight:600;">The Floating Stars &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/bubbles</span> &middot; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/bubbles/play</span></span>
+    <span class="src">BubblesGallery.tsx 197 &middot; BubbleDetail.tsx 124 &middot; BubblePopGame.tsx 542 &mdash; the realm&rsquo;s heavy room</span>
   </div>
 
   <div style="display:flex;gap:26px;align-items:flex-start;">
 
     <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The gallery, and the door that landed <span class="ruled" style="margin-left:6px;">built</span></p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:22px 20px 24px;">
+
+            <a href="#" style="display:inline-flex;align-items:center;gap:7px;font-size:12px;color:rgba(224,224,224,.70);margin-bottom:8px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"></path><path d="m11 18-6-6 6-6"></path></svg>
+              Return to the Library</a>
+
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+              <div>
+                <h2 style="margin:0 0 2px;font-size:19px;font-weight:700;">The Floating Stars</h2>
+                <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Collect bubbles and earn sovereignty</p>
+              </div>
+              <div style="border:1px solid rgba(224,224,224,.14);border-radius:8px;background:rgba(224,224,224,.05);padding:9px 15px;display:flex;flex-direction:column;gap:2px;box-shadow:0 0 0 2px rgba(253,203,110,.60),0 0 0 5px #0C0F1D;">
+                <span style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 14 9-14 9z"></path></svg>
+                  Pop the Stars</span>
+                <span style="font-size:10.5px;color:rgba(224,224,224,.70);">Tap bubbles to collect them</span>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;border:1px solid rgba(224,224,224,.14);border-radius:10px;background:rgba(224,224,224,.04);padding:9px 12px;display:flex;align-items:center;gap:9px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.70)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+              <span style="font-size:11.5px;color:rgba(224,224,224,.70);">Search by name or collection</span>
+            </div>
+
+            <div style="margin-top:11px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <span class="chip">filter &amp; sort</span>
+              <span style="font-size:10.5px;color:rgba(224,224,224,.70);">folded shut by default &mdash; the shelf is what you came for</span>
+            </div>
+
+            <p class="src" style="margin:13px 0 0;">the door as built &mdash; <span style="color:rgba(224,224,224,.70);">BubblesGallery.tsx:115&ndash;123</span>; its street row at <span style="color:rgba(224,224,224,.70);">the-street.ts:90</span>. Landed on <span style="color:rgba(224,224,224,.70);">mend/floating-stars-play-door-2026-08-25</span> and merged to main the same day, <span style="color:rgba(224,224,224,.70);">c8ebaebca</span> &mdash; these are main&rsquo;s own line numbers</p>
+
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">KP &#9883; 2026-08-25, verbatim: <em>&ldquo;the floating stars currently has no entry to &ldquo;/play&rdquo;&rdquo;</em>. A mender landed it the same day and KP merged it, so it is drawn here as it stands on main and not as a proposal: a door in the gallery&rsquo;s header carrying the play room&rsquo;s own two lines (<span class="src">BubblePopGame.tsx:371&ndash;372</span>), and a row on the street so the map does not lie. <span class="k">It is also the realm&rsquo;s only visible focus ring</span> &mdash; <span class="src">focus-visible:ring-2 ring-hearth-gold ring-offset-2</span> (<span class="src">:117</span>), hearth.gold on deepSpace at <span class="k">12.66:1</span>. The stars in the game below still wear <span class="src">focus:outline-none</span> with nothing in its place; the pattern that mend needs now stands in the room it opened.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The card, in its states <span class="stag" style="margin-left:6px;">proposed</span></p>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+
+          <div class="card card-off" style="--t:178,190,195;--c:178,190,195;">
+            <i class="card-rule" style="background:#B2BEC3;opacity:.5;"></i>
+            <span class="orb dimmed" style="width:44px;height:44px;"></span>
+            <h4 class="cname" style="color:rgba(224,224,224,.82);">Quiet Orbit</h4>
+            <p class="cpill dim" style="color:#BFC8CB;">&#10024; common</p>
+            <p class="ccoll">Star Dust</p>
+            <p class="cwait">&middot;&middot;&middot; pop to read &middot;&middot;&middot;</p>
+          </div>
+
+          <div class="card card-on" style="--t:34,211,238;--c:34,211,238;">
+            <i class="card-rule" style="background:#22D3EE;"></i>
+            <span class="orb" style="width:48px;height:48px;"></span>
+            <h4 class="cname" style="color:#72D8E8;">Velkomin</h4>
+            <p class="cpill" style="color:#57D7EA;">&#128171; rare</p>
+            <p class="ccoll">The Hearth Collection</p>
+            <p class="cprev">The door&rsquo;s own word &mdash; welcome, once per crossing, every crossing.</p>
+          </div>
+
+          <div class="card card-on" style="--t:232,67,147;--c:232,67,147;justify-content:center;">
+            <i class="card-rule" style="background:#E84393;"></i>
+            <span class="orb" style="width:92px;height:92px;"></span>
+            <h4 class="cname" style="color:#E585B3;">The Opening</h4>
+            <p style="margin:0;font-size:10px;color:rgba(224,224,224,.70);">popped &times;2</p>
+            <p class="ccoll">Quantum Weave</p>
+            <p style="margin:4px 0 0;font-size:9.5px;letter-spacing:.12em;color:rgba(224,224,224,.70);">&middot;&middot;&middot; turn back &middot;&middot;&middot;</p>
+          </div>
+
+          <div class="card card-on" style="--t:178,190,195;--c:228,3,3;--flag:linear-gradient(90deg,#E40303 0% 16.67%,#FF8C00 16.67% 33.33%,#FFED00 33.33% 50%,#008026 50% 66.67%,#0000FF 66.67% 83.33%,#800080 83.33% 100%);">
+            <i class="card-rule" style="background:linear-gradient(90deg,#E40303 0% 16.67%,#FF8C00 16.67% 33.33%,#FFED00 33.33% 50%,#008026 50% 66.67%,#0000FF 66.67% 83.33%,#800080 83.33% 100%);"></i>
+            <span class="orb flag" style="width:44px;height:44px;"></span>
+            <h4 class="cname" style="color:#C5CCCF;">Rainbow</h4>
+            <p class="cpill" style="color:#BFC8CB;">&#10024; common</p>
+            <p class="ccoll">Inclusive Pride</p>
+            <p class="cprev">Six stripes, and the first was sewn by hand. Every flag starts as somebody&rsquo;s fabric.</p>
+          </div>
+
+          <div class="card card-on" style="--t:178,190,195;--c:255,215,0;--flag:#FFD700;--ring:#7902AA;">
+            <i class="card-rule" style="background:#FFD700;"></i>
+            <span class="orb flag ringed" style="width:44px;height:44px;"></span>
+            <h4 class="cname" style="color:#C5CCCF;">Intersex</h4>
+            <p class="cpill" style="color:#BFC8CB;">&#10024; common</p>
+            <p class="ccoll">Inclusive Pride</p>
+            <p class="cprev">A purple circle on yellow, unbroken on purpose. Whole exactly as it arrived.</p>
+          </div>
+
+          <div class="card card-on" style="--t:253,203,110;--c:253,203,110;">
+            <i class="card-rule" style="background:#FDCB6E;"></i>
+            <span class="cpill cx" style="color:#F5D18E;">&times;3</span>
+            <span class="orb" style="width:58px;height:58px;"></span>
+            <h4 class="cname" style="color:#F1D49E;">The Ninth Chair</h4>
+            <p class="cpill" style="color:#F5D18E;">&#127756; legendary</p>
+            <p class="ccoll">The Council Collection</p>
+            <p class="cprev">Kept at the table through every season it stood empty.</p>
+          </div>
+
+        </div>
+        <p class="rl-b" style="margin-top:10px;"><span class="k">Waiting</span> (first) is dashed and dimmed and keeps its sentence back: the app&rsquo;s law is <em>the reward is the words</em>, so an uncollected star shows its name and its rarity and veils its description &mdash; <em>&ldquo;a place it waits, never a place the player failed&rdquo;</em> (<span class="src">gallery/+page.svelte:20&ndash;21</span>). <span class="k">Popped</span> (second) rests words-up, which is KP&rsquo;s own stroke as the app&rsquo;s header records it: <em>&ldquo;reveal words, flip card after popped&rdquo;</em> (<span class="src">:9</span>). <span class="k">Flipped</span> (third) is what a tap gives &mdash; the star large, how many times it came past, where it belongs, and the way back. Only popped cards turn (<span class="src">flip(), :148&ndash;151</span>). <span class="k">A flag</span> (fourth, fifth) wears its stripes inside the circle while the chrome stays the rarity&rsquo;s: border, name and pill read <em>common</em>&rsquo;s neutral and the orb alone reads the flag &mdash; <em>&ldquo;a flag&rsquo;s red stripe never becomes red UI&rdquo;</em> (<span class="src">paint(), :158&ndash;176</span>). Intersex wears a ring instead of stripes, <span class="src">#7902AA</span>, the one raw hex in the whole set (<span class="src">orb.css:47&ndash;50</span>).</p>
+        <p class="rl-b" style="margin-top:8px;">Measured, all of it. The name at <span class="src">rarity 58% + starDust</span> reads <span class="k">10.00 &middot; 9.84 &middot; 6.67 &middot; 11.35 &middot; 6.46</span> on surface; the pill at 72% reads <span class="k">9.56 &middot; 9.54 &middot; 5.62 &middot; 11.15 &middot; 5.58</span>. Every state clears 4.5:1. The collection line is drawn at <span class="src">/70</span> = <span class="k">7.38:1</span>; today it is <span class="src">/30</span> = <span class="k">2.30:1</span> (<span class="src">BubblesGallery.tsx:187</span>), the faintest line in the realm. Card sizes are the app&rsquo;s own: orb 44 &middot; 48 &middot; 52 &middot; 58 &middot; 66 by rarity (<span class="src">ORB, :156</span>), the flipped face at 1.4&times; (<span class="src">:366</span>), radius 16, preview cut at 200 characters because the longest sentence in the set is 138 (<span class="src">:104, :119</span>).</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The sieve, in words <span class="ruled" style="margin-left:6px;">ruled</span></p>
+        <div style="border:1px solid rgba(0,184,148,.30);border-radius:12px;background:rgba(0,184,148,.05);padding:16px 18px;">
+          <p style="margin:0 0 10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,224,224,.70);">Showing</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+            <span class="chip" style="border-color:rgba(0,230,195,.70);background:rgba(0,230,195,.16);color:#00E6C3;">all stars</span>
+            <span class="chip">collected</span>
+            <span class="chip">still drifting</span>
+          </div>
+          <p style="margin:0 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,224,224,.70);">The chosen collection</p>
+          <div style="position:relative;border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:11px 13px 11px 16px;overflow:hidden;background:linear-gradient(90deg,rgba(253,203,110,.14),transparent 70%);">
+            <i style="position:absolute;left:0;top:0;bottom:0;width:3px;background:#FDCB6E;"></i>
+            <div style="display:flex;align-items:flex-start;gap:9px;">
+              <span style="width:10px;height:10px;border-radius:9999px;background:#FDCB6E;flex:none;margin-top:5px;box-shadow:0 0 10px rgba(253,203,110,.70);"></span>
+              <div>
+                <p style="margin:0;font-size:12.5px;font-weight:600;">The Hearth Collection</p>
+                <p style="margin:2px 0 0;font-size:11px;color:rgba(224,224,224,.78);line-height:1.5;">Home, warmth, and the door that opens. What belonging looks like when it floats.</p>
+              </div>
+            </div>
+          </div>
+          <p style="margin:12px 0 0;font-size:11.5px;color:rgba(224,224,224,.82);text-wrap:pretty;">And underneath it, the names of what you found &mdash; never a fraction, never a bar.</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The app&rsquo;s status sieve is already the right instrument &mdash; <em>&ldquo;a sieve, never a scoreboard: &lsquo;still drifting&rsquo; is where a star waits, not where a player failed&rdquo;</em> (<span class="src">+page.svelte:54&ndash;55</span>) &mdash; and its three chips carry across unchanged. <span class="k">Two things do not carry.</span> The app&rsquo;s gallery header counts <span class="src">{collectedCount} / {BUBBLES.length} collected</span> (<span class="src">:189&ndash;193</span>) and its collection banner carries <span class="src">{chosenHave}/{chosenTotal}</span> above a clip-revealed bar (<span class="src">:311, :314&ndash;319</span>). Those are the exact two shapes KP ruled out of this realm on 2026-08-24 &mdash; <em>the bubble cap speaks in words, no bar</em>, and <em>the 3/6 sidebar goes</em>. <span class="k">The evolution is adopted; the subtraction is not.</span> The banner above keeps the accent, the rule, the dot, the name and the description, and stops there.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The palette, by rarity <span class="stag" style="margin-left:6px;">fix</span></p>
+        <table class="tbl">
+          <thead><tr><th style="width:74px;">rarity</th><th style="width:26px;"></th><th>the app&rsquo;s token</th><th style="width:26px;"></th><th style="width:88px;">the Library</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>common</td>
+              <td><span class="sw" style="background:#B2BEC3;"></span></td>
+              <td><span class="src" style="color:rgba(224,224,224,.78);">void.light</span> &nbsp;#B2BEC3</td>
+              <td><span class="sw" style="background:#94a3b8;"></span></td>
+              <td><span class="src">#94a3b8</span></td>
+            </tr>
+            <tr>
+              <td>rare</td>
+              <td><span class="sw" style="background:#22D3EE;"></span></td>
+              <td><span class="src" style="color:rgba(224,224,224,.78);">neurospark</span> &nbsp;#22D3EE</td>
+              <td><span class="sw" style="background:#22d3ee;"></span></td>
+              <td style="color:#00E6C3;">agrees</td>
+            </tr>
+            <tr>
+              <td>epic</td>
+              <td><span class="sw" style="background:#7D6CEA;"></span></td>
+              <td><span class="src" style="color:rgba(224,224,224,.78);">quantum.light</span> &nbsp;#7D6CEA</td>
+              <td><span class="sw" style="background:#a855f7;"></span></td>
+              <td><span class="src">#a855f7</span></td>
+            </tr>
+            <tr>
+              <td>legendary</td>
+              <td><span class="sw" style="background:#FDCB6E;"></span></td>
+              <td><span class="src" style="color:rgba(224,224,224,.78);">hearth.gold</span> &nbsp;#FDCB6E</td>
+              <td><span class="sw" style="background:#f59e0b;"></span></td>
+              <td><span class="src">#f59e0b</span></td>
+            </tr>
+            <tr>
+              <td>mythic</td>
+              <td><span class="sw" style="background:#E84393;"></span></td>
+              <td><span class="src" style="color:rgba(224,224,224,.78);">entity.curator</span> &nbsp;#E84393</td>
+              <td><span class="sw" style="background:#f43f5e;"></span></td>
+              <td style="color:#E17055;"><span class="src" style="color:#E17055;">#f43f5e</span> red</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="rl-b" style="margin-top:10px;"><span class="k">The Library adopts the app&rsquo;s five.</span> They are cosmic tokens read from <span class="src">colors.ts</span> through <span class="src">dress.ts:41&ndash;47</span>; the Library&rsquo;s are loose Tailwind hex, hard-coded three times over. Four of the five differ. Only one of the four is a law: <span class="src">#f43f5e</span> is <em>rose-500</em>, and the app moved mythic off exactly that colour on 2026-08-10, named in its own file as <em>&ldquo;Mythic wears the curator&rsquo;s magenta, not the old rose: no red anywhere&rdquo;</em> (<span class="src">dress.ts:39&ndash;40</span>) against the standing rule <em>&ldquo;No streaks, no combos, no timers shown, <strong>no red anywhere</strong>&rdquo;</em> (<span class="src">resonance-bubbles/CLAUDE.md:34</span>). The Library still paints it, in three files.</p>
+        <p class="rl-b" style="margin-top:8px;"><span class="k">Fix lines</span> &mdash; <span class="src">BubblesGallery.tsx:23&ndash;27</span> &middot; <span class="src">BubbleDetail.tsx:24&ndash;28</span> &middot; <span class="src">BubblePopGame.tsx:75&ndash;79</span>, the same five-row map written out three times. And the Tailwind class maps beside them carry the same red by another name: <span class="src">rose-500</span> at <span class="src">BubblesGallery.tsx:35</span> and <span class="src">BubbleDetail.tsx:36</span>. Contrast is not the reason to move: on deepSpace the old mythic reads <span class="k">5.19:1</span> and the new <span class="k">5.13:1</span>. <span class="k">The reason is the law.</span> Measured for the rest: common <span class="k">7.43&rarr;10.03</span> &middot; epic <span class="k">4.82&rarr;4.72</span> &middot; legendary <span class="k">8.88&rarr;12.66</span>. All five clear 4.5:1 either way.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The collections &mdash; thirteen beside five</p>
+        <table class="tbl">
+          <thead><tr><th style="width:20px;"></th><th>collection</th><th style="width:62px;">stars</th><th style="width:96px;">its colour</th><th style="width:70px;">the base</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sw" style="background:#E0E0E0;"></span></td><td>Star Dust</td><td>12</td><td><span class="src">starDust</span></td><td style="color:#00E6C3;">seeded 6</td></tr>
+            <tr><td><span class="sw" style="background:#FDCB6E;"></span></td><td>The Hearth Collection</td><td>10</td><td><span class="src">hearth.gold</span></td><td style="color:#00E6C3;">seeded 6</td></tr>
+            <tr><td><span class="sw" style="background:linear-gradient(90deg,#8B4513 0% 25%,#87CEEB 25% 50%,#FF4500 50% 75%,#1E90FF 75% 100%);"></span></td><td>The Elemental Set</td><td>10</td><td><span class="src">4 pagan</span></td><td style="color:#00E6C3;">seeded 6</td></tr>
+            <tr><td><span class="sw" style="background:#00CEC9;"></span></td><td>The Council Collection</td><td>9</td><td><span class="src">entity.chancellor</span></td><td style="color:#00E6C3;">seeded 9</td></tr>
+            <tr><td><span class="sw" style="background:#6C5CE7;"></span></td><td>Quantum Weave</td><td>6</td><td><span class="src">quantum.purple</span></td><td style="color:#00E6C3;">seeded 3</td></tr>
+            <tr><td><span class="sw" style="background:#FFD700;"></span></td><td>The Sky Wheel</td><td>8</td><td><span class="src">mystical.sun</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:#81ECEC;"></span></td><td>The Sensory Set</td><td>12</td><td><span class="src">mood.peaceful</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:#F5F5DC;"></span></td><td>The Long Night</td><td>10</td><td><span class="src">mystical.moon</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:#E17055;"></span></td><td>The Workshop</td><td>10</td><td><span class="src">fire.base</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:#00B894;"></span></td><td>The Companions</td><td>9</td><td><span class="src">sanctuary.green</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:#0984E3;"></span></td><td>The Threshold</td><td>8</td><td><span class="src">cosmic.blue</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:#00CEC9;"></span></td><td>The Given</td><td>6</td><td><span class="src">sanctuary.emerald</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+            <tr><td><span class="sw" style="background:linear-gradient(90deg,#E40303 0% 16.67%,#FF8C00 16.67% 33.33%,#FFED00 33.33% 50%,#008026 50% 66.67%,#0000FF 66.67% 83.33%,#800080 83.33% 100%);"></span></td><td>Inclusive Pride</td><td>13</td><td><span class="src">6 pride</span></td><td style="color:#FDCB6E;">unseeded</td></tr>
+          </tbody>
+        </table>
+        <p class="rl-b" style="margin-top:10px;">Machine-counted from <span class="src">resonance-bubbles/src/lib/data/bubbles-set.json</span>: <span class="k">13 collections, 123 stars</span>, the pyramid 47 common &middot; 32 rare &middot; 24 epic &middot; 13 legendary &middot; 7 mythic. <span class="k">93 of the 123 carry <span class="src">addition: true</span></span> &mdash; and the 30 that do not are, slug for slug, exactly the 30 the base already holds (<span class="src">sql/008&hellip;:83&ndash;120</span>). Nothing collides. Five collections stand in both; eight are the app&rsquo;s own. Inclusive Pride is drawn last here only because that is the order the set gives; <span class="k">every flag in it is <em>common</em></span>, which is a law and not a balance: <em>&ldquo;Rarity is how often a thing drifts past; ranking identities by it would make some people rarer than others&rdquo;</em> (<span class="src">resonance-bubbles/CLAUDE.md:40&ndash;42</span>).</p>
+        <div class="second" style="margin-top:11px;">
+          <p style="margin:0 0 6px;font-size:12.5px;font-weight:600;">The seed, named &mdash; not written</p>
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="src" style="color:rgba(224,224,224,.86);">docs/sql/02N-the-floating-stars-collections-DRAFT.sql</span> &mdash; eight <span class="src">collection_sets</span> rows and ninety-three <span class="src">bubbles</span> rows, generated from <span class="src">bubbles-set.json</span> by a bridge script in the house&rsquo;s own pattern, then read by KP before it is run. Every row already carries its name, slug, description, rarity and home collection; nothing has to be invented.</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The number is the next free one.</span> The shelf stands at <span class="src">023</span> today and board &#9318; already names <span class="src">024</span>/<span class="src">025</span>/<span class="src">026</span> for the three daily forms; this seed takes whatever is free when it is written. <span class="k">It is a draft for his hand, and it is not run by any lamp.</span></p>
+        </div>
+      </div>
 
       <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
         <div class="wash"></div>
@@ -93,11 +349,11 @@
           <div style="display:grid;grid-template-columns:1fr 118px;gap:11px;">
 
             <div style="position:relative;height:250px;border-radius:14px;border:1px solid rgba(255,255,255,.08);overflow:hidden;background-image:radial-gradient(ellipse at center,rgba(108,92,231,.15) 0%,rgba(12,15,29,.95) 70%);">
-              <span style="position:absolute;left:28px;top:150px;width:40px;height:40px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#94a3b855,#94a3b8);box-shadow:0 0 20px #94a3b855;"></span>
-              <span style="position:absolute;left:96px;top:64px;width:48px;height:48px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#22d3ee55,#22d3ee);box-shadow:0 0 24px #22d3ee55;"></span>
-              <span style="position:absolute;left:172px;top:180px;width:56px;height:56px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#a855f755,#a855f7);box-shadow:0 0 28px #a855f755;"></span>
-              <span style="position:absolute;left:236px;top:30px;width:64px;height:64px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#f59e0b55,#f59e0b);box-shadow:0 0 32px #f59e0b55;"></span>
-              <span style="position:absolute;left:60px;top:14px;width:26px;height:26px;border-radius:9999px;background-image:radial-gradient(circle at 30% 30%,#f43f5e55,#f43f5e);box-shadow:0 0 22px #f43f5e55;"></span>
+              <span class="orb" style="position:absolute;left:28px;top:150px;width:40px;height:40px;--c:178,190,195;"></span>
+              <span class="orb" style="position:absolute;left:96px;top:64px;width:48px;height:48px;--c:34,211,238;"></span>
+              <span class="orb" style="position:absolute;left:172px;top:180px;width:56px;height:56px;--c:125,108,234;"></span>
+              <span class="orb" style="position:absolute;left:236px;top:30px;width:64px;height:64px;--c:253,203,110;"></span>
+              <span class="orb" style="position:absolute;left:56px;top:10px;width:32px;height:32px;--c:232,67,147;"></span>
               <span style="position:absolute;left:8px;bottom:8px;font-size:9.5px;color:rgba(224,224,224,.70);font-family:'JetBrains Mono',Monaco,Consolas,monospace;">common &middot; rare &middot; epic &middot; legendary &middot; mythic &mdash; all five drift for everyone</span>
             </div>
 
@@ -121,7 +377,7 @@
 
           </div>
 
-          <p class="src" style="margin:11px 0 0;">the sidebar as ruled: no daily bar, no n/N, no per-collection bar</p>
+          <p class="src" style="margin:11px 0 0;">the sidebar as ruled: no daily bar, no n/N, no per-collection bar &mdash; and the drifting stars wearing the app&rsquo;s orb and the app&rsquo;s five colours</p>
 
         </div>
       </div>
@@ -174,9 +430,19 @@
         <p class="rl-h" style="margin-bottom:9px;">Reduced motion, drawn <span class="stag" style="margin-left:6px;">proposed</span></p>
         <div style="border:1px dashed rgba(253,203,110,.40);border-radius:12px;background:rgba(253,203,110,.035);padding:16px 18px;">
           <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The stars stop drifting and start arriving.</span> Under <span class="src">prefers-reduced-motion</span> the animation loop keeps its spawn rhythm but not its travel: a star fades in where it belongs, waits its while, and fades out. Same game, same rarities, same caps &mdash; no motion across the screen.</p>
-          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The pop mark stops pinging.</span> <span class="src">animate-ping</span> becomes a still glyph that fades. And <span class="src">hover:scale-110 active:scale-90</span> get the guard the rest of the house already writes.</p>
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The pop mark stops pinging.</span> <span class="src">animate-ping</span> becomes a still glyph that fades. And <span class="src">hover:scale-110 active:scale-90</span> get the guard the rest of the house already writes.</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">And the card&rsquo;s flip stills to a plain reveal.</span> If the gallery takes the flip at all, it takes the app&rsquo;s guard with it: the turn keeps its two faces and loses its half-second rotation &mdash; the back simply replaces the front (<span class="src">motion-reduce:transition-none</span>, <span class="src">gallery/+page.svelte:346</span>). Same two faces, same tap, no rotation in depth. Nothing about the game becomes unavailable under the guard.</p>
         </div>
         <p class="rl-b" style="margin-top:9px;">KP <span class="ruled">ruled the guard mended</span>; he did not rule its shape. This is the plainest shape that keeps the game a game. <span class="src">HANDOFF.md</span> already holds the principle for the whole app: <em>&ldquo;motion is content, so it needs consent.&rdquo;</em></p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Keyboard and touch, drawn <span class="stag" style="margin-left:6px;">proposed</span></p>
+        <div class="second">
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">A popped card is a button; a waiting card is not.</span> The app draws exactly that (<span class="src">+page.svelte:338, :375</span>): a collected card is a real <span class="src">&lt;button&gt;</span> carrying <span class="src">aria-pressed</span> for its turned state and a label that says what a tap will do &mdash; <em>&ldquo;Velkomin &mdash; collected. Tap to turn the card.&rdquo;</em> A waiting card is a plain <span class="src">&lt;div&gt;</span>, because there is nothing to press yet. The Library&rsquo;s card is a <span class="src">&lt;Link&gt;</span> around a <span class="src">Card</span> with no label of its own (<span class="src">BubblesGallery.tsx:173&ndash;190</span>).</p>
+          <p style="margin:0 0 7px;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">The chips are groups.</span> Rarity and status chips sit in <span class="src">role="group"</span> with a labelled heading and carry <span class="src">aria-pressed</span> each (<span class="src">:259, :279</span>). The Library&rsquo;s chips carry neither (<span class="src">:136&ndash;154</span>).</p>
+          <p style="margin:0;font-size:12px;color:rgba(224,224,224,.82);text-wrap:pretty;"><span class="k">And every card wears the play door&rsquo;s ring.</span> The mend landed <span class="src">focus-visible:ring-2 ring-hearth-gold ring-offset-2 ring-offset-deep-space</span> on one element; it is the right ring, measured at <span class="k">12.66:1</span>, and it belongs on the cards and the chips too. Touch targets: the card is 200px tall and the chips are 30px &mdash; the chips are the row to raise to 44.</p>
+        </div>
       </div>
 
     </div>
@@ -190,6 +456,12 @@
       </div>
 
       <div>
+        <p class="rl-h">The word this gathering was made on</p>
+        <p class="q">&ldquo;and should gather what has evolved within resonance-bubbles for collections, bubbles colors and gallery design&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-25, verbatim, spoken beside <em>&ldquo;the floating stars currently has no entry to &ldquo;/play&rdquo;&rdquo;</em>. The gather was made read-only and lives at <span style="color:rgba(224,224,224,.70);">desk/records/audhdities-conduction/returns/04-athena-BUBBLES-EVOLUTION.md</span>; every figure on this board is machine-counted from the app&rsquo;s own files or measured from its own colours. <span class="k">The app is reference, never a dependency</span> &mdash; it is SvelteKit and Tauri and nothing ports as code. What ports is the design.</p>
+      </div>
+
+      <div>
         <p class="rl-h">The ruling this board is built on</p>
         <p class="q">&ldquo;the bubble cap speaks in words, no bar&rdquo;</p>
         <p class="src" style="margin:8px 0 0;">One of five standing defaults ruled 2026-08-24 with KP&rsquo;s &#9883; verbatim word <em>&ldquo;bazaar and library go&rdquo;</em>. The wording above is the brief&rsquo;s record of the ruling, not his own sentence. It closes brief question 3 &mdash; <em>may a self-chosen limit speak a number?</em> &mdash; and it closes it precisely: <span class="k">the cap may speak; it may not be a bar.</span> So the daily <span class="src">Progress</span> at <span class="src">:505</span> goes, the &ldquo;Daily progress&rdquo; label at <span class="src">:504</span> goes, the header ratio at <span class="src">:377</span> becomes a sentence, and the four real numbers get said out loud in the panel to the left.</p>
@@ -198,13 +470,59 @@
       <div>
         <p class="rl-h">And the sidebar&rsquo;s subtraction</p>
         <p class="q">&ldquo;mend the two law-failing rooms (Honors shows only earned sigils; <span class="k">the 3/6 sidebar goes</span>)&rdquo;</p>
-        <p class="src" style="margin:8px 0 0;">Same ruling, same record, same day. <span class="src">:509&ndash;524</span> showed <span class="src">{c.collected} / {c.total}</span> and a bar per collection &mdash; E4&rsquo;s <em>&ldquo;who performs the subtraction&rdquo;</em> answered by the interface, every frame, unasked. Drawn instead: <span class="k">the names of what you found.</span> Shape without slots. It is warmer AND shorter.</p>
+        <p class="src" style="margin:8px 0 0;">Same ruling, same record, same day. <span class="src">:509&ndash;524</span> showed <span class="src">{c.collected} / {c.total}</span> and a bar per collection &mdash; E4&rsquo;s <em>&ldquo;who performs the subtraction&rdquo;</em> answered by the interface, every frame, unasked. Drawn instead: <span class="k">the names of what you found.</span> Shape without slots. It is warmer AND shorter. <span class="k">The same ruling meets the app&rsquo;s gallery</span> at <span class="src">+page.svelte:189&ndash;193</span> and <span class="src">:311&ndash;319</span>, and takes the same two things out of it.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The delta &mdash; the app, the Library, and the carry</p>
+        <table class="dtbl">
+          <thead><tr><th style="width:60px;">aspect</th><th style="width:82px;">the app</th><th style="width:84px;">the Library today</th><th>carrying it needs</th></tr></thead>
+          <tbody>
+            <tr><td>collections</td><td>13</td><td>5 seeded<br><span class="src" style="font-size:9px;">sql/008:53&ndash;70</span></td><td><span class="k">KP&rsquo;s word</span> + a seed</td></tr>
+            <tr><td>stars</td><td>123</td><td>30 seeded<br><span class="src" style="font-size:9px;">sql/008:83&ndash;120</span></td><td><span class="k">KP&rsquo;s word</span> + a seed (93 rows)</td></tr>
+            <tr><td>rarity colour</td><td>5 cosmic tokens<br><span class="src" style="font-size:9px;">dress.ts:41&ndash;47</span></td><td>5 loose hex, &times;3 files</td><td><span class="k">token swap</span> &mdash; 4 differ, 1 is red</td></tr>
+            <tr><td>collection colour</td><td><span class="src" style="font-size:9px;">accent</span> / <span class="src" style="font-size:9px;">palette</span></td><td>no such column</td><td><span class="k">schema line</span></td></tr>
+            <tr><td>star colour</td><td>own <span class="src" style="font-size:9px;">palette</span> / <span class="src" style="font-size:9px;">ring</span></td><td>no such column</td><td><span class="k">schema line</span></td></tr>
+            <tr><td>the orb</td><td>one shared paint<br><span class="src" style="font-size:9px;">orb.css</span></td><td>flat radial gradient<br><span class="src" style="font-size:9px;">Gallery:177</span></td><td><span class="k">token</span> + build</td></tr>
+            <tr><td>veiled words</td><td>uncollected veils its sentence</td><td>every sentence shown</td><td><span class="k">per-vessel read</span> + KP&rsquo;s word</td></tr>
+            <tr><td>the flip</td><td>tap turns a popped card</td><td>one static face</td><td><span class="k">KP&rsquo;s word</span> + build</td></tr>
+            <tr><td>waiting state</td><td>dimmed, dashed, &ldquo;pop to read&rdquo;</td><td>no distinction</td><td><span class="k">per-vessel read</span></td></tr>
+            <tr><td>status sieve</td><td>all / collected / still drifting</td><td>none</td><td><span class="k">per-vessel read</span> + copy</td></tr>
+            <tr><td>search scope</td><td>name + collection</td><td>name + description<br><span class="src" style="font-size:9px;">Gallery:76&ndash;77</span></td><td><span class="k">KP&rsquo;s word</span> (it is the veil)</td></tr>
+            <tr><td>sort</td><td>4 orders<br><span class="src" style="font-size:9px;">ORDERS :66&ndash;71</span></td><td>none</td><td>build</td></tr>
+            <tr><td>empty states</td><td>3, in voice</td><td>1, generic<br><span class="src" style="font-size:9px;">Gallery:162</span></td><td><span class="k">copy</span></td></tr>
+            <tr><td>the tally</td><td>n/N in the header<br>+ a bar per collection</td><td>none</td><td><span style="color:#00E6C3;">refused</span> &mdash; KP ruled it out</td></tr>
+            <tr><td>points on a card</td><td>never shown</td><td>+N on every card<br><span class="src" style="font-size:9px;">Gallery:184</span></td><td><span class="k">KP&rsquo;s word</span></td></tr>
+            <tr><td>reduced motion</td><td>guarded, flip and chips</td><td>unguarded ping<br><span class="src" style="font-size:9px;">Pop:426</span></td><td>build &mdash; <span class="ruled">ruled</span></td></tr>
+            <tr><td>the play door</td><td>&mdash;</td><td><span style="color:#00E6C3;">landed 08-25</span></td><td><span style="color:#00E6C3;">done</span></td></tr>
+          </tbody>
+        </table>
+        <p class="rl-b" style="margin-top:10px;">Read the fourth column and the shape of the work is plain: <span class="k">most of this is not a build, it is a word and a seed.</span> Three rows need a schema line, four need his word before anything, one is already refused by a ruling he made, and one is done.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The schema lines, named &mdash; not written</p>
+        <p class="rl-b"><span class="k">Neither table has anywhere to put a colour.</span> <span class="src">bubbles</span> holds nineteen columns and none of them is <span class="src">palette</span>, <span class="src">ring</span> or <span class="src">metadata</span> (<span class="src">database.types.ts:823&ndash;843</span>); <span class="src">collection_sets</span> holds fifteen and none is <span class="src">accent</span>, <span class="src">palette</span> or <span class="src">metadata</span> (<span class="src">:1132&ndash;1147</span>). There is no jsonb bag to lean on in either &mdash; the only jsonb anywhere near this is <span class="src">vessel_bubbles.collection_context</span>, which belongs to the pop and not to the star. So it is new columns either way. The minimum, four lines:</p>
+        <div class="hall" style="margin-top:9px;">
+          <p class="inv" style="margin:0;">bubbles &nbsp;+ palette text[]</p>
+          <p class="inv" style="margin:0;">bubbles &nbsp;+ ring text</p>
+          <p class="inv" style="margin:0;">collection_sets &nbsp;+ accent text</p>
+          <p class="inv" style="margin:0;">collection_sets &nbsp;+ palette text[]</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">A <span class="src">metadata jsonb</span> on each would do the same work in two lines instead of four &mdash; <span class="k">which shape the house wants is his, not a lamp&rsquo;s.</span> Note what the columns would hold: cosmic token KEYS (<span class="src">hearth.gold</span>, <span class="src">pride.red</span>), not hex, exactly as the app stores them &mdash; the one raw hex in the whole set is intersex&rsquo;s <span class="src">#7902AA</span>, and it is raw because no token stands for it yet. <span class="k">A column of token keys keeps the palette a palette.</span> And <span class="src">008</span>&rsquo;s own GATE 3 says <em>&ldquo;bubble colors derive from rarity in code, never from rows&rdquo;</em> (<span class="src">sql/008&hellip;:31&ndash;33</span>) &mdash; that gate was written before flags existed; a flag&rsquo;s stripes cannot derive from its rarity. <span class="k">Whether the gate moves is his.</span></p>
+      </div>
+
+      <div>
+        <p class="rl-h">The read the card model stands on</p>
+        <p class="rl-b"><span class="k">The per-vessel collected row is <span class="src">vessel_bubbles</span></span> &mdash; <span class="src">user_id</span> &middot; <span class="src">bubble_id</span> &middot; <span class="src">collected_at</span> &middot; <span class="src">collection_method</span> &middot; <span class="src">collection_context jsonb</span> (<span class="src">database.types.ts:5904&ndash;5943</span>). It is Hestia&rsquo;s table read by Athena&rsquo;s rooms, and the game already writes one row per pop (<span class="src">POST BubblePopGame.tsx:288&ndash;297</span>) &mdash; so <span class="k">&ldquo;popped &times;3&rdquo; is a count of rows</span>, not a stored counter, and it is derivable today.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Can the gallery route read it? Yes &mdash; but not the way it reads everything else.</span> The door exists and answers a filter on any column (<span class="src">api/generated/hestia-core/vessel_bubbles/route.ts:14&ndash;44</span>), which is how the game calls it: <span class="src">?user_id=&hellip;</span> (<span class="src">BubblePopGame.tsx:138, :166</span>). But there is <span class="k">no generated hook</span> &mdash; <span class="src">lib/generated/hooks/hestia-core/</span> holds fourteen and <span class="src">vessel_bubbles</span> is not among them, while the gallery is built entirely on <span class="src">useBubblesList</span> and <span class="src">useCollectionSetsList</span>. So the veiled card, the waiting state and the status sieve all wait on one of two things: a hook generated for that table, or the gallery reaching for the door directly the way the game does.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Fix line, and it bites before any of this:</span> both of the game&rsquo;s reads of that table cap at <span class="src">limit=100</span> (<span class="src">:138</span>, <span class="src">:166</span>). Thirty stars stand today, so nothing shows &mdash; but a vessel who has popped more than a hundred times already reads short, and if the ninety-three land the catalogue alone is 123. <span class="k">The cap wants raising or paging before the shelf grows.</span></p>
       </div>
 
       <div>
         <p class="rl-h">Rarity as shimmer, never status</p>
         <p class="q">&ldquo;we can free up the rarity for community bubbles&rdquo;</p>
-        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim. Already built: <span class="src">RARITY_WEIGHTS :82&ndash;84</span> are drift probabilities, not gates &mdash; every rarity spawns for every vessel, and the room says so in its own words at <span class="src">:534</span>. What rarity buys is <span class="k">size, slowness and glow</span> (<span class="src">RARITY_SIZE :86</span>, <span class="src">RARITY_SPEED :90</span>, <span class="src">RARITY_FILL :74</span>) &mdash; a mythic star is bigger and drifts slower, which is a kindness to the eye, not a rank. <span class="k">Nothing in this room tells anyone what they have not got.</span></p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim. Already built: <span class="src">RARITY_WEIGHTS :82&ndash;84</span> are drift probabilities, not gates &mdash; every rarity spawns for every vessel, and the room says so in its own words at <span class="src">:534</span>. What rarity buys is <span class="k">size, slowness and glow</span> (<span class="src">RARITY_SIZE :86</span>, <span class="src">RARITY_SPEED :90</span>, <span class="src">RARITY_FILL :74</span>) &mdash; a mythic star is bigger and drifts slower, which is a kindness to the eye, not a rank. <span class="k">Nothing in this room tells anyone what they have not got.</span> The app carries the same law one step further into its catalog: every flag in Inclusive Pride is <em>common</em>, on purpose, and is not to be &ldquo;balanced&rdquo;.</p>
       </div>
 
       <div>
@@ -215,12 +533,12 @@
       <div>
         <p class="rl-h">What the game is FOR</p>
         <p class="q">&ldquo;the game features are simply to replace the &lsquo;profile&rsquo; experience with something fun and personally engaging.&rdquo;</p>
-        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim. This is the sentence that makes every deletion above obvious: a profile page is a place you look at yourself, not a place you are measured. Bars and ratios are measurement furniture. <span class="k">Take them out and what is left is a profile made of stars you found</span> &mdash; which is what the &ldquo;Found so far&rdquo; card is.</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim. This is the sentence that makes every deletion above obvious: a profile page is a place you look at yourself, not a place you are measured. Bars and ratios are measurement furniture. <span class="k">Take them out and what is left is a profile made of stars you found</span> &mdash; which is what the &ldquo;Found so far&rdquo; card is, and what a shelf of flipped cards would be.</p>
       </div>
 
       <div>
         <p class="rl-h">The realm law, signed thrice</p>
-        <p class="rl-b"><em>&ldquo;The Floating Stars game guards against its own compulsion loop &mdash; nothing built or redrawn in this realm may undo that. Attention returned, never harvested.&rdquo;</em> <span class="src">(athena)/README.md:111&ndash;113</span>, echoed at <span class="src">REALM-BUS.md:118&ndash;123</span> and countersigned by the reimagining seat. <span class="k">This board removes only measurement, never a guard.</span> All four caps survive intact; two of them get louder.</p>
+        <p class="rl-b"><em>&ldquo;The Floating Stars game guards against its own compulsion loop &mdash; nothing built or redrawn in this realm may undo that. Attention returned, never harvested.&rdquo;</em> <span class="src">(athena)/README.md:111&ndash;113</span>, echoed at <span class="src">REALM-BUS.md:118&ndash;123</span> and countersigned by the reimagining seat. <span class="k">This board removes only measurement, never a guard.</span> All four caps survive intact; two of them get louder. And the evolution it now carries adds no mechanic that pulls &mdash; a veil that opens once, a card that turns, a sieve that hides nothing.</p>
       </div>
 
       <div>
@@ -231,22 +549,34 @@
           <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; <span class="src">animate-ping :426</span> on every pop, unguarded. Thirty pops a minute is thirty pings. Mended above.</p></div>
           <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; no sound, no video. The stars drift on their own but nothing plays at you.</p></div>
           <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; &ldquo;Take a breath&rdquo; is the plainest sentence in the app. Two failing lines rewritten, below.</p></div>
-          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every stop screen offers exactly two doors: carry on, or go back to the gallery.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every stop screen offers exactly two doors: carry on, or go back to the gallery. And since 08-25 the gallery offers the way in, which it did not.</p></div>
           <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the new caps panel IS this row. Today the room enforces four rules and explains none of them until you hit one.</p></div>
           <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; <span class="k">the realm&rsquo;s worst row and its most-needed mend.</span> A <span class="src">requestAnimationFrame</span> loop (<span class="src">:230&ndash;254</span>) moves up to thirty objects continuously, plus <span class="src">hover:scale-110 active:scale-90 :405</span>, plus the ping. Not one <span class="src">motion-reduce</span> anywhere in the file. <span class="ruled">ruled: mend</span></p></div>
           <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; the subtitle and the header ratio at <span class="src">/40</span> read <span class="k">3.18:1</span>; the breath message and &ldquo;You&rsquo;ve collected&hellip;&rdquo; at <span class="src">/50</span> read <span class="k">4.32:1</span>; &ldquo;Daily progress&rdquo; and the slider&rsquo;s own best line at <span class="src">/30</span> read <span class="k">2.30:1</span>. Measured. Drawn at <span class="src">/70</span> and <span class="src">/82</span>.</p></div>
-          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; each star IS a real <span class="src">button</span> with an <span class="src">aria-label</span> (<span class="src">:400&ndash;415</span>), which is better than most games manage &mdash; but <span class="src">focus:outline-none</span> at <span class="src">:405</span> removes the focus ring and nothing replaces it. A keyboard walker can reach every star and cannot see which one they are on. <em>Proposed</em>: a visible focus ring, since removing one is never the mend.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; each star IS a real <span class="src">button</span> with an <span class="src">aria-label</span> (<span class="src">:400&ndash;415</span>), which is better than most games manage &mdash; but <span class="src">focus:outline-none</span> at <span class="src">:405</span> removes the focus ring and nothing replaces it. A keyboard walker can reach every star and cannot see which one they are on. <em>Proposed</em>: the ring the play door already wears.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, in the gallery</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; six dimmed lines below the floor: the subtitle at <span class="src">/40</span> = <span class="k">3.18:1</span> (<span class="src">:108</span>), the door&rsquo;s own second line at <span class="src">/40</span> (<span class="src">:122</span>), the empty state at <span class="src">/40</span> (<span class="src">:162</span>), the search placeholder at <span class="src">white/40</span> = <span class="k">3.80:1</span> (<span class="src">:132</span>), the unselected chips and the description at <span class="src">/50</span> = <span class="k">4.32:1</span> (<span class="src">:137, :148, :152, :181</span>), and the collection line at <span class="src">/30</span> = <span class="k">2.30:1</span> (<span class="src">:187</span>). Drawn at <span class="src">/70</span> = <span class="k">7.38:1</span> and <span class="src">/82</span> = <span class="k">9.84:1</span>.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; the card is a bare <span class="src">&lt;Link&gt;</span> with no label and no focus style of its own; the chips carry no <span class="src">aria-pressed</span> and sit in no group. The app does all four (<span class="src">+page.svelte:338&ndash;343, :259, :279</span>). Drawn above.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the room&rsquo;s own words are good. &ldquo;Return to the Library&rdquo;, &ldquo;The Floating Stars&rdquo;, &ldquo;Pop the Stars&rdquo;, &ldquo;Tap bubbles to collect them&rdquo;, and the empty state Ways already ruled kept. Nothing here needs rewriting.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; mended on 08-25. Before the door landed, the only way into the game was to type the route.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">no flashing &middot; reduced motion</span> &mdash; nothing in the gallery moves today, which is the easy way to pass. If the flip lands it must land with its guard, as drawn.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the gallery says nothing about the caps that govern the room next door. The caps panel could stand in both, or the door could carry one line. <span class="k">Unwritten.</span></p></div>
         </div>
       </div>
 
       <div>
         <p class="rl-h">The opt-in law, here</p>
-        <p class="rl-b">No toggles in this room; the boundary is a slider that <span class="k">loads the vessel&rsquo;s own row first</span> and falls back to the charter&rsquo;s gentle number, never to a generous one (<span class="src">BubbleLimitSlider.tsx:34&ndash;45</span>). Under KP&rsquo;s &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em>, that is the right shape already: <span class="k">the permissive setting is never the default.</span></p>
+        <p class="rl-b">No toggles in this room; the boundary is a slider that <span class="k">loads the vessel&rsquo;s own row first</span> and falls back to the charter&rsquo;s gentle number, never to a generous one (<span class="src">BubbleLimitSlider.tsx:34&ndash;45</span>). Under KP&rsquo;s &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em>, that is the right shape already: <span class="k">the permissive setting is never the default.</span> The gallery&rsquo;s one fold &mdash; <em>filter &amp; sort</em> &mdash; is drawn closed, as the app draws it (<span class="src">+page.svelte:60</span>).</p>
       </div>
 
       <div>
         <p class="rl-h">Deity drift &mdash; noted, never re-pointed</p>
-        <p class="rl-b">Three surfaces this room reads and writes live under <span class="src">hestia-core</span> while their canon is athena&rsquo;s: <span class="src">vessel_bubbles</span> (<span class="src">:138, :166, :288</span>) &middot; <span class="src">collection_sets</span> (<span class="src">:167</span>) &middot; <span class="src">vessel_config</span> (<span class="src">:139</span>). KP&rsquo;s &#9883; standing word: hestia was the default catch as backend changes occurred; <span class="k">the fix is gaia&rsquo;s, at a later time, at his word.</span> No lamp re-points a deity, and this canvas does not.</p>
+        <p class="rl-b">Three surfaces this room reads and writes live under <span class="src">hestia-core</span> while their canon is athena&rsquo;s: <span class="src">vessel_bubbles</span> (<span class="src">:138, :166, :288</span>) &middot; <span class="src">collection_sets</span> (<span class="src">:167</span>) &middot; <span class="src">vessel_config</span> (<span class="src">:139</span>). KP&rsquo;s &#9883; standing word: hestia was the default catch as backend changes occurred; <span class="k">the fix is gaia&rsquo;s, at a later time, at his word.</span> No lamp re-points a deity, and this canvas does not &mdash; including the four new columns named above, which land on the tables where they stand.</p>
       </div>
 
       <div>
@@ -256,13 +586,35 @@
           <p class="rl-b"><span class="k">RETIRED</span> &mdash; <span class="src">:501</span> <span class="old">&ldquo;Daily {n}/{max}&rdquo;</span> &middot; <span class="src">:504</span> <span class="old">&ldquo;Daily progress&rdquo;</span> &middot; <span class="src">:505</span> the daily <span class="old">Progress</span> bar &middot; <span class="src">:518</span> <span class="old">&ldquo;{collected}/{total}&rdquo;</span> and its per-collection bar at <span class="src">:520</span>. <span class="ruled">ruled</span> &mdash; the census&rsquo;s only <em>progress</em> hit and both of its n/N displays leave in one stroke.</p>
           <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">:466</span><br><span class="old">&ldquo;You&rsquo;ve reached your daily limit&rdquo;</span><br><span class="new">&ldquo;Your day&rsquo;s boundary, met&rdquo;</span><br>The room&rsquo;s own better word is three lines below it at <span class="src">:471</span> &mdash; <em>&ldquo;the boundary is yours.&rdquo;</em> A limit is imposed; a boundary is chosen.</p>
           <p class="rl-b"><span class="k">REWRITTEN</span> &mdash; <span class="src">:468</span><br><span class="old">&ldquo;You&rsquo;ve collected {n} points today. Come back tomorrow for more stars!&rdquo;</span><br><span class="new">&ldquo;You set this one yourself. The stars will still be here whenever you come back.&rdquo;</span><br>The fifth and last <em>collect</em> hit, and the one that fails hardest &mdash; not for the verb but for the second sentence. <em>Come back tomorrow</em> is the appointment mechanic, refused by name on E4&rsquo;s column, and it fails the metric test outright. The replacement is the room&rsquo;s own breath-reminder sentence, which was already right.</p>
-          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;Pop the Stars&rdquo; <span class="src">:371</span> &middot; &ldquo;Tap bubbles to collect them&rdquo; <span class="src">:372</span> (a true instruction; <em>collect</em> earns its place) &middot; &ldquo;Take a breath&rdquo; and its message <span class="src">:449&ndash;451</span> &middot; &ldquo;Continue Playing&rdquo; <span class="src">:453</span> &middot; &ldquo;Paused&rdquo; / &ldquo;Resume&rdquo; <span class="src">:438&ndash;439</span> &middot; &ldquo;Return to the Floating Stars&rdquo; <span class="src">:369</span> &middot; &ldquo;Adjust your daily limit &mdash; the boundary is yours&rdquo; <span class="src">:471</span> &middot; the Stars card <span class="src">:534</span> &middot; &ldquo;0 &mdash; a rest day is a boundary too&rdquo; <span class="src">Slider:95</span> &middot; &ldquo;Part of {collection}&rdquo; <span class="src">Detail:115</span> (taxonomy, never demand).</p>
+          <p class="rl-b"><span class="k">PROPOSED, from the app&rsquo;s own voice</span> &mdash; the gallery&rsquo;s three sieve-empty states, which do not exist in the Library because the sieve does not either. <em>&ldquo;Nothing waits here &mdash; every star under this sieve has been popped.&rdquo;</em> &middot; <em>&ldquo;None collected here yet. They are still out there, drifting.&rdquo;</em> &middot; <em>&ldquo;No stars under that sieve &mdash; the sky holds others.&rdquo;</em> (<span class="src">+page.svelte:138&ndash;143</span>). And for a search that finds nothing, the app&rsquo;s <em>&ldquo;Nothing matches &mdash; the sky holds other names&rdquo;</em> (<span class="src">:116</span>) in place of <span class="old">&ldquo;No bubbles match&rdquo;</span> (<span class="src">BubblesGallery.tsx:162</span>). <span class="k">Board &#9319;&rsquo;s empty-state table is not touched</span> &mdash; it reads the realm as BUILT, and none of these is built.</p>
+          <p class="rl-b"><span class="k">KEPT verbatim</span> &mdash; &ldquo;Pop the Stars&rdquo; <span class="src">:371</span> &middot; &ldquo;Tap bubbles to collect them&rdquo; <span class="src">:372</span> (a true instruction; <em>collect</em> earns its place) &middot; the same two carried onto the play door <span class="src">Gallery:120, :122</span> &middot; &ldquo;Take a breath&rdquo; and its message <span class="src">:449&ndash;451</span> &middot; &ldquo;Continue Playing&rdquo; <span class="src">:453</span> &middot; &ldquo;Paused&rdquo; / &ldquo;Resume&rdquo; <span class="src">:438&ndash;439</span> &middot; &ldquo;Return to the Floating Stars&rdquo; <span class="src">:369</span> &middot; &ldquo;Return to the Library&rdquo; <span class="src">Gallery:103</span> &middot; &ldquo;Adjust your daily limit &mdash; the boundary is yours&rdquo; <span class="src">:471</span> &middot; the Stars card <span class="src">:534</span> &middot; &ldquo;0 &mdash; a rest day is a boundary too&rdquo; <span class="src">Slider:95</span> &middot; &ldquo;Part of {collection}&rdquo; <span class="src">Detail:115</span> (taxonomy, never demand) &middot; the shelf&rsquo;s own empty state <span class="src">Gallery:162</span>, which board &#9319; already ruled kept.</p>
+          <p class="rl-b"><span class="k">CARRIED, not rewritten</span> &mdash; &ldquo;Collect bubbles and earn sovereignty&rdquo; <span class="src">Gallery:108</span>. It names the exchange honestly and it is the room&rsquo;s own long-standing line; the door beneath it now carries the instruction. <span class="k">Whether it changes is his.</span></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Unwritten &mdash; his to rule</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <p class="rl-b"><span class="k">the eight and the ninety-three</span> &mdash; whether they land in the base at all. The app&rsquo;s own record says they are <em>&ldquo;offered upward to the online set at KP&rsquo;s gate&rdquo;</em> (<span class="src">bubbles-set.json provenance</span>, echoed at <span class="src">docs/THE-GAME.md:39&ndash;40</span>, whose 55/6 counts read stale against the live 123/13).</p>
+          <p class="rl-b"><span class="k">the colour columns</span> &mdash; whether they land, and in which shape: four typed columns or a <span class="src">metadata jsonb</span> on each table. And whether <span class="src">008</span>&rsquo;s GATE 3 &mdash; <em>colours derive from rarity in code, never from rows</em> &mdash; moves to make room for a flag.</p>
+          <p class="rl-b"><span class="k">the mythic swap</span> &mdash; whether the Library&rsquo;s rose becomes the app&rsquo;s magenta. The board recommends it and states the law it rests on; <span class="k">it is still a colour in his house.</span></p>
+          <p class="rl-b"><span class="k">the slug seam</span> &mdash; the base seeded <span class="src">the-hearth-collection</span>, <span class="src">the-elemental-set</span>, <span class="src">the-council-collection</span>; the app says <span class="src">hearth</span>, <span class="src">elemental</span>, <span class="src">council</span>. Two of the five already agree. Whether the seed maps the app&rsquo;s slugs onto the base&rsquo;s, renames the base&rsquo;s rows, or keeps both spellings.</p>
+          <p class="rl-b"><span class="k">the veil</span> &mdash; whether the Library&rsquo;s gallery adopts veiled words and the flip at all. It cannot today: it does not read what a vessel has collected.</p>
+          <p class="rl-b"><span class="k">the search</span> &mdash; whether it narrows to name and collection, which is what makes the veil hold, or keeps reading descriptions.</p>
+          <p class="rl-b"><span class="k">the points on a card</span> &mdash; the app never shows them in the gallery; the Library shows <span class="src">+N</span> on every card and <span class="src">+N points</span> on every detail page. A price tag on a star is not a count of the vessel, so no ruling closes it.</p>
+          <p class="rl-b"><span class="k">the sieve&rsquo;s own readout</span> &mdash; the app prints <span class="src">{n} of {total}</span> beside the sieve (<span class="src">:224&ndash;227</span>). It counts the shelf, not the vessel &mdash; but it is still a fraction on a page where fractions were ruled out. Words, a number, or nothing.</p>
+          <p class="rl-b"><span class="k">the word for waiting</span> &mdash; the app says <em>still drifting</em>. The Library&rsquo;s own empty state says <em>will appear</em>. Both refuse <em>missing</em>; which one this realm speaks is a choice.</p>
+          <p class="rl-b"><span class="k">the &times;N pill</span> &mdash; it depends on more than one row per vessel per star, which the room already writes and the generated types do not show constrained either way. <span class="k">Whether a star may be met twice is a design fact, not a database accident.</span></p>
+          <p class="rl-b"><span class="k">where the five colours live</span> &mdash; the same map is written three times in this realm. Whether it becomes one module, as <span class="src">dress.ts</span> is for the app, or stays copied.</p>
+          <p class="rl-b"><span class="k">the caps in the gallery</span> &mdash; whether the room that holds the shelf says anything about the boundaries that govern the room next door.</p>
+          <p class="rl-b"><span class="k">the seed&rsquo;s number</span> &mdash; drawn as <span class="src">02N</span> because <span class="src">024</span>&ndash;<span class="src">026</span> are already spoken for by board &#9318;. The true number is whatever is free when it is written.</p>
         </div>
       </div>
 
       <div>
         <p class="rl-h">The refusal column, here</p>
         <p class="rl-b"><span class="k">Refused on sight:</span> a leaderboard &middot; a streak or an attendance mark &middot; a countdown to the cap reset &middot; a named rare star to chase &middot; a limited-time star &middot; a &ldquo;one missing&rdquo; state &middot; a completion figure for a collection &middot; any comparison with another vessel &middot; and a &ldquo;come back tomorrow&rdquo; in any wording, which is why <span class="src">:468</span> moves. <span class="k">Also refused: turning the game off under reduced motion.</span> Access is not subtraction either.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">And refused in the evolution, as it is carried:</span> no rarity pressure &mdash; a rarer star is bigger and slower and nothing else &middot; no &ldquo;complete the set&rdquo; anywhere, which is why the app&rsquo;s own collection bar and header tally do not come across &middot; no count of the vessel beyond the sieve&rsquo;s three words &middot; and <span class="k">no red</span>, which is the whole of the mythic fix line and the reason a flag&rsquo;s stripe never becomes the card&rsquo;s border.</p>
       </div>
 
     </div>
