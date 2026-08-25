@@ -22,7 +22,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 
 const DIFFICULTY_COLORS: Record<string, string> = {
   beginner: 'bg-emerald-500/20 text-emerald-400', intermediate: 'bg-amber-500/20 text-amber-400',
-  advanced: 'bg-red-500/20 text-red-400', master: 'bg-purple-500/20 text-purple-400',
+  advanced: 'bg-fire-base/20 text-fire-light', master: 'bg-purple-500/20 text-purple-400',
 };
 
 // Stable params — the generated list hooks refetch on params IDENTITY
@@ -111,12 +111,12 @@ export function CourseDetail() {
                         {lesson!.name}
                       </span>
                       {lesson!.description && (
-                        <span className="mt-0.5 block text-xs text-star-dust/50">
+                        <span className="mt-0.5 block text-xs text-star-dust/70">
                           {lesson!.description}
                         </span>
                       )}
                     </span>
-                    <span className="flex items-center gap-2 text-xs text-star-dust/40">
+                    <span className="flex items-center gap-2 text-xs text-star-dust/70">
                       {lesson!.estimated_duration && (
                         <span className="flex items-center gap-1">
                           <Clock size={11} />
@@ -132,7 +132,7 @@ export function CourseDetail() {
           </div>
         )}
         {walk.length === 0 && steps.length === 0 && (
-          <p className="mb-6 text-xs text-star-dust/40">
+          <p className="mb-6 text-xs text-star-dust/70">
             This course&rsquo;s path is still being laid — its lessons will
             appear here as they are written.
           </p>

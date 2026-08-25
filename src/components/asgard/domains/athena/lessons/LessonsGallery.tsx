@@ -37,9 +37,9 @@ export function LessonsGallery() {
 
   return (
     <main className="min-h-screen py-12"><div className="container max-w-6xl mx-auto px-6">
-      <div className="mb-8"><Link href="/library" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"><ArrowLeft className="h-4 w-4" />Return to the Library</Link><h1 className="text-2xl font-bold text-star-dust">The Lessons</h1><p className="text-sm text-star-dust/40 mt-1">Individual lessons across all domains</p></div>
+      <div className="mb-8"><Link href="/library" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"><ArrowLeft className="h-4 w-4" />Return to the Library</Link><h1 className="text-2xl font-bold text-star-dust">The Lessons</h1><p className="text-sm text-star-dust/70 mt-1">Individual lessons across all domains</p></div>
       <div className="relative mb-8"><Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} /><input type="text" placeholder="Search lessons..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none" /></div>
-      {filtered.length === 0 && (<div className="text-center py-20"><FileText className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40 text-lg">{searchTerm ? 'No lessons match' : 'The lessons are being prepared'}</p></div>)}
+      {filtered.length === 0 && (<div className="text-center py-20"><FileText className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/70 text-lg">{searchTerm ? 'No lessons match' : 'The lessons are being prepared'}</p></div>)}
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map(l => {
           const cd: CardData = { id: l.id, type: 'value', title: l.name, value: l.lesson_type || '' };
