@@ -46,7 +46,7 @@ export function CheckoutHub() {
             <div className="text-center">
               <Shield className="h-8 w-8 text-sanctuary-green mx-auto mb-2" />
               <h3 className="text-sm font-medium text-star-dust mb-1">3. Circulate</h3>
-              <p className="text-xs text-star-dust/50">90% to artisan. 10% platform fee — up to 50% flows to contributors forever.</p>
+              <p className="text-xs text-star-dust/50">90% to the ware&apos;s contributors, divided equally. 10% platform fee, of which 30% returns to the residual pool on every sale.</p>
             </div>
           </div>
         </Card>
@@ -70,8 +70,12 @@ export function CheckoutHub() {
               <span className="text-quantum-purple font-medium">90%</span>
             </div>
             <div className="flex justify-between py-2 border-b border-white/5">
-              <span className="text-star-dust/60">Residual Pool</span>
-              <span className="text-sanctuary-green font-medium">0-50% of platform fee</span>
+              <span className="text-star-dust/60">Of the fee, to the residual pool</span>
+              <span className="text-sanctuary-green font-medium">30%, fixed</span>
+            </div>
+            <div className="flex justify-between py-2">
+              <span className="text-star-dust/60">The artisan&apos;s own pledge, out of their 90%</span>
+              <span className="text-star-dust/60 font-medium">0-50%, their choice</span>
             </div>
           </div>
         </Card>

@@ -158,8 +158,9 @@ export function BazaarHub() {
                 Circulate
               </h3>
               <p className="text-sm text-star-dust/50">
-                90% goes to artisans. 10% platform fee — with up to 50% flowing to contributors
-                forever through the residual pool.
+                90% goes to the ware&apos;s contributors, divided equally. 10% platform fee, of
+                which 30% returns to the residual pool on every sale — and an artisan may pledge
+                up to 50% of their own 90% to that pool besides.
               </p>
             </div>
           </div>

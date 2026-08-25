@@ -36,6 +36,18 @@ const WORK_TYPE_LABELS: Record<string, string> = {
   performance: 'Performance', code: 'Code', other: 'Other',
 };
 
+/**
+ * The finite-list sentence's own words. Spelled out consistently so a square
+ * never says "4 wares and One work" — drawn from what arrived, never a stored
+ * count.
+ */
+const COUNT_WORDS = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+
+function countWord(n: number, one: string, many: string): string {
+  const word = n < COUNT_WORDS.length ? COUNT_WORDS[n] : String(n);
+  return `${word} ${n === 1 ? one : many}`;
+}
+
 /** One row of the square, with the kind the fetch already knew. */
 type SquareItem = {
   id: string;
@@ -167,13 +179,15 @@ export function WaresGallery() {
   const finiteLine = useMemo(() => {
     const wares = items.filter((i) => i.kind === 'ware').length;
     const works = items.filter((i) => i.kind === 'work').length;
-    const say = (n: number, one: string, many: string) =>
-      `${n === 1 ? 'One' : n === 2 ? 'Two' : n === 3 ? 'Three' : n} ${n === 1 ? one : many}`;
     const parts: string[] = [];
-    if (wares > 0) parts.push(say(wares, 'ware', 'wares'));
-    if (works > 0) parts.push(say(works, 'work', 'works'));
+    if (wares > 0) parts.push(countWord(wares, 'ware', 'wares'));
+    if (works > 0) parts.push(countWord(works, 'work', 'works'));
     if (parts.length === 0) return null;
-    return `${parts.join(' and ')}. That is all of them.`;
+    // Only the first word of the sentence is capitalised — the second half
+    // reads as prose, not as a second heading.
+    const [first, ...rest] = parts;
+    const tail = rest.map((r) => r.charAt(0).toLowerCase() + r.slice(1));
+    return `${[first, ...tail].join(' and ')}. That is all of them.`;
   }, [items]);
 
   const isFiltered = Boolean(searchTerm || selectedType);
