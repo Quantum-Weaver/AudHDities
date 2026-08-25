@@ -41,9 +41,12 @@ export function KnowledgeDetail() {
             <p className="text-star-dust/70 text-sm whitespace-pre-wrap">{scroll.teachings}</p>
           </div>
         )}
+        {/* Provenance on every claim is a ground-file law, and this line was
+            the least readable text in the realm (11px at /35 = 2.69:1).
+            Drawn at 11.5px and /78 = 8.99:1. */}
         {scroll.provenance && (
-          <p className="text-[11px] text-star-dust/35 leading-relaxed border-t border-white/5 pt-4 mb-6">
-            <span className="text-star-dust/50">Provenance:</span> {scroll.provenance}
+          <p className="text-[11.5px] text-star-dust/78 leading-relaxed border-t border-white/5 pt-4 mb-6">
+            <span className="text-star-dust/78">Provenance:</span> {scroll.provenance}
           </p>
         )}
         <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>

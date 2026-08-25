@@ -16,7 +16,7 @@ import type { CardData } from '@/types/components/runes/card.types';
 const DIFFICULTY_COLORS: Record<string, string> = {
   beginner: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
   intermediate: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  advanced: 'bg-red-500/20 text-red-400 border-red-500/30',
+  advanced: 'bg-fire-base/20 text-fire-light border-fire-base/30',
   master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
 
@@ -26,6 +26,28 @@ function readObjectives(objectives: unknown): string[] {
   if (!Array.isArray(objectives)) return [];
   return objectives.filter((o): o is string => typeof o === 'string');
 }
+
+// THE OBJECTIVES ARE THE DOORS (2026-08-25, refine/athena). The primary
+// button that used to sit below retired with this pass: it had no onClick, so
+// a vessel pressed it, nothing happened, and the room had told them they
+// failed at something. Nothing replaces it — the objectives become the walk.
+//
+// The mapping is a PLAIN CONSTANT, read once from the six seeded quests'
+// own strings (docs/sql/008-the-library-first-seeds.sql:154-183). No fuzzy
+// matching and no guessing: a string with no exact match here renders as it
+// always did, as plain text. `Visit your garden` is deliberately absent —
+// the garden has no route on disk yet, and the map never lies.
+const OBJECTIVE_DOORS: Record<string, string> = {
+  'Visit the Path': '/library/quests',
+  'Visit the Curriculum': '/library/courses',
+  'Visit the Lessons': '/library/lessons',
+  'Visit the Archive': '/library/knowledge',
+  'Visit the Honors': '/library/badges',
+  'Visit the Floating Stars': '/library/bubbles',
+  'Open the Archive': '/library/knowledge',
+  'Open the Floating Stars': '/library/bubbles',
+  'Open your journal': '/vessel/journal',
+};
 
 export function QuestDetail() {
   const params = useParams();
@@ -88,15 +110,29 @@ export function QuestDetail() {
             <div className="bg-white/5 rounded-xl p-4 mb-6">
               <h3 className="text-sm font-medium text-star-dust/60 mb-2">Objectives</h3>
               <ul className="space-y-1">
-                {objectives.map((o, i) => (
-                  <li key={i} className="text-star-dust/70 text-sm">• {o}</li>
-                ))}
+                {objectives.map((o, i) => {
+                  const door = OBJECTIVE_DOORS[o];
+                  return (
+                    <li key={i} className="text-star-dust/70 text-sm">
+                      •{' '}
+                      {door ? (
+                        <Link
+                          href={door}
+                          className="rounded underline decoration-star-dust/30 underline-offset-2 hover:text-neurospark hover:decoration-neurospark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
+                        >
+                          {o}
+                        </Link>
+                      ) : (
+                        o
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
 
           <div className="flex gap-3">
-            <Button variant="primary" size="md">Begin Quest</Button>
             <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>
           </div>
         </Card>
