@@ -216,6 +216,25 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'Badge Detail',
     subtitle: 'A mark of sovereignty'
   },
+  // 2026-08-25, refine/athena (board ⑧): all three bubbles routes were
+  // unmapped and fell through to the default at :711-716, resolving to
+  // `lounge` — the heaviest room in the realm standing in another realm's
+  // weather. Titles and subtitles are the rooms' own words.
+  '/library/bubbles': { 
+    default: 'library',
+    title: 'The Floating Stars',
+    subtitle: 'Collect bubbles and earn sovereignty'
+  },
+  '/library/bubbles/play': { 
+    default: 'library',
+    title: 'Pop the Stars',
+    subtitle: 'Tap bubbles to collect them'
+  },
+  '/library/bubbles/*': { 
+    default: 'library',
+    title: 'The Floating Stars',
+    subtitle: 'Collect bubbles and earn sovereignty'
+  },
   '/library/dailies': { 
     default: 'library',
     title: 'The Dailies',

@@ -80,6 +80,9 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/library', label: 'The Library' },
       { href: '/library/quests', label: 'The Path' },
       { href: '/library/courses', label: 'The Curriculum' },
+      // 2026-08-25, refine/athena (board ⑧): the street listed seven rooms
+      // and omitted two that exist on disk. The map never lies.
+      { href: '/library/lessons', label: 'The Lessons' },
       { href: '/library/knowledge', label: 'The Archive' },
       { href: '/library/badges', label: 'The Honors' },
       { href: '/library/bubbles', label: 'The Floating Stars' },
@@ -88,6 +91,7 @@ export const THE_STREET: StreetRealm[] = [
       // exists (BubblePopGame.tsx at this route) and now has a door in from
       // the gallery too — the map never lies, so it earns its line here.
       { href: '/library/bubbles/play', label: 'Pop the Stars' },
+      { href: '/library/dailies', label: 'The Dailies' },
     ],
   },
   {
