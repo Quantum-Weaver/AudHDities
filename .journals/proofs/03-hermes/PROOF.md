@@ -40,9 +40,12 @@ dailies — untouched here.
 | step | state |
 |---|---|
 | U — the brief, engraved | closed |
-| P — the canvas, four truings, at KP's eye | **closed** — KP ⚛ 2026-08-25, verbatim: *"bazaar is good to build as well"* |
-| S — `SPEC.md`, from the approved canvas | **closed** 2026-08-25 — 98,363 B; 92 printed checks; 14 *unwritten — his to rule*; `docs/sql/023-the-bazaar-refined-DRAFT.sql` named for KP's hand, never run by a lamp. Opus, `claude-opus-5[1m]` |
-| **B — the build** | **next**, on `refine/hermes-2026-08-25`, cut once the Forge's branch merges; the conductor merges `--no-ff` as it goes, the branch deleted after |
+| P — the canvas at KP's eye | **closed** 2026-08-25 at KP's ⚛ word, verbatim: *"bazaar is good to build as well"* |
+| S — the spec | **closed** 2026-08-25 — `SPEC.md` beside this file (98,718 B; 92 printed checks; FIX 1–31; §8 the DRAFT SQL) |
+| B — the build | **closed** 2026-08-25 — nine commits on `refine/hermes-2026-08-25`, 61 files, tsc 0 · build 0 · 267 pages · the split 48/48, seventeen pictures at `build/` |
+| V — the three lenses | **closed** 2026-08-25 — the arithmetic hand-traced; three copy lines refuted and trued on the branch; 0 generated touched; merge-tree clean |
+| G — merged | **closed** 2026-08-25 — `--no-ff` into `main` at `78a001f60` by the conductor; the branch deleted; KP's glance on the live pages |
+| C — carry | the proof folder stays where it was born; this table closes with the merge |
 
 ## Correction
 **2026-08-24** — the economics, corrected to THE STANDING MODEL (KP ⚛ 2026-08-24, `docs/architecture/residual-system.md`): the platform fee is the only money that leaves, and the residual pool is a per-ware PLEDGE out of the 90%, 0–50%, default 0. Five boards changed — ① the hub line, ② the stall split, ④ the Loom dial, ⑥ the Exchange split and REWRITE 18, ③ the covenant clause. Answers `resonance-chamber/desk/records/audhdities-conduction/returns/03-hermes-ECONOMICS-CHECK.md` rows 1, 3, 4, 5, 6, 13, 14, 15. Rows on `src/` files are the build's; nothing under `src/` was touched. Republished to the same URL, favicon 🧺 held. Opus, `claude-opus-5[1m]`.

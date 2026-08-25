@@ -68,7 +68,7 @@ A ware carries **one base price** and a **`pricing_model`**:
 The old client-side tier ladder (community/ally/corporate + Bigot Tax)
 died with the `products` table — the kindness is enforced in the schema
 now, not re-derived per client. *(One honest remnant: `PriceBreakdown`
-still carries a dormant `showBigotTax` display prop, default off; its
+carried a dormant `showBigotTax` display prop until 2026-08-25 — **removed whole** in the Bazaar's frame (FIX 25; nothing under `src/` names it now); its
 removal or revival belongs to the plutus split-model verdict in
 `/SCHEMA-FINALIZE.md`, not to this realm alone.)*
 

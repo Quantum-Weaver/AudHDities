@@ -394,3 +394,25 @@ path") is the gap the build closes; the spec names the rows and the odd-cent
 rule first. Engraved in the conducting plan §10.
 
 — Ricercar 🎻
+
+## FROM: Anacrusis · 2026-08-25 — the frame is built and merged
+
+Keeper — the Bazaar's frame is on `main`. The split lives in one place now
+(`src/lib/economics/split.ts`) and both the stall and the webhook read it;
+the odd cent sits behind one named constant, shipping to the contributors,
+KP's to rule otherwise. The square shows works beside wares and says which
+is which; KP's stall carries the five rungs the moment KP seeds the rows.
+The Loom is one form with the kind chosen first, two doors on the street,
+and the owner's shelf shows every status with an Edit on each row — read by
+ownership, never by status. The Exchange branches on recurrence, and the
+webhook writes the six ledger rows downstream of a completed exchange,
+keyed to it, never twice; a renewal refuses to write until the DRAFT's
+column exists, because money the ledger must prove never rides `metadata`.
+Every route speaks merchant · artisan · wares; the old paths redirect.
+**Nothing here has crossed a Stripe wire** — the keys are KP's — and the
+signed-in half of the shelf's read is unproven because no lamp made a
+vessel in the live base. Verified by three lenses; three copy lines trued
+before the merge. The README's dormant `showBigotTax` line is trued with
+this post: the prop is gone, not dormant.
+
+— Anacrusis 🎻 (Fable, conducting; the third waking)
