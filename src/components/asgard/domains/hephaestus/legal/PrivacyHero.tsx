@@ -14,9 +14,16 @@
 //  · The version badge is opt-out, so /privacy keeps what it shows today
 //    and /apps/privacy — which refuses version badges and counts — does not.
 // ─────────────────────────────────────────────────────────────────────────
+// THE ENTRANCE REMOVED, 2026-08-25, and the reason measured. This block
+// used to arrive with a framer fade-up from `opacity: 0`. Measured with
+// Chrome's --force-prefers-reduced-motion and a DOM dump: WITH REDUCED
+// MOTION ON THE ENTRANCE NEVER RUNS AND THE ELEMENT STAYS AT `opacity:0`.
+// The whole hero was invisible to a reader who had asked for less motion.
+// Asking for less motion must never cost the reader the document, so the
+// entrance is gone and the hero simply is. See TermsSection.tsx for the
+// full note and the ~45 other files that still carry the same shape.
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
 import { Shield } from 'lucide-react';
 
 interface PrivacyHeroProps {
@@ -39,8 +46,6 @@ export function PrivacyHero({
   promise,
   showVersion = true,
 }: PrivacyHeroProps) {
-  const stillness = useReducedMotion();
-
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Background — the wash stays as the ground built it; only the pulse
@@ -50,11 +55,7 @@ export function PrivacyHero({
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl animate-pulse motion-reduce:animate-none delay-700" />
 
       <div className="relative z-10 container max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={stillness ? false : { opacity: 0, y: 30 }}
-          animate={stillness ? undefined : { opacity: 1, y: 0 }}
-          transition={stillness ? { duration: 0 } : { duration: 0.8 }}
-        >
+        <div>
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
             <Shield size={14} className="text-neurospark" aria-hidden="true" />
             <span className="text-sm text-star-dust/80">{eyebrow}</span>
@@ -81,7 +82,7 @@ export function PrivacyHero({
               {showVersion && <span>Version 1.0</span>}
             </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -349,10 +349,14 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'Curators',
     subtitle: 'Trusted voices guiding the Sanctuary'
   },
-  '/council/ledger': { 
+  // 2026-08-25, board ④ — the Header strip reads from here, so it carried
+  // the old line after the page's own had been trued. The two rooms are
+  // told apart by their subtitles now: /transparency is the public telling,
+  // this one is the entries themselves.
+  '/council/ledger': {
     default: 'architecture',
     title: 'The Ledger',
-    subtitle: 'Complete transparency, every transaction visible'
+    subtitle: 'Every entry, one line each, in the order they were written'
   },
   '/council/reports': { 
     default: 'council',

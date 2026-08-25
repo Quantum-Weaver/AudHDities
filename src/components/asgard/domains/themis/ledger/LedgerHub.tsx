@@ -261,7 +261,7 @@ export function LedgerHub() {
             seam-note for KP's strike. */}
         {state === 'error' && (
           <div className="py-16 text-center">
-            <AlertCircle className="mx-auto mb-4 h-10 w-10 text-star-dust/40" aria-hidden="true" />
+            <AlertCircle className="mx-auto mb-4 block h-10 w-10 text-star-dust/40" aria-hidden="true" />
             <p className="text-lg text-star-dust">The ledger could not be read just now</p>
             <p className="mx-auto mt-2 max-w-xl text-sm text-star-dust/70">
               This is not an empty ledger — it is a page that did not get an
@@ -287,7 +287,7 @@ export function LedgerHub() {
             true thing: it could not read from here. */}
         {state === 'ready' && entries.length === 0 && !LEDGER_DOOR_CONFIRMED && (
           <div className="py-16 text-center">
-            <AlertCircle className="mx-auto mb-4 h-10 w-10 text-star-dust/40" aria-hidden="true" />
+            <AlertCircle className="mx-auto mb-4 block h-10 w-10 text-star-dust/40" aria-hidden="true" />
             <p className="text-lg text-star-dust">The ledger is not yet readable from this room</p>
             <p className="mx-auto mt-2 max-w-xl text-sm text-star-dust/70">
               The request answered, and it answered with nothing — which here
@@ -302,7 +302,7 @@ export function LedgerHub() {
         {/* THE DRAWN EMPTY STATE — live the moment the door is confirmed. */}
         {state === 'ready' && entries.length === 0 && LEDGER_DOOR_CONFIRMED && (
           <div className="py-16 text-center">
-            <FileText className="mx-auto mb-4 h-10 w-10 text-star-dust/40" aria-hidden="true" />
+            <FileText className="mx-auto mb-4 block h-10 w-10 text-star-dust/40" aria-hidden="true" />
             <p className="text-lg text-star-dust">The ledger has not been written in yet</p>
             <p className="mx-auto mt-2 max-w-xl text-sm text-star-dust/70">
               Nothing has moved through the Sanctuary so far. This is a page

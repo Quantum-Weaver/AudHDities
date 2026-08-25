@@ -8,7 +8,6 @@
 // ─────────────────────────────────────────────────────────────────────────
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
 import { Shield, Mail, FileText } from 'lucide-react';
 import Link from 'next/link';
 
@@ -22,14 +21,12 @@ interface PrivacyFooterProps {
 }
 
 export function PrivacyFooter({ heading, children, closing }: PrivacyFooterProps) {
-  const stillness = useReducedMotion();
-
+  // THE ENTRANCE REMOVED, 2026-08-25. Same measured reason as PrivacyHero
+  // and TermsSection: a framer whileInView from `opacity: 0` never runs
+  // under prefers-reduced-motion, so this card was invisible to the reader
+  // who asked for less motion. It simply is now.
   return (
-    <motion.div
-      initial={stillness ? false : { opacity: 0, y: 30 }}
-      whileInView={stillness ? undefined : { opacity: 1, y: 0 }}
-      transition={stillness ? { duration: 0 } : undefined}
-      viewport={{ once: true }}
+    <div
       className="mt-16 p-8 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-purple-500/10 border border-white/20 rounded-2xl text-center"
     >
       <Shield className="text-emerald-400 mx-auto mb-4" size={32} aria-hidden="true" />
@@ -69,6 +66,6 @@ export function PrivacyFooter({ heading, children, closing }: PrivacyFooterProps
           </p>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
