@@ -126,7 +126,7 @@ export function DailiesHall({ puzzles }: Props) {
     }
   }, []);
 
-  // ─── The shelf is still being written ──────────────────────────────────
+  // ─── The shelf has not come through ────────────────────────────────────
   if (!puzzles.length) {
     return (
       <main className="min-h-screen py-12">
@@ -134,7 +134,7 @@ export function DailiesHall({ puzzles }: Props) {
           <h1 className="text-3xl font-bold text-star-dust mb-4">The Dailies</h1>
           {/* shelf.ts returns an empty shelf three ways — no keys (:61), a
               refused read (:82), a thrown one (:84-86). With 140 rows
-              standing, "still being written" is the one cause it is no
+              standing, the old sentence named the one cause it is no
               longer likely to be. */}
           <p className="text-lg text-star-dust/60">
             The shelf has not come through yet. The words are drawn from the

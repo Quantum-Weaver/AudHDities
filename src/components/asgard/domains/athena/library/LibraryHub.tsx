@@ -12,10 +12,10 @@ const SECTIONS = [
   { title: 'The Lessons', description: 'Individual lessons across all domains', href: '/library/lessons', icon: FileText, color: 'text-purple-400', bg: 'bg-purple-500/10' },
   { title: 'The Archive', description: 'Mythology, taxonomy, and ancient wisdom', href: '/library/knowledge', icon: BookOpen, color: 'text-entity-curator', bg: 'bg-entity-curator/10' },
   { title: 'The Honors', description: 'Sigils earned through sovereignty', href: '/library/badges', icon: Award, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
-  // 2026-08-25, refine/athena: "Collect bubbles and earn points" retired.
-  // "earn points" is pointsification vocabulary, refused by name on E4's
-  // column, and it made a hall about a score before you had opened it
-  // (REALM-BUS.md:436-440). The replacement is board ①'s own sentence.
+  // 2026-08-25, refine/athena: the old description here spoke the
+  // pointsification vocabulary refused by name on E4's column, and it made a
+  // hall about a score before you had opened it (REALM-BUS.md:436-440).
+  // The replacement is board ①'s own sentence.
   { title: 'The Floating Stars', description: 'Stars drift past. Pop what catches your eye.', href: '/library/bubbles', icon: Droplets, color: 'text-teal-400', bg: 'bg-teal-500/10' },
   { title: 'The Dailies', description: 'Word puzzles drawn from the Grammar', href: '/library/dailies', icon: Puzzle, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
 ];

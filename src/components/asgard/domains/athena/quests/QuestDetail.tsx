@@ -27,10 +27,10 @@ function readObjectives(objectives: unknown): string[] {
   return objectives.filter((o): o is string => typeof o === 'string');
 }
 
-// THE OBJECTIVES ARE THE DOORS (2026-08-25, refine/athena). `Begin Quest`
-// retired below: it had no onClick, so a vessel pressed it, nothing happened,
-// and the room had told them they failed at something. Nothing replaces it —
-// the objectives become the walk.
+// THE OBJECTIVES ARE THE DOORS (2026-08-25, refine/athena). The primary
+// button that used to sit below retired with this pass: it had no onClick, so
+// a vessel pressed it, nothing happened, and the room had told them they
+// failed at something. Nothing replaces it — the objectives become the walk.
 //
 // The mapping is a PLAIN CONSTANT, read once from the six seeded quests'
 // own strings (docs/sql/008-the-library-first-seeds.sql:154-183). No fuzzy
