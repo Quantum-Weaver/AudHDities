@@ -37,16 +37,22 @@
     .btn-p{background:#6C5CE7;color:#FFFFFF;}
     .btn-o{border:1px solid rgba(224,224,224,.30);color:#E0E0E0;}
     .split{display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+    .tb{width:100%;border-collapse:collapse;font-size:12px;}
+    .tb th{text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);font-weight:600;padding:0 10px 7px 0;
+      border-bottom:1px solid rgba(224,224,224,.12);}
+    .tb td{padding:8px 10px 8px 0;border-bottom:1px solid rgba(224,224,224,.07);
+      color:rgba(224,224,224,.78);vertical-align:top;line-height:1.45;}
   </style>
 </helmet>
 <div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
 
   <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;">
     <span style="font-size:15px;font-weight:700;color:#00B894;">&#9313;</span>
-    <span style="font-size:15px;font-weight:600;">The Tapestry &mdash; the quiet square, and a ware&rsquo;s stall</span>
-    <span class="src">/bazaar/creations &middot; /bazaar/creations/[id] &middot; CreationsGallery &middot; CreationDetail</span>
+    <span style="font-size:15px;font-weight:600;">The Tapestry &mdash; the quiet square, a stall, and KP&rsquo;s tiers</span>
+    <span class="src">/bazaar/creations &middot; /bazaar/creations/[id] &middot; CreationsGallery &middot; CreationDetail &middot; <span style="color:#FDCB6E;">renamed: /bazaar/wares &middot; WaresGallery &middot; WareDetail &middot; new: /bazaar/works/[id]</span></span>
   </div>
-  <p class="rl-b" style="margin:0 0 20px;max-width:820px;">The square carries no prices; the stall speaks plainly with the split beside it. The stall drawn here is <span class="k">KP&rsquo;s own ware</span> &mdash; the first artisan-vessel&rsquo;s first item, at the price he named.</p>
+  <p class="rl-b" style="margin:0 0 20px;max-width:820px;">The square carries no prices; the stall speaks plainly with the split beside it. <span class="k">Works stand in the square beside wares</span>, each card saying which it is, because a work is a made thing in its own right and need never become a ware. The stalls drawn here are <span class="k">KP&rsquo;s own</span> &mdash; the first artisan-vessel&rsquo;s items at the prices he named, and the tiers he asked for, as a recurring ware of his own.</p>
 
   <div style="display:flex;gap:26px;align-items:flex-start;">
 
@@ -73,7 +79,7 @@
             <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px;">
               <div class="card" style="padding:15px 14px;">
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
-                  <span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(224,224,224,.18);border-radius:9999px;padding:2px 8px;color:rgba(224,224,224,.70);">Digital</span>
+                  <span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(224,224,224,.18);border-radius:9999px;padding:2px 8px;color:rgba(224,224,224,.70);">Ware &middot; Digital</span>
                   <span aria-hidden="true" style="font-size:14px;">&#129517;</span>
                 </div>
                 <h3 style="margin:0 0 5px;font-size:14.5px;font-weight:600;">Resonance Compass</h3>
@@ -81,18 +87,29 @@
               </div>
               <div class="card" style="padding:15px 14px;">
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
-                  <span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(224,224,224,.18);border-radius:9999px;padding:2px 8px;color:rgba(224,224,224,.70);">Digital</span>
+                  <span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(224,224,224,.18);border-radius:9999px;padding:2px 8px;color:rgba(224,224,224,.70);">Ware &middot; Digital</span>
                   <span aria-hidden="true" style="font-size:14px;">&#127928;</span>
                 </div>
                 <h3 style="margin:0 0 5px;font-size:14.5px;font-weight:600;">Resonance Sirens</h3>
                 <p style="margin:0 0 9px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.60);">An app someone opens on a hard day.</p>
                 <span style="font-size:11.5px;color:#00B894;">gifted</span>
               </div>
+              <div class="card" style="padding:15px 14px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
+                  <span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(162,155,254,.38);border-radius:9999px;padding:2px 8px;color:rgba(224,224,224,.70);">Work &middot; Performance</span>
+                  <span aria-hidden="true" style="font-size:14px;">&#129514;</span>
+                </div>
+                <h3 style="margin:0 0 5px;font-size:14.5px;font-weight:600;">Knowledge Alchemy</h3>
+                <p style="margin:0 0 9px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.60);">A made thing in its own right. It is not for sale, and it is not waiting to be.</p>
+                <span style="font-size:11.5px;color:#A29BFE;">a work &middot; it has a door of its own</span>
+              </div>
             </div>
-            <p style="margin:13px 0 0;font-size:11.5px;color:rgba(224,224,224,.55);text-align:center;">Two works. That is all of them.</p>
+            <p style="margin:13px 0 0;font-size:11.5px;color:rgba(224,224,224,.55);text-align:center;">Two wares and one work. That is all of them.</p>
           </div>
         </div>
         <p class="rl-b" style="margin-top:9px;">No price on a card, no counter, no badge, no rank, no &ldquo;trending&rdquo;. The one thing a card says about money is when it costs nothing &mdash; and it says <span class="k">gifted</span>, not <span class="src">Free</span>, because <em>free</em> is a price and <em>gifted</em> is a gesture. <span class="k">The list ends, and says so.</span></p>
+        <p class="rl-b" style="margin-top:9px;">Each card also says <span class="k">which kind it is</span> &mdash; a ware is a thing offered, a work is a thing made &mdash; and the kind is the only new word on a card. <span class="k">Knowledge Alchemy is drawn as it would stand published.</span> Today its <span class="src">status</span> is draft, so a visitor sees no works at all; board &#9318; carries that empty state, told without a count.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">This square is the VISITOR&rsquo;s view, and it is the only place <span class="src">status = published</span> rules.</span> KP &#9883;, 2026-08-24: <em>&ldquo;be certain a vessel can view their own works and wares regarless of publish status, so they can edit the items&rdquo;</em>. A maker standing in their own Loom sees <span class="k">every</span> work and ware of theirs &mdash; draft, published and archived alike &mdash; each with its status said plainly and an Edit door beside it. Board &#9315; draws that shelf. Nothing a person made is ever hidden from them by the room that holds it.</p>
       </div>
 
       <div>
@@ -169,6 +186,109 @@
       </div>
 
       <div>
+        <p class="rl-h">KP&rsquo;s stall &mdash; the tiers, one recurring ware per rung</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div style="position:absolute;inset:0;opacity:.3;background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;padding:22px 20px 26px;">
+            <p style="margin:0 0 14px;font-size:12px;color:rgba(224,224,224,.60);">&larr; Return to the Tapestry</p>
+
+            <div class="card" style="padding:22px 20px;">
+
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px;">
+                <span style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(224,224,224,.18);border-radius:9999px;padding:2px 8px;color:rgba(224,224,224,.70);">Ware &middot; Service &middot; each month</span>
+                <span class="src">three rows, one ladder</span>
+              </div>
+
+              <h1 style="margin:0 0 10px;font-size:22px;font-weight:700;">Standing at this loom</h1>
+              <p style="margin:0 0 20px;font-size:13.5px;line-height:1.6;color:rgba(224,224,224,.70);">Standing with the work, month by month. Each rung is a ware at KP&rsquo;s stall like any other &mdash; the same split, the same pledge, the same two verbs &mdash; and it renews until you end it.</p>
+
+              <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:14px;">
+                <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:13px 14px;">
+                  <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+                    <span aria-hidden="true" style="font-size:14px;">&#128367;&#65039;</span>
+                    <span style="font-size:13.5px;font-weight:600;">Supporter</span>
+                    <span style="flex:1;"></span>
+                    <span style="font-size:15px;font-weight:700;color:#22D3EE;">$10.00</span>
+                    <span style="font-size:11px;color:rgba(224,224,224,.60);">each month</span>
+                  </div>
+                  <p style="margin:0 0 7px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.65);">A small steady thing, month by month.</p>
+                  <p style="margin:0;font-size:10.5px;line-height:1.55;color:rgba(224,224,224,.55);font-family:&#39;JetBrains Mono&#39;,Monaco,Consolas,monospace;">fee $1.00 &rarr; $0.30 pool &middot; $0.70 machine &nbsp;&middot;&nbsp; profit $9.00 &rarr; $4.50 pledged &middot; $4.50 to the one contributor</p>
+                </div>
+                <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:13px 14px;">
+                  <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+                    <span aria-hidden="true" style="font-size:14px;">&#128737;&#65039;</span>
+                    <span style="font-size:13.5px;font-weight:600;">Guardian</span>
+                    <span style="flex:1;"></span>
+                    <span style="font-size:15px;font-weight:700;color:#22D3EE;">$25.00</span>
+                    <span style="font-size:11px;color:rgba(224,224,224,.60);">each month</span>
+                  </div>
+                  <p style="margin:0 0 7px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.65);">A little more, in a month when there is a little more.</p>
+                  <p style="margin:0;font-size:10.5px;line-height:1.55;color:rgba(224,224,224,.55);font-family:&#39;JetBrains Mono&#39;,Monaco,Consolas,monospace;">fee $2.50 &rarr; $0.75 pool &middot; $1.75 machine &nbsp;&middot;&nbsp; profit $22.50 &rarr; $11.25 pledged &middot; $11.25 to the one contributor</p>
+                </div>
+                <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:13px 14px;">
+                  <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+                    <span aria-hidden="true" style="font-size:14px;">&#127807;</span>
+                    <span style="font-size:13.5px;font-weight:600;">Steward</span>
+                    <span style="flex:1;"></span>
+                    <span style="font-size:15px;font-weight:700;color:#22D3EE;">$50.00</span>
+                    <span style="font-size:11px;color:rgba(224,224,224,.60);">each month</span>
+                  </div>
+                  <p style="margin:0 0 7px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.65);">For a month with room to spare, and no month after it is owed.</p>
+                  <p style="margin:0;font-size:10.5px;line-height:1.55;color:rgba(224,224,224,.55);font-family:&#39;JetBrains Mono&#39;,Monaco,Consolas,monospace;">fee $5.00 &rarr; $1.50 pool &middot; $3.50 machine &nbsp;&middot;&nbsp; profit $45.00 &rarr; $22.50 pledged &middot; $22.50 to the one contributor</p>
+                </div>
+                <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:13px 14px;">
+                  <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+                    <span aria-hidden="true" style="font-size:14px;">&#128302;</span>
+                    <span style="font-size:13.5px;font-weight:600;">Visionary</span>
+                    <span style="flex:1;"></span>
+                    <span style="font-size:15px;font-weight:700;color:#22D3EE;">$100.00</span>
+                    <span style="font-size:11px;color:rgba(224,224,224,.60);">each month</span>
+                  </div>
+                  <p style="margin:0 0 7px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.65);">For someone who wants the long build to have a floor under it.</p>
+                  <p style="margin:0;font-size:10.5px;line-height:1.55;color:rgba(224,224,224,.55);font-family:&#39;JetBrains Mono&#39;,Monaco,Consolas,monospace;">fee $10.00 &rarr; $3.00 pool &middot; $7.00 machine &nbsp;&middot;&nbsp; profit $90.00 &rarr; $45.00 pledged &middot; $45.00 to the one contributor</p>
+                </div>
+                <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:13px 14px;">
+                  <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+                    <span aria-hidden="true" style="font-size:14px;">&#128081;</span>
+                    <span style="font-size:13.5px;font-weight:600;">Sovereign</span>
+                    <span style="flex:1;"></span>
+                    <span style="font-size:15px;font-weight:700;color:#22D3EE;">$250.00</span>
+                    <span style="font-size:11px;color:rgba(224,224,224,.60);">each month</span>
+                  </div>
+                  <p style="margin:0 0 7px;font-size:12px;line-height:1.45;color:rgba(224,224,224,.65);">The largest rung in the set, here because the set has one.</p>
+                  <p style="margin:0;font-size:10.5px;line-height:1.55;color:rgba(224,224,224,.55);font-family:&#39;JetBrains Mono&#39;,Monaco,Consolas,monospace;">fee $25.00 &rarr; $7.50 pool &middot; $17.50 machine &nbsp;&middot;&nbsp; profit $225.00 &rarr; $112.50 pledged &middot; $112.50 to the one contributor</p>
+                </div>
+              </div>
+              <p style="margin:0 0 14px;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.62);text-wrap:pretty;"><span class="k">No rung buys anything another does not.</span> There are no perks, no badges, no early access and no name on a wall &mdash; the only difference between the five is the amount. You can move between them or stop whenever you like.</p>
+              <p style="margin:0 0 20px;font-size:11px;color:rgba(224,224,224,.58);text-wrap:pretty;"><span class="k">No rung is marked popular, recommended, or best value</span>, and none is drawn larger or brighter than the others &mdash; there is no ladder to climb here, only an amount a person can hold. The plate below is drawn at Supporter because a plate has to show one price, not because that rung is the one meant.</p>
+
+              <p class="rl-h" style="margin-bottom:10px;">Price Breakdown &mdash; the Supporter rung, and every month it renews</p>
+              <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:14px;">
+                <div class="split"><span style="color:rgba(224,224,224,.60);">Subtotal</span><span style="font-weight:500;">$10.00</span></div>
+                <div class="split"><span style="color:rgba(224,224,224,.60);">Platform fee (10%)</span><span style="color:rgba(224,224,224,.70);">$1.00</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; 30% to the residual pool</span><span style="color:#A29BFE;">$0.30</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; 70% funds the machine</span><span style="color:rgba(224,224,224,.70);">$0.70</span></div>
+                <div class="split" style="padding-bottom:9px;border-bottom:1px solid rgba(224,224,224,.10);"><span style="color:rgba(224,224,224,.60);">Artisan profit (90%)</span><span style="color:#00B894;font-weight:500;">$9.00</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; Pledged 50% to the residual pool</span><span style="color:#A29BFE;">$4.50</span></div>
+                <div class="split" style="font-size:12px;"><span style="color:rgba(224,224,224,.55);">&rarr; This ware&rsquo;s contributors, equally</span><span style="color:#22D3EE;">$4.50</span></div>
+                <div class="split" style="padding-top:11px;border-top:1px solid rgba(224,224,224,.20);"><span style="font-weight:700;">Total</span><span style="font-size:19px;font-weight:700;">$10.00</span></div>
+              </div>
+              <p style="margin:0 0 20px;font-size:11px;color:rgba(224,224,224,.60);text-align:center;text-wrap:pretty;">Half this ware&rsquo;s profit is pledged to the residual pool, shared by every artisan; the rest divides equally among this ware&rsquo;s contributors. <span class="k">One contributor here</span> &mdash; nobody stands on a ware unless they are named on it.</p>
+
+              <div style="display:flex;gap:11px;align-items:center;">
+                <span class="btn btn-p">Stand with it &mdash; $10.00 each month</span>
+                <span class="btn btn-o" style="border:none;">Back</span>
+              </div>
+              <p style="margin:13px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);text-wrap:pretty;">It renews each month until you end it, and ending it takes one press. Nothing is charged before a renewal and nothing is charged after it ends.</p>
+
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Every rung balances at two decimals, and not one of the five leaves an odd cent.</span> 1.00 + 9.00 = 10.00 &middot; 2.50 + 22.50 = 25.00 &middot; 5.00 + 45.00 = 50.00 &middot; 10.00 + 90.00 = 100.00 &middot; 25.00 + 225.00 = 250.00; each fee splits 30/70 exactly and each profit halves exactly at the pledge. <span class="k">THE ODD CENT does not arise anywhere in this set</span> &mdash; it remains the build&rsquo;s open question for prices like $1.11 and $3.33, and it is not answered here by having avoided it.</p>
+        <p class="rl-b" style="margin-top:9px;">At the standing defaults instead (pledge 0 &middot; covenant 0) the same $10.00 would leave <span class="k">$9.00 whole</span> to the one contributor. KP&rsquo;s own chain at 50 and 50, rung by rung: $4.50 / $11.25 / $22.50 / $45.00 / $112.50 pledged to the residual pool, the same again as their share, and half of that share going on to the covenant pool &mdash; $2.25 &middot; $5.63 &middot; $11.25 &middot; $22.50 &middot; $56.25 &mdash; with the remainder theirs. <span class="k">The covenant is not drawn on the plate</span>, because it is not the buyer&rsquo;s business and it is not on a one-time sale&rsquo;s plate either. <em>($11.25 halves to $5.625; the Guardian rung is the one place in the set where a half-cent appears, and it appears in the covenant step, not the price &mdash; the same open build question, named where it lands.)</em></p>
+      </div>
+
+      <div>
         <p class="rl-h">The gifted stall &mdash; and the two honest ends</p>
         <div style="display:flex;gap:12px;align-items:stretch;">
           <div class="card" style="flex:1;padding:16px 15px;">
@@ -210,6 +330,35 @@
         <p class="src" style="margin:8px 0 14px;">KP &#9883; 2026-08-24, verbatim &middot; PLAN &sect;5. So the stall drawn is <span class="k">not a platform store and not a special case</span> &mdash; it is the ordinary path, walked first by the vessel who built it. The method these five apps get is the method every artisan gets.</p>
         <p class="q">&ldquo;of what is in the release-current folder at this time [&hellip;] are all ready for others to access and pricing marked in the base, but i also know it so i included it.&rdquo;</p>
         <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept &middot; PLAN &sect;5. The five, at his prices: bubbles $2.22 &middot; <span class="k">compass $3.33</span> &middot; echoes free &middot; lantern $1.11 &middot; <span class="k">sirens free</span>. The two drawn here are one paid and one gifted, so both registers stand on one board.</p>
+        <p class="q" style="margin-top:14px;">&ldquo;retire the donate and create subscription tiers for me rather than the platform, and  i will still have my covenant set to 50%. the donations tab was before we had a built sanctuary and had different outlooks.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spacing kept. To the lean <em>the tiers live at your stall in the Bazaar as a recurring ware</em>, KP &#9883;: <span class="k">&ldquo;yes, this is the ask.&rdquo;</span> So the tiers are <span class="k">KP&rsquo;s ware, at KP&rsquo;s stall</span> &mdash; the same road a $3.33 compass walks, and each renewal a sale.</p>
+        <p class="q" style="margin-top:14px;">&ldquo;i also need works to be visible not just wares&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, the same breath. A <span class="src">work</span> is a made thing in its own right and <span class="k">may never become a ware</span>. The square shows both, each card says which it is, and a work gets a door of its own.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The tiers &mdash; one ware row per rung</p>
+        <p class="rl-b" style="margin-bottom:9px;">Drawn as <span class="k">three <span class="src">wares</span> rows, one per rung</span> &mdash; each with its own price, its own Stripe Price, its own <span class="src">residual_pool_percent = 50</span>, shown together at the stall as one ladder. The alternative &mdash; one ware carrying several prices &mdash; is drawn and set down on page 2.</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The base holds one price per row.</span> <span class="src">wares.price</span> is a single nullable number and <span class="src">pricing_model</span> a single enum (<span class="src">database.types.ts:6561&ndash;6562</span>). A rung is a different offer at a different price, not another body of the same offer &mdash; so it is a different row, and KP&rsquo;s <em>one ware per app carrying all its bodies</em> ruling is left exactly as it stands.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The pledge is per row, and it is 50 on each.</span> <span class="src">wares.residual_pool_percent</span> belongs to the ware, so three rows carry three 50s &mdash; KP&rsquo;s own standing setting on their own wares, unchanged by the rung.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Nothing in the base says <em>recurring</em> yet.</span> <span class="src">pricing_model</span> is <span class="src">free &middot; fixed &middot; pay_what_you_want &middot; patronage_only</span> (<span class="src">database.types.ts:6876</span>, and the runtime list at <span class="src">:7143</span>) &mdash; no subscription value, and no interval column on <span class="src">wares</span> at all. <span class="src">ware_type</span> is <span class="src">physical &middot; digital &middot; service</span> (<span class="src">:6914</span>), and <span class="k">service</span> is the honest fit for a rung today. The whole gap is named on board &#9317;.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The rungs are ruled, and they come from the door being retired.</span> KP &#9883;, 2026-08-24: <em>&ldquo;use the same tiers from the &ldquo;donate&rdquo; for the subscription tiers (or 3 of the set) names and levels were fine&rdquo;</em>, then all five as the set stands. The set is <span class="src">domains/hephaestus/donations/DonationTiers.tsx:15&ndash;21</span>: Supporter $10 &#128367;&#65039; &middot; Guardian $25 &#128737;&#65039; &middot; Steward $50 &#127807; &middot; Visionary $100 &#128302; &middot; Sovereign $250 &#128081;. <span class="k">Names, amounts and icons carry over; the descriptions do not</span> &mdash; those were the platform speaking about itself, and one of them says <em>creator</em>, a word this canvas has just retired.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The unused enum is now a thing to retire, not a thing to obey.</span> <span class="src">subscription_tier</span> = <span class="src">community &middot; ally &middot; council &middot; corporate</span> (<span class="src">database.types.ts:6905</span>, list at <span class="src">:7174</span>) is a four-name ladder no column anywhere uses, and it is <em>not</em> the ruled set. Named for the DRAFT SQL as a drop, so two ladders never stand in one base.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The tiers are not a platform product.</span> They are one artisan&rsquo;s recurring ware at one artisan&rsquo;s stall, which is why they are drawn on this board and not on a page of their own. The platform takes its 10% from them exactly as from a $3.33 compass, and 30% of that returns to the pool exactly as from a $3.33 compass.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Works on the street &mdash; what changes, and what does not</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Today a work is only ever someone&rsquo;s ancestor.</span> The square fetches <span class="src">wares</span> alone (<span class="src">CreationsGallery.tsx:38&ndash;46</span>); the one place in the realm that reads <span class="src">works</span> is a weaver&rsquo;s room, six at a time (<span class="src">CreatorDetail.tsx:52</span>), and those cards link nowhere (<span class="src">:163&ndash;177</span>). There is no works gallery and no work page. The door is already built: <span class="src">/api/generated/hermes-social/works</span>, GET with filters, live.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The square reads both, in one list.</span> Two fetches at <span class="src">status=published</span>, merged and ordered <span class="src">created_at.desc</span>; the type filter gains the six <span class="src">work_type</span> values beside the three <span class="src">ware_type</span> ones. Neither table carries a kind column and neither should &mdash; <span class="k">the square supplies the kind at merge time</span>, since it already knows which fetch a row came from. One square, because a person walking a bazaar is not sorting a database.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">A work gets a door of its own</span> &mdash; <span class="src">/bazaar/works/[id]</span>, drawn on board &#9318;. It carries the work, its participants (<span class="src">work_participants</span>, the same shape the Contributions room reads), its bodies where a ware descends from it, and its streaming door where <span class="src">works.streaming_url</span> is set. <span class="k">A work with no ware says so plainly and asks for nothing.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The Loom is untouched.</span> Board &#9315; still gives a work a body and a price, and that road stands exactly as drawn. What changes is only that a work no longer has to become a ware to be seen.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The honest count today is none.</span> One <span class="src">works</span> row exists &mdash; Knowledge Alchemy &#129514;, <span class="src">work_type</span> performance, a <span class="src">streaming_url</span> on the row &mdash; and its <span class="src">status</span> is draft <em>(as the conductor reports the base this hour; no lamp reads the live base)</em>. So <span class="src">status = published</span> shows a visitor nothing at all. The square must say that in the house&rsquo;s own voice and <span class="k">never with a number</span>. Board &#9318; carries the sentence.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One column already waiting, named not designed.</span> <span class="src">exchanges.work_id</span> exists (<span class="src">database.types.ts:2073</span>) and nothing writes it; the session route already knows how to name a kept <span class="src">work</span> (<span class="src">session/[id]/route.ts:67</span>), while the checkout route reads <span class="src">wares</span> only (<span class="src">checkout/route.ts:52</span>). Whether a work is ever exchanged directly is not this ruling and is not drawn here.</p></div>
+        </div>
       </div>
 
       <div>
@@ -266,6 +415,14 @@
           <p class="rl-b"><span class="k">REWRITE 8</span> &middot; <span class="src">CreationDetail.tsx:106&ndash;110</span><br><span class="old">&ldquo;Available for Android &middot; PC&rdquo;</span> &rarr; <span class="new">&ldquo;What you receive&rdquo;</span> + the three real bodies, each with its filename and size, and beneath them <span class="new">&ldquo;All three come with it. You choose when you have it &mdash; not now, and not once.&rdquo;</span> That last sentence is the whole difference between a store and this: the choice of body is not a purchase decision.</p>
           <p class="rl-b"><span class="k">NEW</span> &mdash; <span class="new">&ldquo;Two works. That is all of them.&rdquo;</span> A finite list saying it is finite. No census line; the state is not written. It is the opposite of the feed by one sentence.</p>
           <p class="rl-b"><span class="k">NEW</span> &mdash; the gifted plate: <span class="new">&ldquo;Gifted&rdquo;</span> / <span class="new">&ldquo;No exchange. It is yours.&rdquo;</span> Today a free ware at the stall shows &ldquo;Freely given&rdquo; and a <em>Receive</em> button with no wire behind it (<span class="src">CreationDetail.tsx:148&ndash;149</span>) &mdash; board &#9317; gives it one.</p>
+          <p class="rl-b"><span class="k">REWRITE 23</span> &middot; <span class="src">CreationsGallery.tsx:97</span><br><span class="old">&ldquo;Discover works from sovereign souls&rdquo;</span> &rarr; <span class="new">&ldquo;What sovereign souls have made, and what they offer.&rdquo;</span> &mdash; with works now standing in the square in their own right, the room&rsquo;s loose use of <em>works</em> for wares becomes the one ambiguous word on the page. The new line names both kinds without teaching a vocabulary lesson. <span class="k">Proposed</span> &mdash; the old line is good and KP may prefer to keep it and let the card chips carry the distinction.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the kind chip: <span class="new">&ldquo;Ware &middot; Digital&rdquo;</span> &middot; <span class="new">&ldquo;Work &middot; Performance&rdquo;</span>. One pill, not two &mdash; the kind joins the type rather than adding a second badge to a card whose whole virtue is quiet. No card gains anything else.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the work card&rsquo;s own line: <span class="new">&ldquo;a work &middot; it has a door of its own&rdquo;</span>, which sits where a ware card would say <em>gifted</em>. A work is not free and is not priced; it is a different thing, and the card says so instead of leaving a blank where money would be.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; the tiers. <span class="new">&ldquo;Stand with it &mdash; $10.00 each month&rdquo;</span> &middot; <span class="new">&ldquo;It renews each month until you end it, and ending it takes one press. Nothing is charged before a renewal and nothing is charged after it ends.&rdquo;</span> The realm&rsquo;s verbs are <em>Receive</em> and <em>Bring home</em>; neither fits a thing you keep choosing, so the recurring ware gets its own verb in the same register &mdash; what a person does, not what a machine does. <span class="k">Never <em>Subscribe</em>, never <em>Support</em>, never <em>Become a member</em>.</span></p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; <span class="new">&ldquo;No rung is marked popular, recommended, or best value&rdquo;</span>, and none is drawn larger or brighter. The highlighted middle column is the oldest pricing-page trick there is, and it is an anchor rather than information. All five rungs are drawn at the same weight; the plate is at Supporter only because a plate has to show one price, and the caption says exactly that.</p>
+          <p class="rl-b"><span class="k">NEW &mdash; the five rung lines, drawn copy KP may strike.</span> <span class="new">&ldquo;A small steady thing, month by month.&rdquo;</span> &middot; <span class="new">&ldquo;A little more, in a month when there is a little more.&rdquo;</span> &middot; <span class="new">&ldquo;For a month with room to spare, and no month after it is owed.&rdquo;</span> &middot; <span class="new">&ldquo;For someone who wants the long build to have a floor under it.&rdquo;</span> &middot; <span class="new">&ldquo;The largest rung in the set, here because the set has one.&rdquo;</span> &mdash; the donate set&rsquo;s own descriptions (<span class="src">DonationTiers.tsx:16&ndash;20</span>) were <span class="k">deliberately not reused</span>: they are the platform describing its own budget (<em>&ldquo;Helps keep the lights on&rdquo;</em>, <em>&ldquo;Funds accessibility tools&rdquo;</em>), which is not what a ware at an artisan&rsquo;s stall is, and one of them says <em>creator</em>. Also NEW and strikeable: the set&rsquo;s heading <span class="new">&ldquo;Standing at this loom&rdquo;</span>.</p>
+          <p class="rl-b"><span class="k">NEW</span> &mdash; <span class="new">&ldquo;No rung buys anything another does not. There are no perks, no badges, no early access and no name on a wall &mdash; the only difference between the five is the amount.&rdquo;</span> Said once, plainly, because a ladder with no rungs of privilege is unusual enough that its absence has to be stated or it reads as an omission. <span class="k">If KP wants a rung to carry something, that is his to rule and this line is where it changes.</span></p>
+          <p class="rl-b"><span class="k">THE WORDS &mdash; KP &#9883; 2026-08-24.</span> <em>&ldquo;wording is mixed. vendor should be merchant, creator should be artisan, creations should be wares&hellip;&rdquo;</em>. Every line of drawn copy on this board already used the ruled words; what carried the old ones was the <em>ground</em> &mdash; route paths and component filenames as they stand on disk. Those are cited unchanged, with the rename printed beside them for the spec. The full list is on board &#9314;.</p>
         </div>
       </div>
 

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--sanctuary-green:#00B894;--hearth-gold:#FDCB6E;--error:#E17055;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;} a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 4px;">
+    <span style="font-size:13px;font-weight:700;color:#E17055;">&#10005;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; one ware carrying several prices</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 18px;">One <span class="src">wares</span> row for the tiers, with the rungs held inside it. The shape every pricing page implies.</p>
+
+  <div class="card" style="padding:18px 16px;margin-bottom:18px;opacity:.72;">
+    <p class="rl-h" style="margin-bottom:12px;">What it looked like</p>
+    <p style="margin:0 0 4px;font-size:15px;font-weight:600;">Standing at this loom</p>
+    <p style="margin:0 0 12px;font-size:11.5px;color:rgba(224,224,224,.60);font-family:'JetBrains Mono',Monaco,Consolas,monospace;">one row &middot; price: null &middot; metadata.rungs: [ &hellip; five of them &hellip; ]</p>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(34,211,238,.45);background:rgba(34,211,238,.08);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid #22D3EE;flex:none;display:flex;align-items:center;justify-content:center;"><span style="width:7px;height:7px;border-radius:9999px;background:#22D3EE;"></span></span>
+        <span aria-hidden="true" style="font-size:13px;flex:none;">&#128367;&#65039;</span>
+        <span style="font-size:12.5px;flex:1;">Supporter</span>
+        <span style="font-size:12.5px;">$10.00 / mo</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid rgba(224,224,224,.35);flex:none;"></span>
+        <span aria-hidden="true" style="font-size:13px;flex:none;">&#128737;&#65039;</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);flex:1;">Guardian</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);">$25.00 / mo</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid rgba(224,224,224,.35);flex:none;"></span>
+        <span aria-hidden="true" style="font-size:13px;flex:none;">&#127807;</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);flex:1;">Steward</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);">$50.00 / mo</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid rgba(224,224,224,.35);flex:none;"></span>
+        <span aria-hidden="true" style="font-size:13px;flex:none;">&#128302;</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);flex:1;">Visionary</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);">$100.00 / mo</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid rgba(224,224,224,.12);border-radius:9px;padding:10px 12px;">
+        <span style="width:14px;height:14px;border-radius:9999px;border:1.5px solid rgba(224,224,224,.35);flex:none;"></span>
+        <span aria-hidden="true" style="font-size:13px;flex:none;">&#128081;</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);flex:1;">Sovereign</span>
+        <span style="font-size:12.5px;color:rgba(224,224,224,.70);">$250.00 / mo</span>
+      </div>
+    </div>
+    <div style="margin-top:13px;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:11px;background:#6C5CE7;color:#FFFFFF;font-size:14px;">Stand with it &mdash; $10.00 each month</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div>
+      <p class="rl-h">The case for it, honestly</p>
+      <p class="rl-b">It is one thing at the stall, which is what a vessel actually experiences &mdash; nobody stands in a bazaar thinking &ldquo;these are three products&rdquo;. It keeps the Loom to one form instead of three near-identical ones, keeps one <span class="src">slug</span> and one description in one place, and makes changing the ladder a single edit instead of three that can fall out of step. It also means a rung can be renamed without breaking a link somebody saved. <span class="k">That last one is a real virtue and it is why this was drawn at all.</span></p>
+    </div>
+    <div>
+      <p class="rl-h">The ground that declined it</p>
+      <p class="rl-b" style="margin-bottom:10px;"><span class="k">The base has no column for it.</span> <span class="src">wares.price</span> is one nullable number and <span class="src">pricing_model</span> one enum (<span class="src">database.types.ts:6561&ndash;6562</span>). Several prices on one row can only live in <span class="src">metadata</span>, which is <span class="src">Json | null</span> &mdash; untyped, unvalidated, unconstrained. <span class="k">That puts money in the one column the base cannot check.</span></p>
+      <p class="rl-b" style="margin-bottom:10px;">And the split code would have to read it there. The whole model &mdash; the 10% fee, its own 30/70, the ware&rsquo;s pledge, the equal division &mdash; runs off columns the base understands. A price the base cannot see is a price the ledger cannot prove, and a public ledger is the thing this house offers instead of a promise.</p>
+      <p class="rl-b" style="margin-bottom:10px;"><span class="k">The pledge is per row, and it is a per-row decision.</span> <span class="src">wares.residual_pool_percent</span> belongs to the ware. Five rungs on one row can carry exactly one pledge between them. Today that is harmless &mdash; KP&rsquo;s is 50 on all of them &mdash; but it forecloses a choice the model deliberately leaves to the artisan, on the one ware where the artisan is the person writing the model.</p>
+      <p class="rl-b">Beneath the schema, the reason it is right. <span class="k">A rung is not a body.</span> KP&rsquo;s ruling of the same day &mdash; <em>one <span class="src">works</span> row + one <span class="src">wares</span> row per app carrying all its bodies</em> &mdash; is about the same offer reaching a person three ways. A rung is a <em>different offer at a different price</em>, and the base already has a word for that: another ware. Stretching the bodies ruling to cover prices would be reading it as &ldquo;one row per thing a vessel might click&rdquo;, which is not what it says.</p>
+    </div>
+    <div>
+      <p class="rl-h">What was kept from it</p>
+      <p class="rl-b">The stall. <span class="k">Five rows, one ladder</span> &mdash; board &#9313; draws the rungs together on one page, under one name and one description, because the vessel's experience of a ladder should not be dictated by how many rows hold it. The base's shape is the base's business.</p>
+      <p class="rl-b" style="margin-top:9px;"><span class="k">The rungs themselves were ruled after this board was drawn</span> and it did not change the verdict: KP &#9883; 2026-08-24 carried the whole donate set over &mdash; Supporter $10 &#128367;&#65039; &middot; Guardian $25 &#128737;&#65039; &middot; Steward $50 &#127807; &middot; Visionary $100 &#128302; &middot; Sovereign $250 &#128081; (<span class="src">DonationTiers.tsx:15&ndash;21</span>). Five rungs make the case for one row <em>stronger</em> in a designer's terms and weaker in the base's: five prices in an untyped <span class="src">metadata</span> blob is five prices the ledger cannot prove instead of three.</p>
+      <p class="rl-b" style="margin-top:9px;">Its refusal also surfaced the schema gap that board &#9317; now carries. Trying to write the tiers as one row is what made it plain that <span class="src">pricing_model</span> has no recurring value at all (<span class="src">database.types.ts:6876</span>) &mdash; one row or three, <span class="k">the base cannot yet say &ldquo;every month&rdquo;</span>, and that is a draft for KP's hand rather than a design decision.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -42,6 +42,9 @@
     .ruled{display:inline-block;font-size:9.5px;letter-spacing:.14em;
       text-transform:uppercase;color:#00E6C3;border:1px solid rgba(0,230,195,.45);
       border-radius:9999px;padding:1px 8px;font-weight:600;}
+    .built{display:inline-block;font-size:9.5px;letter-spacing:.14em;
+      text-transform:uppercase;color:#00B894;border:1px solid rgba(0,184,148,.45);
+      border-radius:9999px;padding:1px 8px;font-weight:600;}
     .hall{background:#1A1F35;border:1px solid rgba(224,224,224,.10);
       border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;}
     .inv{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
@@ -57,81 +60,467 @@
       padding:0 10px 7px 0;border-bottom:1px solid rgba(224,224,224,.12);}
     .tbl td{padding:8px 10px 8px 0;vertical-align:top;
       color:rgba(224,224,224,.78);border-bottom:1px solid rgba(224,224,224,.06);}
+    .tile{width:44px;height:44px;border-radius:9px;background:rgba(34,211,238,.10);
+      border:1px solid rgba(34,211,238,.20);display:flex;align-items:center;
+      justify-content:center;font-size:18px;font-weight:600;color:var(--star-dust);}
+    .card{border:1px solid rgba(224,224,224,.10);background:rgba(224,224,224,.03);
+      border-radius:11px;padding:13px;display:flex;flex-direction:column;gap:9px;}
+    .form{border:1px solid rgba(224,224,224,.12);border-radius:13px;
+      background:#1A1F35;padding:17px 18px;display:flex;flex-direction:column;gap:12px;}
+    .code{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:10.5px;
+      line-height:1.65;color:rgba(224,224,224,.78);background:rgba(12,15,29,.72);
+      border:1px solid rgba(224,224,224,.09);border-radius:8px;padding:10px 11px;
+      white-space:pre-wrap;margin:0;}
+    .fix{border-left:2px solid rgba(225,112,85,.60);padding-left:12px;
+      font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .rule{font-size:12px;line-height:1.55;color:rgba(253,203,110,.92);margin:0;}
   </style>
 </helmet>
 <div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
 
-  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 20px;">
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px;flex-wrap:wrap;">
     <span style="font-size:15px;font-weight:700;color:#00E6C3;">&#9318;</span>
-    <span style="font-size:15px;font-weight:600;">The Dailies &mdash; the door that stays shut</span>
-    <span class="src">zero rooms &middot; nothing drawn on this canvas</span>
+    <span style="font-size:15px;font-weight:600;">The Dailies &mdash; the seventh hall, as built, and the three forms to come</span>
+    <span class="src"><span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/library/dailies</span> &middot; DailiesHall.tsx 320 lines &middot; shelf.ts 92 &middot; useDailies.ts 110</span>
+  </div>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px;">
+    <span class="chip">140 puzzles standing</span>
+    <span class="chip">1 form of 4 built</span>
+    <span class="chip">0 rows about any vessel</span>
+    <span class="chip">no date column, by design</span>
   </div>
 
   <div style="display:flex;gap:26px;align-items:flex-start;">
 
+    <!-- ══════════════ LEFT: what is drawn ══════════════ -->
     <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
 
-      <div class="second" style="padding:34px 30px;text-align:center;">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FDCB6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:14px;"><path d="M4 21V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v16"></path><path d="M2 21h18"></path><circle cx="13.5" cy="12" r="1"></circle></svg>
-        <p style="margin:0 0 10px;font-size:17px;font-weight:700;">KP&rsquo;s own session, later</p>
-        <p style="margin:0 auto 16px;max-width:330px;font-size:12.5px;color:rgba(224,224,224,.82);text-wrap:pretty;">Crossword &middot; word find &middot; word scramble &middot; sudoku &mdash; the comfort blend, in his own words and his own roster.</p>
-        <p style="margin:0 auto;max-width:330px;font-size:12px;color:rgba(224,224,224,.78);text-wrap:pretty;"><span class="k">No room, no screen, no mechanic and no line of copy is drawn on this canvas.</span> Not a wireframe, not a placeholder, not a shape of one. The board exists so the door is on the map and nobody walks through it early.</p>
+      <div style="border:1px solid rgba(0,184,148,.30);border-radius:12px;background:rgba(0,184,148,.05);padding:16px 18px;">
+        <p style="margin:0 0 8px;font-size:13px;font-weight:600;">This board was drawn empty on purpose, and it was true for one day.</p>
+        <p class="rl-b" style="margin-bottom:8px;">On 2026-08-24 the seventh hall was reserved and nothing was designed here &mdash; not a wireframe, not a placeholder. <span class="k">KP opened that session the same day.</span> The hall was built, <span class="src">docs/sql/022-the-dailies-DRAFT.sql</span> was run by his own hand, and the public door now answers. <span class="k">So the empty board became false by omission</span>, and this is the redraw.</p>
+        <p class="rl-b">Everything below the fold line is drawn <span class="k">from the code, not from imagination</span>: every element carries the file and line it was read from. Everything after it is a <span class="k">frame</span> for a form that does not exist yet, and says so in its own words.</p>
       </div>
 
       <div>
-        <p class="rl-h" style="margin-bottom:9px;">The word that closed it</p>
-        <p class="q">&ldquo;the athena dailies, i will open a fresh session now to build once we are to that spot.&rdquo;</p>
-        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. <span class="k">Ruled.</span> The dailies are his build, in a fresh session, when the line reaches that spot. No hand in this plan designs them; the one open question about them &mdash; where the words come from &mdash; rides with that session and is left unanswered here on purpose.</p>
+        <p class="rl-h" style="margin-bottom:9px;">The shelf, as built <span class="built" style="margin-left:6px;">built</span></p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:20px 18px 22px;">
+
+            <div style="text-align:center;margin-bottom:16px;">
+              <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(34,211,238,.10);padding:5px 13px;border-radius:9999px;margin-bottom:10px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>
+                <span style="font-size:11.5px;color:#22D3EE;">The Dailies</span>
+              </span>
+              <h2 style="margin:0 0 8px;font-size:19px;font-weight:700;">Word Scramble</h2>
+              <p style="margin:0 auto 13px;max-width:330px;font-size:12px;color:rgba(224,224,224,.70);text-wrap:pretty;">One word disarranged, its meaning standing as the hint. Every word is drawn from the Resonance Grammar, and every clue is its own definition.</p>
+              <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(34,211,238,.20);background:rgba(34,211,238,.10);border-radius:8px;padding:6px 15px;font-size:12px;color:#22D3EE;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m18 14 4 4-4 4"></path><path d="m18 2 4 4-4 4"></path><path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22"></path><path d="M2 6h1.972a4 4 0 0 1 3.6 2.2"></path><path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45"></path></svg>
+                Hand me one
+              </span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;">
+              <div class="card"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">💿</span><span style="font-size:10px;color:rgba(224,224,224,.70);">5 letters</span></div><p style="margin:0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.78);">A bound set of works meant to be met together.</p></div>
+              <div class="card"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:10px;color:rgba(224,224,224,.70);">9 letters</span></div><p style="margin:0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.78);">The ordered register of works.</p></div>
+              <div class="card"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">📚</span><span style="font-size:10px;color:rgba(224,224,224,.70);">6 letters</span></div><p style="margin:0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.78);">A body of collected text taken as material to study.</p></div>
+              <div class="card"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">📽️</span><span style="font-size:10px;color:rgba(224,224,224,.70);">4 letters</span></div><p style="margin:0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.78);">A full ordered set of cards, and a flat raised surface.</p></div>
+              <div class="card"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">🍞</span><span style="font-size:10px;color:rgba(224,224,224,.70);">5 letters</span></div><p style="margin:0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.78);">A brief notice that appears, says one thing, and leaves on its own.</p></div>
+              <div class="card"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:12px;">🗣️</span><span style="font-size:10px;color:rgba(224,224,224,.70);">4 letters</span></div><p style="margin:0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.78);">To say to another. Also a small sign that gives something away.</p></div>
+            </div>
+
+            <p class="src" style="margin:11px 0 0;text-align:center;">six of one hundred and forty &middot; every card identical &middot; no mark, no tick, no tally</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Drawn from <span class="src">DailiesHall.tsx:256&ndash;301</span>, with real rows read from the live table. The header is <span class="src">:259&ndash;278</span>, the grid <span class="src">:280&ndash;301</span>. <span class="k">The shelf shows a clue and a letter count and nothing else</span> &mdash; the comment above it is the reason, and it is the register's own sentence: <em>&ldquo;Every puzzle looks exactly like every other puzzle, because none of them is owed&rdquo;</em> (<span class="src">:254&ndash;255</span>). The letter count is extent at the ask, not remainder.</p>
       </div>
 
       <div>
-        <p class="rl-h" style="margin-bottom:9px;">The roster, in his own words</p>
-        <p class="q">&ldquo;we also want to offer crossword, word find, word scramble, even sudoku if possible&hellip; word games were my warm place, but i like words, not everyone is a poet, so i think we find a way to blend all the comfort game concepts.&rdquo;</p>
-        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim, spelling kept. Carried here whole and untouched, because it is the brief for that sitting and this canvas is not the place it gets interpreted.</p>
+        <p class="rl-h" style="margin-bottom:9px;">The foot of the shelf, which appears only after something has been met <span class="built" style="margin-left:6px;">built</span></p>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:11px;background:rgba(224,224,224,.02);padding:16px;text-align:center;">
+          <p style="margin:0 0 5px;font-size:12px;color:rgba(224,224,224,.70);text-decoration:underline;">Forget which ones I have met</p>
+          <p style="margin:0;font-size:11px;color:rgba(224,224,224,.70);">Kept on this device only. Never sent anywhere, never counted.</p>
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="src">:303&ndash;316</span>, gated on <span class="src">ready &amp;&amp; met.length &gt; 0</span>. <span class="k">The purge is the only control in the hall that changes anything the house keeps</span>, and what it clears is one browser key (<span class="src">useDailies.ts:38</span> &middot; <span class="src">:104&ndash;107</span>). The sentence beneath it is the whole storage contract, said to the vessel in the vessel's own words. Contrast fix below.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">One puzzle, in play <span class="built" style="margin-left:6px;">built</span></p>
+        <div style="border:1px solid rgba(224,224,224,.10);border-radius:14px;background:rgba(224,224,224,.03);padding:22px 20px;">
+
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:20px;">
+            <span class="tile">P</span><span class="tile">R</span><span class="tile">U</span><span class="tile">O</span><span class="tile">S</span><span class="tile">C</span>
+          </div>
+
+          <p style="margin:0 0 5px;text-align:center;font-size:15px;color:rgba(224,224,224,.82);line-height:1.55;"><span style="margin-right:6px;">📚</span>A body of collected text taken as material to study.</p>
+          <p style="margin:0 0 18px;text-align:center;font-size:11px;color:rgba(224,224,224,.70);">6 letters</p>
+
+          <div style="border:1px solid rgba(224,224,224,.15);border-radius:11px;background:rgba(12,15,29,.40);padding:13px 16px;text-align:center;margin-bottom:16px;">
+            <span style="font-size:16px;letter-spacing:.22em;color:rgba(224,224,224,.30);">the word</span>
+          </div>
+
+          <div style="display:flex;justify-content:center;gap:10px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(224,224,224,.15);border-radius:8px;padding:6px 14px;font-size:12px;color:rgba(224,224,224,.70);">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              Show me
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(34,211,238,.20);background:rgba(34,211,238,.10);border-radius:8px;padding:6px 14px;font-size:12px;color:#22D3EE;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m18 14 4 4-4 4"></path><path d="m18 2 4 4-4 4"></path><path d="M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22"></path><path d="M2 6h1.972a4 4 0 0 1 3.6 2.2"></path><path d="M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45"></path></svg>
+              Another
+            </span>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">Tiles <span class="src">:154&ndash;164</span> &middot; clue <span class="src">:168&ndash;171</span> &middot; letter count <span class="src">:172&ndash;174</span> &middot; input <span class="src">:179&ndash;194</span> &middot; the two buttons <span class="src">:219&ndash;241</span>. The row drawn is a real one: <span class="src">scramble-corpus</span>, <span class="src">display_order 4</span>. <span class="k">The answer is never in the markup of the tiles</span> &mdash; they are display only, and the check is a string comparison the vessel's own browser performs (<span class="src">:77</span>).</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The only three things the room ever says <span class="built" style="margin-left:6px;">built</span></p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div style="border:1px dashed rgba(224,224,224,.14);border-radius:11px;padding:16px;text-align:center;background:rgba(12,15,29,.5);">
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.55);">&mdash; nothing &mdash;</p>
+            <p class="src" style="margin:7px 0 0;">not-yet &middot; the live region is empty &middot; :198</p>
+          </div>
+
+          <div style="border:1px solid rgba(0,184,148,.30);border-radius:11px;padding:16px;text-align:center;background:rgba(0,184,148,.05);">
+            <p style="margin:0 0 6px;font-size:15px;color:#00E6C3;display:inline-flex;align-items:center;gap:7px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>
+              corpus
+            </p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">A word of the Grammar, and now one of yours.</p>
+            <p class="src" style="margin:7px 0 0;">solved &middot; :199&ndash;208</p>
+          </div>
+
+          <div style="border:1px solid rgba(224,224,224,.14);border-radius:11px;padding:16px;text-align:center;background:rgba(12,15,29,.5);">
+            <p style="margin:0 0 6px;font-size:15px;color:rgba(224,224,224,.86);">corpus</p>
+            <p style="margin:0;font-size:12px;color:rgba(224,224,224,.70);">Being shown is a way of meeting a word too.</p>
+            <p class="src" style="margin:7px 0 0;">shown &middot; :209&ndash;216 &middot; costs nothing</p>
+          </div>
+
+        </div>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">There is no fourth state, and that is the design.</span> No red, no shake, no error, no &ldquo;try again&rdquo;. An answer is right or not-yet, and not-yet is not an event, so nothing announces it (<span class="src">:196&ndash;198</span>). This is Ximenean fairness and Montessori's control of error arriving at the same rule from opposite directions: <span class="k">the solver knows they are right without a judge</span> &mdash; so the house needs none and installs none.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">What the house remembers about you here <span class="built" style="margin-left:6px;">built</span></p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+          <div class="hall">
+            <p style="margin:0;font-size:12px;font-weight:600;">In the base</p>
+            <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.78);line-height:1.5;">Nothing. No row, no column, no table &mdash; and the write routes for <span class="src">daily_puzzles</span> are never generated, so a ledger is not merely absent, it is unbuildable.</p>
+            <p class="src" style="margin:0;">022:72&ndash;99 &middot; gaia write verbs false</p>
+          </div>
+          <div class="hall">
+            <p style="margin:0;font-size:12px;font-weight:600;">On your own device</p>
+            <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.78);line-height:1.5;">One browser key holding the slugs you have met, append-only, cleared wholly by your own hand. A new device begins fresh, and the hall's own header pays that cost out loud.</p>
+            <p class="src" style="margin:0;">useDailies.ts:38 &middot; :25&ndash;27</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The one place the memory is ever spoken is inside a puzzle you return to: <em>&ldquo;You have met this one before.&rdquo;</em> (<span class="src">:143&ndash;147</span>) &mdash; never on the shelf, because <span class="k">an index of rows with some of them ticked is a missing-slot silhouette</span>, and the refusal column names that by name. The vessel is never handed arithmetic about themselves to perform.</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">The empty state, as built &mdash; and the one sentence it now owes <span class="stag" style="margin-left:6px;">proposed</span></p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+          <div style="border:1px solid rgba(224,224,224,.12);border-radius:11px;background:#0C0F1D;padding:18px 15px;text-align:center;">
+            <p style="margin:0 0 7px;font-size:13px;font-weight:600;">The Dailies</p>
+            <p style="margin:0;font-size:11.5px;line-height:1.5;" class="old">The shelf is still being written. Words are being drawn from the Grammar one at a time, and they will be here when they are ready.</p>
+            <p class="src" style="margin:8px 0 0;">DailiesHall.tsx:106&ndash;124</p>
+          </div>
+          <div style="border:1px solid rgba(0,184,148,.30);border-radius:11px;background:rgba(0,184,148,.05);padding:18px 15px;text-align:center;">
+            <p style="margin:0 0 7px;font-size:13px;font-weight:600;">The Dailies</p>
+            <p style="margin:0;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.86);">The shelf has not come through yet. The words are drawn from the Grammar, and they will be here when the shelf opens.</p>
+            <p class="src" style="margin:8px 0 0;">proposed &mdash; true of both causes</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The words were right on the day they were written and are now true of only one of their two causes. <span class="src">shelf.ts</span> returns an empty shelf <span class="k">three ways</span>: no keys (<span class="src">:61</span>), a refused read (<span class="src">:82</span>), a thrown one (<span class="src">:84&ndash;86</span>) &mdash; and the hall wears the same sentence for all of them. <span class="k">With a hundred and forty rows standing, &ldquo;still being written&rdquo; is the one cause it is no longer likely to be.</span> The realm's own pattern permits both readings: an empty room here describes what is coming and who is bringing it, never what the visitor lacks (board &#9319;).</p>
+      </div>
+
+      <div>
+        <p class="rl-h" style="margin-bottom:9px;">Reduced motion, as built <span class="built" style="margin-left:6px;">built</span></p>
+        <div style="border:1px solid rgba(0,184,148,.30);border-radius:12px;background:rgba(0,184,148,.05);padding:16px 18px;">
+          <p class="rl-b" style="margin-bottom:8px;"><span class="k">The hall asks directly and flattens to instant.</span> <span class="src">useReducedMotion</span> (<span class="src">:46&ndash;60</span>) reads <span class="src">prefers-reduced-motion</span> from JS and listens for a change, because the global CSS guard cannot reach anything driven from script. Its own comment carries the house's line: <em>&ldquo;Motion is content, so it needs consent.&rdquo;</em></p>
+          <p class="rl-b">The hall's entire motion budget is one <span class="src">transition-colors</span> on the letter tiles, and it is guarded (<span class="src">:158&ndash;160</span>). <span class="k">Nothing here drifts, spins, pings or celebrates.</span> This is the mend board &#9314; had to propose for the Floating Stars, already standing in the newest room.</p>
+        </div>
       </div>
 
     </div>
 
+    <!-- ══════════════ RIGHT: the rail ══════════════ -->
     <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
 
-      <div style="display:flex;gap:14px;align-items:center;">
-        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">his, later</span></span>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">holds</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">proposed</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">fails today</span></span>
       </div>
 
       <div>
-        <p class="rl-h">Why a closed door earns a board</p>
-        <p class="rl-b">Because the realm brief calls the dailies <span class="k">the unbuilt half of Athena</span>, and a canvas that draws six full halls and says nothing about the seventh reads as though the seventh were forgotten. It is not forgotten. <span class="k">It is reserved</span> &mdash; and the difference between those two things is the entire reason this board is here and empty.</p>
+        <p class="rl-h">The word that opened this board</p>
+        <p class="q">&ldquo;the library proofs panel 7 can be worked out now that we have a ran docs/sql/022 .&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-25, verbatim, spelling kept.</p>
       </div>
 
       <div>
-        <p class="rl-h">The open seam, named &mdash; not decided</p>
-        <p class="rl-b">Where the words come from is a real fork and it is <span class="k">KP&rsquo;s</span>: the Grammar&rsquo;s atoms and molecules through the bridge, or a Superposition table of their own. The realm bus names both and picks neither (<span class="src">(athena)/REALM-BUS.md:88&ndash;90, 150&ndash;157</span>). It is also <span class="k">shared with iris&rsquo;s Voice doorway</span>, which is why the keeper&rsquo;s own counsel was to convene it once rather than three times. <span class="k">This canvas takes no position.</span></p>
+        <p class="rl-h">And the word that had reserved it</p>
+        <p class="q">&ldquo;the athena dailies, i will open a fresh session now to build once we are to that spot.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883; 2026-08-24, verbatim, spelling kept. <span class="k">He opened it the same day.</span> The board that stood here refused to draw a single line because that session was his; <span class="k">the refusal held, and this is what came back through the door.</span></p>
       </div>
 
       <div>
-        <p class="rl-h">What that sitting inherits, unspent</p>
-        <p class="rl-b" style="margin-bottom:9px;">Ground already settled elsewhere, carried here so it is not re-derived at midnight. None of it is a design; all of it is a citation.</p>
+        <p class="rl-h">His four rulings in that sitting</p>
         <div style="display:flex;flex-direction:column;gap:7px;">
-          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The puzzle proves itself.</span> Ximenean fairness in cryptic crosswords and Montessori&rsquo;s control of error converge on one rule: the solver knows they are right without an external judge. E4b round 3.</p></div>
-          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Wordle is the proof case, Duolingo the refusal canon.</span> Wordle was built on attention returned and has no native retention metric; the streak is named as insurance sold against manufactured anxiety. E4b round 3.</p></div>
-          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The newspaper puzzle page&rsquo;s innocence was incapacity, not virtue</span> &mdash; the paper could not track you. The house must <em>choose</em> the blindness the paper never had a choice about. E4a round 3, tenth-man.</p></div>
-          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Learning wears play&rsquo;s clothes.</span> Bragi&rsquo;s counsel, confirmed from the founder&rsquo;s side: crossword = pattern puzzle &middot; word find = attention training &middot; CYOA = narrative sovereignty. E2 &sect;3, athena.</p></div>
-          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">And the room next door is the register&rsquo;s living proof.</span> The Floating Stars already guard their own player &mdash; four caps, two of them unasked. Board &#9314; draws them. A daily built to that standard has a working example twelve lines away.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Home</span> &mdash; inside AudHDities, as the Library's seventh hall. Not a separate app, not a subdomain.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The seam COMES HOME</span> &mdash; the fork open since 2026-07-29 is closed. Puzzle <em>content</em> comes home to a table here; <span class="k">the vessel never does.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The roster is his own four</span> &mdash; crossword &middot; word find &middot; word scramble &middot; sudoku. Cryptex reserved at his own hedge.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Scope</span> &mdash; one form, end to end. Not four halves.</p></div>
+        </div>
+        <p class="src" style="margin:9px 0 0;">docs/CHECKLIST.md:95, the row of 2026-08-24. The wording above is the checklist's record of the rulings, not his own sentences.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground, machine-read</p>
+        <div style="border:1px solid rgba(224,224,224,.12);border-radius:11px;background:#1A1F35;padding:14px 15px;display:flex;flex-direction:column;gap:7px;">
+          <p class="rl-b"><span class="k">140 rows</span> in <span class="src">daily_puzzles</span> &mdash; all <span class="src">word-scramble</span>, all <span class="src">published</span>. Read 2026-08-25 through the anon key: <span class="src">Content-Range 0-2/140</span>.</p>
+          <p class="rl-b">Solution lengths four to nine: <span class="src">18 &middot; 31 &middot; 32 &middot; 19 &middot; 21 &middot; 19</span>.</p>
+          <p class="rl-b"><span class="k">140 of 140</span> carry an <span class="src">atom_word</span> equal to their own solution &mdash; the reference back to canon holds on every row.</p>
+          <p class="rl-b"><span class="k">3 of 140</span> clues carry the mask <span class="src">&mdash;&mdash;&mdash;</span>. The other 137 needed none: the filter mostly <em>chose</em> atoms whose definitions do not say their own word, rather than masking them.</p>
+          <p class="rl-b"><span class="k"><span class="src">payload jsonb</span> stands declared and empty</span> (<span class="src">022:31</span>). Word scramble carries its whole content in the flat columns. <span class="k">The three forms to come are what that column is for.</span></p>
         </div>
       </div>
 
       <div>
-        <p class="rl-h">The one thing this board does assert</p>
-        <p class="rl-b">The realm&rsquo;s native law is signed thrice and it covers the unbuilt half too: <em>&ldquo;nothing built or redrawn in this realm may undo that. Attention returned, never harvested&rdquo;</em> (<span class="src">(athena)/README.md:111&ndash;113</span>). <span class="k">A daily is still this realm.</span> No streak, no appointment, no countdown to tomorrow&rsquo;s puzzle &mdash; all three already refused by name on E4&rsquo;s column. That is inherited law, not new design.</p>
+        <p class="rl-h">The one departure from the generated door, and why</p>
+        <p class="rl-b">Every other hall reads through a generated route, and every generated route attaches the vessel's cookies. <span class="k">A signed-in vessel opening puzzle #47 through that door writes an authenticated, row-identified request into the vendor's own logs</span> &mdash; an attendance ledger, keyed to the person, outside this house's power to purge. So the shelf is read on the server with the anon key and no cookie, and handed down whole: <span class="k">the vessel's browser never asks for a particular puzzle, because it already has all of them.</span> <span class="src">shelf.ts:7&ndash;35</span> &middot; <span class="src">page.tsx:5&ndash;18</span>.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The realm law, signed a fourth time</p>
+        <p class="rl-b"><em>&ldquo;nothing built or redrawn in this realm may undo that. Attention returned, never harvested&rdquo;</em> (<span class="src">(athena)/README.md:111&ndash;113</span>). The board that stood here asserted this against a hall that did not exist. <span class="k">The hall now exists, and it keeps it.</span> No streak, no appointment, no countdown &mdash; and no date anywhere in the file or in its table, so nothing expires and nothing can be missed.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground that sitting inherited, spent well</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The puzzle proves itself.</span> Ximenean fairness and Montessori's control of error converge: the solver knows they are right without a judge. <span class="k">Built as the no-fourth-state rule.</span> E4b round 3.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Wordle the proof case, Duolingo the refusal canon.</span> Attention returned with no native retention metric, against a streak named as insurance sold against manufactured anxiety. <span class="k">Built as no streak and no date column.</span> E4b round 3.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The paper's blindness was incapacity, not virtue.</span> The house must <em>choose</em> what the paper never had a choice about. <span class="k">Built as the cookie-free read.</span> E4a round 3, tenth-man.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">Learning wears play's clothes.</span> Crossword = pattern puzzle &middot; word find = attention training. E2 &sect;3, athena &mdash; the two forms still to come.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The room next door is the register's living proof.</span> The Floating Stars guard their own player; board &#9314; draws the four caps in words. <span class="k">The dailies needed no caps</span>, because nothing here accrues.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The sensory ten, here</p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">pace control</span> &mdash; nothing in the hall runs. No timer shown or hidden, nothing advances by itself, and &ldquo;Another&rdquo; is a button the vessel presses (<span class="src">:233&ndash;240</span>). A hundred and forty doors stand open and none of them is <em>next</em>.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">progress saving</span> &mdash; the solve is written the moment it is right (<span class="src">:79&ndash;81</span>), to the vessel's own device and nowhere else. Nothing is lost that the vessel did not clear themselves.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no flashing</span> &mdash; no ping, no pulse, no confetti. The solved state is one still glyph and one line of text (<span class="src">:199&ndash;208</span>). <span class="k">The realm's best row for this, by some distance.</span></p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">no autoplay</span> &mdash; no sound, no video, no motion that begins on its own.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">plain language</span> &mdash; the plainest room in the realm. The input's placeholder is <em>&ldquo;the word&rdquo;</em> (<span class="src">:189</span>) and the shown state says <em>&ldquo;Being shown is a way of meeting a word too&rdquo;</em> (<span class="src">:212&ndash;214</span>). Nothing on this board rewrites a line of it.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">obvious next steps</span> &mdash; every state offers exactly two doors: another puzzle, or the shelf. The shelf offers the Library.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">more-info door</span> &mdash; the hall states its law in its closing line (<span class="src">:244&ndash;247</span>) but never says <em>where the words come from</em>. The Grammar is the entire reason the dailies live in this realm and the vessel is not told. <em>Proposed:</em> one line under the subtitle naming the Grammar, with a door to the Archive.</p></div>
+          <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">reduced motion</span> &mdash; asked from JS and flattened to instant (<span class="src">:46&ndash;60</span>), with the one transition guarded (<span class="src">:158&ndash;160</span>). The mend board &#9314; proposed, already standing here.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">contrast</span> &mdash; six lines below the realm's floor. <span class="src">/40</span> at <span class="src">:144, :172, :292</span> reads <span class="k">3.17:1</span>; <span class="src">/30</span> at <span class="src">:244, :308</span> reads <span class="k">2.29:1</span>; <span class="src">/25</span> at <span class="src">:312</span> reads <span class="k">1.95:1</span>. Measured by the method that reproduces HANDOFF's own <span class="src">14.4:1</span> and <span class="src">12.3:1</span> exactly. Fix line below.</p></div>
+          <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">keyboard</span> &mdash; every control is a real <span class="src">button</span> or <span class="src">input</span> with a label, which is the right bones. But focus is dropped at all three transitions, and the letters' label sits on a bare <span class="src">div</span>. Two fix lines below.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The opt-in law, here</p>
+        <p class="rl-b"><span class="k">There is no toggle in this hall to default off.</span> Under KP's &#9883; <em>&ldquo;make all toggles off by default&rdquo;</em> the shape is already right by subtraction: the hall stores nothing until you solve something, stores it on your own device, never asks, never syncs, and the single control it offers &mdash; the purge &mdash; only appears once there is something to clear.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Fix lines for the build <span class="stag" style="margin-left:6px;">for the build</span></p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <p class="fix"><span class="k">Raise six dimmed lines.</span> <span class="src">DailiesHall.tsx:144, :172, :292</span> (<span class="src">/40</span>) and <span class="src">:244, :308</span> (<span class="src">/30</span>) and <span class="src">:312</span> (<span class="src">/25</span>) &rarr; <span class="src">/70</span>. The lines are the letter counts, &ldquo;You have met this one before&rdquo;, the closing sentence, the purge control and its storage note &mdash; <span class="k">the storage promise is the dimmest text in the hall.</span></p>
+          <p class="fix"><span class="k">Give the letters a role.</span> <span class="src">DailiesHall.tsx:151&ndash;153</span> puts an <span class="src">aria-label</span> on a bare <span class="src">div</span> whose children are all <span class="src">aria-hidden</span>. A label on a generic container is not reliably announced &mdash; <span class="k">so the puzzle can go unspoken.</span> Add <span class="src">role="img"</span> (or <span class="src">role="group"</span>) so the label becomes its accessible name.</p>
+          <p class="fix"><span class="k">Move focus on all three transitions.</span> An <span class="src">inputRef</span> is created and attached (<span class="src">:69, :181</span>) and never called. Opening a puzzle leaves focus on a card that has just unmounted; <span class="src">disabled={solved}</span> (<span class="src">:188</span>) disables the focused input at the moment of solving; closing (<span class="src">:99&ndash;103</span>) returns to a shelf holding no focus. <span class="k">Three times a keyboard walker is put back at the top of the document.</span></p>
+          <p class="fix"><span class="k">Make the empty state true of both causes.</span> <span class="src">shelf.ts:61, :82, :84&ndash;86</span> return an empty shelf for a missing key, a refused read and a thrown one alike; <span class="src">DailiesHall.tsx:106&ndash;124</span> says &ldquo;still being written&rdquo; for all of them. Drawn above.</p>
+          <p class="fix"><span class="k">The hub now counts one hall short.</span> <span class="src">LibraryHub.tsx:16</span> carries the seventh card and it reads well. But board &#9312;'s proposed rewrite of <span class="src">LibraryHub.tsx:29&ndash;31</span> says <em>&ldquo;Six halls, open&rdquo;</em>, and <span class="k">seven now stand.</span> Board &#9312; is held byte-identical this pass; named here so the conductor rules it, not so a hand changes it quietly.</p>
+          <p class="fix"><span class="k">Carried, not fixed here.</span> <span class="src">LibraryHub.tsx:15</span> still reads <em>&ldquo;Collect bubbles and earn points&rdquo;</em> &mdash; flagged on this canvas 2026-08-24 and again by the hand that built this hall, and it belongs to boards &#9312; and &#9314;.</p>
+        </div>
       </div>
 
       <div>
         <p class="rl-h">The refusal column, here</p>
-        <p class="rl-b"><span class="k">Refused on sight, by this board:</span> a mock-up &middot; a sketch &middot; a route name &middot; a table shape &middot; a copy draft &middot; a &ldquo;proposed&rdquo; anything. <span class="k">Reserving a room means leaving it empty, including of good ideas.</span> The temptation to draw one small honest thing here is exactly what the ruling forecloses.</p>
+        <p class="rl-b"><span class="k">Refused on sight:</span> a streak &middot; an appointment &middot; a countdown to tomorrow's puzzle &middot; a leaderboard &middot; a &ldquo;you missed one&rdquo; in any wording &middot; a progress bar about the vessel &middot; a completion figure &middot; a difficulty rank &middot; a mistakes counter &middot; a hint that costs something &middot; a shareable result grid &middot; and any mark on the shelf that separates a met puzzle from an unmet one.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">And refused at the schema, where it cannot come back:</span> a date column, and any vessel-scoped companion table born from this one. The table's own <span class="src">COMMENT ON TABLE</span> carries the refusal where a regeneration cannot strip it (<span class="src">022:37&ndash;45</span>), and the write routes are never generated (<span class="src">022:72&ndash;99</span>). <span class="k">The organ is unbuildable, not merely unbuilt.</span></p>
       </div>
 
     </div>
   </div>
+
+  <!-- ══════════════ THE THREE FORMS TO COME ══════════════ -->
+  <div style="margin-top:34px;padding-top:26px;border-top:1px solid rgba(224,224,224,.12);">
+
+    <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+      <span style="font-size:14px;font-weight:700;">The three forms to come</span>
+      <span class="src">frames, not designs &middot; nothing below is ruled &middot; each seed is named, not written</span>
+    </div>
+    <p class="rl-b" style="max-width:760px;margin:0 0 20px;">KP's roster is four and one stands. Each frame below says three things and stops: <span class="k">what the form's content would be in the same table</span>, <span class="k">what its mechanic must obey to be this realm's</span>, and <span class="k">what only he can rule.</span> Every form's name and definition is the Grammar's own molecule, quoted verbatim and referenced from canon rather than forked &mdash; the <span class="src">puzzle_form</span> values are those four molecule names rendered kebab-case.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
+
+      <!-- WORD FIND -->
+      <div class="form">
+        <div>
+          <p style="margin:0 0 3px;font-size:13.5px;font-weight:700;">Word find</p>
+          <p class="src" style="margin:0;">puzzle_form = word-find</p>
+        </div>
+        <p class="q" style="border-left-color:rgba(0,230,195,.55);">&ldquo;A category&rsquo;s words hidden in a grid; the rest of the grid is filler.&rdquo;</p>
+        <p class="src" style="margin:-4px 0 0;">the Grammar&rsquo;s WordFind molecule, verbatim &mdash; resonance-grammar/docs/sql/102-the-molecules.sql:91&ndash;94</p>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The content, same table</p>
+          <p class="code">payload: {
+  rows, cols,
+  grid:  [[letter, ...], ...],
+  words: [{ atom_word,
+            atom_id,
+            clue,
+            start: {r, c},
+            dir }]
+}</p>
+          <p class="rl-b" style="margin-top:8px;">One grid per <span class="src">category_name</span> &mdash; the column the atoms already carry, and the one the scramble's generator already filters on. Each hidden word keeps <span class="k">its own link back to canon</span> inside the payload, so the form stays a reference and never a fork.</p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The mechanic, to the same law</p>
+          <p class="rl-b">Tap or drag a run of letters. <span class="k">Control of error is the list itself:</span> a run either is a word on it or it is not, and the grid answers without a judge. <span class="k">No wrong state</span> &mdash; a run that is not a word simply does not stay lit; no red, no shake. No timer. No score. The list is the extent and it is the ask. Found words stay lit; solved is every word lit; the memory is the same device-local key, and no row is written anywhere. <em>Show me</em> lights one word and costs nothing.</p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The seed</p>
+          <p class="rl-b"><span class="src">024-the-dailies-word-find-DRAFT.sql</span>, from a <span class="src">dailies_wordfind_gen.py</span> beside its sibling in the bridge's seeding folder &mdash; same pattern: read-only on every base, a review mode that prints every candidate before it writes anything, and <span class="k">a DRAFT for KP's own dashboard hand. No lamp runs it.</span></p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">Unwritten &mdash; his to rule</p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <p class="rule">&middot; the grid's size.</p>
+            <p class="rule">&middot; how many words hide in one.</p>
+            <p class="rule">&middot; whether diagonals and reversals are in.</p>
+            <p class="rule">&middot; whether the list shows the words themselves or their derived definitions &mdash; the second makes it half a crossword, and is the more Grammar-shaped of the two.</p>
+            <p class="rule">&middot; which categories &mdash; the six warm ones the scramble used, or a wider roster.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CROSSWORD -->
+      <div class="form">
+        <div>
+          <p style="margin:0 0 3px;font-size:13.5px;font-weight:700;">Crossword</p>
+          <p class="src" style="margin:0;">puzzle_form = cross-word</p>
+        </div>
+        <p class="q" style="border-left-color:rgba(0,230,195,.55);">&ldquo;Words interlocked at shared letters, each clued by its own definition.&rdquo;</p>
+        <p class="src" style="margin:-4px 0 0;">the Grammar&rsquo;s CrossWord molecule, verbatim &mdash; 102-the-molecules.sql:96&ndash;99</p>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The content, same table</p>
+          <p class="code">payload: {
+  rows, cols,
+  cells:   [[null | letter], ...],
+  entries: [{ n, dir,
+              start: {r, c},
+              answer, clue,
+              atom_word, atom_id }]
+}</p>
+          <p class="rl-b" style="margin-top:8px;">Named on the bus as <span class="k">the study's best idea</span>: molecules crossing at shared atoms &mdash; the lattice's own bonds dealt as a puzzle. The crossings are <span class="k">read, not invented</span>: the canon holds 6,728 molecules over 13,449 molecule-to-atom bonds. Also the most work of the three.</p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The mechanic, to the same law</p>
+          <p class="rl-b">Type into a cell and the crossing letter fills both entries at once. <span class="k">That is the whole pleasure and the whole proof:</span> a letter that does not agree with its crossing is visible to the solver without being told &mdash; Ximenean fairness exactly. <span class="k">No wrong state</span>: no red cell, no shake; a letter that has not agreed has not agreed yet. No timer, no &ldquo;check puzzle&rdquo; verdict, no percentage complete. <em>Show me</em> reveals one entry and costs nothing. Solved is the last agreement; the memory is device-local.</p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The seed</p>
+          <p class="rl-b"><span class="src">025-the-dailies-crossword-DRAFT.sql</span>, from a <span class="src">dailies_crossword_gen.py</span>. The mask filter is not optional here either: <span class="k">924 of 2,344 atoms carry their own word inside their own definition</span>, so unfiltered, two clues in five would print their answers.</p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">Unwritten &mdash; his to rule</p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <p class="rule">&middot; grid size, and whether it keeps a classic 180&deg; symmetry &mdash; the lattice may not oblige.</p>
+            <p class="rule">&middot; whether clues are the derived definitions or written by hand.</p>
+            <p class="rule">&middot; whether an entry may be a molecule's own name, or only an atom.</p>
+            <p class="rule">&middot; how many entries make one puzzle.</p>
+            <p class="rule">&middot; what <span class="src">solution</span> and <span class="src">scrambled</span> hold, since both are <span class="src">not null</span> (<span class="src">022:26&ndash;30</span>) and a crossword has neither. A lawful placeholder, or the columns go nullable-by-form. <span class="k">Whatever is ruled, no date column.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORDOKU -->
+      <div class="form">
+        <div>
+          <p style="margin:0 0 3px;font-size:13.5px;font-weight:700;">Wordoku</p>
+          <p class="src" style="margin:0;">puzzle_form = wordoku &middot; sudoku's word-shaped cousin</p>
+        </div>
+        <p class="q" style="border-left-color:rgba(0,230,195,.55);">&ldquo;A Latin square played with letters, the hidden word reading out on solve.&rdquo;</p>
+        <p class="src" style="margin:-4px 0 0;">the Grammar&rsquo;s Wordoku molecule, verbatim &mdash; 102-the-molecules.sql:108&ndash;111. Its own <span class="src">sudoku</span> atom adds the reason: <em>&ldquo;The constraint is the whole pleasure.&rdquo;</em></p>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The content, same table</p>
+          <p class="code">payload: {
+  n,
+  letters:  [ ... ],
+  givens:   [[null | letter], ...],
+  solution: [[letter], ...],
+  hidden:   { atom_word, atom_id,
+              dir, start: {r, c} }
+}</p>
+          <p class="rl-b" style="margin-top:8px;">Here the row's own <span class="src">atom_word</span> and <span class="src">atom_id</span> earn their keep unchanged: <span class="k">the hidden word is the link back to canon.</span></p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The mechanic, to the same law</p>
+          <p class="rl-b">Place letters so none repeats in a row, a column or a box. <span class="k">Control of error is the constraint itself</span> &mdash; a repeat is visible to the solver, so nothing needs to judge it. <span class="k">No wrong state</span>: no red cell, no <em>mistakes: 3</em> counter, which is a judge wearing a game's clothes. No timer, no difficulty rank. On solve the hidden word reads out along its line &mdash; <span class="k">that is the whole reward, and it is not a score.</span></p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">The thin ground, said plainly</p>
+          <p class="rl-b">A nine-square wordoku needs a nine-letter word of nine <em>distinct</em> letters, and the corpus holds <span class="k">eleven</span> &mdash; <span class="src">blueprint</span>, <span class="src">docstring</span>, <span class="src">synthwave</span> among them: thin, and cold for a comfort game. <span class="k">The escape is a smaller square.</span> A four-square is a true Latin square and a warmer one, and the corpus already gives eighteen four-letter puzzles.</p>
+        </div>
+
+        <div>
+          <p class="rl-h" style="margin-bottom:6px;">Unwritten &mdash; his to rule</p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <p class="rule">&middot; the square's size &mdash; four, six or nine.</p>
+            <p class="rule">&middot; how many letters are given.</p>
+            <p class="rule">&middot; what <span class="src">clue</span> holds, since it is <span class="src">not null</span> and a clue to the hidden word would give the grid away before it is solved &mdash; withheld until solve, or a clue to something else.</p>
+            <p class="rule">&middot; whether this form waits for the Grammar to grow, or takes the smaller square now.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:16px;border:1px dashed rgba(253,203,110,.40);border-radius:12px;background:rgba(253,203,110,.035);padding:14px 17px;">
+      <p class="rl-b"><span class="k">Cryptex stays reserved</span>, at KP's own hedge &mdash; <em>&ldquo;i understadn it is a lot of work&rdquo;</em>. Nothing is drawn for it here. The Grammar already carries the atom, and its definition says what the form would be: <em>&ldquo;the answer is not kept inside the lock, the answer IS the lock.&rdquo;</em></p>
+    </div>
+
+    <div style="margin-top:20px;display:flex;gap:26px;align-items:flex-start;">
+      <div style="width:470px;flex:none;">
+        <p class="rl-h" style="margin-bottom:9px;">The blending principle, in his own words</p>
+        <p class="q">&ldquo;we also want to offer crossword, word find, word scramble, even sudoku if possible&hellip; word games were my warm place, but i like words, not everyone is a poet, so i think we find a way to blend all the comfort game concepts.&rdquo;</p>
+        <p class="src" style="margin:8px 0 0;">KP &#9883;, E4 digest &sect;1, verbatim, spelling kept. Carried here whole and untouched, as it was on the board that stood before this one.</p>
+      </div>
+      <div style="width:352px;flex:none;">
+        <p class="rl-h" style="margin-bottom:9px;">And &ldquo;blend&rdquo; is a question, not a design</p>
+        <p class="rl-b" style="margin-bottom:9px;">The word carries at least three readings, and the distance between them is the distance between four halls and one. <span class="k">Nothing is drawn for the second or the third.</span></p>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">Four forms side by side</span>, each whole, on one shelf. This is what the hall is shaped for today: <span class="src">puzzle_form</span> is a column and the shelf reads one form at a time (<span class="src">page.tsx:26</span>).</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One form that borrows the others' pleasures</span> &mdash; a scramble whose letters are a Latin square; a word find whose list is a set of crossword clues.</p></div>
+          <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">One shelf that hands you whichever form suits the day</span>, without asking you to choose.</p></div>
+        </div>
+        <p class="src" style="margin:10px 0 0;"><span class="k">unwritten &mdash; his to rule.</span> A board may name the readings; it may not pick one for him.</p>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 </x-dc>

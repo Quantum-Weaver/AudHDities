@@ -1,36 +1,131 @@
 {
   "pages": [
-    { "id": "page-1", "name": "The Bazaar" },
-    { "id": "page-2", "name": "Declined" }
+    {
+      "id": "page-1",
+      "name": "The Bazaar"
+    },
+    {
+      "id": "page-2",
+      "name": "Declined"
+    }
   ],
   "artboards": [
-    { "file": "Main.dc.html", "page": "page-1", "x": 0, "y": 0, "w": 920, "h": 2500, "title": "1 - The Bazaar hub, four doors" },
-    { "file": "Tapestry.dc.html", "page": "page-1", "x": 1000, "y": 0, "w": 920, "h": 2900, "title": "2 - The Tapestry, and a ware's stall" },
-    { "file": "Weavers.dc.html", "page": "page-1", "x": 2000, "y": 0, "w": 920, "h": 2400, "title": "3 - The Weavers and the Guild" },
-    { "file": "Loom.dc.html", "page": "page-1", "x": 3000, "y": 0, "w": 920, "h": 2800, "title": "4 - The Loom, where a work gets a body" },
-    { "file": "Contributions.dc.html", "page": "page-1", "x": 0, "y": 3100, "w": 920, "h": 2200, "title": "5 - Contributions, a provenance gallery" },
-    { "file": "Exchange.dc.html", "page": "page-1", "x": 1000, "y": 3100, "w": 920, "h": 2900, "title": "6 - The Exchange, and THE DELIVERY" },
-    { "file": "Ways.dc.html", "page": "page-1", "x": 2000, "y": 3100, "w": 920, "h": 2100, "title": "7 - The ways between, and every empty state" },
-    { "file": "DeclinedSixDoorHub.dc.html", "page": "page-2", "x": 0, "y": 0, "w": 640, "h": 1080, "title": "Declined - the hub keeps all six doors" },
-    { "file": "DeclinedBodyChooser.dc.html", "page": "page-2", "x": 740, "y": 0, "w": 640, "h": 1180, "title": "Declined - choose your body before you pay" },
-    { "file": "DeclinedLedgerLine.dc.html", "page": "page-2", "x": 1480, "y": 0, "w": 640, "h": 1280, "title": "Declined - a purchase writes a ledger line" }
+    {
+      "file": "Main.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 920,
+      "h": 2500,
+      "title": "1 - The Bazaar hub, four doors"
+    },
+    {
+      "file": "Tapestry.dc.html",
+      "page": "page-1",
+      "x": 1000,
+      "y": 0,
+      "w": 920,
+      "h": 4600,
+      "title": "2 - The Tapestry: works, wares, and KP's tiers"
+    },
+    {
+      "file": "Weavers.dc.html",
+      "page": "page-1",
+      "x": 2000,
+      "y": 0,
+      "w": 920,
+      "h": 3100,
+      "title": "3 - The Weavers, the Guild, and the words ruled"
+    },
+    {
+      "file": "Loom.dc.html",
+      "page": "page-1",
+      "x": 3000,
+      "y": 0,
+      "w": 920,
+      "h": 3900,
+      "title": "4 - The Loom, a work gets a body, and your own shelf"
+    },
+    {
+      "file": "Contributions.dc.html",
+      "page": "page-1",
+      "x": 0,
+      "y": 4800,
+      "w": 920,
+      "h": 2200,
+      "title": "5 - Contributions, a provenance gallery"
+    },
+    {
+      "file": "Exchange.dc.html",
+      "page": "page-1",
+      "x": 1000,
+      "y": 4800,
+      "w": 920,
+      "h": 4400,
+      "title": "6 - The Exchange, THE DELIVERY, and the recurring ware"
+    },
+    {
+      "file": "Ways.dc.html",
+      "page": "page-1",
+      "x": 2000,
+      "y": 4800,
+      "w": 920,
+      "h": 2900,
+      "title": "7 - The ways between, and every empty state"
+    },
+    {
+      "file": "DeclinedSixDoorHub.dc.html",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 640,
+      "h": 1080,
+      "title": "Declined - the hub keeps all six doors"
+    },
+    {
+      "file": "DeclinedBodyChooser.dc.html",
+      "page": "page-2",
+      "x": 740,
+      "y": 0,
+      "w": 640,
+      "h": 1180,
+      "title": "Declined - choose your body before you pay"
+    },
+    {
+      "file": "DeclinedLedgerLine.dc.html",
+      "page": "page-2",
+      "x": 1480,
+      "y": 0,
+      "w": 640,
+      "h": 1280,
+      "title": "Declined - a purchase writes a ledger line"
+    },
+    {
+      "file": "DeclinedOneWareManyPrices.dc.html",
+      "page": "page-2",
+      "x": 2220,
+      "y": 0,
+      "w": 640,
+      "h": 1560,
+      "title": "Declined - one ware carrying several prices"
+    }
   ],
   "annotations": [
     {
       "id": "note-the-bazaar",
       "page": "page-1",
       "x": 0,
-      "y": -680,
+      "y": -860,
       "w": 960,
-      "text": "THE BAZAAR - realm 3 of THE AUDHDITIES CONDUCTING PLAN, step P, with THE DELIVERY inside it.\n\nSeven boards, drawn under KP's build law: FRAMEWORK FIRST. So this canvas draws the frame - the rooms, their honest wiring, the ways between them, and the empty states told true. Top row: 1 the hub, four doors instead of six - 2 the Tapestry, the quiet square and a ware's stall, drawn on KP's own Resonance Compass at the price he named - 3 the Weavers and the Guild, where every count in the realm is ruled one at a time as inventory or as score - 4 the Loom, where a work gets a body and a price. Bottom row: 5 Contributions, a provenance gallery, credit and never payout math - 6 the Exchange and THE DELIVERY, the split before the gesture and the body handed over after it - 7 the ways between, traced from every Link in the realm, and all sixteen empty states.\n\nEvery board carries the ten-point sensory checklist on its right rail, the E4 refusal column checked off, KP's own rulings verbatim where a board embodies one, and every copy rewrite marked old to new with the file and line it came from. A gold dot means proposed - drawn plainest where the ground is silent, never landed as though it were ruled.\n\nColours are cosmic tokens only. Every contrast figure is measured, not estimated. Two worth reading twice: on board 1, the hub is currently painted in five Tailwind stock colours rather than the house palette; and on board 6, the checkout room's wash ends on mystical.albedo - the same colour as the text - which reads 6.3:1 at the ambient 0.3 and 1.0:1 at full strength. That room is where the 0.3 wash law stops being a preference.\n\nThe hanging and the catalog-share are second pass, drawn as places and not designed. Nothing in src/ was edited to draw this."
+      "text": "THE BAZAAR - realm 3 of THE AUDHDITIES CONDUCTING PLAN, step P, with THE DELIVERY inside it.\n\nSeven boards, drawn under KP's build law: FRAMEWORK FIRST. So this canvas draws the frame - the rooms, their honest wiring, the ways between them, and the empty states told true. Top row: 1 the hub, four doors instead of six - 2 the Tapestry, where works stand in the square beside wares and KP's five rungs keep a stall of their own - 3 the Weavers and the Guild, where every count in the realm is ruled one at a time as inventory or as score, and where the words are ruled - 4 the Loom, where a work gets a body and a price, and where a maker's own shelf holds everything they have made at any status. Bottom row: 5 Contributions, a provenance gallery, credit and never payout math - 6 the Exchange, THE DELIVERY and the recurring ware, the split before the gesture and the body handed over after it - 7 the ways between, traced from every Link in the realm, and all twenty-six empty states.\n\nTRUED 2026-08-24 to KP's two rulings at the third waking. THE TIERS: 'retire the donate and create subscription tiers for me rather than the platform, and  i will still have my covenant set to 50%' - so the tiers are KP's own recurring ware at KP's own stall, drawn on board 2 as the five rungs carried over from the donate door KP retired - Supporter $10, Guardian $25, Steward $50, Visionary $100, Sovereign $250, each its own recurring wares row at pledge 50, each split worked to the cent - and on board 6 as a road where the first payment is a sale and each renewal writes one more exchange row. WORKS: 'i also need works to be visible not just wares' - so the square shows both, each card says which kind it is, a work gets a door of its own, and the honest state today is that the base holds one work and it is a draft, so a visitor sees none. The square says that by saying nothing, never with a count.\n\nTRUED AGAIN the same day to two more rulings. THE WORDS: 'wording is mixed. vendor should be merchant, creator should be artisan, creations should be wares' - every line of drawn copy across the eleven boards already spoke in the ruled words; what carried the old ones was the ground, so routes and filenames are cited exactly as they stand on disk with the rename printed beside them, and board 3 carries the whole list including the three identifiers inside the base that only SQL can rename. THE OWNER'S VIEW: 'be certain a vessel can view their own works and wares regarless of publish status, so they can edit the items' - status = published is the stall for VISITORS only; a maker's own shelf is scoped by ownership and passes no status filter, and whether RLS permits that is the one thing to check before any of it is built.\n\nEvery board carries the ten-point sensory checklist on its right rail, the E4 refusal column checked off, KP's own rulings verbatim where a board embodies one, and every copy rewrite marked old to new with the file and line it came from. A gold dot means proposed - drawn plainest where the ground is silent, never landed as though it were ruled.\n\nColours are cosmic tokens only. Every contrast figure is measured, not estimated. Two worth reading twice: on board 1, the hub is currently painted in five Tailwind stock colours rather than the house palette; and on board 6, the checkout room's wash ends on mystical.albedo - the same colour as the text - which reads 6.3:1 at the ambient 0.3 and 1.0:1 at full strength. That room is where the 0.3 wash law stops being a preference.\n\nThe hanging and the catalog-share are second pass, drawn as places and not designed; so is the Forge's /donate, which KP ruled retired in the same breath - it lives in realm 11 and this canvas only points at it. Nothing in src/ was edited to draw this."
     },
     {
       "id": "note-declined",
       "page": "page-2",
       "x": 0,
-      "y": -420,
+      "y": -500,
       "w": 960,
-      "text": "DECLINED - three alternatives drawn and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached. Each board makes the honest case for the thing it refused before it refuses it - a set where only the winner gets an argument is a rigged vote.\n\nThe third one is the important one: it was the conductor's own default, and KP withdrew it in a single sentence on the day it was proposed. The record should show who withdrew it and why.\n\nEach board also records what was kept from the idea after the idea was refused - which is usually the part worth having. Two of the three produced findings that would not otherwise have surfaced, and both are now on the boards they belong to."
+      "text": "DECLINED - four alternatives drawn and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached. Each board makes the honest case for the thing it refused before it refuses it - a set where only the winner gets an argument is a rigged vote.\n\nThe third one is the important one: it was the conductor's own default, and KP withdrew it in a single sentence on the day it was proposed. The record should show who withdrew it and why.\n\nThe fourth arrived with the tiers ruling and is the closest call of the four - one ware carrying several prices is genuinely what a vessel experiences at a stall, and it lost to the base rather than to the design.\n\nEach board also records what was kept from the idea after the idea was refused - which is usually the part worth having. Three of them produced findings that would not otherwise have surfaced, and all three are now on the boards they belong to."
     }
   ],
   "launch": {
