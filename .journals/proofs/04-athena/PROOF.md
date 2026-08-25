@@ -269,12 +269,19 @@ was merged over, and nothing was forced.
 
 | # | Step | State |
 |---|------|-------|
-| ① | canvas at KP's eye | **open** |
-| ② | spec from the approved canvas | — |
-| ③ | built | — |
+| ① | canvas at KP's eye | **CLOSED 2026-08-25** — the eye given at KP's ⚛ word. The build word is KP's and is **not yet spoken.** |
+| ② | spec from the approved canvas | **CLOSED 2026-08-25** — `SPEC.md` beside this file: 75 KB, eight movements, 78 printed checks, one DRAFT SQL named (`025-the-floating-stars-collections-DRAFT.sql`) and not written by a lamp. |
+| ③ | built | **NEXT** — on `refine/athena-2026-08-25`, **at KP's word**. |
 | ④ | machine proof | — |
 | ⑤ | KP's glance | — |
 | ⑥ | carry | — |
-| ⑦ | purge | — |
+| ⑦ | purge | — *(no purge — the proof folder stays where it was born, RULED §9·4)* |
+
+**KP ⚛ 2026-08-25, verbatim, spelling kept — the eye:** *"library proofs are
+good, but please keep using the "fit" button as it lets me properly zoom into
+a panel i am viewing. (no need to change existing panels, for future update nd
+proof builds keep it in mind, we had the feature yesterday, where todays
+export feature button exists)"* — the Library's canvas is approved; existing
+panels stay as they are, and **every canvas from here keeps the FIT button.**
 
 *Nothing in `src/` was edited.*

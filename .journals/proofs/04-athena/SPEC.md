@@ -14,7 +14,9 @@ silent the line says **unwritten — his to rule** and the build builds
 nothing on it. Fix lines, never findings: each names the file, the line and
 what lands there.
 
-**Size:** ~39 KB.
+**Size:** 75 KB — over the 40 KB aim, said plainly. Eight movements across
+fifteen routes, 78 printed checks, every line carrying an address; the
+ceiling was the aim and completeness the rule.
 
 ---
 
@@ -527,9 +529,11 @@ pressure: a rarer star is bigger and slower (`RARITY_SIZE :86`,
   shape** — one `localStorage` key, a `try/catch` on every read and write, and
   a purge control that appears only once there is something to clear.
   **It does not touch `completion_points` (🚩 held).**
-- **Contrast:** the step descriptions at `/50` and the durations and the
-  empty-path note at `/40` → **`/70`** (`CourseDetail.tsx:114, :119, :135`;
-  `CoursesGallery.tsx:46`; `LessonsGallery.tsx`, same shape).
+- **Contrast → `/70`:** `CourseDetail.tsx:114` (step descriptions, `/50`) ·
+  `:119` (durations, `/40`) · `:135` (the empty-path note, `/40`) ·
+  `CoursesGallery.tsx:38` (subtitle, `/40`), `:40` (empty, `/40`), `:46`
+  (duration, `/40`), `:47` (description, `/50`) · `LessonsGallery.tsx:40`
+  (subtitle, `/40`), `:42` (empty, `/40`).
 - **`path_lessons.is_required` is `false` on all six rows**
   (`008:233–237`) — nothing in this course is required, in the database.
   Nothing in this pass renders it, and nothing makes it a demand.
@@ -811,13 +815,19 @@ stops: the content shape in the same table, the mechanic's law, and what only
 he can rule. `puzzle_form` values are the Grammar's own molecule names in
 kebab-case, referenced from canon, never forked (`022:12–14`).
 
+**Their seed numbers are stale and are not reserved.** Board ⑦ named
+`024`/`025`/`026` on 2026-08-25; the Bazaar's draft took `024` the same day
+(`4a329e04a`) and the collections seed takes `025` (§12). Each form's seed
+takes **whatever is free on the day it is written** — the names below are the
+form's, never the number's.
+
 **Word find** — `puzzle_form = word-find`. The Grammar's WordFind molecule,
 verbatim: *"A category's words hidden in a grid; the rest of the grid is
 filler."* (`resonance-grammar/docs/sql/102-the-molecules.sql:91–94`).
 Content shape: `payload: { rows, cols, grid, words: [{ atom_word, atom_id,
 clue, start, dir }] }`. Mechanic: control of error is the list itself — a run
 either is a word on it or it is not; **no wrong state**, no timer, no score.
-Seed named **`024-the-dailies-word-find-DRAFT.sql`**, from a
+Seed named for its form — **`NNN-the-dailies-word-find-DRAFT.sql`** — from a
 `dailies_wordfind_gen.py` beside its sibling in the bridge's seeding folder.
 **Unwritten — his to rule:** the grid's size · how many words hide in one ·
 whether diagonals and reversals are in · whether the list shows the words or
@@ -831,7 +841,7 @@ atom_id }] }`. The crossings are **read, not invented** — the canon holds
 6,728 molecules over 13,449 bonds. Mechanic: a letter that does not agree
 with its crossing is visible to the solver without being told — Ximenean
 fairness; **no wrong state**, no *check puzzle* verdict, no percentage. Seed
-named **`025-the-dailies-crossword-DRAFT.sql`**. The mask filter is not
+named **`NNN-the-dailies-crossword-DRAFT.sql`**. The mask filter is not
 optional: **924 of 2,344 atoms carry their own word inside their own
 definition**.
 **Unwritten — his to rule:** grid size and whether it keeps a classic 180°
@@ -846,7 +856,7 @@ solve."* (`102-the-molecules.sql:108–111`). Content shape: `payload: { n,
 letters, givens, solution, hidden: { atom_word, atom_id, dir, start } }`.
 Mechanic: the constraint is the control of error; **no wrong state**, no
 *mistakes: 3* counter, no timer, no difficulty rank. Seed named
-**`026-the-dailies-wordoku-DRAFT.sql`**. The thin ground, said plainly: a
+**`NNN-the-dailies-wordoku-DRAFT.sql`**. The thin ground, said plainly: a
 nine-square needs a nine-letter word of nine distinct letters and the corpus
 holds **eleven**, all cold.
 **Unwritten — his to rule:** the square's size, four, six or nine · how many
@@ -1091,15 +1101,23 @@ base to settle it.**
 **One draft this pass.** Nothing the three daily forms need is written —
 frames only.
 
-**The number.** The shelf read 2026-08-25 stands at `023` (twice:
-`024-the-bazaar-refined-DRAFT.sql` · `023-the-ledger-door-DRAFT.sql`). Board
-⑦ names `024`/`025`/`026` for the three daily forms, and **those three seeds
-are named but never written**, so `024` is free at this writing. **The build
-re-reads `docs/sql/` on the day it writes and takes the lowest free number,
-printing it in the return.** The filename below assumes `024`; if the shelf
-has moved, the number moves with it.
+**The number, and it moved while this spec was being written.** The shelf read
+at the start of this sitting stood at `023` **twice** —
+`023-the-bazaar-refined-DRAFT.sql` and `023-the-ledger-door-DRAFT.sql`.
+Mid-writing another hand committed `4a329e04a` (*"The Bazaar's DRAFT takes the
+number 024 — two drafts had shared 023; the ledger door was first"*), renaming
+the Bazaar's draft to **`024-the-bazaar-refined-DRAFT.sql`** and sweeping every
+reference to it, this file included. **So the shelf now stands at `024`, and
+the lowest free number is `025`.**
 
-### `docs/sql/024-the-floating-stars-collections-DRAFT.sql`
+Board ⑦'s named `024`/`025`/`026` for the three daily forms are **stale on the
+same movement**, and none of those three seeds is written this pass anyway —
+nothing of theirs is reserved. **The build re-reads `docs/sql/` on the day it
+writes, takes the lowest free number, and prints the number it took in its
+return.** The filename below takes `025` as the shelf stands 2026-08-25; if
+the shelf has moved again, the number moves with it.
+
+### `docs/sql/025-the-floating-stars-collections-DRAFT.sql`
 
 **What it does, in four steps, plain statements only — no `do $$ … $$` blocks
 (the ritual's lesson 2):**
@@ -1227,7 +1245,7 @@ returns to B.
       room's copy does not claim the vessel has nothing.
 - [ ] **The sieve's words**, if ③·B lands: exactly *all stars* / *collected* /
       *still drifting*, and **no fraction beside them**.
-- [ ] `docs/sql/024-…-DRAFT.sql` is a draft and **was not run** — no schema
+- [ ] `docs/sql/025-…-DRAFT.sql` is a draft and **was not run** — no schema
       change is visible through the door.
 
 ### The a11y lens
