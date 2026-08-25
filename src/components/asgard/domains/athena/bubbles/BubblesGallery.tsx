@@ -1,58 +1,177 @@
 // src/components/asgard/domains/athena/bubbles/BubblesGallery.tsx
+// ╔═══════════════════════════════════════════════════════════════════════════╗
+// ║   THE FLOATING STARS — the shelf                                         ║
+// ╚═══════════════════════════════════════════════════════════════════════════╝
+// REFINED 2026-08-25 on refine/athena-2026-08-25, to the approved canvas
+// (.journals/proofs/04-athena/design/Stars.dc.html) at KP's ⚛ word,
+// verbatim: "library proofs are good".
+//
+// WHAT LANDED HERE:
+//   · the palette by rarity, adopted from the app's five cosmic tokens — the
+//     mythic move is the one law: #f43f5e is rose-500, and the app moved
+//     mythic off exactly that colour on 2026-08-10 ("Mythic wears the
+//     curator's magenta, not the old rose: no red anywhere",
+//     resonance-bubbles/src/lib/bubbles/dress.ts:39-40) against its standing
+//     rule "No streaks, no combos, no timers shown, no red anywhere"
+//     (resonance-bubbles/CLAUDE.md:34).
+//   · the veil — an uncollected star shows its name and its rarity and keeps
+//     its sentence back. The app's law is that the reward IS the words, and
+//     a waiting card is "a place it waits, never a place the player failed".
+//   · the flip — a collected star turns to show itself large, how many times
+//     it came past, where it belongs, and the way back.
+//   · the sieve, in words — all stars / collected / still drifting. NEVER a
+//     fraction and never a bar: KP's 2026-08-24 ruling took the app's own
+//     header tally and per-collection bar out of this realm by name.
+//   · the search narrowed to name and collection, which is what makes the
+//     veil hold (the app's `searchIn`).
+//   · the fold, closed by default, as the app draws it.
+//   · the a11y bones: the ring the play door landed (12.66:1) on every card
+//     and chip, aria-pressed on every chip, both rows in a named role=group,
+//     44px touch targets.
+//   · the colours from the rows (gate C) — see starPaint.ts.
+//
+// WHAT IS DELIBERATELY ABSENT: a completion figure for a collection · the
+// app's {n}/{total} header tally · its per-collection bar · a leaderboard ·
+// a streak · a countdown to the cap reset · a named rare star to chase · a
+// "one missing" state · the points on a card · anything red.
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Droplets, Play, Search } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Droplets, Play, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useUser } from '@/hooks/useUser';
 import { useBubblesList } from '@/lib/generated/hooks/athena-gamification/bubbles';
 import { useCollectionSetsList } from '@/lib/generated/hooks/hestia-core/collection_sets';
+import type { BubblesRow } from '@/lib/generated/types/athena-gamification/bubbles';
 import type { CardData } from '@/types/components/runes/card.types';
+import { pageTheDoor } from './pageTheDoor';
+import { paintStar, readAccent, readCollectionPalette, readStarColours } from './starPaint';
 
-// The evolved bubbles table derives what it dropped: points and colors come
-// from rarity, collections resolve through collection_sets (the game's own
-// pattern, BubblePopGame.tsx).
-const RARITY_POINTS: Record<string, number> = {
-  common: 1, rare: 3, epic: 5, legendary: 10, mythic: 25,
-};
-
+// The app's five cosmic tokens, adopted whole (common void.light · rare
+// neurospark · epic quantum.light · legendary hearth.gold · mythic
+// entity.curator). Where this map lives — one shared module as dress.ts is
+// for the app, or three copies — is unwritten, his to rule; this pass changes
+// the values in all three files and leaves the shape alone.
 const RARITY_FILL: Record<string, { color: string; glow: string }> = {
-  common: { color: '#94a3b8', glow: '#94a3b855' },
-  rare: { color: '#22d3ee', glow: '#22d3ee55' },
-  epic: { color: '#a855f7', glow: '#a855f755' },
-  legendary: { color: '#f59e0b', glow: '#f59e0b55' },
-  mythic: { color: '#f43f5e', glow: '#f43f5e55' },
+  common: { color: '#B2BEC3', glow: '#B2BEC355' },
+  rare: { color: '#22D3EE', glow: '#22D3EE55' },
+  epic: { color: '#7D6CEA', glow: '#7D6CEA55' },
+  legendary: { color: '#FDCB6E', glow: '#FDCB6E55' },
+  mythic: { color: '#E84393', glow: '#E8439355' },
 };
 
 const RARITY_COLORS: Record<string, string> = {
-  common: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
-  rare: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  epic: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-  legendary: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
+  common: 'bg-void-light/20 text-void-light border-void-light/30',
+  rare: 'bg-neurospark/20 text-neurospark border-neurospark/30',
+  epic: 'bg-quantum-light/20 text-quantum-light border-quantum-light/30',
+  legendary: 'bg-hearth-gold/20 text-hearth-gold border-hearth-gold/30',
+  mythic: 'bg-entity-curator/20 text-entity-curator border-entity-curator/30',
 };
 
 // Stable params — the generated list hooks refetch on params IDENTITY
 // (the StatusBar pattern); an inline object here would loop the fetch.
+// `limit` is 100 because the door clamps to 100 (auth.ts:142-149) and asking
+// for 200 was being served 100 in silence. The rest is paged below.
 const BUBBLES_PARAMS = {
   filters: { status: 'published' },
   sort: 'display_order',
   order: 'asc' as const,
-  limit: 200,
+  limit: 100,
 };
 const SETS_PARAMS = { limit: 100 };
 
+const FOCUS_RING =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold ' +
+  'focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space';
+
+// 44px, the realm's touch floor — the chips stood at 30.
+const CHIP =
+  'inline-flex min-h-[44px] items-center rounded-full border px-4 text-xs font-medium ' +
+  FOCUS_RING;
+
+type Sieve = 'all' | 'collected' | 'drifting';
+
+const SIEVE_WORDS: Array<{ key: Sieve; word: string }> = [
+  { key: 'all', word: 'all stars' },
+  { key: 'collected', word: 'collected' },
+  { key: 'drifting', word: 'still drifting' },
+];
+
 export function BubblesGallery() {
+  const { user } = useUser();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRarity, setSelectedRarity] = useState<string | null>(null);
   const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
+  const [sieve, setSieve] = useState<Sieve>('all');
+  const [foldOpen, setFoldOpen] = useState(false);
+  const [flipped, setFlipped] = useState<string | null>(null);
 
-  const { data: bubbles, loading } = useBubblesList(BUBBLES_PARAMS);
+  const { data: firstPage, total: bubbleTotal, loading } = useBubblesList(BUBBLES_PARAMS);
   const { data: sets } = useCollectionSetsList(SETS_PARAMS);
 
+  // PAGE, NEVER SILENTLY SHORT. The hook reads page one and returns the real
+  // `total`; anything past a hundred is fetched here rather than dropped.
+  // Thirty stars stand today, so this loop does nothing yet — it is here so
+  // that the day docs/sql/025 runs, the catalogue of 123 arrives whole.
+  const [restOfShelf, setRestOfShelf] = useState<BubblesRow[]>([]);
+  useEffect(() => {
+    let alive = true;
+    if (!bubbleTotal || firstPage.length === 0 || firstPage.length >= bubbleTotal) {
+      setRestOfShelf([]);
+      return;
+    }
+    pageTheDoor<BubblesRow>(
+      '/api/generated/athena-gamification/bubbles',
+      'status=published&sort=display_order&order=asc',
+      2,
+    ).then((res) => { if (alive) setRestOfShelf(res.rows); });
+    return () => { alive = false; };
+  }, [bubbleTotal, firstPage.length]);
+
+  const bubbles = useMemo(
+    () => (restOfShelf.length ? [...firstPage, ...restOfShelf] : firstPage),
+    [firstPage, restOfShelf],
+  );
+
+  // THE PER-VESSEL READ — vessel_bubbles, one row per pop, through the
+  // generated door directly. There is no generated hook for that table
+  // (src/lib/generated/hooks/hestia-core/ holds fourteen and it is not among
+  // them); the house's own precedent for reaching the door instead is
+  // CourseDetail.tsx:53-67, which reads `path_lessons` the same way for the
+  // same reason. Nothing is written into src/lib/generated/ — that root is
+  // GAIA's output and heals only by regeneration (CLAUDE.md §Essential
+  // Rules). Whether gaia_config should generate a hook for it is unwritten —
+  // his to rule. This read PAGES: a vessel past a hundred pops read short.
+  const [pops, setPops] = useState<Map<string, number>>(new Map());
+  const [popsUnread, setPopsUnread] = useState(false);
+  useEffect(() => {
+    if (!user) { setPops(new Map()); setPopsUnread(false); return; }
+    let alive = true;
+    pageTheDoor<{ bubble_id: string }>(
+      '/api/generated/hestia-core/vessel_bubbles',
+      `user_id=${encodeURIComponent(user.id)}`,
+    ).then((res) => {
+      if (!alive) return;
+      // A refused read is never dressed as an empty one: `vessel_bubbles`
+      // carries no select policy anywhere in docs/sql/*, so the room says it
+      // could not read rather than telling a vessel they have popped nothing.
+      if (!res.ok) { setPopsUnread(true); setPops(new Map()); return; }
+      const counted = new Map<string, number>();
+      res.rows.forEach((r) => {
+        if (r?.bubble_id) counted.set(r.bubble_id, (counted.get(r.bubble_id) ?? 0) + 1);
+      });
+      setPopsUnread(false);
+      setPops(counted);
+    });
+    return () => { alive = false; };
+  }, [user]);
+
+  const setById = useMemo(() => new Map(sets.map(s => [s.id, s])), [sets]);
   const setNames = useMemo(
     () => new Map(sets.map(s => [s.id, s.name || 'Collection'])),
     [sets]
@@ -70,16 +189,31 @@ export function BubblesGallery() {
     return Array.from(set).sort();
   }, [bubbles, setNames]);
 
+  const chosenSet = useMemo(
+    () => (selectedCollection ? sets.find(s => (s.name || 'Collection') === selectedCollection) ?? null : null),
+    [sets, selectedCollection],
+  );
+
   const filteredBubbles = useMemo(() => {
+    const term = searchTerm.toLowerCase();
     return bubbles.filter(b => {
       const collectionName = b.collection_id ? (setNames.get(b.collection_id) || 'Collection') : null;
-      const matchesSearch = b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (b.description || '').toLowerCase().includes(searchTerm.toLowerCase());
+      // THE SEARCH SCOPE — name and collection only, as the app searches.
+      // Reading descriptions is what breaks the veil: it would let a vessel
+      // find a star by a sentence the card is holding back.
+      const matchesSearch = !term ||
+        b.name.toLowerCase().includes(term) ||
+        (collectionName || '').toLowerCase().includes(term);
       const matchesRarity = !selectedRarity || b.rarity === selectedRarity;
       const matchesCollection = !selectedCollection || collectionName === selectedCollection;
-      return matchesSearch && matchesRarity && matchesCollection;
+      const count = pops.get(b.id) ?? 0;
+      const matchesSieve =
+        sieve === 'all' ||
+        (sieve === 'collected' && count > 0) ||
+        (sieve === 'drifting' && count === 0);
+      return matchesSearch && matchesRarity && matchesCollection && matchesSieve;
     });
-  }, [bubbles, searchTerm, selectedRarity, selectedCollection, setNames]);
+  }, [bubbles, searchTerm, selectedRarity, selectedCollection, setNames, sieve, pops]);
 
   if (loading) {
     return (
@@ -94,18 +228,21 @@ export function BubblesGallery() {
     );
   }
 
+  const accent = readAccent(chosenSet);
+  const bannerPalette = readCollectionPalette(chosenSet);
+
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-6xl mx-auto px-6">
 
         <div className="mb-8">
-          <Link href="/library" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2">
+          <Link href="/library" className={cn('flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors motion-reduce:transition-none text-sm mb-2 rounded', FOCUS_RING)}>
             <ArrowLeft className="h-4 w-4" />Return to the Library
           </Link>
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <h1 className="text-2xl font-bold text-star-dust">The Floating Stars</h1>
-              <p className="text-sm text-star-dust/40 mt-1">Collect bubbles and earn sovereignty</p>
+              <p className="text-sm text-star-dust/70 mt-1">Collect bubbles and earn sovereignty</p>
             </div>
             {/* KP's ⚛ word, 2026-08-25, verbatim: "the floating stars currently
                 has no entry to "/play"". The gallery room had no door to the
@@ -114,80 +251,277 @@ export function BubblesGallery() {
                 the room's own header, :371-372. */}
             <Link
               href="/library/bubbles/play"
-              className="inline-flex flex-col gap-0.5 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-star-dust transition-colors hover:bg-white/10 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
+              className="inline-flex flex-col gap-0.5 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-star-dust transition-colors motion-reduce:transition-none hover:bg-white/10 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
             >
               <span className="flex items-center gap-2 text-sm font-semibold">
                 <Play className="h-4 w-4" />Pop the Stars
               </span>
-              <span className="text-xs text-star-dust/40">Tap bubbles to collect them</span>
+              <span className="text-xs text-star-dust/70">Tap bubbles to collect them</span>
             </Link>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 mb-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
-            <input type="text" placeholder="Search bubbles..." value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/40 focus:border-neurospark focus:outline-none"
-            />
-          </div>
+        {/* THE SIEVE, IN WORDS. Three chips and no fraction beside them —
+            "a sieve, never a scoreboard: 'still drifting' is where a star
+            waits, not where a player failed". */}
+        <div className="mb-4" role="group" aria-labelledby="stars-sieve-heading">
+          <h2 id="stars-sieve-heading" className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/70">Showing</h2>
           <div className="flex flex-wrap gap-2">
-            <button onClick={() => setSelectedRarity(null)}
-              className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', !selectedRarity ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
-            >All Rarities</button>
-            {rarities.map(r => (
-              <button key={r} onClick={() => setSelectedRarity(selectedRarity === r ? null : r)}
-                className={cn('px-3 py-1.5 rounded-full text-xs font-medium border capitalize', RARITY_COLORS[r] || 'bg-white/5', selectedRarity === r ? 'ring-1 ring-current' : '')}
-              >{r}</button>
+            {SIEVE_WORDS.map(({ key, word }) => (
+              <button
+                key={key}
+                type="button"
+                aria-pressed={sieve === key}
+                onClick={() => setSieve(key)}
+                className={cn(CHIP, sieve === key ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/70 border-white/10')}
+              >{word}</button>
             ))}
           </div>
-          {collections.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              <button onClick={() => setSelectedCollection(null)}
-                className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', !selectedCollection ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
-              >All Collections</button>
-              {collections.map(c => (
-                <button key={c} onClick={() => setSelectedCollection(selectedCollection === c ? null : c)}
-                  className={cn('px-3 py-1.5 rounded-full text-xs font-medium border', selectedCollection === c ? 'ring-1 ring-current bg-white/10 text-star-dust' : 'bg-white/5 text-star-dust/50 border-white/10')}
-                >{c}</button>
-              ))}
+          {popsUnread && (
+            <p className="mt-2 text-xs text-star-dust/70">
+              Which stars you have popped could not be read just now — the
+              sieve is showing the whole shelf.
+            </p>
+          )}
+        </div>
+
+        {/* THE FOLD — drawn closed by default, as the app draws it. The shelf
+            is what you came for. */}
+        <div className="mb-8">
+          <button
+            type="button"
+            aria-expanded={foldOpen}
+            aria-controls="stars-fold"
+            onClick={() => setFoldOpen(o => !o)}
+            className={cn('inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 text-xs font-medium text-star-dust/70', FOCUS_RING)}
+          >
+            <ChevronDown className={cn('h-4 w-4 transition-transform motion-reduce:transition-none', foldOpen && 'rotate-180')} aria-hidden="true" />
+            filter &amp; sort
+          </button>
+
+          {foldOpen && (
+            <div id="stars-fold" className="flex flex-col gap-4 mt-4">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/70" size={16} aria-hidden="true" />
+                <label htmlFor="stars-search" className="sr-only">Search by name or collection</label>
+                <input
+                  id="stars-search"
+                  type="text"
+                  placeholder="Search by name or collection"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-star-dust text-sm placeholder-white/70 focus:border-neurospark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
+                />
+              </div>
+
+              <div role="group" aria-labelledby="stars-rarity-heading">
+                <h3 id="stars-rarity-heading" className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/70">By rarity</h3>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    aria-pressed={!selectedRarity}
+                    onClick={() => setSelectedRarity(null)}
+                    className={cn(CHIP, !selectedRarity ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/70 border-white/10')}
+                  >All Rarities</button>
+                  {rarities.map(r => (
+                    <button
+                      key={r}
+                      type="button"
+                      aria-pressed={selectedRarity === r}
+                      onClick={() => setSelectedRarity(selectedRarity === r ? null : r)}
+                      className={cn(CHIP, 'capitalize', RARITY_COLORS[r] || 'bg-white/5 text-star-dust/70 border-white/10', selectedRarity === r ? 'ring-1 ring-current' : '')}
+                    >{r}</button>
+                  ))}
+                </div>
+              </div>
+
+              {collections.length > 0 && (
+                <div role="group" aria-labelledby="stars-collection-heading">
+                  <h3 id="stars-collection-heading" className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/70">By collection</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      aria-pressed={!selectedCollection}
+                      onClick={() => setSelectedCollection(null)}
+                      className={cn(CHIP, !selectedCollection ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/70 border-white/10')}
+                    >All Collections</button>
+                    {collections.map(c => (
+                      <button
+                        key={c}
+                        type="button"
+                        aria-pressed={selectedCollection === c}
+                        onClick={() => setSelectedCollection(selectedCollection === c ? null : c)}
+                        className={cn(CHIP, selectedCollection === c ? 'ring-1 ring-current bg-white/10 text-star-dust' : 'bg-white/5 text-star-dust/70 border-white/10')}
+                      >{c}</button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
 
+        {/* THE COLLECTION BANNER — accent, rule, dot, name and description,
+            and nothing else. The app's {have}/{total} and its clip-revealed
+            bar do not come across: KP's 2026-08-24 ruling took exactly those
+            two shapes out of this realm. The accent and the palette are read
+            from the row (collection_sets.accent / .palette, docs/sql/025 —
+            KP's hand); when the row is silent the banner simply wears the
+            realm's own starDust and says nothing about colour. */}
+        {chosenSet && (
+          <div className="mb-8 rounded-xl border border-white/10 bg-white/5 p-5">
+            <div className="flex items-center gap-3">
+              <span
+                className="inline-block h-3 w-3 flex-shrink-0 rounded-full"
+                style={{ background: accent ?? '#E0E0E0' }}
+                aria-hidden="true"
+              />
+              <h2 className="text-lg font-semibold text-star-dust">{chosenSet.name}</h2>
+            </div>
+            <div
+              className="mt-3 h-px w-full"
+              style={{
+                background: bannerPalette
+                  ? `linear-gradient(to right, ${bannerPalette.join(', ')})`
+                  : (accent ?? 'rgba(224,224,224,0.25)'),
+              }}
+              aria-hidden="true"
+            />
+            {chosenSet.description && (
+              <p className="mt-3 text-sm text-star-dust/70">{chosenSet.description}</p>
+            )}
+          </div>
+        )}
+
         {filteredBubbles.length === 0 && (
           <div className="text-center py-20">
-            <Droplets className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-            <p className="text-star-dust/40 text-lg mb-2">{searchTerm ? 'No bubbles match' : 'The floating stars will appear when the Sanctuary is ready'}</p>
+            <Droplets className="h-12 w-12 text-star-dust/20 mx-auto mb-4" aria-hidden="true" />
+            <p className="text-star-dust/70 text-lg mb-2">
+              {searchTerm
+                ? 'No bubbles match'
+                : sieve === 'collected'
+                  ? 'None collected here yet. They are still out there, drifting.'
+                  : sieve === 'drifting'
+                    ? 'Nothing waits here — every star under this sieve has been popped.'
+                    : 'The floating stars will appear when the Sanctuary is ready'}
+            </p>
           </div>
         )}
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredBubbles.map(bubble => {
-            const fill = RARITY_FILL[bubble.rarity || 'common'] || RARITY_FILL.common;
-            const points = RARITY_POINTS[bubble.rarity || 'common'] || 1;
+            const rarity = bubble.rarity || 'common';
+            const fill = RARITY_FILL[rarity] || RARITY_FILL.common;
+            const colours = readStarColours(bubble);
             const collectionName = bubble.collection_id ? setNames.get(bubble.collection_id) : null;
-            const cardData: CardData = { id: bubble.id, type: 'value', title: bubble.name, value: bubble.rarity || '' };
-            return (
-              <Link key={bubble.id} href={`/library/bubbles/${bubble.slug}`}>
-                <Card data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full text-center"
-                  style={{ boxShadow: `0 0 20px ${fill.glow}` }}
+            const collectionRow = bubble.collection_id ? setById.get(bubble.collection_id) : null;
+            const count = pops.get(bubble.id) ?? 0;
+            const collected = count > 0;
+            const isFlipped = flipped === bubble.id;
+            const cardData: CardData = { id: bubble.id, type: 'value', title: bubble.name, value: rarity };
+            const orb = paintStar(fill, colours, 64);
+            const bigOrb = paintStar(fill, colours, 90);
+
+            // THE FLIPPED FACE — the star large, how many times it came past,
+            // where it belongs, and the way back. Under the reduced-motion
+            // guard the turn keeps its two faces and loses its rotation: the
+            // back simply replaces the front.
+            if (isFlipped) {
+              return (
+                <button
+                  key={bubble.id}
+                  type="button"
+                  aria-pressed={true}
+                  aria-label={`${bubble.name} — turned. Press to turn the card back.`}
+                  onClick={() => setFlipped(null)}
+                  className={cn('block h-full w-full rounded-lg text-left transition-opacity motion-reduce:transition-none', FOCUS_RING)}
                 >
-                  <div className="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center"
-                    style={{ background: `radial-gradient(circle at 30% 30%, ${fill.glow}, ${fill.color})`, boxShadow: `0 0 16px ${fill.glow}` }}
-                  />
-                  <h3 className="font-semibold text-star-dust mb-1">{bubble.name}</h3>
-                  {bubble.description && <p className="text-xs text-star-dust/50 line-clamp-2 mb-3">{bubble.description}</p>}
-                  <div className="flex items-center justify-center gap-2 flex-wrap">
-                    {bubble.rarity && <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', RARITY_COLORS[bubble.rarity] || '')}>{bubble.rarity}</Badge>}
-                    <span className="text-xs text-neurospark font-medium">+{points}</span>
-                  </div>
-                  {collectionName && (
-                    <p className="text-[10px] text-star-dust/30 mt-2">{collectionName}</p>
-                  )}
-                </Card>
-              </Link>
+                  <Card data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5 h-full text-center"
+                    style={{ boxShadow: `0 0 20px ${fill.glow}` }}
+                  >
+                    <div
+                      className="w-[90px] h-[90px] rounded-full mx-auto mb-3"
+                      style={{ background: bigOrb.background, boxShadow: bigOrb.boxShadow }}
+                      aria-hidden="true"
+                    />
+                    <h3 className="font-semibold text-star-dust mb-1">{bubble.name}</h3>
+                    <p className="text-xs text-star-dust/82 mb-1">popped ×{count}</p>
+                    {collectionName && (
+                      <p className="text-[10px] text-star-dust/70 mb-3">{collectionName}</p>
+                    )}
+                    <span className="text-[10px] text-star-dust/70">··· turn back ···</span>
+                  </Card>
+                </button>
+              );
+            }
+
+            return (
+              <div key={bubble.id} className="flex h-full flex-col gap-2">
+                <Link
+                  href={`/library/bubbles/${bubble.slug}`}
+                  aria-label={
+                    collected
+                      ? `${bubble.name}, ${rarity} — collected. Opens its page.`
+                      : `${bubble.name}, ${rarity} — still drifting. Opens its page.`
+                  }
+                  className={cn('block flex-1 rounded-lg', FOCUS_RING)}
+                >
+                  <Card data={cardData} variant="glass" radius="lg" shadow="sm"
+                    className={cn(
+                      'p-5 h-full text-center',
+                      // THE VEIL — an uncollected star waits, dashed and
+                      // dimmed. A place it waits, never a place you failed.
+                      !collected && 'border border-dashed border-white/15 opacity-70',
+                    )}
+                    style={{ boxShadow: collected ? `0 0 20px ${fill.glow}` : 'none' }}
+                  >
+                    <div className="relative w-16 h-16 mx-auto mb-3">
+                      <div
+                        className="w-16 h-16 rounded-full"
+                        style={{
+                          background: orb.background,
+                          boxShadow: collected ? orb.boxShadow : 'none',
+                          opacity: collected ? 1 : 0.55,
+                        }}
+                        aria-hidden="true"
+                      />
+                      {count > 1 && (
+                        <span className="absolute -right-1 -top-1 rounded-full border border-white/15 bg-deep-space/80 px-1.5 text-[10px] text-star-dust/82">
+                          ×{count}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-semibold text-star-dust mb-1">{bubble.name}</h3>
+                    {collected
+                      ? bubble.description && <p className="text-xs text-star-dust/70 line-clamp-2 mb-3">{bubble.description}</p>
+                      : <p className="text-xs text-star-dust/70 mb-3">··· pop to read ···</p>}
+                    <div className="flex items-center justify-center gap-2 flex-wrap">
+                      {bubble.rarity && <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', RARITY_COLORS[bubble.rarity] || '')}>{bubble.rarity}</Badge>}
+                    </div>
+                    {collectionName && (
+                      <p className="text-[10px] text-star-dust/70 mt-2">
+                        {collectionRow && readAccent(collectionRow) && (
+                          <span
+                            className="mr-1.5 inline-block h-2 w-2 rounded-full align-middle"
+                            style={{ background: readAccent(collectionRow) as string }}
+                            aria-hidden="true"
+                          />
+                        )}
+                        {collectionName}
+                      </p>
+                    )}
+                  </Card>
+                </Link>
+                {collected && (
+                  <button
+                    type="button"
+                    aria-pressed={false}
+                    aria-label={`${bubble.name} — collected. Press to turn the card.`}
+                    onClick={() => setFlipped(bubble.id)}
+                    className={cn('rounded-lg border border-white/10 bg-white/5 py-1.5 text-[10px] text-star-dust/70 transition-colors motion-reduce:transition-none hover:bg-white/10', FOCUS_RING)}
+                  >··· turn ···</button>
+                )}
+              </div>
             );
           })}
         </div>
