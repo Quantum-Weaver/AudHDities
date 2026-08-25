@@ -78,6 +78,11 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/library/knowledge', label: 'The Archive' },
       { href: '/library/badges', label: 'The Honors' },
       { href: '/library/bubbles', label: 'The Floating Stars' },
+      // 2026-08-25, mend/floating-stars-play-door. KP's ⚛ word, verbatim:
+      // "the floating stars currently has no entry to "/play"". The room
+      // exists (BubblePopGame.tsx at this route) and now has a door in from
+      // the gallery too — the map never lies, so it earns its line here.
+      { href: '/library/bubbles/play', label: 'Pop the Stars' },
     ],
   },
   {
