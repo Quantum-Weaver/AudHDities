@@ -89,6 +89,7 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/bazaar', label: 'The Bazaar' },
       { href: '/bazaar/wares', label: 'The Tapestry' },
       { href: '/bazaar/artisans', label: 'The Weavers' },
+      { href: '/bazaar/merchants', label: 'The Guild' },
       { href: '/bazaar/studio', label: 'The Loom (Bazaar)' },
       { href: '/bazaar/contributions', label: 'Contributions' },
     ],
