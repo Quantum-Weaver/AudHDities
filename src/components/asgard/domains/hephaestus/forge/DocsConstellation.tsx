@@ -196,12 +196,17 @@ const docCategories: DocCategory[] = [
         badge: 'Press',
         badgeColor: 'cyan',
       },
+      // '/careers' → '/calling' 2026-08-24, the truth pass. This component
+      // is imported nowhere and renders to no one today, so the stale card
+      // was latent rather than live — trued anyway, so it cannot come back
+      // wrong the day something mounts it. KP's ⚛ ruling stands behind it:
+      // "we have no company" · "no 'careers'" · "just us".
       {
         title: 'The Calling',
-        path: '/careers',
-        description: 'Join us in weaving a new reality',
+        path: '/calling',
+        description: 'No company, no careers — just us, and the community that arrives',
         icon: Users,
-        badge: 'Careers',
+        badge: 'Invitation',
         badgeColor: 'emerald',
       },
       {

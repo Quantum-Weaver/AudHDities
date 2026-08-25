@@ -15,7 +15,7 @@ interface TaxReceiptProps {
 const cardData: CardData = {
   id: 'tax-receipt',
   type: 'value',
-  title: 'Tax Receipt',
+  title: 'Record of the Gift',
   value: '',
 };
 
@@ -25,9 +25,16 @@ export function TaxReceipt({ amount, className }: TaxReceiptProps) {
   const handleDownload = async () => {
     setIsDownloading(true);
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
+    // 2026-08-24, the truth pass — two lines stood in this receipt: "The
+    // Sovereign Sanctuary is a fiscally sponsored project." and "Please
+    // consult your tax advisor for deductibility." Neither is true. There is
+    // no fiscal sponsor and no company at all to be sponsored — "we have no
+    // company" ((hephaestus)/REALM-BUS.md:216-219) — and implying a
+    // deduction is a claim about someone's tax return, made by a house with
+    // no standing to make it. Removed; the receipt now says what it is.
     const receipt = `
-SOVEREIGN SANCTUARY - OFFICIAL DONATION RECEIPT
+SOVEREIGN SANCTUARY - RECORD OF A GIFT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Date: ${new Date().toLocaleDateString()}
@@ -37,8 +44,8 @@ Amount: $${amount}
 Type: One-time Donation
 Purpose: General Support
 
-The Sovereign Sanctuary is a fiscally sponsored project.
-Please consult your tax advisor for deductibility.
+This is your own copy of the gift, kept by you. It is not a tax
+instrument and claims nothing about deductibility.
 
 Thank you for your generous support!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -62,9 +69,12 @@ Thank you for your generous support!
       <div className="flex items-start gap-4">
         <div className="text-3xl">📄</div>
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-star-dust mb-1">Tax Receipt</h3>
+          {/* 2026-08-24, the truth pass — "official donation receipt for tax
+              purposes" implied a tax instrument issued by an entity. There is
+              no entity. The card keeps its frame; the words are now true. */}
+          <h3 className="text-lg font-semibold text-star-dust mb-1">Your Record of the Gift</h3>
           <p className="text-sm text-star-dust/40 mb-4">
-            Download your official donation receipt for tax purposes
+            Download a plain record of what you gave, for your own keeping
           </p>
           
           <div className="flex items-center gap-4 text-sm text-star-dust/60 mb-4">
@@ -90,9 +100,13 @@ Thank you for your generous support!
         </div>
       </div>
 
+      {/* 2026-08-24, the truth pass — this read "A copy of this receipt has
+          also been sent to your email address." Nothing sends it: there is no
+          mailer anywhere in this repo behind a donation. The download button
+          above is the only copy that exists, and the line now says so. */}
       <div className="mt-4 pt-4 border-t border-white/10">
         <p className="text-xs text-star-dust/30">
-          A copy of this receipt has also been sent to your email address.
+          The download above is your copy — nothing is emailed.
         </p>
       </div>
     </Card>

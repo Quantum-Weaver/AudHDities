@@ -36,8 +36,12 @@ export function DocsHero() {
           </p>
             
           <div className="flex flex-wrap justify-center gap-3">
+            {/* 2026-08-24, the truth pass — this read "8 documents" while
+                DocsContent listed 18 (3 architecture + 2 business +
+                3 guides + 10 sanctuary). Counted from DocsContent's own
+                DOC_SECTIONS; recount there before changing it here. */}
             <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
-            📚 8 documents
+            📚 18 documents
             </span>
             <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/60">
             🔄 Living wisdom

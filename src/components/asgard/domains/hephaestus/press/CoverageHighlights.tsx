@@ -1,188 +1,68 @@
 // src/components/asgard/domains/hephaestus/press/CoverageHighlights.tsx
 // Coverage Highlights - Featured press mentions and media coverage
+// ─────────────────────────────────────────────────────────────────────────
+// 2026-08-24 — THE TRUTH PASS. Six press mentions stood here and not one of
+// them was real: Tech Chronicle, Creative Futures Podcast, Digital Culture
+// Weekly, The Laughing Journal, Future Commerce, Decentralized Minds — with
+// invented headlines, invented pull-quotes, invented dates, and every single
+// url set to "#". The three counters above them (Mentions · Outlets · Per
+// Month) were computed from those invented rows, so the numbers were
+// fabricated too. This is the same shape as the TeamStories fabrication this
+// realm already retired. Removed whole, with the counters, and replaced with
+// the honest state: nothing yet. No promise of coming coverage stands in its
+// place — a promise would be the same lie in a slower tense. When real
+// coverage arrives, it lands here with a working url, and the counters can
+// come back counting something.
+// The journalist footer also carried press@sovereignsanctuary.com, a domain
+// that appears nowhere else in this codebase and belongs to no one here; the
+// house has one public address (root CLAUDE.md ward), and it is below.
 
 "use client";
 
-import { useState } from "react";
 import { Card } from "@/components/runes/Card";
-import { Badge } from "@/components/runes/Badge";
-import { Button } from "@/components/yggdrasil/Button";
-import { ExternalLink, Calendar } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-interface CoverageItem {
-  id: string;
-  title: string;
-  outlet: string;
-  outletLogo?: string;
-  date: string;
-  excerpt: string;
-  url: string;
-  type: "feature" | "interview" | "review" | "news" | "podcast";
-}
-
-const coverageItems: CoverageItem[] = [
-  {
-    id: "1",
-    title: "The Future of Sovereign Digital Spaces",
-    outlet: "Tech Chronicle",
-    date: "March 15, 2026",
-    excerpt: "An in-depth look at how the Sovereign Sanctuary is redefining online communities for neurodivergent creators...",
-    url: "#",
-    type: "feature",
-  },
-  {
-    id: "2",
-    title: "Quantum Weaver Interview: Building Without Extraction",
-    outlet: "Creative Futures Podcast",
-    date: "March 10, 2026",
-    excerpt: "The founder discusses trauma-informed design, residual economics, and the vision for a post-capitalist creative economy...",
-    url: "#",
-    type: "podcast",
-  },
-  {
-    id: "3",
-    title: "Sanctuary Named Top Emerging Platform for Creators",
-    outlet: "Digital Culture Weekly",
-    date: "March 5, 2026",
-    excerpt: "The Sovereign Sanctuary earns a spot on the annual 'Ones to Watch' list for its innovative approach to creator economics...",
-    url: "#",
-    type: "news",
-  },
-  {
-    id: "4",
-    title: "Comedy as Liberation: The Cure for Autism Special",
-    outlet: "The Laughing Journal",
-    date: "February 28, 2026",
-    excerpt: "A review of the groundbreaking comedy special that's sparking conversations about neurodivergence and capitalism...",
-    url: "#",
-    type: "review",
-  },
-  {
-    id: "5",
-    title: "Residual Economics: A New Model for Creator Income",
-    outlet: "Future Commerce",
-    date: "February 20, 2026",
-    excerpt: "How the Sanctuary's residual pool system could reshape how creators earn from their work...",
-    url: "#",
-    type: "feature",
-  },
-  {
-    id: "6",
-    title: "Council of Nine: Governance Without Hierarchy",
-    outlet: "Decentralized Minds",
-    date: "February 15, 2026",
-    excerpt: "An exploration of the Sanctuary's unique council-based governance structure...",
-    url: "#",
-    type: "interview",
-  },
-];
-
-const typeLabels: Record<string, string> = {
-  feature: "Feature",
-  interview: "Interview",
-  review: "Review",
-  news: "News",
-  podcast: "Podcast",
-};
-
-const typeColors: Record<string, string> = {
-  feature: "bg-quantum-purple/20 text-quantum-purple border-quantum-purple/30",
-  interview: "bg-neurospark/20 text-neurospark border-neurospark/30",
-  review: "bg-hearth-gold/20 text-hearth-gold border-hearth-gold/30",
-  news: "bg-cosmic-blue/20 text-cosmic-blue border-cosmic-blue/30",
-  podcast: "bg-entity-skald/20 text-entity-skald border-entity-skald/30",
-};
+import { Newspaper } from "lucide-react";
+import { CONTACT_LABELS } from "@/lib/constants/components/asgard/domains/iris/contact/contact.constants";
 
 export function CoverageHighlights() {
-  const [showAll, setShowAll] = useState(false);
-  const displayedItems = showAll ? coverageItems : coverageItems.slice(0, 3);
-
-  const stats = {
-    totalMentions: coverageItems.length,
-    outlets: new Set(coverageItems.map((i) => i.outlet)).size,
-    avgMonth: Math.round(coverageItems.length / 2),
-  };
-
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-semibold text-star-dust">Coverage Highlights</h2>
           <p className="text-sm text-star-dust/40 mt-1">
-            Featured press mentions and media coverage
+            Press mentions and media coverage
           </p>
         </div>
-        <div className="flex items-center gap-4 text-sm">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-neurospark">{stats.totalMentions}</div>
-            <div className="text-xs text-star-dust/40">Mentions</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-quantum-purple">{stats.outlets}</div>
-            <div className="text-xs text-star-dust/40">Outlets</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-sanctuary-green">{stats.avgMonth}</div>
-            <div className="text-xs text-star-dust/40">Per Month</div>
-          </div>
-        </div>
       </div>
 
-      <div className="space-y-4">
-        {displayedItems.map((item) => (
-          <Card
-            variant="interactive"
-            key={item.id}
-            data={{ id: item.id, type: "value", title: item.title, value: item.outlet }}
-            radius="lg"
-            shadow="sm"
-            className="p-4 hover:border-neurospark/30 transition-all"
-          >
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge className={cn("text-xs", typeColors[item.type])}>
-                    {typeLabels[item.type]}
-                  </Badge>
-                  <span className="text-xs text-star-dust/30 flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {item.date}
-                  </span>
-                </div>
-                <h3 className="font-semibold text-star-dust">{item.title}</h3>
-                <p className="text-sm text-star-dust/60 mt-1">{item.outlet}</p>
-                <p className="text-sm text-star-dust/40 mt-2 line-clamp-2">{item.excerpt}</p>
-              </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => window.open(item.url, "_blank")}
-                className="shrink-0 self-start"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Read More
-              </Button>
-            </div>
-          </Card>
-        ))}
-      </div>
-
-      {coverageItems.length > 3 && (
-        <div className="text-center">
-          <Button variant="ghost" onClick={() => setShowAll(!showAll)}>
-            {showAll ? "Show Less" : `View All ${coverageItems.length} Mentions`}
-          </Button>
+      <Card
+        variant="glass"
+        data={{ id: "coverage-empty", type: "value", title: "Coverage Highlights", value: "" }}
+        radius="lg"
+        shadow="sm"
+        className="p-8 text-center"
+      >
+        <div className="w-12 h-12 rounded-full bg-star-dust/5 flex items-center justify-center mx-auto mb-4">
+          <Newspaper className="w-6 h-6 text-star-dust/30" />
         </div>
-      )}
+        <h3 className="font-semibold text-star-dust mb-2">No coverage to show yet</h3>
+        <p className="text-sm text-star-dust/50 max-w-md mx-auto">
+          Nothing has been written about the Sanctuary yet, so there is nothing
+          here. When something is, it will stand on this page with a link you
+          can follow and read for yourself.
+        </p>
+      </Card>
 
       <div className="mt-4 p-4 bg-gradient-to-r from-neurospark/10 to-quantum-purple/10 rounded-lg text-center">
         <p className="text-sm text-star-dust/60">
-          Are you a journalist?{" "}
-          <a href="mailto:press@sovereignsanctuary.com" className="text-neurospark hover:underline">
-            Join our press list
+          Are you a journalist? Write to{" "}
+          <a
+            href={`mailto:${CONTACT_LABELS.EMAIL_ADDRESS}`}
+            className="text-neurospark hover:underline"
+          >
+            {CONTACT_LABELS.EMAIL_ADDRESS}
           </a>{" "}
-          for exclusive updates and early access.
+          and a person will answer you.
         </p>
       </div>
     </div>

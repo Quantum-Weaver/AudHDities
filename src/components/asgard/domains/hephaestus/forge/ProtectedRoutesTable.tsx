@@ -3,13 +3,29 @@
 
 import { Shield, Lock } from 'lucide-react';
 
+// 2026-08-24, the truth pass — this table listed /dashboard/*, /profile/*,
+// /checkout/*, /creator/*, /vendor/* and /admin/*. Of those six, only
+// /dashboard exists, and only as a legacy redirect stub to /vessel; the
+// other five have no page anywhere under src/app. Generic boilerplate that
+// never met the deity-named routes it was shipped beside. Below are the
+// routes that actually change with sign-in state today, read from the files
+// that do the changing. Recount from those files before editing this list.
 const protectedRoutes = [
-  { path: '/dashboard/*', description: 'Main dashboard and user overview' },
-  { path: '/profile/*', description: 'Profile viewing and editing' },
-  { path: '/checkout/*', description: 'Payment and checkout flows' },
-  { path: '/creator/*', description: 'Creator dashboard and tools' },
-  { path: '/vendor/*', description: 'Vendor dashboard and tools' },
-  { path: '/admin/*', description: 'Admin panel (requires admin role)' },
+  {
+    path: '/reset-password',
+    description:
+      'AuthGuard requires a live recovery session. Without one it returns you to /login and says the link has been spent — no one transitions unaccompanied.',
+  },
+  {
+    path: '/login · /signup · /forgot-password',
+    description:
+      'AuthGuard, inverted: a vessel already signed in on arrival is sent to /vessel rather than shown the door twice.',
+  },
+  {
+    path: '/council/applications/creator · /council/applications/vendor',
+    description:
+      'The form renders only for a signed-in vessel; a visitor is asked to sign in first, and is turned away from nothing else.',
+  },
 ];
 
 export function ProtectedRoutesTable() {

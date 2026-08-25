@@ -13,7 +13,10 @@ import VelkominGreeting from '@/components/asgard/auth/VelkominGreeting';
 
 export const metadata: Metadata = {
   title: 'The Sanctuary | AUDHDITIES',
-  description: 'Where neurodivergent minds build the future. A platform where 90% of everything circulates, every contributor is paid an equal share, and every community member shares in the abundance.',
+  // 2026-08-24, the truth pass — the last clause read "and every community
+  // member shares in the abundance." Trued to the model's two rosters, in
+  // step with SanctuaryHero.tsx.
+  description: 'Where neurodivergent minds build the future. A platform where 90% of everything circulates, every contributor is paid an equal share, and the abundance reaches every artisan who has ever pitched in and every user who opts in.',
 };
 
 export default function SanctuaryPage() {

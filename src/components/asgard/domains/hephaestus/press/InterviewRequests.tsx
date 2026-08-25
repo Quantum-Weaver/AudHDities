@@ -1,5 +1,20 @@
 // src/components/asgard/domains/hephaestus/press/InterviewRequests.tsx
 // Interview Requests - Form and contact for interview requests
+// ─────────────────────────────────────────────────────────────────────────
+// 2026-08-24 — THE TRUTH PASS. This form transmitted nothing. handleSubmit
+// was a bare `await new Promise(resolve => setTimeout(resolve, 1500))`, after
+// which the card said "Request Sent!" and "Our media team will respond within
+// 48 hours" — a receipt for a message that had never left the browser, from a
+// media team that does not exist ("we have no company" —
+// (hephaestus)/REALM-BUS.md:216-219).
+// It now posts to the same live wire the contact form uses:
+// /api/generated/iris-communications/contact_submissions
+// (ContactForm.tsx:117), with category "press" and a subject that marks it an
+// interview request, so it lands where every other message lands and can be
+// found among them. Failures are now spoken instead of swallowed.
+// The footer address was interviews@sovereignsanctuary.com, a domain that
+// appears nowhere else in this codebase; the house has one public address
+// (root CLAUDE.md ward).
 
 "use client";
 
@@ -9,7 +24,10 @@ import { Button } from "@/components/yggdrasil/Button";
 import { Input } from "@/components/forging/Input";
 import { Textarea } from "@/components/forging/Textarea";
 import { Select } from "@/components/forging/Select";
-import { Mail, Send, Calendar, Mic, Video, Users } from "lucide-react";
+import { Alert } from "@/components/seidr/Alert";
+import { Mail, Send } from "lucide-react";
+import type { ContactSubmissionsInsertInput } from "@/lib/generated/validators/iris-communications/contact_submissions";
+import { CONTACT_LABELS } from "@/lib/constants/components/asgard/domains/iris/contact/contact.constants";
 
 interface InterviewRequestForm {
   name: string;
@@ -29,26 +47,21 @@ const interviewTypes = [
   { value: "other", label: "Other" },
 ];
 
-const typeIcons: Record<string, typeof Mic> = {
-  podcast: Mic,
-  video: Video,
-  print: Mail,
-  live: Calendar,
-  other: Users,
+const EMPTY_FORM: InterviewRequestForm = {
+  name: "",
+  email: "",
+  outlet: "",
+  type: "podcast",
+  proposedDate: "",
+  topics: "",
+  message: "",
 };
 
 export function InterviewRequests() {
-  const [formData, setFormData] = useState<InterviewRequestForm>({
-    name: "",
-    email: "",
-    outlet: "",
-    type: "podcast",
-    proposedDate: "",
-    topics: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState<InterviewRequestForm>(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -59,10 +72,56 @@ export function InterviewRequests() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setErrorMessage(null);
+
+    const typeLabel =
+      interviewTypes.find((t) => t.value === formData.type)?.label ?? formData.type;
+
+    // The seven fields of this form, folded into the four the one live wire
+    // takes. Nothing is dropped on the floor.
+    const body = [
+      `Outlet: ${formData.outlet}`,
+      `Kind: ${typeLabel}`,
+      formData.proposedDate ? `Proposed date / timeframe: ${formData.proposedDate}` : null,
+      formData.topics ? `Topics to discuss:\n${formData.topics}` : null,
+      formData.message ? `Additional information:\n${formData.message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
+    try {
+      const payload: ContactSubmissionsInsertInput = {
+        name: formData.name,
+        email: formData.email,
+        category: "press",
+        subject: `Press — interview request — ${formData.outlet}`,
+        message: body,
+        status: "draft",
+      };
+
+      const response = await fetch(
+        "/api/generated/iris-communications/contact_submissions",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Failed to send request");
+
+      setFormData(EMPTY_FORM);
+      setSubmitted(true);
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "That did not send. Nothing on your side is lost — try again, or write to us directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -77,10 +136,18 @@ export function InterviewRequests() {
         <div className="w-12 h-12 bg-sanctuary-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <Mail className="w-6 h-6 text-sanctuary-green" />
         </div>
-        <h3 className="text-lg font-semibold text-star-dust mb-2">Request Sent!</h3>
+        <h3 className="text-lg font-semibold text-star-dust mb-2">Your request arrived</h3>
         <p className="text-sm text-star-dust/60">
-          Thank you for your interest. Our media team will respond within 48 hours.
+          It landed with every other message the Sanctuary receives. There is no
+          media desk here — a person reads it, and a person answers you.
         </p>
+        <Button
+          variant="outline"
+          className="mt-6"
+          onClick={() => setSubmitted(false)}
+        >
+          Send another
+        </Button>
       </Card>
     );
   }
@@ -96,9 +163,11 @@ export function InterviewRequests() {
       <div>
         <h2 className="text-xl font-semibold text-star-dust">Interview Requests</h2>
         <p className="text-sm text-star-dust/40 mt-1">
-          Schedule an interview with the Quantum Weaver or council members
+          Ask for an interview with the Quantum Weaver
         </p>
       </div>
+
+      {errorMessage && <Alert variant="error">{errorMessage}</Alert>}
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -167,7 +236,7 @@ export function InterviewRequests() {
             name="proposedDate"
             value={formData.proposedDate}
             onChange={handleChange}
-            placeholder="e.g., Week of May 15, 2026"
+            placeholder="e.g., the week of the 15th"
           />
         </div>
 
@@ -213,9 +282,12 @@ export function InterviewRequests() {
       </form>
 
       <div className="pt-4 border-t border-star-dust/10 text-center text-sm text-star-dust/40">
-        <p>Prefer email? Contact us directly at</p>
-        <a href="mailto:interviews@sovereignsanctuary.com" className="text-neurospark hover:underline">
-          interviews@sovereignsanctuary.com
+        <p>Prefer email? Write to us directly at</p>
+        <a
+          href={`mailto:${CONTACT_LABELS.EMAIL_ADDRESS}`}
+          className="text-neurospark hover:underline"
+        >
+          {CONTACT_LABELS.EMAIL_ADDRESS}
         </a>
       </div>
     </Card>

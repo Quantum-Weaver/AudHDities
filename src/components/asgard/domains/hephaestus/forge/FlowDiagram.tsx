@@ -4,11 +4,16 @@
 import { motion } from 'framer-motion';
 import { User, Mail, Link, LogIn, ArrowRight } from 'lucide-react';
 
+// 2026-08-24, the truth pass — these four read Sign Up (enter email) → Send
+// Magic Link → Click Link → Logged In (redirect to dashboard). The signup
+// form takes username, email, password and confirm; the landing is /vessel,
+// not /dashboard; and the magic link is the second door, not the only one.
+// Mirrors the StepCards on the page — true them together.
 const steps = [
-  { icon: User, label: 'Sign Up', description: 'Enter email', color: 'cyan' },
-  { icon: Mail, label: 'Send Magic Link', description: 'Supabase Auth', color: 'purple' },
-  { icon: Link, label: 'Click Link', description: 'Verify email', color: 'pink' },
-  { icon: LogIn, label: 'Logged In', description: 'Redirect to dashboard', color: 'green' },
+  { icon: User, label: 'Sign Up', description: 'Name, email, password', color: 'cyan' },
+  { icon: Mail, label: 'Password Checked', description: 'Never leaves the device', color: 'purple' },
+  { icon: Link, label: 'Acid Test Offered', description: '"Not now" is an answer', color: 'pink' },
+  { icon: LogIn, label: 'Home', description: 'Landing at /vessel', color: 'green' },
 ];
 
 export function FlowDiagram() {
