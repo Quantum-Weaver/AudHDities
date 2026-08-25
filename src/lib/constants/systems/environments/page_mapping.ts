@@ -131,15 +131,28 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Loom',
     subtitle: 'Create your offering'
   },
+  // 2026-08-25 — V refuted the two new doors falling to the edit wildcard
+  // ("Edit Creation" — a retired word, live). Exact entries first; the
+  // wildcard keeps the id-edit room only, in the ruled words.
+  '/bazaar/studio/work': { 
+    default: 'music',
+    title: 'A new work',
+    subtitle: 'Every work begins with a single thread'
+  },
+  '/bazaar/studio/ware': { 
+    default: 'music',
+    title: 'A new ware',
+    subtitle: 'Every work begins with a single thread'
+  },
   '/bazaar/studio/*': { 
     default: 'music',
-    title: 'Edit Creation',
+    title: 'Edit your work or ware',
     subtitle: 'Refine your offering'
   },
   '/bazaar/contributions': { 
     default: 'library',
-    title: 'Contributions Ledger',
-    subtitle: 'Your impact, recorded'
+    title: 'Contributions',
+    subtitle: 'Your part in every work, recorded'
   },
   '/bazaar/checkout': { 
     default: 'home',
