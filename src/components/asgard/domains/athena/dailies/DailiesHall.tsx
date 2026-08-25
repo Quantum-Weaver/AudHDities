@@ -67,6 +67,13 @@ export function DailiesHall({ puzzles }: Props) {
   const [typed, setTyped] = useState('');
   const [revealed, setRevealed] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  // FOCUS AT THE THREE TRANSITIONS (2026-08-25, refine/athena). inputRef was
+  // created and attached and never called: opening a puzzle left focus on a
+  // card that had just unmounted, solving disabled the focused input under
+  // the hand, and closing returned to a shelf holding no focus at all.
+  const solvedRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const lastOpenedRef = useRef<string | null>(null);
 
   const open = useMemo(
     () => puzzles.find((p) => p.slug === openSlug) ?? null,
@@ -80,7 +87,19 @@ export function DailiesHall({ puzzles }: Props) {
     if (solved && open) meet(open.slug);
   }, [solved, open, meet]);
 
+  // 1 · open — the input takes the focus the card just gave up.
+  useEffect(() => {
+    if (openSlug) inputRef.current?.focus();
+  }, [openSlug]);
+
+  // 2 · solve — focus moves to the announcement rather than being stranded
+  //     on an input that disables in the same breath.
+  useEffect(() => {
+    if (solved) solvedRef.current?.focus();
+  }, [solved]);
+
   const openPuzzle = useCallback((slug: string) => {
+    lastOpenedRef.current = slug;
     setOpenSlug(slug);
     setTyped('');
     setRevealed(false);
@@ -97,9 +116,14 @@ export function DailiesHall({ puzzles }: Props) {
   }, [puzzles, met, openPuzzle]);
 
   const close = useCallback(() => {
+    const returning = lastOpenedRef.current;
     setOpenSlug(null);
     setTyped('');
     setRevealed(false);
+    // 3 · close — the shelf card that was pressed takes the focus back.
+    if (returning) {
+      requestAnimationFrame(() => cardRefs.current.get(returning)?.focus());
+    }
   }, []);
 
   // ─── The shelf is still being written ──────────────────────────────────
@@ -108,9 +132,13 @@ export function DailiesHall({ puzzles }: Props) {
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <h1 className="text-3xl font-bold text-star-dust mb-4">The Dailies</h1>
+          {/* shelf.ts returns an empty shelf three ways — no keys (:61), a
+              refused read (:82), a thrown one (:84-86). With 140 rows
+              standing, "still being written" is the one cause it is no
+              longer likely to be. */}
           <p className="text-lg text-star-dust/60">
-            The shelf is still being written. Words are being drawn from the
-            Grammar one at a time, and they will be here when they are ready.
+            The shelf has not come through yet. The words are drawn from the
+            Grammar, and they will be here when the shelf opens.
           </p>
           <Link
             href="/library"
@@ -141,13 +169,14 @@ export function DailiesHall({ puzzles }: Props) {
 
           <div className="rounded-2xl border border-star-dust/10 bg-star-dust/[0.03] p-8">
             {seenBefore && (
-              <p className="text-xs text-star-dust/40 mb-4">
+              <p className="text-xs text-star-dust/70 mb-4">
                 You have met this one before.
               </p>
             )}
 
             {/* The letters. Display only — the answer is never here. */}
             <div
+              role="group"
               className="flex flex-wrap justify-center gap-2 mb-8"
               aria-label={`The letters, disarranged: ${tiles.join(', ')}`}
             >
@@ -169,7 +198,7 @@ export function DailiesHall({ puzzles }: Props) {
               {open.source_emoji ? <span className="mr-2">{open.source_emoji}</span> : null}
               {open.clue}
             </p>
-            <p className="text-center text-xs text-star-dust/40 mb-8">
+            <p className="text-center text-xs text-star-dust/70 mb-8">
               {open.solution.length} letters
             </p>
 
@@ -195,7 +224,12 @@ export function DailiesHall({ puzzles }: Props) {
 
             {/* The only announcement this game makes. Nothing speaks on
                 not-yet, because not-yet is not an event. */}
-            <div aria-live="polite" className="min-h-[5rem] mt-6 text-center">
+            <div
+              ref={solvedRef}
+              tabIndex={-1}
+              aria-live="polite"
+              className="min-h-[5rem] mt-6 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space rounded-lg"
+            >
               {solved && (
                 <div>
                   <p className="inline-flex items-center gap-2 text-neurospark text-lg">
@@ -241,7 +275,7 @@ export function DailiesHall({ puzzles }: Props) {
             </div>
           </div>
 
-          <p className="text-center text-xs text-star-dust/30 mt-8">
+          <p className="text-center text-xs text-star-dust/70 mt-8">
             Nothing here expires. Nothing here is counted. Come back whenever,
             or don&apos;t.
           </p>
@@ -281,15 +315,21 @@ export function DailiesHall({ puzzles }: Props) {
           {puzzles.map((p) => (
             <button
               key={p.slug}
+              ref={(el) => {
+                if (el) cardRefs.current.set(p.slug, el);
+                else cardRefs.current.delete(p.slug);
+              }}
               type="button"
               onClick={() => openPuzzle(p.slug)}
               className="text-left rounded-xl border border-star-dust/10 bg-star-dust/[0.03]
-                         p-5 hover:border-neurospark/30 focus:border-neurospark/50
-                         focus:outline-none"
+                         p-5 hover:border-neurospark/30
+                         focus-visible:outline-none focus-visible:ring-2
+                         focus-visible:ring-hearth-gold focus-visible:ring-offset-2
+                         focus-visible:ring-offset-deep-space"
             >
               <div className="flex items-center gap-2 mb-3">
                 {p.source_emoji ? <span>{p.source_emoji}</span> : null}
-                <span className="text-xs text-star-dust/40">
+                <span className="text-xs text-star-dust/70">
                   {p.solution.length} letters
                 </span>
               </div>
@@ -305,11 +345,11 @@ export function DailiesHall({ puzzles }: Props) {
             <button
               type="button"
               onClick={purge}
-              className="text-xs text-star-dust/30 hover:text-star-dust/60 underline"
+              className="text-xs text-star-dust/70 hover:text-star-dust underline rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
             >
               Forget which ones I have met
             </button>
-            <p className="text-xs text-star-dust/25 mt-2">
+            <p className="text-xs text-star-dust/70 mt-2">
               Kept on this device only. Never sent anywhere, never counted.
             </p>
           </div>
