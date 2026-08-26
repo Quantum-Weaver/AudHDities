@@ -1,27 +1,8 @@
 // components/legal/PrivacyHero.tsx
 // ─────────────────────────────────────────────────────────────────────────
-// 2026-08-24, the Forge's second movement (SPEC.md ① · fixes 1, 2, 4).
-//
-//  · MOTION NEEDS CONSENT (HANDOFF.md). The two blurred `animate-pulse`
-//    orbs and the framer entrance ran whatever the reader's system said.
-//    Both now still to nothing under prefers-reduced-motion.
-//  · THE TITLE IS THE MARKDOWN'S. It was hardcoded here while the parser
-//    held the document's own H1 and could never reach it.
-//  · THE DATE IS THE MARKDOWN'S, OR ABSENT. A hardcoded fallback printed a
-//    date the document had never carried. When the markdown states none,
-//    the row simply does not render — an absent date is honest; an invented
-//    one is not.
-//  · The version badge is opt-out, so /privacy keeps what it shows today
-//    and /apps/privacy — which refuses version badges and counts — does not.
 // ─────────────────────────────────────────────────────────────────────────
-// THE ENTRANCE REMOVED, 2026-08-25, and the reason measured. This block
-// used to arrive with a framer fade-up from `opacity: 0`. Measured with
-// Chrome's --force-prefers-reduced-motion and a DOM dump: WITH REDUCED
-// MOTION ON THE ENTRANCE NEVER RUNS AND THE ELEMENT STAYS AT `opacity:0`.
-// The whole hero was invisible to a reader who had asked for less motion.
-// Asking for less motion must never cost the reader the document, so the
-// entrance is gone and the hero simply is. See TermsSection.tsx for the
-// full note and the ~45 other files that still carry the same shape.
+// No entrance animation: a framer fade from `opacity: 0` never runs under
+// prefers-reduced-motion, which left the hero invisible.
 'use client';
 
 import { Shield } from 'lucide-react';
@@ -48,8 +29,6 @@ export function PrivacyHero({
 }: PrivacyHeroProps) {
   return (
     <section className="relative py-20 overflow-hidden">
-      {/* Background — the wash stays as the ground built it; only the pulse
-          takes a guard. No washOpacity is touched here. */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
       <div className="absolute top-20 left-1/4 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl animate-pulse motion-reduce:animate-none" />
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl animate-pulse motion-reduce:animate-none delay-700" />

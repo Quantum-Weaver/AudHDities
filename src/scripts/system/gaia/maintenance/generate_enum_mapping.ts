@@ -1,12 +1,7 @@
 // src/scripts/system/gaia/maintenance/generate_enum_mapping.ts
 // ============================================================================
-// GENERATE ENUM MAPPING
 // ============================================================================
-// Purpose: Scan all tables for enum references and build enum_mapping.ts,
-//          assigning each runtime enum to the deity folder of its highest
-//          priority referencing table.
 // Output: src/config/enum_mapping.ts
-// Usage: tsx src/scripts/system/gaia/maintenance/generate_enum_mapping.ts [--dry-run] [--force] [--verbose]
 // ============================================================================
 
 import * as fs from 'fs';
@@ -250,7 +245,6 @@ export async function generateEnumMappingFile(options: EnumMappingOptions): Prom
     console.log('\n📦 Generating enum mapping...\n');
   }
 
-  // Read source file
   const fileResult = readDatabaseTypes();
   if (!fileResult.success) {
     throw new Error(`Failed to read database.types.ts: ${fileResult.error}`);
@@ -262,7 +256,6 @@ export async function generateEnumMappingFile(options: EnumMappingOptions): Prom
     console.log(`Read ${lines.length} lines`);
   }
 
-  // Find markers and extract tables
   const markers = findMarkers(lines, { verbose });
   const markersWithBraces = findAllClosingBraces(lines, markers, { verbose });
 
@@ -273,7 +266,6 @@ export async function generateEnumMappingFile(options: EnumMappingOptions): Prom
     { verbose }
   );
 
-  // Build enum mapping input
   const mappingInput: EnumMappingInputTable[] = tables.map(table => ({
     name: table.name,
     deityFolder: getDeityFolderForObject('table', table.name),

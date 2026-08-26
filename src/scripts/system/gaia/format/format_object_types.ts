@@ -1,6 +1,4 @@
 /* src/scripts/system/gaia/format/format_object_types.ts */
-// Format an extracted table object into TypeScript type definitions
-// Extracts Row, Insert, Update types and generates derived interfaces
 
 import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
@@ -16,10 +14,6 @@ export interface FormatObjectTypesOptions {
   outputFolder?: string;           // For header comments
 }
 
-// Sensitive fields to exclude from public interfaces — single source of
-// truth is @/config/sensitive_fields (this file used to carry its own
-// hardcoded copy, which silently drifted from the config; unified
-// 2026-07-18 so a config edit reaches every generated Public interface).
 const DEFAULT_SENSITIVE_FIELDS = [...SENSITIVE_FIELDS];
 
 /**
@@ -261,8 +255,6 @@ export function formatObjectTypes(
   const tableName = object.name;
   const pascalName = toPascalCase(tableName);
   
-  // Defensive normalization: rowContent may arrive from the extract phase
-  // (bypassing parseTableContent) still carrying multiline type unions.
   let rowContent = normalizeMultilineTypes(object.rowContent || '');
   let insertContent = object.insertContent || '';
   let updateContent = object.updateContent || '';
@@ -281,7 +273,6 @@ export function formatObjectTypes(
     object.enumRefs = enumRefs;
   }
   
-  // Build header
   let header = `// =====================================================\n`;
   header += `// FILE: types/${outputFolder}/${tableName}.ts\n`;
   header += `// HANDLING: ${category.handlingLevel}\n`;
@@ -292,19 +283,15 @@ export function formatObjectTypes(
   header += `// SOURCE: database.types.ts lines ${object.startLine}-${object.endLine}\n`;
   header += `// =====================================================\n\n`;
   
-  // Build imports
   const imports: string[] = [];
   imports.push(`import type { Tables, TablesInsert, TablesUpdate, Enums } from '@/types/supabase/database.helpers.js';`);
   if (hasJson) {
     imports.push(`import type { Json } from '@/types/supabase/database.types.js';`);
   }
-  // Composite-type columns reference Database[...] directly in the derived
-  // interfaces (possible since the multiline normalization landed).
   if (rowContent.includes('Database[')) {
     imports.push(`import type { Database } from '@/types/supabase/database.types.js';`);
   }
   
-  // Build core types section
   let coreTypes = `// =====================================================\n`;
   coreTypes += `// CORE TYPES\n`;
   coreTypes += `// =====================================================\n\n`;
@@ -328,7 +315,6 @@ export function formatObjectTypes(
   
   coreTypes += `\n`;
   
-  // Build derived types section
   let derivedTypes = `// =====================================================\n`;
   derivedTypes += `// DERIVED TYPES\n`;
   derivedTypes += `// =====================================================\n\n`;

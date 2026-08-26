@@ -2,38 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE FLOATING STARS — the shelf                                         ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// REFINED 2026-08-25 on refine/athena-2026-08-25, to the approved canvas
-// (.journals/proofs/04-athena/design/Stars.dc.html) at KP's ⚛ word,
-// verbatim: "library proofs are good".
-//
-// WHAT LANDED HERE:
-//   · the palette by rarity, adopted from the app's five cosmic tokens — the
-//     mythic move is the one law: #f43f5e is rose-500, and the app moved
-//     mythic off exactly that colour on 2026-08-10 ("Mythic wears the
-//     curator's magenta, not the old rose: no red anywhere",
-//     resonance-bubbles/src/lib/bubbles/dress.ts:39-40) against its standing
-//     rule "No streaks, no combos, no timers shown, no red anywhere"
-//     (resonance-bubbles/CLAUDE.md:34).
-//   · the veil — an uncollected star shows its name and its rarity and keeps
-//     its sentence back. The app's law is that the reward IS the words, and
-//     a waiting card is "a place it waits, never a place the player failed".
-//   · the flip — a collected star turns to show itself large, how many times
-//     it came past, where it belongs, and the way back.
-//   · the sieve, in words — all stars / collected / still drifting. NEVER a
-//     fraction and never a bar: KP's 2026-08-24 ruling took the app's own
-//     header tally and per-collection bar out of this realm by name.
-//   · the search narrowed to name and collection, which is what makes the
-//     veil hold (the app's `searchIn`).
-//   · the fold, closed by default, as the app draws it.
-//   · the a11y bones: the ring the play door landed (12.66:1) on every card
-//     and chip, aria-pressed on every chip, both rows in a named role=group,
-//     44px touch targets.
-//   · the colours from the rows (gate C) — see starPaint.ts.
-//
-// WHAT IS DELIBERATELY ABSENT: a completion figure for a collection · the
-// app's {n}/{total} header tally · its per-collection bar · a leaderboard ·
-// a streak · a countdown to the cap reset · a named rare star to chase · a
-// "one missing" state · the points on a card · anything red.
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
@@ -51,11 +19,6 @@ import type { CardData } from '@/types/components/runes/card.types';
 import { pageTheDoor } from './pageTheDoor';
 import { paintStar, readAccent, readCollectionPalette, readStarColours } from './starPaint';
 
-// The app's five cosmic tokens, adopted whole (common void.light · rare
-// neurospark · epic quantum.light · legendary hearth.gold · mythic
-// entity.curator). Where this map lives — one shared module as dress.ts is
-// for the app, or three copies — is unwritten, his to rule; this pass changes
-// the values in all three files and leaves the shape alone.
 const RARITY_FILL: Record<string, { color: string; glow: string }> = {
   common: { color: '#B2BEC3', glow: '#B2BEC355' },
   rare: { color: '#22D3EE', glow: '#22D3EE55' },
@@ -74,8 +37,6 @@ const RARITY_COLORS: Record<string, string> = {
 
 // Stable params — the generated list hooks refetch on params IDENTITY
 // (the StatusBar pattern); an inline object here would loop the fetch.
-// `limit` is 100 because the door clamps to 100 (auth.ts:142-149) and asking
-// for 200 was being served 100 in silence. The rest is paged below.
 const BUBBLES_PARAMS = {
   filters: { status: 'published' },
   sort: 'display_order',
@@ -114,10 +75,6 @@ export function BubblesGallery() {
   const { data: firstPage, total: bubbleTotal, loading } = useBubblesList(BUBBLES_PARAMS);
   const { data: sets } = useCollectionSetsList(SETS_PARAMS);
 
-  // PAGE, NEVER SILENTLY SHORT. The hook reads page one and returns the real
-  // `total`; anything past a hundred is fetched here rather than dropped.
-  // Thirty stars stand today, so this loop does nothing yet — it is here so
-  // that the day docs/sql/025 runs, the catalogue of 123 arrives whole.
   const [restOfShelf, setRestOfShelf] = useState<BubblesRow[]>([]);
   useEffect(() => {
     let alive = true;
@@ -138,15 +95,6 @@ export function BubblesGallery() {
     [firstPage, restOfShelf],
   );
 
-  // THE PER-VESSEL READ — vessel_bubbles, one row per pop, through the
-  // generated door directly. There is no generated hook for that table
-  // (src/lib/generated/hooks/hestia-core/ holds fourteen and it is not among
-  // them); the house's own precedent for reaching the door instead is
-  // CourseDetail.tsx:53-67, which reads `path_lessons` the same way for the
-  // same reason. Nothing is written into src/lib/generated/ — that root is
-  // GAIA's output and heals only by regeneration (CLAUDE.md §Essential
-  // Rules). Whether gaia_config should generate a hook for it is unwritten —
-  // his to rule. This read PAGES: a vessel past a hundred pops read short.
   const [pops, setPops] = useState<Map<string, number>>(new Map());
   const [popsUnread, setPopsUnread] = useState(false);
   useEffect(() => {
@@ -157,9 +105,6 @@ export function BubblesGallery() {
       `user_id=${encodeURIComponent(user.id)}`,
     ).then((res) => {
       if (!alive) return;
-      // A refused read is never dressed as an empty one: `vessel_bubbles`
-      // carries no select policy anywhere in docs/sql/*, so the room says it
-      // could not read rather than telling a vessel they have popped nothing.
       if (!res.ok) { setPopsUnread(true); setPops(new Map()); return; }
       const counted = new Map<string, number>();
       res.rows.forEach((r) => {
@@ -198,9 +143,6 @@ export function BubblesGallery() {
     const term = searchTerm.toLowerCase();
     return bubbles.filter(b => {
       const collectionName = b.collection_id ? (setNames.get(b.collection_id) || 'Collection') : null;
-      // THE SEARCH SCOPE — name and collection only, as the app searches.
-      // Reading descriptions is what breaks the veil: it would let a vessel
-      // find a star by a sentence the card is holding back.
       const matchesSearch = !term ||
         b.name.toLowerCase().includes(term) ||
         (collectionName || '').toLowerCase().includes(term);
@@ -244,11 +186,6 @@ export function BubblesGallery() {
               <h1 className="text-2xl font-bold text-star-dust">The Floating Stars</h1>
               <p className="text-sm text-star-dust/70 mt-1">Collect bubbles and earn sovereignty</p>
             </div>
-            {/* KP's ⚛ word, 2026-08-25, verbatim: "the floating stars currently
-                has no entry to "/play"". The gallery room had no door to the
-                pop room (BubblePopGame.tsx lives at /library/bubbles/play but
-                nothing linked to it) — this is that door. Words carried from
-                the room's own header, :371-372. */}
             <Link
               href="/library/bubbles/play"
               className="inline-flex flex-col gap-0.5 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-star-dust transition-colors motion-reduce:transition-none hover:bg-white/10 hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
@@ -261,9 +198,6 @@ export function BubblesGallery() {
           </div>
         </div>
 
-        {/* THE SIEVE, IN WORDS. Three chips and no fraction beside them —
-            "a sieve, never a scoreboard: 'still drifting' is where a star
-            waits, not where a player failed". */}
         <div className="mb-4" role="group" aria-labelledby="stars-sieve-heading">
           <h2 id="stars-sieve-heading" className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/70">Showing</h2>
           <div className="flex flex-wrap gap-2">
@@ -285,8 +219,6 @@ export function BubblesGallery() {
           )}
         </div>
 
-        {/* THE FOLD — drawn closed by default, as the app draws it. The shelf
-            is what you came for. */}
         <div className="mb-8">
           <button
             type="button"
@@ -361,13 +293,6 @@ export function BubblesGallery() {
           )}
         </div>
 
-        {/* THE COLLECTION BANNER — accent, rule, dot, name and description,
-            and nothing else. The app's {have}/{total} and its clip-revealed
-            bar do not come across: KP's 2026-08-24 ruling took exactly those
-            two shapes out of this realm. The accent and the palette are read
-            from the row (collection_sets.accent / .palette, docs/sql/025 —
-            KP's hand); when the row is silent the banner simply wears the
-            realm's own starDust and says nothing about colour. */}
         {chosenSet && (
           <div className="mb-8 rounded-xl border border-white/10 bg-white/5 p-5">
             <div className="flex items-center gap-3">
@@ -422,10 +347,6 @@ export function BubblesGallery() {
             const orb = paintStar(fill, colours, 64);
             const bigOrb = paintStar(fill, colours, 90);
 
-            // THE FLIPPED FACE — the star large, how many times it came past,
-            // where it belongs, and the way back. Under the reduced-motion
-            // guard the turn keeps its two faces and loses its rotation: the
-            // back simply replaces the front.
             if (isFlipped) {
               return (
                 <button
@@ -469,8 +390,6 @@ export function BubblesGallery() {
                   <Card data={cardData} variant="glass" radius="lg" shadow="sm"
                     className={cn(
                       'p-5 h-full text-center',
-                      // THE VEIL — an uncollected star waits, dashed and
-                      // dimmed. A place it waits, never a place you failed.
                       !collected && 'border border-dashed border-white/15 opacity-70',
                     )}
                     style={{ boxShadow: collected ? `0 0 20px ${fill.glow}` : 'none' }}

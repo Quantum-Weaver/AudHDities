@@ -12,10 +12,6 @@ import { ArrowLeft, Star, Award, Compass } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// MEND-LAW 2026-07-20: quests.title -> quests.name, and both `house` and
-// `sovereignty_reward` were dropped in the settle (rewards is now an opaque
-// Json blob, not a display-safe number) — degraded gracefully below rather
-// than invented.
 interface Quest { quests_id: string; title: string; description: string; }
 interface SigilItem { id: string; name: string; slug: string; rarity: string; description: string; }
 
@@ -32,9 +28,7 @@ export function ProphecyVision() {
 
   useEffect(() => {
     Promise.all([
-      // is_active boolean -> status=published (content_status enum); title -> name
       fetch('/api/generated/athena-gamification/quests?status=published&order=name.asc').then(r => r.json()),
-      // badges route is gone — GAIA now emits sigils
       fetch('/api/generated/athena-gamification/sigils?status=published&order=name.asc').then(r => r.json()),
     ]).then(([qRes, sRes]) => {
       if (qRes.success) {
@@ -75,15 +69,12 @@ export function ProphecyVision() {
           </Card>
         )}
 
-        {/* Quests */}
         <Card data={questCd} variant="glass" radius="lg" shadow="sm" className="p-6 mb-6">
           <div className="flex items-center gap-3 mb-4"><Compass className="h-5 w-5 text-amber-400" /><h3 className="text-lg font-semibold text-star-dust">Available Quests</h3></div>
           <div className="space-y-2">
             {availableQuests.slice(0, 5).map(q => (
               <Link key={q.quests_id} href={`/library/quests/${q.quests_id}`}>
                 <div className="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
-                  {/* MEND-LAW 2026-07-20: house label and sovereignty_reward badge
-                      dropped — quests no longer carries either field (see interface note above) */}
                   <div><p className="text-sm text-star-dust font-medium">{q.title}</p></div>
                 </div>
               </Link>
@@ -91,7 +82,6 @@ export function ProphecyVision() {
           </div>
         </Card>
 
-        {/* Sigils */}
         <Card data={sigilCd} variant="glass" radius="lg" shadow="sm" className="p-6">
           <div className="flex items-center gap-3 mb-4"><Award className="h-5 w-5 text-purple-400" /><h3 className="text-lg font-semibold text-star-dust">Honors to Earn</h3></div>
           <div className="flex flex-wrap gap-2">

@@ -28,14 +28,6 @@ export default function BusinessPlanPage() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* 2026-08-24, the truth pass — two of these four read "0%
-                  Artisan Ownership · On most platforms" and "0 Residual
-                  Recipients · On most platforms": a competitor comparison
-                  stated as measured fact, with no source anywhere behind it.
-                  No source was invented; the comparison is gone instead, and
-                  the cards now state only what this house can stand behind —
-                  both already written plainly at the foot of this same page,
-                  "No equity taken. No investors." */}
               <StatCard value={0} label="Equity Taken" description="On AUDHDITIES" suffix="%" color="pink" delay={0} />
               <StatCard value={100} label="Data Ownership" description="On AUDHDITIES" suffix="%" color="cyan" delay={0.1} />
               <StatCard value={0} label="Investors" description="On AUDHDITIES" color="purple" delay={0.2} />
@@ -180,10 +172,6 @@ export default function BusinessPlanPage() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link href="/questionaire"><Button size="lg">Take the Acid Test</Button></Link>
-                {/* 2026-08-24, the truth pass — this sent a public reader to
-                  /observatory/prophecy, which is the logged-in personal
-                  dashboard, not the manifesto. /vision is the public page
-                  this button's own words name. */}
               <Link href="/vision"><Button size="lg" variant="outline">Explore the Vision</Button></Link>
               </div>
               <p className="text-sm text-star-dust/40 mt-8">

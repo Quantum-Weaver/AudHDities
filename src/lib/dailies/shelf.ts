@@ -2,37 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE DAILIES SHELF — the whole shelf, fetched once, without a cookie    ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Born 2026-08-24 with the Dailies.
-//
-// WHY THIS DOES NOT USE THE GENERATED DOOR, stated so it is not "corrected"
-// back later by a hand doing the right thing for every other hall:
-//
-// Every generated API route reads through `createApiSupabase()`, which
-// attaches the vessel's cookies (src/lib/api/supabase.ts). That is correct
-// for every hall where the answer depends on who is asking — and it is
-// exactly wrong here. A signed-in vessel opening puzzle #47 through that
-// door writes an authenticated, row-identified request into the vendor's
-// own logs. That is an attendance ledger: keyed to the person, derivable in
-// an afternoon, and outside this house's power to purge. The device-local
-// promise would be kept in the client and broken at the edge.
-//
-// So the shelf is read HERE, on the server, with the anon key and no
-// cookie, and handed to the page whole. The vessel's browser never asks for
-// a particular puzzle, because it already has all of them. There is no
-// per-puzzle request to log, at any layer, for anyone.
-//
-// The read is cached (see `revalidate` on the page). The puzzles are public,
-// published, identical for everyone, and change only when KP seeds more —
-// so a shared cache is not a compromise here, it is the honest shape.
-//
-// Laws worn: read-only · anon-only · no cookie, ever · a shelf that cannot
-// be read returns empty and the hall says so plainly rather than throwing.
-
-// Imported ONLY from a server component (the dailies page). The house does
-// not carry the `server-only` package, so this is a convention rather than a
-// compiler guard — if this module is ever imported from a 'use client' file,
-// the cookie-free promise above is still kept, but the read moves onto the
-// vessel's own path and the caching stops being shared. Keep it server-side.
 
 export interface Puzzle {
   slug: string;
@@ -61,8 +30,6 @@ export async function readShelf(form = 'word-scramble'): Promise<Puzzle[]> {
   if (!url || !key) return [];
 
   const out: Puzzle[] = [];
-  // PostgREST clamps any single response to 1000 rows. 140 fit in one
-  // breath today; the loop is here so the shelf may grow without a bug.
   for (let page = 0; page < 20; page += 1) {
     const query =
       `${url}/rest/v1/daily_puzzles` +

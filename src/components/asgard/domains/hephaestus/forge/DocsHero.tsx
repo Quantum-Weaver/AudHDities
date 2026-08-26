@@ -43,10 +43,6 @@ export function DocsHero({ documentCount }: DocsHeroProps) {
           </p>
             
           <div className="flex flex-wrap justify-center gap-3">
-            {/* 2026-08-24, the truth pass — this read "8 documents" while
-                DocsContent listed 18. 2026-08-24, board ⑤ — now DERIVED
-                from DocsContent's own DOC_SECTIONS and passed in, so a card
-                arriving or leaving can never make it lie again. */}
             <span className="text-sm bg-white/5 px-4 py-2 rounded-full text-star-dust/70">
             📚 {documentCount} documents
             </span>

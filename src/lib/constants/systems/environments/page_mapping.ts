@@ -1,6 +1,4 @@
 // lib/constants/systems/environments/page_mapping.ts
-// Static page to environment mappings (fallback when no context)
-// Also exports header data for dynamic headers
 
 import type { PageEnvironmentMap, BaseEnvironmentKey, PageMetadata, HeaderData } from './types';
 import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment_prompts';
@@ -10,8 +8,6 @@ import { EnvironmentPromptMap } from '@/lib/constants/systems/assets/environment
 // ============================================================================
 
 export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
-  // AUTH (the Door) — the realm is weather, not wallpaper: the gateway key
-  // carries the 'home' soul, so the threshold wears the hearth it opens onto.
   '/login': {
     default: 'gateway',
     title: 'The Door',
@@ -131,9 +127,6 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Loom',
     subtitle: 'Create your offering'
   },
-  // 2026-08-25 — V refuted the two new doors falling to the edit wildcard
-  // ("Edit Creation" — a retired word, live). Exact entries first; the
-  // wildcard keeps the id-edit room only, in the ruled words.
   '/bazaar/studio/work': { 
     default: 'music',
     title: 'A new work',
@@ -216,10 +209,6 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'Badge Detail',
     subtitle: 'A mark of sovereignty'
   },
-  // 2026-08-25, refine/athena (board ⑧): all three bubbles routes were
-  // unmapped and fell through to the default at :711-716, resolving to
-  // `lounge` — the heaviest room in the realm standing in another realm's
-  // weather. Titles and subtitles are the rooms' own words.
   '/library/bubbles': { 
     default: 'library',
     title: 'The Floating Stars',
@@ -386,10 +375,6 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'Curators',
     subtitle: 'Trusted voices guiding the Sanctuary'
   },
-  // 2026-08-25, board ④ — the Header strip reads from here, so it carried
-  // the old line after the page's own had been trued. The two rooms are
-  // told apart by their subtitles now: /transparency is the public telling,
-  // this one is the entries themselves.
   '/council/ledger': {
     default: 'architecture',
     title: 'The Ledger',
@@ -563,8 +548,6 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Ledger',
     subtitle: 'Every transaction visible. Every decision transparent.'
   },
-  // '/docs' retired 2026-07-31 — the docs→forge rename's real legacy is a
-  // permanent redirect in next.config.ts; this key now serves the true door.
   '/forge': {
     default: 'architecture',
     title: 'The Forge',
@@ -575,7 +558,6 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Covenant',
     subtitle: 'Your data is yours. Always.'
   },
-  // 2026-08-25, board ① — the apps' own policy, beside the site's.
   '/apps/privacy': {
     default: 'home',
     title: 'App Privacy',
@@ -601,20 +583,11 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Scroll',
     subtitle: 'Resources for media and storytellers'
   },
-  // '/careers' → '/calling' 2026-07-31, KP's ⚛ ruling: "we have no company"
-  // · "no 'careers'" · "just us" · "and the cummunity that arrive."
   '/calling': {
     default: 'invitation',
     title: 'The Calling',
     subtitle: 'Just us, and the community that arrives'
   },
-  // '/donate' — RETIRED 2026-08-24 at KP's ⚛ word, verbatim, spacing kept:
-  // "retire the donate and create subscription tiers for me rather than the
-  // platform, and  i will still have my covenant set to 50%. the donations
-  // tab was before we had a built sanctuary and had different outlooks."
-  // The route is gone from src/app; a mapping for a page that does not
-  // exist is a claim the house cannot keep.
-  // AUTH
   '/enter': { 
     default: 'origin',
     title: 'The Gate',
@@ -626,10 +599,6 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     subtitle: 'Your journey begins here'
   },
 };
-
-// ============================================================================
-// HEADER DATA EXPORT (Derived from environment prompts)
-// ============================================================================
 
 /**
  * Header data for dynamic headers

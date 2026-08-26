@@ -1,7 +1,6 @@
 // lib/supabase/client.ts
 
 import { createBrowserClient } from '@supabase/ssr';
-// Repointed 2026-08-11 to the layer GAIA now delivers (see MIRROR.md).
 import type { Database } from '@/lib/generated/supabase/database.types';
 
 // Singleton pattern to prevent multiple instances in React Strict Mode

@@ -16,7 +16,6 @@ class FolderAgent:
         """Scan current folder only and create local blueprint"""
         print(f"📁 {self.visual_trigger} Scanning {self.assigned_path.name}...")
         
-        # Get immediate contents only
         try:
             items = list(self.assigned_path.iterdir())
             files = [item.name for item in items if item.is_file()]
@@ -25,14 +24,11 @@ class FolderAgent:
             print(f"❌ Scan failed: {e}")
             return None
 
-        # Simple filtering - just basic system files
         files = self._filter_basic_system_files(files)
         directories = self._filter_basic_system_dirs(directories)
         
-        # Analyze Python files
         python_analysis = self._analyze_python_files(files)
         
-        # Create local blueprint
         blueprint_path = self._create_local_blueprint(files, directories, python_analysis)
         
         self.last_scan_timestamp = self._sacred_timestamp()

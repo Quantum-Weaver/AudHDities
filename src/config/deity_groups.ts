@@ -1,39 +1,4 @@
 ﻿// @/config/deity_groups.ts
-// Deity-based table grouping for the Sovereign Sanctuary
-// Complete catalog â€” every table assigned to its deity domain.
-//
-// Recatalogued 2026-07-18 (KP's word, the reconciliation campaign): the map
-// predated the schema evolution â€” dead tables (profiles, energy_logs,
-// notifications, badges, products, salesâ€¦) removed, all 151 live tables
-// assigned, and the miscategorizations named at the section walk corrected
-// (Linnean ranks to Mnemosyne, the marketplace out of core, the vessel
-// experience homed at the hearth). Two placements flagged inline for KP's
-// eye rather than settled silently.
-//
-// Recatalogued again 2026-07-29 (the finishing session, mend law): THE
-// SUPERPOSITION REVIEW (151â†’117 by KP's hand) retired 34 tables â€” the
-// Linnean ladder, the knowledge lexicon set (taxonomy/etymology/sensory_
-// lexiconâ€¦, now the Grammar base's country), the Iris localization set,
-// the five *_connection tables (the integrations consolidation's ground),
-// categories/artisan_category_links/mythology/patterns/mind_traits/
-// test_patterns/generation_templates. Their references are removed here so
-// the map matches the base that knows itself; all 117 live tables remain
-// assigned, none orphaned (verified by diff against database.types.ts).
-//
-// 2026-07-30: mythology RETURNED at KP's word (the drop was for emptiness,
-// not wrongness â€” "it belongs here i think") and is re-listed under Athena,
-// its hall. Lesson from its first regen: an unmapped table falls to the
-// hestia-core catchall â€” when a table is born or returns, this map is part
-// of the same sitting's work.
-//
-// 2026-07-31 (KP's word, the gaia-patterns sitting): the seven self-knowing
-// registry tables (columns/policies/functions/triggers/indexes/enums/
-// composite_types) join DAEDALUS here, matching their standing assignment in
-// the base's own gaia_config (deity_group daedalus-meta, 13 tables). The
-// generation pieces' home is src/config/daedalus/ (his word, same sitting).
-// The votes flag RESOLVED the same day, KP's word: "themis gets votes" â€”
-// listed under Themis below; the matching one-line UPDATE for gaia_config
-// rides his dashboard (deity_group = 'themis-governance').
 
 import type { PublicTableNames, PublicViewNames } from '@/lib/generated/supabase/database.helpers';
 
@@ -48,9 +13,6 @@ export interface DeityGroup {
 }
 
 export const DEITY_GROUPS: DeityGroup[] = [
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // HESTIA â€” Core Identity & the Vessel's Home (Sequence 1)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'hestia',
     domain: 'core',
@@ -71,7 +33,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'journal_entries',
       'energy_entries',
       'heralds',
-      // the vessel experience (Animal-Crossing hearth â€” schema ready, story excavated)
       'vessel_anchors',
       'vessel_bubbles',
       'vessel_collections',
@@ -92,9 +53,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // PLUTUS â€” Economics (Sequence 2)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'plutus',
     domain: 'economics',
@@ -113,8 +71,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'ledger',
       'distributions',
       'distribution_recipients',
-      // gifts sit with the money mechanics (a gift wraps a ware);
-      // if they belong with Iris's appreciation flows instead, say the word
       'gifts',
       'gift_wrappings',
       'grant_opportunities',
@@ -126,9 +82,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // HERMES â€” The Bazaar's Creative Face (Sequence 3)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'hermes',
     domain: 'social',
@@ -144,9 +97,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // ATHENA â€” Gamification & Learning (Sequence 4)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'athena',
     domain: 'gamification',
@@ -164,20 +114,12 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'lessons',
       'learning_paths',
       'path_lessons',
-      // returned at KP's word 2026-07-29 (dropped 07-28 for emptiness only);
-      // the Archive is Athena's hall â€” docs/sql/005-mythology-returns.sql
       'mythology',
-      // scenes may someday deserve a prometheus-creative group of their own
-      // (Stage & Studio's tables) â€” kept here until KP calls that birth,
-      // since a new folderName moves generated routes
       'scenes',
       'scene_participants',
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // MNEMOSYNE â€” Assessment, Memory & Taxonomy (Sequence 5)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'mnemosyne',
     domain: 'assessment',
@@ -197,9 +139,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // THEMIS â€” Governance (Sequence 6)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'themis',
     domain: 'governance',
@@ -218,15 +157,10 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'processes',
       'protocols',
       'rate_limits',
-      // discovered by gaia_sync 2026-07-31, assigned by KP's word the same
-      // day: "themis gets votes" â€” the Council counts them
       'votes',
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // IRIS â€” Communications (Sequence 7)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'iris',
     domain: 'communications',
@@ -246,9 +180,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // HEPHAESTUS â€” Infrastructure (Sequence 8)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'hephaestus',
     domain: 'infrastructure',
@@ -270,9 +201,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // AETHELRED â€” Connections & the Council's Seats (Sequence 9)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'aethelred',
     domain: 'connections',
@@ -300,11 +228,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // DAEDALUS â€” Meta (Sequence 10)
-  // (Renamed 2026-07-07 from "prometheus" â€” Prometheus is the creative-arts
-  //  domain: Stage + Studio. This is the meta-generator, the engine that builds.)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'daedalus',
     domain: 'meta',
@@ -319,9 +242,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
       'boundaries',
       'gaia_config',
       'gaia_generation_log',
-      // the self-knowing registries (added 2026-07-31 at KP's word,
-      // matching the base's own daedalus-meta assignment â€” the schema
-      // tables that let the base introduce itself)
       'columns',
       'policies',
       'functions',
@@ -332,13 +252,6 @@ export const DEITY_GROUPS: DeityGroup[] = [
     ],
   },
 
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-  // PROMETHEUS â€” The Stage & Studio (Sequence 11)
-  // (The seat this file kept free since 2026-07-07 â€” "Prometheus is the
-  //  creative-arts domain." Born ground ruled by KP 2026-07-31, Door A:
-  //  docs/STAGE-GROUND-DECISION.md Â· docs/sql/003-the-stage-ground.sql.
-  //  scenes stays in athena per the double-earmark until KP rules otherwise.)
-  // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
   {
     name: 'prometheus',
     domain: 'stage',

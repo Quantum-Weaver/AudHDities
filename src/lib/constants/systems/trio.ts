@@ -1,39 +1,7 @@
 // src/lib/constants/systems/trio.ts
 // ============================================================================
-// THE TRIO DRIVER MAP — realm → chrome (X-OP-0 keystone, addressed)
 // ============================================================================
-// Provenance: Shuttle Run 08 — Phase 5, Movement I, Step 2 ("THE TRIO
-// ADDRESSABLE"), resonance-chamber/desk/REIMAGINING-BOARD.md. Composes X-OP-0's
-// own driver-map lean ("the realm+state→trio mapping... in lib/constants/
 // systems, beside the AssetMapper/environments engine" —
-// desk/realm-proposals/cross-realm-opus.md) and IRI-1 ("the beam rewired" —
-// desk/realm-proposals/iris.md). Feeling lines below are quoted, realm by
-// realm, from each realm's own desk/realm-proposals/<realm>.md, which in turn
-// quote the L1-03 realm→feeling atlas (Phase 1, THE REALM AUDIENCES).
-//
-// Additions-only: every value is a REFERENCE into an already-signed constant
-// (BEAM_COLORS via getBeamConfig, STATUS_BAR_CONFIG via getStatusBarConfig,
-// EnvironmentKey) — no new colors, no new gradients, no new tokens. This file
-// is the one address book the chrome trio (ContinuityBeam + StatusBar + nav)
-// reads to know which realm it is standing in.
-//
-// THE PIECING LICENSE — FIRST FRUIT (KP, 2026-07-20, verbatim: "i had build an
-// environment variable system you likely have ran across by now, feel free to
-// piece it out"; REIMAGINING-BOARD.md). The honest flag carried from Step 2 —
-// Hermes (`/bazaar`) and Iris (`/connect`) both resolve to the `community`
-// EnvironmentKey in page_mapping.ts, so their beam washes shared ONE gradient —
-// is given its first fix HERE, additively: each realm now carries a DISTINCT
-// beamGradient in the driver map, chosen from the existing GRADIENTS families
-// (no new colors), in its own Feeling register:
-//   · Hermes ("Abundant, curious, playful, connected") → GRADIENTS.hermes,
-//     the deity's own warm/gold gradient — strongest provenance, the god of
-//     the Bazaar wearing his own hue.
-//   · Iris ("Connected, understood, welcomed, celebrated") → GRADIENTS.bifrostDomain,
-//     the rainbow bridge — Iris IS the rainbow bridge of myth; connected,
-//     welcomed, celebrated.
-// This distinguishes their DRIVER-MAP intent now; the runtime page_mapping.ts
-// route→environment share is a route-layer change left for Movement IV (no
-// route changes this pass). Pure reference, no new gradients.
 
 import type { EnvironmentKey } from './assets/mapper';
 import {
@@ -44,10 +12,6 @@ import { GRADIENTS } from '@/lib/constants/cosmic/effects';
 import { getStatusBarConfig } from './environments/status_bar';
 import { HEADER_DATA, getPageMetadata } from './environments/page_mapping';
 import type { BaseEnvironmentKey, HeaderTypography } from './environments/types';
-
-// ============================================================================
-// REALM KEYS — the eleven `(parenthesis)` route groups + auth
-// ============================================================================
 
 export type RealmKey =
   | 'hestia'
@@ -115,10 +79,6 @@ function buildRealmConfig(
   };
 }
 
-// ============================================================================
-// THE MAP — one entry per realm
-// ============================================================================
-
 export const REALM_TRIO_MAP: Record<RealmKey, RealmTrioConfig> = {
   hestia: buildRealmConfig(
     'home',
@@ -167,8 +127,6 @@ export const REALM_TRIO_MAP: Record<RealmKey, RealmTrioConfig> = {
   hephaestus: buildRealmConfig(
     'forge',
     ['/forge', '/about', '/privacy', '/terms', '/sanctuary', '/calling'],
-    // Both Feeling lines held at once — KP's Phase 4 signature, verbatim:
-    // "hephaestus's register was deliberately both at once."
     'Structured, transparent, reliable, foundational — and, held at once, intelligent, powerful, sacred'
   ),
   mnemosyne: buildRealmConfig(
@@ -184,10 +142,6 @@ export const REALM_TRIO_MAP: Record<RealmKey, RealmTrioConfig> = {
 };
 
 export const DEFAULT_REALM: RealmKey = 'hestia';
-
-// ============================================================================
-// DETECTION — pathname → realm (longest route-prefix wins)
-// ============================================================================
 
 export function detectRealmFromPath(pathname: string | null | undefined): RealmKey {
   if (!pathname) return DEFAULT_REALM;
@@ -212,22 +166,8 @@ export function getRealmEnvironment(realm: RealmKey): EnvironmentKey {
 }
 
 // ============================================================================
-// THE HEADER LANE — the quartet's fourth instrument joins the driver map
 // ============================================================================
-// Provenance: THE QUARTET CORRECTION (KP, 2026-07-20, REIMAGINING-BOARD.md:
-// "i realize now i left out the header when offering the immersive
-// environmental tools") — the audience said it first (L1-05: "the status bar
-// should display something other than title and subtitle as the header
-// handles those"). Movement IV duty, built 2026-07-29 by the finishing
 // session of THE-FRONTEND-REIMAGINING (study record:
-// resonance-chamber/desk/records/fable-lanes/study/e2-the-ux-study-bus.md,
-// round 8a work-order step ①).
-//
-// A REFERENCE lane, additions-only: every value points at data that already
-// lives one file over — HEADER_DATA + getPageMetadata (page_mapping.ts) and
-// each realm's Feeling line already quoted above. The Header was always the
-// quartet's DRIVER (it sets the environment on route change); this lane lets
-// it also DRESS from the same spine the other three instruments read.
 
 export interface RealmHeaderConfig {
   /** Page title (page-specific override, else the realm's environment default). */

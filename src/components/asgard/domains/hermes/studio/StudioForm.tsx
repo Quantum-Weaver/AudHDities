@@ -1,21 +1,4 @@
 // src/components/asgard/domains/hermes/studio/StudioForm.tsx
-// THE LOOM — ONE FORM (SPEC §1, §3④).
-//
-// THE SHAPE IS THE CONDUCTOR'S ASSUMPTION, carried at KP's own question and
-// not struck: "should there be a wares creation page and a works, or are they
-// going to use the same form?" — one form, the KIND CHOSEN FIRST, the shared
-// trunk drawn once, two doors on the street. KP may strike it at any point and
-// the build follows the strike.
-//
-// The kind is first because the kind decides which table the row lands in and
-// which fields follow. Then the shared trunk: name, description, status. Then
-// the kind's own branch.
-//
-// Wares edition (2026-07-31): a ware carries one base price plus a
-// pricing_model; solidarity pricing is computed server-side at the Exchange.
-// The model defaults to 'free' — worth is not priced unless the maker chooses
-// (the zero-default is the realm's own thesis), and the residual dial defaults
-// to nothing pledged.
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -100,9 +83,6 @@ export function StudioForm({ initialKind }: StudioFormProps) {
   const [isDraft, setIsDraft] = useState(false);
   const [bodies, setBodies] = useState<BodyRow[]>([]);
 
-  // "Give this work a body" pre-fills the ware form from the work's own row.
-  // It RECORDS NOTHING: where a ware's descent from a work is written is
-  // unwritten — his to rule. The ware stands on its own until he says.
   const fromWorkId = searchParams.get('from_work');
   const [prefill, setPrefill] = useState<{ name: string; description: string } | null>(null);
 
@@ -148,9 +128,6 @@ export function StudioForm({ initialKind }: StudioFormProps) {
     const description = data.description ? String(data.description) : null;
 
     try {
-      // THE ROW IS WRITTEN FIRST, AS A DRAFT (FIX 20). A form that may carry
-      // three bodies is the realm's point of most loss; the bodies attach to a
-      // row that already exists, never the other way round.
       let response: Response;
       if (kind === 'work') {
         const body: TablesInsert<'works'> = {
@@ -200,10 +177,6 @@ export function StudioForm({ initialKind }: StudioFormProps) {
 
       const rowId: string | undefined = result.data?.id;
 
-      // One body, one file_registry row. related_table + related_id is untyped
-      // by design, which is why no schema change is needed to hang a body on a
-      // ware. Written as drafts: the shelf the bytes rest on is KP's hand and
-      // is not made yet, so nothing here is offered to anyone.
       if (kind === 'ware' && rowId) {
         const named = bodies.filter((b) => b.name.trim().length > 0);
         for (const b of named) {

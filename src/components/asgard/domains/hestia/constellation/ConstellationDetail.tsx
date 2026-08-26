@@ -12,13 +12,6 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Calendar, Star } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// MEND-III 2026-07-20: `hestia-core/timelines/${id}` never actually died — the
-// conductor's genealogy check found it living under its settled name,
-// `current` (the `[id]` route exists on disk, verified). `current` has no
-// `title` or `significance_score` field (those only existed on the old
-// table); the title below is synthesized from `event_type` via
-// EVENT_TYPE_LABELS, and the significance star-rating UI is dropped honestly
-// rather than inventing a number.
 interface TimelineEvent {
   id: string;
   event_type: string;

@@ -1,6 +1,4 @@
 // scripts/scan-components.ts
-// Simple scanner - outputs component file names and export names
-// No logic, no analysis, just names.
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -67,17 +65,14 @@ function extractExports(content: string): string[] {
     let match;
     while ((match = pattern.exec(content)) !== null) {
       if (match[1]) {
-        // Handle single export
         exports.push(match[1]);
       } else if (match[2]) {
-        // Handle destructured exports
         const items = match[2].split(',').map(item => item.trim().split(' as ')[0]);
         exports.push(...items);
       }
     }
   }
   
-  // Remove duplicates and sort
   return [...new Set(exports)].sort();
 }
 
@@ -99,7 +94,6 @@ function scanDirectory(dirPath: string, relativePath: string = ''): ComponentInf
       const subResults = scanDirectory(fullPath, path.join(relativePath, item));
       results.push(...subResults);
     } else if (stat.isFile() && (item.endsWith('.tsx') || item.endsWith('.ts'))) {
-      // Skip index files that only re-export
       if (item === 'index.ts' || item === 'index.tsx') {
         continue;
       }
@@ -145,7 +139,6 @@ function main(): void {
     }
   }
   
-  // Sort by file path
   allComponents.sort((a, b) => a.filePath.localeCompare(b.filePath));
   
   // =====================================================
@@ -179,7 +172,6 @@ function main(): void {
     }
   }
   
-  // Save to JSON file
   const outputDir = path.dirname(OUTPUT_FILE);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });

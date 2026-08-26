@@ -172,7 +172,6 @@ const RUNTIME_ENUM_CONFIG: WorkflowConfig = {
 
 // Table-specific configurations
 export const WORKFLOW_CONFIG: Record<string, WorkflowConfig> = {
-  // Full CRUD tables
   profiles: FULL_CRUD_CONFIG,
   products: FULL_CRUD_CONFIG,
   posts: FULL_CRUD_CONFIG,
@@ -187,7 +186,6 @@ export const WORKFLOW_CONFIG: Record<string, WorkflowConfig> = {
   acid_test_answers: ASSESSMENT_CONFIG,
   acid_test_results: ASSESSMENT_CONFIG,
   
-  // Join tables
   user_quests: JOIN_TABLE_CONFIG,
   user_badges: JOIN_TABLE_CONFIG,
   contributions: JOIN_TABLE_CONFIG,
@@ -195,15 +193,12 @@ export const WORKFLOW_CONFIG: Record<string, WorkflowConfig> = {
   vendor_profiles: JOIN_TABLE_CONFIG,
   community_profiles: JOIN_TABLE_CONFIG,
   
-  // Read-only views
   personalized_feed: READ_ONLY_CONFIG,
   public_transparency: READ_ONLY_CONFIG,
   my_residuals: READ_ONLY_CONFIG,
   
-  // Runtime Enums
   runtime_enum: RUNTIME_ENUM_CONFIG,
   
-  // Type Enums
   type_enum: TYPE_ENUM_CONFIG,
   
   // Default for unknown tables

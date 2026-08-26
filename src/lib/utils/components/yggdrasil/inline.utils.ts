@@ -63,7 +63,6 @@ export function clampInlineSpace(value: string | number): InlineSpace {
   // Exact match
   if (isValidInlineSpace(strValue)) return strValue;
 
-  // Find the closest key by numeric comparison
   const numValue = Number(strValue);
   if (isNaN(numValue)) return '4';
 

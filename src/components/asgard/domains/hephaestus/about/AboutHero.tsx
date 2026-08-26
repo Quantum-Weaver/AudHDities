@@ -10,7 +10,6 @@ import { DURATIONS, EASING } from '@/lib/constants/cosmic/motion';
 export function AboutHero() {
   return (
     <section className="relative overflow-hidden py-[var(--spacing-24)]">
-      {/* Quantum background gradient */}
       <div className="absolute inset-0 bg-[var(--gradient-quantum)] opacity-50" />
 
       {/* Ambient glow orbs */}

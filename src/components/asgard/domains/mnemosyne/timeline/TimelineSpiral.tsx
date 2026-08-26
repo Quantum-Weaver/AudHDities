@@ -9,13 +9,6 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — the
-// conductor's genealogy check found it living under its settled name,
-// `current` (sovereign_id-scoped). Repointed from the dead route. `current`
-// carries no `title` or `significance_score` (those only existed on the old
-// table), so this view synthesizes a title from `event_type` via
-// EVENT_TYPE_LABELS and drops the significance badge honestly rather than
-// inventing a number.
 interface TimelineEvent {
   id: string;
   event_type: string;

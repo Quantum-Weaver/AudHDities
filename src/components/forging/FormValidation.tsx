@@ -119,7 +119,6 @@ export const FormValidationProvider = React.forwardRef<
       Map<string, ValidatorFunction>
     >(new Map());
 
-    // Register validators from props
     useEffect(() => {
       const map = new Map<string, ValidatorFunction>();
       validators.forEach(({ field, validate }) => {

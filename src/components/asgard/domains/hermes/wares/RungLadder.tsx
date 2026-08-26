@@ -1,20 +1,4 @@
 // src/components/asgard/domains/hermes/wares/RungLadder.tsx
-// THE RUNGS (SPEC §6) — one artisan's recurring wares, shown together as one
-// ladder instead of five separate stalls.
-//
-// KP ⚛ 2026-08-24: "retire the donate and create subscription tiers for me
-// rather than the platform". They are ONE ARTISAN'S RECURRING WARE at one
-// artisan's stall — not a platform product. The platform takes its 10% from
-// them exactly as from any other ware, and 30% of that returns to the pool
-// exactly the same way.
-//
-// EQUAL WEIGHT, ALWAYS. No rung marked popular, recommended or best value;
-// none drawn larger or brighter; the order is the price's own order and
-// nothing else. The only difference between them is the amount.
-//
-// The rows render from wares carrying a recurrence. None exist until KP seeds
-// them by his own hand after the DRAFT runs, so this draws nothing today, and
-// says nothing about that.
 'use client';
 
 import Link from 'next/link';

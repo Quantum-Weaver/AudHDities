@@ -49,7 +49,6 @@ export interface HeaderData {
 // ENVIRONMENT RULES TYPES
 // ============================================================================
 // lib/constants/systems/environments/types.ts
-// Add these missing types:
 
 export interface EnvironmentContext {
   userTier: 'dweller' | 'guild' | 'outlander' | 'sovereign_weaver';

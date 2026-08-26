@@ -1,30 +1,4 @@
 // src/lib/economics/ledger.ts
-// THE LEDGER ROWS (SPEC §5).
-//
-// KP ⚛ 2026-08-24: "when hermes is refined, we will make certain the ledger
-// rows are being created for our transparency."
-//
-// Read with "checkout is using stripe, why would we duplicate the data
-// capture?", the two rulings compose and do not collide: Stripe holds the
-// payment, the webhook completes the ONE exchanges row, and DOWNSTREAM of that
-// completed exchange the ledger rows are written. A ledger row written AT
-// CHECKOUT, beside the row the webhook was already completing, is what stays
-// refused.
-//
-// THE LAWS THESE ROWS OBEY
-//   written server-side, in the webhook handler, never by a client;
-//   IDEMPOTENT on the exchange id — reference_table='exchanges' +
-//     reference_id is the key, read before any write, and a re-fired webhook
-//     writes nothing twice;
-//   nothing is ever deleted — append-only, and a refund would be a new row;
-//   a pool distribution is never garnished;
-//   no per-vessel balance table is created — the pool is the balance.
-//
-// Whether residual_pool.current_balance and covenant_pool.current_balance are
-// incremented here or derived from the ledger at read time is
-// unwritten — his to rule. This file writes the ledger rows ONLY and leaves
-// the pool rows untouched: the derivation is honest and reversible, an
-// increment is neither.
 import { computeSplit, ODD_CENT_RULE, type SplitLine } from './split';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from '@/lib/generated/supabase/database.types';
@@ -97,9 +71,6 @@ export async function writeLedgerRowsForExchange(
   }
 
   // ── the contributors, read by PRESENCE ────────────────────────────────
-  // is_public is a display toggle only; existence is economics. A kept-quiet
-  // participant is paid. The creator is enrolled as a contributor to their own
-  // ware automatically (residual-system.md, rule 2).
   const participants = await db
     .from('ware_participants')
     .select('user_id, created_at')

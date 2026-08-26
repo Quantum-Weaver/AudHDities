@@ -10,7 +10,6 @@ import { ArrowLeft, FileText, Search, Clock } from 'lucide-react';
 import { useLessonsList } from '@/lib/generated/hooks/athena-gamification/lessons';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// content_type became lesson_type in the evolved dialect; same palette.
 const TYPE_COLORS: Record<string, string> = {
   text: 'bg-slate-500/20 text-slate-400', video: 'bg-cyan-500/20 text-cyan-400',
   audio: 'bg-purple-500/20 text-purple-400', interactive: 'bg-emerald-500/20 text-emerald-400',

@@ -1,6 +1,4 @@
 /* src/scripts/shared/logger.ts */
-// Centralized logging utilities
-// Single source for all console output across all modules
 
 export const colors = {
   reset: '\x1b[0m',

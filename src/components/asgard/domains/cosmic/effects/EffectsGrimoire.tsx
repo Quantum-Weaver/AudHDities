@@ -237,7 +237,6 @@ export function EffectsGrimoire() {
           })}
         </div>
 
-        {/* Footer */}
         <Card data={{ id: 'grimoire-footer', type: 'value', title: 'COSMIC', value: '' }} variant="glass" radius="xl" shadow="none" className="mt-8 p-6 text-center">
           <Sparkles className="h-5 w-5 text-neurospark mx-auto mb-2" />
           <p className="text-sm text-star-dust/40">

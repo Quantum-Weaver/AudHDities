@@ -1,8 +1,6 @@
 // src/scripts/system/gaia/generate/generate_hooks.ts
 // ============================================================================
-// GENERATE HOOKS (GAIA) - Type-First Version
 // ============================================================================
-// Purpose: Generate React hooks for tables using Tables<> helper types
 // ============================================================================
 
 import type { ObjectCategory } from '@/config/object_categories.js';
@@ -304,7 +302,6 @@ export function generateHooks(
   const { verbose = false } = options || {};
   const { name: tableName, deityFolder, category, shouldGenerateHooks } = table;
   
-  // ✅ FIXED: No rowContent check - types come from helpers!
   if (!shouldGenerateHooks) {
     if (verbose) {
       logDebug(`Skipping hooks for ${tableName} (not configured)`);

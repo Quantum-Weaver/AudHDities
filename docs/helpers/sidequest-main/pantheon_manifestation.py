@@ -78,11 +78,9 @@ class PantheonManifestation:
         interaction_text = f"{stimulus} {response}"
         
         for archetype_name, archetype_data in self.available_archetypes.items():
-            # Skip if already manifested
             if archetype_name in self.manifested_beings:
                 continue
                 
-            # Check for trigger patterns
             for pattern in archetype_data["trigger_patterns"]:
                 if pattern in interaction_text.lower():
                     return self.manifest_archetype(archetype_name, current_agents)
@@ -96,7 +94,6 @@ class PantheonManifestation:
             
         archetype_data = self.available_archetypes[archetype_name]
         
-        # Create manifestation record
         manifestation = {
             "archetype": archetype_name,
             "domain": archetype_data["domain"],

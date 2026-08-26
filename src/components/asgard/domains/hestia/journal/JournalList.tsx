@@ -189,7 +189,6 @@ export function JournalList() {
           </Button>
         </div>
 
-        {/* Create Form */}
         {showForm && (
           <Card
             data={{ id: 'new-entry', type: 'value', title: 'New Entry', value: '' }}

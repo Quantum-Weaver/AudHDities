@@ -23,7 +23,6 @@ import { CardHeader } from './cards/CardHeader';
 import { CardContent } from './cards/CardContent';
 import { CardFooter } from './cards/CardFooter';
 
-// Renderers
 import { ValueCardRenderer } from './cards/ValueCardRenderer';
 import { PillarCardRenderer } from './cards/PillarCardRenderer';
 import { StepCardRenderer } from './cards/StepCardRenderer';
@@ -78,13 +77,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     ...restProps 
   }, ref) => {
     
-    // Auto-recommend variant if enabled and no explicit variant provided
     const effectiveVariant = autoVariant && !variant ? getRecommendedVariant(data.type) : variant;
     
-    // Get semantic hover class for interactive cards
     const semanticHover = interactive ? getSemanticHoverClass(data.type, interactive) : '';
     
-    // Handle click navigation
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
       if (onClick) {
         onClick(data);
@@ -93,7 +89,6 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     
     const isClickable = !!(href || onClick);
     
-    // Build card classes
     const cardClasses = cn(
       cardVariants({ 
         variant: effectiveVariant, 
@@ -108,14 +103,12 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       className
     );
     
-    // Render content
     const cardContent = (
       <>
         {children}
       </>
     );
     
-    // Use Next.js Link for client-side navigation when href provided without custom onClick
     const isAnchor = !!(href && !onClick);
     
     if (isAnchor) {
@@ -147,10 +140,6 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
 
 Card.displayName = "Card";
 
-// ============================================================================
-// SMART CARD - Automatically selects renderer based on data type
-// ============================================================================
-
 export interface SmartCardProps extends Omit<CardProps, 'data' | 'variant'> {
   data: CardData;
   variant?: CardProps['variant'];
@@ -160,7 +149,6 @@ export const SmartCard: React.FC<SmartCardProps> = ({ data, variant, ...props })
   // Auto-recommend variant if not explicitly provided
   const effectiveVariant = variant || getRecommendedVariant(data.type);
   
-  // Select appropriate renderer based on data type
   if (data.type === 'product') {
     return <ProductCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }

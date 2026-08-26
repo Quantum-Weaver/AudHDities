@@ -1,11 +1,8 @@
 // src/scripts/system/gaia/maintenance/generate_tables_file.ts
 // ============================================================================
-// GENERATE TABLES.TS - Standalone script
 // ============================================================================
-// Purpose: Generate helper types for accessing tables, enums, and composite types
 // Output: src/types/supabase/tables.ts
 // Behavior: Idempotent - only writes when content changes
-// Usage: tsx src/scripts/system/gaia/generate_tables_file.ts [--dry-run] [--force] [--verbose]
 // ============================================================================
 
 import * as fs from 'fs';
@@ -280,10 +277,8 @@ async function writeTablesFile(
   const fullPath = OUTPUT_PATH;
   const dir = path.dirname(fullPath);
   
-  // Check if file exists
   const exists = fs.existsSync(fullPath);
   
-  // Dry run mode
   if (dryRun) {
     if (verbose) {
       console.log(`[DRY RUN] Would write to: ${fullPath}`);
@@ -298,7 +293,6 @@ async function writeTablesFile(
     };
   }
   
-  // Ensure directory exists
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
@@ -318,7 +312,6 @@ async function writeTablesFile(
     };
   }
   
-  // Existing file - check if content changed
   const hasChanged = contentHasChanged(fullPath, content);
   
   if (!hasChanged) {
@@ -334,7 +327,6 @@ async function writeTablesFile(
     };
   }
   
-  // Content changed - handle based on force flag
   if (force) {
     fs.writeFileSync(fullPath, content, 'utf-8');
     if (verbose) {
@@ -379,10 +371,8 @@ export async function generateTablesFile(options: WriteOptions): Promise<{
   console.log('\n📦 Generating tables.ts helper...\n');
   
   try {
-    // Generate content (no extraction needed - it's static)
     const content = generateTablesContent();
     
-    // Write the file
     const writeResult = await writeTablesFile(content, options);
     
     console.log(`\n✅ ${writeResult.message}`);
@@ -434,7 +424,6 @@ async function main() {
   console.log('='.repeat(60) + '\n');
 }
 
-// Run if called directly
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
 }

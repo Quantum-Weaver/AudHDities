@@ -1,5 +1,4 @@
 ﻿// One-off smoke test: do generated validators load and enforce?
-// Run: npx tsx src/scripts/audit/validator-smoke.ts
 import { WaresRowSchema } from '../../lib/generated/validators/plutus-economics/wares';
 
 const sample = {

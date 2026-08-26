@@ -22,28 +22,23 @@ export function parseTermsMarkdown(markdown: string): ParsedTerms {
   let lastUpdated = 'March 19, 2026';
 
   for (const line of lines) {
-    // Check for title (first H1)
     if (line.startsWith('# ') && !title) {
       title = line.replace('# ', '');
       continue;
     }
 
-    // Check for last updated
     if (line.includes('Last updated:')) {
       const match = line.match(/Last updated:\s*(.*)/);
       if (match) lastUpdated = match[1];
       continue;
     }
 
-    // Check for H2 sections (##)
     if (line.startsWith('## ')) {
-      // Save previous section if exists
       if (currentSection) {
         currentSection.content = currentContent.join('\n').trim();
         sections.push(currentSection);
       }
       
-      // Start new section
       currentSection = {
         title: line.replace('## ', ''),
         level: 2,
@@ -52,14 +47,11 @@ export function parseTermsMarkdown(markdown: string): ParsedTerms {
       };
       currentContent = [];
     }
-    // Check for H3 subsections (###)
     else if (line.startsWith('### ') && currentSection) {
-      // Save any accumulated content to current section first
       if (currentContent.length) {
         currentSection.content = currentContent.join('\n').trim();
       }
       
-      // Create subsection
       const subsection: ParsedSection = {
         title: line.replace('### ', ''),
         level: 3,
@@ -76,7 +68,6 @@ export function parseTermsMarkdown(markdown: string): ParsedTerms {
     }
   }
 
-  // Save final section
   if (currentSection) {
     currentSection.content = currentContent.join('\n').trim();
     sections.push(currentSection);

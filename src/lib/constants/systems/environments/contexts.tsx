@@ -1,5 +1,4 @@
 // lib/constants/systems/environments/contexts.tsx
-// Update the existing file to use the useUser hook
 
 "use client";
 
@@ -105,16 +104,14 @@ export function EnvironmentProvider({ children, debug = false }: EnvironmentProv
       return { environment: override, variant: 1, reason: 'manual_override' };
     }
     
-    // Build context for rule evaluation
     const ctx: EnvironmentContextType = {
       userTier: sovereignTier || 'dweller',
       sovereigntyScore: tierLight(sovereignTier),
       path: pathname,
       isAuthenticated: !!user,
       isAdmin: roles.includes('admin'),
-      // These would come from other sources (energy system, mood tracking, etc.)
-      currentEnergy: 'medium', // TODO: Connect to energy system
-      currentMood: [], // TODO: Connect to mood tracking
+      currentEnergy: 'medium',
+      currentMood: [],
       timeOfDay: getTimeOfDay(),
       season: getCurrentSeason(),
       reducedMotion: typeof window !== 'undefined' ? window.matchMedia?.('(prefers-reduced-motion: reduce)').matches : false,
@@ -127,10 +124,8 @@ export function EnvironmentProvider({ children, debug = false }: EnvironmentProv
       return { environment: pageEnvironment, variant: 1, reason: 'page_mapping' };
     }
     
-    // Sort rules by priority (highest first)
     const sortedRules = [...ALL_ENVIRONMENT_RULES].sort((a, b) => b.priority - a.priority);
     
-    // Find first matching rule
     for (const rule of sortedRules) {
       try {
         if (rule.condition(ctx)) {
@@ -194,7 +189,6 @@ export function EnvironmentProvider({ children, debug = false }: EnvironmentProv
   // EFFECTS
   // ============================================================================
   
-  // Refresh when dependencies change (but not while user is loading)
   useEffect(() => {
     if (!isUserLoading) {
       refresh();

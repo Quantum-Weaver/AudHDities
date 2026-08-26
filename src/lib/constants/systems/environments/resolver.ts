@@ -1,5 +1,4 @@
 // lib/constants/systems/environments/resolver.ts
-// Main environment resolution engine
 
 import type { 
   BaseEnvironmentKey, 
@@ -22,7 +21,6 @@ export interface ResolveEnvironmentOptions {
 export function resolveEnvironment(options: ResolveEnvironmentOptions): EnvironmentResolution {
   const { context, route, variantPreference = 1 } = options;
   
-  // Start with page default
   let selectedEnvironment: BaseEnvironmentKey = route 
     ? getPageEnvironment(route)
     : DEFAULT_ENVIRONMENT;
@@ -30,7 +28,6 @@ export function resolveEnvironment(options: ResolveEnvironmentOptions): Environm
   let selectedReason = `Page default: ${selectedEnvironment}`;
   let highestPriority = -1;
   
-  // Apply rules in priority order
   const sortedRules = [...ALL_ENVIRONMENT_RULES].sort((a, b) => b.priority - a.priority);
   
   for (const rule of sortedRules) {
@@ -54,7 +51,6 @@ export function resolveEnvironment(options: ResolveEnvironmentOptions): Environm
     variant = Math.min(4, Math.max(1, variantPreference + variantOffset));
   }
   
-  // Calculate confidence score
   let confidence = 0.5; // Base confidence
   if (highestPriority > 0) {
     confidence = Math.min(1, highestPriority / 1000);

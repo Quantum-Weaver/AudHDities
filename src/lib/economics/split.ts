@@ -1,23 +1,4 @@
 // src/lib/economics/split.ts
-// THE ONE PLACE a sale's split is computed. Lifted 2026-08-25 from
-// PriceBreakdown.tsx (the six lines and the fee constant, unchanged in meaning)
-// so the display layer and the webhook compute the same thing from the same code.
-//
-// THE STANDING MODEL is docs/architecture/residual-system.md. It is never
-// restated differently here; these are its rules in integer arithmetic:
-//
-//   platform fee is a fixed percent of the sale
-//   30% of that fee returns to the residual pool, 70% funds the machine
-//   the residual DIAL (0-50, default 0) is the artisan's PLEDGE, taken from the
-//     90% that is left after the fee, never from the fee
-//   what remains of that 90% divides EQUALLY among this item's own
-//     contributors, the creator among them, no per-contributor percentage
-//   the covenant is each vessel's own 0-50 dial, a slice of THAT VESSEL'S OWN
-//     share of a sale only
-//   pool distributions arrive WHOLE and are never garnished
-//
-// ALL ARITHMETIC IS IN INTEGER MINOR UNITS. No float ever carries money here.
-// The display layer formats; the ledger stores what this file produced.
 
 /** Of every platform fee, this share returns to the residual pool. Fixed, always. */
 export const FEE_TO_RESIDUAL_POOL_PERCENT = 30;
@@ -207,8 +188,6 @@ export function computeSplit(input: SplitInput): SplitLine[] {
 
   const shares = contributors.map(() => each);
 
-  // THE ODD CENT. One named constant decides where it lands; the machine's
-  // line is not a candidate under any of them.
   if (ODD_CENT_RULE === 'to-the-contributors') {
     for (let i = 0; i < shares.length && remainder > 0; i += 1) {
       shares[i] += 1;
@@ -239,8 +218,6 @@ export function computeSplit(input: SplitInput): SplitLine[] {
       });
       remainder = 0;
     } else {
-      // 'held-on-the-exchange', and the no-contributor case under any rule:
-      // carried openly rather than absorbed anywhere.
       lines.push({
         kind: 'unallocated_cents',
         amountMinorUnits: remainder,
@@ -250,9 +227,6 @@ export function computeSplit(input: SplitInput): SplitLine[] {
     }
   }
 
-  // The covenant: a slice of a vessel's OWN share, moved to the dignity floor.
-  // It is not an extra line of the sale — it is that share going somewhere
-  // else — so it does not count toward the gross.
   contributors.forEach((id, i) => {
     const dial = covenants[id] ?? 0;
     if (dial <= 0) return;

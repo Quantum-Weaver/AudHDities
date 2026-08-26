@@ -1,8 +1,6 @@
 // ssrc/scripts/system/gaia/extract/extract_functions.ts
 // ============================================================================
-// EXTRACT FUNCTIONS (GAIA)
 // ============================================================================
-// Purpose: Extract all function definitions from database.types.ts
 // Dependencies: extractObject from modules/extract
 // ============================================================================
 import type { ExtractedObject } from '../../../shared/types.js';
@@ -34,7 +32,6 @@ function parseFunctionContent(content: string): {
   let returnsStartLine = -1;
   let returnsEndLine = -1;
   
-  // Find Args section start
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.match(/^\s*Args:\s*\{/)) {
@@ -43,7 +40,6 @@ function parseFunctionContent(content: string): {
     }
   }
   
-  // Find Returns section start
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.match(/^\s*Returns:/)) {
@@ -52,7 +48,6 @@ function parseFunctionContent(content: string): {
     }
   }
   
-  // Helper to find closing brace
   function findClosingBrace(startIdx: number): number {
     let braceCount = 0;
     let foundOpen = false;
@@ -77,7 +72,6 @@ function parseFunctionContent(content: string): {
   let argsContent = '';
   let returnsContent = '';
   
-  // Extract Args content
   if (argsStartLine !== -1) {
     const argsCloseLine = findClosingBrace(argsStartLine);
     if (argsCloseLine !== -1) {
@@ -90,7 +84,6 @@ function parseFunctionContent(content: string): {
     }
   }
   
-  // Extract Returns content (single line, no braces typically)
   if (returnsStartLine !== -1) {
     const returnsLine = lines[returnsStartLine];
     // Returns: SomeType

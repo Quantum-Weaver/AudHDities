@@ -1,8 +1,6 @@
 ﻿// src/config/object-categories.ts
 // ============================================================================
-// OBJECT CATEGORIES - Single source of truth for all generation behavior
 // ============================================================================
-// Defines how each object should be handled by GAIA and COSMIC
 // Merged with workflow_config.ts - no duplication
 // ============================================================================
 
@@ -277,9 +275,6 @@ export function getHandlingLevelByPattern(tableName: PublicTableNames): Handling
     return 'assessment';
   }
 
-  // Join/link tables. NOTE (2026-07-18): the old '_profiles' pattern is gone
-  // on purpose â€” community_profiles is now the PRIMARY identity table, and
-  // artisan/merchant profiles are full entities, not joins.
   const joinPatterns = [
     '_participants',       // ware_participants, work_participants, scene_participants
     '_links',              // artisan_category_links
@@ -306,9 +301,6 @@ export function getHandlingLevelByPattern(tableName: PublicTableNames): Handling
  * âœ… NEW: Type-safe view pattern matching
  */
 export function getViewHandlingLevelByPattern(_viewName: PublicViewNames): HandlingLevel {
-  // The current schema exposes no public views (the old personalized_feed /
-  // public_transparency / daedalus_* views did not survive the evolution).
-  // Every view, present or future, is read-only by policy.
   return 'read_only_view';
 }
 
@@ -320,8 +312,6 @@ export function getViewHandlingLevelByPattern(_viewName: PublicViewNames): Handl
 export function getTableHandlingLevel(tableName: PublicTableNames): HandlingLevel {
   // Manual overrides for exceptions
   const overrides: Partial<Record<PublicTableNames, HandlingLevel>> = {
-    // If any table needs non-default handling, list it here
-    // Example: 'legacy_table': 'read_only_view',
   };
   
   if (overrides[tableName]) {
@@ -356,7 +346,6 @@ const FUNCTION_DEITY_OVERRIDES: Record<string, string> = {
   // Financial mechanics live with Plutus
   'calculate_sovereign_price': 'plutus-economics',
 
-  // Assessment / acid-test tooling lives with Mnemosyne
   'get_acid_test_questions': 'mnemosyne-assessment',
   'get_acid_test_results': 'mnemosyne-assessment',
   'submit_acid_test': 'mnemosyne-assessment',

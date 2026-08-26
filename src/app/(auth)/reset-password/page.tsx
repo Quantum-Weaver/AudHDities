@@ -3,10 +3,6 @@
 // ║                    RESET PASSWORD PAGE                                    ║
 // ║                    Zero hardcoded values                                  ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// The vessel arrives here from the recovery email via the callback route
-// (?next=/reset-password), carrying a recovery session — so this page
-// REQUIRES auth: the guard passes the recovery visitor and turns strangers
-// back to the login door, carrying the reason with them.
 
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';

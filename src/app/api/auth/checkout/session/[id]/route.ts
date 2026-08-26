@@ -4,10 +4,6 @@ import { createServerSupabase } from '@/lib/supabase/server';
 import { stripe as getStripe } from '@/lib/stripe/server';
 import { isUserAdmin } from '@/lib/auth/admin';
 
-// =====================================================
-// GET /api/checkout/session/[id]
-// Get checkout session status and details
-// =====================================================
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -16,7 +12,6 @@ export async function GET(
     const supabase = await createServerSupabase();
     const { id: sessionId } = await params;
     
-    // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
     
     if (authError || !user) {
@@ -26,10 +21,8 @@ export async function GET(
       );
     }
     
-    // Check if user is admin or session owner
     const isAdmin = await isUserAdmin(supabase, user.id);
     
-    // Fetch the exchange record (the sales successor) to verify ownership
     const { data: sale, error: saleError } = await supabase
       .from('exchanges')
       .select('*')
@@ -40,10 +33,6 @@ export async function GET(
       console.error('Error fetching exchange:', saleError);
     }
 
-    // FIX 31 · THE GUARD IS THE FIRST THING THIS ROUTE DOES, before any Stripe
-    // call. It used to run only when an exchange row was found: with no row it
-    // fell through and returned the Stripe session anyway. With the delivery
-    // riding this route, that is not a tidiness fix.
     if (!sale) {
       return NextResponse.json(
         { error: 'No exchange session was found.' },
@@ -57,12 +46,8 @@ export async function GET(
       );
     }
     
-    // Fetch session from Stripe
     const session = await getStripe().checkout.sessions.retrieve(sessionId)
 
-    // THE KEEPING (the create→decorate loop, 2026-07-31): name what was
-    // taken into keeping so the threshold can offer to hang it at home —
-    // the exchange completes at the vessel's fire, not at a checkout.
     let kept: { kind: 'ware' | 'work'; id: string; name: string } | null = null;
     if (sale.ware_id) {
       const { data: ware } = await supabase
@@ -80,7 +65,6 @@ export async function GET(
       if (work) kept = { kind: 'work', id: work.id, name: work.name };
     }
 
-    // Format response
     const response = {
       id: session.id,
       status: session.status,
@@ -93,9 +77,6 @@ export async function GET(
       expires_at: session.expires_at ? new Date(session.expires_at * 1000).toISOString() : null,
       payment_intent: session.payment_intent,
       kept,
-      // THE DELIVERY (§9) — the bodies ride the spot the plan already named.
-      // The URL is minted at the ask and never stored; the .aab is withheld by
-      // the bodies route and named nowhere.
       bodiesHref: kept?.kind === 'ware' ? `/api/auth/wares/${kept.id}/bodies` : null,
     };
     
@@ -104,7 +85,6 @@ export async function GET(
   } catch (error) {
     console.error('Checkout session API error:', error);
     
-    // Handle Stripe-specific errors
     if (error instanceof Error && error.message.includes('No such checkout.session')) {
       return NextResponse.json(
         { error: 'Session not found' },

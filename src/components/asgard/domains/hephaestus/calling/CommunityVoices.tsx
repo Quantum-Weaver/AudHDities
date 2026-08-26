@@ -2,20 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   VOICES FROM THE SANCTUARY — waiting for real ones                      ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// THE TRUTH SEASON (2026-07-31, at KP's ⚛ words, verbatim: "we have no
-// company" · "no 'careers'" · "just us" · "and the cummunity that arrive"):
-// this file was born TeamStories.tsx with four INVENTED people — invented
-// names, invented life stories, presented as team testimonials in the realm
-// whose native law is "a page is true only if the realm it describes
-// agrees." There is no team, no company, and no realm that holds those
-// people. Fabricated social proof is the pretense family's outward-facing
-// form; the license names it plainly: no deception. The four retired whole
-// (git history keeps them; nothing renders them), and the "team" frame
-// retired with them.
-//
-// What stands is the truth in the invitation register: the first voices
-// here will be REAL ones — the community that arrives, telling their own
-// stories freely, with consent recorded before a single word renders.
 
 "use client";
 
@@ -65,8 +51,6 @@ export function CommunityVoices() {
     );
   }
 
-  // The day real voices arrive (each with its teller's recorded yes),
-  // they render here — plainly, in their own words.
   return (
     <div>
       <h2 className="text-xl font-bold text-star-dust mb-4">Voices from the Sanctuary</h2>

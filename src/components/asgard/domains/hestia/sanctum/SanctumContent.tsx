@@ -1,19 +1,6 @@
 // src/components/asgard/domains/hestia/sanctum/SanctumContent.tsx
 'use client';
 
-// Repointed 2026-07-18 for the evolved schema: identity edits go to
-// community_profiles and accessibility to vessel_config, both through
-// /api/auth/update-profile. Retired with their columns: username (now slug),
-// pronouns — and the preferred-environment realm picker, whose return
-// awaited KP's commission. THE COMMISSION CAME 2026-07-31 ("can we connect
-// the environments from there to the config of the vessel sanctum? i think
-// it makes the claim but no connection exists" — his eye exact): the picker
-// is re-mounted below over vessel_config.environment_preference
-// (docs/sql/013), previewed live through the ContinuityBeam and hydrated at
-// every arrival by the beam provider. The bubble limits came home the same
-// sitting (localStorage → vessel_config); the transitional localStorage
-// mirror retired 2026-08-12 after athena's repoint (013) — vessel_config
-// is the one source, both rooms agreeing.
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -39,23 +26,12 @@ export function SanctumContent() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [dyslexiaFont, setDyslexiaFont] = useState(false);
-  // THE CEREMONY SWITCHBOARD (Movement IV, 2026-07-29) — both default OFF;
-  // absence of choice means OFF, always (THE OPT-IN LAW). Read defensively:
-  // until the columns land (migrations/20260729_ceremony_choices.sql, KP's
-  // hand), the switches simply read false.
   const [ceremonyArrival, setCeremonyArrival] = useState(false);
   const [ceremonyFarewell, setCeremonyFarewell] = useState(false);
-  // The environment picker's value ('env:variant') and the bubble caps —
-  // both live on vessel_config since docs/sql/013 (read defensively until
-  // the columns land; sensible defaults meanwhile).
   const [environmentPreference, setEnvironmentPreference] = useState<string>('home:1');
   const [bubbleDailyMax, setBubbleDailyMax] = useState(500);
   const [bubbleHourlyMax, setBubbleHourlyMax] = useState(100);
-  // KP's word 2026-08-24: a switch here puts a "Play bubbles" button on the
-  // vessel's own face. Off by default, like everything else in this room.
   const [bubbleVesselButton, setBubbleVesselButton] = useState(false);
-  // Bubble caps save debounced (slider drags fire many changes); the flag
-  // keeps the initial config load from writing itself straight back.
   const [bubbleTouched, setBubbleTouched] = useState(false);
 
   useEffect(() => {
@@ -200,15 +176,8 @@ export function SanctumContent() {
 
   return (
     <main className="min-h-screen py-12">
-      {/* Readability mend 2026-08-12 (KP's eye: "the settings background is
-          absorbing its contents and the text is too close to the edges") —
-          the phantom `max-w-auto` and the black/85 veil retired; the cards
-          below carry solid surface dress instead, per the map mend's own
-          precedent. A sovereignty surface speaks plainly and reads always. */}
       <div className="container max-w-4xl mx-auto px-6">
 
-        {/* A real Link, not router.back(): arriving from the home's doorway
-            made a button labelled "Vessel" go back to the home instead. */}
         <Link
           href="/vessel"
           className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust mb-8 transition-colors text-sm"
@@ -283,9 +252,6 @@ export function SanctumContent() {
             Shape the Sanctuary to welcome your nervous system.
           </p>
           <div className="space-y-4">
-            {/* `checked`, not `defaultChecked`: the config read lands after
-                first paint, so an uncontrolled switch showed OFF for a vessel
-                who had turned it on. */}
             <Switch
               label="Dyslexia-friendly mode"
               size="md"
@@ -298,11 +264,6 @@ export function SanctumContent() {
           </div>
         </Card>
 
-        {/* YOUR REALM — the environment picker returned (KP's commission,
-            2026-07-31). The choice previews live through the ContinuityBeam
-            (the selector's own hand), persists to vessel_config, and the
-            beam provider hydrates it at every arrival — the connection the
-            Sanctum claimed and finally has. */}
         <Card
           variant="sanctuary"
           data={preferencesCardData}
@@ -324,12 +285,6 @@ export function SanctumContent() {
           />
         </Card>
 
-        {/* THE CEREMONY SWITCHBOARD — Movement IV's wearing (2026-07-29).
-            Every ceremony is chosen here or not at all: no opt-out patterns
-            exist anywhere in the Sanctuary (THE OPT-IN LAW, KP's own words:
-            "everything is opt-in, no oops you forgot to uncheck the thing").
-            The calm defaults — the Velkomin word at the door, the plain
-            going — need no toggle; they ARE the defaults. */}
         <Card
           variant="sanctuary"
           data={preferencesCardData}
@@ -358,12 +313,6 @@ export function SanctumContent() {
           </div>
         </Card>
 
-        {/* THE COVENANT SPACE — ceremonial, not a settings row (KP's ⚛
-            strokes 2026-08-12, verbatim on the realm bus): the pledge
-            slider 0–50, 0 by default, enacted by deliberate gesture. The
-            sanctuary dress carries the ceremony: solid surface for
-            readability, the hearth-gold border for the register. The
-            display choice arrives with docs/sql/021 (his hand). */}
         <Card
           variant="sanctuary"
           data={covenantCardData}
@@ -374,12 +323,6 @@ export function SanctumContent() {
           <CovenantSpace />
         </Card>
 
-        {/* YOUR DAILY RHYTHM — the bubble limits come home (KP's word,
-            2026-07-31: "add back to the vessel config the bubble limits
-            setting"). Source of truth is vessel_config — the game reads it
-            directly since athena's repoint (013); the transitional
-            localStorage mirror retired 2026-08-12, both rooms agreeing.
-            🚩 VITAL-REVISIT defaults; anti-addiction, self-chosen. */}
         <Card
           variant="sanctuary"
           data={preferencesCardData}
@@ -454,8 +397,6 @@ export function SanctumContent() {
           {saveMessage && (
             <span className={cn(
               'text-sm',
-              // 2026-08-12: error/sanctuary-green are phantom tokens (the
-              // white-dots finding); real theme classes only.
               saveMessage.includes('Failed') ? 'text-red-400' : 'text-neurospark'
             )}>
               {saveMessage}

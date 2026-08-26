@@ -54,7 +54,6 @@ export const SPINNER_STAGGER_DELAYS: Record<SpinnerType, number> = {
 } as const;
 
 // ─── Overlay classes (referencing COSMIC colors) ───────────────────────────
-// Using deep-space for overlay background with opacity
 export const SPINNER_OVERLAY_CLASSES = {
   OVERLAY: 'absolute inset-0 flex items-center justify-center bg-deep-space/20 backdrop-blur-[1px] z-10',
   FULL_PAGE: 'fixed inset-0 bg-deep-space/50 backdrop-blur-sm z-50 flex items-center justify-center',
@@ -73,7 +72,6 @@ export const SPINNER_ROLE = 'status' as const;
 export const SPINNER_DEFAULT_LABEL = 'Loading...' as const;
 
 // ─── Animation speed → Tailwind animation class mapping ────────────────────
-// These reference the TAILWIND_ANIMATIONS from motion.ts via generated config
 export const SPINNER_ANIMATION_CLASSES: Record<
   SpinnerSpeed,
   Record<SpinnerType, string>

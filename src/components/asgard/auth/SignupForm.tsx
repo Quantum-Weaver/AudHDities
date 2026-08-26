@@ -61,9 +61,6 @@ export default function SignupForm({ redirectTo = AUTH_ROUTES.QUESTIONNAIRE }: S
       return;
     }
 
-    // Leaked-password protection, the house's own hand (Run 08, Movement
-    // III): k-anonymous HIBP range check — the password never leaves this
-    // device; fails open if HIBP is unreachable. See lib/auth/pwned.ts.
     const breaches = await pwnedCount(password);
     if (breaches !== null && breaches > 0) {
       setFieldErrors({ password: PWNED_MESSAGE });
@@ -83,8 +80,6 @@ export default function SignupForm({ redirectTo = AUTH_ROUTES.QUESTIONNAIRE }: S
       return;
     }
 
-    // KP ⚛ 2026-08-24, answer 1: "need a felt 'not now'". The Acid Test is
-    // offered here and answered here; it is never routed into unasked.
     setIsLoading(false);
     setOffered(true);
   };

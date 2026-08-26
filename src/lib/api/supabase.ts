@@ -1,11 +1,7 @@
 // lib/api/supabase.ts
-// Supabase client utilities for API routes
 
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-// Repointed 2026-08-11 to the layer GAIA now delivers. MIRROR.md's own law:
-// the single editable truth is schema/superposition/database.types.ts in
-// resonance-gaia — never edited here, healed by rerunning the foundation.
 import type { Database } from '@/lib/generated/supabase/database.types';
 
 /**
@@ -28,7 +24,6 @@ export async function createApiSupabase() {
               cookieStore.set(name, value, options)
             );
           } catch {
-            // Handle cookie setting in edge runtime
           }
         },
       },
@@ -43,6 +38,5 @@ export async function createApiSupabase() {
 export async function createAdminSupabase() {
   const supabase = await createApiSupabase();
   // Service role key should be used with caution
-  // This helper assumes you have SUPABASE_SERVICE_ROLE_KEY in env
   return supabase;
 }

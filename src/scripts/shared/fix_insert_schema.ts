@@ -1,5 +1,4 @@
 // scripts/fix-insert-schemas.ts
-// Run with: npx tsx scripts/fix-insert-schemas.ts
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -24,7 +23,6 @@ function fixInsertSchema(content: string, tableName: string): { content: string;
   let insertSchemaStart = -1;
   let insertSchemaEnd = -1;
   
-  // Find InsertSchema boundaries
   for (let i = 0; i < lines.length; i++) {
     if (lines[i].includes('InsertSchema = z.object({')) {
       inInsertSchema = true;
@@ -46,7 +44,6 @@ function fixInsertSchema(content: string, tableName: string): { content: string;
     
     // Only modify lines inside InsertSchema
     if (i > insertSchemaStart && i < insertSchemaEnd) {
-      // Check each required field
       for (const field of REQUIRED_FIELDS) {
         const pattern = new RegExp(`(${field}: z\\.[a-zA-Z0-9_\\.]+\\(\\)(?:\\.nullable\\(\\))?)\\.optional\\(\\)`);
         if (pattern.test(line)) {
@@ -55,13 +52,10 @@ function fixInsertSchema(content: string, tableName: string): { content: string;
         }
       }
       
-      // Also check for any field that shouldn't have been optional
-      // but skip AUTO_FIELDS
       const fieldMatch = line.match(/^\s*(\w+):/);
       if (fieldMatch) {
         const fieldName = fieldMatch[1];
         if (!AUTO_FIELDS.includes(fieldName) && !REQUIRED_FIELDS.includes(fieldName)) {
-          // Remove .optional() if it exists and field isn't auto-generated
           if (line.includes('.optional()')) {
             const basePattern = new RegExp(`(${fieldName}: z\\.[a-zA-Z0-9_\\.]+\\(\\)(?:\\.nullable\\(\\))?)\\.optional\\(\\)`);
             if (basePattern.test(line)) {

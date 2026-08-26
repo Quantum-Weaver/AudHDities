@@ -1,18 +1,4 @@
 // src/components/asgard/domains/hermes/bazaar/BazaarHub.tsx
-// FOUR DOORS, NOT SIX (SPEC §3①).
-//
-// The Exchange tile left the grid: its own room says "The Exchange completes on
-// each work's page", and a door to a room that sends you elsewhere is a
-// corridor — a corridor at the entrance is the mall-model this realm refuses by
-// name, under KP's "a bazaar experience that is not overwhelming or time
-// consuming".
-//
-// Contributions left the grid too, for a different reason: it is not a stall.
-// It is the vessel's own record of itself, own-rows only under RLS. It stands
-// as ONE QUIET LINE beneath the grid, still one click away.
-//
-// The hub holds no state, lists no route it does not need, and never says how
-// much of it you have explored.
 'use client';
 
 import Link from 'next/link';
@@ -88,9 +74,6 @@ export function BazaarHub() {
                   shadow="sm"
                   className="p-6 h-full"
                 >
-                  {/* Decorative: the token lives here, never behind text. No
-                      transform — a scale with no motion-reduce guard is motion
-                      without consent. */}
                   <div
                     aria-hidden="true"
                     className={`w-12 h-12 ${section.bg} rounded-xl flex items-center justify-center mb-4 transition-colors group-hover:bg-star-dust/10`}
@@ -103,8 +86,6 @@ export function BazaarHub() {
                   <p className="text-sm text-star-dust/50 mb-4">
                     {section.description}
                   </p>
-                  {/* Always visible: hover-only is invisible to touch and to
-                      the keyboard. */}
                   <span className="flex items-center gap-1 text-xs text-neurospark">
                     Go in <ArrowRight size={12} aria-hidden="true" />
                   </span>
@@ -114,7 +95,6 @@ export function BazaarHub() {
           })}
         </div>
 
-        {/* Not a stall — the vessel's own record of itself. */}
         <p className="text-center text-sm text-star-dust/50 mt-8">
           <Link href="/bazaar/contributions" className="hover:text-star-dust hover:underline">
             Contributions

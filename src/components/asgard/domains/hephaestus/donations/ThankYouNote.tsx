@@ -1,25 +1,6 @@
 // src/components/supporting/ThankYouNote.tsx
 // ═════════════════════════════════════════════════════════════════════════
-// RETIRED — 2026-08-24, at KP's word.
-//
-// KP ⚛ 2026-08-24, verbatim, spacing kept:
-//   "retire the donate and create subscription tiers for me rather than
-//    the platform, and  i will still have my covenant set to 50%. the
-//    donations tab was before we had a built sanctuary and had different
 //    outlooks."
-//
-// The /donate room retired across five files that day. This component is
-// kept on disk and imported by nothing — lose-nothing.
-//
-// WHAT REPLACES IT IS NOT A FORGE ROOM. The subscription tiers are a WARE
-// of KP's — recurring, KP the sole artisan — so they are the BAZAAR's
-// spec (realm 03), not a room here. A subscription is a work on a stall
-// with a renewal attached: Stripe's subscription mode carries the
-// recurrence, and each renewal writes one `exchanges` row that becomes
-// ledger rows like any other sale. The covenant at 50% is KP's own pledge
-// on his own ware under the standing model, and needs no new machinery.
-//
-// Board ⑤: .journals/proofs/11-hephaestus/design/Ways.dc.html · SPEC.md ⑤
 // ═════════════════════════════════════════════════════════════════════════
 "use client";
 
@@ -93,10 +74,6 @@ export function ThankYouNote({ amount, className }: ThankYouNoteProps) {
         </Link>
       </div>
 
-      {/* 2026-08-24, the truth pass — this read "A receipt has been sent to
-          your email. You can also download it below." Nothing is sent: there
-          is no mailer anywhere in this repo behind a donation. The download
-          below is the only copy that exists, and the line now says so. */}
       <p className="text-xs text-star-dust/30 mt-8">
         Your record of this gift is below, to download and keep. Nothing is emailed.
       </p>

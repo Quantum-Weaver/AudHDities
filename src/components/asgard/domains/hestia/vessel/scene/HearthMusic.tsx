@@ -2,13 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   HEARTH MUSIC — sound worn at last, opt-in at the gesture itself        ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// The seam this closes (filed on the Hearth bus): interior.music_url was
-// deliberately UNWORN "until the Sanctum offers sound opt-in." The finishing
-// wears it with consent STRICTER than any setting: sound exists only while
-// the vessel holds it open — tap to play, tap to still, preload none, never
-// autoplay, no loop past the vessel's own choice to leave it playing. The
-// sensory law's row is satisfied at the gesture, not in a config screen:
-// every play is its own opt-in.
 
 'use client';
 
@@ -26,8 +19,6 @@ export default function HearthMusic({ src, className }: HearthMusicProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
-  // Still the music when the vessel leaves the room (unmount = silence;
-  // sound never outlives the place it belongs to).
   useEffect(() => {
     return () => {
       audioRef.current?.pause();
@@ -46,8 +37,6 @@ export default function HearthMusic({ src, className }: HearthMusicProps) {
       await audio.play();
       setPlaying(true);
     } catch {
-      // The browser declined (autoplay policy or a bad URL) — stay silent,
-      // stay honest: the button simply remains "Play".
       setPlaying(false);
     }
   };

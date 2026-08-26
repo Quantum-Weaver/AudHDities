@@ -1,5 +1,4 @@
 // hooks/useStatusBar.ts
-// Status Bar Hook - Manages status bar state and metrics
 
 "use client";
 
@@ -46,10 +45,8 @@ export function useStatusBar(): UseStatusBarReturn {
   const { environment, isTransitioning } = useEnvironment();
   const { profile, sovereignTier, isLoading: isUserLoading } = useUser();
   
-  // Get status bar config for current environment
   const config = useMemo(() => getStatusBarConfig(environment), [environment]);
   
-  // Build user status data
   const userStatus = useMemo((): UserStatusData => {
     const sovereigntyScore = tierLight(sovereignTier);
     const level = Math.floor(sovereigntyScore / 100) + 1;
@@ -66,12 +63,10 @@ export function useStatusBar(): UseStatusBarReturn {
     };
   }, [profile]);
   
-  // Calculate level
   const level = useMemo(() => {
     return Math.floor(userStatus.sovereigntyScore / 100) + 1;
   }, [userStatus.sovereigntyScore]);
   
-  // Build metrics from config
   const metrics = useMemo((): StatusIndicator[] => {
     return config.metrics.map((metric) => {
       const value = statusBarUtils.getMetricValue(metric.type, userStatus);
@@ -88,8 +83,6 @@ export function useStatusBar(): UseStatusBarReturn {
     });
   }, [config.metrics, userStatus]);
   
-  // Page metadata (would come from pathname - can be passed in or derived)
-  // For now, these are placeholders - the component will override with actual metadata
   const pageTitle = '';
   const pageSubtitle = '';
   

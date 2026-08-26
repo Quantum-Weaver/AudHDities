@@ -109,7 +109,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         {/* ── Input Container ──────────────────────────────────── */}
         <div className={INPUT_CONTAINER_CLASSES}>
-          {/* Left Icon */}
           {leftIcon && (
             <div className={cn(INPUT_ICON_CONTAINER_CLASSES, 'left-3')}>
               {leftIcon}
@@ -134,7 +133,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
 
-          {/* Right Icon */}
           {rightIcon && (
             <div className={cn(INPUT_ICON_CONTAINER_CLASSES, 'right-3')}>
               {rightIcon}

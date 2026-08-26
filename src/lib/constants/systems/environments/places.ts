@@ -1,31 +1,6 @@
 // lib/constants/systems/environments/places.ts
 // ============================================================================
-// THE HALL GEOMETRY + PLACE DISPLAY — the Crossing Hall's fixed order and the
-// display-only survivors of the (cosmic) gallery's retired ENVIRONMENTS data
 // ============================================================================
-// Provenance: REALMS-AS-TRAVEL, ruled at KP's ⚛ word 2026-07-30 ("please
-// continue on then friend" — the ruling recorded on the (cosmic) REALM-BUS).
-// Move 4 of the design: the duplicated static data in EnvironmentsGallery /
-// EnvironmentDetail retires; descriptions/mood/colors/themes now come from
-// the place-souls via getEnvironmentAffect(). What survives here is ONLY what
-// the souls do not carry: the display name, the icon, and the hall's order.
-//
-// THE GEOMETRY LAW (inherited from RealmMapFurniture, the same map at two
-// scales): one order, everywhere, forever — the hall NEVER shuffles, and no
-// search or filter reorders it. The order is DERIVED, not invented: it
-// follows REALM_MAP_ORDER's sequence, each realm's door translated to the
-// place-soul its own route wears (PAGE_ENVIRONMENT_MAP defaults), first
-// plain correspondence claiming the soul; the three souls no realm door
-// wears close the hall in catalog order.
-//
-//   /vessel → home · /studio → music (the shortest edge holds: hearth beside
-//   stage) · /library → library · /bazaar → community · iris's own hearth-
-//   room /connect/support → support (its front door shares community with
-//   the Bazaar) · mnemosyne → observatory (by name and /vessel/constellation)
-//   · /council → council · /docs & /nexus → architecture (hephaestus and
-//   aethelred share the machine sky) · then origin (/enter, the gate) ·
-//   invitation (/careers, the calling) · lounge (the resolver's own
-//   fallback sky).
 
 import type { EnvironmentKey } from '../assets/mapper';
 

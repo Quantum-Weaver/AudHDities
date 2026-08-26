@@ -1,6 +1,5 @@
 // src/scripts/shared/helper_imports.ts
 // ============================================================================
-// HELPER IMPORTS - Centralized import templates for generators
 // ============================================================================
 
 /**

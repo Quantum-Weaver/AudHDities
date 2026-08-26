@@ -1,6 +1,4 @@
 /* src/scripts/system.gaia/extract/extract_object.ts */
-// Phase 1: Extract a single object from a collection (Tables, Views, Functions, Enums)
-// Returns the full object content with line numbers
 
 import type { ExtractedObject, ObjectType } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
@@ -32,7 +30,6 @@ export function extractObject(
 ): ExtractedObject | null {
   const { verbose = false, includeHeader = true } = options;
   
-  // Convert to 0-indexed
   const startIdx = startLine - 1;
   const endIdx = endLine - 1;
   
@@ -50,7 +47,6 @@ export function extractObject(
     logDebug(`Searching for object "${objectName}" in lines ${startLine}-${endLine}`);
   }
   
-  // Find the line where the object starts
   let objectStartLine = -1;
   let objectType: ObjectType = 'unknown';
   
@@ -86,11 +82,9 @@ export function extractObject(
     return null;
   }
   
-  // Find the opening brace on this line or next line
   let braceStartLine = objectStartLine;
   let braceFound = false;
   
-  // Check current line for {
   if (lines[objectStartLine].includes('{')) {
     braceFound = true;
   } else if (objectStartLine + 1 < lines.length && lines[objectStartLine + 1].includes('{')) {
@@ -103,7 +97,6 @@ export function extractObject(
     return null;
   }
   
-  // Find matching closing brace
   let braceCount = 0;
   let foundOpen = false;
   let closingLine = -1;
@@ -130,7 +123,6 @@ export function extractObject(
     return null;
   }
   
-  // Extract content
   const startContentLine = includeHeader ? objectStartLine : objectStartLine + 1;
   const contentLines = lines.slice(startContentLine, closingLine + 1);
   const content = contentLines.join('\n');
@@ -206,7 +198,6 @@ export function extractFirstObject(
 ): ExtractedObject | null {
   const { verbose = false } = options;
   
-  // Find the first object name in the collection
   const startIdx = startLine - 1;
   const endIdx = endLine - 1;
   
@@ -254,7 +245,6 @@ export function extractObjectWithPattern(
   const startIdx = startLine - 1;
   const endIdx = endLine - 1;
   
-  // Find the line where the object starts using custom pattern
   let objectStartLine = -1;
   
   for (let i = startIdx; i <= endIdx; i++) {
@@ -274,8 +264,6 @@ export function extractObjectWithPattern(
     return null;
   }
   
-  // For enums, the value is on the same line (no braces to match)
-  // Just return the line as content
   const content = lines[objectStartLine];
   
   return {

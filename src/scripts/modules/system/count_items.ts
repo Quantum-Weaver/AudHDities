@@ -1,6 +1,4 @@
 /* @/scripts/modules/system/count_items.ts */
-// Phase 1: Count items inside a collection (Tables, Views, Functions, Enums)
-// Extracts item names and provides statistics
 
 import type { CollectionInfo } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning, logObjectSummary } from '@/scripts/shared/logger.js';
@@ -11,8 +9,6 @@ export interface CountItemsOptions {
   pattern?: RegExp;         // Custom pattern for matching items
 }
 
-// Default pattern for matching object names in a collection
-// Matches lines like: "      table_name: {" (6 spaces, then word, then colon, then optional brace)
 const DEFAULT_PATTERN = /^\s{6}(\w+):/;
 
 /**
@@ -39,7 +35,6 @@ export function countItemsInCollection(
   const itemNames: string[] = [];
   let itemCount = 0;
   
-  // Convert to 0-indexed for array access
   const startIdx = startLine - 1;
   const endIdx = endLine - 1;
   

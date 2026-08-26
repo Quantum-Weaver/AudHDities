@@ -1,6 +1,4 @@
 // src/app/(prometheus)/studio/page.tsx
-// The Loom — Creative tools hub
-// Feeling: Generative, fluid, sovereign, unbounded
 
 import { Page } from '@/components/bifrost/Page';
 import { StudioHub } from '@/components/asgard/domains/prometheus/studio/StudioHub';

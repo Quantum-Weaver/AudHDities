@@ -6,10 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ChevronDown, ExternalLink, CheckCircle, Heart } from 'lucide-react';
 import Link from 'next/link';
 
-// Illustrative rows, worked to the model in docs/architecture/residual-system.md
-// and corrected 2026-08-24: the fee splits 70/30 (machine/residual pool), the
-// residual pledge comes out of the ware's 90% profit, and what is left divides
-// equally among that ware's contributors. Every figure below lands on the cent.
 const sampleTransactions = [
   {
     id: 1,

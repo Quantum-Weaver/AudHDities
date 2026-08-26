@@ -30,7 +30,6 @@ function toPascalCase(str: string): string {
  * Convert database type to Zod schema type
  */
 function dbTypeToZod(fieldType: string, fieldName: string): string {
-  // Handle nullable types
   const isNullable = fieldType.includes(' | null');
   const baseType = fieldType.replace(' | null', '').trim();
   const camelName = baseType.charAt(0).toLowerCase() + baseType.slice(1);
@@ -51,7 +50,6 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
   } else if (baseType === 'Json') {
     zodType = 'z.any()';
   } else if (baseType.match(/^[A-Z]\w+$/)) {
-    // Enum reference (PascalCase type name)
     zodType = `z.enum(ENUM_VALUES.${camelName})`;
   } else if (baseType.includes('|')) {
     // Union type - treat as enum
@@ -62,7 +60,6 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
     zodType = 'z.any()';
   }
   
-  // Add nullable if needed
   if (isNullable) {
     zodType = `${zodType}.nullable()`;
   }
@@ -83,7 +80,6 @@ export function parseTableSections(content: string): { rowContent: string; inser
   let updateStartLine = -1;
   let updateEndLine = -1;
   
-  // Find section start lines
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.match(/^\s*Row:\s*\{/)) {
@@ -101,7 +97,6 @@ export function parseTableSections(content: string): { rowContent: string; inser
   let insertContent = '';
   let updateContent = '';
   
-  // Helper to find closing brace
   function findClosingBrace(startIdx: number): number {
     let braceCount = 0;
     let foundOpen = false;
@@ -122,7 +117,6 @@ export function parseTableSections(content: string): { rowContent: string; inser
     return -1;
   }
   
-  // Extract Row content (between Row: { and Insert: {)
   if (rowStartLine !== -1 && insertStartLine !== -1) {
     rowEndLine = insertStartLine - 1;
     const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
@@ -132,7 +126,6 @@ export function parseTableSections(content: string): { rowContent: string; inser
     }
   }
   
-  // Extract Insert content (between Insert: { and Update: {)
   if (insertStartLine !== -1 && updateStartLine !== -1) {
     insertEndLine = updateStartLine - 1;
     const insertLines = lines.slice(insertStartLine + 1, insertEndLine);
@@ -153,7 +146,6 @@ export function parseTableSections(content: string): { rowContent: string; inser
     }
   }
   
-  // Extract Update content
   if (updateStartLine !== -1) {
     const updateCloseLine = findClosingBrace(updateStartLine);
     if (updateCloseLine !== -1) {
@@ -212,7 +204,6 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
       
       const zodType = dbTypeToZod(fieldType, fieldName);
       
-      // If field has '?', make it optional; otherwise required
       if (hasQuestionMark) {
         fields.push(`  ${fieldName}: ${zodType}.optional(),`);
       } else {
@@ -265,7 +256,6 @@ export function generateValidatorContent(tableName: string, rowContent: string, 
   // Always need zod
   importManager.addDefaultImport('zod', 'z');
   
-  // Detect enums from row and insert content
   const allContent = rowContent + '\n' + insertContent;
   const enumMatches = allContent.match(/[A-Z][a-zA-Z0-9]*/g) || [];
   const commonTypes = ['Json', 'Date', 'string', 'number', 'boolean'];
@@ -325,7 +315,6 @@ export async function generateValidatorForTable(
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
   const { verbose = false, dryRun = false, forceOverwrite = false, outputBase = 'lib/validators' } = options;
   
-  // Parse the table content
   const { rowContent, insertContent, updateContent } = parseTableSections(tableContent);
   
   if (!rowContent && !insertContent) {
@@ -335,14 +324,12 @@ export async function generateValidatorForTable(
   const content = generateValidatorContent(tableName, rowContent, insertContent, updateContent);
   const outputPath = path.join(PROJECT_ROOT, outputBase, `${tableName}.ts`);
   
-  // Ensure directory exists
   const outputDir = path.dirname(outputPath);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
     if (verbose) logDebug(`Created directory: ${outputDir}`);
   }
   
-  // Check if file exists
   const exists = fs.existsSync(outputPath);
   
   if (dryRun) {
@@ -352,7 +339,6 @@ export async function generateValidatorForTable(
     return { success: true, filePath: outputPath, message: `Would create ${outputPath}`, action: 'dryrun' };
   }
   
-  // If file exists and not forcing overwrite, stage the change
   if (exists && !forceOverwrite) {
     const existingContent = fs.readFileSync(outputPath, 'utf-8');
     if (existingContent === content) {
@@ -360,7 +346,6 @@ export async function generateValidatorForTable(
       return { success: true, filePath: outputPath, message: 'Unchanged', action: 'skipped' };
     }
     
-    // Stage the change
     const stageResult = stageFileChange(outputPath, content, { verbose });
     if (stageResult.staged) {
       if (verbose) {
@@ -371,7 +356,6 @@ export async function generateValidatorForTable(
     }
   }
   
-  // Write the file (new file or forced overwrite)
   fs.writeFileSync(outputPath, content, 'utf-8');
   if (exists) {
     logWarning(`Validator overwritten: ${outputPath}`);

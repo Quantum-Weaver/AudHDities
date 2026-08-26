@@ -236,7 +236,6 @@ export function validatePageSize(
 ): number {
   if (options.includes(requestedSize)) return requestedSize;
 
-  // Find the closest option
   const sorted = [...options].sort((a, b) => a - b);
   const closest = sorted.reduce((prev, curr) =>
     Math.abs(curr - requestedSize) < Math.abs(prev - requestedSize)
@@ -262,10 +261,8 @@ export function adjustPageForSizeChange(
   if (oldPageSize <= 0 || newPageSize <= 0) return 1;
   if (currentPage <= 1) return 1;
 
-  // Find the first item of the current page in the old size
   const firstItemIndex = (currentPage - 1) * oldPageSize + 1;
 
-  // Calculate what page that item would be on with the new size
   return Math.ceil(firstItemIndex / newPageSize);
 }
 

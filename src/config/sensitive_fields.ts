@@ -1,6 +1,5 @@
 // src/config/sensitive_fields.ts
 // ============================================================================
-// SENSITIVE FIELDS - Single source of truth for fields to exclude from public interfaces
 // ============================================================================
 
 export const SENSITIVE_FIELDS = [
@@ -22,8 +21,6 @@ export const SENSITIVE_FIELDS = [
   'reset_token',
   'ip_address',
   'user_agent',
-  // user_private columns (the identity split, 2026-07): everything on that
-  // table is crown-jewel PII and never travels through a public interface
   'legal_name',
   'government_id',
   'date_of_birth',

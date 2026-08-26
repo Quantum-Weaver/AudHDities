@@ -110,7 +110,6 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
         const formData = new FormData(event.currentTarget);
         const data = collectFormData(formData);
 
-        // Validate
         if (validate) {
           const validationErrors = validate(data);
           setErrors(validationErrors);
@@ -120,7 +119,6 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
           }
         }
 
-        // Submit
         if (onSubmit) {
           setIsSubmitting(true);
           try {

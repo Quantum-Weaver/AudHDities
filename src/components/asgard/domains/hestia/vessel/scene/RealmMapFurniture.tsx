@@ -2,19 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE REALM MAP — furniture in the vessel home (✍ GATE ② RULED)          ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: KP's ⚛ ruling, 2026-07-29, verbatim: "in the vessel interior
-// either on a table that can expand to the screenor on the wall.
-// potentailly an expanable element of the navigation bar." The pair's weld,
-// confirmed unseeded from the founder's side: the map is a tool held within
-// the walk — the museum floor-plan in your hand, never the gallery itself.
-//
-// Laws worn here: the geometry NEVER shuffles itself (order fixed below;
-// re-siting will be the dweller's sovereign act when the Sanctum offers
-// arranging — THE OPT-IN LAW). Home→Studio is the SHORTEST edge (KP's ✍
-// adjacency law: the creative act must be near the safe place). Expansion
-// is the vessel's own tap, never automatic; Escape always closes; instant
-// under reduced motion. The nav-bar echo stays a possibility on the record,
-// not a build (his "potentially," honored as written).
 
 'use client';
 
@@ -78,14 +65,6 @@ export default function RealmMapFurniture({
         aria-haspopup="dialog"
         aria-expanded={expanded}
         className={cn(
-          // Solid, never glass — KP's ⚛ ruling from the first walk, 2026-07-30:
-          // "the map on the table needs to not be transparent so it can be
-          // seen." (Mend note, twice-learned: bg-cosmic-deep never existed,
-          // and named tokens like bg-surface are ALSO unminted — this app is
-          // Tailwind v4 and the tokens live only as :root vars in the
-          // generated variables.css, outside any @theme. Until a deliberate
-          // theme-bridge pass, color utilities here use the var syntax
-          // bg-(--color-*), which reads the living variable directly.)
           'group relative rounded-lg border border-star-dust/15 bg-(--color-surface)',
           'p-4 text-left w-full transition-colors motion-reduce:transition-none',
           'hover:border-star-dust/30 focus-visible:border-star-dust/30',
@@ -112,10 +91,6 @@ export default function RealmMapFurniture({
           aria-label="The realm map, unfolded"
           className="fixed inset-0 z-50 flex items-center justify-center bg-(--color-deep-space)/90 p-6"
         >
-          {/* The map MODULE — KP's ⚛ ruling, 2026-07-30: "the expanded map
-              to be a module that takes over the ~80% of the screen with a
-              solid background color to the popout window." ~80vw × ~80vh,
-              solid deep-space, its own scroll when doors outgrow it. */}
           <div className="flex h-[80vh] w-[80vw] flex-col rounded-xl border border-star-dust/15 bg-(--color-deep-space) p-6">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-base font-semibold text-star-dust">The Sanctuary</h2>
@@ -128,13 +103,6 @@ export default function RealmMapFurniture({
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
-            {/* THE LÉARSCÁIL — KP's ⚛ word 2026-08-11, "the map from the
-                vessel… was already a component… just needs this." The
-                furniture keeps its whole ritual (unfold, Escape, the 80%
-                module); what it holds is now the land drawn as land, the
-                same water the street's nav unfurls. The doorways stay
-                beneath it: the map is the calm way in, the doorways are
-                every door, and neither is the admission ticket. */}
             <div className="mb-5 shrink-0">
               <Learscail onTravel={close} />
             </div>

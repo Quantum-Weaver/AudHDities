@@ -4,16 +4,6 @@
 // ║   (the quartet grown by one: Header · StatusBar · ContinuityBeam ·       ║
 // ║    navigation · this — all dressing from the same environment-key spine) ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: THE-FRONTEND-REIMAGINING, finishing session 2026-07-29 (study
-// record: fable lanes/study/e2-the-ux-study-bus.md, round 8a work-order step
-// ②). KP's ✍ strokes honored: the background images are RETIRED (2026-07-19,
-// lose-nothing ×2) and "the quantum backgroud is likely being retired"
-// (2026-07-29) — this layer succeeds PanoramaViewer/QuantumBackground under
-// every page. Affect from constants, not from pictures: the wash is the
-// beam's own cosmic gradient, worn at ambient strength (the realm is
-// weather, not wallpaper); the breathing keeps the image era's measured
-// 47.7s tempo, and stills to nothing under reduced motion (the sensory law:
-// motion is content, so it needs consent).
 
 "use client";
 
@@ -58,8 +48,6 @@ export default function EnvironmentLayer({
         className
       )}
     >
-      {/* THE WASH — the realm's cosmic gradient at ambient strength,
-          breathing at the image era's own tempo (still under reduced motion) */}
       <motion.div
         className="absolute inset-0"
         style={{

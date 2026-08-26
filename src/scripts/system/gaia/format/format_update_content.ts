@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/format/format_update_content.ts
 // ============================================================================
-// FORMAT UPDATE CONTENT - All fields optional
 // ============================================================================
 
 import { toPascalCase } from '../../../shared/type_mappings.js';

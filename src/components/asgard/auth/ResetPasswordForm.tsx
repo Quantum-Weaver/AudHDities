@@ -38,7 +38,6 @@ export default function ResetPasswordForm() {
       return;
     }
 
-    // KP ⚛ 2026-08-24, answer 9: "/vessel" after sign in.
     router.push(AUTH_ROUTES.DASHBOARD);
     router.refresh();
   };

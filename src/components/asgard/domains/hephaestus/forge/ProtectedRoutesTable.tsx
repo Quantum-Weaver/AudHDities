@@ -3,13 +3,6 @@
 
 import { Shield, Lock } from 'lucide-react';
 
-// 2026-08-24, the truth pass — this table listed /dashboard/*, /profile/*,
-// /checkout/*, /creator/*, /vendor/* and /admin/*. Of those six, only
-// /dashboard exists, and only as a legacy redirect stub to /vessel; the
-// other five have no page anywhere under src/app. Generic boilerplate that
-// never met the deity-named routes it was shipped beside. Below are the
-// routes that actually change with sign-in state today, read from the files
-// that do the changing. Recount from those files before editing this list.
 const protectedRoutes = [
   {
     path: '/reset-password',

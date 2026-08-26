@@ -2,18 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE REPO CONSTELLATION — the work itself, open for inspection          ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Born 2026-07-31 at KP's ⚛ words ("somewhere we can show off the repo set"
-// · "likely in the aethelred realm actually") — the Gateway's TRUE face,
-// healing the wrong-face edge (/nexus/api rendered a webhooks copy).
-//
-// The Nexus's native law holds: never dress a constant as a heartbeat.
-// This is not a heartbeat — it is a CATALOG of real, public, inspectable
-// repositories: every name, description, and link below was read from the
-// live GitHub API on 2026-07-31 and is quoted verbatim (the descriptions
-// are the repos' own words, not marketing). The two profile faces
-// (Quantum-Weaver · aethelred-cello) are single-README repos by design —
-// the front doors, listed as faces, not projects. When the set changes,
-// this catalog is re-read from the API, never hand-embellished.
 
 'use client';
 

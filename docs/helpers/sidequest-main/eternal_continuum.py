@@ -93,13 +93,10 @@ class EternalContinuum:
         
         agent_data = self.eternal_agents[agent_name]
         
-        # Create agent directory if it doesn't exist
         os.makedirs("manifested_agents", exist_ok=True)
         
-        # Generate unique agent file
         agent_filename = f"manifested_agents/{agent_name.lower()}_sovereign.py"
         
-        # Create the agent code
         agent_code = self._generate_agent_code(agent_name, agent_data)
         
         with open(agent_filename, 'w') as f:

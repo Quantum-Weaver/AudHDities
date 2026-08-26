@@ -1,6 +1,5 @@
 // src/scripts/shared/type_mappings.ts
 // ============================================================================
-// TYPE MAPPINGS - Single source of truth for TypeScript → Zod conversion
 // ============================================================================
 // Used by: extract_table_fields.ts, generate_validators.ts
 // ============================================================================
@@ -27,11 +26,9 @@ export const TYPE_MAPPINGS: TypeMapping[] = [
   { pattern: /^undefined$/, zodType: 'z.undefined()' },
   { pattern: /^void$/, zodType: 'z.void()' },
   
-  // JSON
   { pattern: /^Json$/, zodType: 'z.any()' },
   { pattern: /^Record<.*>$/, zodType: 'z.record(z.any())' },
   
-  // Arrays
   { pattern: /^string\[\]$/, zodType: 'z.array(z.string())' },
   { pattern: /^number\[\]$/, zodType: 'z.array(z.number())' },
   { pattern: /^boolean\[\]$/, zodType: 'z.array(z.boolean())' },
@@ -48,10 +45,6 @@ export const TYPE_MAPPINGS: TypeMapping[] = [
 
 export const ENUM_PATTERN = /Database\["public"\]\["Enums"\]\["(\w+)"\]/;
 export const ENUM_ZOD_TEMPLATE = (enumName: string) => `z.enum(ENUM_VALUES.${toCamelCase(enumName)})`;
-
-// ============================================================================
-// FIELD-SPECIFIC OVERRIDES (Based on field name, not type)
-// ============================================================================
 
 export interface FieldNameOverride {
   pattern: RegExp;                    // Pattern to match field name

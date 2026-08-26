@@ -114,7 +114,6 @@ export interface ComposeSpacerClassesParams {
 export function composeSpacerClasses(params: ComposeSpacerClassesParams): string {
   const { size, axis, direction, px, grow, shrink, responsive, className } = params;
 
-  // Base size class
   const baseClass =
     px !== undefined
       ? resolveCustomPixelClass(px, axis, direction)

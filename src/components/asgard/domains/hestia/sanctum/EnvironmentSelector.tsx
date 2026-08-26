@@ -113,9 +113,7 @@ export function EnvironmentSelector({
     onChange(newValue, selectedEnvironment, variant);
   };
 
-  // Update the useEffect to respect user editing state:
   useEffect(() => {
-    // Don't override if the user is actively making changes
     if (isUserEditing.current) {
       isUserEditing.current = false;
       return;

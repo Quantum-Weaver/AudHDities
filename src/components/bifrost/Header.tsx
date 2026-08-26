@@ -46,9 +46,6 @@ export default function Header({
   const { setEnvironment } = useContinuityBeam();
   const pathname = usePathname();
 
-  // The header lane (trio.ts) — the Header now dresses from the same driver
-  // map it feeds: title/subtitle resolved realm-aware, environment set into
-  // context for the other three instruments (THE QUARTET CORRECTION).
   const metadata = getRealmHeader(pathname);
 
   useEffect(() => {

@@ -1,6 +1,4 @@
 // src/app/(athena)/library/quests/page.tsx
-// The Path — Quests Gallery
-// Feeling: Purposeful, adventurous, inviting
 
 import { Page } from '@/components/bifrost/Page';
 import { QuestsGallery } from '@/components/asgard/domains/athena/quests/QuestsGallery';

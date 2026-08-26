@@ -25,8 +25,6 @@ export default function ForgotPasswordForm() {
     setIsLoading(true);
     setError(null);
 
-    // The recovery link lands on the existing callback, which exchanges the
-    // code and carries the vessel on to the reset page via ?next=.
     const redirectTo = `${window.location.origin}${AUTH_ROUTES.CALLBACK}?next=${AUTH_ROUTES.RESET_PASSWORD}`;
     const { error: resetError } = await resetPassword(data.email as string, redirectTo);
 

@@ -1,5 +1,4 @@
 // @/components/seidr/immersive/ConstellationViewer.tsx
-// NEW - 3D constellation visualization
 
 "use client";
 
@@ -42,7 +41,6 @@ export function ConstellationViewer({
   return (
     <div className={cn("relative w-full h-full min-h-[400px] bg-black/20 rounded-xl overflow-hidden", className)}>
       <svg className="w-full h-full" viewBox="0 0 800 600">
-        {/* Edges */}
         {edges.map((edge) => {
           const fromNode = nodes.find((n) => n.id === edge.from);
           const toNode = nodes.find((n) => n.id === edge.to);
@@ -66,7 +64,6 @@ export function ConstellationViewer({
           );
         })}
 
-        {/* Nodes */}
         {nodes.map((node) => (
           <g
             key={node.id}

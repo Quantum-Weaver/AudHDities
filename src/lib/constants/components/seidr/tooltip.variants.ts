@@ -23,10 +23,6 @@ export type TooltipPlacement =
   (typeof TOOLTIP_PLACEMENTS)[keyof typeof TOOLTIP_PLACEMENTS];
 
 // ─── Content Variants ──────────────────────────────────────────────────────
-// Colors sourced from Tailwind generated config:
-//   bg-foreground, bg-deep-space, bg-white, bg-quantum-purple,
-//   bg-cosmic-blue, bg-fire-base, bg-sanctuary-green, bg-hearth-gold
-//   text-background, text-star-dust, text-deep-space, text-star-dust
 export const tooltipContentVariants = cva(
   [
     ...TOOLTIP_CONTENT_BASE_CLASSES,

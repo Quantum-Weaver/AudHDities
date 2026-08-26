@@ -20,35 +20,18 @@ const SCROLLS_PARAMS = {
   limit: 100,
 };
 
-// A chip's touch target, the realm's own floor (44px) — the same class pair
-// every chip row in this pass wears.
 const CHIP_BASE =
   'inline-flex min-h-[44px] items-center rounded-full border px-4 text-xs font-medium ' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold ' +
   'focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space';
 
 export function KnowledgeGallery() {
-  // THE ARCHIVE IS THE MYTHOLOGIES (2026-08-25, refine/athena). KP's ⚛ word,
-  // 2026-08-24, verbatim, spelling kept: "i also think mythology may have been
-  // misunderstood, i intend to draft stories of the actual mythologies we
-  // reference entities from" — and "my own is a smal story, still  valuable,
-  // but not the only story to be told."
-  //
-  // So the room walks in by the mythology or by the one it belongs to, and
-  // the house's own telling is one scroll among them. The search field is
-  // RETIRED until the shelf earns it — a full-width search box over one
-  // scroll asked the reader to hunt a room with nothing in it. The filter
-  // machinery below stays in the file and simply waits.
   const [searchTerm] = useState('');
   const [selectedMyth, setSelectedMyth] = useState<string | null>(null);
   const [selectedEntity, setSelectedEntity] = useState<string | null>(null);
 
-  // The Archive reads the returned mythology table (home again at KP's word,
-  // 2026-07-29 — docs/sql/005-mythology-returns.sql).
   const { data: scrolls, loading } = useMythologyList(SCROLLS_PARAMS);
 
-  // Both chip rows are DERIVED FROM THE ROWS THAT EXIST, never a hard-coded
-  // list: a mythology with no telling yet is simply not on the shelf.
   const mythTypes = useMemo(() => {
     const set = new Set<string>();
     scrolls.forEach(s => { if (s.myth_type) set.add(s.myth_type); });
@@ -89,8 +72,6 @@ export function KnowledgeGallery() {
         </p>
       </div>
 
-      {/* Two ways in, both already on the ground (007:42-44). Neither arrives
-          pre-chosen — the realm's own opt-in pattern. */}
       {(mythTypes.length > 0 || entities.length > 0) && (
         <div className="flex flex-col gap-5 mb-8">
           {mythTypes.length > 0 && (

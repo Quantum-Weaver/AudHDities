@@ -1,6 +1,4 @@
 /* @/scripts/modules/system/find_closing_braces.ts */
-// Phase 1: Find matching closing brace for a given opening brace position
-// Handles nested braces correctly
 
 import type { MarkerResult } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
@@ -30,7 +28,6 @@ export function findClosingBrace(
     return -1;
   }
   
-  // Find the position of the opening brace on the start line
   let bracePos = -1;
   const startLineContent = lines[startLine];
   
@@ -78,7 +75,6 @@ export function findClosingBrace(
       }
     }
     
-    // Move to next line, start from beginning
     currentLine++;
     currentPos = 0;
     linesChecked++;
@@ -126,7 +122,6 @@ export function findAllClosingBraces(
   
   for (const collection of collections) {
     if (collection.startLine !== -1) {
-      // Convert to 0-indexed for findClosingBrace
       const startLine0 = collection.startLine - 1;
       const endLine0 = findClosingBrace(lines, startLine0, options);
       
@@ -153,7 +148,6 @@ export function findAllClosingBraces(
     }
   }
   
-  // Constants.Enums section
   if (markers.constantsEnumsLine !== -1) {
     const startLine0 = markers.constantsEnumsLine - 1;
     const endLine0 = findClosingBrace(lines, startLine0, options);
@@ -204,18 +198,15 @@ export function getBraceContent(lines: string[], startLine: number): string | nu
   const endLine = findClosingBrace(lines, startLine - 1);
   if (endLine === -1) return null;
   
-  // Extract lines between start and end (excluding the braces)
   const contentLines: string[] = [];
   
   for (let i = startLine; i <= endLine; i++) {
     let line = lines[i];
     
-    // Remove opening brace from first line
     if (i === startLine) {
       line = line.replace('{', '').trimEnd();
     }
     
-    // Remove closing brace from last line
     if (i === endLine) {
       line = line.replace('}', '').trimEnd();
     }

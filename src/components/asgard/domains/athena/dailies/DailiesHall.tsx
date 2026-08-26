@@ -2,34 +2,9 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE DAILIES — word scramble, the first of KP's comfort blend           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Born 2026-08-24. KP's roster, verbatim (2026-07-30): "crossword, word find,
-// word scramble, even sudoku if possible... word games were my warm place,
-// but i like words, not everyone is a poet, so i think we find a way to blend
 // all the comfort game concepts."
-//
-// The form is the Grammar's own molecule, WordScramble: "One word disarranged,
-// its definition standing as the hint." The words ARE the Grammar's atoms and
-// the clues ARE their definitions, masked. Play here is the Grammar made
-// visible — which is the whole reason the dailies were ever put in this realm.
-//
-// WHAT IS DELIBERATELY ABSENT, and must stay absent (the refusal column,
-// THE-UX-PLAY-PLAN.md; athena's own gates, (athena)/REALM-BUS.md:164-170):
-//   · no streak, no calendar, no countdown, no "come back tomorrow"
-//   · no score, no points, no XP, no level, no rank
 //   · no timer, shown or hidden
-//   · no completion percentage, no "12 of 140", no progress bar
-//   · no marks on the shelf — an index of rows with some ticked is a
-//     missing-slot silhouette drawn in time, and the vessel is never handed
 //     arithmetic about themselves to perform
-//   · NO WRONG STATE. There is no red, no shake, no error. An answer is
-//     either right or not-yet, and not-yet says nothing at all. The puzzle
-//     carries its own proof (Montessori's control of error, Ximenean
-//     fairness) — so the house needs no judge, and installs none.
-//   · no penalty on "show me". Being shown is a way of meeting a word too.
-//
-// A daily here is a gift: it keeps, it does not count you, and it is complete
-// in itself (play study, round 3 close). Nothing expires, so nothing is missed
-// — which is why there is no date anywhere in this file or in its table.
 
 'use client';
 
@@ -44,9 +19,6 @@ interface Props {
 }
 
 function useReducedMotion(): boolean {
-  // The global CSS guard in globals.css kills CSS animation and transition
-  // durations, but it cannot reach anything driven from JS. This hall asks
-  // directly, and flattens to instant. Motion is content, so it needs consent.
   const [reduced, setReduced] = useState(false);
   useEffect(() => {
     if (typeof window === 'undefined' || !window.matchMedia) return;
@@ -67,10 +39,6 @@ export function DailiesHall({ puzzles }: Props) {
   const [typed, setTyped] = useState('');
   const [revealed, setRevealed] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  // FOCUS AT THE THREE TRANSITIONS (2026-08-25, refine/athena). inputRef was
-  // created and attached and never called: opening a puzzle left focus on a
-  // card that had just unmounted, solving disabled the focused input under
-  // the hand, and closing returned to a shelf holding no focus at all.
   const solvedRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const lastOpenedRef = useRef<string | null>(null);
@@ -80,7 +48,6 @@ export function DailiesHall({ puzzles }: Props) {
     [puzzles, openSlug],
   );
 
-  // Right, or not yet. Those are the only two states this game has.
   const solved = !!open && typed.trim().toLowerCase() === open.solution.toLowerCase();
 
   useEffect(() => {
@@ -92,8 +59,6 @@ export function DailiesHall({ puzzles }: Props) {
     if (openSlug) inputRef.current?.focus();
   }, [openSlug]);
 
-  // 2 · solve — focus moves to the announcement rather than being stranded
-  //     on an input that disables in the same breath.
   useEffect(() => {
     if (solved) solvedRef.current?.focus();
   }, [solved]);
@@ -106,8 +71,6 @@ export function DailiesHall({ puzzles }: Props) {
   }, []);
 
   const handMeOne = useCallback(() => {
-    // One the vessel has not met, if there is one; otherwise any of them,
-    // because meeting a word twice is a good afternoon, not a failure.
     const fresh = puzzles.filter((p) => !met.includes(p.slug));
     const pool = fresh.length ? fresh : puzzles;
     if (!pool.length) return;
@@ -132,10 +95,6 @@ export function DailiesHall({ puzzles }: Props) {
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <h1 className="text-3xl font-bold text-star-dust mb-4">The Dailies</h1>
-          {/* shelf.ts returns an empty shelf three ways — no keys (:61), a
-              refused read (:82), a thrown one (:84-86). With 140 rows
-              standing, the old sentence named the one cause it is no
-              longer likely to be. */}
           <p className="text-lg text-star-dust/60">
             The shelf has not come through yet. The words are drawn from the
             Grammar, and they will be here when the shelf opens.
@@ -193,7 +152,6 @@ export function DailiesHall({ puzzles }: Props) {
               ))}
             </div>
 
-            {/* The clue is the Grammar's own definition, masked. */}
             <p className="text-center text-lg text-star-dust/80 leading-relaxed mb-2">
               {open.source_emoji ? <span className="mr-2">{open.source_emoji}</span> : null}
               {open.clue}
@@ -222,8 +180,6 @@ export function DailiesHall({ puzzles }: Props) {
                          focus:outline-none disabled:opacity-70"
             />
 
-            {/* The only announcement this game makes. Nothing speaks on
-                not-yet, because not-yet is not an event. */}
             <div
               ref={solvedRef}
               tabIndex={-1}
@@ -285,8 +241,6 @@ export function DailiesHall({ puzzles }: Props) {
   }
 
   // ─── The shelf ─────────────────────────────────────────────────────────
-  // No marks, no ticks, no tally. Every puzzle looks exactly like every
-  // other puzzle, because none of them is owed.
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-5xl mx-auto px-6">

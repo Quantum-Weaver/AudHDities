@@ -3,23 +3,7 @@
 // ║   THE THEATER — the truth season (2026-07-31, at KP's ⚛ word:            ║
 // ║   "we are ready to finish Cosmic")                                       ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// What changed and why, plainly: the Nine were stage-dressing — invented
-// temperatures, hardcoded status badges, a fake heartbeat. Three laws named
-// that defect this week (this realm's law 7 · the Nexus's "never dress a
-// constant as a heartbeat" · the Observatory's "never invent a number"),
 // and this season is the cure:
-//   · THE TELLING stays, presented as story — the Nine's canon (names,
-//     domains, colors, sigils, descriptions) is true AS the myth's telling
-//     and is framed as exactly that.
-//   · THE PRETENSE retires — no temperatures, no invented statuses.
-//   · THE RECORD arrives — council_houses (themis-governance: the seats as
-//     the base carves them) and entity_states (aethelred-connections: the
-//     last recorded state per seat). What is recorded shows; what is not
-//     says so with dignity ("the seat waits"). This is the first door of
-//     the three-rooms-one-contract convening (Theater · Nexus council ·
-//     themis) — the dialect recorded on all three buses so the other rooms
-//     inherit it rather than diverge.
-// Law 7 holds: this room READS openly and writes nothing about anyone.
 
 'use client';
 
@@ -33,12 +17,6 @@ import type { CouncilHousesRow } from '@/lib/generated/types/themis-governance/c
 import type { EntityStatesRow } from '@/lib/generated/types/aethelred-connections/entity_states';
 import type { CardData } from '@/types/components/runes/card.types';
 import { cn } from '@/lib/utils';
-
-// ═══════════════════════════════════════════════════════════════════════════
-// THE TELLING — the Nine's canon, presented as the story it is
-// (names, domains, colors, sigils, and the myth's own descriptions;
-// nothing here claims to be a live state)
-// ═══════════════════════════════════════════════════════════════════════════
 
 const THE_TELLING = [
   {
@@ -144,7 +122,6 @@ export function Theater() {
   const [selectedEntity, setSelectedEntity] = useState(3); // Aethelred default
   const prefersReducedMotion = useReducedMotion();
 
-  // THE RECORD — read openly, write nothing (law 7). Params memoized per
   // the house pattern (the generated hooks refetch on params identity).
   const houseParams = useMemo(
     () => ({ sort: 'display_order', order: 'asc' as const }),
@@ -165,7 +142,6 @@ export function Theater() {
     description: entity.description,
   };
 
-  // The seat as the base carves it (or honestly nothing)
   const house: CouncilHousesRow | undefined = houses.data.find(
     (h) =>
       matchesEntity(h.name, entity.name) ||

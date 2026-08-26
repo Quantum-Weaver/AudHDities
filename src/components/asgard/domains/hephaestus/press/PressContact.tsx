@@ -1,22 +1,5 @@
 // src/components/asgard/domains/hephaestus/press/PressContact.tsx
 // ─────────────────────────────────────────────────────────────────────────
-// THE ONE HONEST CARD — born 2026-08-24, board ③ of the Forge canvas
-// (.journals/proofs/11-hephaestus/design/Press.dc.html · SPEC.md ③).
-//
-// KP ⚛ 2026-08-24 ruled this page by choosing the option: one honest
-// press-contact card and the interview form; the kit/media/logo frames
-// leave until assets exist, and come back around real files by his hand.
-// On the six brand colours leaving with the logos: "yes".
-//
-// Nothing here is new prose. The sentence below is STITCHED from the four
-// honest empty lines the copy half wrote the same morning —
-// PressKit.tsx:47-51 · MediaAssets.tsx:41-46 · CoverageHighlights.tsx:48-53
-// · LogoDownloads.tsx:60-64 — because four empty rooms in a row is its own
-// kind of untrue: a page that is 80% apology reads as a page that failed,
-// when in fact nothing failed. Nothing was ever made.
-//
-// The address is READ from the house's one constant. Never typed into a
-// component, and never a domain that is not ours (root CLAUDE.md ward).
 // ─────────────────────────────────────────────────────────────────────────
 
 'use client';

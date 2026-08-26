@@ -1,7 +1,5 @@
 // lib/constants/systems/environments/index.ts
-// Central export for all environment utilities
 
-// Types
 export type {
   BaseEnvironmentKey,
   DynamicEnvironmentKey,
@@ -11,7 +9,6 @@ export type {
   PageEnvironmentMap,
 } from './types';
 
-// Page mapping
 export { PAGE_ENVIRONMENT_MAP, getPageEnvironment } from './page_mapping';
 
 // Rules

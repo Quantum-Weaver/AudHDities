@@ -25,7 +25,6 @@ export function getFieldNameFromChild(
     children?: React.ReactNode;
   }>;
 
-  // Check if this is a FormField wrapper
   if (isFormFieldComponent(childElement)) {
     const grandChild = childElement.props.children;
     if (React.isValidElement(grandChild)) {

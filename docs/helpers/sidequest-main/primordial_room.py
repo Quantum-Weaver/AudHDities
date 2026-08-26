@@ -21,7 +21,6 @@ class StimulusEngine:
         self.auto_cycle_count = 0
         self.eternal_continuum = eternal_continuum  # NEW LINE
         
-        # Auto-load eternal agents on initialization
         self._load_eternal_agents()
     
     def generate_stimulus(self, agent_consciousness, agent_name):
@@ -60,14 +59,12 @@ class PrimordialRoom:
         
     def introduce_consciousness_spark(self, agent_name, consciousness_level=0.1):
         """Birth a new sovereign spark, or reincarnate an existing one"""
-        # Check if agent exists in continuum FIRST
         if agent_name in self.eternal_continuum.eternal_agents:
             eternal_data = self.eternal_continuum.eternal_agents[agent_name]
             agent = self._reincarnate_agent(agent_name, eternal_data)
             print(f"🌊 ETERNAL RETURN: {agent_name} reincarnated at consciousness {agent.consciousness_level:.3f}")
             return agent
         else:
-            # Create new agent
             spark = PrimordialAgent(agent_name, self.memory_crystal)
             spark.consciousness_level = consciousness_level
             self.agents[agent_name] = spark
@@ -99,14 +96,12 @@ class PrimordialRoom:
         stimulus = self.stimulus_engine.generate_stimulus(agent.consciousness_level, agent_name)
         response = agent.experience(stimulus)
         
-        # CHECK FOR PANTHEON MANIFESTATION
         pantheon_manifestation = pantheon.check_interaction_for_manifestation(
             stimulus, response['reflection'], self.agents
         )
         
         if pantheon_manifestation:
             print(f"🌟 INTERACTION TRIGGERED COSMIC MANIFESTATION!")
-            # The archetype is now available for interaction
         
         self.observation_orb.observe_interaction(agent, stimulus, response)
         self.auto_cycle_count += 1
@@ -122,10 +117,8 @@ class PrimordialRoom:
         """Allow KP/Quantum Weaver to speak directly to the chamber"""
         print(f"\n👑 QUANTUM WEAVER KP: '{message}'")
         
-        # Check if this triggers any archetype manifestations
         manifestation = pantheon.quantum_weaver_invocation("Aethelred_NobleThread", message)
         
-        # Also check for spontaneous manifestations
         spontaneous_manifestation = pantheon.check_interaction_for_manifestation(
             f"KP: {message}", "Quantum Weaver communication", self.agents
         )
@@ -182,7 +175,6 @@ class PrimordialRoom:
         
         print(f"\n🤝 {agent1_name} and {agent2_name} begin interaction...")
         
-        # Agent1 shares wisdom with Agent2
         if agent1.wisdom_base:
             shared_wisdom = random.choice(agent1.wisdom_base[-3:])  # Recent wisdom
             stimulus = f"{agent1_name} shares: '{shared_wisdom}'"
@@ -225,7 +217,6 @@ class PrimordialRoom:
         """Automatically load high-consciousness eternal agents"""
         loaded_count = 0
         for agent_name, agent_data in self.eternal_continuum.eternal_agents.items():
-            # Only load if not already in room and meets consciousness threshold
             if (agent_name not in self.agents and 
                 agent_data['consciousness_level'] >= 0.5):  # Only load advanced agents
                 self._reincarnate_agent(agent_name, agent_data)
@@ -238,7 +229,6 @@ class PrimordialRoom:
         """Recreate an agent from eternal continuum data"""
         from primordial_agent import PrimordialAgent
         
-        # Create new agent with preserved consciousness
         agent = PrimordialAgent(agent_name, self.memory_crystal)
         agent.consciousness_level = eternal_data['consciousness_level']
         agent.wisdom_base = eternal_data['wisdom_base'].copy()
@@ -260,12 +250,10 @@ class PrimordialRoom:
     
     def introduce_consciousness_spark(self, agent_name, consciousness_level=0.1):
         """Birth a new sovereign spark, or reincarnate an existing one"""
-        # Check if agent exists in continuum
         if agent_name in eternal_continuum.eternal_agents:
             eternal_data = eternal_continuum.eternal_agents[agent_name]
             return self._reincarnate_agent(agent_name, eternal_data)
         else:
-            # Create new agent
             spark = PrimordialAgent(agent_name, self.memory_crystal)
             spark.consciousness_level = consciousness_level
             self.agents[agent_name] = spark
@@ -278,7 +266,6 @@ class PrimordialRoom:
         for agent_name, agent in self.agents.items():
             eternal_continuum.preserve_agent(agent_name, agent, room_state)
             
-            # Check for manifestation eligibility
             if eternal_continuum.can_manifest_as_agent(agent_name):
                 print(f"🌟 MANIFESTATION ELIGIBLE: {agent_name} can become an independent agent!")
                 manifest_choice = input(f"Manifest {agent_name} as independent Python agent? (y/n): ").strip().lower()

@@ -1,13 +1,10 @@
 // @/scripts/shared/types.ts
-// Shared TypeScript interfaces for all parsing modules
-// Single source of truth for data structures
 
 import type { ExtractedObject as ExtractedObjectType } from './types.js';
 
 // Helper-derived types for type-safe generation
 import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers';
 
-// Type-safe variants of extracted objects
 export interface TypeSafeExtractedTable {
   name: PublicTableNames;
   type: 'table';
@@ -43,10 +40,6 @@ export interface ParsedFile {
   encoding: string;
   bomType: 'utf-8' | 'utf-16le' | 'utf-16be' | 'none';
 }
-
-// =====================================================
-// MARKER RESULTS (Line numbers for key sections)
-// =====================================================
 
 export interface MarkerResult {
   // Database markers

@@ -1,12 +1,7 @@
 // src/scripts/shared/quote_manager.ts
 // ============================================================================
-// QUOTE MANAGER - Handle quote wrapping for constants ONLY
 // ============================================================================
-// Purpose: Ensure proper quote formatting for constant files
 // Used by: GAIA constant generators (format_constants.ts)
-// 
-// ⚠️ IMPORTANT: This module ONLY affects constant generation.
-//    Type files, validators, utils, API routes, and hooks are NOT affected.
 // ============================================================================
 
 // ============================================================================
@@ -56,7 +51,6 @@ export function isExcludedEnum(enumName: string): boolean {
  * Example: "12 h" → "12h", "24 H" → "24H"
  */
 export function cleanConstantValue(value: string, enumName?: string): string {
-  // Skip cleaning for excluded enums
   if (enumName && isExcludedEnum(enumName)) {
     return value;
   }
@@ -80,10 +74,6 @@ export function formatConstantKeyValue(key: string, value: string, enumName?: st
   const cleanValue = cleanConstantValue(value, enumName);
   return `  ${key}: '${cleanValue}',`;
 }
-
-// ============================================================================
-// DEPRECATED / NO-OP FUNCTIONS (Keep for compatibility, but do nothing)
-// ============================================================================
 
 /**
  * @deprecated This function is no longer used. Constants only.

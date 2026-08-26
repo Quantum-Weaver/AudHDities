@@ -9,17 +9,6 @@ import { useAuth } from '@/hooks/useAuth';
 import { ArrowLeft, Heart, Sparkles } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// MEND-III 2026-07-20: `hermes-social/emeralds` never actually died — the
-// conductor's genealogy check found the reactions family living under its
-// settled name, `resonance` (mnemosyne-assessment). `resonance` carries no
-// `amount` (that field only existed on the old table) and `resonance_type`
-// is free text with no enum backing it — so nothing here filters for an
-// assumed 'emerald' value; every spark this vessel has given is shown.
-// GIVEN is wired for real (user_id = this vessel, a plain equality filter).
-// RECEIVED (resonance aimed at this vessel's own signals/works) needs a
-// join the generated single-table route can't express — getFilters() only
-// supports `.eq()`, no signal_id-in-list — so it's deferred honestly below
-// rather than faked with an invented number.
 interface Resonance {
   id: string;
   user_id: string;
@@ -110,13 +99,6 @@ export function EmeraldsHistory() {
         <h2 className="text-lg font-semibold text-star-dust mb-4 flex items-center gap-2">
           <Heart className="h-4 w-4 text-rose-400" />Received
         </h2>
-        {/*
-          MEND-III 2026-07-20: honestly deferred. Received sparks would mean
-          resonance rows whose signal_id/work_id points at something this
-          vessel created — a join the generated single-table route can't
-          express (equality filters only, no in-list). Rather than fake it,
-          this waits for a proper endpoint.
-        */}
         <p className="text-star-dust/40 text-sm mb-8">
           The record of sparks others have given you awaits a proper endpoint — not shown yet.
         </p>

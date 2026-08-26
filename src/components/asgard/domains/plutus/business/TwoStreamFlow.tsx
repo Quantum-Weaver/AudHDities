@@ -54,7 +54,6 @@ export function TwoStreamFlow() {
         </div>
       </motion.div>
       
-      {/* Sales Stream - UPDATED with 10% fee + Covenant Pool */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -84,7 +83,6 @@ export function TwoStreamFlow() {
             <FlowItemMini label="Platform Fee" percent="10%" color="cyan" />
           </div>
           
-          {/* UPDATED: Platform Fee splits into Operations + Residual Pool */}
           <div className="ml-4 pl-4 border-l-2 border-white/10">
             <FlowItem 
               from="Platform Fee (10%)" 

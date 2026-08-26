@@ -1,6 +1,4 @@
 /* src/scripts/modules/generate/generate_object_types.ts */
-// Phase 3: Write formatted type files to disk with safety checks
-// Prevents accidental overwrites, logs all actions
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -90,7 +88,6 @@ async function writeTypeFile(
   
   const exists = fileExists(filePath);
   
-  // Dry run mode
   if (dryRun) {
     if (verbose) {
       logDebug(`[DRY RUN] Would write to: ${filePath}`);
@@ -108,7 +105,6 @@ async function writeTypeFile(
     return { success: true, message: `Created ${filePath}`, action: 'created' };
   }
   
-  // File exists - check if content changed
   const existingContent = readExistingFile(filePath);
   if (existingContent === content) {
     if (verbose) {
@@ -166,7 +162,6 @@ export async function generateSingleTypeFile(
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
   const { outputBase = 'types', verbose = false } = options;
   
-  // Build output path
   const outputPath = path.join(PROJECT_ROOT, outputBase, deityGroup, `${tableName}.ts`);
   
   if (verbose) {
@@ -324,7 +319,6 @@ export async function previewTypeGeneration(
     
     console.log(`  ${status}: ${outputPath}`);
     
-    // Show first line of content
     const firstLine = formattedContent.fullContent.split('\n')[0];
     console.log(`      └─ ${firstLine.substring(0, 60)}...`);
   }

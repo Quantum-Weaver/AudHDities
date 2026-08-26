@@ -1,8 +1,6 @@
 // src/scripts/modules/discover/discover_directories.ts
 // ============================================================================
-// DISCOVER DIRECTORIES - Phase 1.5
 // ============================================================================
-// Purpose: Discover all target directories (2 levels deep) with formula display
 // Only tracks directories we GENERATE into - never touches manual directories
 // ============================================================================
 
@@ -113,7 +111,6 @@ export interface DiscoverDirectoriesOptions {
   generationPaths?: Partial<GenerationPaths>;
 }
 
-// Default generation paths
 const DEFAULT_GENERATION_PATHS: GenerationPaths = {
   constantsBase: 'src/lib/constants/generated',
   typesBase: 'src/types/generated',
@@ -153,7 +150,6 @@ function discoverRecursive(
     return null;
   }
   
-  // Skip protected directories
   if (isProtectedPath(dirPath)) {
     if (verbose) logDebug(`Skipping protected directory: ${dirPath}`);
     return null;
@@ -177,7 +173,6 @@ function discoverRecursive(
           fileCount++;
         }
       } else if (itemStats.isDirectory() && currentDepth < maxDepth - 1) {
-        // Skip protected subdirectories
         if (!isProtectedPath(itemPath)) {
           const subManifest = discoverRecursive(itemPath, currentDepth + 1, maxDepth, verbose);
           if (subManifest) {
@@ -237,7 +232,6 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     logSeparator('─', 40);
   }
   
-  // Root paths
   const constantsRootPath = path.join(PROJECT_ROOT, paths.constantsBase);
   const typesRootPath = path.join(PROJECT_ROOT, paths.typesBase);
   const validatorsRootPath = path.join(PROJECT_ROOT, paths.validatorsBase);
@@ -245,7 +239,6 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
   const hooksRootPath = path.join(PROJECT_ROOT, paths.hooksBase);
   const apiRootPath = path.join(PROJECT_ROOT, paths.apiBase);
   
-  // Discover roots recursively
   const constantsRoot = discoverRecursive(constantsRootPath, 0, maxDepth, verbose) || {
     path: constantsRootPath,
     exists: false,
@@ -294,7 +287,6 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     subdirectories: new Map()
   };
   
-  // Extract deity groups for each type
   const constantsDeityGroups = new Map<string, DirectoryManifest>();
   for (const [folderName, manifest] of constantsRoot.subdirectories) {
     if (deityFolderNames.includes(folderName)) {
@@ -337,7 +329,6 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     }
   }
   
-  // Calculate totals
   let constantsFiles = 0;
   const constantsComponents: string[] = [];
   for (const [name, manifest] of constantsDeityGroups) {
@@ -380,7 +371,6 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
     apiComponents.push(`${name}:${manifest.fileCount}`);
   }
   
-  // Other files (files directly in root directories)
   const otherFiles = constantsRoot.files.length + typesRoot.files.length + 
                      validatorsRoot.files.length + utilsRoot.files.length + 
                      hooksRoot.files.length + apiRoot.files.length;
@@ -388,7 +378,6 @@ export function discoverDirectories(options: DiscoverDirectoriesOptions = {}): D
   const totalExistingFiles = constantsFiles + typesFiles + validatorsFiles + 
                              utilsFiles + hooksFiles + apiFiles + otherFiles;
   
-  // Build formula strings
   const constantsFormula = `constants = sum(${constantsComponents.join(' + ')}) = ${constantsFiles}`;
   const typesFormula = `types = sum(${typesComponents.join(' + ')}) = ${typesFiles}`;
   const validatorsFormula = `validators = sum(${validatorsComponents.join(' + ')}) = ${validatorsFiles}`;
@@ -488,7 +477,6 @@ export function ensureAllDirectories(options: DiscoverDirectoriesOptions = {}): 
   const paths = { ...DEFAULT_GENERATION_PATHS, ...generationPaths };
   const deityFolderNames = getAllDeityFolderNames();
   
-  // Root paths
   const constantsRootPath = path.join(PROJECT_ROOT, paths.constantsBase);
   const typesRootPath = path.join(PROJECT_ROOT, paths.typesBase);
   const validatorsRootPath = path.join(PROJECT_ROOT, paths.validatorsBase);
@@ -496,7 +484,6 @@ export function ensureAllDirectories(options: DiscoverDirectoriesOptions = {}): 
   const hooksRootPath = path.join(PROJECT_ROOT, paths.hooksBase);
   const apiRootPath = path.join(PROJECT_ROOT, paths.apiBase);
   
-  // Ensure root directories
   const ensure = (dir: string) => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
@@ -511,7 +498,6 @@ export function ensureAllDirectories(options: DiscoverDirectoriesOptions = {}): 
   ensure(hooksRootPath);
   ensure(apiRootPath);
   
-  // Ensure deity group directories for each type
   for (const folderName of deityFolderNames) {
     ensure(path.join(constantsRootPath, folderName));
     ensure(path.join(typesRootPath, folderName));

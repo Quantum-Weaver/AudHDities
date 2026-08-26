@@ -130,7 +130,6 @@ function checkFile(baseDir: string, relativePath: string): FileEntry | null {
 function findComponentCategory(
   componentName: string
 ): ComponentCategory | 'unknown' {
-  // Check constants directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.constants, category);
     if (
@@ -141,7 +140,6 @@ function findComponentCategory(
     }
   }
 
-  // Check types directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.types, category);
     if (fs.existsSync(path.join(dir, `${componentName}.types.ts`))) {
@@ -179,7 +177,6 @@ function scanComponent(componentName: string): ComponentReport {
       ? path.join(COMPONENT_DIRS.types, category)
       : null;
 
-  // Check constants
   let constantsEntry: FileEntry | null = null;
   let variantsEntry: FileEntry | null = null;
 
@@ -194,7 +191,6 @@ function scanComponent(componentName: string): ComponentReport {
     );
   }
 
-  // Check types
   let typesEntry: FileEntry | null = null;
   if (typesCategoryDir) {
     typesEntry = checkFile(
@@ -203,13 +199,11 @@ function scanComponent(componentName: string): ComponentReport {
     );
   }
 
-  // Check utils (flat directory, not categorized)
   const utilsEntry = checkFile(
     COMPONENT_DIRS.utils,
     FILE_PATTERNS.utils(normalized)
   );
 
-  // Check component file
   let componentEntry: FileEntry | null = null;
   if (category !== 'unknown') {
     const componentDir = path.join(
@@ -376,10 +370,8 @@ function main(): void {
     }
   }
 
-  // Scan all components
   const reports: ComponentReport[] = COMPONENTS.map(scanComponent);
 
-  // Sort by component name
   reports.sort((a, b) => a.component.localeCompare(b.component));
 
   // Output

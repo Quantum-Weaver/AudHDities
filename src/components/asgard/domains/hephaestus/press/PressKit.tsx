@@ -1,38 +1,7 @@
 // src/components/asgard/domains/hephaestus/press/PressKit.tsx
 // ═════════════════════════════════════════════════════════════════════════
-// RETIRED FROM THE PAGE — 2026-08-24, at KP's word.
-//
-// KP ⚛ 2026-08-24 ruled /press by choosing the option: one honest
-// press-contact card (the house's one address) and the interview form.
-// The press-kit, media, coverage and logo frames LEAVE THE PAGE until
-// assets exist, and come back around real files by his hand. On the six
-// brand colours leaving with the logos: "yes".
-//
-// This file is kept on disk and imported by nothing — lose-nothing, the
-// PanoramaViewer precedent (HANDOFF.md). Its honest empty line was folded
-// into the one card at press/PressContact.tsx; when a kit is made, the
-// card returns around the real file, with the size the file actually is
-// and the date it was actually made.
-//
-// Board ③: .journals/proofs/11-hephaestus/design/Press.dc.html · SPEC.md ③
-// NOTE: the star-dust/40 subtitles in this file were NOT raised, because
-// the file left the page. If KP rules any of these cards kept, raise them
-// to /62 with the rest (SPEC.md fix 8).
 // ═════════════════════════════════════════════════════════════════════════
-// Press Kit - Main press resources section
 // ─────────────────────────────────────────────────────────────────────────
-// 2026-08-24 — THE TRUTH PASS. Five downloads stood here — a press kit
-// overview, a fact sheet, a founder biography, brand guidelines, and a
-// 15.6 MB complete media kit — each with a stated file size and an "Updated
-// 2026-04-01" badge, all pointing into /press/*. There is no public/press/
-// directory in this repo: every one of those buttons handed the reader a
-// 404, and every file size was invented. The buttons are gone, and with them
-// the invented sizes and the invented update date. The section's frame stays
-// for the canvas; when a kit is actually made, the cards come back around
-// real files.
-// The footer address was press@sovereignsanctuary.com, a domain that appears
-// nowhere else in this codebase and belongs to no one here. The house has one
-// public address (root CLAUDE.md ward), and it is below.
 
 "use client";
 

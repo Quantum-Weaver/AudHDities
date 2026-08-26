@@ -1,5 +1,4 @@
 // @/types/components/immersive/status_bar.ts
-// Status Bar Types - Updated for environment-driven configuration
 
 export type StatusType = 'health' | 'experience' | 'mana' | 'energy' | 'stamina' | 'focus' | 'sovereignty';
 export type StatusFormat = 'percentage' | 'level' | 'points' | 'time';

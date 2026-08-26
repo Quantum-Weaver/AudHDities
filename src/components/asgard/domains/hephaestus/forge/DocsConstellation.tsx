@@ -195,11 +195,6 @@ const docCategories: DocCategory[] = [
         badge: 'Press',
         badgeColor: 'cyan',
       },
-      // '/careers' → '/calling' 2026-08-24, the truth pass. This component
-      // is imported nowhere and renders to no one today, so the stale card
-      // was latent rather than live — trued anyway, so it cannot come back
-      // wrong the day something mounts it. KP's ⚛ ruling stands behind it:
-      // "we have no company" · "no 'careers'" · "just us".
       {
         title: 'The Calling',
         path: '/calling',
@@ -208,21 +203,9 @@ const docCategories: DocCategory[] = [
         badge: 'Invitation',
         badgeColor: 'emerald',
       },
-      // 'The Offering' → /donate — RETIRED 2026-08-24 at KP's ⚛ word,
-      // verbatim, spacing kept: "retire the donate and create subscription
-      // tiers for me rather than the platform, and  i will still have my
-      // covenant set to 50%. the donations tab was before we had a built
-      // sanctuary and had different outlooks." This component is imported
-      // nowhere and renders to no one today, so the card was latent rather
-      // than live — removed anyway, so it cannot come back wrong the day
-      // something mounts it. The tiers are the Bazaar's spec.
     ],
   },
 ];
-
-// ═══════════════════════════════════════════════════════════════════════════
-// POSITION CONFIG — Distributed across the 360° background with depth
-// ═══════════════════════════════════════════════════════════════════════════
 
 const crystalPositions = [
   { x: 22, y: 28, depth: 'near' as const, delay: 0 },

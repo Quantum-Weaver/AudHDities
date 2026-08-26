@@ -1,10 +1,4 @@
 // app/api/auth/checkout/route.ts
-// Rewritten 2026-07-18 for the evolved commerce schema: products/sales
-// became wares/exchanges, and tiered pricing (community/ally/corporate +
-// bigot tax) became the calculate_sovereign_price database function — the
-// kindness is enforced in the schema now, not re-derived per client. The
-// checkout inserts ONE pending exchange; the Stripe webhook completes that
-// same row by session id (the old flow double-inserted).
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { stripe as getStripe } from '@/lib/stripe/server';
@@ -78,8 +72,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Ware has no valid price' }, { status: 400 });
     }
 
-    // The sovereign price: solidarity adjustments computed by the database,
-    // with the raw result preserved on the exchange as provenance.
     const { data: priceResult, error: priceError } = await supabase.rpc('calculate_sovereign_price', {
       p_base_price: baseAmount,
       p_user_id: user.id,
@@ -113,12 +105,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Failed to create exchange record' }, { status: 500 });
     }
 
-    // A RUNG IS A WARE THAT REPEATS. The `payment` path below is untouched for
-    // every one-time ware; the subscription path stands BESIDE it and is taken
-    // only where the ware carries a recurrence.
-    //
     // A LAMP CREATES NO STRIPE OBJECT. The Price for a rung is made by KP's own
-    // hand in the dashboard; this route reads its id and never mints one.
     const common = {
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/bazaar/checkout/success?session_id={CHECKOUT_SESSION_ID}&exchange_id=${exchange.id}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/bazaar/checkout/cancel`,
@@ -178,10 +165,6 @@ export async function POST(request: NextRequest) {
       sessionId: session.id,
       url: session.url,
       exchangeId: exchange.id,
-      // The plate's number and the number that would actually be charged, so
-      // the crossing can show the difference where the acid test moved it and
-      // pass straight through where it did not. Law 7: the buyer sees the
-      // split at the moment of purchase.
       plateAmount: baseAmount,
       chargedAmount: finalAmount,
       residualPoolPercent: ware.residual_pool_percent ?? 0,

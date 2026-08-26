@@ -1,22 +1,8 @@
 // ============================================================================
-// GAIA v2 ORCHESTRATOR - Phases 0, 1, and 2 + Generation Gate
 // ============================================================================
-// Purpose: Foundation helpers, discovery, enrichment, then artifact generation.
 // Phases:
 //   0a. Generate src/types/supabase/database.helpers.ts
 //   0b. Generate src/types/supabase/enums.ts
-//   0c. Generate src/config/enum_mapping.ts from table enum references.
-//   1.  Read database.types.ts and build the GaiaSchema model.
-//   2.  Resolve deity folders, categories, and generation flags.
-//   Gate: Ask the user what to generate (all / one table / one deity group)
-//         and whether the next phase should run with force and verbose.
-//   3a. Generate runtime enum constant files.
-//   3b. Generate table and view type files.
-//   3c. Generate Zod validator files.
-//   3d. Generate API route files for tables, views, and functions.
-//   3e. Generate React hook files.
-//   3f. Generate table util files (depend on 3b types and 3c validators).
-// Stops after phase 3f for review and testing.
 // ============================================================================
 
 import * as readline from 'readline';
@@ -216,10 +202,6 @@ async function promptForGenerationPlan(enriched: EnrichedSchema): Promise<Genera
   return { target, targetValue, force, verbose };
 }
 
-// ============================================================================
-// PHASE 0: FOUNDATION HELPERS
-// ============================================================================
-
 async function runPhase0(options: FoundationOptions): Promise<void> {
   const { dryRun } = options;
 
@@ -232,7 +214,6 @@ async function runPhase0(options: FoundationOptions): Promise<void> {
 
   if (dryRun) console.log('\n⚠️  DRY RUN MODE - No files will be written');
 
-  // ── Phase 0a: Database Helpers ──
   console.log('\n📦 Phase 0a: Generate database.helpers.ts');
   const tablesResult = await generateTablesFile(foundationWriteOptions);
   if (!tablesResult.success) {
@@ -241,7 +222,6 @@ async function runPhase0(options: FoundationOptions): Promise<void> {
   }
   console.log(`   ${tablesResult.message}`);
 
-  // ── Phase 0b: Enum Helpers ──
   console.log('\n📦 Phase 0b: Generate enums.ts');
   const enumsResult = await generateEnumsFile(foundationWriteOptions);
   if (!enumsResult.success) {
@@ -253,7 +233,6 @@ async function runPhase0(options: FoundationOptions): Promise<void> {
     console.log(`   ${enumsResult.enumsCount} runtime enums exported`);
   }
 
-  // ── Phase 0c: Enum Mapping ──
   console.log('\n📦 Phase 0c: Generate enum_mapping.ts');
   const enumMappingResult = await generateEnumMappingFile(foundationWriteOptions);
   if (!enumMappingResult.success) {
@@ -273,16 +252,11 @@ async function runPhase0(options: FoundationOptions): Promise<void> {
   console.log(`   enum_mapping.ts:     ${enumMappingResult.action}`);
 }
 
-// ============================================================================
-// PHASE 1: DISCOVERY
-// ============================================================================
-
 async function runPhase1(): Promise<GaiaSchema> {
   console.log('\n' + '═'.repeat(60));
   console.log('🔍 GAIA v2 - Phase 1 (Discovery)');
   console.log('═'.repeat(60));
 
-  // Read source file
   const fileResult = readDatabaseTypes();
   if (!fileResult.success) {
     throw new Error(`Failed to read database.types.ts: ${fileResult.error}`);
@@ -291,11 +265,9 @@ async function runPhase1(): Promise<GaiaSchema> {
   const lines = fileResult.content.split('\n');
   console.log(`\n📖 Read ${lines.length} lines from database.types.ts`);
 
-  // Find markers and closing braces
   const markers = findMarkers(lines, { verbose: true });
   const markersWithBraces = findAllClosingBraces(lines, markers, { verbose: true });
 
-  // Extract names
   const names = extractAllNames(lines, markersWithBraces, { verbose: true });
   console.log(`\n🎯 Found:`);
   console.log(`   ${names.tables.length} tables`);
@@ -304,7 +276,6 @@ async function runPhase1(): Promise<GaiaSchema> {
   console.log(`   ${names.typeEnums.length} type enums`);
   console.log(`   ${names.compositeTypes.length} composite types`);
 
-  // Extract full table bodies
   const tables = await extractTables(
     lines,
     markersWithBraces.tablesLine,
@@ -312,7 +283,6 @@ async function runPhase1(): Promise<GaiaSchema> {
     { verbose: true }
   );
 
-  // Extract function signatures
   const functions = await extractFunctions(
     lines,
     markersWithBraces.functionsLine,
@@ -320,7 +290,6 @@ async function runPhase1(): Promise<GaiaSchema> {
     { verbose: true }
   );
 
-  // Extract runtime enum values
   const runtimeEnums = await extractRuntimeEnums(
     lines,
     markersWithBraces.constantsEnumsLine,
@@ -346,16 +315,11 @@ async function runPhase1(): Promise<GaiaSchema> {
   return schema;
 }
 
-// ============================================================================
-// PHASE 2: ENRICHMENT
-// ============================================================================
-
 async function runPhase2(schema: GaiaSchema): Promise<EnrichedSchema> {
   console.log('\n' + '═'.repeat(60));
   console.log('⚙️  GAIA v2 - Phase 2 (Enrichment)');
   console.log('═'.repeat(60));
 
-  // Build table lookup map
   const tableInfoMap = new Map(schema.tables.map(t => [t.name, t]));
 
   // Enrich all objects
@@ -412,10 +376,6 @@ async function runGenerationGate(
 
   return plan;
 }
-
-// ============================================================================
-// PHASE 3a: RUNTIME ENUM CONSTANTS
-// ============================================================================
 
 function filterEnumsForTarget(
   enums: EnrichedRuntimeEnum[],
@@ -525,10 +485,6 @@ async function runPhase3a(
   return { generated, skipped, errors };
 }
 
-// ============================================================================
-// PHASE 3b: TYPES
-// ============================================================================
-
 function filterTablesAndViewsForTarget(
   tables: EnrichedTable[],
   views: EnrichedView[],
@@ -588,7 +544,6 @@ async function runPhase3b(
   let skipped = 0;
   let errors = 0;
 
-  // Tables
   for (const table of tables) {
     try {
       const object: ExtractedObjectWithDetails = {
@@ -637,7 +592,6 @@ async function runPhase3b(
     }
   }
 
-  // Views
   for (const view of views) {
     try {
       const result = generateViewTypes(view);
@@ -675,10 +629,6 @@ async function runPhase3b(
   return { generated, skipped, errors };
 }
 
-// ============================================================================
-// PHASE 3c: VALIDATORS
-// ============================================================================
-
 async function runPhase3c(
   enriched: EnrichedSchema,
   plan: GenerationOptions,
@@ -688,8 +638,6 @@ async function runPhase3c(
   console.log('🔒 GAIA v2 - Phase 3c (Validators)');
   console.log('═'.repeat(60));
 
-  // Validators are tables-only — views are read-only and get no Zod schemas,
-  // so the view half of the shared filter is passed empty and ignored.
   const { tables } = filterTablesAndViewsForTarget(
     enriched.tables.filter(t => t.shouldGenerateValidators),
     [],
@@ -715,8 +663,6 @@ async function runPhase3c(
 
   for (const table of tables) {
     try {
-      // Phase 1 already split Row/Insert/Update and resolved enum references;
-      // enrichment carried them through. Nothing is re-parsed here.
       if (!table.rowContent && !table.insertContent) {
         skipped++;
         if (plan.verbose) {
@@ -766,10 +712,6 @@ async function runPhase3c(
 
   return { generated, skipped, errors };
 }
-
-// ============================================================================
-// PHASE 3d: API ROUTES
-// ============================================================================
 
 /**
  * Functions have no link back to a single table, so a --table target has
@@ -910,10 +852,6 @@ async function runPhase3d(
   return { generated, skipped, errors };
 }
 
-// ============================================================================
-// PHASE 3e: HOOKS
-// ============================================================================
-
 async function runPhase3e(
   enriched: EnrichedSchema,
   plan: GenerationOptions,
@@ -923,8 +861,6 @@ async function runPhase3e(
   console.log('🪝 GAIA v2 - Phase 3e (Hooks)');
   console.log('═'.repeat(60));
 
-  // Hooks are tables-only — the generated file imports the table's Row/Insert/
-  // Update types from src/types/generated (phase 3b).
   const { tables } = filterTablesAndViewsForTarget(
     enriched.tables.filter(t => t.shouldGenerateHooks),
     [],
@@ -991,10 +927,6 @@ async function runPhase3e(
   return { generated, skipped, errors };
 }
 
-// ============================================================================
-// PHASE 3f: UTILS
-// ============================================================================
-
 async function runPhase3f(
   enriched: EnrichedSchema,
   plan: GenerationOptions,
@@ -1004,10 +936,6 @@ async function runPhase3f(
   console.log('🔧 GAIA v2 - Phase 3f (Utils)');
   console.log('═'.repeat(60));
 
-  // Utils are tables-only, and the generated file imports from BOTH earlier
-  // phases: Row/Insert/Update types (3b) and the Insert/Update Zod schemas
-  // (3c). Running 3f against a target those phases skipped leaves dangling
-  // imports — generate the same target through 3b and 3c first.
   const { tables } = filterTablesAndViewsForTarget(
     enriched.tables.filter(t => t.shouldGenerateUtils),
     [],

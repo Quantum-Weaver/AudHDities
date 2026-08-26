@@ -1,6 +1,4 @@
 /* src/scripts/modules/format/format_object_types.ts */
-// Phase 3: Format an extracted table object into TypeScript type definitions
-// Extracts Row, Insert, Update types and generates derived interfaces
 
 import type { ExtractedObject, ExtractedObjectWithDetails, FormattedTypeContent } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
@@ -15,7 +13,6 @@ export interface FormatObjectTypesOptions {
   outputFolder?: string;           // For header comments
 }
 
-// Default sensitive fields to exclude from public interfaces
 const DEFAULT_SENSITIVE_FIELDS = [
   'email',
   'password',
@@ -69,10 +66,8 @@ export function parseTableContent(content: string): {
   const enumRefs: string[] = [];
   let hasJson = false;
   
-  // Split content into lines for brace counting
   const lines = content.split('\n');
   
-  // Find Row section
   let rowStartLine = -1;
   let rowEndLine = -1;
   let insertStartLine = -1;
@@ -92,18 +87,15 @@ export function parseTableContent(content: string): {
     }
   }
   
-  // Find closing brace for Row (ends one line before Insert starts)
   if (rowStartLine !== -1 && insertStartLine !== -1) {
     rowEndLine = insertStartLine - 1;
     const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
     let rowContent = rowLines.join('\n').trim();
     
-    // Remove the closing brace line if present
     if (rowContent.endsWith('}')) {
       rowContent = rowContent.slice(0, -1).trim();
     }
     
-    // Find enum references
     const enumPattern = /Database\["public"\]\["Enums"\]\["(\w+)"\]/g;
     let match;
     while ((match = enumPattern.exec(rowContent)) !== null) {
@@ -112,7 +104,6 @@ export function parseTableContent(content: string): {
       }
     }
     
-    // Clean up enum references
     for (const enumRef of enumRefs) {
       const pascalCase = toPascalCase(enumRef);
       rowContent = rowContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
@@ -154,7 +145,6 @@ export function generateEnumExports(enumRefs: string[]): string {
   lines.push(``);
   
   for (const enumRef of enumRefs) {
-    // Convert snake_case to PascalCase for export name
     const exportName = toPascalCase(enumRef);
     lines.push(`export type ${exportName} = Database['public']['Enums']['${enumRef}'];`);
   }
@@ -228,12 +218,10 @@ export function generateFormDataInterface(tableName: string, rowContent: string)
     if (fieldMatch) {
       const fieldName = fieldMatch[1];
       const fieldType = fieldMatch[2].trim();
-      // Make all fields optional for form data
       fields.push(`  ${fieldName}?: ${fieldType};`);
     }
   }
   
-  // If no fields found, log a warning
   if (fields.length === 0) {
     console.log(`  Warning: No fields found for ${tableName} form data interface`);
   }
@@ -311,7 +299,6 @@ export function formatObjectTypes(
   const tableName = object.name;
   const pascalName = toPascalCase(tableName);
   
-  // Parse content if not already parsed
   let rowContent = object.rowContent || '';
   let insertContent = object.insertContent || '';
   let updateContent = object.updateContent || '';
@@ -326,7 +313,6 @@ export function formatObjectTypes(
     enumRefs = parsed.enumRefs;
     hasJson = parsed.hasJson;
     
-    // Store back for debugging
     object.rowContent = rowContent;
     object.enumRefs = enumRefs;
   }
@@ -340,7 +326,6 @@ export function formatObjectTypes(
     logDebug(`Row content preview: ${rowContent.substring(0, 200)}`);
   }
   
-  // Build header
   let header = `// =====================================================\n`;
   header += `// FILE: types/${outputFolder}/${tableName}.ts\n`;
   header += `// HANDLING: ${category.handlingLevel}\n`;
@@ -351,47 +336,39 @@ export function formatObjectTypes(
   header += `// SOURCE: database.types.ts lines ${object.startLine}-${object.endLine}\n`;
   header += `// =====================================================\n\n`;
   
-  // Build imports
   const imports: string[] = [];
   imports.push(`import type { Database } from '@/types/supabase/database.types';`);
   if (hasJson) {
     imports.push(`import type { Json } from '@/types/supabase/database.types';`);
   }
   
-  // Build core types section
   let coreTypes = `// =====================================================\n`;
   coreTypes += `// CORE TYPES\n`;
   coreTypes += `// =====================================================\n\n`;
   
-  // Add enum exports if there are enum references
   const enumExports = generateEnumExports(enumRefs);
   if (enumExports) {
     coreTypes += enumExports + '\n\n';
   }
   
-  // Add Row type if needed (with PascalCase)
   if (category.generateRow) {
     coreTypes += `export type ${pascalName}Row = Database['public']['Tables']['${tableName}']['Row'];\n`;
   }
   
-  // Add Insert type if needed
   if (category.generateInsert) {
     coreTypes += `export type ${pascalName}Insert = Database['public']['Tables']['${tableName}']['Insert'];\n`;
   }
   
-  // Add Update type if needed
   if (category.generateUpdate) {
     coreTypes += `export type ${pascalName}Update = Database['public']['Tables']['${tableName}']['Update'];\n`;
   }
   
   coreTypes += `\n`;
   
-  // Build derived types section
   let derivedTypes = `// =====================================================\n`;
   derivedTypes += `// DERIVED TYPES\n`;
   derivedTypes += `// =====================================================\n\n`;
   
-  // Public interface (if needed)
   if (category.generatePublicInterface) {
     const publicInterface = generatePublicInterface(tableName, rowContent, sensitiveFields);
     if (publicInterface) {

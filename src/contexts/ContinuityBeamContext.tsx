@@ -24,11 +24,6 @@ interface ContinuityBeamContextValue {
   /** Current session state */
   sessionState: SessionState;
   environmentVariant: number;
-  // ── X-OP-0 THE PAGE PROPS MADE REAL (Run 08, Phase 5, Movement I Step 2) ──
-  // `<Page>` (bifrost/Page.tsx) declares showContinuityBeam/showStatusBar but
-  // the beam + status bar actually render once, globally, in LayoutChrome.
-  // These two flags are the honest wire between them: Page sets them per
-  // route, LayoutChrome reads them to decide whether to render each.
   /** Whether the current page wants the ContinuityBeam shown. */
   beamVisible: boolean;
   /** Whether the current page wants the StatusBar shown. */
@@ -50,18 +45,14 @@ export function ContinuityBeamProvider({
   initialEnvironment = 'home',
   initialSessionState = {}
 }: ContinuityBeamProviderProps) {
-  // Get environment from our environment system
   const { environment: currentEnvironment } = useEnvironment();
   const { profile, sovereignTier, isAuthenticated } = useUser();
 
-  // The old numeric sovereignty_score became the sovereign_tier enum; the
-  // beam still breathes on a number, so each tier carries its light-level.
   const TIER_SCORE: Record<string, number> = {
     dweller: 100, guild: 400, outlander: 700, sovereign_weaver: 1000,
   };
   const tierScore = (sovereignTier && TIER_SCORE[sovereignTier]) || 0;
 
-  // Session state - now synced with user data
   const [sessionState, setSessionState] = useState<SessionState>({
     tier: (sovereignTier as SessionState['tier']) || 'community',
     sovereigntyScore: tierScore,
@@ -72,7 +63,6 @@ export function ContinuityBeamProvider({
     ...initialSessionState
   });
 
-  // Activation state (derived from session state)
   const [activationState, setActivationState] = useState<BeamActivationState>(
     calculateBeamActivation(sessionState)
   );
@@ -93,7 +83,6 @@ export function ContinuityBeamProvider({
     }
   }, [profile, sovereignTier, tierScore]);
 
-  // Update activation state when session changes
   useEffect(() => {
     const newActivation = calculateBeamActivation(sessionState);
     setActivationState(newActivation);
@@ -103,7 +92,6 @@ export function ContinuityBeamProvider({
     setBeamConfig(newConfig);
   }, [sessionState]);
 
-  // Update session duration over time (only when active)
   useEffect(() => {
     if (!activationState.active) return;
     
@@ -118,15 +106,8 @@ export function ContinuityBeamProvider({
   }, [activationState.active]);
   const [environmentVariant, setEnvironmentVariant] = useState(1);
 
-  // ── X-OP-2 / IRI-1 — THE BEAM AS TRAVEL (Run 08, Phase 5, Movement I Step 2) ──
-  // A manual setEnvironment() call (e.g. the EnvironmentSelector's live
-  // preview) claims this environment value until the next real navigation —
-  // the auto-sync effect below skips exactly one cycle when this is set,
-  // honoring the opt-in law (an explicit choice is never silently overridden
-  // mid-page).
   const manualOverrideRef = useRef(false);
 
-  // Set environment (updates both systems)
   const setEnvironment = useCallback((environment: EnvironmentKey, variant?: number) => {
     manualOverrideRef.current = true;
     setSessionState(prev => ({ ...prev, environment }));
@@ -135,13 +116,6 @@ export function ContinuityBeamProvider({
     }
   }, []);
 
-  // ── THE SANCTUM'S CHOICE, REMEMBERED (KP's commission, 2026-07-31) ──
-  // The Sanctum's environment picker persists to
-  // vessel_config.environment_preference ('env:variant', docs/sql/013).
-  // Until now the choice previewed live and then evaporated — the claim
-  // without the connection. This hydrates it ONCE per session at arrival:
-  // the vessel's chosen realm is the opening chord; navigation retunes
-  // after, exactly as the beam-as-travel law already rules.
   const hydratedPreferenceRef = useRef(false);
   useEffect(() => {
     if (!isAuthenticated || hydratedPreferenceRef.current) return;
@@ -161,12 +135,6 @@ export function ContinuityBeamProvider({
       .catch(() => {});
   }, [isAuthenticated, setEnvironment]);
 
-  // `currentEnvironment` (above, from useEnvironment()) is already pathname-
-  // reactive — it resolves on every route change via page_mapping.ts. Until
-  // now it was read here and never used: sessionState.environment sat on
-  // whatever `initialEnvironment` or the last manual setEnvironment() call
-  // left it, so the beam never followed navigation. This effect follows the
-  // route automatically (skipped once when a manual override just landed).
   useEffect(() => {
     if (manualOverrideRef.current) {
       manualOverrideRef.current = false;
@@ -185,15 +153,9 @@ export function ContinuityBeamProvider({
     setActivationState(prev => ({ ...prev, active }));
   }, []);
 
-  // X-OP-0 THE PAGE PROPS MADE REAL — visibility flags <Page> sets per route;
-  // LayoutChrome reads them to decide whether to render the beam/status bar.
-  // Default true matches the pre-existing behavior (LayoutChrome's own
-  // showContinuityBeam/showStatusBar props already default true) — nothing
-  // that was on before is turned off by this wiring.
   const [beamVisible, setBeamVisible] = useState(true);
   const [statusBarVisible, setStatusBarVisible] = useState(true);
 
-  // Reset first visit flag after session
   useEffect(() => {
     if (sessionState.isFirstVisitToday) {
       const timer = setTimeout(() => {

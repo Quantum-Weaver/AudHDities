@@ -1,12 +1,6 @@
 // src/types/roles.ts
 // =====================================================
-// ROLES & PERMISSIONS — the sovereign_tier ladder + user_roles rows
 // =====================================================
-// Translated 2026-07-18: the old user_tier pricing vocabulary
-// (community/ally/corporate/council) dissolved in the schema evolution.
-// Sovereignty is now a JOURNEY (dweller → guild → outlander →
-// sovereign_weaver), pricing kindness moved into calculate_sovereign_price,
-// and capabilities are user_roles rows rather than profile flags.
 
 import type { Database } from '../generated/supabase/database.types';
 
@@ -94,7 +88,6 @@ export interface UserPermissions {
 
 export function getUserPermissions(flags: RoleFlags): UserPermissions {
   const { isCreator, isVendor, isAdmin, isQuantumWeaver, roles } = flags;
-  // Council is a ROLE now (user_roles), not a tier
   const isCouncil = roles?.includes('council') ?? false;
 
   return {

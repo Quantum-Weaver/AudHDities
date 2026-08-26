@@ -1,10 +1,7 @@
 // src/scripts/system/gaia/maintenance/generate_enums_file.ts
 // ============================================================================
-// GENERATE ENUMS.HELPERS.TS - Standalone script
 // ============================================================================
-// Purpose: Generate runtime enum helpers using existing extraction utilities
 // Output: src/types/supabase/enums.helpers.ts
-// Usage: tsx src/scripts/system/gaia/maintenance/generate_enums_file.ts [--dry-run] [--force] [--verbose]
 // ============================================================================
 
 import * as fs from 'fs';
@@ -96,7 +93,6 @@ async function extractAllRuntimeEnums(verbose: boolean): Promise<Array<{ name: s
     return [];
   }
   
-  // Step 3: Find closing braces
   const markersWithBraces = findAllClosingBraces(lines, markers, { verbose });
   
   if (markersWithBraces.constantsEnumsEndLine === -1) {
@@ -117,7 +113,6 @@ async function extractAllRuntimeEnums(verbose: boolean): Promise<Array<{ name: s
     logSuccess(`Extracted ${runtimeEnums.length} runtime enums`);
   }
   
-  // Convert to simple format
   return runtimeEnums.map(e => ({
     name: e.name,
     values: e.values
@@ -149,7 +144,6 @@ function generateEnumsContent(enums: Array<{ name: string; values: string[] }>):
     '',
   ];
   
-  // Export all enum types using the Enums<> helper
   for (const enumItem of enums) {
     const pascalName = toPascalCase(enumItem.name);
     lines.push(`export type ${pascalName} = Enums<'${enumItem.name}'>;`);
@@ -175,7 +169,6 @@ function generateEnumsContent(enums: Array<{ name: string; values: string[] }>):
   lines.push('// =====================================================');
   lines.push('');
   
-  // Generate type-safe validation functions
   for (const enumItem of enums) {
     const pascalName = toPascalCase(enumItem.name);
     const camelName = pascalName.charAt(0).toLowerCase() + pascalName.slice(1);
@@ -190,7 +183,6 @@ function generateEnumsContent(enums: Array<{ name: string; values: string[] }>):
   lines.push('// =====================================================');
   lines.push('');
   
-  // Generate display helpers for common enums
   const displayHelpers = [
     { pattern: /house/i, name: 'House' },
     { pattern: /product_type/i, name: 'ProductType' },
@@ -334,7 +326,6 @@ export async function generateEnumsFile(options: WriteOptions): Promise<{
   console.log('\n📦 Generating enums.helpers.ts using existing utilities...\n');
   
   try {
-    // Extract enums using the proven pipeline
     const enums = await extractAllRuntimeEnums(verbose);
     
     if (enums.length === 0) {
@@ -356,10 +347,8 @@ export async function generateEnumsFile(options: WriteOptions): Promise<{
       if (enums.length > 10) console.log(`     ... and ${enums.length - 10} more`);
     }
     
-    // Generate content
     const content = generateEnumsContent(enums);
     
-    // Write the file
     const writeResult = await writeEnumsFile(content, options);
     
     console.log(`\n✅ ${writeResult.message}`);
@@ -414,7 +403,6 @@ async function main() {
   console.log('='.repeat(60) + '\n');
 }
 
-// Run directly
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(console.error);
 }

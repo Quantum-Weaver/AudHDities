@@ -57,7 +57,6 @@ export default async function MerchantOnboardingPage() {
             </div>
           </div>
           
-          {/* Step 1: Apply */}
           <StepCard step={1} title="Apply for Merchant Status">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
               <li>Log in to your dashboard</li>
@@ -75,7 +74,6 @@ export default async function MerchantOnboardingPage() {
             </ol>
           </StepCard>
           
-          {/* Step 2: Verification */}
           <StepCard step={2} title="Verification Process">
             <p className="text-star-dust/70 mb-4">Merchant applications require additional verification:</p>
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
@@ -88,7 +86,6 @@ export default async function MerchantOnboardingPage() {
             </div>
           </StepCard>
           
-          {/* Step 3: Stripe Connect */}
           <StepCard step={3} title="Set Up Payments (Stripe Connect)">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
               <li>Go to Merchant Dashboard → Payments</li>
@@ -102,7 +99,6 @@ export default async function MerchantOnboardingPage() {
             </div>
           </StepCard>
           
-          {/* Step 4: List Product */}
           <StepCard step={4} title="List Your First Product">
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
               <li>Go to Merchant Dashboard → Products</li>
@@ -127,7 +123,6 @@ export default async function MerchantOnboardingPage() {
             </div>
           </StepCard>
           
-          {/* Step 5: Manage Orders */}
           <StepCard step={5} title="Manage Orders" isLast>
             <p className="text-star-dust/70 mb-4">When someone buys your product:</p>
             <ol className="list-decimal list-inside space-y-2 text-star-dust/70 ml-4">
@@ -292,7 +287,6 @@ export default async function MerchantOnboardingPage() {
             </div>
           </div>
           
-          {/* Next Steps */}
           <NextSteps 
             steps={[
               "Complete merchant application",

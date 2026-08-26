@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/generate/generate_utils.ts
 // ============================================================================
-// GENERATE UTILS (GAIA) - Type-First Version
 // ============================================================================
 
 import type { EnrichedTable } from '../enrich/enrich_objects.js';
@@ -67,7 +66,6 @@ export function generateUtils(
   const pascalName = toPascalCase(tableName);
   const importManager = new ImportManager();
   
-  // Add imports
   importManager.addImport('@/lib/supabase/client', 'createClient', false);
   importManager.addImport(
     `@/lib/generated/types/${deityFolder}/${tableName}`,

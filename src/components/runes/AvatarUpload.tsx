@@ -63,14 +63,12 @@ export default function AvatarUpload({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate
     const validation = validateAvatarFile(file);
     if (!validation.valid) {
       alert(validation.error);
       return;
     }
 
-    // Preview
     const { previewUrl, cleanup } = createAvatarPreview(file);
     setPreview(previewUrl);
 

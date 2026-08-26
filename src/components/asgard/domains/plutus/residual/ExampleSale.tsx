@@ -43,7 +43,6 @@ export function ExampleSale() {
   const [residualPercent, setResidualPercent] = useState(0);
   const [covenantPercent, setCovenantPercent] = useState(0);
 
-  // Worked in whole cents, so the columns add up exactly.
   const priceCents = Math.round(price * 100);
   const feeCents = Math.round((priceCents * PLATFORM_FEE_PERCENT) / 100);
   const feeToPoolCents = Math.round((feeCents * FEE_TO_RESIDUAL_POOL_PERCENT) / 100);

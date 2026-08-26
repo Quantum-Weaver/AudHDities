@@ -14,10 +14,6 @@ import {
   type ButtonVariantKey,
 } from '../yggdrasil/button.constants';
 
-// ═══════════════════════════════════════════════════════════════════════════
-// DERIVED STYLE MAPS (from COSMIC source — edit there, flows here)
-// ═══════════════════════════════════════════════════════════════════════════
-
 // ─── Container ─────────────────────────────────────────────────────────────
 const CONTAINER_BG: Record<ErrorBoundaryVariant, string> = {
   graceful_degradation: `bg-[${QUANTUM_COLORS.surface}]`,

@@ -1,5 +1,4 @@
 // lib/constants/systems/environments/navigation.ts
-// Environment-aware navigation configuration
 
 import type { BaseEnvironmentKey } from './types';
 import {

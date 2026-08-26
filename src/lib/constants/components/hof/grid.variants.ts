@@ -1,6 +1,4 @@
 // src/lib/constants/components/hof/grid.variants.ts
-// PURE CONSTANTS - No logic, no types
-// All values derived from cosmic system
 
 import {
   BREAKPOINTS,
@@ -55,10 +53,6 @@ export const BREAKPOINT_KEYS = {
 
 export type BreakpointKey = typeof BREAKPOINT_KEYS[keyof typeof BREAKPOINT_KEYS];
 
-// ============================================================================
-// DEFAULT COLUMN COUNTS BY VARIANT AND BREAKPOINT
-// ============================================================================
-
 export const GRID_COLUMNS: Record<
   GridVariant,
   {
@@ -81,10 +75,6 @@ export const GRID_COLUMNS: Record<
   [GRID_VARIANTS.FEATURED]: { mobile: 1, tablet: 1, desktop: 2, wide: 2 },
   [GRID_VARIANTS.MASONRY]: { mobile: 1, tablet: 2, desktop: 3, wide: 4 },
 };
-
-// ============================================================================
-// DEFAULT GAP SIZES BY VARIANT (derived from SPACING_SCALE)
-// ============================================================================
 
 export const GRID_GAPS: Record<GridVariant, string> = {
   [GRID_VARIANTS.PRODUCT]: SPACING_SCALE['6'],   // 24px

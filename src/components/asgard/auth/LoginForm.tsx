@@ -69,9 +69,6 @@ export default function LoginForm({ redirectTo = AUTH_ROUTES.DASHBOARD }: LoginF
     setError(null);
 
     const linkTarget = `${window.location.origin}${AUTH_ROUTES.CALLBACK}?next=${AUTH_ROUTES.DASHBOARD}`;
-    // The sent state is unconditional: surfacing the wire's answer here would
-    // let the door be used to ask the base who is a member. "Didn't arrive?"
-    // carries the remedy instead.
     await signInWithLink(email, linkTarget);
 
     setIsSendingLink(false);

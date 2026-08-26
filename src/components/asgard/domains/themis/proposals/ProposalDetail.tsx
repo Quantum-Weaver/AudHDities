@@ -55,7 +55,6 @@ export function ProposalDetail() {
     if (!proposal || voting) return;
     setVoting(true);
     try {
-      // In production, this would call the voting API
       await new Promise((r) => setTimeout(r, 500));
       setProposal((prev) => prev ? {
         ...prev,
@@ -158,7 +157,6 @@ export function ProposalDetail() {
             <Progress value={forPercent} max={100} variant="default" size="md" />
           </div>
 
-          {/* Deadline */}
           {proposal.deadline && (
             <div className="flex items-center gap-2 text-sm text-star-dust/40 mb-8">
               <Clock size={14} />

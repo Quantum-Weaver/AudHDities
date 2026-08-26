@@ -18,8 +18,6 @@ export async function GET() {
       );
     }
 
-    // The profiles join-tree died with its table; the session's identity is
-    // community_profiles plus the user's roles.
     const [profileRes, rolesRes] = await Promise.all([
       supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
       supabase.from('user_roles').select('role').eq('user_id', user.id),

@@ -1,7 +1,4 @@
 // src/hooks/usePermissions.ts
-// Repointed 2026-07-18: role flags come from user_roles rows (via useUser),
-// not the dissolved profiles table; "community access" is any member with a
-// role at all or any tier above dweller — the old user_tier enum is gone.
 'use client';
 
 import { useUser } from './useUser';

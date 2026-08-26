@@ -1,15 +1,3 @@
-// lib/auth/pwned.ts — leaked-password protection, the house's own hand
-// ─────────────────────────────────────────────────────────────────────────
-// Run 08, Movement III (2026-07-20). Supabase's built-in HaveIBeenPwned
-// check is a paid-plan toggle; the protection itself is free: HIBP's range
-// API is keyless and k-anonymous — we hash the password (SHA-1, in the
-// browser via WebCrypto), send ONLY the first five hex characters, and
-// compare the returned suffix list locally. The password never leaves the
-// vessel's device. The dashboard advisor line will remain (it watches the
-// platform toggle, not the door) — this file is why it may rest unheeded.
-// Fails OPEN by design: if HIBP is unreachable, signup proceeds — the
-// Sanctuary never locks its door because a third party is napping.
-
 const HIBP_RANGE_URL = 'https://api.pwnedpasswords.com/range/';
 
 async function sha1Hex(text: string): Promise<string> {
@@ -46,8 +34,6 @@ export async function pwnedCount(password: string): Promise<number | null> {
   }
 }
 
-// The calm register (the threshold's law): no shame, no alarm — the breach
-// is the wide world's, never the vessel's.
 export const PWNED_MESSAGE =
   'This password appears in publicly known breach lists from across the ' +
   'internet. Choose a different one so your vessel stays only yours.';

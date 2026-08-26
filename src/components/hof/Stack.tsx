@@ -65,7 +65,6 @@ export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
       className,
     });
 
-    // Handle dividers between children
     if (dividers) {
       const childArray = React.Children.toArray(children);
       const dividerOrientation =

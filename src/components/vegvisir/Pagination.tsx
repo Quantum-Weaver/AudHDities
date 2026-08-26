@@ -104,7 +104,6 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
       }
     };
 
-    // Hide pagination if only one page and no page size selector
     if (totalPages <= 1 && !showPageSize) {
       return null;
     }
@@ -216,7 +215,6 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
           )}
         </div>
 
-        {/* ── Page Size Selector ── */}
         {showPageSize && onPageSizeChange && (
           <div className={cn('flex items-center', PAGINATION_SELECT_GAP)}>
             <span className="text-sm text-star-dust/60">Show</span>

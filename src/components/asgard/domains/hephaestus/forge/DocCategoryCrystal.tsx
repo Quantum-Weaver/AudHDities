@@ -243,7 +243,6 @@ export function DocCategoryCrystal({
               })}
             </div>
 
-            {/* Close Button */}
             <button
               onClick={onClose}
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-star-dust/60 hover:text-star-dust flex items-center justify-center transition-colors"

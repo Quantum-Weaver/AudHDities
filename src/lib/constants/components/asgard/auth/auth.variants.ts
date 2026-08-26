@@ -63,8 +63,6 @@ export const authPageVariants = cva(
 );
 
 // ─── Auth Page Content Wrapper ─────────────────────────────────────────────
-// The ground carries the text: the form sits on a surface card and the realm
-// is weather behind it (HANDOFF.md:62-67, the 0.3-wash law).
 export const authPageContentVariants = cva(
   'w-full max-w-md rounded-xl border border-star-dust/10 bg-surface p-8'
 );

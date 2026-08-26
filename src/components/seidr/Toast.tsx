@@ -101,7 +101,6 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastItemProps>(
           isLeaving,
         })}
       >
-        {/* Icon */}
         <div className={composeToastIconClasses(variant)}>
           <IconComponent className={TOAST_ICON_SIZE} />
         </div>
@@ -131,7 +130,6 @@ const ToastItem = React.forwardRef<HTMLDivElement, ToastItemProps>(
           )}
         </div>
 
-        {/* Close Button */}
         <button
           type="button"
           onClick={handleClose}

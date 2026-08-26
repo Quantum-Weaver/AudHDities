@@ -1,13 +1,4 @@
 // @/components/immersive/QuantumBackground.tsx
-// ⚱ RETIRED 2026-07-29 (THE-FRONTEND-REIMAGINING, finishing session) — the
-// five-layer environment ENGINE of the image era (base · foreground ·
-// parallax · hotspots · breathing). Its layers were the design brief for the
-// token successor: wash/breathing live in EnvironmentLayer; hotspots re-
-// ground on scene elements (ZoomTarget is already element-based); the
-// depictive scene layer succeeds it over the database's rooms (the scene
-// renderer). KP's ✍ strokes 2026-07-19 + 2026-07-29. Rendered nowhere; kept
-// whole per the piecing license — nothing deleted.
-// FIXED - scale array now mutable
 
 "use client";
 

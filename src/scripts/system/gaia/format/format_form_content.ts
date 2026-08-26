@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/format/format_form_content.ts
 // ============================================================================
-// FORMAT FORM CONTENT - Editable fields only, all optional
 // ============================================================================
 
 import { toPascalCase, AUTO_GENERATED_FIELDS } from '../../../shared/type_mappings.js';

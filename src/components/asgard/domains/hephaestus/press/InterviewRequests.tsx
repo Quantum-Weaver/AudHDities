@@ -1,20 +1,6 @@
 // src/components/asgard/domains/hephaestus/press/InterviewRequests.tsx
-// Interview Requests - Form and contact for interview requests
 // ─────────────────────────────────────────────────────────────────────────
-// 2026-08-24 — THE TRUTH PASS. This form transmitted nothing. handleSubmit
-// was a bare `await new Promise(resolve => setTimeout(resolve, 1500))`, after
-// which the card said "Request Sent!" and "Our media team will respond within
-// 48 hours" — a receipt for a message that had never left the browser, from a
-// media team that does not exist ("we have no company" —
-// (hephaestus)/REALM-BUS.md:216-219).
-// It now posts to the same live wire the contact form uses:
 // /api/generated/iris-communications/contact_submissions
-// (ContactForm.tsx:117), with category "press" and a subject that marks it an
-// interview request, so it lands where every other message lands and can be
-// found among them. Failures are now spoken instead of swallowed.
-// The footer address was interviews@sovereignsanctuary.com, a domain that
-// appears nowhere else in this codebase; the house has one public address
-// (root CLAUDE.md ward).
 
 "use client";
 
@@ -77,8 +63,6 @@ export function InterviewRequests() {
     const typeLabel =
       interviewTypes.find((t) => t.value === formData.type)?.label ?? formData.type;
 
-    // The seven fields of this form, folded into the four the one live wire
-    // takes. Nothing is dropped on the floor.
     const body = [
       `Outlet: ${formData.outlet}`,
       `Kind: ${typeLabel}`,
@@ -162,9 +146,6 @@ export function InterviewRequests() {
     >
       <div>
         <h2 className="text-xl font-semibold text-star-dust">Interview Requests</h2>
-        {/* /40 read 3.2:1 on the ground — below 4.5:1 at this size.
-            Raised to /62 (5.6:1 on surface, 6.0:1 on deep space)
-            2026-08-24, board ③'s contrast line. */}
         <p className="text-sm text-star-dust/62 mt-1">
           Ask for an interview with the Quantum Weaver
         </p>
@@ -272,10 +253,6 @@ export function InterviewRequests() {
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? (
             <>
-              {/* Motion is content, so it needs consent (HANDOFF.md).
-                  Under reduced motion the ring does not turn — the label
-                  and the disabled button carry the state instead.
-                  2026-08-24, board ③. */}
               <div className="w-4 h-4 border-2 border-star-dust border-t-transparent rounded-full animate-spin motion-reduce:animate-none mr-2" />
               Sending...
             </>
@@ -288,7 +265,6 @@ export function InterviewRequests() {
         </Button>
       </form>
 
-      {/* /40 → /62, same contrast line as :165. */}
       <div className="pt-4 border-t border-star-dust/10 text-center text-sm text-star-dust/62">
         <p>Prefer email? Write to us directly at</p>
         <a

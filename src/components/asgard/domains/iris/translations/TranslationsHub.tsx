@@ -1,15 +1,4 @@
 // src/components/asgard/domains/iris/translations/TranslationsHub.tsx
-//
-// STAGE 1 — the honest room (KP's ruling, 2026-07-30, at the realm bus).
-// The six hardcoded languages with invented completion percentages are
-// retired: no table ever backed those numbers, and this house does not
-// dress theater as measurement. The language-craft itself (the tables
-// this room once imagined — languages, translations, localization)
-// emigrated to the Resonance Grammar by KP's hand, 2026-07-28.
-// This room now says what is true: the welcome stands, the craft is
-// being grown, and the room is waiting — never missing. Stage 2 (the
-// doorway into the Grammar's language walk) convenes at the realm bus
-// when the Grammar's front lights and KP gives the word.
 'use client';
 
 import Link from 'next/link';

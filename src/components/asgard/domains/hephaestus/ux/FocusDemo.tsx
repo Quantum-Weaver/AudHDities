@@ -38,7 +38,6 @@ export function FocusDemo() {
       </div>
       
       <div className="p-6 space-y-6">
-        {/* Focus Mode Toggle */}
         <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
           <div className="flex items-center gap-3">
             <Lightbulb size={20} className="text-neurospark" />
@@ -116,14 +115,6 @@ export function FocusDemo() {
           </div>
         </div>
         
-        {/* 2026-08-24, the truth pass — this read "On AUDHDITIES, forms
-            auto-save, timers are optional, and you can always 'continue
-            later'". Timers are optional and that half stays. Nothing in this
-            tree auto-saves a form, and there is no "continue later" anywhere;
-            the one place the question came up decided the other way on
-            purpose — CovenantSpace.tsx:13, "never auto-saved from a drag:
-            ceremony is deliberateness." Softened to intent for the half that
-            is not built. */}
         <p className="text-star-dust/40 text-xs text-center">
           On AUDHDITIES, timers are optional. Forms that hold your place so you can continue later are intended, and not yet built.
         </p>

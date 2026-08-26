@@ -1,5 +1,4 @@
 // @/components/immersive/EnvironmentPortal.tsx
-// NEW - Smooth transition between environments
 
 "use client";
 

@@ -21,7 +21,6 @@ export function getStagingPath(originalPath: string, options: StagingOptions = {
   const relativePath = path.relative(PROJECT_ROOT, originalPath);
   const parts = relativePath.split(path.sep);
   
-  // Find the base directory (constants, types, utils, app, lib)
   const baseDirs = ['constants', 'types', 'utils', 'api', 'validators'];
   for (const baseDir of baseDirs) {
     const baseIndex = parts.indexOf(baseDir);
@@ -104,21 +103,18 @@ export function stageFileChange(
   const stagingPath = getStagingPath(targetPath);
   const diffPath = getDiffPath(targetPath);
   
-  // Ensure staging directory exists
   const stagingDir = path.dirname(stagingPath);
   if (!fs.existsSync(stagingDir)) {
     fs.mkdirSync(stagingDir, { recursive: true });
     if (verbose) logDebug(`Created staging directory: ${stagingDir}`);
   }
   
-  // Ensure diff directory exists
   const diffDir = path.dirname(diffPath);
   if (!fs.existsSync(diffDir)) {
     fs.mkdirSync(diffDir, { recursive: true });
     if (verbose) logDebug(`Created diff directory: ${diffDir}`);
   }
   
-  // Read existing content if file exists
   let existingContent: string | null = null;
   let hasChanges = true;
   
@@ -132,11 +128,9 @@ export function stageFileChange(
     return { staged: false, stagingPath, diffPath, hasChanges: false };
   }
   
-  // Write to staging
   fs.writeFileSync(stagingPath, newContent, 'utf-8');
   if (verbose) logDebug(`Staged: ${stagingPath}`);
   
-  // Generate and write diff
   if (existingContent) {
     const diff = generateDiff(existingContent, newContent, path.relative(PROJECT_ROOT, targetPath));
     fs.writeFileSync(diffPath, diff, 'utf-8');
@@ -162,7 +156,6 @@ export function approveStagedFile(stagingPath: string, options: StagingOptions =
     return false;
   }
   
-  // Get target path by removing 'staging' from path
   const parts = stagingPath.split(path.sep);
   const stagingIndex = parts.indexOf('staging');
   if (stagingIndex !== -1) {

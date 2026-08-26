@@ -2,30 +2,7 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE SCROLL — the Léarscáil unfurling from the bottom of the chrome     ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: KP's ⚛ strokes, 2026-08-11, verbatim:
-//   · "it holds a button on the navigation too, and we can up the nav better
-//      if this works well and just have it scroll out from the bottom of the
 //      continuity bar section"
-//   · "or statsus bar, whichever is the botom of the stack,"
-//   · "it could be the nav, which makes it easier"
-//
-// So this component lives at the END of the sticky chrome stack (Header →
-// ContinuityBeam → StatusBar → here) and unfurls DOWNWARD from whatever the
-// bottom of that stack turns out to be. It never has to know which chrome is
-// showing: it is simply last, so it always hangs from the true bottom edge.
-//
-// TWO DUTIES, and they are deliberately together:
-//   ① The handle + the scroll — the map, one tap away from every page.
-//   ② THE DISCOVERY WITNESS — walking into a realm names its ground on the
-//      vessel's map, forever. Discovery follows LIVING (KP's ⚛ ruling this
-//      sitting), never a task and never an errand. It rides here because
-//      this component is already mounted on every page, so no page has to
-//      remember to report itself.
-//
-// Laws worn: motion opt-in and instant under prefers-reduced-motion · Escape
-// always folds the map · the handle is a real button with a real label ·
-// nothing about the map is ever pre-opened (THE OPT-IN LAW: the vessel taps
-// or the scroll stays rolled).
 
 'use client';
 
@@ -42,9 +19,6 @@ export default function LearscailScroll() {
   const { discover } = useDiscovery();
   const [open, setOpen] = useState(false);
 
-  // ② THE DISCOVERY WITNESS — you walked here, so this ground is yours to
-  // see from now on. Nothing is asked of the vessel; nothing is recorded
-  // anywhere but their own glass (see useDiscovery's own note).
   useEffect(() => {
     const realm = realmOfPath(pathname || '/');
     if (realm) discover(realm.name);
@@ -89,9 +63,6 @@ export default function LearscailScroll() {
         </button>
       </div>
 
-      {/* THE SCROLL — unfurling downward from the bottom of the stack.
-          grid-rows 0fr→1fr is the one honest way to animate to auto height;
-          under reduced motion it simply is, with no travel at all. */}
       <div
         id="the-learscail"
         className={cn(

@@ -15,13 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default async function PrivacyPage() {
-  // Read from the actual markdown file
   const markdown = await fs.readFile(
     path.join(process.cwd(), 'docs', 'privacy', 'privacy.md'),
     'utf-8'
   );
   
-  // Parse the markdown into structured sections
   const parsedPrivacy = parsePrivacyMarkdown(markdown);
 
   return (
@@ -33,9 +31,6 @@ export default async function PrivacyPage() {
       showContinuityBeam={true}
     >  
       <main className="min-h-screen">
-        {/* 2026-08-24, fix 2: the title is the markdown's own H1 now, which
-            the parser could never reach before. `docs/privacy/privacy.md` is
-            KP's legal text and is not touched by this pass. */}
         <PrivacyHero
           title={parsedPrivacy.title || 'Privacy Policy'}
           lastUpdated={parsedPrivacy.lastUpdated}

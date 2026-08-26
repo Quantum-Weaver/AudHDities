@@ -1,7 +1,6 @@
 // src/hooks/useSchema.ts
 // =====================================================
 // HOOK: useSchema
-// Fetches database schema information from the API
 // =====================================================
 
 import { useState, useEffect, useCallback } from 'react';
@@ -84,13 +83,11 @@ export function useSchema(): UseSchemaReturn {
     fetchSchema();
   }, [fetchSchema]);
 
-  // Helper: Get columns for a specific table
   const getTableColumns = useCallback((tableName: string): SchemaTableColumn[] => {
     if (!data?.tables) return [];
     return data.tables.filter(col => col.table_name === tableName);
   }, [data]);
 
-  // Helper: Get values for a specific enum
   const getEnumValues = useCallback((enumName: string): string[] => {
     if (!data?.enums) return [];
     return data.enums

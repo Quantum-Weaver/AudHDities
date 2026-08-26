@@ -9,10 +9,8 @@ import { SPACING_SCALE } from '@/lib/constants/cosmic/dimensions';
 import { durations } from '@/lib/constants/cosmic/motion';
 
 // ─── Color Tokens ──────────────────────────────────────────────────────────
-// Mended 2026-08-12 (KP's eye: "they are just white dots"): every class here
-// was assembled at runtime from template strings, so Tailwind's scanner never
-// saw the finished names and never compiled them — no track, no travel.
-// Static literal classes on REAL theme tokens (star-dust · neurospark) only.
+// Classes must be static literals — Tailwind's scanner cannot see names
+// assembled at runtime.
 
 /** Track background when unchecked */
 export const SWITCH_TRACK_UNCHECKED_BG = 'bg-star-dust/20';

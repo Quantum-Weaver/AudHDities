@@ -1,9 +1,5 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/dimensions.ts */
-// QUANTUM DIMENSIONS SYSTEM - SINGLE SOURCE OF TRUTH
-// All spacing, breakpoints, sizes derived from BASE_UNIT (4px grid)
-// Compatible with Tailwind CSS v4 and App Router
-// ============================================================================
 
 // ============================================================================
 // 1. PRIMITIVE SCALES - ATOMIC UNITS
@@ -62,10 +58,6 @@ export const CONSCIOUSNESS_DENSITY = {
 } as const;
 
 export type ConsciousnessDensity = keyof typeof CONSCIOUSNESS_DENSITY;
-
-// ============================================================================
-// 2. DERIVED SPACING - COMPOSED FROM PRIMITIVES
-// ============================================================================
 
 /** Spacing scale derived from base unit and multipliers */
 export const SPACING_SCALE = Object.fromEntries(
@@ -245,7 +237,6 @@ export type ContainerSize = keyof typeof CONTAINER_MAX_WIDTHS;
 
 /** Semantic container dimensions */
 export const CONTAINER_DIMENSIONS = {
-  // Content containers
   content: CONTAINER_MAX_WIDTHS,
   // Council entity proportions
   council: {
@@ -432,10 +423,6 @@ export const BORDER_RADII = {
 } as const;
 
 export type RadiusKey = keyof typeof BORDER_RADII;
-
-// ============================================================================
-// 8. TYPOGRAPHY DIMENSIONS (Base values, extended in typography.ts)
-// ============================================================================
 
 /** Font sizes aligned with consciousness density */
 export const FONT_SIZES = {

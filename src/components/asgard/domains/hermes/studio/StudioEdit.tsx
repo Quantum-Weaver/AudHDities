@@ -1,8 +1,4 @@
 // src/components/asgard/domains/hermes/studio/StudioEdit.tsx
-// Wares edition (2026-07-31): the tier ladder died with the products
-// table — one base price + pricing_model, status enum instead of
-// is_published/active. The publish switch is now genuinely wired (the
-// old form's switch was decorative: no name, no state, never saved).
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -311,7 +307,6 @@ export function StudioEdit() {
               </FormField>
             </div>
 
-            {/* Delete Section */}
             {!showDeleteConfirm ? (
               <div className="border-t border-white/10 pt-6 mt-2 mb-4">
                 <button
@@ -350,7 +345,6 @@ export function StudioEdit() {
               </div>
             )}
 
-            {/* Actions */}
             <FormActions>
               <div className="flex items-center gap-4">
                 <Button

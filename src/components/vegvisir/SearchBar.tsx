@@ -56,7 +56,6 @@ export function SearchBar({
   const [isLoading, setIsLoading] = useState(false);
   const debounceRef = useRef<ReturnType<typeof createDebouncedSearch<[string]>> | null>(null);
 
-  // Initialize debounced search
   useEffect(() => {
     const debounced = createDebouncedSearch((query: string) => {
       onSearch(query);

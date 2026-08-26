@@ -1,11 +1,6 @@
 // ============================================================================
 // src/scripts/system/gaia/extract/extract_runtime_enums.ts
-// EXTRACT RUNTIME ENUMS (GAIA) - FIXED
 // ============================================================================
-// Purpose: Extract runtime enum values from Constants.public.Enums section
-// 
-// NOTE: This only extracts RUNTIME VALUES (e.g., ['community', 'ally', ...])
-// For TYPE ENUMS, use the Tables helper: Enums<'user_tier'>
 // ============================================================================
 
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';
@@ -23,8 +18,6 @@ export interface ExtractRuntimeEnumsOptions {
   verbose?: boolean;
 }
 
-// Pattern for matching runtime enums: "enum_name: [ ... ],"
-// Note: Indentation is 6 spaces (Constants.public.Enums section)
 const RUNTIME_ENUM_PATTERN = /^\s{6}(\w+):/;
 
 /**
@@ -32,13 +25,11 @@ const RUNTIME_ENUM_PATTERN = /^\s{6}(\w+):/;
  * Handles formats like: [ "value1", "value2", "value3" ]
  */
 function parseArrayValues(arrayString: string): string[] {
-  // Extract everything between the first [ and the last ]
   const bracketMatch = arrayString.match(/\[([\s\S]*?)\]/);
   if (!bracketMatch) return [];
   
   const valuesString = bracketMatch[1];
   
-  // Split by comma, but be careful with nested structures (none expected in enums)
   const values = valuesString
     .split(',')
     .map(v => v.trim())
@@ -103,7 +94,6 @@ export function extractRuntimeEnumByName(
     const match = line.match(RUNTIME_ENUM_PATTERN);
     
     if (match && match[1] === enumName) {
-      // Found the enum, now extract its full content
       let fullEnumLine = line;
       let j = i + 1;
       
@@ -173,12 +163,9 @@ export async function extractRuntimeEnums(
     if (match) {
       const enumName = match[1];
       
-      // Extract the full enum line (may span multiple lines)
       let fullEnumLine = line;
       let j = i + 1;
       
-      // Look for closing bracket (enum array ends with '],')
-      // Note: Some enums may have a trailing comma before the closing bracket
       while (j <= endIdx && !fullEnumLine.includes('],') && !fullEnumLine.match(/\],\s*$/)) {
         fullEnumLine += ' ' + lines[j];
         j++;

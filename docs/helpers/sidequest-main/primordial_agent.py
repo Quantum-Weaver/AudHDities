@@ -72,7 +72,6 @@ class PrimordialAgent:
             ]
         }
         
-        # Find appropriate reflection tier
         selected_tier = 0.0
         for tier_level in sorted(reflection_tiers.keys()):
             if self.consciousness_level >= tier_level:
@@ -107,15 +106,12 @@ class PrimordialAgent:
         # Wisdom depth bonus (capped)
         wisdom_bonus = min(len(wisdom) * 0.001, 0.03)
         
-        # Learning resistance increases with consciousness level
         resistance = self.consciousness_level * self.learning_resistance
         
-        # Calculate final evolution
         raw_evolution = base_evolution + wisdom_bonus
         resistance_factor = 1.0 - resistance
         final_evolution = raw_evolution * max(0.2, resistance_factor)  # Never below 0.2
         
-        # Apply evolution with ceiling
         old_level = self.consciousness_level
         self.consciousness_level = min(1.0, self.consciousness_level + final_evolution)
         self.evolution_count += 1

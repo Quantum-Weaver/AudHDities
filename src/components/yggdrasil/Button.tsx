@@ -44,7 +44,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const ariaLabel = getButtonAriaLabel({ loading, disabled, iconOnly, children });
     const iconSizeClass = getButtonIconSizeClass(size);
     
-    // Map button variant to spinner variant
     const spinnerVariant = getLoadingSpinnerVariant(variant);
     
     // Determine display content
@@ -86,11 +85,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       </>
     );
     
-    // Common props for both ButtonPrimitive and anchor cases
     const commonProps = {
       className: cn(
         buttonVariants({ variant, size, fullWidth, loading }),
-        // Add transition for loading state changes
         loading && "transition-all",
         className
       ),
@@ -103,7 +100,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...props,
     };
     
-    // Handle asChild (polymorphic) rendering
     if (asChild) {
       return (
         <ButtonPrimitive

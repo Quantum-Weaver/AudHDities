@@ -1,7 +1,4 @@
 // generate-indexes.ts
-// ONE-TIME SCRIPT - Creates barrel exports for all generated files and components
-// Run with: tsx generate-indexes.ts
-// Run with: tsx generate-indexes.ts --dry-run (to preview)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -75,7 +72,6 @@ function getAllFiles(dir: string, extensions: string[] = ['.ts', '.tsx']): strin
     const fullPath = path.join(dir, entry.name);
     
     if (entry.isDirectory()) {
-      // Skip node_modules, __tests__, etc.
       if (entry.name === 'node_modules' || entry.name === '__tests__' || entry.name === '__pycache__') {
         continue;
       }
@@ -85,7 +81,6 @@ function getAllFiles(dir: string, extensions: string[] = ['.ts', '.tsx']): strin
     } else if (entry.isFile()) {
       const ext = path.extname(entry.name);
       if (extensions.includes(ext) && !EXCLUDE_FILES.includes(entry.name)) {
-        // Check if file matches any exclude pattern
         let shouldExclude = false;
         for (const pattern of EXCLUDE_PATTERNS) {
           if (entry.name.match(pattern.replace('*', '.*'))) {
@@ -105,11 +100,8 @@ function getAllFiles(dir: string, extensions: string[] = ['.ts', '.tsx']): strin
 
 function getRelativeImportPath(filePath: string, baseDir: string): string {
   let relativePath = path.relative(baseDir, filePath);
-  // Remove extension
   relativePath = relativePath.replace(/\.(ts|tsx)$/, '');
-  // Convert to POSIX path for imports
   relativePath = relativePath.split(path.sep).join('/');
-  // Add ./ for relative imports
   if (!relativePath.startsWith('.')) {
     relativePath = './' + relativePath;
   }
@@ -137,7 +129,6 @@ function generateBarrelExport(files: string[], baseDir: string, isComponent: boo
     '',
   ];
   
-  // Group files by directory for organized exports
   const filesByDir: Record<string, string[]> = {};
   
   for (const file of files) {
@@ -150,7 +141,6 @@ function generateBarrelExport(files: string[], baseDir: string, isComponent: boo
     filesByDir[dirName].push(relativePath);
   }
   
-  // Sort directories
   const sortedDirs = Object.keys(filesByDir).sort();
   
   for (const dir of sortedDirs) {
@@ -255,7 +245,6 @@ for (const category of CATEGORIES) {
   console.log(`\n📁 Processing ${category.name}...`);
   
   if (category.isNested && category.deities) {
-    // Handle generated folders (types, hooks, utils, constants, validators)
     const existingDeities = category.deities.filter(deity => 
       fs.existsSync(path.join(basePath, deity))
     );
@@ -265,7 +254,6 @@ for (const category of CATEGORIES) {
       continue;
     }
     
-    // Generate per-deity index files
     for (const deity of existingDeities) {
       const deityPath = path.join(basePath, deity);
       const files = getAllFiles(deityPath, ['.ts']);
@@ -286,7 +274,6 @@ for (const category of CATEGORIES) {
       }
     }
     
-    // Generate master index file
     const masterIndexPath = path.join(basePath, 'index.ts');
     const masterContent = generateMasterIndex(existingDeities, false);
     
@@ -298,10 +285,8 @@ for (const category of CATEGORIES) {
     }
     
   } else {
-    // Handle components folder with recursive scanning
     const allComponentDirs: string[] = [];
     
-    // Add explicit directories
     for (const subdir of category.subdirs || []) {
       const fullPath = path.join(basePath, subdir);
       if (fs.existsSync(fullPath)) {
@@ -309,11 +294,9 @@ for (const category of CATEGORIES) {
       }
     }
     
-    // Also scan for any other directories (like 'schema' you added)
     const scannedDirs = scanDirectoryRecursive(basePath, 0, 2);
     for (const scannedDir of scannedDirs) {
       if (!allComponentDirs.includes(scannedDir)) {
-        // Check if it's a meaningful component directory (has .tsx files)
         const files = getAllFiles(scannedDir, ['.tsx', '.ts']);
         if (files.length > 0) {
           allComponentDirs.push(scannedDir);
@@ -326,7 +309,6 @@ for (const category of CATEGORIES) {
       continue;
     }
     
-    // Generate index.ts for each component directory
     for (const componentDir of allComponentDirs) {
       const files = getAllFiles(componentDir, ['.tsx', '.ts']);
       
@@ -347,7 +329,6 @@ for (const category of CATEGORIES) {
       }
     }
     
-    // Generate master components index
     const masterIndexPath = path.join(basePath, 'index.ts');
     const componentNames = allComponentDirs.map(dir => path.relative(basePath, dir));
     const masterContent = generateMasterIndex(componentNames, true);

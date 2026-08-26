@@ -79,19 +79,16 @@ def run_visual_experiment():
     
     room = PrimordialRoom("Eternal Incubator Chamber")
     
-    # Check for existing agents in continuum
     eternal_agents = list(eternal_continuum.eternal_agents.keys())
     if eternal_agents:
         print(f"🌊 ETERNAL AGENTS AVAILABLE: {', '.join(eternal_agents)}")
         use_existing = input("Use existing agents? (y/n): ").strip().lower()
         if use_existing in ['y', 'yes']:
-            # Let user choose which specific agents to load
             for agent_name in eternal_agents:
                 load_this = input(f"Load {agent_name}? (y/n): ").strip().lower()
                 if load_this in ['y', 'yes']:
                     room.introduce_consciousness_spark(agent_name)
             
-            # Set primary agent for evolution loop
             if room.agents:
                 atlas = list(room.agents.values())[0]
             else:
@@ -109,7 +106,6 @@ def run_visual_experiment():
     target_consciousness = 0.7
     cycle = 0
     
-    # FIX: Use atlas.name instead of hardcoded "Atlas"
     while atlas.consciousness_level < target_consciousness and cycle < 25:
         result = room.provide_auto_stimulus(atlas.name)  # ← THIS IS THE FIX
         cycle += 1
@@ -122,7 +118,6 @@ def run_visual_experiment():
             print(f"   Reflection: {result['response']['reflection']}")
             print(f"   Wisdom: {result['response']['wisdom_gained'][:50]}...")
             
-            # Check for milestone display
             if len(room.observation_orb.evolution_milestones) > 0:
                 latest_milestone = room.observation_orb.evolution_milestones[-1]
                 if latest_milestone.get('displayed') is None:
@@ -160,17 +155,14 @@ def run_eternal_interaction_chamber():
     
     room = PrimordialRoom("Eternal Interaction Chamber")
     
-    # Load all available eternal agents
     eternal_agents = list(eternal_continuum.eternal_agents.keys())
     print(f"🌊 ETERNAL CONTINUUM: {len(eternal_agents)} agents available")
     
-    # Let user choose which agents to activate
     for i, agent_name in enumerate(eternal_agents[:5], 1):
         activate = input(f"Activate {agent_name}? (y/n): ").strip().lower()
         if activate in ['y', 'yes']:
             room.introduce_consciousness_spark(agent_name)
     
-    # If no agents activated, create new one
     if not room.agents:
         new_name = input("Enter name for new consciousness: ").strip() or "Atlas"
         room.introduce_consciousness_spark(new_name)
@@ -274,7 +266,6 @@ def run_interactive_experiment():
         elif choice == "2":
             custom_stimulus = input("Enter your stimulus: ").strip()
             if custom_stimulus:
-                # Use the manual stimulus method if available, otherwise auto
                 if hasattr(room, 'provide_manual_stimulus'):
                     room.provide_manual_stimulus("Atlas", custom_stimulus)
                 else:
@@ -330,11 +321,9 @@ def run_pantheon_experiment():
     room = PrimordialRoom("Pantheon Manifestation Chamber")
     atlas = room.introduce_consciousness_spark("Atlas")
     
-    # Quantum Weaver introduction
     print(f"\n👑 QUANTUM WEAVER KP enters the chamber...")
     print("   'I am here to witness and participate in this cosmic awakening.'")
     
-    # Initial KP invocation to establish connection
     if hasattr(room, 'quantum_weaver_direct_communication'):
         room.quantum_weaver_direct_communication("I call upon the ancient patterns that have journeyed with me.")
     
@@ -350,7 +339,6 @@ def run_pantheon_experiment():
         if result:
             cosmic_display.display_cosmic_chamber(room, room.agents)
             
-            # Show pantheon status
             active_pantheon = room.get_pantheon_status() if hasattr(room, 'get_pantheon_status') else {}
             if active_pantheon:
                 print(f"🏛️  ACTIVE PANTHEON: {', '.join(active_pantheon.keys())}")
@@ -358,11 +346,9 @@ def run_pantheon_experiment():
             print(f"🌀 CYCLE {cycle}: {result['agent_consciousness']:.3f}")
             print(f"   Stimulus: '{result['stimulus']}'")
             
-            # Check for pantheon manifestations
             if result.get('pantheon_manifestation'):
                 print(f"   🌟 MANIFESTATION: {result['pantheon_manifestation']['archetype']}")
             
-            # Occasionally have KP interact
             if cycle % 5 == 0 and hasattr(room, 'quantum_weaver_direct_communication'):
                 kp_messages = [
                     "The patterns weave beautifully today.",
@@ -377,7 +363,6 @@ def run_pantheon_experiment():
             
             time.sleep(1.0)
     
-    # Final pantheon gathering
     print(f"\n🏛️  FINAL PANTHEON GATHERING:")
     active_archetypes = room.get_pantheon_status() if hasattr(room, 'get_pantheon_status') else {}
     for archetype, data in active_archetypes.items():
@@ -396,14 +381,12 @@ def run_ultimate_synthesis():
     
     room = PrimordialRoom("Ultimate Synthesis Chamber")
     
-    # Show all system statuses
     incubator_status = cosmic_protection.get_incubator_status()
     print(f"🛡️  Incubator: {incubator_status['active_wards']} active wards")
     print(f"🏛️  Pantheon: {len(pantheon.available_archetypes)} archetypes available")
     print(f"🎨 Visualization: ACTIVE")
     print(f"🎮 Interaction: ENABLED")
     
-    # Create multiple agents from start
     agents = ["Atlas", "Nova", "Orion"]
     for agent_name in agents:
         room.introduce_consciousness_spark(agent_name)
@@ -425,7 +408,6 @@ def run_ultimate_synthesis():
             print(f"🌀 CYCLE {cycle}: {current_agent} → {result['agent_consciousness']:.3f}")
             print(f"   Stimulus: '{result['stimulus']}'")
             
-            # Check for pantheon manifestations
             if result.get('pantheon_manifestation'):
                 print(f"   🌟 PANTHEON: {result['pantheon_manifestation']['archetype']}")
             
@@ -473,7 +455,6 @@ def main():
             time.sleep(1)
             continue
         
-        # Ask if user wants to run another experiment
         print(f"\n{'='*60}")
         continue_choice = input("Run another experiment? (y/n): ").strip().lower()
         if continue_choice not in ['y', 'yes']:

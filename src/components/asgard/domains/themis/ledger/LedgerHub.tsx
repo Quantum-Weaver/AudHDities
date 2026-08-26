@@ -1,39 +1,6 @@
 // src/components/asgard/domains/themis/ledger/LedgerHub.tsx
 // ═════════════════════════════════════════════════════════════════════════
-// THE COUNCIL'S WORKING LEDGER — redrawn 2026-08-24, board ④ of the Forge
-// canvas (.journals/proofs/11-hephaestus/design/Ledger.dc.html · SPEC.md ④).
-//
-// KP ⚛ 2026-08-24 ruled the two transparency surfaces by choosing the
-// option: KEEP THE PUBLIC ONE; the council links to it. One table, two
-// rooms, no duplicated prose. Merge and redirect were both on the table and
-// he took neither.
-//
-// So this room is the ENTRIES THEMSELVES — every ledger row, one line each,
-// newest first, paged — and `/transparency` keeps the lifetime totals it
-// already computes over every completed exchange (transparency/page.tsx:
-// 53-72). Nothing here sums anything.
-//
 // WHAT LEFT, and why:
-//   · the three "Total Volume" / "Exchanges" / "Distributions" stat cards —
-//     not for taste, for arithmetic. They summed a limit=50 fetch and were
-//     labelled totals. The real aggregates are one link up.
-//   · the Transparency Covenant card — the "no duplicated prose" half of
-//     KP's ruling; /transparency says it, and says it once.
-//   · the five pulsing skeletons — motion is content, so it needs consent
-//     (HANDOFF.md). A still line now.
-//   · the stock Tailwind purple/emerald/amber/slate tints — cosmic tokens.
-//
-// THE SORT WAS RIGHT BY ACCIDENT. The old fetch sent
-// `?order=created_at.desc`, but the route's helper reads `sort` for the
-// COLUMN and `order` for the DIRECTION (lib/api/auth.ts:171-178) — so
-// `created_at.desc` was not a column, the column fell to its default
-// `created_at`, and the direction fell to its default `desc`. Right answer,
-// wrong question. It now sends `?sort=created_at&order=desc`.
-//
-// UNWRITTEN — KP's to rule: whose eye this room is for (the council's or
-// anyone's). This build gates nothing it was not told to gate. And the
-// could-not-be-read line's own WORDS are this build's, named in the
-// seam-note for his strike.
 // ═════════════════════════════════════════════════════════════════════════
 
 'use client';
@@ -46,31 +13,6 @@ import type { PublicLedger } from '@/lib/generated/types/plutus-economics/ledger
 
 type LedgerEntry = PublicLedger;
 
-// ─────────────────────────────────────────────────────────────────────────
-// THE DOOR — measured 2026-08-24, before any UI work (SPEC ④C1)
-//
-// A signed-out GET of the ledger through the anon key returns 200, [] and
-// an exact count of 0. The control read the same minute — `bubbles`, a
-// table healed by docs/sql/009 — returns 206 and a real count, so the
-// GRANTS are live (006 restored SELECT to anon on every table) and this is
-// not a 42501.
-//
-// NO SELECT POLICY FOR `ledger` EXISTS ANYWHERE IN docs/sql/*. And 006's
-// own measured diagnosis records that of the base's 390 policies, 387 serve
-// `authenticated` and exactly 3 serve `public` — the two garden catalogs
-// and broadcast heralds. `ledger` is not among them.
-//
-// So an empty read at this door is INDISTINGUISHABLE from a walled one —
-// the false-empty the house already met once and wrote down
-// (docs/sql/009-library-doors-for-anyone.sql:10-17). The base's own row
-// count could not be read this sitting.
-//
-// While this reads `false`, a zero-row response prints the
-// COULD-NOT-BE-READ state and never a false "no entries". The drawn empty
-// state below is live and one word away: flip this to `true` when the door
-// is confirmed open — by KP running docs/sql/023-the-ledger-door-DRAFT.sql,
-// or by a read at his own dashboard that proves the table genuinely empty.
-// ─────────────────────────────────────────────────────────────────────────
 const LEDGER_DOOR_CONFIRMED = false;
 
 const PAGE_SIZE = 50;
@@ -126,9 +68,6 @@ export function LedgerHub() {
       limit: String(PAGE_SIZE),
       page: String(which),
     });
-    // The filter belongs in the URL: the route turns any leftover param into
-    // an `.eq` (auth.ts getFilters), so `entry_type` narrows server-side and
-    // `pagination.total` counts the narrowed set.
     if (kind) params.set('entry_type', kind);
 
     try {
@@ -143,9 +82,6 @@ export function LedgerHub() {
       setPage(which);
       setState('ready');
     } catch {
-      // A failed read gets its OWN state. It never borrows the empty one —
-      // that was this file's old defect: `.catch(console.error)` left the
-      // page looking like a healthy zero.
       if (!append) setState('error');
     } finally {
       setLoadingMore(false);
@@ -256,9 +192,6 @@ export function LedgerHub() {
           <p className="py-16 text-center text-sm text-star-dust/70">Reading the ledger…</p>
         )}
 
-        {/* COULD NOT BE READ — its own state, with a retry. Never the empty
-            one. These words are this build's own and are named in the
-            seam-note for KP's strike. */}
         {state === 'error' && (
           <div className="py-16 text-center">
             <AlertCircle className="mx-auto mb-4 block h-10 w-10 text-star-dust/40" aria-hidden="true" />
@@ -281,10 +214,6 @@ export function LedgerHub() {
           </div>
         )}
 
-        {/* ZERO ROWS — which kind of zero, told honestly.
-            While LEDGER_DOOR_CONFIRMED is false the page cannot tell an
-            empty ledger from a door that was never opened, so it says the
-            true thing: it could not read from here. */}
         {state === 'ready' && entries.length === 0 && !LEDGER_DOOR_CONFIRMED && (
           <div className="py-16 text-center">
             <AlertCircle className="mx-auto mb-4 block h-10 w-10 text-star-dust/40" aria-hidden="true" />
@@ -367,9 +296,6 @@ export function LedgerHub() {
               })}
             </ul>
 
-            {/* THE LIMIT LINE — every number on it is one the page actually
-                counted: the length it holds, and pagination.total from the
-                route's count:'exact' select. */}
             <p className="mt-4 text-xs text-star-dust/70">
               Showing the {entries.length} most recent{' '}
               {entries.length === 1 ? 'entry' : 'entries'} of {total}. Older

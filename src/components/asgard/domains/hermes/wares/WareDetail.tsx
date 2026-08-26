@@ -1,16 +1,4 @@
 // src/components/asgard/domains/hermes/wares/WareDetail.tsx
-// Wares edition (2026-07-31): the three-tier price grid died with the
-// products table — one base price + pricing_model, solidarity pricing
-// computed server-side at the Exchange (the buyer sees the split there:
-// PriceBreakdown is this realm's protected feature). The exchange verbs
-// are the realm's ceremony: Receive (freely) · Bring home (exchanged).
-// The plain stall (2026-08-01, KP's ruling via the E4 study): the square
-// is quiet; HERE the price speaks plainly with the split beside it. And
-// when the last has gone home, the stall says so in the settled register
-// — never a countdown on the way down.
-// 2026-08-25: the bodies are real (§9), the maker is named, the split has a
-// quiet door to the Exchange beside it, and a rung already held says so once
-// instead of offering itself a second time.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -38,7 +26,6 @@ const TYPE_LABELS: Record<string, string> = {
 function priceLabel(ware: WareItem): string {
   if (ware.pricing_model === 'free') return 'Gifted';
   if (ware.pricing_model === 'patronage_only') return 'Through patronage';
-  // A bare dash where a price should be tells nothing.
   if (ware.price === null || ware.price <= 0) return 'Price not set';
   const base = formatMinorUnits(Math.round(ware.price * 100));
   return ware.pricing_model === 'pay_what_you_want' ? `${base}+` : base;
@@ -62,7 +49,6 @@ export function WareDetail() {
     return () => { alive = false; };
   }, [params.id]);
 
-  // The maker's own seat, so a ware's page can say who made it.
   useEffect(() => {
     if (!ware?.artisan_profile_id) return;
     let alive = true;
@@ -73,7 +59,6 @@ export function WareDetail() {
     return () => { alive = false; };
   }, [ware?.artisan_profile_id]);
 
-  // Is this one already in the vessel's keeping, and is a rung already stood on?
   useEffect(() => {
     if (!ware) return;
     let alive = true;
@@ -176,7 +161,6 @@ export function WareDetail() {
             )}
           </div>
 
-          {/* The split, beside the price (KP's ruling: the stall speaks plainly) */}
           {showsSplit && (
             <div className="mb-2">
               <PriceBreakdown
@@ -222,8 +206,6 @@ export function WareDetail() {
             )}
           </div>
 
-          {/* WHAT YOU RECEIVE — the real bodies, re-askable, one road for
-              gifted and exchanged alike. */}
           {(isGifted || held) && <TheBodies wareId={ware.id} />}
         </Card>
       </div>

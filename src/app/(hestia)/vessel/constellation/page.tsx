@@ -1,6 +1,4 @@
 // src/app/(hestia)/vessel/constellation/page.tsx
-// The Constellation — Your web of sovereign connections
-// Feeling: Cosmic, Visionary, Connected
 
 import { Page } from '@/components/bifrost/Page';
 import { ConstellationContent } from '@/components/asgard/domains/hestia/constellation/ConstellationContent';

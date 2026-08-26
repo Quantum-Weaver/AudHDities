@@ -37,10 +37,6 @@ const iconMap: Record<string, React.ReactNode> = {
   'Contact Us': <Mail className="text-green-400" size={20} />,
   'California Privacy Rights': <Scale className="text-blue-400" size={20} />,
   'GDPR Compliance': <Shield className="text-neurospark" size={20} />,
-  // 2026-08-25, fix 3 — the app policy's own headings
-  // (docs/privacy-apps/privacy-apps.md). Without these every section of
-  // /apps/privacy fell to the grey default, which reads as a page the
-  // house did not finish.
   'Our promise': <Shield className="text-neurospark" size={20} />,
   'What we collect': <Database className="text-purple-400" size={20} />,
   'Where your data lives': <HardDrive className="text-blue-400" size={20} />,

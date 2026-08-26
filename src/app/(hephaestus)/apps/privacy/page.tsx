@@ -1,32 +1,6 @@
 // app/(hephaestus)/apps/privacy/page.tsx
 // ─────────────────────────────────────────────────────────────────────────
-// THE APPS' ONE POLICY — born 2026-08-25, board ① of the Forge canvas
-// (.journals/proofs/11-hephaestus/design/Main.dc.html · SPEC.md ①).
-//
-// KP ⚛ 2026-08-24, verbatim:
-//   "we already have a terms/ and privacy/ we will need an apps/privacy"
-// and, on whose address stands on it:
 //   "apps keep theirs"
-//
-// So the address on this page is the apps' OWN, read from the markdown —
-// audhdities@proton.me — and NOT CONTACT_LABELS.EMAIL_ADDRESS, which is the
-// website's. No substitution.
-//
-// Built exactly as /privacy is: a build-time fs.readFile of a markdown under
-// docs/, parsed by parsePrivacyMarkdown, rendered by the same three
-// components. NEVER a live cross-repo read — a sibling repo is not in a
-// deploy's build container, so the policy's text lives here, in this repo,
-// and the apps' own PRIVACY.md files remain their own.
-//
-// EIGHT APPS ARE NAMED, and each is named only with what its own repo
-// verifies. resonance-weaver is deliberately ABSENT: it is clean in code,
-// but its README calls it "One canonical record of a life" for KP and it
-// has not been ruled a public app. Unwritten — his to rule. It is not
-// listed until he says so.
-//
-// This page asks nothing and gates nothing, so signed-in and signed-out are
-// the same page. No cookie banner, no preference maze, no accept-all — a
-// policy that collects nothing has nothing to ask consent for.
 // ─────────────────────────────────────────────────────────────────────────
 
 import { Metadata } from 'next';
@@ -45,8 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default async function AppsPrivacyPage() {
-  // Build-time read of this repo's own copy. A missing file fails the build,
-  // which is why this room has no empty state: it cannot render empty.
   const markdown = await fs.readFile(
     path.join(process.cwd(), 'docs', 'privacy-apps', 'privacy-apps.md'),
     'utf-8'
@@ -63,8 +35,6 @@ export default async function AppsPrivacyPage() {
       showContinuityBeam={true}
     >
       <main className="min-h-screen">
-        {/* The title and the date are the MARKDOWN'S OWN — never a default,
-            never a version badge, never a count. */}
         <PrivacyHero
           title={parsed.title}
           lastUpdated={parsed.lastUpdated}

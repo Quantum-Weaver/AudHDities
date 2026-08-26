@@ -1,9 +1,4 @@
 // src/components/asgard/domains/hestia/vessel/VesselContent.tsx
-// Repointed 2026-07-18 to the evolved schema: identity from
-// community_profiles via useUser (roles, sovereign_tier), earned sigils from
-// vessel_sigils joined to sigils, milestones from the `current` event stream.
-// The old sovereignty_score (0–1000) became the sovereign_tier journey:
-// dweller → guild → outlander → sovereign_weaver.
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -42,7 +37,6 @@ const RARITY_COLORS: Record<string, string> = {
   mythic: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
 };
 
-// The sovereignty journey. Tier replaces the old numeric score.
 const TIER_LABELS: Record<string, string> = {
   dweller: 'Dweller',
   guild: 'Guild',
@@ -64,13 +58,7 @@ export function VesselContent() {
   const { user, profile, roles, sovereignTier, isQuantumWeaver, isLoading, refetch } = useUser();
   const [sigils, setSigils] = useState<EarnedSigil[]>([]);
   const [events, setEvents] = useState<CurrentEvent[]>([]);
-  // The vessel's own choice, made in the Sanctum's bubble settings. Off
-  // unless a person turned it on; read defensively until the column lands.
   const [bubblesOnVessel, setBubblesOnVessel] = useState(false);
-  // Failte is the Hearth's standing eyebrow, and home.constants.ts rules it
-  // "never doubled with the door's word in the same glance." Velkomin marks
-  // this sessionStorage flag in an effect; reading it at MOUNT (before that
-  // effect runs) tells us whether this render IS the crossing.
   const [isCrossing] = useState(() => {
     if (typeof window === 'undefined') return true;
     try {
@@ -108,9 +96,6 @@ export function VesselContent() {
       .then(r => r.json()).then(res => { if (res.success) setEvents(res.data?.data || []); }).catch(() => {});
   }, [user]);
 
-  // The bubbles button's switch (KP's word, 2026-08-24) — vessel_config, off
-  // by default, so a vessel who never opens the Sanctum is never offered a
-  // game on their own face.
   useEffect(() => {
     if (!user) return;
     fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
@@ -147,11 +132,7 @@ export function VesselContent() {
     );
   }
 
-  // Six rooms, one grid, one vocabulary. The Sanctum is a place here as it is
-  // everywhere else that names it; the Constellation was reachable only from
-  // the user menu; "Bubbles" left the grid for a button the vessel asks for.
   const quickLinks = [
-    // The home — the scene renderer's door (Run 08, the finishing session)
     { href: '/vessel/home', label: 'The Home', icon: Home, id: 'home' },
     { href: '/vessel/sanctum', label: 'The Sanctum', icon: Settings, id: 'sanctum' },
     { href: '/vessel/journal', label: 'The Scroll', icon: BookOpen, id: 'journal' },
@@ -232,21 +213,12 @@ export function VesselContent() {
           <p className="text-xs text-star-dust/70 mt-2">{TIER_MESSAGES[tier] ?? TIER_MESSAGES.dweller}</p>
         </Card>
 
-        {/* House — awaiting its home in the evolved schema */}
         <Card variant="default" data={profileCardData} radius="lg" shadow="md" className="p-6">
           <div className="flex items-center gap-3 mb-3"><Users className="h-5 w-5 text-star-dust/60" /><h3 className="text-lg font-semibold text-star-dust">Council House</h3></div>
           <p className="text-star-dust/60 text-sm mb-3">You have not yet joined a Council House.</p>
           <p className="text-xs text-star-dust/70">Your house finds you when you take the Acid Test. No hurry.</p>
         </Card>
       </div>
-
-      {/* THE COVENANT retired from the vessel face, KP's ⚛ word 2026-08-24,
-          verbatim: "covenant pledge should not display on vessel face, it
-          should optionally display on outside of home (community profile)."
-          The section that stood here (2026-08-12) is struck, not forgotten —
-          its history is this file's own git log. The toggle in the Sanctum's
-          Covenant Space now sends the pledge outward instead, to the vessel's
-          community profile; see CovenantSpace.tsx for that half. */}
 
       {/* Recent Milestones — the `current` stream */}
       {events.length > 0 && (
@@ -269,13 +241,9 @@ export function VesselContent() {
         </div>
       )}
 
-      {/* THE ROOMS — every room one step away (KP's adjacency law) */}
       <h3 className="text-sm font-medium text-star-dust/70 mb-3">The rooms, one step away</h3>
       <QuickLinks links={quickLinks} userId={user.id} columns={3} />
 
-      {/* PLAY BUBBLES — KP's word, 2026-08-24. Its own thing below the rooms,
-          not a room among them, and only when the Sanctum's switch is on. The
-          bubbles stay reachable at the Library either way. */}
       {bubblesOnVessel && (
         <div className="mt-6 flex justify-center">
           <Link href="/library/bubbles">

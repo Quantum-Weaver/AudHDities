@@ -11,9 +11,6 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Bell } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// Heralds (the notifications successor) carry reference_table/reference_id
-// instead of action_url/action_label; the reference link is derivable when
-// a route exists for the referenced table.
 interface Notification {
   id: string;
   herald_type: string;

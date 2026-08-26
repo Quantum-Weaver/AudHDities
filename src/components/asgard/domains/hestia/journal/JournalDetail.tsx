@@ -191,7 +191,6 @@ export function JournalDetail() {
             </p>
           </div>
 
-          {/* Tags */}
           {entry.tags && entry.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-white/10">
               {entry.tags.map((tag) => (
@@ -206,11 +205,6 @@ export function JournalDetail() {
           )}
         </Card>
 
-        {/* ECHOES — KP's word 2026-08-24: a scroll answering back, read from
-            the past or moments after writing it. SECOND PASS: its place is
-            here, beneath the words, and nothing is drawn into it today. */}
-
-        {/* Delete Confirmation */}
         {showConfirm && (
           <div className="mt-6 p-4 border border-error/30 rounded-xl bg-error/5 text-center">
             <p className="text-sm text-star-dust/70 mb-4">

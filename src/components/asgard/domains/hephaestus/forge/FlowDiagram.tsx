@@ -4,11 +4,6 @@
 import { motion } from 'framer-motion';
 import { User, Mail, Link, LogIn, ArrowRight } from 'lucide-react';
 
-// 2026-08-24, the truth pass — these four read Sign Up (enter email) → Send
-// Magic Link → Click Link → Logged In (redirect to dashboard). The signup
-// form takes username, email, password and confirm; the landing is /vessel,
-// not /dashboard; and the magic link is the second door, not the only one.
-// Mirrors the StepCards on the page — true them together.
 const steps = [
   { icon: User, label: 'Sign Up', description: 'Name, email, password', color: 'cyan' },
   { icon: Mail, label: 'Password Checked', description: 'Never leaves the device', color: 'purple' },

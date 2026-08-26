@@ -1,6 +1,4 @@
 // app/(prometheus)/studio/effects/page.tsx
-// Effects Lab - Magic, particles, glows
-// Feeling: Magical, energetic, euphoric
 
 import { Page } from '@/components/bifrost/Page';
 
@@ -17,7 +15,6 @@ export default async function EffectsLabPage() {
     >
       <main className="min-h-screen py-12">
         <div className="container max-w-7xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
         </div>
       </main>
     </Page>

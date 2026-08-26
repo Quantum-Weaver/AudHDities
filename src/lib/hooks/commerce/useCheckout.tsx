@@ -1,9 +1,4 @@
 // hooks/commerce/useCheckout.ts
-// Wares edition (2026-07-18): the server owns all pricing now — the route
-// validates availability and calls calculate_sovereign_price, so this hook
-// no longer prefetches the ware or chooses a tier. It also posts to the
-// route's real path (/api/auth/checkout — the old '/api/checkout' was a
-// silent 404).
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
@@ -107,8 +102,6 @@ export function useCheckout(): UseCheckoutReturn {
     if (heldCrossing) window.location.href = heldCrossing.url;
   }, [heldCrossing]);
 
-  // Not now. Nothing is charged, nothing is chased, nothing is remembered at
-  // the vessel to be offered back later.
   const notNow = useCallback(() => setHeldCrossing(null), []);
 
   return { initiateCheckout, loading, error, heldCrossing, goOnToPayment, notNow };

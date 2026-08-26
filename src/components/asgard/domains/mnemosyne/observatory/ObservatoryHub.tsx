@@ -13,12 +13,6 @@ import {
 } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — Mend II
-// (earlier today) removed this fetch believing no living home existed; the
-// conductor's genealogy check found it living under its settled name,
-// `current` (sovereign_id-scoped). `current` carries no `title` field (that
-// only existed on the old table) — the preview line below falls back to a
-// humanized `event_type` when `description` is empty, honestly.
 interface TimelineEvent {
   id: string;
   description: string | null;
@@ -47,12 +41,8 @@ export function ObservatoryHub() {
   useEffect(() => {
     if (!user) { setLoading(false); return; }
     Promise.all([
-      // badges route is gone — GAIA now emits sigils
       fetch(`/api/generated/athena-gamification/sigils?status=published&order=name.asc&limit=6`)
         .then(r => r.json()),
-      // MEND-III 2026-07-20: corrects Mend II's removal above (same day) — the
-      // conductor's genealogy check found `timelines` living under its settled
-      // name, `current` (hestia-core, sovereign_id-scoped). Re-wired for real.
       fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=3`)
         .then(r => r.json()),
     ]).then(([sigilRes, currentRes]) => {

@@ -16,8 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default async function DatabaseSchemaPage() {
-  // Parse the database types (in a real implementation, this would read from the generated file)
-  // For now, we use our parser that returns the current state
   const { tables, enums } = parseDatabaseTypes();
 
   return (

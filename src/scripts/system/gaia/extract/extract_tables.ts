@@ -1,8 +1,6 @@
 // src/scripts/system/gaia/extract/extract_tables.ts
 // ============================================================================
-// EXTRACT TABLES (GAIA)
 // ============================================================================
-// Purpose: Extract all table definitions from database.types.ts
 // Dependencies: extractObject from modules/extract
 // ============================================================================
 
@@ -24,7 +22,6 @@ export interface ExtractTablesOptions {
   maxTables?: number;  // 0 means no limit
 }
 
-// Pattern for matching enum references in content
 const ENUM_REF_PATTERN = /Database\["public"\]\["Enums"\]\["(\w+)"\]/g;
 
 /**
@@ -49,7 +46,6 @@ function parseTableContent(content: string): {
   let updateStartLine = -1;
   let updateEndLine = -1;
   
-  // Find section start lines
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.match(/^\s*Row:\s*\{/)) {
@@ -63,7 +59,6 @@ function parseTableContent(content: string): {
     }
   }
   
-  // Helper to find closing brace line
   function findClosingBrace(startIdx: number): number {
     let braceCount = 0;
     let foundOpen = false;
@@ -85,7 +80,6 @@ function parseTableContent(content: string): {
     return -1;
   }
   
-  // Extract Row section
   if (rowStartLine !== -1 && insertStartLine !== -1) {
     rowEndLine = insertStartLine - 1;
     const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
@@ -94,7 +88,6 @@ function parseTableContent(content: string): {
       rowContent = rowContent.slice(0, -1).trim();
     }
     
-    // Extract enum references from Row content
     let match;
     while ((match = ENUM_REF_PATTERN.exec(rowContent)) !== null) {
       if (!enumRefs.includes(match[1])) {
@@ -102,16 +95,13 @@ function parseTableContent(content: string): {
       }
     }
     
-    // Check for Json references
     hasJson = rowContent.includes('Json');
     
-    // Clean up enum references (replace with PascalCase placeholder)
     for (const enumRef of enumRefs) {
       const pascalCase = enumRef.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
       rowContent = rowContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
     }
     
-    // Extract Insert section
     if (insertStartLine !== -1 && updateStartLine !== -1) {
       insertEndLine = updateStartLine - 1;
       const insertLines = lines.slice(insertStartLine + 1, insertEndLine);
@@ -120,13 +110,11 @@ function parseTableContent(content: string): {
         insertContent = insertContent.slice(0, -1).trim();
       }
       
-      // Clean up enum references in Insert
       for (const enumRef of enumRefs) {
         const pascalCase = enumRef.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
         insertContent = insertContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);
       }
       
-      // Extract Update section
       if (updateStartLine !== -1) {
         const updateCloseLine = findClosingBrace(updateStartLine);
         if (updateCloseLine !== -1) {
@@ -137,7 +125,6 @@ function parseTableContent(content: string): {
             updateContent = updateContent.slice(0, -1).trim();
           }
           
-          // Clean up enum references in Update
           for (const enumRef of enumRefs) {
             const pascalCase = enumRef.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
             updateContent = updateContent.replace(new RegExp(`Database\\["public"\\]\\["Enums"\\]\\["${enumRef}"\\]`, 'g'), pascalCase);

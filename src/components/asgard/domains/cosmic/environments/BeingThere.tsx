@@ -2,15 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   BEING-THERE — the Realm Detail room, become the place itself           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: REALMS-AS-TRAVEL moves 2 + 3, ruled at KP's ⚛ word 2026-07-30
-// (design + ruling on the (cosmic) REALM-BUS). Entering this room IS the
-// crossing: the beam's own session environment becomes the place on arrival
-// (Page's fixed EnvironmentLayer is the sky — one dress, never doubled), and
-// the content breathes in after the sky grounds — instant under reduced
-// motion. The place-soul reads as the place's own story; mood, colors, and
-// themes are the room's registers, in words, not swatches. "Set as My Realm"
-// keeps its exact wiring to hestia's sanctum. Law 7 rides: the room's only
-// state is the beam's own session.
 
 'use client';
 
@@ -35,12 +26,6 @@ export function BeingThere() {
   const { setEnvironment, environmentVariant } = useContinuityBeam();
   const [selectedVariant, setSelectedVariant] = useState(environmentVariant || 1);
   const prefersReducedMotion = useReducedMotion();
-  // "Set as My Realm" made TRUE (KP's ⚛ word, 2026-07-31: "the Playground
-  // can enable screen settings" — enabled by hestia's hand at his direction
-  // the sitting the Sanctum connection completed). Saves through the same
-  // walled door the Sanctum uses (vessel_config.environment_preference,
-  // docs/sql/013); the beam already wears this room, and hydration at every
-  // arrival is the beam provider's standing law.
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'failed'>('idle');
 
   const rawId = params.id as string;
@@ -65,9 +50,6 @@ export function BeingThere() {
     }
   };
 
-  // THE CROSSING — arrival itself changes the sky (and deepening a variant
-  // re-grounds it). The beam session is this room's only state — and a new
-  // crossing or deeper variant re-offers the choice.
   useEffect(() => {
     setEnvironment(envId, selectedVariant);
     setSaveState('idle');
@@ -91,8 +73,6 @@ export function BeingThere() {
           Return to the Crossing Hall
         </Link>
 
-        {/* The grounding beat — the sky lands first, the room breathes in
-            after (~400ms). Instant under reduced motion. */}
         <motion.div
           key={envId}
           initial={prefersReducedMotion ? false : { opacity: 0 }}
@@ -161,9 +141,6 @@ export function BeingThere() {
               </div>
             </div>
 
-            {/* Actions — "Set as My Realm" saves for real now (the same
-                walled door as the Sanctum's picker); the Sanctum stays one
-                step away for shaping everything else. */}
             <div className="flex flex-wrap items-center gap-3">
               <Button
                 variant="primary"

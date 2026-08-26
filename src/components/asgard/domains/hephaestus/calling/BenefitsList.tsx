@@ -1,12 +1,4 @@
 // components/asgard/domains/hephaestus/calling/BenefitsList.tsx
-// ⚱ RETIRED 2026-07-31 (the truth season, KP's ⚛ ruling: "we have no
-// company" · "no 'careers'"). This was an EMPLOYEE BENEFITS deck — health
-// coverage, learning stipends, equity — promises from an employer that
-// does not exist, in the realm whose law is "a page is true only if the
-// realm it describes agrees." Rendered nowhere since the /calling rewrite;
-// kept whole per lose-nothing. The true economics (residuals, covenant
-// pool) are documented honestly at /forge/business/ecosystem.
-// Employee benefits showcase
 
 "use client";
 

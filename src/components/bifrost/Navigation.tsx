@@ -3,41 +3,8 @@
 // ║                    NAVIGATION — THE BIFRÖST                               ║
 // ║                    Realm-first navigation experience                      ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// THE MAP ECHO (2026-07-31, at KP's ⚛ word: "we need to update the
-// navigation somehow. many things are out of reach"): ✍ gate ② ruled the
-// realm map is furniture in the vessel home — "potentailly an expanable
-// element of the navigation bar." This is that element: the bar stays
-// calm, and THE MAP unfolds the whole street — every realm, every real
-// room, one fixed geometry that never shuffles (the same order the home's
-// map-furniture keeps). The mobile drawer renders the same street, so
-// nothing is out of reach anywhere.
-// Every href below is a route that exists on disk — the map never lies.
-//
 // ───────────────────────────────────────────────────────────────────────────
-// THE FOUR-ITEM BAR — 2026-08-24, board ② of the Forge canvas
-// (.journals/proofs/11-hephaestus/design/Nav.dc.html · SPEC.md ②).
-//
-// KP ⚛ 2026-08-24, verbatim, spelling and brackets kept:
-//   "i think the navigation should be simplified, since we have the map
-//    for the full navigation. [Vessel, Bazaar, Playground, Sanctum
 //    (hephaestus) ]"
-// KP ⚛ 2026-08-24, same sitting, verbatim:
-//   "the collision is my mispelling, it is sanctuary in hephaestus"
-// KP ⚛ 2026-08-24, verbatim, on the (cosmic) item:
-//   "effects, playground, environments, theater are all (cosmic) pages"
-// KP ⚛ 2026-08-24, verbatim, on Vessel signed out going to the auth door
-// and on four fixed items whatever the state: "yes"
-//
-// The six realms and the SECONDARY three retired from the bar on that word.
-// NOTHING LOST ITS DOOR: every one of them already stands in the map and in
-// the mobile drawer, which render the whole street and always did. The bar
-// is now DERIVED from `the-street.ts` rather than hand-kept beside it —
-// the duplication that street file was extracted to end (the-street.ts:5-8)
-// and which the bar had never joined.
-//
-// What `/` does on the desktop bar is UNWRITTEN — KP's to rule. `/` itself
-// is untouched here; the mend that keeps it reachable is a room in the
-// street's Hearth group, not an item on this bar.
 // ───────────────────────────────────────────────────────────────────────────
 
 'use client';
@@ -56,10 +23,6 @@ import { THE_STREET } from '@/lib/constants/systems/the-street';
 import type { RealmKey } from '@/lib/constants/systems/trio';
 import Learscail from '@/components/seidr/immersive/Learscail';
 
-// ═══════════════════════════════════════════════════════════════════════════
-// THE BAR — four items, every href read from the street
-// ═══════════════════════════════════════════════════════════════════════════
-
 /**
  * The auth door. One definition, used by the signed-out Vessel item and by
  * the auth affordance on the right, so the two can never disagree.
@@ -70,9 +33,6 @@ const AUTH_DOOR = '/login';
 function realmDoor(realm: RealmKey): string {
   const found = THE_STREET.find((r) => r.realm === realm);
   if (!found) {
-    // Fails loudly rather than rendering a silent wrong link. This throws at
-    // module scope, so `npm run build` catches it while prerendering — the
-    // loudest and safest place for a street that has drifted.
     throw new Error(`Navigation: no realm "${realm}" in THE_STREET`);
   }
   return found.href;
@@ -98,18 +58,9 @@ interface BarItem {
 }
 
 const THE_FOUR: BarItem[] = [
-  // Vessel — the Hearth realm's own door. Signed out it goes to the auth
-  // door, and the LABEL DOES NOT SHAPESHIFT: the name is the place, the href
-  // is the door that leads there (KP ⚛ "yes").
   { label: 'Vessel', href: realmDoor('hestia'), visitorHref: AUTH_DOOR, icon: User },
   { label: 'Bazaar', href: realmDoor('hermes'), visitorHref: realmDoor('hermes'), icon: Store },
-  // Library — the (Athena) REALM's door as the street defines it, not a
-  // route typed here. Realm 10's own pass may re-home that door; this item
-  // follows it without an edit.
   { label: 'Library', href: realmDoor('athena'), visitorHref: realmDoor('athena'), icon: Library},
-  // Sanctuary — the visitors' front door. A ROOM in the Forge group rather
-  // than that realm's door (the Forge's own door is /forge), so it is read
-  // by its street label.
   {
     label: 'Sanctuary',
     href: realmRoom('hephaestus', 'The Sanctuary'),
@@ -117,18 +68,6 @@ const THE_FOUR: BarItem[] = [
     icon: Shield,
   },
 ];
-
-// ═══════════════════════════════════════════════════════════════════════════
-// THE STREET — the whole map, fixed geometry (the home-furniture's order:
-// hearth beside studio first — the shortest edge — then the rest, forever).
-// Rooms listed are real routes on disk; nothing renders that cannot be
-// walked to.
-// ═══════════════════════════════════════════════════════════════════════════
-
-// THE STREET MOVED OUT (2026-08-11) — it lives at
-// `@/lib/constants/systems/the-street` now, so the nav and the LÉARSCÁIL
-// read one definition and cannot drift apart. Nothing about the list
-// changed in the move; it only stopped being a second copy.
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
@@ -176,8 +115,6 @@ export function Navigation({ className }: { className?: string }) {
           {THE_FOUR.map((item) => {
             const Icon = item.icon;
             const href = user ? item.href : item.visitorHref;
-            // The active read follows the place, not the auth door: a
-            // visitor standing on /sanctuary sees Sanctuary already lit.
             const active = isActive(item.href);
             return (
               <Link
@@ -231,7 +168,6 @@ export function Navigation({ className }: { className?: string }) {
 
       {/* ════════════════════════════════════════════════════════════════ */}
       {/* THE MAP, UNFOLDED — the whole street, fixed geometry              */}
-      {/* (~80vw × 80vh solid module, KP's ⚛ map-module ruling)             */}
       {/* ════════════════════════════════════════════════════════════════ */}
       {mapOpen && (
         <div
@@ -252,10 +188,6 @@ export function Navigation({ className }: { className?: string }) {
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
-            {/* THE LÉARSCÁIL — the land itself, drawn (KP's ⚛ commission
-                2026-08-11). The room index below stays exactly as it was:
-                the map is the calm way in, the index is every door, and
-                neither is the admission ticket (law VIII). */}
             <div className="mb-6 shrink-0">
               <Learscail onTravel={closeMap} />
             </div>
@@ -296,10 +228,6 @@ export function Navigation({ className }: { className?: string }) {
       )}
 
       {/* ════════════════════════════════════════════════════════════════ */}
-      {/* MOBILE — FLOATING BUTTON + DRAWER (the four, then the whole      */}
-      {/* street). A phone reader has no bar to compare against, so        */}
-      {/* without the four-strip the simplification does not exist for     */}
-      {/* them. Board ②, 2026-08-24.                                       */}
       {/* ════════════════════════════════════════════════════════════════ */}
       <div className="md:hidden">
         {/* Overlay */}

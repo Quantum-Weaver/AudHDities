@@ -1,16 +1,8 @@
-// src/lib/constants/components/immersive/quantum_background.ts - SIMPLIFIED
-// ============================================================================
-// QUANTUM BACKGROUND CONSTANTS - DIRECT ASSET MAPPER INTEGRATION
-// ============================================================================
-
 import { AssetMapper } from '@/lib/constants/systems/assets/mapper';
 
-// Simple background configuration using your AssetMapper directly
 export const BACKGROUND_ASSETS = {
-  // Direct environment mappings - your component uses these
   environments: AssetMapper.environments,
   
-  // Simple animation presets (mutable arrays for Framer Motion)
   animations: {
     subtlePulse: {
       animate: {
@@ -49,7 +41,6 @@ const FOREGROUND_RATIO = 1.0025;
 
 const foregroundScaleArray: number[] = BASE_SCALE_ARRAY.map(scale => scale * FOREGROUND_RATIO);
 
-// Background intensity levels matching your component props
 export const BACKGROUND_INTENSITY = {
   LOW: 0.3,
   MEDIUM: 0.6,
@@ -57,7 +48,6 @@ export const BACKGROUND_INTENSITY = {
   QUANTUM: 1.0
 } as const;
 
-// Define at component level for perfect synchronization
 export const SCALING_CONFIG = {
   baseArray: BASE_SCALE_ARRAY,
   foregroundRatio: FOREGROUND_RATIO,
@@ -65,7 +55,6 @@ export const SCALING_CONFIG = {
   foregroundDelay: 0.3,
 } as const;
 
-// Calculate synchronized arrays
 export const backgroundScales: number[] = SCALING_CONFIG.baseArray;
 export const foregroundScales: number[] = foregroundScaleArray;
 

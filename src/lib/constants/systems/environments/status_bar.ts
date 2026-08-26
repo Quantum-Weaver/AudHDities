@@ -1,5 +1,4 @@
 // lib/constants/systems/environments/status_bar.ts
-// Status Bar Configuration - Complete for all EnvironmentKeys
 
 import type { BaseEnvironmentKey } from './types';
 

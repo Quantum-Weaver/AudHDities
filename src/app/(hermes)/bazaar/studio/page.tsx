@@ -1,6 +1,4 @@
 // src/app/(hermes)/bazaar/studio/page.tsx
-// The Loom — the owner's shelf. Everything a vessel has made, at every status.
-// Feeling: Generative, sovereign, creative
 import { Page } from '@/components/bifrost/Page';
 import { StudioShelf } from '@/components/asgard/domains/hermes/studio/StudioShelf';
 

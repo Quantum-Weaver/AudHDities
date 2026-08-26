@@ -1,6 +1,4 @@
 // app/(themis)/council/applications/[id]/page.tsx
-// Application Detail - Single application view
-// Feeling: Detailed, hopeful, transparent
 
 import { Page } from '@/components/bifrost/Page';
 
@@ -26,7 +24,6 @@ export default async function ApplicationDetailPage({ params }: ApplicationDetai
     >
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
           {/* Application ID: {id} */}
         </div>
       </main>

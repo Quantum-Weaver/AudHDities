@@ -1,6 +1,4 @@
 // src/app/(hestia)/vessel/journal/page.tsx
-// The Scroll — Journal entries list
-// Feeling: Reflective, sacred, personal
 
 import { Page } from '@/components/bifrost/Page';
 import  { JournalList } from '@/components/asgard/domains/hestia/journal/JournalList';

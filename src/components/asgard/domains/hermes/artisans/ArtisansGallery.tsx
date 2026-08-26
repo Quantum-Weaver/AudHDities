@@ -1,8 +1,4 @@
 // src/components/asgard/domains/hermes/artisans/ArtisansGallery.tsx
-// Artisan edition (2026-07-31): creator_profiles (hestia-core, extinct)
-// became artisan_profiles (hermes-social) — the makers live in this
-// realm's own deity now. profile_status has no 'verified' value: the
-// directory shows status=active; the verified badge reads verified_at.
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';

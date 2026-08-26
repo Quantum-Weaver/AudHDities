@@ -2,7 +2,6 @@
 // GAIA ORCHESTRATOR - Refined Type-First Generator
 // ============================================================================
 // Purpose: Orchestrate the complete generation pipeline
-// Uses: Type-safe helpers, enrichment layer, modular generators
 // ============================================================================
 
 import * as fs from 'fs';
@@ -291,7 +290,6 @@ function filterObjects(
     
     return {
       tableNames: deityGroup.tables,
-      // 2026-08-12: the base carries 0 views (courier count), so the new
       // helpers type PublicViewNames as never — the empty list is the truth.
       viewNames: [],
       functionNames: allFunctions.filter(f => {
@@ -365,7 +363,6 @@ function calculateGenerationPlan(
   let hookFiles = 0;
   let utilFiles = 0;
   
-  // Tables
   for (const table of tables) {
     if (table.shouldGenerateTypes) typeFiles++;
     if (table.shouldGenerateValidators) validatorFiles++;
@@ -374,18 +371,15 @@ function calculateGenerationPlan(
     if (table.shouldGenerateUtils) utilFiles++;
   }
   
-  // Views
   for (const view of views) {
     if (view.shouldGenerateTypes) typeFiles++;
     if (view.shouldGenerateViewApiRoutes) apiRouteFiles += 2;
   }
   
-  // Functions
   for (const fn of functions) {
     if (fn.shouldGenerateApiRoutes) apiRouteFiles += 1;
   }
   
-  // Runtime Enums
   for (const enum_ of runtimeEnums) {
     if (enum_.shouldGenerateConstants) constantFiles++;
   }
@@ -479,8 +473,6 @@ async function showGenerationPlan(
 // ARTIFACT GENERATION
 // ============================================================================
 
-// In index.ts - This is the correct, aligned version
-
 async function generateTableArtifacts(
   table: EnrichedTable,
   writeOptions: WriteOptions,
@@ -500,7 +492,6 @@ async function generateTableArtifacts(
 // ====================================================
 if (table.shouldGenerateTypes) {
   try {
-    // Build ExtractedObjectWithDetails from TableInfo
     const object: ExtractedObjectWithDetails = {
       name: table.name,
       type: 'table',
@@ -645,7 +636,6 @@ async function generateViewArtifacts(
     logDebug(`\n  👁️  View: ${viewName} -> ${deityFolder}`);
   }
   
-  // Types
   if (view.shouldGenerateTypes) {
     try {
       const result = generateViewTypes(view);
@@ -670,7 +660,6 @@ async function generateViewArtifacts(
     }
   }
   
-  // API Routes
   if (view.shouldGenerateViewApiRoutes) {
     try {
       const routes = generateViewApiRoutes(view);
@@ -712,7 +701,6 @@ async function generateFunctionArtifacts(
     logDebug(`\n  ⚡ Function: ${functionName} -> ${deityFolder}`);
   }
   
-  // API Route
   if (fn.shouldGenerateApiRoutes) {
     try {
       const route = generateFunctionApiRoute(fn);
@@ -842,7 +830,6 @@ function displaySummary(stats: GenerationStats, dryRun: boolean): void {
 async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   const { dryRun, verbose, force, target, targetValue } = options;
   
-  // Initialize
   const logger = new SystemLogger('GAIA');
   logger.startRun();
   
@@ -974,22 +961,18 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   logStep('\n🚀 Phase 6: Generation');
   logSeparator('─', 40);
 
-  // Tables
   for (const table of enriched.tables) {
     await generateTableArtifacts(table, writeOptions, stats, logger, lines, markersWithBraces);
   }
 
-  // Views
   for (const view of enriched.views) {
     await generateViewArtifacts(view, writeOptions, stats, logger);
   }
 
-  // Functions
   for (const fn of enriched.functions) {
     await generateFunctionArtifacts(fn, writeOptions, stats, logger);
   }
 
-  // Runtime Enums
   for (const enum_ of enriched.runtimeEnums) {
     await generateRuntimeEnumArtifacts(enum_, writeOptions, stats, logger);
   }
@@ -1001,7 +984,6 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
   for (const table of enriched.tables) {
     if (table.shouldGenerateValidators) {
       try {
-        // Build the full table content from extracted sections
         const tableContent = `{
     Row: {
   ${table.rowContent}
@@ -1065,15 +1047,12 @@ async function runGaia(options: GaiaOptions): Promise<GenerationStats> {
 async function main() {
   let options: GaiaOptions;
   
-  // Check if interactive mode is requested via CLI
   const args = process.argv.slice(2);
   const interactiveFlag = args.includes('--interactive') || args.includes('-i');
   
   if (interactiveFlag || args.length === 0) {
-    // ALWAYS show interactive prompt if no arguments or --interactive
     options = await getInteractiveOptions();
   } else {
-    // Parse CLI options only if arguments provided and not interactive
     options = parseOptions();
   }
   

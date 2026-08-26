@@ -150,7 +150,6 @@ function discoverComponentsInLayer(
   const entries = fs.readdirSync(layerDir, { withFileTypes: true });
 
   for (const entry of entries) {
-    // Skip ignored directories
     if (entry.isDirectory() && IGNORED_DIRS.includes(entry.name)) {
       continue;
     }
@@ -183,7 +182,6 @@ function discoverComponentsInLayer(
           isSubComponent: false,
         });
 
-        // Now check for sub-components inside this directory
         const subEntries = fs.readdirSync(subDir, { withFileTypes: true });
         for (const subEntry of subEntries) {
           // Sub-component .tsx files (not index.tsx — already handled)
@@ -281,13 +279,11 @@ function findSupportingFiles(
     );
   }
 
-  // Types
   const typesDir = path.join(COMPONENT_DIRS.types, layer);
   if (fs.existsSync(typesDir)) {
     result.types = checkFile(typesDir, `${underscoreName}.types.ts`);
   }
 
-  // Utils
   const utilsDir = path.join(COMPONENT_DIRS.utils, layer);
   if (fs.existsSync(utilsDir)) {
     result.utils = checkFile(utilsDir, `${underscoreName}.utils.ts`);
@@ -306,11 +302,9 @@ function findComponentFile(
 ): FileEntry | null {
   const componentDir = path.join(COMPONENT_DIRS.components, layer);
 
-  // Primary: PascalCase.tsx
   const primary = checkFile(componentDir, `${pascalName}.tsx`);
   if (primary) return primary;
 
-  // Fallback: underscore_name.tsx
   const fallback = checkFile(componentDir, `${underscoreName}.tsx`);
   if (fallback) return fallback;
 
@@ -353,8 +347,6 @@ function scanDiscoveredComponent(
     .replace(/\//g, '_')
     .toLowerCase();
 
-  // Only base components get supporting files checked at the top level.
-  // Sub-components with their own directory (index.tsx) might have their own.
   const isTopLevel = !discovered.isSubComponent;
 
   let supporting: SupportingFiles;
@@ -647,10 +639,8 @@ function main(): void {
     }
   }
 
-  // Discover all components from the filesystem
   const allDiscovered = discoverAllComponents();
 
-  // Find base component paths (for sub-component counting)
   const baseComponentPaths = new Set<string>();
   for (const d of allDiscovered) {
     if (!d.isSubComponent) {
@@ -658,12 +648,10 @@ function main(): void {
     }
   }
 
-  // Build reports
   const reports: ComponentReport[] = allDiscovered.map((d) =>
     scanDiscoveredComponent(d, allDiscovered, baseComponentPaths)
   );
 
-  // Sort by layer, then by component name
   reports.sort((a, b) => {
     const layerOrder = LAYERS.indexOf(a.layer) - LAYERS.indexOf(b.layer);
     if (layerOrder !== 0) return layerOrder;

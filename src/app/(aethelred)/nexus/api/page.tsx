@@ -2,12 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE GATEWAY — the repo constellation (the wrong face healed)           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// 2026-07-31: this page wore a verbatim copy of the webhooks room ("The
-// Pulse") while the hub and README promised "The Gateway" — the Nexus bus's
-// edge 1. Healed at KP's ⚛ words ("somewhere we can show off the repo set"
-// · "likely in the aethelred realm actually"): the Gateway's true face is
-// the WORK ITSELF — the public repo constellation, every door real, every
-// description the repo's own. Build on the Sanctuary starts with reading it.
 import { Page } from '@/components/bifrost/Page';
 import { RepoConstellation } from '@/components/asgard/domains/aethelred/nexus/RepoConstellation';
 import { GitBranch } from 'lucide-react';

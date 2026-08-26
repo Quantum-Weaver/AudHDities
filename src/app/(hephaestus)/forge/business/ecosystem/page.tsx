@@ -191,7 +191,6 @@ export default function FinancialEcosystemPage() {
                 {/* Arrow down */}
                 <div className="text-star-dust/30">▼</div>
                 
-                {/* Merge Point: Sanctuary */}
                 <div className="text-center">
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center mx-auto mb-2 border border-white/20">
                     <Heart className="text-pink-400" size={32} />
@@ -249,8 +248,6 @@ export default function FinancialEcosystemPage() {
                 <div className="text-star-dust/30">▼</div>
                 
                 {/* Final Distribution */}
-                {/* A fifth recipient, "Future Fund — Grants & Reserves," stood here until
-                    2026-08-24. No such fund exists: a sale has exactly four destinations. */}
                 <div className="flex justify-center gap-8 flex-wrap">
                   <div className="text-center min-w-[100px]">
                     <div className="text-neurospark font-bold">Servers & Tools</div>
@@ -273,7 +270,6 @@ export default function FinancialEcosystemPage() {
                 {/* Arrow down */}
                 <div className="text-star-dust/30">▼</div>
                 
-                {/* Return to Circulation */}
                 <div className="bg-white/5 rounded-full px-6 py-3">
                   <p className="text-neurospark text-sm flex items-center gap-2">
                     <span>⟳</span> Value Returns to the Community
@@ -317,7 +313,6 @@ export default function FinancialEcosystemPage() {
             </div>
           </section>
           
-          {/* Call to Action */}
           <section className="text-center">
             <Card 
               data={{ id: 'ecosystem-cta', type: 'value', title: 'See It in Action', value: 'Ledger' }}

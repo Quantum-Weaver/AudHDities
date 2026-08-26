@@ -78,7 +78,6 @@ export function formatPriceLocalized(price: number | null | undefined): string {
  * Convert price between currencies (simplified - in production use exchange rate API)
  */
 export function convertPrice(price: number, from: SupportedCurrency, to: SupportedCurrency): number {
-  // Simplified exchange rates (in production, use an API)
   const rates: Record<SupportedCurrency, number> = {
     USD: 1,
     EUR: 0.92,

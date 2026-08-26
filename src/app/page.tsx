@@ -1,5 +1,4 @@
 // src/app/page.tsx
-// The Hearth — Welcome to the Sovereign Sanctuary
 
 import { redirect } from 'next/navigation';
 import { createServerSupabase } from '@/lib/supabase/server';
@@ -33,9 +32,6 @@ import {
 } from '@/lib/constants/components/asgard/domains/hestia/home/home.variants';
 import AuthenticatedGreeting from '@/components/asgard/domains/hestia/home/AuthenticatedGreeting';
 
-// PROPOSED 2026-08-24 — the canvas is silent on what "/" does for a visitor.
-// KP ⚛ answer 2: "sanctuary should be the home page for visitors." The Hearth
-// is the vessel's room; a visitor is shown the visitors' home instead.
 export default async function Home() {
   const supabase = await createServerSupabase();
   const { data: { user } } = await supabase.auth.getUser();

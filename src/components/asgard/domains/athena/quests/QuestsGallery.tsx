@@ -11,9 +11,6 @@ import { cn } from '@/lib/utils';
 import { useQuestsList } from '@/lib/generated/hooks/athena-gamification/quests';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// The evolved quests table speaks name/status/slug; the old house column
-// became quest_type, and scalar rewards became the rewards Json (its shape
-// belongs to the row-10 sitting — not rendered until then).
 const DIFFICULTY_COLORS: Record<string, string> = {
   beginner: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
   intermediate: 'bg-amber-500/20 text-amber-400 border-amber-500/30',

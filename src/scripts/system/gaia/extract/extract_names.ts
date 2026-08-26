@@ -1,9 +1,6 @@
 // src/scripts/system/gaia/extract/extract_names.ts
 // ============================================================================
-// EXTRACT NAMES (GAIA) - Type-First Extraction
 // ============================================================================
-// Purpose: Extract ONLY names from database.types.ts collections
-// Full content extraction is NO LONGER NEEDED - helpers provide types!
 // ============================================================================
 
 import { logDebug, logSuccess, logWarning } from '../../../shared/logger.js';

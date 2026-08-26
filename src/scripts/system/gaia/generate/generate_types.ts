@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/generate/generate_types.ts
 // ============================================================================
-// GENERATE TYPES (GAIA) - Complete with Derived Interfaces
 // ============================================================================
 
 import type { EnrichedTable, EnrichedView, EnrichedTypeEnum } from '../enrich/enrich_objects.js';
@@ -91,7 +90,6 @@ export function generateEnumExports(enumRefs: string[]): string {
 // TABLE TYPE GENERATION
 // ============================================================================
 
-// Helper to parse rowContent string into RawField[]
 function parseRowContentToFields(rowContent: string): RawField[] {
   const lines = rowContent.split('\n');
   const fields: RawField[] = [];
@@ -130,7 +128,6 @@ export function generateTableTypes(
   const enumRefs = parsed.enumRefs;
   const hasJson = parsed.hasJson;
   
-  // Parse rowContent into structured fields
   const fields = rowContent ? parseRowContentToFields(rowContent) : [];
   console.log('\n' + '='.repeat(60));
   console.log(`DEBUG: ${tableName} - rowContent from extractRowContent:`);
@@ -142,7 +139,6 @@ export function generateTableTypes(
 
   let content = generateHeader(tableName, deityFolder, 'table', handlingLevel);
   
-  // Imports
   content += `import type { Tables, TablesInsert, TablesUpdate } from '@/types/supabase/database.helpers';\n`;
   content += `import type { Database } from '@/types/supabase/database.types';\n`;
   if (hasJson) {

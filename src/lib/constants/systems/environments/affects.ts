@@ -1,29 +1,9 @@
 // lib/constants/systems/environments/affects.ts
 // ============================================================================
-// THE AFFECT BUNDLES — EnvironmentKey → token dress (the fifth instrument's
 // wardrobe, and the resolver's token-era output)
 // ============================================================================
-// Provenance: THE-FRONTEND-REIMAGINING, finishing session 2026-07-29 (study
 // record: resonance-chamber/desk/records/fable-lanes/study/
-// e2-the-ux-study-bus.md — round 8a work-order, steps ② and ③). KP's
-// commission verbatim: "the current state of the AudHDities build still has
-// background images. i want to use our cosmic system to provide a better
-// dynamic ui system." The images are RETIRED (KP's ✍ stroke 2026-07-19,
-// lose-nothing ×2: Well archive + holodeck second life). Affect comes from
-// constants, not pictures.
-//
-// Additions-only, pure reference — every value points at an already-signed
 // constant:
-//   · the wash — BEAM_COLORS[environment] (cosmic GRADIENTS; the beam's own
-//     environment→color judgment, reused whole rather than re-decided)
-//   · the soul — EnvironmentPromptMap mood/colors/themes (the places' souls,
-//     preserved as data when the panoramas retired; the alias table below is
-//     the AssetMapper's own scene-sharing, lifted verbatim under the piecing
-//     license so the souls outlive the image catalog)
-//   · the breathing — the old engine's measured cadence (SCALING_CONFIG,
-//     47.7s scale constellation), carried whole so the token era breathes at
-//     the exact tempo the image era did. Instant under reduced motion — the
-//     sensory law rides in the component, not here.
 
 import type { EnvironmentKey } from '../assets/mapper';
 import { BEAM_COLORS } from '@/lib/constants/components/immersive/continuity_beam';
@@ -37,12 +17,6 @@ import {
   quickResolveEnvironment,
   type ResolveEnvironmentOptions,
 } from './resolver';
-
-// ============================================================================
-// THE SOUL TABLE — which of the 11 place-souls each environment key carries
-// (the AssetMapper's own alias groups, recorded verbatim at the piecing;
-// 32 keys, 11 scenes — the same sharing the image catalog encoded in paths)
-// ============================================================================
 
 export type SoulSceneKey = keyof typeof EnvironmentPromptMap;
 
@@ -129,14 +103,6 @@ export function getEnvironmentAffect(environment: EnvironmentKey): EnvironmentAf
     },
   };
 }
-
-// ============================================================================
-// THE RESOLVER, REPOINTED (work-order step ③) — the seven rule families
-// (tier · sovereignty · energy · time · season · accessibility · performance)
-// now feed a TOKEN BUNDLE, not an image path. The Sanctuary breathes: it
-// softens when the vessel is tired, warms at evening, turns with the seasons
-// — and what changes is affect-from-constants, never a picture swap.
-// ============================================================================
 
 export interface EnvironmentAffectResolution {
   affect: EnvironmentAffect;

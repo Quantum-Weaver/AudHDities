@@ -1,18 +1,13 @@
 // @/scripts/shared/check_object_config.ts
 // ============================================================================
-// CHECK OBJECT CONFIG - Type-Safe Configuration Validation
 // ============================================================================
-// Phase 2: Check object configuration against deity_groups.ts
-// Determines output folder, deity group, and generation rules for each object
 // ============================================================================
 
 import type { ObjectConfig, ConfigRules, ExtractedObject } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
 
-// Import type-safe helpers
 import type { PublicTableNames, PublicViewNames, PublicEnumNames } from '@/lib/generated/supabase/database.helpers.js';
 
-// Import the deity groups configuration
 import { 
   DEITY_GROUPS, 
   getDeityGroupForTable,
@@ -26,7 +21,6 @@ import {
   type DeityGroup 
 } from '@/config/deity_groups.js';
 
-// Import the single source of truth for sensitive fields
 import { SENSITIVE_FIELDS } from '@/config/sensitive_fields.js';
 
 export interface CheckObjectConfigOptions {
@@ -34,10 +28,8 @@ export interface CheckObjectConfigOptions {
   defaultOutputBase?: string;
 }
 
-// ✅ Use the imported SENSITIVE_FIELDS - no duplication!
 export const DEFAULT_SENSITIVE_FIELDS: string[] = [...SENSITIVE_FIELDS];
 
-// Default configuration rules
 export const DEFAULT_CONFIG_RULES: ConfigRules = {
   defaultDeityGroup: 'unassigned',
   tableMapping: {},
@@ -212,7 +204,6 @@ export function getUnassignedTables(allTableNames: PublicTableNames[]): PublicTa
  * Get all views that are missing deity group assignments
  */
 export function getUnassignedViews(_allViewNames: PublicViewNames[]): PublicViewNames[] {
-  // 2026-08-12: the base carries 0 views (courier count), so the new helpers
   // type PublicViewNames as never — the empty list is the truth.
   return [];
 }

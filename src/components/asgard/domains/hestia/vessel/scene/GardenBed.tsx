@@ -2,19 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE GARDEN — blooming on its own clock, dormancy never death           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: KP's ⚛ immersion vision, verbatim: "gardening and flowers
-// blooming nothing dying, all only steps away from the creative studios."
-// The audiences' law (L1-13): "No punishment. Only patience" — plants go
-// dormant, never die; seeds regrow; the garden is patient. Growth is read
-// from real time (planted_at × plant_stages.duration_hours) — no timers
-// shown, no pressure, no red anything. Empty plots wait with dignity.
-//
-// THE SHAPING (2026-07-31, at KP's ⚛ word "we are ready to finish hestia"):
-// the garden grew hands — ready a plot, plant a seed, water. All gestures
-// are the vessel's own taps (deliberate, keyboard-whole: native select, real
-// buttons); there is NO delete verb anywhere, because dormancy-not-death
-// has no use for one. Watering a resting plot wakes it — that is the whole
-// of the "punishment" system: there isn't one.
 
 'use client';
 
@@ -135,8 +122,6 @@ export default function GardenBed({
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {plots.map((plot) => {
           const seed = plot.seed_id ? seedById.get(plot.seed_id) : undefined;
-          // The care cadence follows the plant (KP's ⚛ ruling 2026-08-12):
-          // the seed's rarity sets the rest window; rarer asks less often.
           const growth = readGrowth(plot.planted_at, plot.last_watered_at, stages, seed?.rarity ?? null);
 
           return (

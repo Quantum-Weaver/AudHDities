@@ -1,6 +1,4 @@
 // lib/auth.ts
-// Auth helpers for App Router (server components)
-// Use this in server components and server actions
 
 import { createServerSupabase } from '@/lib/supabase/server';
 import { type User } from '@supabase/supabase-js';
@@ -41,7 +39,6 @@ export async function auth(): Promise<Session> {
     return { user: null, profile: null };
   }
   
-  // Fetch user profile (community_profiles is the identity successor)
   const { data: profile } = await supabase
     .from('community_profiles')
     .select('*')
@@ -135,7 +132,6 @@ export async function requireAuth(): Promise<Session> {
   
   if (!session.user) {
     // Cannot redirect in server component directly,
-    // throw an error that can be caught by middleware or return null
     throw new Error('Unauthorized: Please log in');
   }
   

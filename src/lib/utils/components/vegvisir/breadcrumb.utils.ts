@@ -149,7 +149,6 @@ export function pathToItemsWithDynamic(
     const href = '/' + segments.slice(0, index + 1).join('/');
     const isLast = index === segments.length - 1;
 
-    // Check dynamic labels first, then static label map, then capitalize
     let label: string;
     if (dynamicLabels && segment in dynamicLabels) {
       label = dynamicLabels[segment];
@@ -229,14 +228,12 @@ export function buildClickOutsideHandler(
 
   return {
     onMount: (el: HTMLElement | null) => {
-      // Remove old listener
       if (element) {
         document.removeEventListener('mousedown', handleMouseDown);
       }
 
       element = el;
 
-      // Add new listener if open
       if (isOpen && element) {
         document.addEventListener('mousedown', handleMouseDown);
       }

@@ -1,20 +1,4 @@
 // src/components/asgard/domains/hermes/studio/StudioShelf.tsx
-// THE OWNER'S SHELF (SPEC §7).
-//
-// KP ⚛ 2026-08-24: "be certain a vessel can view their own works and wares
-// regarless of publish status, so they can edit the items."
-//
-// It does not soften the earlier default — it BOUNDS it. status = published is
-// the stall, and THE STALL IS WHAT VISITORS SEE. Here the read is scoped by
-// OWNERSHIP AND BY NOTHING ELSE: no status filter is passed at all.
-//
-// Until an artisan saved a draft and closed the tab, /bazaar/studio/[id] had
-// exactly one inbound link in the whole realm and it was the redirect after
-// saving. This room is the finding. The editing door already existed.
-//
-// THE COULD-NOT-BE-READ STATE IS NOT THE EMPTY STATE. A room that says
-// "nothing here" when the answer is "I was not allowed to look" has told a
-// vessel their work is gone.
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -45,7 +29,6 @@ type ShelfRow = {
 const STATUS_WORDS: Record<string, string> = {
   draft: 'Draft',
   published: 'On the stall',
-  // Set aside, never Archived — archiving is what a system does to a record.
   archived: 'Set aside',
 };
 
@@ -106,7 +89,6 @@ export function StudioShelf() {
             status: w.status,
             createdAt: w.created_at,
             ownedByMe: w.created_by === user.id,
-            // A work's edit door is not built this pass; its own room is.
             editHref: null,
           })),
         ].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
@@ -124,8 +106,6 @@ export function StudioShelf() {
   );
 
   const worksWithoutAWare = useMemo(() => {
-    // Nothing in the base records a ware's descent from a work — that pointer
-    // is unwritten, his to rule — so every work carries the line honestly.
     return new Set(rows.filter((r) => r.kind === 'work').map((r) => r.id));
   }, [rows]);
 

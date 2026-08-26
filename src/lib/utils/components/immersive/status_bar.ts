@@ -1,5 +1,4 @@
 // @/utils/components/immersive/status_bar.ts
-// Status Bar Utilities - Updated for sovereignty support
 
 import type { StatusType, StatusFormat, ConsciousnessState, StatusBarUtils } from '@/types/components/immersive/status_bar';
 
@@ -27,7 +26,6 @@ export const statusBarUtils: StatusBarUtils = {
   getStatusColor: (type: StatusType, value: number, maxValue: number): string => {
     const percentage = (value / maxValue) * 100;
     
-    // Special handling for health (changes color based on threshold)
     if (type === 'health') {
       if (percentage < 30) return 'bg-red-600';
       if (percentage < 60) return 'bg-yellow-500';
@@ -60,7 +58,6 @@ export const statusBarUtils: StatusBarUtils = {
       case 'level':
         return `Lv ${Math.floor(value)}`;
       case 'points':
-        // Format large numbers with K/M suffix
         if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
         if (value >= 1000) return `${(value / 1000).toFixed(0)}K`;
         return `${value}`;
@@ -136,7 +133,6 @@ export const statusBarUtils: StatusBarUtils = {
   },
 };
 
-// Export helper for text colors
 export const getStatusTextColor = (type: StatusType): string => {
   return statusTextColors[type] || 'text-star-dust';
 };

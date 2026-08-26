@@ -1,29 +1,6 @@
 // src/components/asgard/domains/hestia/sanctum/CovenantSpace.tsx
 'use client';
 
-// THE COVENANT SPACE — a ceremonial space in the Sanctum, not a settings
-// row. KP's ⚛ strokes, 2026-08-12, verbatim on the realm bus: the vessel
-// sets their covenant pool by slider, 0–50%, 0 by default ("i will begin at
-// hopefully be able to keep mine at 50%"); "this is a ceremonila space in
-// the sanctum, not just in the settings"; display of the pledge is the
-// vessel's own choice — the founder's stays visible at all times.
-//
-// The register: zero is a whole and honorable setting — the covenant is a
-// gift, never a due (THE OPT-IN LAW). The pledge is ENACTED by a deliberate
-// gesture, never auto-saved from a drag: ceremony is deliberateness. The
-// display choice arrives with its public column (docs/sql/021, KP's hand);
-// no control for it is shown until the door it opens exists.
-//
-// RETARGETED 2026-08-24, KP's ⚛ word verbatim: "covenant pledge should not
-// display on vessel face, it should optionally display on outside of home
-// (community profile)." The toggle below still writes the same column
-// (community_profiles.covenant_pledge_percent, null = undisplayed) — only
-// where the pledge is honored changed, from the vessel's own face to the
-// vessel's community profile. THE COVENANT section on /vessel is struck
-// (VesselContent.tsx carries its own dated note); no surface yet renders
-// the pledge outward — a seam for iris's Connect or hestia's own home to
-// pick up, named at the door this sitting.
-
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { Slider } from '@/components/forging/Slider';
@@ -41,9 +18,6 @@ export function CovenantSpace() {
   const [percent, setPercent] = useState(0);
   const [isSetting, setIsSetting] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-  // THE DISPLAY CHOICE — the pledge shown on the vessel's community profile
-  // (never the vessel's own face) only by the vessel's own hand; null in
-  // community_profiles means not displayed.
   const [displayed, setDisplayed] = useState(false);
 
   useEffect(() => {
@@ -59,7 +33,6 @@ export function CovenantSpace() {
       });
       await refreshProfile();
     } catch {
-      // The face keeps its last true state; the sanctum message stays calm.
     }
   };
 
@@ -102,11 +75,6 @@ export function CovenantSpace() {
         : await fetch('/api/generated/hestia-core/user_financial', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            // created_by passes explicitly; the API overrides with the
-            // session's own value regardless (the Shaping's pattern). The id
-            // rides along because the generated InsertSchema requires one
-            // (2026-08-12, the 400 KP's own hand found — seam noted for
-            // GAIA: the base defaults it, the validator demands it).
             body: JSON.stringify({
               id: crypto.randomUUID(),
               created_by: user.id,
@@ -116,7 +84,6 @@ export function CovenantSpace() {
       const result = await response.json();
       if (result.success) {
         if (!row && result.data) setRow(result.data);
-        // A displayed pledge follows its own change — one gesture, one truth.
         if (displayed) await mirrorDisplay(value);
         setMessage(`Your covenant is set — ${value}% flows to the commons.`);
       } else {

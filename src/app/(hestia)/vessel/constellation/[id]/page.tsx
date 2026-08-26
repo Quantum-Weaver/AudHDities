@@ -1,6 +1,4 @@
 // src/app/(hestia)/vessel/constellation/[id]/page.tsx
-// Constellation Detail — A single connection explored
-// Feeling: Intimate, Cosmic, Reflective
 
 import { Page } from '@/components/bifrost/Page';
 import { ConstellationDetail } from '@/components/asgard/domains/hestia/constellation/ConstellationDetail';

@@ -45,7 +45,6 @@ export default function NeurodivergentUxPage() {
             </div>
           </div>
           
-          {/* Principles */}
           <h2 className="text-3xl font-bold text-star-dust mb-6">Our Principles</h2>
           <div className="space-y-4 mb-12">
             <PrincipleCard 
@@ -98,7 +97,6 @@ export default function NeurodivergentUxPage() {
             <FocusDemo />
           </div>
           
-          {/* Implementation Guide */}
           <h2 className="text-3xl font-bold text-star-dust mb-6 mt-12">Implementation Guide</h2>
           <div className="space-y-6 mb-12">
             <CodePlayground 
@@ -129,12 +127,6 @@ export default function NeurodivergentUxPage() {
                 <div className="text-star-dust">✓ Minimum text size: <span className="text-neurospark">16px</span></div>
                 <div className="text-star-dust">✓ Line height: <span className="text-neurospark">at least 1.5</span></div>
                 <div className="text-star-dust">✓ Maximum line length: <span className="text-neurospark">70 characters</span></div>
-                {/* 2026-08-24, the truth pass — VERIFIED, kept as written.
-                    The toggle is real: "Dyslexia-friendly mode" in the
-                    Sanctum's Accessibility card, off unless a vessel turns it
-                    on, persisted to vessel_config.dyslexia_font
-                    (SanctumContent.tsx:289-297; the column at
-                    lib/generated/types/hestia-core/vessel_config.ts:46). */}
                 <div className="text-star-dust">✓ Dyslexia-friendly font option (<span className="text-purple-400">OpenDyslexic</span>)</div>
               </div>
               <div className="bg-white/5 rounded-lg p-4">

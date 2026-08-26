@@ -1,6 +1,4 @@
 /* src/scripts/modules/format/format_object_constants.ts */
-// Phase 4: Format Constants.Enums section into constant objects
-// Uses deity_groups.ts config for folder mapping
 
 import type { FormattedConstantContent, ExtractedObject } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug, logWarning } from '@/scripts/shared/logger.js';
@@ -12,13 +10,10 @@ export interface FormatObjectConstantsOptions {
   outputBase?: string;
 }
 
-// Create direct mapping from enum name to deity group based on tables
 const enumToDeityMap = new Map<string, { deityName: string; domain: string; folderName: string }>();
 
-// Build mapping: for each table in each deity group, associate related enums
 for (const group of DEITY_GROUPS) {
   for (const table of group.tables) {
-    // Common enum patterns that relate to this table
     const relatedEnums = [
       `${table}_type`,
       `${table}_status`, 
@@ -98,10 +93,8 @@ export function formatObjectConstants(
   const timestamp = new Date().toISOString();
   const enumName = enumObject.name;
   
-  // Get deity group from config-based mapping
   const deity = getDeityGroupForEnum(enumName);
   
-  // Parse values from enum content
   let values: string[] = [];
   const pipeMatch = enumObject.content.match(/: (.*)/);
   if (pipeMatch) {
@@ -116,7 +109,6 @@ export function formatObjectConstants(
     logDebug(`  Values: ${values.length}`);
   }
   
-  // Build header
   let header = `// =====================================================\n`;
   header += `// FILE: ${outputBase}/${deity.folderName}/${enumName}.ts\n`;
   header += `// DEITY: ${deity.deityName}\n`;
@@ -127,7 +119,6 @@ export function formatObjectConstants(
   header += `// SOURCE: Constants.public.Enums.${enumName}\n`;
   header += `// =====================================================\n\n`;
   
-  // Build constant content
   const constName = enumName.toUpperCase();
   const constLines: string[] = [];
   constLines.push(`export const ${constName} = {`);

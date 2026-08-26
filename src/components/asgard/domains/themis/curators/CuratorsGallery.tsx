@@ -16,7 +16,6 @@ export function CuratorsGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // In production: fetch from community_profiles where is_curator = true
     setTimeout(() => { setCurators([]); setLoading(false); }, 800);
   }, []);
 

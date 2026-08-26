@@ -1,9 +1,6 @@
 // src/scripts/shared/pause.ts
 // ============================================================================
-// PAUSE UTILITY - Shared user interaction for all system scripts
 // ============================================================================
-// Purpose: Provide consistent pause/resume functionality across all generators
-// Features: Phase confirmation, continue/stop/retry options, timeouts
 // ============================================================================
 
 import * as readline from 'readline';
@@ -157,7 +154,6 @@ export async function pauseForReview(
     case 'n':
     case 'notes':
       action = 'continue';
-      // Get notes
       const notesRl = createReadline();
       notes = await new Promise<string>((resolve) => {
         notesRl.question('\n  Enter notes (optional, press Enter to skip): ', (noteAnswer) => {
@@ -265,7 +261,6 @@ export async function intelligentPause(
   options: PauseOptions = {}
 ): Promise<PauseResult> {
   if (isAutomatedEnvironment()) {
-    // In CI, just log and continue
     logDebug(`Auto-continuing phase: ${phaseName} (CI environment)`);
     return {
       action: 'continue',

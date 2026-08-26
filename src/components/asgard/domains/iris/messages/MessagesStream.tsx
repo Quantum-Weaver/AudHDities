@@ -26,7 +26,6 @@ export function MessagesStream() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    // Fetch messages grouped by thread
     fetch(`/api/generated/iris-communications/messages?recipient_id=${user.id}&order=created_at.desc&limit=50`)
       .then((r) => r.json())
       .then((result) => {

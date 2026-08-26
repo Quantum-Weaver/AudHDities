@@ -1,5 +1,4 @@
 // lib/constants/systems/environments/rules.ts
-// Dynamic environment selection rules
 
 import type { EnvironmentRule, EnvironmentContext, BaseEnvironmentKey } from './types';
 
@@ -87,7 +86,6 @@ export const energyRules: EnvironmentRule[] = [
   },
 ];
 
-// Time based rules
 export const timeRules: EnvironmentRule[] = [
   {
     name: 'night_time',
@@ -109,7 +107,6 @@ export const timeRules: EnvironmentRule[] = [
   },
 ];
 
-// Season based rules
 export const seasonRules: EnvironmentRule[] = [
   {
     name: 'winter_cozy',
@@ -153,7 +150,6 @@ export const accessibilityRules: EnvironmentRule[] = [
   },
 ];
 
-// Performance rules
 export const performanceRules: EnvironmentRule[] = [
   {
     name: 'low_performance',
@@ -180,5 +176,4 @@ export const ALL_ENVIRONMENT_RULES: EnvironmentRule[] = [
   ...seasonRules,
 ];
 
-// Default fallback environment
 export const DEFAULT_ENVIRONMENT: BaseEnvironmentKey = 'home';

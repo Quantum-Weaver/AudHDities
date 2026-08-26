@@ -1,7 +1,6 @@
 // src/lib/constants/components/immersive/continuity_beam.ts
 // ============================================================================
 // CONTINUITY BEAM CONSTANTS - FULLY INTEGRATED
-// Channeling from consciousness, positioning, motion, and effects
 // ============================================================================
 
 import { GRADIENTS, GLOW_EFFECTS } from '@/lib/constants/cosmic/effects';
@@ -11,7 +10,6 @@ import { calculateBeamActivation, getBeamIntensity } from '@/lib/constants/cosmi
 import { easing } from '@/lib/constants/cosmic/motion';
 import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 
-// Define beam behavior categories
 type BeamCategory = 
   | 'council'      // Quantum intensity, diagonal
   | 'creative'     // High intensity, horizontal
@@ -20,7 +18,6 @@ type BeamCategory =
   | 'vision'       // Quantum intensity, diagonal
   | 'default';     // Default fallback
 
-// Map each environment key to a category
 const ENVIRONMENT_TO_CATEGORY: Record<EnvironmentKey, BeamCategory> = {
   // Council category
   council: 'council',
@@ -67,10 +64,6 @@ const ENVIRONMENT_TO_CATEGORY: Record<EnvironmentKey, BeamCategory> = {
   community: 'default',
 };
 
-// ============================================================================
-// BEAM VARIANTS - Semantic types for different contexts
-// ============================================================================
-
 export const BEAM_VARIANTS = {
   /** Memory preservation - session continuity, data retention */
   MEMORY: 'memory',
@@ -82,14 +75,9 @@ export const BEAM_VARIANTS = {
 
 export type BeamVariant = typeof BEAM_VARIANTS[keyof typeof BEAM_VARIANTS];
 
-// Export individual variant constants for direct use
 export const BEAM_SESSION_PRESERVATION = BEAM_VARIANTS.MEMORY;
 export const BEAM_EMOTIONAL_CONTEXT = BEAM_VARIANTS.EMOTIONAL;
 export const BEAM_QUANTUM_ENTANGLEMENT = BEAM_VARIANTS.QUANTUM;
-
-// ============================================================================
-// BEAM INTENSITY LEVELS - Aligned with consciousness system
-// ============================================================================
 
 export const BEAM_INTENSITIES = {
   LOW: 'low' as BeamIntensityLevel,
@@ -177,10 +165,6 @@ const BEAM_CATEGORY_CONFIGS: Record<BeamCategory, Omit<BeamConfig, 'gradient' | 
   },
 };
 
-// ============================================================================
-// BEAM COLORS - Environment to gradient mapping (32 environments)
-// ============================================================================
-
 export const BEAM_COLORS = {
   // Council Chamber - Quantum governance energy
   council: GRADIENTS.councilDomain,
@@ -218,7 +202,6 @@ export const BEAM_COLORS = {
   learn: GRADIENTS.focused,
   seasonal: GRADIENTS.elemental,
   
-  // Observatory - Cosmic vision
   observatory: GRADIENTS.cosmicDomain,
   about: GRADIENTS.cosmicDomain,
   vision: GRADIENTS.prideProgress,
@@ -281,10 +264,6 @@ export const DEFAULT_BEAM_CONFIG: BeamConfig = {
   glowMultiplier: 1,
 };
 
-// ============================================================================
-// BEAM CONFIGURATION UTILITIES - With consciousness integration
-// ============================================================================
-
 /** Get full beam configuration for an environment, adjusted by session state */
 export function getBeamConfig(
   environment: EnvironmentKey,
@@ -338,7 +317,6 @@ export function getBeamAnimation(config: BeamConfig) {
   const origin = getBeamOrigin(config.direction);
   const path = BEAM_ORIGINS[origin];
   
-  // Adjust duration based on intensity and speed multiplier
   const adjustedDuration = config.duration * (1 / config.speedMultiplier);
   
   return {

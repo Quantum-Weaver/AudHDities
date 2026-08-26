@@ -7,5 +7,4 @@
 
 export * from './assets';
 
-// The realm→trio driver map (X-OP-0, Run 08 Phase 5 Movement I Step 2).
 export * from './trio';

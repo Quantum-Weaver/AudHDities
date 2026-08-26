@@ -2,18 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE STREET — the Sanctuary's whole landscape, in one definition        ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Lifted out of Navigation.tsx 2026-08-11 so the NAV and the LÉARSCÁIL read
-// the same ground and cannot drift apart. One definition per object — the
-// Resonance Grammar's own first law, and the reason this file exists rather
-// than a second copy of the same list.
-//
-// The geometry NEVER shuffles: the order below is the one order, everywhere,
-// forever (the intelligibility law — a layout is a place when its map can be
-// held in the head). First entry is the shortest edge: the hearth, where the
-// vessel already stands.
-//
-// Every href is a route that exists on disk — the map never lies. That was
-// Navigation.tsx's own standing promise and it rides with the data.
 
 import type { RealmKey } from '@/lib/constants/systems/trio';
 
@@ -47,10 +35,6 @@ export const THE_STREET: StreetRealm[] = [
     whisper: 'Home — you are here',
     alwaysOpen: true,
     rooms: [
-      // 2026-08-24, board ②'s mend (the four-item bar). `/` was the one door
-      // that lost its bar item and landed NOWHERE — it appears in no other
-      // realm's rooms, and the Header's wordmark points at /vessel. The map
-      // is where retired doors go, by KP's own sentence, so `/` goes here.
       { href: '/', label: 'The Hearth' },
       { href: '/vessel', label: 'The Vessel' },
       { href: '/vessel/home', label: 'The Home' },
@@ -80,16 +64,10 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/library', label: 'The Library' },
       { href: '/library/quests', label: 'The Path' },
       { href: '/library/courses', label: 'The Curriculum' },
-      // 2026-08-25, refine/athena (board ⑧): the street listed seven rooms
-      // and omitted two that exist on disk. The map never lies.
       { href: '/library/lessons', label: 'The Lessons' },
       { href: '/library/knowledge', label: 'The Archive' },
       { href: '/library/badges', label: 'The Honors' },
       { href: '/library/bubbles', label: 'The Floating Stars' },
-      // 2026-08-25, mend/floating-stars-play-door. KP's ⚛ word, verbatim:
-      // "the floating stars currently has no entry to "/play"". The room
-      // exists (BubblePopGame.tsx at this route) and now has a door in from
-      // the gallery too — the map never lies, so it earns its line here.
       { href: '/library/bubbles/play', label: 'Pop the Stars' },
       { href: '/library/dailies', label: 'The Dailies' },
     ],
@@ -136,11 +114,6 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/council', label: 'The Chamber' },
       { href: '/council/proposals', label: 'Proposals' },
       { href: '/council/voting', label: 'The Vote' },
-      // 2026-08-24, board ④. Two rooms, one table, and now two distinct
-      // labels: /transparency is the PUBLIC TELLING (lifetime totals, where
-      // the fee goes, the admin log — read by anyone); /council/ledger is
-      // the ENTRIES THEMSELVES, one line each. It was in no realm's rooms
-      // before this pass and so stood in no map.
       { href: '/transparency', label: 'The Ledger' },
       { href: '/council/ledger', label: 'The Ledger — every entry' },
     ],
@@ -159,19 +132,7 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/accessibility', label: 'The Welcome' },
       { href: '/contact', label: 'The Hearth Call' },
       { href: '/press', label: 'The Scroll (Press)' },
-      // { href: '/donate', label: 'The Offering' } — RETIRED 2026-08-24 at
-      // KP's ⚛ word, verbatim, spacing kept: "retire the donate and create
-      // subscription tiers for me rather than the platform, and  i will
-      // still have my covenant set to 50%. the donations tab was before we
-      // had a built sanctuary and had different outlooks."
-      // The route is gone with it, so this line leaves map and drawer at
-      // once — the map never lies. The tiers are a WARE of KP's and belong
-      // to the Bazaar's spec, not to a Forge room.
       { href: '/privacy', label: 'The Covenant' },
-      // 2026-08-25, board ①. KP ⚛ 2026-08-24, verbatim: "we already have a
-      // terms/ and privacy/ we will need an apps/privacy". The apps are
-      // local-first and collect nothing; the site has accounts and
-      // payments. Two different truths need two different pages.
       { href: '/apps/privacy', label: 'App Privacy' },
       { href: '/terms', label: 'The Agreement' },
     ],

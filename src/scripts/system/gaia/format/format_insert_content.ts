@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/format/format_insert_content.ts
 // ============================================================================
-// FORMAT INSERT CONTENT - Exclude auto-generated fields
 // ============================================================================
 
 import { toPascalCase, AUTO_GENERATED_FIELDS } from '../../../shared/type_mappings.js';

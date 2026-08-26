@@ -21,7 +21,6 @@ export async function executeValidator(
 ): Promise<string | null> {
   try {
     const result = await validator(value, allValues);
-    // Normalize: undefined means no error, same as null
     return result ?? null;
   } catch (err) {
     return err instanceof Error ? err.message : 'Validation error';

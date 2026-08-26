@@ -1,15 +1,5 @@
 // src/app/(hepaestus)/forge/architecture/auth-flow/page.tsx
 // ─────────────────────────────────────────────────────────────────────────
-// 2026-08-24 — THE TRUTH PASS. This page described a door the house does not
-// have: "magic link emails. No passwords to remember," a signup that asked
-// only for an email, a landing at /dashboard, a root middleware.ts, and six
-// protected routes (/profile, /checkout, /creator, /vendor, /admin) none of
-// which exist under src/app. The door was rebuilt the same morning — see
-// `.journals/proofs/01-auth/PROOF.md`, ruling 8: "can we enable magic link
-// as well as the reset password, sometimes a vessel has not the capacity to
-// reset a password." Password-primary, with a magic-link door beside it.
-// Every claim below is now read from the files it names. The sections, the
-// components and the shape are untouched.
 import { Metadata } from 'next';
 import { Page } from '@/components/bifrost/Page';
 import { Card } from '@/components/runes/Card';
@@ -24,8 +14,6 @@ export const metadata: Metadata = {
   description: 'How authentication works in the sanctuary',
 };
 
-// Abbreviated from the real file — src/lib/supabase/client.ts. The singleton
-// is the point: React Strict Mode would otherwise build two.
 const clientCode = `import { createBrowserClient } from '@supabase/ssr'
 import type { Database } from '@/lib/generated/supabase/database.types'
 
@@ -42,8 +30,6 @@ export function createClient() {
   return clientInstance
 }`;
 
-// Abbreviated from the real file — src/lib/supabase/server.ts. The export is
-// named createServerSupabase, and it reads AND writes the cookie store.
 const serverCode = `import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { Database } from '@/lib/generated/supabase/database.types'
@@ -68,9 +54,6 @@ export async function createServerSupabase() {
   )
 }`;
 
-// Abbreviated from the real file — src/components/asgard/auth/AuthGuard.tsx.
-// There is no middleware.ts at the repo root; this component is the whole of
-// the door's route guarding today.
 const guardCode = `export default function AuthGuard({
   children,
   requireAuth = true,

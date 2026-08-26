@@ -308,7 +308,6 @@ export function SchemaConstellation() {
   const [selectedStar, setSelectedStar] = useState<SchemaStar | null>(null);
   const [hoveredStarId, setHoveredStarId] = useState<string | null>(null);
 
-  // Parse schema statically — no fetch, no loading state
   const { tables } = useMemo(() => parseDatabaseTypes(), []);
 
   const tableMap = useMemo(() => {
@@ -434,7 +433,6 @@ export function SchemaConstellation() {
               })}
             </div>
 
-            {/* Relationships */}
             {selectedTable.relationships &&
               selectedTable.relationships.length > 0 && (
                 <div className="mt-4 pt-3 border-t border-white/10">

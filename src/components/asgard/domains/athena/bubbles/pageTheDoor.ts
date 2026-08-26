@@ -2,21 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   PAGE, NEVER SILENTLY SHORT                                             ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Born 2026-08-25 (refine/athena-2026-08-25).
-//
-// src/lib/api/auth.ts:142-149 clamps EVERY generated door's `limit` to 100:
-// `Math.min(100, Math.max(1, limit))`. A request for 200 is served 100 with
-// no error and no signal — the single most dangerous silent thing in this
-// realm. Raising the number does nothing; the door clamps it.
-//
-// The chassis is NOT edited (it is generated ground and it governs the whole
-// app). Instead the rooms that can exceed a hundred rows page, using the
-// `pagination.total` every generated GET already returns — exactly as
-// src/lib/dailies/shelf.ts:66-89 loops PostgREST's own 1000-row clamp.
-//
-// Thirty stars stand today, so nothing is short yet. If the ninety-three of
-// docs/sql/025 land, the catalogue is 123 and an unpaged gallery would drop
-// twenty-three stars with no error at all.
 
 const DOOR_LIMIT = 100;
 const MAX_PAGES = 40;

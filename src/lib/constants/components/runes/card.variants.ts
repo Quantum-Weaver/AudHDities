@@ -14,10 +14,6 @@ import {
   DEFAULT_CARD_RADIUS,
 } from "./card.constants";
 
-// ============================================================================
-// INTERACTIVE CLASSES (derived from motion constants via card.constants)
-// ============================================================================
-
 /**
  * Base interactive hover effects - applies to interactive variant and interactive prop
  * Derived from quickAnimations.hoverLift in motion.ts
@@ -31,10 +27,6 @@ export const interactiveHoverClass = `cursor-pointer ${CARD_TRANSITION_CLASSES.h
 export const getTypeHoverClass = (cardType: string): string => {
   return CARD_TYPE_HOVER_CLASSES[cardType as keyof typeof CARD_TYPE_HOVER_CLASSES] || '';
 };
-
-// ============================================================================
-// CVA INSTANCE - Single source of truth for card styling
-// ============================================================================
 
 export const cardVariants = cva(
   // Base classes applied to all cards

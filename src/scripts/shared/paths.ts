@@ -2,8 +2,6 @@
 // ============================================================================
 // CENTRALIZED PATH CONFIGURATION
 // ============================================================================
-// Single source of truth for all file paths used by GAIA and COSMIC
-// All paths are absolute (resolved from project root)
 // ============================================================================
 
 import * as path from 'path';
@@ -21,7 +19,6 @@ const PROJECT_ROOT = path.resolve(__dirname, '../../..');
 export const DB_TYPES_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/database.types.ts');
 /** Path to generated database helpers */
 export const HELPERS_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/database.helpers.ts');
-// Path to the generated enums helper
 export const ENUMS_HELPER_PATH = path.join(PROJECT_ROOT, 'src/types/supabase/enums.ts');
 
 // ============================================================================

@@ -18,9 +18,6 @@ const TYPE_COLORS: Record<string, string> = {
   quiz: 'bg-amber-500/20 text-amber-400',
 };
 
-// content is Json in the evolved table (was content_body text + content_url).
-// Render only the shapes we can honestly show; richer structures wait for
-// the row-10 sitting.
 function readContent(content: unknown): { body: string | null; url: string | null } {
   if (typeof content === 'string') return { body: content, url: null };
   if (content && typeof content === 'object' && !Array.isArray(content)) {

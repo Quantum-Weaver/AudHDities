@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/format/format_public_content.ts
 // ============================================================================
-// FORMAT PUBLIC CONTENT - Exclude sensitive fields
 // ============================================================================
 
 import { toPascalCase } from '../../../shared/type_mappings.js';

@@ -1,10 +1,5 @@
 // components/legal/PrivacyFooter.tsx
 // ─────────────────────────────────────────────────────────────────────────
-// 2026-08-24, the Forge's second movement (SPEC.md ① · fix 4). The
-// whileInView entrance ran whatever the reader's system said; motion is
-// content, so it needs consent (HANDOFF.md). It now stills to nothing.
-// The two ways out are visible at rest, no hover required.
-// The closing line was star-dust/30 (2.3:1) and is now /70.
 // ─────────────────────────────────────────────────────────────────────────
 'use client';
 
@@ -21,10 +16,8 @@ interface PrivacyFooterProps {
 }
 
 export function PrivacyFooter({ heading, children, closing }: PrivacyFooterProps) {
-  // THE ENTRANCE REMOVED, 2026-08-25. Same measured reason as PrivacyHero
-  // and TermsSection: a framer whileInView from `opacity: 0` never runs
-  // under prefers-reduced-motion, so this card was invisible to the reader
-  // who asked for less motion. It simply is now.
+  // No entrance animation: a framer whileInView from `opacity: 0` never runs
+  // under prefers-reduced-motion.
   return (
     <div
       className="mt-16 p-8 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-purple-500/10 border border-white/20 rounded-2xl text-center"

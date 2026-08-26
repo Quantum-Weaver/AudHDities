@@ -78,11 +78,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const generatedId = useId();
     const checkboxId = externalId || `checkbox-${generatedId}`;
     const hasError = !!error;
-    // MEND-LAW 2026-07-20 (found on the First Vessel's own crossing): an
-    // uncontrolled checkbox (no `checked`/`defaultChecked` prop) toggled its
-    // native input invisibly — `isChecked` stayed undefined forever, so the
-    // check icon never appeared and agreement LOOKED impossible. Internal
-    // state now mirrors the real DOM state when uncontrolled.
+    // Uncontrolled mode must mirror the real DOM state, or `isChecked` stays
+    // undefined and the check icon never appears.
     const [internalChecked, setInternalChecked] = useState(
       defaultChecked ?? false
     );
@@ -130,7 +127,6 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             />
           </div>
 
-          {/* ── Label ── */}
           {label && (
             <label
               htmlFor={checkboxId}

@@ -2,17 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE THRESHOLD — the exchange's completing moment                       ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// THE FINISHING (2026-07-31, at KP's ⚛ word "we are ready to finish
-// Hermes"): the checkout's states learned the settled tongue (a threshold,
-// never a transaction funnel — the register law of the doors applies to the
-// moment of exchange), and the create→decorate loop gained its LAST LINK:
-// "taken into your keeping" now offers THE HANGING — the kept thing goes
-// home, into a room the vessel chooses, as a vessel_decoration
-// (decoration_type ware/work, reference_id pointing at the kept thing).
-// The loop closes: the Loom creates → the Bazaar exchanges → the home
-// wears it. Everything opt-in (the offer is a button, never automatic);
-// error grammar plain (what happened / it is safe to try again); law 7's
-// PriceBreakdown untouched upstream.
 
 "use client";
 
@@ -49,7 +38,6 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
   const statusRef = useRef(status);
   statusRef.current = status;
 
-  // THE HANGING — the vessel's rooms (own-only; params memoized per the
   // house pattern: the generated hooks refetch on params identity)
   const { user } = useUser();
   const roomParams = useMemo(
@@ -189,19 +177,14 @@ export function CheckoutForm({ sessionId, saleId, onSuccess, onError }: Checkout
         {kept ? `${kept.name} — taken into your keeping.` : "Taken into your keeping."}
       </h2>
       <p className="text-star-dust/60 mb-1">The exchange is complete.</p>
-      {/* The third word at the going — a goodbye carrying a return inside it */}
       <p className="text-star-dust/40 text-sm italic mb-6">Gweld ti&apos;n fuan — see you soon.</p>
 
-      {/* THE DELIVERY (§9) — your copy is ready. The link is minted at the ask
-          and a fresh one is handed over whenever it is asked for again. */}
       {kept?.kind === "ware" && (
         <div className="mb-6 text-left">
           <TheBodies wareId={kept.id} heading="Your copy is ready" />
         </div>
       )}
 
-      {/* THE HANGING — the loop's last link, offered never imposed.
-          The exchange completes at the vessel's fire. */}
       {kept && !hungIn && rooms.data.length > 0 && (
         <div className="mb-6 rounded-lg border border-star-dust/10 bg-white/5 p-4 text-left">
           <p className="mb-2 text-sm text-star-dust/70">

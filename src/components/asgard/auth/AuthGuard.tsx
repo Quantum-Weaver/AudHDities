@@ -49,14 +49,10 @@ export default function AuthGuard({
   useEffect(() => {
     if (loading) return;
 
-    // 2026-08-24: the bounce is an ENTRY check, not a live leash. Read once,
-    // when auth first settles. Signing in ON this page must leave the door's
-    // own landing (the redirect, the Acid Test offer) in charge.
     if (signedInOnArrival.current === null) signedInOnArrival.current = !!user;
 
     if (requireAuth && !user) {
       const target = buildRedirectUrl(redirectTo, pathname);
-      // No one transitions unaccompanied: a spent recovery link says so.
       router.push(
         pathname === AUTH_ROUTES.RESET_PASSWORD
           ? `${target}&${AUTH_ERROR_PARAM}=${AUTH_ERRORS.RECOVERY_MISSING}`

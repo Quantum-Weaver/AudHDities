@@ -1,10 +1,4 @@
 // src/components/asgard/domains/hermes/works/WorkDetail.tsx
-// A WORK'S OWN DOOR (SPEC §3⑧). Until 2026-08-25 a work was visible for one
-// paragraph in a weaver's room and then unreachable — the cards linked nowhere.
-//
-// A work is not an unfinished ware. It is here because it was made. This room
-// never prices it, never says coming soon, never offers a waitlist and never
-// asks to be told when something changes.
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -92,8 +86,6 @@ export function WorkDetail() {
   }
 
   const cardData: CardData = { id: work.id, type: 'product', title: work.name, description: work.description || '' };
-  // Shown only where the participant said so. is_public is a display toggle;
-  // the credit and the residual share stand either way.
   const shown = participants.filter((p) => p.is_public);
   const isOwner = Boolean(user?.id && work.created_by === user.id);
 
@@ -153,8 +145,6 @@ export function WorkDetail() {
             </section>
           )}
 
-          {/* No ware descends from a work in the base today; the typed pointer
-              that would let this room show one is unwritten — his to rule. */}
           <p className="text-sm text-star-dust/50">
             This one is not for sale. It is here because it was made.
           </p>

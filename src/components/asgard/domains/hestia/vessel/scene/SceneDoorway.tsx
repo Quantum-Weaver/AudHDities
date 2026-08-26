@@ -2,13 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE SIGHT-LINE — a doorway you can SEE from inside this room           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: the adjacency research (study bus, E2a round 4, pattern 1 —
-// museums' enfilade) as amended by E2b's sensory-law pass, jointly held:
-// "visibility is the invitation; movement is a tap on the shoulder." The
-// glimpse is STILL by default — the neighbor realm's color and threshold-
-// light only, never animation; static always under reduced motion. "Only
-// steps away" must be SEEN to be believed (KP's ✍ adjacency law: hearth to
-// studio in steps, never a nav tree).
 
 'use client';
 
@@ -48,8 +41,6 @@ export default function SceneDoorway({
         className
       )}
     >
-      {/* The threshold light — the neighbor realm's own beam gradient,
-          standing still. A sliver, not a show. */}
       <span
         aria-hidden="true"
         className="absolute inset-y-0 left-0 w-1 opacity-70"

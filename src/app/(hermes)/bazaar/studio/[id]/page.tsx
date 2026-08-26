@@ -1,6 +1,4 @@
 // src/app/(hermes)/bazaar/studio/[id]/page.tsx
-// The Loom — Edit an existing product
-// Feeling: Reflective, refining, sovereign
 
 import { Page } from '@/components/bifrost/Page';
 import { StudioEdit } from '@/components/asgard/domains/hermes/studio/StudioEdit';

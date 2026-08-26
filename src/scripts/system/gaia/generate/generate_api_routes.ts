@@ -1,8 +1,6 @@
 // src/scripts/system/gaia/generate/generate_api_routes.ts
 // ============================================================================
-// GENERATE API ROUTES (GAIA) - Type-First Version
 // ============================================================================
-// Purpose: Generate Next.js API routes for tables, views, and functions
 // ============================================================================
 
 import type { ObjectCategory } from '@/config/object_categories.js';
@@ -388,8 +386,6 @@ export function generateTableApiRoutes(
       content += generateGetListRoute(tableName, importManager) + '\n\n';
     }
     if (category.generateApiPost) {
-      // Some tables (current, ledger, analytics…) have no created_by column;
-      // stamping it there was a type error and would be a runtime error too.
       const hasCreatedBy = /\bcreated_by\??:/.test(table.rowContent || '');
       content += generatePostRoute(tableName, deityFolder, importManager, hasCreatedBy) + '\n';
     }
@@ -408,7 +404,6 @@ export function generateTableApiRoutes(
     });
   }
   
-  // Single route (get/put/delete)
   if (category.generateApiGetSingle || category.generateApiPut || category.generateApiDelete) {
     const importManager = new ImportManager();
     let content = `// Generated: ${new Date().toISOString()}\n// Table: ${tableName}\n\n`;
@@ -471,7 +466,6 @@ export function generateViewApiRoutes(
     });
   }
   
-  // Single route (GET only)
   if (category.generateApiGetSingle) {
     const importManager = new ImportManager();
     const content = generateViewGetSingleRoute(viewName, importManager);

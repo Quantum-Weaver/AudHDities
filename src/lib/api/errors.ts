@@ -1,5 +1,4 @@
 // lib/api/errors.ts
-// Error handling utilities for API routes
 
 import { errorResponse } from './auth';
 import { ZodError } from 'zod';

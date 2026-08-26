@@ -133,7 +133,6 @@ export function CouncilHub() {
         {/* Section Grid */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SECTIONS.map((section) => {
-            // Hide restricted sections from non-admin users
             if (section.restricted && !isAdmin) return null;
 
             const cardData: CardData = {

@@ -39,39 +39,28 @@ export function parsePrivacyMarkdown(markdown: string): ParsedPrivacy {
   let inTable = false;
   let tableHeaders: string[] = [];
   let tableRows: string[][] = [];
-  // Both start EMPTY. The old file initialised these to 'Privacy Policy' and
-  // 'March 19, 2026', which made the H1 branch below unreachable (it was
-  // guarded by `!title` on an already-truthy value) and made every policy
-  // without a "Last updated:" line print a date it never carried.
-  // 2026-08-24, fixes 1 and 2.
   let title = '';
   let lastUpdated = '';
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    // Check for title (first H1) — now actually reachable.
     if (line.startsWith('# ') && !title) {
       title = line.replace('# ', '').trim();
       continue;
     }
 
-    // Check for the document's own date, under either label it may use.
     if (!lastUpdated) {
       const label = DATE_LABELS.find((l) => line.includes(l));
       if (label) {
         const match = line.match(new RegExp(`${label}\\s*(.*)`));
         if (match) {
-          // Strip markdown emphasis the label may be wearing (**Effective
-          // date:** March 19, 2026) so the hero prints the date, not the
-          // asterisks.
           lastUpdated = match[1].replace(/\*/g, '').trim();
         }
         continue;
       }
     }
 
-    // Check for markdown tables
     if (line.includes('|') && line.includes('---')) {
       inTable = true;
       continue;
@@ -99,7 +88,6 @@ export function parsePrivacyMarkdown(markdown: string): ParsedPrivacy {
       tableRows = [];
     }
 
-    // Check for H2 sections (##)
     if (line.startsWith('## ')) {
       if (currentSection) {
         currentSection.content = currentContent.join('\n').trim();
@@ -114,7 +102,6 @@ export function parsePrivacyMarkdown(markdown: string): ParsedPrivacy {
       };
       currentContent = [];
     }
-    // Check for H3 subsections (###)
     else if (line.startsWith('### ') && currentSection) {
       if (currentContent.length) {
         currentSection.content = currentContent.join('\n').trim();

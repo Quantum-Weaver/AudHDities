@@ -2,14 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE KEEPSAKES SHELF — the collections surface, unlocked                ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// The seeding law said collections "wait for their surface" — this is the
-// surface. It reads the vessel's own vessel_collections (own-only RLS)
-// joined client-side to the collection_sets catalog (published-read).
-// The audiences' law (L1-13) governs every pixel: collecting is "the slow
-// accumulation of things that matter" — found, earned, gifted, or grown,
-// NEVER bought; no completion percentages, no comparison, rarity only as
-// the shimmer on some of its wonders. The empty shelf is dignified: a
-// keepsake not yet kept is a wonder not yet met.
 
 'use client';
 

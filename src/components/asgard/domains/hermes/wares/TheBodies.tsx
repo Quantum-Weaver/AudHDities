@@ -1,13 +1,4 @@
 // src/components/asgard/domains/hermes/wares/TheBodies.tsx
-// WHAT YOU RECEIVE — the bodies of a ware, each one a real file_registry row
-// with a link minted at the ask (SPEC §9).
-//
-// Three equal rows: same height, same weight, in the order the shelf holds
-// them. No "also available for". Desktop is never a footnote — many people
-// cannot use a phone for this.
-//
-// The version is read from the bundle's own filename, never typed. The .aab is
-// withheld by the route and is not mentioned here or anywhere.
 'use client';
 
 import { useState, useCallback } from 'react';

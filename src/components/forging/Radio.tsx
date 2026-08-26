@@ -145,7 +145,6 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             />
           </div>
 
-          {/* ── Label ── */}
           {label && (
             <label
               htmlFor={radioId}

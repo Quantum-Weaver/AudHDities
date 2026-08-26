@@ -1,5 +1,4 @@
 // @/components/immersive/ZoomTarget.tsx
-// NEW - Zoom to specific element/area
 
 "use client";
 

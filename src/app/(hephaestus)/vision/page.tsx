@@ -33,11 +33,6 @@ export default function VisionPage() {
                 id: 'emergence-economics',
                 type: 'pillar',
                 title: 'Emergence Economics',
-                // 2026-08-24, the truth pass — "Creators keep 90%" named one
-                // person; the 90% goes to the ware's contributors and is
-                // divided equally among them, the artisan among them and
-                // ranked no higher (docs/architecture/residual-system.md:107,
-                // :114). The fee language is untouched.
                 description: 'Platform fee is fixed at 10% (industry standard is 30-50%). The ware’s contributors keep 90%, divided equally. Contributors earn forever from residual pools. A voluntary Covenant Pool lets artisans support community dignity. Every transaction is public.',
                 icon: <DollarSign size={24} />,
                 order: 1,
@@ -50,12 +45,6 @@ export default function VisionPage() {
                 id: 'neurodivergent-advantage',
                 type: 'pillar',
                 title: 'Neurodivergent Advantage',
-                // 2026-08-24, the truth pass — "TL;DR summaries" named a
-                // thing that exists nowhere in the tree (grep: this line was
-                // its only occurrence). Sensory preferences are real and
-                // stay: the Sanctum's dyslexia-friendly mode and reduce_motion
-                // (SanctumContent.tsx:289-297, vessel_config). Softened to
-                // intent for the half that is not built.
                 description: 'The platform is designed by neurodivergent minds, for neurodivergent minds. Focus modes, visual timers and sensory preferences are features, not bugs. Plain-language summaries are intended, and not yet built.',
                 icon: <Heart size={24} />,
                 order: 2,
@@ -80,11 +69,6 @@ export default function VisionPage() {
                 id: 'radical-transparency',
                 type: 'pillar',
                 title: 'Radical Transparency',
-                // 2026-08-24, the truth pass — "Every decision is documented"
-                // named no mechanism anywhere in the house. The two claims
-                // that remain are real and readable: /transparency reads the
-                // ledger and admin_actions live, server-side
-                // (transparency/page.tsx:53-63).
                 description: 'Every exchange that moves through the platform lands in a public ledger. Every admin action is logged. Both are readable on the transparency page, by anyone, without signing in. Trust is built, not assumed.',
                 icon: <Globe size={24} />,
                 order: 4,

@@ -123,7 +123,6 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     useScrollLock(open, preventScroll);
     useFocusTrap(modalRef, open);
 
-    // Backdrop click handler
     const handleBackdropClick = (e: React.MouseEvent) => {
       if (closeOnBackdropClick && e.target === e.currentTarget) {
         onClose();

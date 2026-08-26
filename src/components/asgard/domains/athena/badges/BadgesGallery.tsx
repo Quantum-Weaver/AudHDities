@@ -2,30 +2,7 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE HONORS — earned only                                               ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// MENDED 2026-08-25 (refine/athena-2026-08-25). The ruling, as the brief
-// records it (not KP's own sentence), ruled with his ⚛ "bazaar and library
-// go", 2026-08-24: "mend the two law-failing rooms (Honors shows only earned
-// sigils; the 3/6 sidebar goes)".
-//
-// Until today this room fetched the whole published catalog with NO vessel
-// filter at all — ten sigils, shown to everyone, whether or not a single one
-// was theirs. That is promise-before, and E4 named it a law-failing built
-// room by name.
-//
-// WHAT IS DELIBERATELY ABSENT, and must stay absent:
-//   · the full catalog · silhouettes of the unearned (declined and drawn:
-//     design/declined/DeclinedSilhouettes.dc.html — a silhouette is a hole
-//     with a label on it, and it performs the subtraction more sharply than
 //     a number does)
-//   · "3 of 10" · a completion ring · "you are 1 away" · a rarest-sigil
-//     showcase · any comparison with another vessel · a shareable card
-//   · anything at all between the last card and the end of the page. Below
-//     the earned sigils this page simply ends.
-//
-// The rarity WORD stays on the card and the glow stays with it — rarity as
-// shimmer, which is what it is allowed to be. The search field and the
-// rarity chips RETIRE with the catalog: filtering three earned things by
-// rarity is browsing furniture.
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
@@ -44,8 +21,6 @@ const RARITY_COLORS: Record<string, string> = {
   rare: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
   epic: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
   legendary: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  // entity.curator, not rose: no red anywhere in this realm
-  // (resonance-bubbles/CLAUDE.md:34; dress.ts:39-40).
   mythic: 'bg-entity-curator/20 text-entity-curator border-entity-curator/30',
 };
 
@@ -72,18 +47,6 @@ export function BadgesGallery() {
   const { user, isLoading: authLoading } = useUser();
   const { data: sigils, loading } = useSigilsList(SIGILS_PARAMS);
 
-  // THE PER-VESSEL READ. There is no generated hook for `vessel_sigils` —
-  // src/lib/generated/hooks/hestia-core/ holds fourteen and that table is
-  // not among them — so this room calls the generated DOOR directly, in
-  // CourseDetail.tsx:53-67's shape, which reads `path_lessons` the same way
-  // for the same reason. Nothing is written into src/lib/generated/: that
-  // root is GAIA's output and heals only by regeneration (CLAUDE.md
-  // §Essential Rules). Whether gaia_config should be taught to generate a
-  // hook for this table is unwritten — his to rule.
-  //
-  // No paging loop here: the ceiling on this read is the number of sigils
-  // that exist (ten today), well under auth.ts:142-149's silent clamp of
-  // 100. The gallery of stars pages; this room cannot need to.
   const [earnedIds, setEarnedIds] = useState<Set<string>>(new Set());
   const [earnedState, setEarnedState] = useState<EarnedState>('idle');
   const [attempt, setAttempt] = useState(0);
@@ -98,12 +61,6 @@ export function BadgesGallery() {
         if (!alive) return;
         const rows: Array<{ sigil_id: string }> = res?.success ? (res.data?.data ?? res.data ?? []) : [];
         if (!res?.success) { setEarnedState('unread'); return; }
-        // THE FALSE-EMPTY, named rather than asserted away. `vessel_sigils`
-        // carries no select policy anywhere in docs/sql/*, so a walled read
-        // and a genuinely empty one are indistinguishable from here
-        // (009-library-doors-for-anyone.sql:9-16; the new-table skill). A
-        // signed-in vessel is never told they have earned nothing on the
-        // strength of a read this room cannot vouch for.
         if (!Array.isArray(rows) || rows.length === 0) { setEarnedState('unread'); return; }
         setEarnedIds(new Set(rows.map(r => r.sigil_id)));
         setEarnedState('ready');
@@ -145,8 +102,6 @@ export function BadgesGallery() {
           <p className="text-sm text-star-dust/78 mt-1">Sigils earned through sovereignty</p>
         </div>
 
-        {/* SIGNED OUT — a visitor has no earned sigils, so the honest room is
-            the empty room. The sentence is KEPT to the word. */}
         {!user && (
           <div className="text-center py-20">
             <Award className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
@@ -154,10 +109,6 @@ export function BadgesGallery() {
           </div>
         )}
 
-        {/* COULD NOT BE READ — its own state, with a retry, never the empty
-            one. These words are this build's own and are named in the
-            seam-note for KP's strike; the sentence the record wants here is
-            unwritten — his to rule (SPEC §11). */}
         {user && earnedState === 'unread' && (
           <div className="py-16 text-center">
             <AlertCircle className="mx-auto mb-4 block h-10 w-10 text-star-dust/40" aria-hidden="true" />
@@ -209,8 +160,6 @@ export function BadgesGallery() {
             })}
           </div>
         )}
-        {/* And then the page ends. No grid of grey, no "7 more", no faint
-            outline, no count anywhere. That is the design, not a gap in it. */}
       </div>
     </main>
   );

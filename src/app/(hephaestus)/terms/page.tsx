@@ -14,13 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default async function TermsPage() {
-  // Read from the actual markdown file
   const markdown = await fs.readFile(
     path.join(process.cwd(), 'docs', 'terms', 'terms-of-service.md'),
     'utf-8'
   );
   
-  // Parse the markdown into structured sections
   const parsedTerms = parseTermsMarkdown(markdown);
 
   return (

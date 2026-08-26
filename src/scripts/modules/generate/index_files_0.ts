@@ -1,7 +1,4 @@
 // generate-indexes.ts
-// ONE-TIME SCRIPT - Creates barrel exports for all generated files
-// Run with: tsx generate-indexes.ts
-// Run with: tsx generate-indexes.ts --dry-run (to preview)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -122,7 +119,6 @@ for (const category of CATEGORIES) {
   
   console.log(`\n📁 Processing ${category.name}...`);
   
-  // Find which deity folders actually exist
   const existingDeities = DEITY_FOLDERS.filter(deity => 
     fs.existsSync(path.join(basePath, deity))
   );
@@ -132,7 +128,6 @@ for (const category of CATEGORIES) {
     continue;
   }
   
-  // Generate per-deity index files
   let deityCount = 0;
   for (const deity of existingDeities) {
     const deityPath = path.join(basePath, deity);
@@ -154,7 +149,6 @@ for (const category of CATEGORIES) {
     }
   }
   
-  // Generate master index file
   const masterIndexPath = path.join(basePath, 'index.ts');
   const masterContent = generateMasterIndex(existingDeities);
   

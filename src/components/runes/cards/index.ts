@@ -34,7 +34,6 @@ export { PathwayCardRenderer } from './PathwayCardRenderer';
 export { FileCardRenderer } from './FileCardRenderer';
 export { CouncilCardRenderer } from './CouncilCardRenderer';
 
-// Renderers — schema
 export { SchemaTableCardRenderer } from './SchemaTableCardRenderer';
 export { SchemaEnumCardRenderer } from './SchemaEnumCardRenderer';
 export { SchemaFunctionCardRenderer } from './SchemaFunctionCardRenderer';

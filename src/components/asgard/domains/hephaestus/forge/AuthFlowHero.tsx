@@ -26,11 +26,6 @@ export function AuthFlowHero() {
             Authentication Flow
           </h1>
           
-          {/* 2026-08-24, the truth pass — this read "No passwords to
-              remember. Just your email. A magic link. And you're home," and
-              was stamped March 15. The door was rebuilt 2026-08-24 as
-              password-primary with a magic-link door beside it
-              (.journals/proofs/01-auth/PROOF.md, ruling 8). */}
           <p className="text-xl text-star-dust/70 max-w-2xl mx-auto mb-8">
             A password, or a link if a password is too much today. Two doors, one home.
           </p>

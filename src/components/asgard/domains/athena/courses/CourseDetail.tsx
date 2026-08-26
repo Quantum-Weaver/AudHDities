@@ -1,11 +1,4 @@
 // src/components/asgard/domains/athena/courses/CourseDetail.tsx
-// THE PATH WALKED (2026-07-31, at KP's ⚛ word "we are ready to finish
-// Athena"): the course room now walks its own lesson path — path_lessons
-// (the join the seeds filled: 6 ordered steps for The Settled Tongue)
-// resolved against the published lessons, rendered as a numbered walk with
-// each step a door to its lesson. No completion percentages, no progress
-// race (anti-scarcity; the Honors are emergence-recognition) — the path
-// simply shows its steps in order, and the vessel walks at their own pace.
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
@@ -50,9 +43,6 @@ export function CourseDetail() {
 
   const { data: lessons } = useLessonsList(LESSONS_PARAMS);
 
-  // The path itself — path_lessons has no generated hook (join tables are
-  // route-only), so the walk reads the generated API directly, keyed on the
-  // course id (the VesselContent pattern).
   const [steps, setSteps] = useState<PathStep[]>([]);
   useEffect(() => {
     if (!course?.id) return;
@@ -88,9 +78,6 @@ export function CourseDetail() {
         <p className="text-star-dust/70 leading-relaxed mb-6">{course.description}</p>
         {course.path_type && <Badge variant="outline" size="sm" className="text-[10px] capitalize mb-6">{course.path_type.replace(/_/g, ' ')}</Badge>}
 
-        {/* THE PATH — the course's own lessons, in their kept order.
-            No percentages, no checkmarks racing you — steps, walked at
-            the vessel's pace. */}
         {walk.length > 0 && (
           <div className="mb-6">
             <h2 className="mb-3 text-sm font-medium uppercase tracking-wide text-star-dust/40">

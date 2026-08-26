@@ -21,9 +21,6 @@ export type MagicColor =
 
 
 export const AssetMapper = {
-  // ============================================================================
-  // ENVIRONMENTS - 11 unique backgrounds with 4 variants each
-  // ============================================================================
   environments: {
     // Fantasy / World of Warcraft style - HOME theme
     home: {
@@ -368,9 +365,6 @@ export const AssetMapper = {
     },
   } as const,
 
-  // ============================================================================
-  // COMPONENTS - Organized by type for easy access
-  // ============================================================================
   components: {
     // BOOKS & KNOWLEDGE
     books: {
@@ -653,9 +647,6 @@ export const AssetMapper = {
     }
   } as const,
 
-  // ============================================================================
-  // ANIMATED EFFECTS - Magic, particles, and glows
-  // ============================================================================
   effects: {
     magic: {
       blue: Array.from({length: 11}, (_, i) =>

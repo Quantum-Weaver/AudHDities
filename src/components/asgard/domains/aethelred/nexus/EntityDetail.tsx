@@ -67,7 +67,6 @@ export function EntityDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading — in production, fetch from council_houses API
     const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
   }, []);
@@ -108,7 +107,6 @@ export function EntityDetail() {
             {icon}
           </div>
 
-          {/* Name */}
           <h1 className="text-2xl font-bold text-star-dust mb-2">{displayName}</h1>
           <p className="text-sm mb-6" style={{ color: entityColor }}>{instrument}</p>
 

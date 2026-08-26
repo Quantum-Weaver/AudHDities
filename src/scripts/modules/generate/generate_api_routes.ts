@@ -1,6 +1,4 @@
 /* src/scripts/modules/generate/generate_api_routes.ts */
-// Phase: Generate API route files for tables based on workflow config
-// Supports deity folder structure: app/api/generated/{deityFolder}/{tableName}/route.ts
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -98,7 +96,6 @@ export async function generateApiRoutesForTable(
   if (config.hasPost) mainRoutes.push(generatePostRoute(tableName));
   
   if (mainRoutes.length > 0) {
-    // Build path with deity folder if provided
     let filePath: string;
     if (deityFolder) {
       filePath = path.join(PROJECT_ROOT, outputBase, deityFolder, tableName, 'route.ts');
@@ -130,7 +127,6 @@ export async function generateApiRoutesForTable(
     if (verbose) logInfo(`Single API route for ${deityFolder ? `${deityFolder}/` : ''}${tableName}: ${writeResult.action}`);
   }
   
-  // Generate special routes
   for (const specialType of config.specialRoutes) {
     const route = generateSpecialRoute(tableName, specialType);
     let filePath: string;

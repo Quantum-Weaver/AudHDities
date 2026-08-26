@@ -1,5 +1,4 @@
 /* src/scripts/modules/generate/generate_type_files.ts */
-// Phase 11: Write type files to disk with safety checks
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -81,7 +80,6 @@ async function writeTypeFile(
   
   const exists = fileExists(filePath);
   
-  // Dry run mode
   if (dryRun) {
     if (verbose) logDebug(`[DRY RUN] Would write to: ${filePath}`);
     return { success: true, message: `Would write to ${filePath}`, action: 'dryrun' };
@@ -95,7 +93,6 @@ async function writeTypeFile(
     return { success: true, message: `Created ${filePath}`, action: 'created' };
   }
   
-  // File exists - check if content changed
   const existingContent = readExistingFile(filePath);
   if (existingContent === content) {
     if (verbose) logDebug(`Unchanged: ${filePath}`);

@@ -1,5 +1,4 @@
 // src/lib/utils/components/yggdrasil/button.utils.ts
-// Pure logic only - derived from cosmic constants
 
 import type { ButtonVariant, ButtonSize } from '@/types/components/yggdrasil/button.types';
 import { 
@@ -26,7 +25,6 @@ export function getButtonIconSize(size: ButtonSize): number {
  */
 export function getButtonIconSizeClass(size: ButtonSize): string {
   const pixelSize = getButtonIconSize(size);
-  // Convert pixel size to Tailwind class (assuming 4px base unit)
   const tailwindSize = pixelSize / 4;
   return `w-${tailwindSize} h-${tailwindSize}`;
 }

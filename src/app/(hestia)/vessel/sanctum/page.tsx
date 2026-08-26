@@ -1,6 +1,4 @@
 // app/(hestia)/vessel/sanctum/page.tsx
-// Sanctum - Settings, privacy, preferences
-// Feeling: Safe, protected, personal
 
 import { Page } from '@/components/bifrost/Page';
 import { SanctumContent } from '@/components/asgard/domains/hestia/sanctum/SanctumContent';

@@ -2,46 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   LÉARSCÁIL — the Sanctuary drawn as land, and walked instead of listed  ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: KP's ⚛ commission 2026-08-11, verbatim: "there is a stand alone
-// tool we need and do not have, an interactive map that opens like a scroll
-// and has sections drawn like a midevil map that are both discoverable and
-// clickable once discovered" — and the reason, his own: "our nav is huge" ·
-// "this was the plan to make it less anxious." He named it the same sitting:
-// "Léarscáil (Irish): Literally translates to a 'clear' or 'careful image'
-// of the landscape." The name is the specification.
-//
-// The engine is a spring water — resonance-awen/tools/the-learscail, carried
-// here as a drawn bucket (src/lib/waters/the-learscail.ts, never edited in
-// place). This file is only the DRESS: the water computes the land, the
-// Sanctuary paints it.
-//
-// KP's ⚛ strokes worn here, both from this sitting:
-//   · "it could be the nav, which makes it easier" — the map IS the street's
-//     navigation, not a decoration beside one.
-//   · "the 'paper' backing of the map can match the realm the user is
-//     within" — the vellum wears the current realm's own wash, at ambient
-//     strength. A map is a thing you carry, and it catches the light of the
-//     room you are standing in.
-//
-// WHY IT IS NEARLY MONOCHROME, on purpose: a mappa mundi is ink on vellum
-// with a few earths — not ten competing hues. Ten realm colours on one
-// surface is the anxiety this tool was built to end, so provinces are told
-// apart by TONE and by NAME, never by a rainbow. The one colour that moves
-// is the paper, and it moves with the vessel.
-//
-// Laws worn (the E4 play study's synthesis, 2026-07-31):
-//   · SHAPE WITHOUT SLOTS — undiscovered ground is DRAWN, unnamed. Never a
-//     hole, never a silhouette with a gap, never "one missing."
-//   · NO AMBIENT COUNT — nothing here says 4 of 10. The water refuses at the
-//     source (mayCount) and this surface never asks.
-//   · WHAT OPENS, KEEPS — discovery never expires; there is no forget verb,
-//     only the vessel's own whole purge (offered in the Sanctum, not here).
-//   · THE SOVEREIGNTY RIDER — the Hearth is alwaysOpen and can never be
-//     hidden by the metaphor; and THE PLAIN LIST stands beside the drawing,
-//     one tap away, always (law VIII: no register is the admission ticket).
-//   · The ten-point sensory checklist: no autoplay, no flashing, motion
-//     opt-in and instant under prefers-reduced-motion, plain words, keyboard
-//     whole (every province is a real focusable link with a real href).
 
 'use client';
 
@@ -68,14 +28,6 @@ const VELLUM = '#efe6d4';
 const VELLUM_PALE = '#e4dac6';
 
 // ── THE TERRAIN ─────────────────────────────────────────────────────────
-// KP's ⚛ stroke, this sitting: "like the grass of water and trees shades
-// change around the areas of the regoin as well." So the land is LAND —
-// meadow, wood, water, high stone — and the shade shifts from section to
-// section within a province, the way ground does. Deterministic, so the map
-// a vessel learns is the map they keep.
-//
-// Every band is muted to the vellum: this is a drawn map, not a satellite
-// photograph, and the calm is the whole commission.
 
 type Terrain = 'meadow' | 'wood' | 'water' | 'stone' | 'sand' | 'moor';
 
@@ -212,8 +164,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
 
   const opened = useMemo(() => unfurl(mappa, { width: 1200, height: 800 }), [mappa]);
 
-  // KP's ⚛ stroke: the paper matches the realm the vessel is within. The
-  // wash is a CSS background-image the reimagining already emits per realm.
   const paper = useMemo(() => quickResolveAffect(pathname || '/').wash, [pathname]);
   const here = realmOfPath(pathname || '/');
 
@@ -224,8 +174,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
 
   return (
     <div className={cn('flex flex-col', className)}>
-      {/* The two lenses — the map, and the same landscape in words. Neither
-          is the admission ticket (law VIII, the blending principle). */}
       <div className="mb-3 flex items-center justify-between gap-3">
         <p className="text-xs text-star-dust/50">
           {here ? `You are in ${here.name}.` : 'You are on the street.'}
@@ -247,8 +195,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
           className="relative flex-1 overflow-hidden rounded-lg border border-star-dust/15"
           style={{ backgroundImage: paper }}
         >
-          {/* The vellum over the realm's own light — the paper catches the
-              room. Ambient strength: weather, never wallpaper. */}
           <svg
             viewBox="0 0 1200 800"
             preserveAspectRatio="xMidYMid meet"
@@ -258,8 +204,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
           >
             <rect x="0" y="0" width="1200" height="800" fill={VELLUM} opacity="0.88" />
 
-            {/* The wild ground — cells no realm holds. Honest borderland,
-                never a hole (the water calls these the marches). */}
             {opened.marches.map((march) => (
               <path
                 key={`march-${march.section}`}
@@ -278,9 +222,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
               const d = toPath(province.outline);
               const standing = here?.name === province.group;
 
-              // UNDISCOVERED: the shape stands, drawn and unnamed. Not a
-              // hole, not a lock icon, not a percentage. Waiting, not missing.
-              // No terrain either — unknown land is unknown, honestly blank.
               if (!known) {
                 return (
                   <g key={province.group}>
@@ -317,8 +258,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
                       : `${province.group} — ${realm?.whisper ?? ''}`}
                   </title>
 
-                  {/* The ground, section by section — the shade shifts across
-                      the region the way real ground does (KP's ⚛ stroke). */}
                   {province.sections.map((section) => (
                     <path
                       key={section.section}
@@ -332,9 +271,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
                     terrainMarks(terrain, section.center.x, section.center.y, section.col, section.row)
                   )}
 
-                  {/* The coastline, inked over its own ground. Where the
-                      vessel stands, the line is drawn heavier — "you are
-                      here" as emphasis, never as a badge or a pin. */}
                   <path
                     d={d}
                     fill="transparent"
@@ -380,8 +316,6 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
         </div>
       )}
 
-      {/* The one sentence that explains the unnamed ground, so nobody has to
-          wonder whether something is broken or withheld. */}
       <p className="mt-3 text-xs text-star-dust/40">
         Ground you have walked is named. The rest is drawn but unnamed — it is
         waiting, not missing, and nothing is required of you to find it.

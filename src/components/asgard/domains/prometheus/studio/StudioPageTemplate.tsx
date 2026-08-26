@@ -1,8 +1,4 @@
 // src/components/asgard/domains/prometheus/studio/StudioPageTemplate.tsx
-// Server component by design (B5 follow-on, 2026-07-30): no hooks, no
-// handlers — and its pages pass icon COMPONENTS as props, which RSC
-// serialization forbids across a server→client boundary. Server-side,
-// that pass is legal for every studio sub-page.
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';

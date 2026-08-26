@@ -1,16 +1,4 @@
 // src/components/asgard/domains/hermes/contributions/ContributionsGallery.tsx
-// Wares edition (2026-07-31): contributions became ware_participants, and
-// the room became what the 2026-07-09 verdict named it — a provenance
-// gallery. Credit, not payout math.
-//
-// THE PARTICIPANT'S MENU SPACE (2026-08-01, KP's ⚛ ruling, his words on
-// the realm bus): the room now shows BOTH tables — the wares and the
-// works the vessel participated in — each with the visibility toggle.
-// The row always exists (residual distribution rides on it, regardless
-// of published status); only PUBLICATION is the vessel's toggle, opt-in,
-// default quiet (033-the-participants-consent.sql). The toggle writes
-// through the supabase client under the participant-own UPDATE policy —
-// RLS is the guard, not the UI.
 'use client';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
@@ -24,9 +12,6 @@ import { ArrowLeft, HandHeart, Search, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { createClient } from '@/lib/supabase/client';
 import type { CardData } from '@/types/components/runes/card.types';
-// Repointed 2026-08-11 to the layer GAIA now delivers — the old helpers were
-// six columns behind the base, which is what hid `is_public` on the
-// participants tables (the column exists live; the photograph was stale).
 import type { Tables } from '@/lib/generated/supabase/database.helpers';
 
 type WareParticipation = Tables<'ware_participants'>;

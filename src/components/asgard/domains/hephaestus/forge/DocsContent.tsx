@@ -41,9 +41,6 @@ const DOC_SECTIONS: DocSection[] = [
     icon: Shield,
     description: 'The technical foundation that makes sovereignty possible',
     pages: [
-      // 2026-08-24, the truth pass: "with magic links" described a door the
-      // house does not have. The built door is password-primary with a
-      // magic-link door beside it (.journals/proofs/01-auth/PROOF.md, ruling 8).
       { title: 'Authentication Flow', path: '/forge/architecture/auth-flow', description: 'How we verify and protect your identity — a password, or a link if a password is too much', icon: Shield, badge: 'Security', badgeColor: 'cyan' },
       { title: 'Database Schema', path: '/forge/architecture/database-schema', description: 'The living blueprint — always accurate, always transparent', icon: Database, badge: 'Living Doc', badgeColor: 'purple' },
       { title: 'Residual System', path: '/forge/architecture/residual-system', description: 'How value flows to every contributor, forever', icon: Infinity, badge: 'Economics', badgeColor: 'pink' },
@@ -78,30 +75,14 @@ const DOC_SECTIONS: DocSection[] = [
     pages: [
       { title: 'The Origin', path: '/about', description: 'The story of a sanctuary born from survival and collaboration', icon: Star, badge: 'Story', badgeColor: 'amber' },
       { title: 'The Prophecy', path: '/observatory/prophecy', description: 'A glimpse of what is coming — our vision for the future', icon: Eye, badge: 'Vision', badgeColor: 'purple' },
-      // Repointed 2026-08-24, board ④: a docs reader wants the PUBLIC
-      // telling — lifetime totals, where the fee goes, the admin log — not
-      // the council's per-entry working page. Both rooms stand; this card
-      // names the one a reader arriving here is asking for.
       { title: 'The Ledger', path: '/transparency', description: 'Every exchange visible. Every distribution recorded.', icon: ScrollText, badge: 'Transparency', badgeColor: 'cyan' },
       { title: 'The Covenant', path: '/privacy', description: 'Your data is yours. Always.', icon: Lock, badge: 'Privacy', badgeColor: 'emerald' },
-      // 2026-08-25, board ①/⑤ — the apps' own policy, beside the site's.
       { title: 'App Privacy', path: '/apps/privacy', description: 'The apps collect nothing. This is the policy that says so.', icon: Smartphone, badge: 'Privacy', badgeColor: 'emerald' },
       { title: 'The Agreement', path: '/terms', description: 'Terms of service and community guidelines', icon: FileText, badge: 'Terms', badgeColor: 'cyan' },
       { title: 'The Welcome', path: '/accessibility', description: 'Everyone belongs here — our accessibility commitment', icon: Accessibility, badge: 'Access', badgeColor: 'pink' },
       { title: 'The Hearth Call', path: '/contact', description: 'We are here for you — reach out anytime', icon: Mail, badge: 'Contact', badgeColor: 'purple' },
       { title: 'The Scroll', path: '/press', description: 'Resources for media and storytellers', icon: Globe, badge: 'Press', badgeColor: 'cyan' },
-      // '/careers' → '/calling' 2026-08-24, the truth pass: this card still
-      // carried the pre-rename path, badge and copy after KP's ⚛ ruling
-      // ("we have no company" · "no 'careers'" · "just us"). The page it
-      // points at says so itself — (hephaestus)/REALM-BUS.md:216-219.
       { title: 'The Calling', path: '/calling', description: 'No company, no careers — just us, and the community that arrives', icon: Users, badge: 'Invitation', badgeColor: 'emerald' },
-      // 'The Offering' → /donate — RETIRED 2026-08-24 at KP's ⚛ word,
-      // verbatim, spacing kept: "retire the donate and create subscription
-      // tiers for me rather than the platform, and  i will still have my
-      // covenant set to 50%. the donations tab was before we had a built
-      // sanctuary and had different outlooks." The route is gone; this was
-      // the live card a reader met. The tiers are a WARE of KP's and belong
-      // to the Bazaar's spec, not to a Forge room.
     ],
   },
 ];
@@ -117,12 +98,6 @@ export const DOC_PAGE_COUNT = DOC_SECTIONS.reduce((n, s) => n + s.pages.length, 
 // COLOR MAP
 // ═══════════════════════════════════════════════════════════════════════════
 
-// 2026-08-24, fix 7: stock Tailwind ramps → the house's own cosmic tokens.
-// The slot names stay (they are the DocPage type's five badge slots, not
-// colour claims); the values are now the palette the rest of the house
-// reads, so a token change moves this hub with everything else.
-//   cyan → neurospark · purple → mood.creative · pink → sirens.rose
-//   emerald → sanctuary.green · amber → hearth.gold
 const badgeColors: Record<string, string> = {
   cyan: 'bg-neurospark/15 text-neurospark border-neurospark/30',
   purple: 'bg-mood-creative/15 text-mood-creative border-mood-creative/30',

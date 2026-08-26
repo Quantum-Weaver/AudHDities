@@ -25,10 +25,6 @@ export interface WriteResult {
   fileHash?: string;
 }
 
-// Anchored to the repo root via paths.ts (import.meta.url), NOT process.cwd().
-// With cwd, every relative output path moved with the launch folder — running
-// this from src/scripts/system/gaia wrote the whole generated layer into
-// gaia/src/ instead of the repo's src/ (2026-08-01).
 const PROJECT_ROOT = getProjectRoot();
 
 /**
@@ -47,8 +43,6 @@ function buildGeneratedPath(filePath: string): string {
     return filePath;
   }
 
-  // Insert '/generated/' after the first directory after src/
-  // Example: src/types/hestia-core/profiles.ts → src/types/generated/hestia-core/profiles.ts
   const parts = filePath.split(/[\\/]/);
   const srcIndex = parts.indexOf('src');
   if (srcIndex !== -1 && parts.length > srcIndex + 2) {
@@ -88,20 +82,14 @@ export async function writeGeneratedFile(
 ): Promise<WriteResult> {
   const { dryRun, force, verbose, logger } = options;
   
-  // Build the generated path
   const generatedPath = buildGeneratedPath(filePath);
-  // Accept both styles: repo-relative strings (what the orchestrators pass)
-  // and the absolute constants from paths.ts (TYPES_BASE_PATH, getDeityFilePath).
-  // Joining an absolute path onto the root would double it on Windows.
   const fullPath = path.isAbsolute(generatedPath)
     ? generatedPath
     : path.join(PROJECT_ROOT, generatedPath);
   const dir = path.dirname(fullPath);
   
-  // Check if file exists
   const exists = fs.existsSync(fullPath);
   
-  // Dry run mode
   if (dryRun) {
     if (verbose) {
       logInfo(`[DRY RUN] Would write to: ${fullPath}`);
@@ -117,7 +105,6 @@ export async function writeGeneratedFile(
     };
   }
   
-  // Ensure directory exists
   ensureDirectory(dir);
   
   // New file - safe to create
@@ -136,7 +123,6 @@ export async function writeGeneratedFile(
     };
   }
   
-  // Existing file - check if content changed
   const hasChanged = contentHasChanged(fullPath, content);
   
   if (!hasChanged) {
@@ -152,7 +138,6 @@ export async function writeGeneratedFile(
     };
   }
   
-  // Content changed - handle based on force flag
   if (force) {
     fs.writeFileSync(fullPath, content, 'utf-8');
     if (verbose) {

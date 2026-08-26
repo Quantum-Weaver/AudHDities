@@ -1,7 +1,5 @@
 // src/lib/constants/components/yggdrasil/button.constants.ts
 // ============================================================================
-// BUTTON CONSTANTS - FULLY DERIVED FROM COSMIC CONSTANTS
-// No hardcoded values - everything from colors.ts, dimensions.ts, motion.ts
 // ============================================================================
 
 import { 
@@ -50,16 +48,8 @@ export const BUTTON_SIZES_KEYS = {
   ICON_XL: 'icon-xl',
 } as const;
 
-// ============================================================================
-// 3. BUTTON VARIANT CLASSES (DERIVED FROM COSMIC)
-// ============================================================================
-
 export const BUTTON_VARIANT_CLASSES = {
   [BUTTON_VARIANTS_KEYS.PRIMARY]: {
-    // 2026-08-24: starDust on quantum.purple measures 3.7:1 and fails; the
-    // onQuantum token is the 4.9:1 pair the palette already carries. Named
-    // utilities, not `bg-[${...}]` — a template-built arbitrary value is not a
-    // class and mints nothing (the phantom shape, CHECKLIST.md:90).
     base: 'bg-quantum-base text-accessibility-text-on-quantum border-none',
     hover: 'hover:bg-quantum-dark',
     focus: 'focus-visible:ring-2 focus-visible:ring-quantum-base/50 focus-visible:ring-offset-2',
@@ -76,8 +66,6 @@ export const BUTTON_VARIANT_CLASSES = {
     gradient: GRADIENTS.cosmic,
   },
   [BUTTON_VARIANTS_KEYS.OUTLINE]: {
-    // 2026-08-24: border at /30 so a second door reads as a control, not a
-    // caption — the two doors carry equal weight (board 2, board 3).
     base: 'border border-star-dust/30 bg-transparent text-star-dust',
     hover: 'hover:bg-star-dust/10 hover:border-star-dust/40',
     focus: 'focus-visible:ring-2 focus-visible:ring-star-dust/20 focus-visible:ring-offset-2',
@@ -137,10 +125,6 @@ export const BUTTON_VARIANT_CLASSES = {
   },
 } as const;
 
-// ============================================================================
-// 4. BUTTON SIZE CLASSES (DERIVED FROM BUTTON_DIMENSIONS)
-// ============================================================================
-
 export const BUTTON_SIZE_CLASSES = {
   [BUTTON_SIZES_KEYS.XS]: `h-[${BUTTON_DIMENSIONS.height.sm}] px-[${BUTTON_DIMENSIONS.padding.x.sm}] text-[${TEXT_SIZES.xs}] rounded-[${BORDER_RADII.sm}] gap-1`,
   [BUTTON_SIZES_KEYS.SM]: `h-[${BUTTON_DIMENSIONS.height.sm}] px-[${BUTTON_DIMENSIONS.padding.x.sm}] text-[${TEXT_SIZES.sm}] rounded-[${BORDER_RADII.md}] gap-1.5`,
@@ -152,10 +136,6 @@ export const BUTTON_SIZE_CLASSES = {
   [BUTTON_SIZES_KEYS.ICON_LG]: `h-[${BUTTON_DIMENSIONS.height.lg}] w-[${BUTTON_DIMENSIONS.height.lg}] p-0 rounded-[${BORDER_RADII.lg}]`,
   [BUTTON_SIZES_KEYS.ICON_XL]: `h-[${BUTTON_DIMENSIONS.height.xl}] w-[${BUTTON_DIMENSIONS.height.xl}] p-0 rounded-[${BORDER_RADII.xl}]`,
 } as const;
-
-// ============================================================================
-// 5. RICH COSMIC BUTTON VARIANTS (for consciousness-aware applications)
-// ============================================================================
 
 export const BUTTON_COSMIC_VARIANTS = {
   sovereign_primary: {
@@ -307,10 +287,6 @@ export const BUTTON_COSMIC_VARIANTS = {
     },
   },
 } as const;
-
-// ============================================================================
-// 6. ICON SIZE MAPPING (DERIVED FROM BUTTON_DIMENSIONS)
-// ============================================================================
 
 export const BUTTON_ICON_SIZE_MAP: Record<ButtonSizeKey, number> = {
   [BUTTON_SIZES_KEYS.XS]: 12,

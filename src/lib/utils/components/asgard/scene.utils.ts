@@ -1,13 +1,6 @@
 // src/lib/utils/components/asgard/scene.utils.ts
 // ============================================================================
-// SCENE UTILITIES — pure logic for the scene renderer (no React, no fetch)
 // ============================================================================
-// Provenance: THE-FRONTEND-REIMAGINING, finishing session 2026-07-29 (study
-// record: fable lanes/study/e2-the-ux-study-bus.md, round 8a work-order step
-// ④). The garden's law is the audiences' own (L1-13/L3-01): patient growth
-// curves, dormancy-not-death — "No punishment. Only patience." Nothing here
-// ever computes a death state, because the schema and the law both refuse
-// one: plants go dormant, never die.
 
 import type { PlantStagesRow } from '@/lib/generated/types/hestia-core/plant_stages';
 

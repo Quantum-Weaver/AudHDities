@@ -6,8 +6,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { User } from '@supabase/supabase-js';
-// The profiles table dissolved in the schema evolution; public identity
-// now lives in community_profiles (found by created_by, not by id).
 import type { CommunityProfilesRow } from '@/lib/generated/types/hestia-core/community_profiles';
 
 export interface AuthState {
@@ -76,9 +74,6 @@ export function useAuth(): AuthState & AuthActions {
 
   const signInWithLink = useCallback(async (email: string, redirectTo: string) => {
     setError(null);
-    // shouldCreateUser:false — the second door is a way BACK in. Left true
-    // (the Supabase default) it would mint an account from the login page with
-    // no username and no Terms consent, against the opt-in law.
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: { emailRedirectTo: redirectTo, shouldCreateUser: false },

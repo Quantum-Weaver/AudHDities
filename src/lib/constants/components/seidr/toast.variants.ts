@@ -30,9 +30,7 @@ export const TOAST_POSITIONS = {
 export type ToastPositionKey = (typeof TOAST_POSITIONS)[keyof typeof TOAST_POSITIONS];
 
 // ─── Content Variants (background + border) ────────────────────────────────
-// Uses Tailwind generated color classes from tailwind.generated.config.mjs
 // Semantic colors: info, success, warning, error
-// Quantum: quantum-purple (from colors.quantum.base → #6C5CE7)
 export const toastContentVariants = cva('', {
   variants: {
     variant: {
@@ -49,7 +47,6 @@ export const toastContentVariants = cva('', {
 });
 
 // ─── Icon Color Variants ───────────────────────────────────────────────────
-// Uses opacity-modified semantic color classes
 export const toastIconColorVariants = cva('', {
   variants: {
     variant: {
@@ -66,7 +63,6 @@ export const toastIconColorVariants = cva('', {
 });
 
 // ─── Position Classes ──────────────────────────────────────────────────────
-// Uses spacing scale values (top-4 = 16px, etc.)
 export const toastPositionVariants = cva('', {
   variants: {
     position: {

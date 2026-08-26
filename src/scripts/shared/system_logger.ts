@@ -1,6 +1,5 @@
 // @/scripts/shared/systemLogger.ts
 // ============================================================================
-// SYSTEM LOGGER - Shared logging for COSMIC and GAIA
 // ============================================================================
 
 import * as fs from 'fs';
@@ -144,7 +143,6 @@ export class SystemLogger {
     if (this.currentRun) {
       this.currentRun.generatedFiles.push(filePath);
       
-      // Update registry file tracking
       const section = this.system === 'COSMIC' ? this.registry.cosmic : this.registry.gaia;
       section.files[filePath] = {
         hash: generateFileHash(filePath),
@@ -185,7 +183,6 @@ export class SystemLogger {
     
     const section = this.system === 'COSMIC' ? this.registry.cosmic : this.registry.gaia;
     
-    // Add to runs array
     section.runs.unshift(this.currentRun);
     
     // Prune old runs
@@ -193,13 +190,10 @@ export class SystemLogger {
       section.runs = section.runs.slice(0, this.registry.settings.maxRunsToRetain);
     }
     
-    // Update lastRun
     section.lastRun = this.currentRun;
     
-    // Update timestamp
     this.registry.updatedAt = new Date().toISOString();
     
-    // Write to file
     writeRegistry(this.registry);
   }
 }
@@ -257,7 +251,6 @@ function loadRegistry(): SystemRegistryFile {
   
   try {
     const content = fs.readFileSync(REGISTRY_PATH, 'utf-8');
-    // Extract the registry object from the exported constant
     const match = content.match(/export const SYSTEM_REGISTRY: SystemRegistryFile = ({[\s\S]*?});/);
     if (match) {
       return JSON.parse(match[1]);
@@ -321,9 +314,8 @@ export interface RunRecord {
 export const SYSTEM_REGISTRY: SystemRegistryFile = ${JSON.stringify(registry, null, 2)};
 `;
 
-  // Ensure the target directory exists (a full clear of the generated tree
-  // removes config/generated/; every other GAIA writer mkdir's its parent, so
-  // this one must too — otherwise the first post-clear run crashes on ENOENT).
+  // mkdir the parent: a full clear removes config/generated/, and the first
+  // post-clear run would hit ENOENT.
   const registryDir = path.dirname(REGISTRY_PATH);
   if (!fs.existsSync(registryDir)) {
     fs.mkdirSync(registryDir, { recursive: true });

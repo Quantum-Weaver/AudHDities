@@ -1,6 +1,4 @@
 // src/components/asgard/domains/themis/governance/ApplicationForm.tsx
-// Application Form - Creator/Vendor applications
-// High effort form with multi-section layout, file uploads, and validation
 
 "use client";
 
@@ -15,10 +13,8 @@ import { Textarea } from "@/components/forging/Textarea";
 import { Select } from "@/components/forging/Select";
 import { Card } from "@/components/runes/Card";
 
-// Generated Types
 import type { ApplicationsInsert } from "@/lib/generated/types/themis-governance/applications";
 
-// Generated Hooks
 import { useCreateApplications } from "@/lib/generated/hooks/themis-governance/applications";
 import { useCommunityProfilesList } from "@/lib/generated/hooks/hestia-core/community_profiles";
 
@@ -417,7 +413,6 @@ export function ApplicationForm({
         ))}
       </div>
 
-      {/* Submit Error */}
       {submitError && (
         <div className="mb-6 p-4 bg-fire-base/10 border border-fire-base/30 rounded-lg">
           <p className="text-fire-base text-sm">{submitError}</p>

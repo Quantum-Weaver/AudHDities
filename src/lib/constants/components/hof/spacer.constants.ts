@@ -19,7 +19,6 @@ export const SPACER_SIZES = {
   '4XL': '24', // 96px
 } as const;
 
-// Add below SPACER_SIZES:
 export const SPACER_SIZE_VALUES = {
   XS: 'xs',
   SM: 'sm',

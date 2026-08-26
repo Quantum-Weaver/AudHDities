@@ -1,11 +1,4 @@
 // src/components/asgard/domains/mnemosyne/assessment/AcidTestForm.tsx
-// Acid Test Form — multi-step assessment questionnaire.
-// Assessment edition (2026-07-18): acid_test_* became assessment_* in the
-// schema evolution. Answer OPTIONS now live on the question row as Json
-// (the separate answers table is the user's submissions), explanation became
-// description, slider endpoints come from labels_low/labels_high, and
-// SCORING MOVED SERVER-SIDE into the submit_acid_test function — this form
-// renders, collects, submits, and displays; it no longer computes tiers.
 
 "use client";
 
@@ -17,10 +10,6 @@ import { Card } from "@/components/runes/Card";
 import { Slider } from "@/components/forging/Slider";
 import { RadioGroup, Radio } from "@/components/forging/Radio";
 import { Textarea } from "@/components/forging/Textarea";
-
-// ============================================================================
-// TYPES (local — the question shape mirrors assessment_questions)
-// ============================================================================
 
 export interface AssessmentOption {
   value: string;
@@ -340,8 +329,6 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     setIsSubmitting(true);
     setError(null);
 
-    // Scoring is the server's duty now: submit_acid_test receives the raw
-    // answers and returns the computed result.
     const answersPayload = answers.map(a => ({
       question_id: a.questionId,
       value: a.value,
@@ -380,8 +367,6 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
   const handleNext = useCallback(() => {
     const questionType = (currentQuestion?.question_type || '').toLowerCase();
     if (!currentAnswer && questionType !== 'text' && currentQuestion?.is_required !== false) {
-      // MNE-4 register: a gentle pause, not a wall — no exclamation, no
-      // demand. See desk/realm-proposals/mnemosyne.md.
       setError("This one is waiting for an answer before we continue.");
       return;
     }
@@ -409,13 +394,6 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     return <LoadingView className={className} />;
   }
 
-  // MNE-4 — THE ACID TEST AS WELCOME, NOT GATEKEEPING (Shuttle Run 08,
-  // Phase 5, Movement III). Provenance: desk/realm-proposals/mnemosyne.md,
-  // Haiku's MNE-4 — "the test is how the house learns to welcome you, not
-  // a wall." Copy and framing only; the loader/scoring logic beneath is
-  // untouched. This invitational line replaces what would otherwise be an
-  // unstated assessment-tool assumption — shown once, on the first
-  // question, so the house names what the test is before asking anything.
   const welcomeFraming =
     "These questions are mirrors. They ask how you experience thought, sensation, time, and connection. Your answers belong only to you.";
 

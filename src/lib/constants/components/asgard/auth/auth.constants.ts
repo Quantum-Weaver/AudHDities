@@ -152,9 +152,6 @@ export const AUTH_COOKIES = {
 } as const;
 
 // ─── Page Background ───────────────────────────────────────────────────────
-// 2026-08-24: no longer worn by authPageVariants — a raw gradient string is
-// not a class. The door's weather is EnvironmentLayer at 0.3. Kept for the
-// @theme bridge (KP ⚛ answer 3, "wait for phase 0a").
 export const AUTH_PAGE_GRADIENT = GRADIENTS['cosmicDomain'];
 
 // ─── Dimensions ────────────────────────────────────────────────────────────

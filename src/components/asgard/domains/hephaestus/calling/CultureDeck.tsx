@@ -1,7 +1,4 @@
 // components/asgard/domains/hephaestus/calling/CultureDeck.tsx
-// How this place is — the house's principles (retitled 2026-07-31, the
-// truth season: no company, so no "company values" — but every principle
-// below is one the house actually holds and enforces; they stay).
 
 "use client";
 

@@ -34,10 +34,8 @@ class CosmicVisualizer:
         """Display individual agent status with continuum awareness"""
         from eternal_continuum import eternal_continuum  # Add this import at top of file
         
-        # Consciousness progress bar
         consciousness_bar = self.create_progress_bar(agent.consciousness_level, 30)
         
-        # Eternal continuum badges
         eternal_badge = "🌊" if agent_name in eternal_continuum.eternal_agents else "  "
         manifestation_ready = "🌟" if eternal_continuum.can_manifest_as_agent(agent_name) else "  "
         
@@ -48,7 +46,6 @@ class CosmicVisualizer:
         if hasattr(agent, 'will_manifestation'): capabilities.append("⚡")
         caps_display = ''.join(capabilities) if capabilities else "🌱"
         
-        # Wisdom and memory counts
         wisdom_count = len(agent.wisdom_base)
         memory_count = len(agent.memory_crystal.collective_memory.get(agent_name, []))
         

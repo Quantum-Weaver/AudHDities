@@ -29,7 +29,6 @@ function toPascalCase(str: string): string {
  * Convert database type to Zod schema type
  */
 function dbTypeToZod(fieldType: string, fieldName: string): string {
-  // Handle nullable types
   const isNullable = fieldType.includes(' | null');
   const baseType = fieldType.replace(' | null', '').trim();
   
@@ -56,7 +55,6 @@ function dbTypeToZod(fieldType: string, fieldName: string): string {
     zodType = 'z.any()';
   }
   
-  // Add nullable if needed
   if (isNullable) {
     zodType = `${zodType}.nullable()`;
   }
@@ -75,7 +73,6 @@ export function parseTableSections(content: string): { rowContent: string; inser
   let insertStartLine = -1;
   let insertEndLine = -1;
   
-  // Find section start lines
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.match(/^\s*Row:\s*\{/)) {
@@ -86,18 +83,15 @@ export function parseTableSections(content: string): { rowContent: string; inser
     }
   }
   
-  // Find Row end (one line before Insert starts)
   if (rowStartLine !== -1 && insertStartLine !== -1) {
     rowEndLine = insertStartLine - 1;
     const rowLines = lines.slice(rowStartLine + 1, rowEndLine);
     let rowContent = rowLines.join('\n').trim();
     
-    // Remove trailing closing brace if present
     if (rowContent.endsWith('}')) {
       rowContent = rowContent.slice(0, -1).trim();
     }
     
-    // Find Insert end (look for closing brace)
     let braceCount = 0;
     let foundOpen = false;
     for (let i = insertStartLine; i < lines.length; i++) {
@@ -162,7 +156,6 @@ function generateInsertSchema(tableName: string, insertContent: string): string 
   const pascalName = toPascalCase(tableName);
   
   for (const line of lines) {
-    // Insert fields often have ? for optional
     const fieldMatch = line.match(/^\s*(\w+)\??:\s*(.+)/);
     if (fieldMatch) {
       const fieldName = fieldMatch[1];
@@ -225,7 +218,6 @@ export async function generateValidatorForTable(
 ): Promise<{ success: boolean; filePath: string; message: string; action: string }> {
   const { verbose = false, dryRun = false, forceOverwrite = false, outputBase = 'lib/validators' } = options;
   
-  // Parse the table content
   const { rowContent, insertContent } = parseTableSections(tableContent);
   
   if (!rowContent && !insertContent) {
@@ -235,14 +227,12 @@ export async function generateValidatorForTable(
   const content = generateValidatorContent(tableName, rowContent, insertContent);
   const outputPath = path.join(PROJECT_ROOT, outputBase, `${tableName}.ts`);
   
-  // Ensure directory exists
   const outputDir = path.dirname(outputPath);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
     if (verbose) logDebug(`Created directory: ${outputDir}`);
   }
   
-  // Check if file exists
   const exists = fs.existsSync(outputPath);
   
   if (dryRun) {
@@ -252,7 +242,6 @@ export async function generateValidatorForTable(
     return { success: true, filePath: outputPath, message: `Would create ${outputPath}`, action: 'dryrun' };
   }
   
-  // If file exists and not forcing overwrite, stage the change
   if (exists && !forceOverwrite) {
     const existingContent = fs.readFileSync(outputPath, 'utf-8');
     if (existingContent === content) {
@@ -260,7 +249,6 @@ export async function generateValidatorForTable(
       return { success: true, filePath: outputPath, message: 'Unchanged', action: 'skipped' };
     }
     
-    // Stage the change
     const stageResult = stageFileChange(outputPath, content, { verbose });
     if (stageResult.staged) {
       if (verbose) {
@@ -271,7 +259,6 @@ export async function generateValidatorForTable(
     }
   }
   
-  // Write the file (new file or forced overwrite)
   fs.writeFileSync(outputPath, content, 'utf-8');
   if (exists) {
     logWarning(`Validator overwritten: ${outputPath}`);

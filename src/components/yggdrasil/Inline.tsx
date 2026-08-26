@@ -80,7 +80,6 @@ export function Inline({
   className,
   children,
 }: InlineProps) {
-  // Auto-detect responsive variant based on child count
   const resolvedResponsive =
     responsive === 'auto'
       ? getResponsiveVariant(Children.count(children))

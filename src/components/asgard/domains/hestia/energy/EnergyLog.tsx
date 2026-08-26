@@ -24,8 +24,6 @@ interface EnergyEntry {
   id: string;
   energy_level: number;
   notes?: string | null;
-  // The "activity" concept rides in the schema's mood_tags array
-  // (energy_entries has no activity column; first tag = activity).
   mood_tags?: string[] | null;
   logged_at: string;
 }
@@ -285,7 +283,6 @@ export function EnergyLog() {
           </Button>
         </div>
 
-        {/* Create Form */}
         {showForm && (
           <Card
             data={{ id: 'new-energy', type: 'value', title: 'Log Energy', value: '' }}
@@ -335,9 +332,6 @@ export function EnergyLog() {
               <TrendingUp className="h-5 w-5 text-neurospark" />
               <h3 className="text-lg font-semibold text-star-dust">Your Rhythm</h3>
             </div>
-            {/* A bar has a full state, so a tired week rendered as an empty
-                one. The same number, read through this room's own ladder —
-                a word cannot be full or empty. */}
             <p className="text-sm text-star-dust/70 mb-3">
               Across your last {entries.length}{' '}
               {entries.length === 1 ? 'entry' : 'entries'} you have mostly sat

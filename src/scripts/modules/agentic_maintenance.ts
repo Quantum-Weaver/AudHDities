@@ -87,7 +87,6 @@ export async function runMaintenance(tasks?: MaintenanceTask[]): Promise<Mainten
 }
 
 async function runValidationTask(task: MaintenanceTask): Promise<MaintenanceResult> {
-  // Validate that generated files exist and are up to date
   const filesAffected: string[] = [];
   
   try {
@@ -121,7 +120,6 @@ async function runValidationTask(task: MaintenanceTask): Promise<MaintenanceResu
 }
 
 async function runUpdateTask(task: MaintenanceTask): Promise<MaintenanceResult> {
-  // Update stale generated files
   const filesAffected: string[] = [];
   
   // This would call the appropriate generator
@@ -137,7 +135,6 @@ async function runUpdateTask(task: MaintenanceTask): Promise<MaintenanceResult> 
 }
 
 async function runCleanupTask(task: MaintenanceTask): Promise<MaintenanceResult> {
-  // Clean up orphaned files
   const filesAffected: string[] = [];
   
   if (fs.existsSync(task.target)) {
@@ -178,7 +175,6 @@ export function detectStaleFiles(registry: SystemRegistryFile, dependencyMap: De
       continue;
     }
     
-    // Check if source files have changed
     const sourcePath = filePath.replace('/generated/', '/');
     if (fs.existsSync(sourcePath)) {
       const sourceStats = fs.statSync(sourcePath);
@@ -201,7 +197,6 @@ export function detectOrphanedFiles(registry: SystemRegistryFile, dependencyMap:
   const section = registry.gaia;
   
   for (const [filePath] of Object.entries(section.files)) {
-    // Check if source table still exists
     const tableName = path.basename(filePath, '.ts');
     const sourceExists = dependencyMap.nodes[`@/lib/generated/types/${tableName}.ts`] !== undefined;
     

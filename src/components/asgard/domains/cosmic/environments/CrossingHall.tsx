@@ -2,16 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE CROSSING HALL — the Realms room, become a place you go             ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: REALMS-AS-TRAVEL move 1, ruled at KP's ⚛ word 2026-07-30
-// (design + ruling on the (cosmic) REALM-BUS). Picture-cards retire; each
-// place stands as a DOORWAY in the hall's fixed geometry (places.ts — the
-// same map at two scales as RealmMapFurniture). The doorway wears the
-// SceneDoorway register in this realm's own idiom — still by default,
-// threshold-light only, keyboard-walkable — without touching hestia's organ:
-// visibility is the invitation, movement is a tap on the shoulder. The
-// search box and mood filters retired with the cards: a hall you learn by
-// heart needs no search. Law 7 rides: this room reads nothing personal and
-// writes nothing.
 
 'use client';
 
@@ -53,8 +43,6 @@ export function CrossingHall() {
                 href={`/environments/${envId}`}
                 className="group relative block rounded-lg border border-star-dust/10 bg-white/5 p-5 pl-6 overflow-hidden transition-colors motion-reduce:transition-none hover:border-star-dust/25 focus-visible:border-star-dust/25"
               >
-                {/* The threshold light — the place's own beam gradient,
-                    standing still. A sliver, not a show. */}
                 <span
                   aria-hidden="true"
                   className="absolute inset-y-0 left-0 w-1 opacity-70"

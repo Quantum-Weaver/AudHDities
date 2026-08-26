@@ -8,9 +8,6 @@ import type {
   SkeletonVariant,
   SkeletonAnimation,
   SkeletonSize,
-// Repointed 2026-08-11: this file moved src/types → src/lib/types on 08-08,
-// which left this relative climb one level short. The alias below is the
-// style its own next line already keeps.
 } from '@/lib/constants/components/runes/skeleton.variants';
 import type { BORDER_RADII } from '@/lib/constants/cosmic';
 

@@ -73,14 +73,11 @@ export function composeScrollAreaClasses(params: {
 
   return cn(
     variantClasses,
-    // Hide track
     params.hideTrack && '[&::-webkit-scrollbar-track]:bg-transparent',
-    // Snap scroll
     params.snapScroll && [
       'snap-y snap-mandatory',
       SNAP_DIRECTION[params.snapDirection],
     ],
-    // Shadow on scroll
     params.shadowOnScroll && params.isScrolled && SCROLL_SHADOW_INSET,
     params.className
   );

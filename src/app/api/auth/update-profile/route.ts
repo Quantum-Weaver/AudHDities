@@ -1,11 +1,4 @@
 // src/app/api/auth/update-profile/route.ts
-// Rewritten 2026-07-18 for the evolved schema. The profiles table dissolved:
-// public identity edits go to community_profiles (by created_by), and
-// accessibility/display preferences go to vessel_config. Fields the schema
-// retired (username, pronouns, user_tier, communication_style,
-// preferred_environment, primary_house, the crisis_contact_* columns —
-// crisis data now lives in user_private under its own protections) are no
-// longer accepted here.
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { z } from 'zod';
@@ -22,9 +15,6 @@ const identityUpdateSchema = z.object({
   icon_emoji: z.string().max(16).optional().nullable(),
   sensory_hints: z.string().max(500).optional().nullable(),
   social_links: z.any().optional().nullable(),
-  // THE COVENANT DISPLAY CHOICE (KP's ⚛ strokes 2026-08-12, docs/sql/021):
-  // the vessel's pledge shown on their public face by their own choice.
-  // null = not displayed — the opt-in law in the value itself.
   covenant_pledge_percent: z.number().int().min(0).max(50).optional().nullable(),
 });
 
@@ -44,18 +34,10 @@ const configUpdateSchema = z.object({
   timezone: z.string().optional(),
   heralds_enabled: z.boolean().optional(),
   herald_sounds: z.boolean().optional(),
-  // THE CEREMONY SWITCHBOARD (Movement IV, 2026-07-29) — both opt-in,
-  // default false in the schema (migrations/20260729_ceremony_choices.sql,
-  // KP's hand). Absence of choice means OFF, per THE OPT-IN LAW.
   ceremony_arrival: z.boolean().optional(),
   ceremony_farewell: z.boolean().optional(),
-  // THE RETURNS (2026-07-31, KP's commissions, docs/sql/013): the bubble
-  // caps come home from device-localStorage, and the environment picker
-  // gets its schema home back ('env:variant', the selector's own dialect).
   bubble_daily_max: z.number().int().min(0).max(9999).optional(),
   bubble_hourly_max: z.number().int().min(0).max(999).optional(),
-  // KP's word 2026-08-24: the Sanctum switch that puts a "Play bubbles"
-  // button on the vessel face. Column name proposed here; gaia mints it.
   bubble_vessel_button: z.boolean().optional(),
   environment_preference: z.string().regex(/^[a-z_]+:[1-4]$/).optional(),
 });
@@ -104,10 +86,6 @@ export async function PATCH(request: NextRequest) {
         );
       }
       if (Object.keys(validatedConfig.data).length > 0) {
-        // bubble_vessel_button has no column yet — it is gaia's to mint. Until
-        // it lands the write is sent anyway and simply fails for that one
-        // field; the Sanctum and the vessel both read it defensively. Drop the
-        // cast once the column is in the generated types.
         const { error: configError } = await supabase
           .from('vessel_config')
           .update({

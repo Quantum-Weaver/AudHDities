@@ -18,12 +18,6 @@ export function SanctuaryHero() {
           Build the Future
         </h1>
 
-        {/* 2026-08-24, the truth pass — the last clause read "and every
-            member shares in the abundance." The model pays two rosters, not
-            everyone: the residual pool goes to every artisan who has ever
-            stood as one (once in, never out), and the covenant pool to every
-            user who has opted in. Same register, true names.
-            Ground: transparency/page.tsx:372, :400. */}
         <p className="text-xl md:text-2xl text-star-dust/70 max-w-2xl mx-auto mb-12 leading-relaxed">
           A platform where 90% of everything circulates, every contributor is
           paid an equal share, and the abundance reaches every artisan who has

@@ -30,8 +30,6 @@ const streams = [
   },
 ];
 
-// A fourth recipient, "Mutual Aid — emergency support," stood here until 2026-08-24.
-// No such fund exists; the four below are all of them.
 const residualRecipients = [
   { icon: Users, label: "This Ware's Contributors", description: 'What is left of the 90% after the pledge, divided equally', color: 'cyan' },
   { icon: Share2, label: 'Every Artisan', description: 'The residual pool, in equal shares — one contribution ever is enough', color: 'pink' },
@@ -83,7 +81,6 @@ export function ValueFlowDiagram() {
         ))}
       </div>
       
-      {/* Merge Point */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}

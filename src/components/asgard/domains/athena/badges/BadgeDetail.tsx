@@ -18,8 +18,6 @@ const RARITY_COLORS: Record<string, string> = {
   rare: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
   epic: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
   legendary: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  // entity.curator, not rose: no red anywhere in this realm
-  // (resonance-bubbles/CLAUDE.md:34; dress.ts:39-40).
   mythic: 'bg-entity-curator/20 text-entity-curator border-entity-curator/30',
 };
 

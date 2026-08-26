@@ -1,5 +1,4 @@
 // hooks/useUser.server.ts
-// Server-side user hook (for server components)
 
 import { auth, type Session, type Profile } from '@/lib/auth';
 

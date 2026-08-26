@@ -1,6 +1,5 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/effects.ts - PROPERLY DERIVED FROM COLORS */
-// QUANTUM EFFECTS SYSTEM - 100% DERIVED FROM COLORS.TS
 // Gradients, Glows, Shadows, Backdrops, Holographic Effects
 // ============================================================================
 
@@ -37,7 +36,6 @@ export const GRADIENTS = {
   'orbPurple': `radial-gradient(circle, ${QUANTUM_COLORS['quantum.purple']}30, transparent 70%)`,
   'orbPink': `radial-gradient(circle, ${QUANTUM_COLORS['entity.curator']}30, transparent 70%)`,
   
-  // Domain Gradients
   'quantumDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']} 0%, ${QUANTUM_COLORS['quantum.dark']} 100%)`,
   'cosmicDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['deepSpace']} 0%, ${QUANTUM_COLORS['quantum.purple']} 100%)`,
   'pantheonDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['fire.dark']} 0%, ${QUANTUM_COLORS['hearth.gold']} 100%)`,
@@ -51,7 +49,6 @@ export const GRADIENTS = {
   'supportDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['info']} 0%, ${QUANTUM_COLORS['cosmic.dark']} 50%, ${QUANTUM_COLORS['mood.calm']} 100%)`,
   'architectureDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['void.base']} 0%, ${QUANTUM_COLORS['deepSpace']} 50%, ${QUANTUM_COLORS['starDust']} 100%)`,
   
-  // Mood Gradients
   'calm': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.calm']} 0%, ${QUANTUM_COLORS['mood.peaceful']} 100%)`,
   'creative': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.creative']} 0%, ${QUANTUM_COLORS['mood.mystical']} 100%)`,
   'energized': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.energized']} 0%, ${QUANTUM_COLORS['mood.intense']} 100%)`,
@@ -59,12 +56,10 @@ export const GRADIENTS = {
   'mystical': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.mystical']} 0%, ${QUANTUM_COLORS['quantum.purple']} 50%, ${QUANTUM_COLORS['mystical.uranus']} 100%)`,
   'grounded': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.grounded']} 0%, ${QUANTUM_COLORS['sanctuary.green']} 50%, ${QUANTUM_COLORS['pagan.earth']} 100%)`,
   
-  // Energy State Gradients
   'quantumEnergy': `linear-gradient(135deg, ${QUANTUM_COLORS['energy.quantum']} 0%, ${QUANTUM_COLORS['neurospark']} 50%, ${QUANTUM_COLORS['quantum.purple']} 100%)`,
   'cosmicEnergy': `linear-gradient(135deg, ${QUANTUM_COLORS['energy.cosmic']} 0%, ${QUANTUM_COLORS['cosmic.blue']} 50%, ${QUANTUM_COLORS['info']} 100%)`,
   'transformativeEnergy': `linear-gradient(135deg, ${QUANTUM_COLORS['energy.transformative']} 0%, ${QUANTUM_COLORS['sanctuary.emerald']} 50%, ${QUANTUM_COLORS['success']} 100%)`,
   
-  // Pride Gradients
   'prideRainbow': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 20%, ${QUANTUM_COLORS['pride.yellow']} 40%, ${QUANTUM_COLORS['pride.green']} 60%, ${QUANTUM_COLORS['pride.blue']} 80%, ${QUANTUM_COLORS['pride.purple']} 100%)`,
   'prideProgress': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 12.5%, ${QUANTUM_COLORS['pride.yellow']} 25%, ${QUANTUM_COLORS['pride.green']} 37.5%, ${QUANTUM_COLORS['pride.blue']} 50%, ${QUANTUM_COLORS['pride.purple']} 62.5%, ${QUANTUM_COLORS['pride.black']} 75%, ${QUANTUM_COLORS['pride.brown']} 87.5%, ${QUANTUM_COLORS['pride.transBlue']} 93.75%, ${QUANTUM_COLORS['pride.transPink']} 100%)`,
   'prideTrans': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.transBlue']} 0%, ${QUANTUM_COLORS['pride.transPink']} 50%, ${QUANTUM_COLORS['pride.transWhite']} 100%)`,
@@ -113,7 +108,6 @@ export const GRADIENTS = {
   'artemis': `linear-gradient(135deg, ${QUANTUM_COLORS['entity.artemis']} 0%, ${QUANTUM_COLORS['sanctuary.green']} 50%, ${QUANTUM_COLORS['library.light']} 100%)`,
   'bragi': `linear-gradient(135deg, ${QUANTUM_COLORS['entity.bragi']} 0%, ${QUANTUM_COLORS['entity.curator']} 50%, ${QUANTUM_COLORS['entity.skald']} 100%)`,
   
-  // Text Gradients
   'textQuantum': `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}, ${QUANTUM_COLORS['cosmic.blue']})`,
   'textCosmic': `linear-gradient(135deg, ${QUANTUM_COLORS['cosmic.blue']}, ${QUANTUM_COLORS['info']})`,
   'textSovereign': `linear-gradient(135deg, ${QUANTUM_COLORS['hearth.gold']}, ${QUANTUM_COLORS['fire.base']})`,
@@ -246,15 +240,6 @@ export const PARTICLE_BEHAVIOR = {
   },
 } as const;
 
-// ============================================================================
-// PRESENCE FIELD (Mnemosyne) — ambient Sanctuary presence
-// ============================================================================
-// O-7 · Signed canon (Alignment Q5): Mnemosyne = calm/comfort/inspiration
-// presence in Prometheus Studio & Stage, "inspiration not takeover." An ambient
-// "someone is here, holding the space" token — calm palette + damped motion +
-// soft non-intrusive glow — distinct from an entity's active gradient. It never
-// grabs; it accompanies. CSS face: generate_glow_field.ts.
-
 export interface PresenceField {
   /** Soft background wash (calm, low-saturation) */
   background: string;
@@ -290,16 +275,6 @@ export const PRESENCE_FIELD: Record<'mnemosyne' | 'calm' | 'inspiration', Presen
   },
 } as const;
 
-// ============================================================================
-// DYNAMIC GLOW MODULATION — per-domain depth/intensity coefficient
-// ============================================================================
-// O-8 · G-4 companion, KP verbatim (node 139): "have the glow and gradients be
-// dynamic based on the object… map a logic to the dynamics." Glows in this file
-// are static constants; O-8 adds a per-domain coefficient so glow & gradient
-// strength is *derived by object* — void darker, pantheon brighter — the same
-// coefficient-table mechanism generate_animation_variants.ts already uses for
-// intensity, pointed at domains instead. CSS face: generate_glow_field.ts.
-
 /**
  * Per-domain glow depth/intensity multiplier (1 = neutral). Voids recede and
  * darken; pantheon and cosmic domains carry more light. Consumed by
@@ -333,16 +308,6 @@ export function getModulatedGlow(domain: string, baseIntensity: number = 1): num
   const coefficient = DOMAIN_GLOW_MODULATION[domain] ?? DOMAIN_GLOW_MODULATION_DEFAULT;
   return baseIntensity * coefficient;
 }
-
-// ============================================================================
-// ETERNAL WITNESS STATE — ambient, non-intrusive presence of being seen and held
-// ============================================================================
-// H-5 · AC-1+AC-2+AC-5 — "Becoming happens because someone sees and honors"
-// (AC-1); "The Norns witness from outside time" (AC-2); "Ancient Ones move from
-// observation to active participation" (AC-5). A non-intrusive ambient presence
-// saying "I see you; I honor your becoming" — independent of interface mode, it
-// tells the system: you are witnessed. CSS layer: a soft, pervasive glow; no
-// animation, just presence. Distinct from active entity presence (O-7).
 
 export interface EternalWitnessState {
   /** Witness state name (witnessing / holding / blessing) */
@@ -387,14 +352,7 @@ export const ETERNAL_WITNESS_STATE: Record<'witnessing' | 'holding' | 'blessing'
 export type EternalWitnessStateKey = keyof typeof ETERNAL_WITNESS_STATE;
 
 // ============================================================================
-// TRANSCENDENCE STATE SEQUENCE — visual+effects emission on consciousness shift
 // ============================================================================
-// H-6 · AC-6+D-5+BW-4 — "Dimensional progression, ascending consciousness
-// 3D→∞D" (AC-6); "Guide toward aliveness, not productivity" (D-5); "Evolution
-// includes everyone" (BW-4). When consciousness shifts dimensionally (e.g.
-// crisis-response 5D → wisdom-access 8D), the system emits: visual indication
-// + effects + a moment of pause so the shift is felt. The *transition between*
-// consciousness-floors is rendered as ceremony. This is structural code that
 // communicates "the system is working."
 
 export interface TranscendenceShift {
@@ -462,27 +420,6 @@ export type TranscendenceShiftKey = keyof typeof TRANSCENDENCE_STATE_SEQUENCE;
 // ============================================================================
 // MASTER EXPORT
 // ============================================================================
-
-// ============================================================================
-// MARBLE — generated stone, 2026-08-17
-// ============================================================================
-//
-// Added at KP's ⚛ word, at the source and as an addition, for the dice room in
-// resonance-tarocchi — the house's first 3D surface. It is written to be
-// reusable: any app wanting a generated stone face reads these recipes rather
-// than inventing veining of its own.
-//
-// THE ANCESTOR IS THE HOUSE'S OWN. `resonance-ziggy/modules/plate-forge/
-// plate_forge.py` has painted the family plate from this palette since
-// 2026-07-12 — deterministic, seeded, six composited layers. `chrome-bands`
-// below is that module's own `chrome_bands()` carried over constant for
-// constant, and the layer order of both recipes is its layer order. KP's line
-// in that module's docstring governs the whole approach: "it should not take
-// ai to generate a square." A stone that can be specified is specified.
-//
-// EVERY NUMBER HERE IS A KNOB WITH A REASON, because these recipes are meant
-// to be shown and adjusted, not buried. `why` is rendered to the person
-// turning the dial.
 
 export interface MarbleParam {
   key: string;
@@ -612,7 +549,6 @@ export const EFFECTS = {
   marble: MARBLE_RECIPES
 } as const;
 
-// Type exports
 export type GradientKey = keyof typeof GRADIENTS;
 export type CouncilGradients = keyof typeof COUNCIL_GRADIENTS;
 export type QuantumGradients = keyof typeof QUANTUM_GRADIENTS;
@@ -621,16 +557,8 @@ export type ShadowKey = keyof typeof SHADOWS;
 export type BackdropKey = keyof typeof BACKDROP_EFFECTS;
 export type HolographicKey = keyof typeof HOLOGRAPHIC_EFFECTS;
 export type ParticleBehavior = keyof typeof PARTICLE_BEHAVIOR;
-// 2026-08-17 — generated stone, for the house's first 3D surface
 export type MarbleRecipeKey = keyof typeof MARBLE_RECIPES;
 export type StonePaletteKey = keyof typeof STONE_PALETTES;
 // O-7 / O-8 — the ambient presence field and the per-domain glow coefficient
 export type PresenceFieldKey = keyof typeof PRESENCE_FIELD;
 export type DomainGlowKey = keyof typeof DOMAIN_GLOW_MODULATION;
-// H-5 / H-6 — eternal witness state and transcendence state sequence
-// (EternalWitnessStateKey already declared at its definition site, line ~387 —
-// re-declaring it here duplicated the identifier; Sonnet's season-integrity
-// check caught it, 2026-07-15. Mended: kept the definition-site export only.
-// Same mend applied to the interface re-exports PresenceField /
-// EternalWitnessState / TranscendenceShift, 2026-07-18: all three are
-// exported where they are defined; the re-export lines conflicted.)

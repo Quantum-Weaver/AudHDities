@@ -1,8 +1,6 @@
 // src/scripts/shared/import_manager.ts
 // ============================================================================
-// IMPORT MANAGER - Centralized import collection and deduplication
 // ============================================================================
-// Purpose: Collect, deduplicate, and organize imports for generated files
 // Used by: All GAIA format generators
 // ============================================================================
 
@@ -119,18 +117,15 @@ export class ImportManager {
     for (const imp of statements) {
       const parts: string[] = [];
       
-      // Default import
       if (imp.defaultImport) {
         parts.push(imp.defaultImport);
       }
       
-      // Named imports
       if (imp.namedImports.length > 0) {
         imp.namedImports.sort();
         parts.push(`{ ${imp.namedImports.join(', ')} }`);
       }
       
-      // Type imports
       if (imp.typeImports.length > 0) {
         imp.typeImports.sort();
         parts.push(`type { ${imp.typeImports.join(', ')} }`);

@@ -2,11 +2,7 @@
 // =====================================================
 // HOOK: useUser
 // =====================================================
-// Repointed 2026-07-18: the profiles table dissolved in the schema
-// evolution. Public identity now lives in community_profiles (found by
-// created_by), role flags in user_roles (one row per role), and the old
 // numeric sovereignty_score became the sovereign_tier enum
-// (dweller â†’ guild â†’ outlander â†’ sovereign_weaver).
 
 "use client";
 
@@ -19,9 +15,6 @@ import type { Enums } from '@/lib/generated/supabase/database.helpers';
 export type UserRole = Enums<'user_role'>;
 export type SovereignTier = Enums<'sovereign_tier'>;
 
-// The old numeric sovereignty_score became the sovereign_tier enum; where a
-// number is still wanted (progress bars, beam intensity, star maps), each
-// tier carries its light-level. One map, imported everywhere.
 export const TIER_LIGHT: Record<SovereignTier, number> = {
   dweller: 100,
   guild: 400,

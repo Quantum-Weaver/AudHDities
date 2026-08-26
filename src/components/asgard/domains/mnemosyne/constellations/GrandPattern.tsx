@@ -16,17 +16,9 @@ export function GrandPattern() {
 
   useEffect(() => {
     Promise.all([
-      // profiles -> community_profiles in the settle
       fetch('/api/generated/hestia-core/community_profiles?limit=1').then(r => r.json()),
-      // products -> wares; is_published/active booleans folded into one content_status enum
       fetch('/api/generated/plutus-economics/wares?status=published&limit=1').then(r => r.json()),
-      // badges route is gone — GAIA now emits sigils
       fetch('/api/generated/athena-gamification/sigils?status=published&limit=1').then(r => r.json()),
-      // MEND-LAW 2026-07-20: contributions table is gone. Nearest verified living
-      // shape in the plutus family is ware_participants — the record of a vessel's
-      // contributor/collaborator role on a ware. Narrower than the old ledger-style
-      // "contributions" count may have been, but it is a real, verifiable table
-      // (not invented) rather than guessing at an unverifiable ledger.entry_type value.
       fetch('/api/generated/plutus-economics/ware_participants?limit=1').then(r => r.json()),
     ]).then(([profilesRes, productsRes, sigilsRes, contribRes]) => {
       const s: StatCard[] = [];

@@ -33,7 +33,6 @@ export function useFocusTrap(
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
 
-    // Focus first element on mount
     firstElement?.focus();
 
     const handleTab = (e: KeyboardEvent) => {

@@ -1,6 +1,4 @@
 /* src/scripts/modules/generate/generate_object_constants.ts */
-// Phase 10: Generate runtime enum constant files with staging
-// RECEIVES folder mapping from caller - does NOT derive it
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -94,7 +92,6 @@ async function writeConstantFile(
     return { success: true, message: `Created ${filePath}`, action: 'created' };
   }
   
-  // Check if content changed
   const existingContent = fs.readFileSync(filePath, 'utf-8');
   if (existingContent === content) {
     if (verbose) logDebug(`Unchanged: ${filePath}`);

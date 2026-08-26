@@ -129,7 +129,6 @@ function AvatarFallback({
   delayMs = AVATAR_FALLBACK_DEFAULT_DELAY_MS,
   ...props
 }: AvatarFallbackProps) {
-  // Build group-data font size classes for all sizes
   const sizeClasses = (
     ['xs', 'sm', 'default', 'lg', 'xl', '2xl', '3xl', '4xl'] as AvatarSize[]
   ).map((s) => getAvatarFallbackFontSizeClass(s));
@@ -181,7 +180,6 @@ function AvatarBadge({
 }: AvatarBadgeProps) {
   const positionClass = getAvatarBadgePositionClass(position);
 
-  // Build group-data size + font classes for all sizes
   const sizeClasses = (
     ['xs', 'sm', 'default', 'lg', 'xl', '2xl', '3xl', '4xl'] as AvatarSize[]
   ).flatMap((s) => [getAvatarBadgeSizeClass(s), getAvatarBadgeFontSizeClass(s)]);

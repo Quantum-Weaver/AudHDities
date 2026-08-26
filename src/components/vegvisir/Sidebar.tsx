@@ -159,7 +159,6 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       setCollapsed(!collapsed);
     }, [collapsed, setCollapsed]);
 
-    // Close mobile drawer on resize to desktop
     useEffect(() => {
       if (!mobileDrawer) return;
 
@@ -203,7 +202,6 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
           )}
           style={{ width: resolvedWidth }}
         >
-          {/* Header */}
           {header && (
             <div
               className={cn(
@@ -272,7 +270,6 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             )}
           </ScrollArea>
 
-          {/* Footer */}
           {footer && (
             <div
               className={cn(
@@ -290,7 +287,6 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       </SidebarContext.Provider>
     );
 
-    // Mobile drawer mode
     if (mobileDrawer) {
       return (
         <>

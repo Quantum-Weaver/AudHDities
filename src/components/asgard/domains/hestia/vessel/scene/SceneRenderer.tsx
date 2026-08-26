@@ -4,27 +4,6 @@
 // ║   (the vessel home: rooms as composed modules, decorations as placed     ║
 // ║    objects, the garden on its own clock — over the generated hooks)      ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Provenance: THE-FRONTEND-REIMAGINING, finishing session 2026-07-29 (study
-// record: fable lanes/study/e2-the-ux-study-bus.md, round 8a work-order step
-// ④). KP's ⚛ words, verbatim: "we look to keep the decorations and such for
-// the vessel home in the database as objects, they do not exist yet. the
-// superposition supabase is built to supprt these concepts the front end
-// never caught up." This organ is the catching-up.
-//
-// THE SHAPING (2026-07-31, KP's ⚛ word: "we are ready to finish hestia
-// please check out the current state and complete the ux") — the home grew
-// hands: found a room · move a room (sovereign ordering, deliberate
-// gestures, no drag) · ready/plant/water the garden · place the map (table
-// or wall — the vessel's own realm_map decoration row, created at first
-// choice) · hearth music worn at last (opt-in at the tap itself) · the
-// keepsakes shelf (the collections surface, unlocking its seed condition).
-//
-// Laws worn: on the logged-in path by RLS design (a visitor cannot window-
-// peek a hearth). Empty states are dignified. Placement is stable
-// (byPlacement — the scene never shuffles ITSELF; every re-siting is the
-// dweller's own tap). No delete verbs anywhere in the home — nothing here
-// has a death state. All writes ride the generated hooks (ownership set
-// server-side; the policies are the wall).
 
 'use client';
 
@@ -71,10 +50,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
   const { user, profile, isLoading: userLoading } = useUser();
   const userId = user?.id;
 
-  // The home's own rows (RLS: own-only — the filters are honesty, the
-  // policies are the wall). Params memoized on the user id, per the house
-  // pattern (StatusBar's energyParams) — the generated hooks refetch on
-  // params identity, so a fresh object each render would loop.
   const interiorParams = useMemo(
     () => (userId ? { filters: { user_id: userId }, limit: 1 } : undefined),
     [userId]
@@ -122,8 +97,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
   const seeds = useSeedTypesList(seedParams);
   const sets = useCollectionSetsList(setsParams);
 
-  // The shaping hands (writes ride the generated hooks; ownership is set
-  // server-side, RLS is the wall)
   const { create: createRoom } = useCreateVesselRooms();
   const { update: updateRoom } = useUpdateVesselRooms();
   const { create: createPlot } = useCreateGardenPlots();
@@ -171,7 +144,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
   }
 
   if (!user) {
-    // The RLS design speaking plainly: homes are for their dwellers.
     return (
       <div className={cn('container mx-auto max-w-4xl px-6 text-center', className)}>
         <p className="text-star-dust/60">
@@ -208,8 +180,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
           name,
           display_order: orderedRooms.length,
           is_active: true,
-          // The API sets ownership server-side from the session; the insert
-          // type asks for it too — same value either way, RLS the wall.
           created_by: user.id,
         }),
       rooms.refetch,
@@ -322,7 +292,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
         )}
       </div>
 
-      {/* A gesture that didn't land says so plainly, once, and moves on */}
       {gestureNote && (
         <p role="status" className="mb-4 text-xs text-star-dust/60">
           {gestureNote}
@@ -463,8 +432,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
             />
           </section>
 
-          {/* THE KEEPSAKES — the collections surface (L1-13's slow
-              accumulation of things that matter) */}
           <section aria-label="Keepsakes" className="mb-8">
             <h2 className="mb-3 text-base font-semibold text-star-dust">
               Keepsakes
@@ -472,10 +439,6 @@ export default function SceneRenderer({ className }: { className?: string }) {
             <KeepsakesShelf kept={kept.data} catalog={sets.data} />
           </section>
 
-          {/* THE OUTSIDE — KP's word 2026-08-24, verbatim: "community profile
-              is the 'outside of a vessels home'". The frame marks that an
-              exterior exists and that it is the public half; how it is dressed
-              is the second pass. */}
           <section aria-label="The outside of this home" className="mb-8">
             <h2 className="mb-3 text-base font-semibold text-star-dust">
               The outside of this home

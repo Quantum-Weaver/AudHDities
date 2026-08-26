@@ -36,16 +36,10 @@ export function LayoutChrome({
     <EnvironmentProvider debug={process.env.NODE_ENV === 'development'}>
       <ContinuityBeamProvider>
 
-          {/* Sticky top chrome */}
           <div className="sticky top-0 z-40 w-full flex-cols justify-center gap-12 overflow-x-hidden">
               {showHeader && <Header />}
               <ChromeBeam allowed={showContinuityBeam} />
               <ChromeStatusBar allowed={showStatusBar} />
-              {/* THE LÉARSCÁIL, hung LAST on purpose — KP's ⚛ stroke
-                  2026-08-11: "scroll out from the bottom of the continuity
-                  bar section" · "or statsus bar, whichever is the botom of
-                  the stack." Being last is how it never needs to know which
-                  chrome is showing. */}
               <LearscailScroll />
           </div>
 
@@ -61,14 +55,9 @@ export function LayoutChrome({
   );
 }
 
-// ── X-OP-0 THE PAGE PROPS MADE REAL (Run 08, Phase 5, Movement I Step 2) ──
-// The beam + status bar render once here, globally — every page's own
-// showContinuityBeam/showStatusBar prop (on <Page>, bifrost/Page.tsx) used to
-// be accepted and silently dropped. These two small gates live inside
-// ContinuityBeamProvider so they can read the per-page visibility Page.tsx
-// now sets on the context; `allowed` is this LayoutChrome instance's own
-// (still-honored) prop, `beamVisible`/`statusBarVisible` is the live route's
-// own choice — both must agree for the chrome to show.
+// ── THE PAGE PROPS MADE REAL ─────────────────────────────────────────────
+// Both gates must agree for the chrome to show: this instance's `allowed`
+// prop and the live route's beamVisible/statusBarVisible.
 
 function ChromeBeam({ allowed }: { allowed: boolean }) {
   const { beamVisible } = useContinuityBeam();

@@ -1,8 +1,4 @@
 // src/components/asgard/domains/hermes/merchants/MerchantDetail.tsx
-// Merchant edition (2026-07-31): vendor_profiles (hestia-core, extinct)
-// became merchant_profiles (hermes-social). The wares link filters by
-// created_by — the profile's owner — because wares knows makers by
-// user id, not profile id.
 'use client';
 
 import { useState, useEffect } from 'react';

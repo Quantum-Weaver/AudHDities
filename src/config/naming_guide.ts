@@ -1,9 +1,6 @@
 // @/config/naming_guide.ts
 // ============================================================================
-// REALITY NAMING CONVENTION GUIDE - SINGLE SOURCE OF TRUTH
 // ============================================================================
-// Purpose: Define naming conventions for all Reality components
-// Used by: GAIA, COSMIC, and all generators
 // ============================================================================
 
 // ============================================================================
@@ -139,7 +136,6 @@ export const CONTEXT_RULES: ContextRule[] = [
   // Directories & Folders
   { context: 'directory', pattern: 'kebab-case', examples: ['audio-processing/', 'lyric-analysis/'] },
   
-  // Python
   { context: 'python_file', pattern: 'snake_case', examples: ['definition_extractor.py'], fileExtension: '.py' },
   { context: 'python_variable', pattern: 'snake_case', examples: ['scan_results'] },
   { context: 'python_function', pattern: 'snake_case', examples: ['extract_definitions'] },
@@ -163,10 +159,8 @@ export const CONTEXT_RULES: ContextRule[] = [
   { context: 'docker_service', pattern: 'kebab-case', examples: ['bifrost-app', 'ziggy-service'] },
   { context: 'environment_variable', pattern: 'SCREAMING_SNAKE_CASE', examples: ['MAX_QUANTUM_LEVEL', 'REALITY_API_KEY'] },
   
-  // Constants
   { context: 'constant', pattern: 'SCREAMING_SNAKE_CASE', examples: ['MAX_DEFINITIONS', 'DEFAULT_OUTPUT_DIR'] },
   
-  // Database
   { context: 'database_table', pattern: 'snake_case', examples: ['user_profiles', 'product_categories'] },
   { context: 'database_column', pattern: 'snake_case', examples: ['created_at', 'user_id'] }
 ];
@@ -238,22 +232,18 @@ export interface RealityFileType {
 }
 
 export const REALITY_FILE_TYPES: RealityFileType[] = [
-  // GAIA Generators
   { category: 'script', context: 'typescript_file', directoryPattern: /generators\/gaia\// },
   { category: 'script', context: 'typescript_file', directoryPattern: /modules\/(extract|find|count)/ },
   { category: 'script', context: 'typescript_file', directoryPattern: /system\// },
   { category: 'script', context: 'typescript_file', directoryPattern: /shared\// },
   
-  // Config Files
   { category: 'config', context: 'config_file', directoryPattern: /config\// },
   
-  // React Components
   { category: 'component', context: 'react_component', directoryPattern: /components\// },
   
   // Type Definitions
   { category: 'type', context: 'typescript_file', directoryPattern: /types\// },
   
-  // Styles
   { category: 'style', context: 'css_class', directoryPattern: /styles\// }
 ];
 
@@ -275,10 +265,6 @@ export function detectContextFromPath(filePath: string): ContextType | null {
   
   return null;
 }
-
-// ============================================================================
-// BULK RENAMING UTILITIES (for the migration phase)
-// ============================================================================
 
 export interface RenameOperation {
   oldPath: string;

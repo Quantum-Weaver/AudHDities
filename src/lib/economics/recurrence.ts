@@ -1,21 +1,4 @@
 // src/lib/economics/recurrence.ts
-// A RUNG IS A WARE THAT REPEATS (SPEC §6).
-//
-// Until KP runs docs/sql/024-the-bazaar-refined-DRAFT.sql, two facts about a
-// recurring ware live in wares.metadata, which is Json and untyped:
-//
-//   metadata.recurring       = { interval: 'month' }
-//   metadata.stripe_price_id = the Price KP created by his own hand
-//
-// That is tolerable for a POINTER TO STRIPE — Stripe is the authority on its
-// own price object anyway — and intolerable for money the ledger must prove,
-// which is why renewal idempotency waits on a typed, unique
-// exchanges.stripe_invoice_id and does not ship in metadata.
-//
-// After the DRAFT runs, wares.billing_interval is the typed home of the first
-// fact and this reader prefers it. Deliberately NOT a fifth pricing_model
-// value: a rung is priced `fixed`, what differs is that it repeats.
-//
 // A LAMP CREATES NO STRIPE OBJECT. This file reads an id; it never mints one.
 
 export type BillingInterval = 'month';

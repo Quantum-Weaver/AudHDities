@@ -47,9 +47,6 @@ function statCardData(id: string, title: string): CardData {
 export default async function TransparencyPage() {
   const supabase = await createServerSupabase();
 
-  // The evolved commerce schema: exchanges carry the money story
-  // (public_transparency view and admin_logs died in the evolution — the
-  // ledger table and admin_actions are their successors).
   const { data: publicLedger } = await supabase
     .from('ledger')
     .select('*')
@@ -299,9 +296,6 @@ export default async function TransparencyPage() {
                     Platform Fee <span className="text-neurospark">({PLATFORM_FEE_PERCENT}%)</span>
                   </h3>
                 </div>
-                {/* The fee has exactly two destinations. A third line, a
-                    "Community reserve (remainder)," stood here until 2026-08-24;
-                    no such reserve exists. */}
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-star-dust/70">
                     <span className="w-2 h-2 bg-neurospark rounded-full" />

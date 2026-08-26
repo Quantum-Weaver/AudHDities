@@ -1,6 +1,5 @@
 // src/scripts/system/gaia/format/format_row_content.ts
 // ============================================================================
-// FORMAT ROW CONTENT - All fields, exact types, no modifiers
 // ============================================================================
 
 import { toPascalCase } from '../../../shared/type_mappings.js';

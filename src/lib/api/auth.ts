@@ -1,5 +1,4 @@
 // lib/api/auth.ts
-// Shared authentication utilities for API routes
 
 import { createServerSupabase } from '@/lib/supabase/server';
 import { type NextRequest, NextResponse } from 'next/server';
@@ -87,7 +86,6 @@ export async function checkOwnership(
 ): Promise<boolean> {
   const supabase = await createServerSupabase();
   
-  // Build the PK column name from the table name
   const pkColumn = `${tableName}_id`;
   
   const { data: record } = await supabase

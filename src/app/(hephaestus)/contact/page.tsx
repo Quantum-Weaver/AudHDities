@@ -59,8 +59,6 @@ export const metadata: Metadata = {
 
 // ═══════════════════════════════════════════════════════════════════════════
 // PLACEHOLDER CARD DATA
-// Card requires `data` prop of type CardData. Since info cards are static
-// content (not data-driven), we provide a minimal placeholder.
 // ═══════════════════════════════════════════════════════════════════════════
 
 const PLACEHOLDER_DATA: CardData = {
@@ -113,7 +111,6 @@ export default function ContactPage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
       <main className="min-h-screen">
-        {/* Hero Section */}
         <section className={contactHeroSectionVariants()}>
           <div className={contactHeroOverlayVariants()} />
           <div className={contactOrbVariants({ color: 'cyan', position: 'topLeft' })} />

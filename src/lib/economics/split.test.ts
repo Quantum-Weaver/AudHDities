@@ -1,8 +1,4 @@
 // src/lib/economics/split.test.ts
-// The worked cases from docs/architecture/residual-system.md and the spec's §4.
-// The repo carries no test runner (package.json has no test script, 2026-08-25),
-// so this file is a plain script: `npx tsx src/lib/economics/split.test.ts`.
-// It exits non-zero on the first failure and prints every case it walked.
 
 import {
   computeSplit,

@@ -1,5 +1,4 @@
 // scripts/shared/list-tables.ts
-// Extract all table names from database.types.ts
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -20,11 +19,9 @@ function stripBom(content: string): string {
 }
 
 function main(): void {
-  // Read file
   let content = fs.readFileSync(DB_TYPES_PATH, 'utf-8');
   content = stripBom(content);
   
-  // Split into lines
   const lines = content.split(/\r?\n/);
   
   const tableNames: string[] = [];
@@ -34,18 +31,15 @@ function main(): void {
   const tablePattern = /^\s{6}(\w+):/;
   
   for (const line of lines) {
-    // Find the Tables: { line
     if (line.includes('Tables: {')) {
       inTables = true;
       continue;
     }
     
-    // Exit when we hit Views or another section
     if (inTables && (line.includes('Views: {') || line.includes('Functions: {') || line.includes('Enums: {'))) {
       break;
     }
     
-    // Extract table names
     if (inTables) {
       const match = line.match(tablePattern);
       if (match) {

@@ -1,13 +1,4 @@
 // src/components/asgard/domains/hermes/checkout/PriceBreakdown.tsx
-// Trued to the model 2026-08-24 (docs/architecture/residual-system.md):
-// the fee splits fixed, 30% to the residual pool and 70% to the machine; the
-// residual PLEDGE is a share of the ware's own 90% profit, never of the fee;
-// what is left of that profit divides equally among the ware's contributors.
-//
-// 2026-08-25: the arithmetic moved out of this file into src/lib/economics/split.ts.
-// This component computes nothing of its own any more — it draws what the one
-// split function produced, so the number a buyer reads here and the number the
-// ledger records are the same number by construction.
 'use client';
 
 import { Card } from '@/components/runes/Card';

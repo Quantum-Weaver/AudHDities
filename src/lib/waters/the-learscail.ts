@@ -1,95 +1,7 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   A DRAWN BUCKET — not a fork.                                           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// HOME: resonance-awen/tools/the-learscail  (the spring holds the canonical
-// standalone form; this file is an IN-USE SITE, never an extraction).
-//
-// THE RE-HOMING LAW, KP's ⚛ correction 2026-08-01, verbatim (spelling kept):
-//   "home as standalone tool does not = extracted from either app, only
-//    indexed as in use in these apps and home listed as awen"
-//
-// So: never edited here. A change wanted is a change made AT THE SPRING and
-// re-drawn into this file — heal by re-copying, exactly as the generated
-// layer is healed by regenerating. The first spring→app crossing on the
-// street, at KP's ⚛ ruling this sitting (2026-08-11): the core is carried
-// in-repo because Vercel builds this repo alone and a sibling-path
-// dependency would not survive the deploy.
-//
-// Proofs live at the spring: `npm run prove` — 29/29 TRUE, whose fixture is
-// this very app's navigation.
-//
 // ─────────────────────────────────────────────────────────────────────────
-// LÉARSCÁIL — the map, made generatable: tell it how many sections and how
-// they group, and it lays out the provinces that fill a space. The drawing
-// is bound to the lattice, never to pixels; regions are discoverable, and
-// clickable once discovered.
-//
-// NAMED BY KP ⚛ 2026-08-11, his naming gate, his own gloss verbatim:
-// "Léarscáil (Irish): Literally translates to a 'clear' or 'careful image'
-// of the landscape." The name is the specification, in the spring's own
-// tradition (Awen's README: "the name is the specification") — an anxious
-// nav is an UNCLEAR image of the landscape, and the cure is named in the
-// word. Irish is already native to this street: Fáilte stands as the second
-// of the Three Words (Velkomin · Fáilte · Gweld ti'n fuan).
-//
-// Named a need by KP ⚛ the same sitting, verbatim: "there is a stand alone tool
-// we need and do not have, an interactive map that opens like a scroll and
-// has sections drawn like a midevil map that are both discoverable and
-// clickable once discovered" — and sharpened the same breath: "basicallu a
-// graphic i can have drawn to fill the spae with a spacified grouping and
-// number of sections dynamic input accepted, thata turns a drawing into a
-// map that we use."
-//
-// WHY IT EXISTS, his reason, verbatim: "our nav is huge" · "this was the
-// plan to make it less anxious." AudHDities carries ~76 destinations across
-// nine realms in one drawer. A wall of links is an anxiety surface for the
-// minds this house is for. A map is a PLACE, and a place is walked.
-//
-// DISPLACEMENT-CLASS, inherited whole from its sibling the-cadastre and so
-// from KP's ⚛ own math (the displacement teaching, 2026-08-06): "the
-// variables were not the coordinates, but the distance from the points
-// between 2 coordinates, applied to direction rather than position." The
-// register stores GROUPING, SECTION COUNTS, and per-vertex displacement —
-// never a position. The extent handed to unfurl() is APPEARANCE, stored
-// nowhere: the same mappa fills a phone or a wall and no truth changes.
-// That is what lets a drawn graphic stay valid at any size.
-//
-// THE LAWS (each one from the E4 play study's synthesis, 2026-07-31,
-// `resonance-chamber/desk/records/fable-lanes/study/e4-the-play-study-bus.md`):
-//   · SHAPE WITHOUT SLOTS (law III, the register law) — an undiscovered
-//     province keeps its SHAPE on the map. It is drawn, unnamed: terra
-//     incognita, not a hole where a thing should be. The interface never
-//     performs the subtraction.
-//   · NO AMBIENT COUNT (law III) — the mappa refuses to emit "3 of 11
-//     discovered." mayCount() is that refusal in code, answered before
-//     anything counts, the way the cadastre answers mayMove() at the drag
-//     source. Extent at the ask; pressure never ambient.
-//   · WHAT OPENS, KEEPS (law II) — discovery never expires, never decays,
-//     never resets. There is no forget verb. The vessel's own purge is the
-//     one hand that clears, and it clears wholly (the street's purge law).
-//   · INVITATION WITHOUT ACCOUNT (law VI) — no province is ever assigned,
-//     required, or ordered. Discovery is the vessel's own act.
-//   · THE SOVEREIGNTY RIDER (E4b's returning knife) — "metaphor never
-//     obscures the exit." A province marked alwaysOpen is never hidden by
-//     any lens: the hearth, the way out, the consent and purge doors. And
-//     plainList() renders the same truth in words, always available, so the
-//     map is a lens and never the admission ticket (law VIII, the blending
-//     principle: no register is the admission ticket).
-//   · ONLY YOUR OWN — no vessel discovers on another's behalf.
-//   · Unknown keys ride whole; troubles are told, never thrown at data.
-//
-// LIBRARY CHECKED BEFORE BUILDING (2026-08-11, this sitting, against
-// resonance-library index + taxonomy): `Léarscáil` · `Learscail` · `Mappa` ·
-// `Province` · `Unfurl` · `March` · `Coastline` · `Portolan` · `Partition` ·
-// `Cartograph` ALL genuinely absent — spoken here first. `Map` is TAKEN (12
-// standings), `Domain` TAKEN (10), `Realm` (4) — honored from outside: this
-// water speaks léarscáil words and never the bare names, exactly as the
-// cadastre spoke lattice words and never `Grid`.
-//
-// STANDALONE BY LAW: framework-free, zero imports, pure functions — no
-// clock, no disk, no drawing, no randomness (every displacement is a
-// deterministic hash, so the same mappa is the same map forever, which is
-// what makes a commissioned drawing safe to bind).
 
 /** One group as the caller declares it: a name and how many sections it holds. */
 export interface GroupSpec {
@@ -164,7 +76,6 @@ export const MAPPA_VERSION = 1;
 
 const round6 = (v: number): number => Math.round(v * 1e6) / 1e6;
 
-// ── address arithmetic (the cadastre's dialect, kept so the two waters
 //    can be read by one pair of eyes) ─────────────────────────────────
 
 /** Column letters, bijective base-26: 0→A, 25→Z, 26→AA. Row is 1-based. */
@@ -263,24 +174,6 @@ export function parseMappa(text: string): { mappa: Mappa | null; trouble: string
 }
 
 // ── THE CARVE — how ground is apportioned ───────────────────────────
-//
-// A recursive binary partition, and the reason it is not something simpler:
-// the first cut of this water laid groups out serpentine, which kept every
-// province contiguous but made them all WIDE HORIZONTAL BANDS — the map read
-// as geological strata rather than as countries. Seen and corrected the same
-// sitting (2026-08-11) against the rendered map itself, which is the only
-// honest way to judge a drawing.
-//
-// The carve: split the groups into two halves of near-equal weight, cut the
-// REGION along its longer axis at exactly the boundary those weights ask
-// for, recurse. Because the cut is exact-by-count rather than exact-by-line,
-// the boundary may be ragged by one cell — which is precisely what keeps
-// section counts EXACT while the shapes stay blocky. Sorting along the cut
-// axis and taking a prefix is what keeps each half contiguous.
-//
-// Surplus lattice cells ride as a synthetic march group, so the wild
-// borderland is carved as compactly as any country instead of being
-// scattered leftovers.
 
 interface Cell {
 	col: number;
@@ -408,9 +301,6 @@ export function unfurl(
 	const cw = width / cols;
 	const ch = height / rows;
 
-	// A vertex's derived point. Outer-edge vertices wander only ALONG the
-	// edge, and corners not at all — so the drawing always fills the space
-	// exactly, which is the graphic's whole requirement.
 	const pointAt = (vx: number, vy: number): Point => {
 		const w = wanderAt(vx, vy, f.seed);
 		const onLeft = vx === 0;

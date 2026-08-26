@@ -114,7 +114,6 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
       </div>
     );
 
-    // Indeterminate
     if (indeterminate) {
       return (
         <div
@@ -133,7 +132,6 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
       );
     }
 
-    // No label
     if (!showLabel) {
       return (
         <div
@@ -146,7 +144,6 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
       );
     }
 
-    // With label
     const layoutClass = getProgressLabelLayout(labelPosition);
     const isHorizontal = labelPosition === 'left' || labelPosition === 'right';
     const isTop = labelPosition === 'top';

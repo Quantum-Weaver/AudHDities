@@ -1,5 +1,4 @@
 // scripts/inspect-schema.ts
-// Run with: npx tsx scripts/inspect-schema.ts
 
 import { createClient } from '@supabase/supabase-js';
 

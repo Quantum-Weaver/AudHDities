@@ -11,9 +11,6 @@ import { ArrowLeft, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
-// The Call rides the heralds table (the notifications successor);
-// action_url did not survive the evolution — detail links go by id, and
-// reference_table/reference_id carry the "about what" instead.
 interface Notification {
   id: string;
   herald_type: string;

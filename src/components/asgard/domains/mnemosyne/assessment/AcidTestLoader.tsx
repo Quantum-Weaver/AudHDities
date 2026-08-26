@@ -1,9 +1,4 @@
 // src/components/asgard/domains/mnemosyne/assessment/AcidTestLoader.tsx
-// Wired 2026-07-18: the questionnaire page had passed questions={[]} since
-// birth — a permanent loading skeleton. This loader fetches the live
-// questions via the get_acid_test_questions function route and hands the
-// signed-in vessel's id to the form. The generated function routes require
-// auth, so the unsigned see a gentle invitation instead of a spinner.
 'use client';
 
 import { useEffect, useState } from 'react';

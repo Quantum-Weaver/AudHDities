@@ -2,28 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   HOW A STAR IS PAINTED — the orb, its stripes, and its ring             ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// Born 2026-08-25 (refine/athena-2026-08-25), gate C.
-//
-// `bubbles.palette text[]` and `bubbles.ring text` land with
-// docs/sql/025-the-floating-stars-collections-DRAFT.sql — KP's own hand, not
-// a lamp's. Until that file is run the columns do not exist, PostgREST does
-// not return them, and every star here paints exactly as it does today: the
-// rarity's own radial orb. NOTHING is hard-coded from the app's JSON and
-// nothing is invented — a star with no palette has no stripes, and the room
-// says so by simply not drawing any.
-//
-// THE LAW THE STRIPES OBEY (resonance-bubbles, paint(), gallery orb.css):
-// a flag wears its stripes INSIDE the circle while the chrome stays the
-// rarity's — border, name and pill read the rarity's colour and the orb
-// alone reads the flag. "A flag's red stripe never becomes red UI."
-//
-// WHAT THE COLUMNS HOLD: mostly cosmic token KEYS (`hearth.gold`,
-// `pride.red`), which resolve through the house's own single source of truth
-// at src/lib/constants/cosmic/colors.ts — never a second palette. Some
-// entries are raw hex, because no token stands for them yet (intersex's ring
-// `#7902AA` is the plainest case). So: an entry starting with `#` is a
-// literal colour, anything else resolves through the tokens, and an unknown
-// key falls back to the rarity's own colour — never to red.
 
 import { QUANTUM_COLORS } from '@/lib/constants/cosmic/colors';
 

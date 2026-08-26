@@ -4,9 +4,6 @@
 import { motion } from 'framer-motion';
 import { Users, TrendingUp, Award, HandCoins } from 'lucide-react';
 
-// A fifth recipient, a "Mutual Aid Reserve" funded from an operations surplus,
-// stood in this list until 2026-08-24. No such reserve exists: a sale has exactly
-// four destinations, and the 7% that funds the machine is the only money that leaves.
 const recipients = [
   {
     icon: Award,

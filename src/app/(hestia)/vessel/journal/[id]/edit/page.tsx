@@ -1,6 +1,4 @@
 // src/app/(hestia)/vessel/journal/[id]/edit/page.tsx
-// The Scroll — Edit journal entry
-// Feeling: Reflective, intimate, sacred
 
 import { Page } from '@/components/bifrost/Page';
 import { JournalEdit } from '@/components/asgard/domains/hestia/journal/JournalEdit';

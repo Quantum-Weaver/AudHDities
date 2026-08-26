@@ -20,23 +20,11 @@ const DIFFICULTY_COLORS: Record<string, string> = {
   master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
 
-// objectives is Json in the evolved table; render only the shape we can
-// honestly show (an array of strings) — anything richer waits for row 10.
 function readObjectives(objectives: unknown): string[] {
   if (!Array.isArray(objectives)) return [];
   return objectives.filter((o): o is string => typeof o === 'string');
 }
 
-// THE OBJECTIVES ARE THE DOORS (2026-08-25, refine/athena). The primary
-// button that used to sit below retired with this pass: it had no onClick, so
-// a vessel pressed it, nothing happened, and the room had told them they
-// failed at something. Nothing replaces it — the objectives become the walk.
-//
-// The mapping is a PLAIN CONSTANT, read once from the six seeded quests'
-// own strings (docs/sql/008-the-library-first-seeds.sql:154-183). No fuzzy
-// matching and no guessing: a string with no exact match here renders as it
-// always did, as plain text. `Visit your garden` is deliberately absent —
-// the garden has no route on disk yet, and the map never lies.
 const OBJECTIVE_DOORS: Record<string, string> = {
   'Visit the Path': '/library/quests',
   'Visit the Curriculum': '/library/courses',

@@ -1,8 +1,4 @@
 // src/app/api/auth/users/me/route.ts
-// Rewritten 2026-07-18 for the evolved schema: the profiles join-tree died
-// with its table. The vessel's "me" is now assembled from community_profiles
-// (by created_by), user_roles, vessel_sigils (earned sigils), the user's
-// wares (if a creator), and their recent exchanges.
 import { NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 

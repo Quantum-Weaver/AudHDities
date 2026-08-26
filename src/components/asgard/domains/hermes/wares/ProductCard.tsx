@@ -1,15 +1,4 @@
 // src/components/asgard/domains/hermes/wares/ProductCard.tsx
-// FIX 9 (SPEC §3②): THIS COMPONENT IS NOT WIRED IN, and this pass did not wire
-// it in. It has no live consumer anywhere in the realm, and all three of its
-// variants print a price on a grid card — which is exactly what the quiet-square
-// ruling removed (2026-08-01, KP via the E4 study). Wiring it in would reverse
-// that ruling silently. Named, not designed.
-// Wares edition (2026-07-18): products became wares. One base price plus a
-// pricing_model; per-user solidarity pricing is computed server-side by
-// calculate_sovereign_price at checkout, so the card shows the base price
-// with the solidarity note instead of the old three-tier grid. The
-// contributions fetch died with its table (ware_participants is the
-// successor; participant chips can return when that surface is designed).
 'use client';
 
 import React from 'react';
@@ -48,8 +37,6 @@ const wareTypeBadgeVariants: Record<string, 'quantum' | 'cosmic' | 'sanctuary' |
 };
 
 function priceLabel(ware: WaresRow): string {
-  // FIX 8 · one realm, one word. FIX 11 · a bare dash where a price should be
-  // tells nothing.
   if (ware.pricing_model === 'free') return 'Gifted';
   if (ware.pricing_model === 'patronage_only') return 'Patronage';
   if (ware.price === null || ware.price <= 0) return 'Price not set';

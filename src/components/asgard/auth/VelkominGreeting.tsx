@@ -1,48 +1,6 @@
 // src/components/asgard/auth/VelkominGreeting.tsx
 // ============================================================================
-// VELKOMIN — the Sanctuary threshold's own word (Shuttle Run 08, Phase 5,
-// Movement III, "THE THRESHOLDS")
 // ============================================================================
-// Provenance: resonance-chamber/desk/REIMAGINING-BOARD.md, THE SIX STROKES,
-// stroke 1 — KP's own closing word, verbatim: "Velkomin at the door + Fáilte
-// at the Hearth." Old Norse "well come" — chosen deliberately as the
-// INCLUSIVE form (Old Norse greetings inflect by the arriving guest's
-// gender; the house takes the form that addresses all who arrive, so the
-// door never assumes). This is the DOOR's word — distinct from Fáilte, the
-// Hearth's own greeting (see AuthenticatedGreeting.tsx). The two never
-// render in the same glance: this fires once, at the crossing; Fáilte is
-// the Hearth's persistent, later word.
-//
-// Register law (KP's Phase 4 strokes, carried verbatim): calm, gentle, no
-// inflection or inference; no "back," no exclamation — rendered exactly as
-// signed: "Velkomin, {vessel_name}." with the period. Degrades gracefully:
-// "Velkomin." alone is still whole if no display name exists.
-//
-// THE CROSSING, not the corridor: this greets the vessel's first landing
-// after authentication (AUTH_ROUTES.DASHBOARD → /vessel — the honest
-// convergence point: LoginForm's default redirect, and where the Acid
-// Test's own completion (AcidTestForm's RESULT_REDIRECT) lands a brand-new
-// vessel too). A sessionStorage flag makes it fire once per session — on
-// arrival-from-the-door, not on every internal navigation back to /vessel.
-// The flag is intentionally NOT tied to the user id: one session, one
-// crossing, regardless of who is at the keyboard.
-//
-// THE OPT-IN LAW, honored: this is the calm-word default, not a "richer"
-// entry ceremony — it requires no toggle because it IS the default arrival
-// (paired with Movement I's existing beam grounding, already wired via
-// showContinuityBeam on the /vessel page). A soft opacity fade only;
-// instant under prefers-reduced-motion.
-//
-// DATED HOOK (2026-07-20) → TURNED ON AT THE SANCTUM'S CHOICE (2026-07-29,
-// Movement IV, the finishing session): the Sanctum now offers the richer
-// arrival as an explicit opt-in (ceremony_arrival, default false —
-// migrations/20260729_ceremony_choices.sql). When — and only when — the
-// vessel chose it, the crossing wears O-1's `.ceremony-welcome` (approach/
-// weave/seat/bless beats, emitted in ceremonies.css; keyframes from the
-// generated animations vocabulary). The calm word remains the default for
-// everyone else, exactly as shipped in Movement III. The seam's other half
-// (`.ceremony-recognition` for returns) stays named, not wired — returns
-// are recognitions, and recognition surfaces belong to a later movement.
 
 'use client';
 
@@ -50,9 +8,6 @@ import { useEffect, useState } from 'react';
 import { useUser } from '@/hooks/useUser';
 
 const CROSSING_FLAG_KEY = 'sanctuary:velkomin-crossed';
-// KP ⚛ 2026-08-24, answer 2: the word also fires at /sanctuary, the visitors'
-// home. Its own flag — a visitor's greeting must not spend the vessel's
-// crossing at /vessel, which is a different arrival in the same session.
 const ARRIVAL_FLAG_KEY = 'sanctuary:velkomin-arrived';
 
 function prefersReducedMotion(): boolean {
@@ -69,9 +24,6 @@ function hasAlreadyCrossed(flagKey: string): boolean {
   try {
     return window.sessionStorage.getItem(flagKey) === '1';
   } catch {
-    // Storage unavailable (private mode, etc.) — degrade to "always fresh"
-    // rather than throwing; a repeated Velkomin is a softer failure than a
-    // broken page.
     return false;
   }
 }
@@ -96,12 +48,8 @@ export default function VelkominGreeting({ visitors = false }: VelkominGreetingP
   const flagKey = visitors ? ARRIVAL_FLAG_KEY : CROSSING_FLAG_KEY;
   const [shouldRender, setShouldRender] = useState(false);
   const [visible, setVisible] = useState(false);
-  // The richer arrival — ONLY at the vessel's own Sanctum choice
-  // (ceremony_arrival, default false; read defensively so a not-yet-
-  // migrated base means the calm default, which is the opt-in law working).
   const [richerArrival, setRicherArrival] = useState(false);
 
-  // Decide, once, whether this mount IS the crossing.
   useEffect(() => {
     if (isLoading) return;
     if (!user && !visitors) return;
@@ -111,7 +59,6 @@ export default function VelkominGreeting({ visitors = false }: VelkominGreetingP
     setShouldRender(true);
   }, [isLoading, user, visitors, flagKey]);
 
-  // Read the ceremony choice only when this mount is a crossing at all.
   useEffect(() => {
     if (!shouldRender || !user) return;
     fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
@@ -140,15 +87,9 @@ export default function VelkominGreeting({ visitors = false }: VelkominGreetingP
 
   const vesselName = profile?.display_name?.trim();
 
-  // "Velkomin, {vessel_name}." verbatim — the period stands; no exclamation,
-  // no "back," no inflection. Degrades to "Velkomin." alone, still whole.
   const words = vesselName ? `Velkomin, ${vesselName}.` : 'Velkomin.';
 
   if (richerArrival) {
-    // The opted-in welcome ceremony — the word approaches, the blessing
-    // follows (O-1's emitted beats; the generated CSS stills every beat
-    // under reduced motion). Same words, same register: the ceremony is
-    // more time, never more noise.
     return (
       <div
         className="ceremony-welcome w-full max-w-3xl mx-auto px-6 pt-8 text-center"

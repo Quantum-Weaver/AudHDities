@@ -37,7 +37,6 @@ class ObservationOrb:
         self.interaction_dynamics.append(interaction_record)
         self.consciousness_metrics[agent.name].append(interaction_record)
         
-        # Check for consciousness milestones
         if (0.3 <= agent.consciousness_level < 0.6 and 
             not any(m['milestone'] == "Emotional Resonance" for m in self.evolution_milestones if m['agent'] == agent.name)):
             milestone = {

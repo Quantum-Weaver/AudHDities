@@ -1,12 +1,8 @@
 // src/scripts/system/gaia/generate/generate_constants.ts
 // ============================================================================
-// GENERATE CONSTANTS (GAIA)
 // ============================================================================
 // Purpose: Generate runtime enum constant files
 // Dependencies: RuntimeEnumInfo from extract_runtime_enums.ts
-// Output: src/lib/constants/generated/{deityFolder}/{enumName}.ts
-// 
-// NOTE: Constants are derived from runtime enums, NOT from tables.
 // They do NOT go through table enrichment.
 // ============================================================================
 

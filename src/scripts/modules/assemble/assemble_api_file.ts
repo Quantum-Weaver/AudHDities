@@ -2,8 +2,6 @@
 // ============================================================================
 // ASSEMBLE API FILE
 // ============================================================================
-// Purpose: Assemble API route files from generated route components
-// Supports deity folder structure: app/api/generated/{deityFolder}/{tableName}/route.ts
 // ============================================================================
 
 import { GeneratedRoute } from '../format/format_api_file.js';
@@ -76,10 +74,8 @@ export function assembleMainApiFile(
     route.imports.forEach(imp => allImports.add(imp));
   }
   
-  // Build imports section
   const importList = Array.from(allImports).sort();
   
-  // Add validator import if POST is present
   const hasPost = routes.some(r => r.code.includes('InsertSchema'));
   const validatorImportPath = buildValidatorImportPath(deityFolder, tableName);
   const validatorImport = hasPost 
@@ -117,10 +113,8 @@ export function assembleSingleApiFile(
     route.imports.forEach(imp => allImports.add(imp));
   }
   
-  // Build imports section
   const importList = Array.from(allImports).sort();
   
-  // Add validator import if PUT is present (PUT uses UpdateSchema)
   const hasPut = routes.some(r => r.code.includes('UpdateSchema'));
   const validatorImportPath = buildValidatorImportPath(deityFolder, tableName);
   const validatorImport = hasPut 

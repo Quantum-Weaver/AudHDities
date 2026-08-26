@@ -44,10 +44,6 @@ export default function AuthButton() {
   const hoverHandlers = buildAuthButtonHoverHandlers(setIsHovered);
 
   // ─── The farewell choice (Movement IV, stroke 5) ─────────────────────
-  // Read once per signed-in mount from vessel_config. The column is opt-in,
-  // default false (migrations/20260729_ceremony_choices.sql); read
-  // defensively so a not-yet-migrated base simply means OFF — absence of
-  // choice always means OFF, which is THE OPT-IN LAW behaving as designed.
   const [farewellChosen, setFarewellChosen] = useState(false);
   const [departing, setDeparting] = useState(false);
 
@@ -80,8 +76,6 @@ export default function AuthButton() {
   };
 
   const handleLogout = async () => {
-    // The vessel's own chosen ceremony, or the plain going — never both,
-    // never imposed. Gweld ti'n fuan speaks only where it was invited.
     if (farewellChosen) {
       setDeparting(true);
       return;

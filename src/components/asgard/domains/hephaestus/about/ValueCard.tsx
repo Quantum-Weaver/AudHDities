@@ -46,10 +46,6 @@ const iconColors: Record<ValueCardAccent, string> = {
   green: 'text-[var(--color-sanctuary-green)]',
 };
 
-// ============================================================================
-// FALLBACK CARD DATA — Satisfies CardProps.data requirement
-// ============================================================================
-
 function buildValueCardData(title: string, description: string): CardData {
   return {
     id: `value-${title.toLowerCase().replace(/\s+/g, '-')}`,

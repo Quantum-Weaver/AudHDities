@@ -86,10 +86,6 @@ export interface ButtonProps extends ButtonIconProps, ButtonLoadingProps {
   onClick?: () => void;
 }
 
-// ============================================================================
-// ICON BUTTON PROPS (Convenience type for icon-only buttons)
-// ============================================================================
-
 export interface IconButtonProps extends Omit<ButtonProps, 'iconPosition' | 'children'> {
   /** Icon to display (required for IconButton) */
   icon: ReactNode;

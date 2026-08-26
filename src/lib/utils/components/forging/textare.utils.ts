@@ -160,10 +160,8 @@ export function formatRemaining(remaining: number): string {
  * @param textarea The textarea DOM element
  */
 export function autoResizeTextarea(textarea: HTMLTextAreaElement): void {
-  // Reset height to allow shrinking
   textarea.style.height = 'auto';
 
-  // Set to scroll height (with a small buffer to prevent scrollbar flicker)
   textarea.style.height = `${textarea.scrollHeight + 2}px`;
 }
 

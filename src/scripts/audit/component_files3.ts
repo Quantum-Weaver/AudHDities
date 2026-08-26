@@ -169,7 +169,6 @@ function findComponentFile(
 function findComponentCategory(
   underscoreName: string
 ): ComponentCategory | 'unknown' {
-  // Check constants directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.constants, category);
     if (
@@ -180,7 +179,6 @@ function findComponentCategory(
     }
   }
 
-  // Check types directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.types, category);
     if (fs.existsSync(path.join(dir, `${underscoreName}.types.ts`))) {
@@ -188,7 +186,6 @@ function findComponentCategory(
     }
   }
 
-  // Check utils directory
   for (const category of COMPONENT_CATEGORIES) {
     const dir = path.join(COMPONENT_DIRS.utils, category);
     if (fs.existsSync(path.join(dir, `${underscoreName}.utils.ts`))) {
@@ -222,7 +219,6 @@ function findInCategories(
 function scanComponent(underscoreName: string): ComponentReport {
   const category = findComponentCategory(underscoreName);
 
-  // Check constants and variants (categorized)
   let constantsEntry: FileEntry | null = null;
   let variantsEntry: FileEntry | null = null;
 
@@ -238,21 +234,18 @@ function scanComponent(underscoreName: string): ComponentReport {
     );
   }
 
-  // Check types (categorized)
   let typesEntry: FileEntry | null = null;
   if (category !== 'unknown') {
     const typesDir = path.join(COMPONENT_DIRS.types, category);
     typesEntry = checkFile(typesDir, FILE_PATTERNS.types(underscoreName));
   }
 
-  // Check utils (categorized — parallel to types)
   let utilsEntry: FileEntry | null = null;
   if (category !== 'unknown') {
     const utilsDir = path.join(COMPONENT_DIRS.utils, category);
     utilsEntry = checkFile(utilsDir, FILE_PATTERNS.utils(underscoreName));
   }
 
-  // Check component file
   let componentEntry: FileEntry | null = null;
   if (category !== 'unknown') {
     const componentDir = path.join(PROJECT_ROOT, 'src/components', category);
@@ -479,10 +472,8 @@ function main(): void {
     }
   }
 
-  // Scan all components
   const reports: ComponentReport[] = COMPONENTS.map(scanComponent);
 
-  // Sort by component name
   reports.sort((a, b) => a.component.localeCompare(b.component));
 
   // Output

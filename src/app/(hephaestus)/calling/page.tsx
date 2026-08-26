@@ -2,15 +2,6 @@
 // ╔═══════════════════════════════════════════════════════════════════════════╗
 // ║   THE CALLING — an invitation, not a job board                           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
-// THE TRUTH SEASON (2026-07-31): born /careers with a company's furniture —
-// benefits deck, culture deck, an invented team. KP's ⚛ ruling, verbatim:
-// "we have no company" · "no 'careers'" · "just us" · "and the cummunity
-// that arrive." The route renamed (/careers → /calling, history kept), the
-// fabricated four retired, the employer-benefits deck retired unrendered,
-// and the page now says the truth in the invitation register: there is no
-// company here — there is us, and the community that arrives. The register
-// law of the doors holds: calm, no exclamation; asking people IN is a
-// threshold, not a pitch.
 import { Page } from '@/components/bifrost/Page';
 import Link from 'next/link';
 import { CultureDeck } from '@/components/asgard/domains/hephaestus/calling/CultureDeck';
@@ -51,7 +42,6 @@ export default function CallingPage() {
             </div>
             <div className="space-y-8">
 
-              {/* The self-perpetuating truth — design, described honestly */}
               <Card
                 data={{ id: 'ecosystem-self', type: 'value', title: 'Self-Perpetuating', value: 'Ecosystem' }}
                 variant="glass"
@@ -85,17 +75,6 @@ export default function CallingPage() {
               >
                 <h3 className="text-star-dust font-bold mb-3">If this calls to you</h3>
                 <div className="space-y-2">
-                  {/* 2026-08-24 — the truth pass: this door pointed at
-                      `/enter`, which has no page anywhere under src/app. It
-                      now points at `/sanctuary`, the visitors' home the door
-                      was built to (`.journals/proofs/01-auth/PROOF.md:15-16`
-                      — "sanctuary should be the home page for visitors, and
-                      the vessel should be reachable from here by logging
-                      in"). `/sanctuary` also keeps this card's own promise
-                      below — it asks nothing of a reader first; `/login`
-                      would. `/enter` still stands as a route in
-                      page_mapping.ts:570-579 and trio.ts:181 — the chassis's
-                      to rule, not this pass's. */}
                   <Link
                     href="/sanctuary"
                     className="flex items-center gap-2 rounded-lg border border-star-dust/15 p-3 text-sm text-star-dust/80 transition-colors hover:border-star-dust/30 motion-reduce:transition-none"

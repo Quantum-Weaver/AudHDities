@@ -13,10 +13,6 @@ export interface ContinuityBeamProps {
   disabled?: boolean;
 }
 
-// X-OP-2 / IRI-1 — THE BEAM AS TRAVEL (Run 08, Phase 5, Movement I Step 2):
-// on a realm-to-realm move, the beam's gradient washes into the destination's
-// color before content settles — "you have arrived somewhere new," felt
-// rather than read. 300–500ms per the law; this sits at the gentle end.
 const TRAVEL_WASH_SECONDS = 0.4;
 
 export default function ContinuityBeam({
@@ -58,9 +54,6 @@ export default function ContinuityBeam({
       data-beam-active={activationState.active}
       data-beam-speed-multiplier={activationState.speedMultiplier}
     >
-      {/* keyed by gradient: a realm change swaps this key, and AnimatePresence
-          crossfades the outgoing color out while the incoming one washes in —
-          reduced motion collapses this to an instant swap, no crossfade. */}
       <AnimatePresence mode="sync" initial={false}>
         <motion.div
           key={beamConfig.gradient}

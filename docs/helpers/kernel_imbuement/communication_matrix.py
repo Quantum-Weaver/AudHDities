@@ -28,7 +28,6 @@ class CommunicationMatrixKernel:
                 "expected_calls": ["curator", "archivist", "seer", "skald"],
                 "workflow_engine": "Process execution and monitoring"
             }
-            # ... all other entities with distilled patterns
         }
         
         self.modern_architecture = {

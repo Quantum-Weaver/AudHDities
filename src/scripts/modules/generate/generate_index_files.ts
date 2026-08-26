@@ -36,7 +36,6 @@ function scanTsFiles(dirPath: string, excludeIndex: boolean = true): string[] {
       // Recursively scan subdirectories
       files.push(...scanTsFiles(fullPath, excludeIndex));
     } else if (item.endsWith('.ts') && !(excludeIndex && item === 'index.ts')) {
-      // Remove .ts extension for export
       files.push(item.replace(/\.ts$/, ''));
     }
   }
@@ -60,7 +59,6 @@ function generateIndexContent(files: string[], folderName: string): string {
   content += `// GENERATED: ${timestamp}\n`;
   content += `// =====================================================\n\n`;
   
-  // Sort files alphabetically for consistent output
   const sortedFiles = [...files].sort();
   
   for (const file of sortedFiles) {
@@ -82,7 +80,6 @@ export async function generateIndexForDirectory(
   const indexPath = path.join(dirPath, 'index.ts');
   const folderName = path.basename(dirPath);
   
-  // Scan for TypeScript files
   const tsFiles = scanTsFiles(dirPath, true);
   
   if (tsFiles.length === 0) {
@@ -94,7 +91,6 @@ export async function generateIndexForDirectory(
   
   const newContent = generateIndexContent(tsFiles, folderName);
   
-  // Check if index.ts already exists
   const exists = fs.existsSync(indexPath);
   
   if (dryRun) {
@@ -104,7 +100,6 @@ export async function generateIndexForDirectory(
     return { success: true, filePath: indexPath, action: 'dryrun', fileCount: tsFiles.length };
   }
   
-  // If file exists and not forcing overwrite, check if content changed
   if (exists && !forceOverwrite) {
     const existingContent = fs.readFileSync(indexPath, 'utf-8');
     if (existingContent === newContent) {
@@ -115,7 +110,6 @@ export async function generateIndexForDirectory(
     }
   }
   
-  // Write the file
   fs.writeFileSync(indexPath, newContent, 'utf-8');
   
   if (verbose) {
@@ -164,7 +158,6 @@ export async function generateIndexesRecursively(
     const stat = fs.statSync(fullPath);
     
     if (stat.isDirectory()) {
-      // Generate index for this directory
       const indexResult = await generateIndexForDirectory(fullPath, options);
       
       if (indexResult.action === 'created') {

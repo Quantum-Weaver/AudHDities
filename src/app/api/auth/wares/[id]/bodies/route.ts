@@ -1,22 +1,4 @@
 // src/app/api/auth/wares/[id]/bodies/route.ts
-// THE DELIVERY — one road, two doors onto it (SPEC §9).
-//
-// A body is one file_registry row hung on a ware by related_table='wares' +
-// related_id. That pair is untyped by design, which is why no schema change is
-// needed to hang bodies on wares.
-//
-// The signed URL is minted AT THE ASK and never stored: file_registry
-// .access_token is written by nobody and read by nobody here.
-//
-// The .aab is withheld and never named. It is Play's upload artifact, not a
-// person's download, and a stall that lists a file nobody can open is telling a
-// small lie (RELEASE-STRUCTURE.md via PLAN §5).
-//
-// Who may ask:
-//   a gifted ware — any signed-in vessel. A gifted work is still RECEIVED.
-//   any other ware — the vessel who holds a completed exchange for it.
-// Re-askable, always: the link rests after a while and the stall hands out a
-// fresh one whenever it is asked. Nothing here is a one-shot handover.
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 
@@ -48,7 +30,6 @@ export async function GET(
       return NextResponse.json({ error: 'This work has been unwoven.' }, { status: 404 });
     }
 
-    // The entitlement, decided before a single byte is named.
     const isGifted = ware.pricing_model === 'free';
     const isMaker = ware.created_by === user.id;
     let entitled = isGifted || isMaker;

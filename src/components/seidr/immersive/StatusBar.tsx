@@ -19,17 +19,6 @@ import {
   VOICE_CADENCE,
 } from "@/lib/constants/systems/voice";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CONFIG DEFERRED, MARKED (Run 08, Phase 5, Movement I Step 3, 2026-07-20).
-// L1-05's Sanctum half — the vessel-configurable surface for this bar: the
-// visual modes (Solid / Frosted / Ghost / Adaptive), custom messages the vessel
-// writes, sovereignty display mode, rotation speed — needs `vessel_config`
-// columns + a Sanctum UI. That is NOT this sitting; it belongs to the Sanctum
-// sitting (Movement IV, Hestia). This bar ships its three voice layers with
-// gentle house defaults; the toggles that make them the vessel's own arrive
-// there. Thread left findable by this note.
-// ─────────────────────────────────────────────────────────────────────────────
-
 export interface StatusBarProps {
   className?: string;
 }
@@ -39,10 +28,6 @@ export function StatusBar({ className }: StatusBarProps) {
   const { profile, sovereignTier, isAuthenticated } = useUser();
   const sovereigntyScore = tierLight(sovereignTier);
   const { config } = useStatusBar();
-  // X-OP-0 THE TRIO ADDRESSABLE (Run 08, Phase 5, Movement I Step 2) —
-  // the realm this route belongs to, per the driver map (lib/constants/
-  // systems/trio.ts). Step 3 uses the realm KEY (not just its config) to
-  // address the Sovereign Pulse.
   const { realm, config: realmConfig } = useRealm();
 
   if (!isAuthenticated || !user) {
@@ -115,18 +100,6 @@ function SovereigntyDisplay({ score }: { score: number }) {
     </HStack>
   );
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// THE VOICE — L1-05's three cycling content layers, driven from voice.ts.
-//   · Sovereign Pulse : updates on realm change (navigation) — the realm's own
-//                       arrival line, in its Feeling register.
-//   · Vessel Whisper  : rotates every 30–60s (a gentle, energy-adjacent phrase).
-//   · Cosmic Breath   : surfaces every 5–10 min (an ancient-one quote, verbatim).
-// The realm NAME stays as the glanceable anchor (X-OP-1) beside the voice; the
-// voice never names the location (L1-05). Transitions are discrete and calm —
-// a soft fade at most, and INSTANT under prefers-reduced-motion. The bar stays
-// glanceable and never demands attention (no aria-live; the voice is ambient).
-// ─────────────────────────────────────────────────────────────────────────────
 
 function CenterVoice({ realm, environment }: { realm: RealmKey; environment?: string | null }) {
   const line = useVoiceRotation(realm);
@@ -242,7 +215,7 @@ function RealmDisplay({ environment }: { environment?: string | null }) {
     community: 'The Bazaar', music: 'The Stage', origin: 'The Origin',
     support: 'The Healing Flame', observatory: 'The Observatory',
     architecture: 'The Nexus', invitation: 'The Chamber', lounge: 'The Lounge',
-    forge: 'The Forge', // hephaestus, added with the trio driver map (Run 08 Phase 5 Movement I Step 2)
+    forge: 'The Forge',
   };
   const variantLabels: Record<string, string> = {
     '1': 'Warm', '2': 'Mystical', '3': 'Sacred', '4': 'Ethereal',
@@ -262,13 +235,6 @@ function MetricsDisplay() {
   const { profile } = useUser();
 
   // ── ENERGY — WIRED FOR REAL (Run 08, Phase 5, Movement I Step 3) ──────────
-  // `energy_entries` is a real GAIA-generated hook (hestia-core). `created_by`
-  // scopes rows to the vessel (RLS), `energy_level` is the value, `logged_at`
-  // orders them. We take the vessel's latest entry and show it only when it was
-  // logged TODAY (the bar tells how the vessel IS today; a stale reading is
-  // not today's). The params object is memoized so the persistent chrome does
-  // not re-fetch on every render. With DATA-SEEDS not yet seeded, this honestly
-  // reads empty → '—' (no vessel has logged energy yet), never a faked number.
   const energyParams = useMemo(
     () => ({
       limit: 1,
@@ -288,15 +254,6 @@ function MetricsDisplay() {
   }, [energyRows]);
 
   // ── HERALDS — WIRED FOR REAL (Run 08, the heralds mend, 2026-07-20) ───────
-  // KP's law, same sitting the gap was found: "we will need to fix schema
-  // issues we catch, rather than leave them unattended." The `recipient`
-  // column was added by his hand (supabase/migrations/
-  // 20260720_heralds_recipient.sql), types + GAIA regenerated, and this now
-  // counts the vessel's own unread heralds (recipient = vessel, is_read
-  // false) — a real count, empty until heralds flow. House-wide heralds
-  // (recipient NULL) will surface with The Pulse's own sitting; counting
-  // them here would need an OR filter the generated surface doesn't expose —
-  // noted, not faked. Params memoized like energy's (persistent chrome).
   const heraldParams = useMemo(
     () => ({
       limit: 1,

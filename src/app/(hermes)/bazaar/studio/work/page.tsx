@@ -1,6 +1,4 @@
 // src/app/(hermes)/bazaar/studio/work/page.tsx
-// One of the Loom's two doors. Both open the SAME form with the kind already
-// set; there is exactly one form component in this realm.
 import { Suspense } from 'react';
 import { Page } from '@/components/bifrost/Page';
 import { StudioForm } from '@/components/asgard/domains/hermes/studio/StudioForm';

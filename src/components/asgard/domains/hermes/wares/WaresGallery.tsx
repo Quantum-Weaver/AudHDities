@@ -1,16 +1,4 @@
 // src/components/asgard/domains/hermes/wares/WaresGallery.tsx
-// Wares edition (2026-07-31): products became wares — one base price plus a
-// pricing_model, status enum instead of is_published/active, created_by
-// instead of creator_id/owner_id.
-// The quiet square (2026-08-01, KP's ruling via the E4 study): gallery
-// cards carry no price — the work and its maker lead; the price speaks
-// plainly at the stall (WareDetail), with the split beside it.
-// Worth felt as human before price read as number.
-// 2026-08-25: works stand beside wares here, at KP's word. Neither table
-// carries a kind column and neither should — the square supplies the kind at
-// merge time, because it already knows which fetch a row came from. Only the
-// kinds that actually arrived are drawn: an absent kind produces no chip, no
-// filter and no announcement.
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
@@ -77,9 +65,6 @@ export function WaresGallery() {
   useEffect(() => {
     const fetchSquare = async () => {
       try {
-        // Maker links arrive as ?artisan_id= or ?merchant_id=. The old words
-        // ?creator_id= and ?vendor_id= are still read for one pass, so a link
-        // someone saved yesterday still lands.
         const makerId =
           searchParams.get('artisan_id') ||
           searchParams.get('merchant_id') ||
@@ -157,8 +142,6 @@ export function WaresGallery() {
     fetchSquare();
   }, [searchParams]);
 
-  // Only the kinds that actually arrived. No chip for an absent kind, and no
-  // announcement that it is absent.
   const types = useMemo(() => {
     const seen = new Map<string, string>();
     items.forEach((i) => seen.set(i.itemType, i.typeLabel));
@@ -183,8 +166,6 @@ export function WaresGallery() {
     if (wares > 0) parts.push(countWord(wares, 'ware', 'wares'));
     if (works > 0) parts.push(countWord(works, 'work', 'works'));
     if (parts.length === 0) return null;
-    // Only the first word of the sentence is capitalised — the second half
-    // reads as prose, not as a second heading.
     const [first, ...rest] = parts;
     const tail = rest.map((r) => r.charAt(0).toLowerCase() + r.slice(1));
     return `${[first, ...tail].join(' and ')}. That is all of them.`;

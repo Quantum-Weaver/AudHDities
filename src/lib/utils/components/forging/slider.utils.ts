@@ -133,7 +133,6 @@ export function isMajorMark(
  * defaultFormatValue(47, 1)       // => "47"
  */
 export function defaultFormatValue(value: number, step: number): string {
-  // If step is fractional, show matching decimal places
   const stepDecimals = countDecimals(step);
   return value.toFixed(stepDecimals);
 }

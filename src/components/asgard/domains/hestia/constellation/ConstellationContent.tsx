@@ -18,13 +18,6 @@ import type { CardData } from '@/types/components/runes/card.types';
 // TYPES
 // ═══════════════════════════════════════════════════════════════════════════
 
-// MEND-III 2026-07-20: `hestia-core/timelines` never actually died — Mend II
-// (earlier today) removed this fetch believing no living home existed; the
-// conductor's genealogy check found it living under its settled name,
-// `current` (sovereign_id-scoped). `current` carries no `title` or
-// `significance_score` (those only existed on the old table) — the label
-// below is synthesized from `event_type` via EVENT_TYPE_LABELS, and the ring
-// layout uses recency instead of a significance score it no longer has.
 interface TimelineEvent {
   id: string;
   event_type: string;
@@ -37,10 +30,6 @@ interface SigilItem {
   name: string;
   rarity: string;
   earned_at: string | null;
-  // MEND-LAW 2026-07-19: earned_reason dropped in the badges -> sigils repoint.
-  // Neither `sigils` nor `vessel_sigils` carries a display-text reason field
-  // (vessel_sigils.award_context is an opaque Json blob, not prose) — degraded
-  // gracefully rather than invented. See journal for the fuller note.
 }
 
 interface QuestItem {
@@ -63,10 +52,6 @@ interface ProductItem {
   product_type: string;
 }
 
-// THE OWNED SKY (KP's word 2026-08-24, ruled "6 looks good"): what a vessel
-// holds becomes stars, never a list — one star per work, per collection, and
-// one per profile they actually hold. Nothing unheld is drawn: no outline, no
-// ghost, no locked slot. A dark sky is not an incomplete sky.
 interface OwnedStar {
   id: string;
   label: string;
@@ -147,10 +132,6 @@ function buildConstellation(
     color: '#22D3EE',
   });
 
-  // Orbit 1: Timeline events (inner ring)
-  // MEND-III 2026-07-20: `current` has no significance_score, so the ring
-  // shows the most recent events (already ordered event_at.desc from the
-  // fetch) at a fixed distance/radius rather than inventing a score.
   const recentEvents = timeline.slice(0, 12);
 
   recentEvents.forEach((event, i) => {
@@ -221,10 +202,6 @@ function buildConstellation(
     });
   });
 
-  // Orbit 4: what the vessel holds. ONE ring at a fixed distance however many
-  // there are — a ring with forty members does not grow outward; the ring IS
-  // the group, and density reads as a busier band, never as forty things
-  // competing for the eye.
   owned.forEach((thing, i) => {
     const angle = (i / Math.max(owned.length, 1)) * Math.PI * 2 + 0.25;
     const distance = 300;
@@ -239,8 +216,6 @@ function buildConstellation(
     edges.push({ from: 'self', to: thing.id, strength: 0.5 });
   });
 
-  // Companion stars: a star is a thing that exists — it does not say how many
-  // of it there are, and it is not drawn at all when there are none.
   const companionData: Array<{ id: string; label: string; icon: typeof Package; distance: number; angle: number; color: string }> = [];
   if (productCount > 0) {
     companionData.push({ id: 'products', label: 'Your wares', icon: Package, distance: 150, angle: 2.5, color: '#00B894' });
@@ -248,8 +223,6 @@ function buildConstellation(
   if (messageCount > 0) {
     companionData.push({ id: 'messages', label: 'Your letters', icon: MessageCircle, distance: 150, angle: 3.5, color: '#0984E3' });
   }
-  // MEND-LAW 2026-07-20: the Emeralds companion star is retired here — no living
-  // table backs it (see fetchData above).
   if (postCount > 0) {
     companionData.push({ id: 'posts', label: 'Your posts', icon: Compass, distance: 150, angle: 5.5, color: '#6C5CE7' });
   }
@@ -285,7 +258,6 @@ export function ConstellationContent() {
   const [loading, setLoading] = useState(true);
   const [selectedNode, setSelectedNode] = useState<ConstellationNode | null>(null);
 
-  // Counts
   const [productCount, setProductCount] = useState(0);
   const [messageCount, setMessageCount] = useState(0);
   const [postCount, setPostCount] = useState(0);
@@ -296,22 +268,16 @@ export function ConstellationContent() {
 
     const fetchData = async () => {
       try {
-        // MEND-III 2026-07-20: corrects Mend II's removal above (same day) — the
-        // conductor's genealogy check found `timelines` living under its settled
-        // name, `current` (hestia-core, sovereign_id-scoped). Re-wired for real.
         const tRes = await fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=50`);
         const tData = await tRes.json();
         if (tData.success) {
           setTimeline(tData.data?.data || []);
         }
 
-        // Sigils earned by this vessel (badges/user_badges are gone — GAIA now
-        // emits vessel_sigils for the earning record and sigils for the definition)
         const vsRes = await fetch(`/api/generated/hestia-core/vessel_sigils?user_id=${user.id}&limit=20`);
         const vsData = await vsRes.json();
         if (vsData.success) {
           const rawVesselSigils = vsData.data?.data || vsData.data || [];
-          // Fetch sigil details
           const sigilDetails = await Promise.all(
             rawVesselSigils.map(async (vs: any) => {
               try {
@@ -331,8 +297,6 @@ export function ConstellationContent() {
           setSigils(sigilDetails);
         }
 
-        // Quests completed by this vessel (user_quests is gone — hestia-core now
-        // tracks per-vessel quest completion as vessel_quests)
         const qRes = await fetch(`/api/generated/hestia-core/vessel_quests?user_id=${user.id}&status=completed&limit=20`);
         const qData = await qRes.json();
         if (qData.success) {
@@ -344,11 +308,7 @@ export function ConstellationContent() {
                 const qdData = await qdRes.json();
                 return {
                   quest_id: uq.quest_id,
-                  // quests.title -> quests.name in the settle
                   title: qdData.success ? qdData.data?.name : 'Quest',
-                  // MEND-LAW 2026-07-20: `house` dropped from the quests table in the
-                  // settle — no field carries it anymore, so we no longer invent one.
-                  // Left blank; HOUSE_COLORS/HOUSE_LABELS fall back to their neutral default.
                   house: '',
                   status: uq.status || 'completed',
                 };
@@ -360,9 +320,6 @@ export function ConstellationContent() {
           setQuests(questDetails);
         }
 
-        // WHAT THIS VESSEL HOLDS — works, collections, and the profiles they
-        // actually have. Each read is own-scoped; a profile that does not
-        // exist simply returns nothing and is never drawn.
         const heldStars: OwnedStar[] = [];
         try {
           const [wRes, cRes, csRes, aRes, mRes] = await Promise.all([
@@ -395,14 +352,9 @@ export function ConstellationContent() {
             heldStars.push({ id: 'merchant-profile', label: 'Your merchant profile', href: `/bazaar/merchants/${merchant.id}`, color: '#E84393' });
           }
         } catch {
-          // A door that will not open is not a star that gets invented.
         }
         setOwned(heldStars);
 
-        // Counts
-        // MEND-LAW 2026-07-20: emeralds has no living equivalent anywhere in the
-        // schema (verified against database.types.ts) — the Emeralds companion star
-        // is retired rather than faked; emeraldCount is gone along with it.
         const counts = [
           fetch(`/api/generated/plutus-economics/wares?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || d.data?.data?.length || d.data?.length || 0).catch(() => 0),
           fetch(`/api/generated/iris-communications/messages?created_by=${user.id}&limit=1`).then(r => r.json()).then(d => d.data?.pagination?.total || 0).catch(() => 0),
@@ -425,10 +377,6 @@ export function ConstellationContent() {
     fetchData();
   }, [user]);
 
-  // The home is a star, and it is the community profile — KP's word: the
-  // community profile IS "the outside of a vessels home", so it is not a star
-  // of its own. It joins the ring only once the sky has something in it; an
-  // untouched sky keeps its own dignified empty state.
   const skyIsEmpty =
     timeline.length === 0 && sigils.length === 0 && quests.length === 0 && owned.length === 0;
 
@@ -447,9 +395,6 @@ export function ConstellationContent() {
     return buildConstellation(timeline, sigils, quests, ownedWithHome, productCount, messageCount, postCount, channelCount);
   }, [skyIsEmpty, timeline, sigils, quests, ownedWithHome, productCount, messageCount, postCount, channelCount]);
 
-  // Tap a star, arrive in its room. The viewer is another realm's organ and
-  // selects rather than navigates, so the door stands on the selected star's
-  // own name below the sky.
   const starRooms = useMemo<Record<string, string>>(() => {
     const rooms: Record<string, string> = {};
     for (const thing of ownedWithHome) rooms[thing.id] = thing.href;
@@ -533,7 +478,6 @@ export function ConstellationContent() {
               />
             </Card>
 
-            {/* Selected Node Info */}
             {selectedNode && (
               <Card
                 data={{ id: 'selected-node', type: 'value', title: selectedNode.label, value: '' }}

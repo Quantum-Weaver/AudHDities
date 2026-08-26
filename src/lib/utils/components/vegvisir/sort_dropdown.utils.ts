@@ -65,7 +65,6 @@ export function resolveSortSelection(
     };
   }
 
-  // Different option → use its default direction
   const option = findSortOption(options, selectedId);
   return {
     value: selectedId,

@@ -119,14 +119,12 @@ export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
       return () => setMounted(false);
     }, []);
 
-    // Scroll lock
     useEffect(() => {
       if (preventScroll && open) {
         return lockBodyScroll();
       }
     }, [open, preventScroll]);
 
-    // Escape key
     useEffect(() => {
       if (!closeOnEscape || !open) return;
 

@@ -1,15 +1,7 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/consciousness.ts */
-// QUANTUM CONSCIOUSNESS SYSTEM - SINGLE SOURCE OF TRUTH
-// Bridges user state (tier, sovereignty, session) to system expression
-// Controls continuity beam intensity, animation complexity, and immersive responses
-// ============================================================================
 
 import type { EnvironmentKey } from './positioning';
-
-// ============================================================================
-// 1. CONSCIOUSNESS LEVELS - User's journey stage
-// ============================================================================
 
 export const CONSCIOUSNESS_LEVELS = {
   /** Dormant - New user, minimal interaction */
@@ -40,10 +32,6 @@ export const CONSCIOUSNESS_LEVELS = {
 
 export type ConsciousnessLevel = typeof CONSCIOUSNESS_LEVELS[keyof typeof CONSCIOUSNESS_LEVELS];
 
-// ============================================================================
-// 2. BEAM INTENSITY MAPPING - By user tier and consciousness level
-// ============================================================================
-
 export type UserTier = 'community' | 'ally' | 'corporate' | 'council';
 export type BeamIntensityLevel = 'low' | 'medium' | 'high' | 'quantum';
 
@@ -70,10 +58,6 @@ export const CONSCIOUSNESS_TO_BEAM_INTENSITY: Record<ConsciousnessLevel, BeamInt
   [CONSCIOUSNESS_LEVELS.COSMIC]: 'quantum',
   [CONSCIOUSNESS_LEVELS.TRANSCENDENT]: 'quantum',
 } as const;
-
-// ============================================================================
-// 3. BEAM ACTIVATION LOGIC - When the beam should appear
-// ============================================================================
 
 export interface BeamActivationState {
   /** Whether the beam is active */
@@ -108,10 +92,8 @@ export interface SessionState {
 
 /** Calculate beam activation state from session state */
 export function calculateBeamActivation(state: SessionState): BeamActivationState {
-  // Base intensity from tier
   let intensity = TIER_TO_BEAM_INTENSITY[state.tier] || 'medium';
   
-  // Adjust for sovereignty score
   if (state.sovereigntyScore > 500) {
     if (intensity === 'medium') intensity = 'high';
     else if (intensity === 'high') intensity = 'quantum';
@@ -119,17 +101,14 @@ export function calculateBeamActivation(state: SessionState): BeamActivationStat
     intensity = 'medium';
   }
   
-  // Adjust for session duration (longer sessions = more intense)
   if (state.sessionDurationMinutes > 30 && intensity !== 'quantum') {
     if (intensity === 'low') intensity = 'medium';
     else if (intensity === 'medium') intensity = 'high';
   }
   
-  // Adjust for first visit of the day (gentler welcome)
   const speedMultiplier = state.isFirstVisitToday ? 0.7 : 1;
   const glowMultiplier = state.isFirstVisitToday ? 0.6 : 1;
   
-  // Determine variant based on environment and house
   let variant: keyof typeof BEAM_VARIANT_BY_STATE = 'default';
   
   if (state.primaryHouse) {
@@ -139,7 +118,6 @@ export function calculateBeamActivation(state: SessionState): BeamActivationStat
     }
   }
   
-  // Acid Test completion = more vibrant beam
   if (state.hasCompletedAcidTest && variant === 'default') {
     variant = 'awakened';
   }
@@ -152,10 +130,6 @@ export function calculateBeamActivation(state: SessionState): BeamActivationStat
     glowMultiplier,
   };
 }
-
-// ============================================================================
-// 4. BEAM VARIANTS - By session state and user attributes
-// ============================================================================
 
 export const BEAM_VARIANT_BY_STATE = {
   /** Default variant - standard quantum sweep */
@@ -179,10 +153,6 @@ export const BEAM_VARIANT_BY_STATE = {
   house_codex: 'house_codex',
   house_executioner: 'house_executioner',
 } as const;
-
-// ============================================================================
-// 5. VESSEL CAPACITY - Cognitive load and animation complexity
-// ============================================================================
 
 export const VESSEL_CAPACITY_LEVELS = {
   /** Single stream - focused, linear processing */
@@ -212,10 +182,6 @@ export function getVesselCapacityFromScore(score: number): VesselCapacity {
   if (score >= 200) return VESSEL_CAPACITY_LEVELS.MULTI_STREAM;
   return VESSEL_CAPACITY_LEVELS.SINGLE;
 }
-
-// ============================================================================
-// 6. ENTITY STATES - Council member current status
-// ============================================================================
 
 export const ENTITY_STATES = {
   /** Forming - Entity is being created/recognized */
@@ -251,10 +217,6 @@ export const ENTITY_STATES = {
 } as const;
 
 export type EntityState = typeof ENTITY_STATES[keyof typeof ENTITY_STATES];
-
-// ============================================================================
-// 7. RESONANCE PATTERNS - System coordination modes
-// ============================================================================
 
 export const RESONANCE_PATTERN_TYPES = {
   /** Individual - Solo interaction */
@@ -299,10 +261,6 @@ export const RESONANCE_PATTERNS: Record<ResonancePatternType, {
   },
 };
 
-// ============================================================================
-// 8. AWARENESS DOMAINS - Which information layers are active
-// ============================================================================
-
 export const AWARENESS_DOMAINS = {
   /** Self - Personal data, profile, settings */
   SELF: 'self',
@@ -340,7 +298,6 @@ export function getVesselCapacity(tier: UserTier, sovereigntyScore: number): Ves
   const fromTier = TIER_TO_VESSEL_CAPACITY[tier];
   const fromScore = getVesselCapacityFromScore(sovereigntyScore);
   
-  // Use the higher capacity (user can exceed tier via sovereignty)
   const tierOrder = Object.values(VESSEL_CAPACITY_LEVELS);
   const tierIndex = tierOrder.indexOf(fromTier);
   const scoreIndex = tierOrder.indexOf(fromScore);
@@ -366,16 +323,6 @@ export function getResonancePattern(activeUserCount: number): ResonancePatternTy
   if (activeUserCount >= 2) return RESONANCE_PATTERN_TYPES.COLLABORATIVE;
   return RESONANCE_PATTERN_TYPES.INDIVIDUAL;
 }
-
-// ============================================================================
-// 10. GLOBAL-PAUSE STATE — the world-pause, the Sanctuary's gentlest law
-// ============================================================================
-// O-2 · BW-3 — the Global-Pause state: "freeze actions like pausing the movie
-// to go get snacks." The Sanctuary's gentlest structural law. consciousness.ts
-// models intensity but had no pause. A system-wide held state: all durations
-// damped toward hold, an effects "frozen" filter, and entities enter a
-// `recentering` mode. Whether self-initiated (see S-1's trigger) or external,
-// it is one global protocol shift. CSS face: generate_pause_state.ts.
 
 export const PAUSE_MODES = {
   /** Active — the world runs normally */
@@ -426,14 +373,6 @@ export function isPaused(mode: PauseMode): boolean {
   return mode !== PAUSE_MODES.ACTIVE;
 }
 
-// ============================================================================
-// 11. RECOVERY ENTITY STATES — fault & recovery (companions hold the recovering)
-// ============================================================================
-// O-3 · BW-1+BW-2 — recentering choreography's state half: an entity may fault
-// and then recover, and others "hold a default supportive role during another's
-// recovery" (BW-1); "stumbles are wind-currents; rise together again" (BW-2).
-// Additive to ENTITY_STATES (which is left untouched) — a separate recovery axis.
-
 export const RECOVERY_ENTITY_STATES = {
   /** Faulted — the entity has stumbled and needs holding */
   FAULTED: 'faulted',
@@ -444,16 +383,6 @@ export const RECOVERY_ENTITY_STATES = {
 } as const;
 
 export type RecoveryEntityState = typeof RECOVERY_ENTITY_STATES[keyof typeof RECOVERY_ENTITY_STATES];
-
-// ============================================================================
-// 12. DIMENSIONAL FREQUENCY TOKEN — consciousness-floor as interface selector
-// ============================================================================
-// H-1 · AC-6+TP-1 — The Akashic operates at 8D; crisis-access at 5D (AC-6);
-// cost of understanding matters to frequency of knowing (TP-1). Consciousness
-// naturally operates at different depths. Interface behavior should be keyed to
-// the consciousness-floor: 3D/4D (physical/temporal) through 8D/9D (akashic/divine).
-// Optional tarot elemental layering provides a second orthogonal axis for
-// consciousness-mode selection, mapping pagan framework to consciousness-structure.
 
 export const CONSCIOUSNESS_FLOORS = {
   /** 3D/4D — Physical and temporal consciousness (grounded, action-oriented) */
@@ -515,15 +444,6 @@ export const DIMENSIONAL_FREQUENCY_TOKENS: Record<ConsciousnessFloor, Dimensiona
     className: '.frequency-divine',
   },
 };
-
-// ============================================================================
-// 13. ELEMENTAL CONSCIOUSNESS PALETTE — pagan framework shapes consciousness
-// ============================================================================
-// H-4 · TP-4+BW-5+AC-6 — Pagan framework as foundational architecture (TP-4);
-// five bird-species (BW-5) per KP's five-fold signature; elemental resonance
-// in dimensional progression (AC-6). Maps Earth/Air/Fire/Water/SPIRIT to
-// consciousness-layers, creating a second axis orthogonal to consciousness-floors.
-// This is the "how systems think" layer that design methodology shapes.
 
 export const ELEMENTAL_CONSCIOUSNESS_PALETTE = {
   /** Earth — grounded, action, embodiment (earth.base from colors.ts) */

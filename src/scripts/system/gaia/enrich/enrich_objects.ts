@@ -2,10 +2,6 @@
 // ============================================================================
 // ENRICH OBJECTS (GAIA) - TYPE-SAFE VERSION
 // ============================================================================
-// Purpose: Resolve configuration for extracted objects once, before generation
-// 
-// NOTE: This version NO LONGER requires rowContent, insertContent, updateContent,
-// enumRefs, or hasJson because those are provided by the Tables helper.
 // ============================================================================
 
 import type { ObjectCategory } from '@/config/object_categories.js';

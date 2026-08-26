@@ -57,7 +57,6 @@ export default function AuthenticatedGreeting() {
         className="p-6"
       >
         <div className="flex items-center gap-4">
-          {/* Avatar */}
           <Avatar
             src={profile.avatar_url || undefined}
             alt={profile.display_name || profile.slug || HOME_LABELS.GREETING_FALLBACK}
@@ -69,11 +68,6 @@ export default function AuthenticatedGreeting() {
           </Avatar>
           {/* Greeting & Details */}
           <div className="flex-1 min-w-0">
-            {/* Fáilte — the Hearth's own greeting, distinct from Velkomin
-                (the door's word, fired once at the crossing). A noun that
-                cannot infer: no "back," no tense, true every visit. See
-                home.constants.ts HOME_LABELS.HEARTH_GREETING for full
-                provenance. */}
             <p className="text-xs font-medium uppercase tracking-widest text-neurospark/70 mb-1">
               {HOME_LABELS.HEARTH_GREETING}
             </p>

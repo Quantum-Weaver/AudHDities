@@ -62,7 +62,6 @@ export function Playground() {
           </p>
         </div>
 
-        {/* Tabs */}
         <Tabs defaultValue="buttons" onValueChange={setActiveTab}>
           <TabsList className="mb-8">
             <TabsTrigger value="buttons">Buttons</TabsTrigger>

@@ -48,13 +48,6 @@ export function Page({
   const environment = (sessionState.environment as EnvironmentKey) || defaultEnvironment;
   const variant = environmentVariant || defaultVariant;
 
-  // X-OP-0 / X-OP-2 THE PAGE PROPS MADE REAL (Run 08, Phase 5, Movement I
-  // Step 2) — showContinuityBeam/showStatusBar were declared here and never
-  // read; the beam and status bar actually render once, globally, in
-  // LayoutChrome. This is the honest wire: this page's own choice is
-  // communicated to the context, and LayoutChrome reads it from there.
-  // Restored to visible on unmount so the next route isn't left hidden by a
-  // previous page's choice.
   useEffect(() => {
     setBeamVisible(showContinuityBeam);
     setStatusBarVisible(showStatusBar);
@@ -64,12 +57,6 @@ export function Page({
     };
   }, [showContinuityBeam, showStatusBar, setBeamVisible, setStatusBarVisible]);
 
-  // THE FIFTH INSTRUMENT (Run 08, Phase 5, the finishing session 2026-07-29):
-  // the PanoramaViewer layer yields to the token-driven EnvironmentLayer —
-  // affect from constants, not from pictures (KP's ✍ strokes 2026-07-19 and
-  // 2026-07-29; the images retire lose-nothing). All 127 pages inherit this
-  // in one stroke; showForeground rides until the scene renderer gives
-  // foregrounds their token-era successor.
   return (
     <div className={cn("relative", className)}>
       <EnvironmentLayer

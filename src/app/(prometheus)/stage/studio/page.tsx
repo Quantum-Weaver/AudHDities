@@ -1,6 +1,4 @@
 // app/(prometheus)/stage/studio/page.tsx
-// The Studio - Stream setup and configuration
-// Feeling: Creative, empowering, prepared
 
 import { Page } from '@/components/bifrost/Page';
 
@@ -17,7 +15,6 @@ export default async function StudioPage() {
     >
       <main className="min-h-screen py-12">
         <div className="container max-w-4xl mx-auto px-6">
-          {/* Content will be added when components are ready */}
         </div>
       </main>
     </Page>

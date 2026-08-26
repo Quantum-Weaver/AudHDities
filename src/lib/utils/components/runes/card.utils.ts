@@ -228,7 +228,6 @@ export function getVerifiedBadgeColor(isVerified: boolean): string {
  */
 export function getHouseBadgeColor(house?: string): string {
   if (!house) return BADGE_COLOR_CLASSES.house;
-  // House-specific colors could be added here if needed
   return BADGE_COLOR_CLASSES.house;
 }
 
@@ -238,7 +237,6 @@ export function getHouseBadgeColor(house?: string): string {
  */
 export function getRoleBadgeColor(role?: string): string {
   if (!role) return BADGE_COLOR_CLASSES.role;
-  // Role-specific colors could be added here if needed
   return BADGE_COLOR_CLASSES.role;
 }
 

@@ -10,20 +10,12 @@ import {
   ButtonVariantKey,
 } from "./button.constants";
 
-// ============================================================================
-// BUILD VARIANT MAP FOR CVA FROM CONSTANTS
-// ============================================================================
-
 const variantMap = Object.fromEntries(
   Object.entries(BUTTON_VARIANT_CLASSES).map(([key, value]) => [
     key,
     `${value.base} ${value.hover} ${value.focus} ${value.active} ${value.disabled}`.trim()
   ])
 ) as Record<ButtonVariantKey, string>;
-
-// ============================================================================
-// CVA INSTANCE - Single source of truth for button styling
-// ============================================================================
 
 export const buttonVariants = cva(
   // Base classes applied to all buttons

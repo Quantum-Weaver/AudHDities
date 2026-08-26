@@ -1,6 +1,4 @@
 // components/asgard/domains/hermes/checkout/CheckoutButton.tsx
-// Wares edition (2026-07-18): one base price + pricing_model; the tier prop
-// died with the products table — solidarity pricing happens server-side.
 'use client';
 
 import { useState } from 'react';
@@ -51,8 +49,6 @@ export function CheckoutButton({
   const displayError = error || localError;
   const recurrence = recurrenceOf(product);
 
-  // THE ADJUSTED-PRICE SCREEN — shown ONLY when the number changed. Where it
-  // did not, the road passes straight through and this never renders.
   if (heldCrossing) {
     return (
       <div className="space-y-4 text-left" role="status">

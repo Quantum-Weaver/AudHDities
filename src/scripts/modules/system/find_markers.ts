@@ -1,6 +1,4 @@
 /* @/scripts/modules/system/find_markers.ts */
-// Phase 1: Find all key line markers in the parsed file
-// Uses the lines array from fileReader.ts (already decoded from UTF-16 LE)
 
 import type { MarkerResult } from '@/scripts/shared/types.js';
 import { logSuccess, logError, logInfo, logDebug } from '@/scripts/shared/logger.js';
@@ -19,7 +17,6 @@ export interface FindMarkersOptions {
 export function findMarkers(lines: string[], options: FindMarkersOptions = {}): MarkerResult {
   const { verbose = false } = options;
   
-  // Initialize with -1 (not found)
   const markers: MarkerResult = {
     databaseLine: -1,
     dbWithoutInternalsLine: -1,
@@ -51,7 +48,6 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     
-    // Database type declaration
     if (markers.databaseLine === -1 && line.includes('export type Database = {')) {
       markers.databaseLine = i + 1;
       if (verbose) logDebug(`Found Database at line ${markers.databaseLine}`);
@@ -71,20 +67,14 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
     }
   }
   
-  // =====================================================
-  // PASS 2: Find nested markers (inside Database)
-  // =====================================================
-  
   let inDatabase = false;
   let braceDepth = 0;
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     
-    // Track when we enter Database
     if (!inDatabase && i + 1 === markers.databaseLine) {
       inDatabase = true;
-      // Count opening brace on this line
       for (const ch of line) {
         if (ch === '{') braceDepth++;
       }
@@ -92,28 +82,21 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
     }
     
     if (inDatabase) {
-      // Count braces to track when we exit Database
       for (const ch of line) {
         if (ch === '{') braceDepth++;
         if (ch === '}') braceDepth--;
       }
       
-      // Find '  public: {' (two spaces, inside Database)
       if (markers.publicLine === -1 && line.match(/^\s{2}public:\s*\{/)) {
         markers.publicLine = i + 1;
         if (verbose) logDebug(`Found public at line ${markers.publicLine}`);
       }
       
-      // Exit Database when braceDepth returns to 0
       if (braceDepth === 0) {
         inDatabase = false;
       }
     }
   }
-  
-  // =====================================================
-  // PASS 3: Find nested markers (inside public)
-  // =====================================================
   
   let inPublic = false;
   braceDepth = 0;
@@ -121,7 +104,6 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     
-    // Track when we enter public
     if (!inPublic && i + 1 === markers.publicLine) {
       inPublic = true;
       for (const ch of line) {
@@ -136,46 +118,36 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
         if (ch === '}') braceDepth--;
       }
       
-      // Find '    Tables: {' (four spaces)
       if (markers.tablesLine === -1 && line.match(/^\s{4}Tables:\s*\{/)) {
         markers.tablesLine = i + 1;
         if (verbose) logDebug(`Found Tables at line ${markers.tablesLine}`);
       }
       
-      // Find '    Views: {' (four spaces)
       if (markers.viewsLine === -1 && line.match(/^\s{4}Views:\s*\{/)) {
         markers.viewsLine = i + 1;
         if (verbose) logDebug(`Found Views at line ${markers.viewsLine}`);
       }
       
-      // Find '    Functions: {' (four spaces)
       if (markers.functionsLine === -1 && line.match(/^\s{4}Functions:\s*\{/)) {
         markers.functionsLine = i + 1;
         if (verbose) logDebug(`Found Functions at line ${markers.functionsLine}`);
       }
       
-      // Find '    Enums: {' (four spaces)
       if (markers.enumsLine === -1 && line.match(/^\s{4}Enums:\s*\{/)) {
         markers.enumsLine = i + 1;
         if (verbose) logDebug(`Found Enums (type-level) at line ${markers.enumsLine}`);
       }
       
-      // Find '    CompositeTypes: {' (four spaces)
       if (markers.compositeTypesLine === -1 && line.match(/^\s{4}CompositeTypes:\s*\{/)) {
         markers.compositeTypesLine = i + 1;
         if (verbose) logDebug(`Found CompositeTypes at line ${markers.compositeTypesLine}`);
       }
       
-      // Exit public when braceDepth returns to 0
       if (braceDepth === 0) {
         inPublic = false;
       }
     }
   }
-  
-  // =====================================================
-  // PASS 4: Find nested markers (inside Constants.public, not graphql_public)
-  // =====================================================
   
   let inConstants = false;
   let inConstantsPublic = false;
@@ -184,7 +156,6 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     
-    // Track when we enter Constants
     if (!inConstants && i + 1 === markers.constantsLine) {
       inConstants = true;
       for (const ch of line) {
@@ -200,19 +171,16 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
         if (ch === '}') braceDepth--;
       }
       
-      // Track when we enter Constants.public (NOT graphql_public)
       if (!inConstantsPublic && line.match(/^\s{2}public:\s*\{/)) {
         inConstantsPublic = true;
         if (verbose) logDebug(`Entered Constants.public at line ${i + 1}`);
       }
       
-      // Find '    Enums: {' inside Constants.public (four spaces)
       if (inConstantsPublic && markers.constantsEnumsLine === -1 && line.match(/^\s{4}Enums:\s*\{/)) {
         markers.constantsEnumsLine = i + 1;
         if (verbose) logDebug(`Found Constants.public.Enums at line ${markers.constantsEnumsLine}`);
       }
       
-      // Exit Constants when braceDepth returns to 0
       if (braceDepth === 0) {
         if (verbose) logDebug(`Exited Constants at line ${i + 1}`);
         inConstants = false;
@@ -239,7 +207,6 @@ export function findMarkers(lines: string[], options: FindMarkersOptions = {}): 
     logInfo(`  Constants.Enums: ${markers.constantsEnumsLine}`);
   }
   
-  // Check for critical missing markers
   const criticalMarkers = [
     { name: 'databaseLine', value: markers.databaseLine },
     { name: 'dbWithoutInternalsLine', value: markers.dbWithoutInternalsLine },

@@ -1,10 +1,4 @@
 // src/components/asgard/domains/athena/bubbles/BubbleLimitSlider.tsx
-// DETIERED 2026-07-31 at KP's ⚛ word (no tier ceilings anywhere), then
-// repointed the same sitting: the boundary lives in vessel_config now
-// (docs/sql/013 — "the boundary follows the vessel again"), read at mount
-// and written through the update-profile door the Sanctum uses. The
-// charter's gentle defaults (500 daily · 100 hourly) rule until the
-// vessel's own row answers; the boundary is self-chosen, theirs alone.
 
 'use client';
 
@@ -30,7 +24,6 @@ export function BubbleLimitSlider() {
   const [saved, setSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
-  // Load the vessel's own boundary from vessel_config
   useEffect(() => {
     if (!user) return;
     fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)

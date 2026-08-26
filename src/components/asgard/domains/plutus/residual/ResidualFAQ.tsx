@@ -12,9 +12,6 @@ import {
 // FAQ DATA
 // ============================================================================
 
-// Two earlier answers were removed here on 2026-08-24: a 'one-time contribution'
-// flat-fee tier and an automatic refund reversal. Neither mechanism exists in the
-// model (docs/architecture/residual-system.md), and a FAQ is no place to invent one.
 const faqs = [
   {
     q: 'What is the platform fee?',

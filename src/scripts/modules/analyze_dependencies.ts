@@ -8,9 +8,6 @@ import * as path from 'path';
 import { createHash } from 'crypto';
 import { logDebug, logInfo, logWarning, logSuccess } from '../shared/logger';
 
-// These shapes used to be imported from the generated dependency_map — but
-// this module is what GENERATES that file (a chicken-and-egg import). The
-// canonical definitions live here now; the generated file re-exports data.
 export interface DependencyNode {
   id: string;
   imports?: string[];
@@ -148,7 +145,6 @@ function analyzeFile(
       lastModified: new Date().toISOString()
     });
     
-    // Add edges for each import
     for (const imp of imports) {
       edges.push({
         from: nodeId,
@@ -183,7 +179,6 @@ function extractImports(content: string): { modulePath: string; importedNames: s
     });
   }
   
-  // Match dynamic imports
   const dynamicRegex = /import\(['"]([^'"]+)['"]\)/g;
   while ((match = dynamicRegex.exec(content)) !== null) {
     imports.push({
@@ -201,7 +196,6 @@ function extractImports(content: string): { modulePath: string; importedNames: s
 function extractExports(content: string): string[] {
   const exports: string[] = [];
   
-  // Match export const/function/class/interface/type
   const exportRegex = /export\s+(?:const|let|var|function|class|interface|type|enum)\s+(\w+)/g;
   let match;
   
@@ -209,7 +203,6 @@ function extractExports(content: string): string[] {
     exports.push(match[1]);
   }
   
-  // Match export default
   const defaultRegex = /export\s+default\s+(\w+)/g;
   while ((match = defaultRegex.exec(content)) !== null) {
     exports.push(`default_${match[1]}`);

@@ -15,16 +15,6 @@ import { useCollectionSetsList } from '@/lib/generated/hooks/hestia-core/collect
 import type { CardData } from '@/types/components/runes/card.types';
 import { paintStar, readStarColours } from './starPaint';
 
-// Colors derive from rarity; collections resolve through collection_sets
-// (the evolved dialect — the game's own pattern). The five values are the
-// app's own cosmic tokens, adopted 2026-08-25: common void.light · rare
-// neurospark · epic quantum.light · legendary hearth.gold · mythic
-// entity.curator. The mythic move is the one law — #f43f5e is rose-500, and
-// the app moved mythic off exactly that colour on 2026-08-10 ("no red
-// anywhere", resonance-bubbles/CLAUDE.md:34).
-//
-// The points that used to be printed here (+N points) are gone: the app
-// never shows a star's price, and a shelf is not a till.
 const RARITY_FILL: Record<string, { color: string; glow: string }> = {
   common: { color: '#B2BEC3', glow: '#B2BEC355' },
   rare: { color: '#22D3EE', glow: '#22D3EE55' },
@@ -85,9 +75,6 @@ export function BubbleDetail() {
   }
 
   const fill = RARITY_FILL[bubble.rarity || 'common'] || RARITY_FILL.common;
-  // The star's own colours, when the row carries them (bubbles.palette /
-  // bubbles.ring — docs/sql/025, KP's hand). Null today, and a star with no
-  // palette simply wears its rarity, as it always has.
   const orb = paintStar(fill, readStarColours(bubble), 112);
   const cardData: CardData = { id: bubble.id, type: 'value', title: bubble.name, value: bubble.rarity || '' };
 

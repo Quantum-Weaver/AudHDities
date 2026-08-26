@@ -1,5 +1,4 @@
 // @/scripts/core/file_reader.ts
-// Shared function for reading database.types.ts
 // Handles encoding detection, BOM stripping, returns clean string
 
 import * as fs from 'fs';
@@ -19,7 +18,6 @@ export interface FileReadResult {
 }
 
 export function readDatabaseTypes(): FileReadResult {
-  // Check if file exists
   if (!fs.existsSync(DB_TYPES_PATH)) {
     return {
       success: false,
@@ -31,7 +29,6 @@ export function readDatabaseTypes(): FileReadResult {
     };
   }
 
-  // Read raw bytes
   const buffer = fs.readFileSync(DB_TYPES_PATH);
   
   // Detect encoding from BOM
@@ -58,7 +55,6 @@ export function readDatabaseTypes(): FileReadResult {
     bomLength = 3;
   }
   
-  // Decode the entire buffer
   const rawContent = buffer.toString(encoding);
   
   // Strip BOM from content for cleaner searching

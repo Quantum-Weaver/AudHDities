@@ -89,8 +89,6 @@ export function composeHeaderTitleClasses(params: {
   isHovered: boolean;
   className?: string;
 }): string {
-  // Dynamic import at call site is fine — the component imports headerTitleVariants directly.
-  // This utility is provided as an alternative composition approach for testing.
   return [
     'transition-all',
     params.isHovered ? 'opacity-100 scale-110' : 'opacity-80',

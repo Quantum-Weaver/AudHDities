@@ -136,10 +136,6 @@ export const SLIDER_TRACK_BG_CLASS = `bg-[${starDust}]/10`;
 
 export const SLIDER_MARK_COLOR_CLASS = `bg-[${starDust}]/20`;
 
-// ============================================================================
-// THUMB BASE CLASSES (applied to all variants)
-// ============================================================================
-
 export const SLIDER_THUMB_BASE_CLASSES = [
   'block',
   'rounded-full',

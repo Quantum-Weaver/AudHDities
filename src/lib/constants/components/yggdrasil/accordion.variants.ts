@@ -67,8 +67,6 @@ export const accordionItemVariants = cva('transition-all', {
       isExpanded: false,
       className: ACCORDION_RADIUS_DEFAULT,
     },
-    // bordered — no item-level styling (handled by container divide)
-    // separated + expanded
     {
       variant: 'separated',
       isExpanded: true,

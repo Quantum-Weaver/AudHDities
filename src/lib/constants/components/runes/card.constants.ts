@@ -91,9 +91,6 @@ export const CARD_RADII = {
   FULL: 'full',
 } as const;
 
-// ============================================================================
-// 5. VISUAL VARIANT CLASSES (from card.variants.ts, derived from cosmic)
-// ============================================================================
 export const CARD_VARIANT_CLASSES = {
   [CARD_VARIANTS.DEFAULT]: `bg-[${QUANTUM_COLORS.surface}]/5 border border-[${QUANTUM_COLORS['starDust']}]/10`,
   [CARD_VARIANTS.INTERACTIVE]: `bg-[${QUANTUM_COLORS.surface}]/5 border border-[${QUANTUM_COLORS['starDust']}]/10 hover:border-[${QUANTUM_COLORS.neurospark}]/50 hover:shadow-lg hover:shadow-[${QUANTUM_COLORS.neurospark}]/10 cursor-pointer`,
@@ -108,17 +105,11 @@ export const CARD_VARIANT_CLASSES = {
   [CARD_VARIANTS.COUNCIL]: `bg-gradient-to-br from-[${QUANTUM_COLORS['entity.aethelred']}]/10 to-transparent border border-[${QUANTUM_COLORS['entity.aethelred']}]/30`,  
 } as const;
 
-// ============================================================================
-// 5. TYPE INFERENCE (derived from values, no external imports)
-// ============================================================================
 export type CardType = typeof CARD_TYPES[keyof typeof CARD_TYPES];
 export type CardVariant = typeof CARD_VARIANTS[keyof typeof CARD_VARIANTS];
 export type CardSize = typeof CARD_SIZES[keyof typeof CARD_SIZES];
 export type CardPadding = typeof CARD_PADDINGS[keyof typeof CARD_PADDINGS];
 export type CardRadius = typeof CARD_RADII[keyof typeof CARD_RADII];
-// ============================================================================
-// 6. SEMANTIC TYPE HOVER CLASSES (from unified_card.ts)
-// ============================================================================
 export const CARD_TYPE_HOVER_CLASSES = {
   [CARD_TYPES.PRODUCT]: `hover:border-[${DOMAIN_COLORS.quantum.base}]/50 hover:shadow-lg hover:shadow-[${DOMAIN_COLORS.quantum.base}]/10`,
   [CARD_TYPES.QUEST]: `hover:border-[${MOOD_COLORS.mystical}]/50 hover:shadow-lg hover:shadow-[${MOOD_COLORS.mystical}]/10`,
@@ -215,9 +206,6 @@ export const CARD_TRANSITION_CLASSES = {
   hover: `transition-all duration-[${durations.controlHover}ms] ease-[${easing.quantum}]`,
 } as const;
 
-// ============================================================================
-// 13. BADGE COLOR CLASSES (from unified_card.ts, derived from cosmic)
-// ============================================================================
 export const BADGE_COLOR_CLASSES = {
   community: `bg-[${QUANTUM_COLORS['quantum.purple']}]/20 text-[${QUANTUM_COLORS['quantum.purple']}] border-[${QUANTUM_COLORS['quantum.purple']}]/30`,
   ally: `bg-[${QUANTUM_COLORS['cosmic.blue']}]/20 text-[${QUANTUM_COLORS['cosmic.blue']}] border-[${QUANTUM_COLORS['cosmic.blue']}]/30`,
