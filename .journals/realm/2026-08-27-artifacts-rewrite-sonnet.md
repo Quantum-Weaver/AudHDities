@@ -55,3 +55,7 @@ host, and all three cookie-creation sites (`client.ts`, `server.ts`,
 production so a sign-in on the main host reaches the subdomain. The RLS
 policy the private bucket needs is drafted, unrun:
 `supabase/migrations/20260827_artifacts_bucket_policy.sql`.
+
+## Addendum — the vessel button's three doors
+
+`Header.tsx`'s top-bar link now goes to `/` instead of `/vessel`; `Navigation.tsx`'s bar-item "Vessel" is removed (comment left for the future community slot) while the user-name link still goes to `/vessel`. `tsc` and `next build` both clean.

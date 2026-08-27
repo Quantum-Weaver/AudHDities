@@ -24,8 +24,8 @@ import type { RealmKey } from '@/lib/constants/systems/trio';
 import Learscail from '@/components/seidr/immersive/Learscail';
 
 /**
- * The auth door. One definition, used by the signed-out Vessel item and by
- * the auth affordance on the right, so the two can never disagree.
+ * The auth door. One definition, used by the auth affordance on the right
+ * and by the mobile drawer's foot, so they can never disagree.
  */
 const AUTH_DOOR = '/login';
 
@@ -58,7 +58,7 @@ interface BarItem {
 }
 
 const THE_FOUR: BarItem[] = [
-  { label: 'Vessel', href: realmDoor('hestia'), visitorHref: AUTH_DOOR, icon: User },
+  // community — public profiles — takes this slot when designed (KP, 2026-08-27); only the private vessel and settings exist today.
   { label: 'Bazaar', href: realmDoor('hermes'), visitorHref: realmDoor('hermes'), icon: Store },
   { label: 'Library', href: realmDoor('athena'), visitorHref: realmDoor('athena'), icon: Library},
   {
@@ -142,7 +142,7 @@ export function Navigation({ className }: { className?: string }) {
           <div className="ml-auto flex items-center gap-3 pr-2">
             {user ? (
               <Link
-                href={THE_FOUR[0].href}
+                href={realmDoor('hestia')}
                 className={cn(
                   'flex items-center gap-1.5 rounded-lg px-1.5 py-1 text-xs text-star-dust/62 hover:text-neurospark transition-colors motion-reduce:transition-none',
                   FOCUS_RING
@@ -316,7 +316,7 @@ export function Navigation({ className }: { className?: string }) {
 
             <div className="h-px bg-white/10" />
 
-            <Link href={user ? THE_FOUR[0].href : AUTH_DOOR}
+            <Link href={user ? realmDoor('hestia') : AUTH_DOOR}
               className={cn(
                 'flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-star-dust/62 hover:text-star-dust hover:bg-white/5 transition-all motion-reduce:transition-none',
                 FOCUS_RING

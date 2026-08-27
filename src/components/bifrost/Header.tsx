@@ -60,7 +60,7 @@ export default function Header({
     <header className={cn(headerVariants({ variant }), className)}>
       <div className={headerContentVariants({ variant })}>
         <Link
-          href="/vessel"
+          href="/"
           className="group"
           onMouseEnter={hoverHandlers.handleMouseEnter}
           onMouseLeave={hoverHandlers.handleMouseLeave}
