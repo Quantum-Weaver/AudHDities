@@ -11,17 +11,15 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Menu, X, Store, Shield, Compass, User,
-  Map as MapIcon,
   Library,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
 import { THE_STREET } from '@/lib/constants/systems/the-street';
 import type { RealmKey } from '@/lib/constants/systems/trio';
-import Learscail from '@/components/seidr/immersive/Learscail';
 
 /**
  * The auth door. One definition, used by the auth affordance on the right
@@ -74,30 +72,19 @@ const THE_FOUR: BarItem[] = [
 // ═══════════════════════════════════════════════════════════════════════════
 
 /** A 2px hearth-gold ring at 2px offset — 12.7:1 on the bar ground. Drawn on
- *  its own so it can never be confused with the active tint. */
-const FOCUS_RING =
+ *  its own so it can never be confused with the active tint. Exported —
+ *  MapDialog borrows it so the map's controls read as the same hand. */
+export const FOCUS_RING =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space';
 
 export function Navigation({ className }: { className?: string }) {
   const pathname = usePathname();
   const { user, profile } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [mapOpen, setMapOpen] = useState(false);
 
   useEffect(() => {
     setDrawerOpen(false);
-    setMapOpen(false);
   }, [pathname]);
-
-  const closeMap = useCallback(() => setMapOpen(false), []);
-  useEffect(() => {
-    if (!mapOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeMap();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [mapOpen, closeMap]);
 
   const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href + '/'));
 
@@ -166,66 +153,11 @@ export function Navigation({ className }: { className?: string }) {
         </div>
       </nav>
 
-      {/* ════════════════════════════════════════════════════════════════ */}
-      {/* THE MAP, UNFOLDED — the whole street, fixed geometry              */}
-      {/* ════════════════════════════════════════════════════════════════ */}
-      {mapOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="The Sanctuary map"
-          className="fixed inset-0 z-50 hidden md:flex items-center justify-center bg-(--color-deep-space)/90 p-6"
-        >
-          <div className="flex h-[80vh] w-[80vw] flex-col rounded-xl border border-star-dust/15 bg-(--color-deep-space) p-6">
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-base font-semibold text-star-dust">The Sanctuary — every door</h2>
-              <button
-                type="button"
-                onClick={closeMap}
-                aria-label="Fold the map"
-                className={cn('rounded p-1 text-star-dust/60 hover:text-star-dust focus-visible:text-star-dust', FOCUS_RING)}
-              >
-                <X className="h-5 w-5" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mb-6 shrink-0">
-              <Learscail onTravel={closeMap} />
-            </div>
-
-            <div className="grid flex-1 auto-rows-min grid-cols-2 gap-x-8 gap-y-6 overflow-y-auto lg:grid-cols-3">
-              {THE_STREET.map((realm) => (
-                <section key={realm.name} aria-label={realm.name}>
-                  <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-star-dust/62">
-                    {realm.name}
-                  </h3>
-                  <ul className="space-y-1">
-                    {realm.rooms.map((room) => (
-                      <li key={room.href}>
-                        <Link
-                          href={room.href}
-                          aria-current={isActive(room.href) ? 'page' : undefined}
-                          className={cn(
-                            'block rounded px-2 py-1 text-sm transition-colors motion-reduce:transition-none',
-                            FOCUS_RING,
-                            isActive(room.href)
-                              ? 'text-neurospark'
-                              : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
-                          )}
-                        >
-                          {room.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-            <p className="mt-4 text-xs text-star-dust/62">
-              Every door stays where you left it. Esc folds the map.
-            </p>
-          </div>
-        </div>
-      )}
+      {/* The map itself now lives in one dialog (MapDialog, mounted once in
+          LayoutChrome) — shared with the chrome's "The map" button through
+          ContinuityBeamContext's mapOpen state. Nothing here sets it true
+          yet (KP, 2026-08-27: the desktop bar carries no map trigger today;
+          the door is ready when one is added). */}
 
       {/* ════════════════════════════════════════════════════════════════ */}
       {/* ════════════════════════════════════════════════════════════════ */}

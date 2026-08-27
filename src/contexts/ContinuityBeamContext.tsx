@@ -30,6 +30,10 @@ interface ContinuityBeamContextValue {
   statusBarVisible: boolean;
   setBeamVisible: (visible: boolean) => void;
   setStatusBarVisible: (visible: boolean) => void;
+  /** The Léarscáil dialog — one source of truth for both of its doors
+   *  (the chrome's "The map" button and the nav's map trigger). */
+  mapOpen: boolean;
+  setMapOpen: (open: boolean) => void;
 }
 
 const ContinuityBeamContext = createContext<ContinuityBeamContextValue | undefined>(undefined);
@@ -155,6 +159,7 @@ export function ContinuityBeamProvider({
 
   const [beamVisible, setBeamVisible] = useState(true);
   const [statusBarVisible, setStatusBarVisible] = useState(true);
+  const [mapOpen, setMapOpen] = useState(false);
 
   useEffect(() => {
     if (sessionState.isFirstVisitToday) {
@@ -178,6 +183,8 @@ export function ContinuityBeamProvider({
       statusBarVisible,
       setBeamVisible,
       setStatusBarVisible,
+      mapOpen,
+      setMapOpen,
     }}>
       {children}
     </ContinuityBeamContext.Provider>

@@ -13,6 +13,7 @@ import ContinuityBeam from '@/components/seidr/immersive/ContinuityBeam';
 import { ContinuityBeamProvider, useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { StatusBar } from '@/components/seidr/immersive/StatusBar';
 import LearscailScroll from '@/components/bifrost/LearscailScroll';
+import MapDialog from '@/components/bifrost/MapDialog';
 import { EnvironmentProvider } from '@/lib/constants/systems/environments/contexts';
 import { cn } from '@/lib/utils';
 import Footer from './Footer';
@@ -42,6 +43,10 @@ export function LayoutChrome({
               <ChromeStatusBar allowed={showStatusBar} />
               <LearscailScroll />
           </div>
+
+          {/* The map, one dialog, mounted once — opened by any door that
+              flips ContinuityBeamContext's mapOpen. */}
+          <MapDialog />
 
           {/* Content */}
           <main className={cn('w-full mx-auto flex flex-col items-center', className)}>
