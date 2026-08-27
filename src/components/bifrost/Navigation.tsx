@@ -238,14 +238,16 @@ export function Navigation({ className }: { className?: string }) {
           />
         )}
 
-        {/* Drawer */}
+        {/* Drawer — anchored to the top, drops down under the bar
+            (KP, 2026-08-27: "anchor to the top rather than left"). Full
+            width, its own scroll, the column centered. */}
         <div className={cn(
-          'fixed top-0 left-0 bottom-0 z-50 w-72 bg-(--color-deep-space)/95 backdrop-blur-xl border-r border-white/10 shadow-2xl',
+          'fixed top-0 left-0 right-0 z-50 max-h-[85vh] w-full bg-(--color-deep-space)/95 backdrop-blur-xl border-b border-white/10 shadow-2xl',
           'flex flex-col transition-transform duration-200 motion-reduce:transition-none',
-          drawerOpen ? 'translate-x-0' : '-translate-x-full'
+          drawerOpen ? 'translate-y-0' : '-translate-y-full'
         )}>
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-white/10">
+          <div className="mx-auto w-full max-w-md flex items-center justify-between p-4 border-b border-white/10">
             <Link href="/" className="text-base font-bold bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent">
               Sanctuary
             </Link>
@@ -254,7 +256,7 @@ export function Navigation({ className }: { className?: string }) {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-3 px-3 flex flex-col gap-4">
+          <div className="mx-auto w-full max-w-md flex-1 overflow-y-auto py-3 px-3 flex flex-col gap-4">
             {/* THE FOUR — named at the top, the same four the bar carries */}
             <section aria-label="The four">
               <h3 className="mb-1 px-3 text-[10px] font-medium uppercase tracking-wide text-star-dust/62">
