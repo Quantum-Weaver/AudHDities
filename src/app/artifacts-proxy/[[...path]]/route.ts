@@ -57,6 +57,10 @@ function extensionOf(path: string): string | null {
 // unrecognized extension) is passed through unchanged so the content-type
 // check below refuses it.
 function resolveKey(segments: string[] | undefined): string {
+  // The two host rewrites chain on the bare root: `/` becomes
+  // `/artifacts-proxy/gallery.html`, which `/:path*` rewrites once more, so the
+  // catch-all sees its own folder as the first segment. Drop it.
+  if (segments && segments[0] === 'artifacts-proxy') segments = segments.slice(1);
   if (!segments || segments.length === 0) return 'gallery.html';
   const raw = segments.join('/');
   return extensionOf(raw) === null ? `${raw}.html` : raw;
