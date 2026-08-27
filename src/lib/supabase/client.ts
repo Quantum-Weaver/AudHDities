@@ -9,9 +9,13 @@ let clientInstance: ReturnType<typeof createBrowserClient<Database>> | null = nu
 export function createClient() {
   if (clientInstance) return clientInstance;
   
+  // Cross-subdomain sessions in production only — see src/lib/supabase/server.ts.
   clientInstance = createBrowserClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NODE_ENV === 'production'
+      ? { cookieOptions: { domain: '.audhdities.com' } }
+      : undefined
   );
   
   return clientInstance;
