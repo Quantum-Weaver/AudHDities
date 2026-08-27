@@ -20,8 +20,11 @@ export const authButtonVariants = cva(
     'flex',
     'items-center',
     'gap-2',
-    `px-[${AUTH_BUTTON_PADDING.X}]`,
-    `py-[${AUTH_BUTTON_PADDING.Y}]`,
+    // px-4 / py-2 are AUTH_BUTTON_PADDING (16px / 8px) as static classes:
+    // Tailwind only emits classes it can read in source, and a template
+    // literal here produced none — the button had no padding at all.
+    'px-4',
+    'py-2',
     'transition-all',
     `duration-[${AUTH_TRANSITION_DURATION}ms]`,
     `ease-[${AUTH_TRANSITION_EASING}]`,

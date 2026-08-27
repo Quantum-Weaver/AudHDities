@@ -26,7 +26,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="overflow-x-hidden">
         
         <LayoutChrome>
-          <div className='items-center justify-center flex-cols flex'>
+          {/* The auth button breathes like a nav item: the same gap the bar
+              uses between its own items (KP, 2026-08-27: "padding around the
+              auth button like the nav buttons"). */}
+          <div className='flex items-center justify-center gap-3 px-2'>
             <AuthButton/>
             <Navigation/>
           </div>
