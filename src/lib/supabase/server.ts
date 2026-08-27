@@ -21,14 +21,23 @@ export async function createServerSupabase() {
         ? { cookieOptions: { domain: '.audhdities.com' } }
         : {}),
       cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
+        getAll() {
+          return cookieStore.getAll();
         },
-        set(name: string, value: string, options: any) {
-          cookieStore.set({ name, value, ...options });
-        },
-        remove(name: string, options: any) {
-          cookieStore.set({ name, value: '', ...options });
+        setAll(cookiesToSet) {
+          // A Server Component may not write cookies — Next throws, and that
+          // throw surfaced as React #441 whenever getUser() had to refresh an
+          // expired token during a page render (signed-in only, intermittent,
+          // gone on reload because the proxy refreshes first). The proxy's
+          // updateSession is the writer; here the write is best-effort.
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            );
+          } catch {
+            // called from a Server Component — the session refresh in
+            // proxy.ts keeps the cookies current
+          }
         },
       },
     }

@@ -1,7 +1,8 @@
 // @/app/error.tsx
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, startTransition } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
 
@@ -11,6 +12,7 @@ interface ErrorProps {
 }
 
 export default function Error({ error, reset }: ErrorProps) {
+  const router = useRouter();
   useEffect(() => {
     console.error('Application error:', error);
   }, [error]);
@@ -43,7 +45,9 @@ export default function Error({ error, reset }: ErrorProps) {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={reset}
+            // A bare reset() re-renders the same failed server payload; a server
+            // error needs a fresh request, so refresh the route first.
+            onClick={() => startTransition(() => { router.refresh(); reset(); })}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-star-dust rounded-lg font-bold transition-colors"
           >
             <RefreshCw size={18} />
