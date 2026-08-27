@@ -8,17 +8,15 @@ import { cva } from 'class-variance-authority';
 
 import {
   CONTACT_DIMENSIONS,
-  CONTACT_BORDER_RADIUS,
-  CONTACT_TRANSITION,
   CONTACT_SUCCESS_DIMENSIONS,
-  CONTACT_ERROR_DIMENSIONS,
 } from './contact.constants';
 
 // ─── Hero Section ──────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactHeroSectionVariants = cva(
   [
     'relative',
-    `py-[${CONTACT_DIMENSIONS.HERO_PADDING_Y}]`,
+    'py-20',
     'overflow-hidden',
   ].join(' ')
 );
@@ -39,9 +37,10 @@ export const contactOrbVariants = cva(
   'absolute rounded-full blur-3xl animate-pulse',
   {
     variants: {
+      // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
       color: {
-        cyan: `bg-neurospark/5 ${CONTACT_DIMENSIONS.ORB_SIZE_SM}`,
-        purple: `bg-quantum-purple/5 ${CONTACT_DIMENSIONS.ORB_SIZE_LG}`,
+        cyan: 'bg-neurospark/5 w-72 h-72',
+        purple: 'bg-quantum-purple/5 w-96 h-96',
       },
       position: {
         topLeft: 'top-1/4 left-1/4',
@@ -56,6 +55,7 @@ export const contactOrbVariants = cva(
 );
 
 // ─── Hero Content ──────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactHeroContentVariants = cva(
   [
     'relative',
@@ -63,7 +63,7 @@ export const contactHeroContentVariants = cva(
     'container',
     'max-w-4xl',
     'mx-auto',
-    `px-[${CONTACT_DIMENSIONS.SECTION_PADDING_X}]`,
+    'px-6',
     'text-center',
   ].join(' ')
 );
@@ -78,7 +78,8 @@ export const contactBadgeVariants = cva(
     'backdrop-blur-sm',
     'px-4',
     'py-2',
-    `rounded-[${CONTACT_BORDER_RADIUS.BADGE}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-full',
     'mb-6',
     'border',
     'border-white/20',
@@ -114,28 +115,31 @@ export const contactSubtitleVariants = cva(
 );
 
 // ─── Page Container ────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactPageContainerVariants = cva(
   [
     'container',
     'max-w-6xl',
     'mx-auto',
-    `px-[${CONTACT_DIMENSIONS.SECTION_PADDING_X}]`,
-    `pb-[${CONTACT_DIMENSIONS.SECTION_PADDING_BOTTOM}]`,
+    'px-6',
+    'pb-20',
   ].join(' ')
 );
 
 // ─── Grid ──────────────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactGridVariants = cva(
   [
     'grid',
     'lg:grid-cols-3',
-    `gap-[${CONTACT_DIMENSIONS.GRID_GAP}]`,
+    'gap-8',
   ].join(' ')
 );
 
 // ─── Info Stack ────────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactInfoStackVariants = cva(
-  `space-y-[${CONTACT_DIMENSIONS.INFO_STACK_GAP}]`
+  'space-y-6'
 );
 
 // ─── Info Card ─────────────────────────────────────────────────────────────
@@ -144,8 +148,9 @@ export const contactInfoCardVariants = cva(
     'p-6',
     'text-center',
     'transition-all',
-    `duration-[${CONTACT_TRANSITION.DURATION}ms]`,
-    `ease-[${CONTACT_TRANSITION.EASING}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'duration-300',
+    'ease-[cubic-bezier(0.4,0,0.2,1)]',
     'group',
   ].join(' '),
   {
@@ -166,7 +171,8 @@ export const contactInfoCardVariants = cva(
 export const contactIconContainerVariants = cva(
   [
     CONTACT_DIMENSIONS.ICON_CONTAINER_SIZE,
-    `rounded-[${CONTACT_BORDER_RADIUS.ICON_CONTAINER}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-xl',
     'flex',
     'items-center',
     'justify-center',
@@ -222,12 +228,13 @@ export const contactInfoCaptionVariants = cva(
 );
 
 // ─── Link ──────────────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactLinkVariants = cva(
   [
     'text-neurospark',
     'hover:underline',
     'transition-colors',
-    `duration-[${CONTACT_TRANSITION.DURATION}ms]`,
+    'duration-300',
   ].join(' ')
 );
 
@@ -249,7 +256,8 @@ export const contactAppNoteVariants = cva(
     'to-quantum-purple/10',
     'border',
     'border-neurospark/20',
-    `rounded-[${CONTACT_BORDER_RADIUS.CARD}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-xl',
     'p-5',
     'text-center',
   ].join(' ')
@@ -281,10 +289,11 @@ export const contactFormContainerVariants = cva(
   'lg:col-span-2'
 );
 
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactFormCardVariants = cva(
   [
-    `p-[${CONTACT_DIMENSIONS.CARD_PADDING}]`,
-    `md:p-[${CONTACT_DIMENSIONS.CARD_PADDING_LG}]`,
+    'p-6',
+    'md:p-8',
   ].join(' ')
 );
 
@@ -301,8 +310,9 @@ export const contactFormIconVariants = cva(
 );
 
 // ─── Form Field ────────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactFormSpacingVariants = cva(
-  `space-y-[${CONTACT_DIMENSIONS.FORM_SPACING}]`
+  'space-y-5'
 );
 
 export const contactFormLabelVariants = cva(
@@ -318,9 +328,10 @@ export const contactFormErrorTextVariants = cva(
 );
 
 // ─── Error Alert ───────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactErrorAlertVariants = cva(
   [
-    `p-[${CONTACT_ERROR_DIMENSIONS.PADDING}]`,
+    'p-3',
     'bg-error/10',
     'border',
     'border-error/30',
@@ -340,10 +351,11 @@ export const contactErrorTextVariants = cva(
 );
 
 // ─── Success State ─────────────────────────────────────────────────────────
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactSuccessContainerVariants = cva(
   [
     'text-center',
-    `py-[${CONTACT_SUCCESS_DIMENSIONS.PADDING_Y}]`,
+    'py-8',
   ].join(' ')
 );
 

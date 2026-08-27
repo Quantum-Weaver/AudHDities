@@ -9,13 +9,6 @@ import { cva } from 'class-variance-authority';
 import {
   NAVIGATION_VARIANTS,
   NAV_ITEM_STATES,
-  NAV_BAR_HEIGHT,
-  NAV_ITEM_PADDING,
-  NAV_MOBILE_ITEM_PADDING,
-  NAV_ITEM_GAP,
-  NAV_ITEM_RADIUS,
-  NAV_TRANSITION_DURATION,
-  NAV_TRANSITION_EASING,
   NAV_FLOATING_BUTTON_SIZE,
   NAV_FLOATING_BUTTON_POSITION,
 } from './navigation.constants';
@@ -43,7 +36,8 @@ export const navBarVariants = cva(
     'flex',
     'items-center',
     'justify-between',
-    `h-[${NAV_BAR_HEIGHT}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'h-14',
   ].join(' '),
   {
     variants: {
@@ -87,13 +81,14 @@ export const navLinkVariants = cva(
   [
     'flex',
     'items-center',
-    `gap-[${NAV_ITEM_GAP}]`,
-    `rounded-[${NAV_ITEM_RADIUS}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'gap-2',
+    'rounded-lg',
     'text-sm',
     'font-medium',
     'transition-all',
-    `duration-[${NAV_TRANSITION_DURATION}ms]`,
-    `ease-[${NAV_TRANSITION_EASING}]`,
+    'duration-150',
+    'ease-[cubic-bezier(0.4,0,0.2,1)]',
   ].join(' '),
   {
     variants: {
@@ -102,9 +97,10 @@ export const navLinkVariants = cva(
         [NAV_ITEM_STATES.ACTIVE]: 'bg-neurospark/20 text-neurospark',
         [NAV_ITEM_STATES.HOVER]: 'text-star-dust bg-white/5',
       },
+      // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
       variant: {
-        [NAVIGATION_VARIANTS.DESKTOP]: `px-[${NAV_ITEM_PADDING.X}] py-[${NAV_ITEM_PADDING.Y}]`,
-        [NAVIGATION_VARIANTS.MOBILE]: `px-[${NAV_MOBILE_ITEM_PADDING.X}] py-[${NAV_MOBILE_ITEM_PADDING.Y}]`,
+        [NAVIGATION_VARIANTS.DESKTOP]: 'px-3 py-2',
+        [NAVIGATION_VARIANTS.MOBILE]: 'px-4 py-3',
       },
       // ─── NEW ──────────────────────────────────────────────────────────
       isHovered: {
@@ -151,12 +147,13 @@ export const navMobileMenuVariants = cva(
 export const navMobileToggleVariants = cva(
   [
     'p-2',
-    `rounded-[${NAV_ITEM_RADIUS}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-lg',
     'text-star-dust/60',
     'hover:text-star-dust',
     'hover:bg-white/5',
     'transition-all',
-    `duration-[${NAV_TRANSITION_DURATION}ms]`,
+    'duration-150',
   ].join(' ')
 );
 
@@ -185,7 +182,8 @@ export const navFloatingToggleVariants = cva(
     'w-12',                     // ← 48px — good touch target
     'min-h-[48px]',            // ← Ensures minimum touch target
     'min-w-[48px]',            // ← Ensures minimum touch target
-    `rounded-[${NAV_ITEM_RADIUS}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-lg',
     'bg-deep-space/90',
     'backdrop-blur-lg',
     'border',
@@ -193,7 +191,7 @@ export const navFloatingToggleVariants = cva(
     'text-star-dust/80',
     'shadow-lg',
     'transition-all',
-    `duration-[${NAV_TRANSITION_DURATION}ms]`,
+    'duration-150',
     'flex',
     'items-center',
     'justify-center',
@@ -224,7 +222,8 @@ export const navDrawerOverlayVariants = cva(
     'bg-deep-space/60',
     'backdrop-blur-sm',
     'transition-opacity',
-    `duration-[${NAV_TRANSITION_DURATION}ms]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'duration-150',
   ].join(' '),
   {
     variants: {
@@ -256,10 +255,11 @@ export const navDrawerPanelVariants = cva(
     'shadow-2xl',
     'flex',
     'flex-col',
-    'transform',                  
-    'transition-all', 
-    `duration-[${NAV_TRANSITION_DURATION}ms]`,
-    `ease-[${NAV_TRANSITION_EASING}]`,
+    'transform',
+    'transition-all',
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'duration-150',
+    'ease-[cubic-bezier(0.4,0,0.2,1)]',
   ].join(' '),
   {
     variants: {
@@ -290,12 +290,13 @@ export const navDrawerHeaderVariants = cva(
 export const navDrawerCloseVariants = cva(
   [
     'p-2',
-    `rounded-[${NAV_ITEM_RADIUS}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-lg',
     'text-star-dust/60',
     'hover:text-star-dust',
     'hover:bg-white/5',
     'transition-all',
-    `duration-[${NAV_TRANSITION_DURATION}ms]`,
+    'duration-150',
   ].join(' ')
 );
 

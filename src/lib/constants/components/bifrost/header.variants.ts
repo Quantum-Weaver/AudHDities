@@ -10,9 +10,6 @@ import {
   HEADER_VARIANTS,
   HEADER_DENSITIES,
   HEADER_HEIGHT,
-  HEADER_PADDING,
-  HEADER_TRANSITION_DURATION,
-  HEADER_TRANSITION_EASING,
 } from './header.constants';
 
 // ─── Container Variants ────────────────────────────────────────────────────
@@ -73,8 +70,9 @@ export const headerContentVariants = cva(
   {
     variants: {
       variant: {
-        [HEADER_VARIANTS.SOVEREIGN]: `px-[${HEADER_PADDING.X}]`,
-        [HEADER_VARIANTS.TRANSPARENT]: `px-[${HEADER_PADDING.X}]`,
+        // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+        [HEADER_VARIANTS.SOVEREIGN]: 'px-6',
+        [HEADER_VARIANTS.TRANSPARENT]: 'px-6',
         [HEADER_VARIANTS.GLASS]: 'px-7',
       },
     },
@@ -88,8 +86,9 @@ export const headerContentVariants = cva(
 export const headerTitleVariants = cva(
   [
     'transition-all',
-    `duration-[${HEADER_TRANSITION_DURATION}ms]`,
-    `ease-[${HEADER_TRANSITION_EASING}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'duration-300',
+    'ease-[cubic-bezier(0.4,0,0.2,1)]',
   ].join(' '),
   {
     variants: {

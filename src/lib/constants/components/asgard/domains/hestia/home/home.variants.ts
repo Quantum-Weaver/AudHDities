@@ -4,22 +4,24 @@
 // ║                    Raw values — no CVA, no logic                          ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 import { cva } from 'class-variance-authority';
-import { HOME_DIMENSIONS, HOME_TRANSITION } from './home.constants';
+import { HOME_TRANSITION } from './home.constants';
 
 export const homeHeroSectionVariants = cva(
   'min-h-screen flex-wrap inline-flex items-center justify-center'
 );
 
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const homeHeroWrapperVariants = cva(
-  `relative w-full py-[${HOME_DIMENSIONS.HERO_PADDING_Y}] px-[${HOME_DIMENSIONS.HERO_PADDING_X}]`
+  'relative w-full py-20 px-6'
 );
 
 export const homeHeroBgVariants = cva(
   'absolute inset-0 bg-gradient-to-br from-deep-space via-deep-space/95 to-deep-space/90'
 );
 
+// literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const homeOrbVariants = cva(
-  `absolute rounded-full blur-3xl animate-pulse ${HOME_DIMENSIONS.ORB_SIZE}`,
+  'absolute rounded-full blur-3xl animate-pulse w-96 h-96',
   {
     variants: {
       color: {
@@ -44,7 +46,8 @@ export const homeBadgeVariants = cva(
     'inline-flex items-center gap-2',
     'bg-white/5 backdrop-blur-sm',
     'px-4 py-2',
-    `rounded-[${HOME_DIMENSIONS.BADGE_RADIUS}]`,
+    // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
+    'rounded-full',
     'mb-8 border border-white/10',
   ].join(' ')
 );

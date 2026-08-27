@@ -59,3 +59,7 @@ policy the private bucket needs is drafted, unrun:
 ## Addendum — the vessel button's three doors
 
 `Header.tsx`'s top-bar link now goes to `/` instead of `/vessel`; `Navigation.tsx`'s bar-item "Vessel" is removed (comment left for the future community slot) while the user-name link still goes to `/vessel`. `tsc` and `next build` both clean.
+
+## Addendum — literal-class sweep, 45 template-built classes across 4 CVA variant files
+
+Converted every `${...}` template-built class in `header.variants.ts` (4), `navigation.variants.ts` (18), `home.variants.ts` (4), and `contact.variants.ts` (19) to static literal strings — Tailwind reads classes from source text, so a runtime template emitted none of them; `status_bar.ts` had zero hits, untouched. `tsc --noEmit` and `next build` both clean; `px-4`/`py-2`/`px-6`/`h-14`/`w-96`/`duration-150`/`duration-300`/`rounded-lg`/`rounded-xl`/`rounded-full`/`ease-[cubic-bezier(0.4,0,0.2,1)]` all confirmed present in the built CSS with correct computed values.
