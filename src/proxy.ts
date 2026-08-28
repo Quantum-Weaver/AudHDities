@@ -1,5 +1,11 @@
 import { type NextRequest } from 'next/server';
-import { updateSession } from './src/lib/supabase/middleware';
+import { updateSession } from '@/lib/supabase/middleware';
+
+// This file lives in src/ because Next resolves middleware.*/proxy.* inside
+// the app's source folder (next/dist/build/utils.js getPossibleMiddlewareFilenames
+// is given the src dir). At the repo root it was never bundled — the build's
+// middleware-manifest was empty and updateSession ran on no request. Moved
+// 2026-08-27.
 
 export async function proxy(request: NextRequest) {
   // KP's word 2026-08-27: "auth required to view" — artifacts.audhdities.com
