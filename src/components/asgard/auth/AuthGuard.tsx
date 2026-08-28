@@ -19,6 +19,7 @@ import {
   AUTH_ERRORS,
   AUTH_ERROR_PARAM,
   AUTH_LABELS,
+  AUTH_REDIRECT_PARAM,
   AUTH_ROUTES,
 } from '@/lib/constants/components/asgard/auth/auth.constants';
 
@@ -31,6 +32,26 @@ import {
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
 import { buildRedirectUrl } from '@/lib/utils/components/asgard/auth/auth.utils';
+
+// A ?redirect= is followed only when it is ours: a same-origin path, or an
+// absolute URL on audhdities.com or one of its subdomains. Read from the
+// window inside the effect, so no Suspense boundary is owed to useSearchParams.
+function sameSiteRedirect(): string | null {
+  if (typeof window === 'undefined') return null;
+  const raw = new URLSearchParams(window.location.search).get(AUTH_REDIRECT_PARAM);
+  if (!raw) return null;
+  if (raw.startsWith('/') && !raw.startsWith('//')) return raw;
+  try {
+    const u = new URL(raw);
+    const host = u.hostname.toLowerCase();
+    if (u.protocol === 'https:' && (host === 'audhdities.com' || host.endsWith('.audhdities.com'))) {
+      return u.toString();
+    }
+  } catch {
+    // not a URL
+  }
+  return null;
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
@@ -59,7 +80,10 @@ export default function AuthGuard({
           : target
       );
     } else if (!requireAuth && user && signedInOnArrival.current) {
-      router.push(AUTH_ROUTES.DASHBOARD);
+      // Already signed in on arrival: honour a ?redirect= that names our own
+      // site (a path, or the artifacts host — the door sends visitors here
+      // with the page they wanted), else the dashboard. 2026-08-27.
+      router.push(sameSiteRedirect() ?? AUTH_ROUTES.DASHBOARD);
     }
   }, [user, loading, requireAuth, redirectTo, router, pathname]);
 

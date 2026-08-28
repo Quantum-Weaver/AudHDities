@@ -14,6 +14,12 @@ export async function createApiSupabase() {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
+      // The same cross-subdomain guard as src/lib/supabase/server.ts — every
+      // cookie writer must agree, or a refresh performed by an API route
+      // re-creates a host-only cookie beside the shared one (2026-08-27).
+      ...(process.env.NODE_ENV === 'production'
+        ? { cookieOptions: { domain: '.audhdities.com' } }
+        : {}),
       cookies: {
         getAll() {
           return cookieStore.getAll();

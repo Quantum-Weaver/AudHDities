@@ -8,9 +8,11 @@
 -- (never a service-role key), so Storage RLS on storage.objects is the real
 -- gate — this policy IS that gate.
 -- ============================================================================
--- DRAFTED, NOT RUN. KP's hand only, Supabase dashboard SQL editor (this
--- project has no linked CLI/migration history — this file IS the record of
--- what was run, once it is).
+-- RUN, by KP's hand, in the Supabase dashboard SQL editor (this project has
+-- no linked CLI/migration history — this file IS the record of what was run).
+-- The head once read "DRAFTED, NOT RUN"; KP, 2026-08-27, verbatim: "DRAFTED,
+-- NOT RUN.-untrue". Signed-in readers open the artifacts today; that is the
+-- policy standing.
 --
 -- Signed-in accounts may read the artifacts bucket; nobody anonymous may.
 -- Writes stay the courier's (service key, outside RLS entirely — no policy
