@@ -835,7 +835,9 @@ export type Database = {
           is_limited: boolean
           is_sanctuary_product: boolean
           name: string
+          palette: string[] | null
           rarity: string | null
+          ring: string | null
           slug: string
           spawn_locations: string[] | null
           status: Database["public"]["Enums"]["content_status"]
@@ -856,7 +858,9 @@ export type Database = {
           is_limited?: boolean
           is_sanctuary_product?: boolean
           name: string
+          palette?: string[] | null
           rarity?: string | null
+          ring?: string | null
           slug: string
           spawn_locations?: string[] | null
           status?: Database["public"]["Enums"]["content_status"]
@@ -877,7 +881,9 @@ export type Database = {
           is_limited?: boolean
           is_sanctuary_product?: boolean
           name?: string
+          palette?: string[] | null
           rarity?: string | null
+          ring?: string | null
           slug?: string
           spawn_locations?: string[] | null
           status?: Database["public"]["Enums"]["content_status"]
@@ -1131,6 +1137,7 @@ export type Database = {
       }
       collection_sets: {
         Row: {
+          accent: string | null
           collection_type: string | null
           completion_points: number | null
           completion_sigil_id: string | null
@@ -1141,6 +1148,7 @@ export type Database = {
           icon_url: string | null
           id: string
           name: string
+          palette: string[] | null
           rarity: string | null
           slug: string
           status: Database["public"]["Enums"]["content_status"]
@@ -1148,6 +1156,7 @@ export type Database = {
           updated_by: string | null
         }
         Insert: {
+          accent?: string | null
           collection_type?: string | null
           completion_points?: number | null
           completion_sigil_id?: string | null
@@ -1158,6 +1167,7 @@ export type Database = {
           icon_url?: string | null
           id?: string
           name: string
+          palette?: string[] | null
           rarity?: string | null
           slug: string
           status?: Database["public"]["Enums"]["content_status"]
@@ -1165,6 +1175,7 @@ export type Database = {
           updated_by?: string | null
         }
         Update: {
+          accent?: string | null
           collection_type?: string | null
           completion_points?: number | null
           completion_sigil_id?: string | null
@@ -1175,6 +1186,7 @@ export type Database = {
           icon_url?: string | null
           id?: string
           name?: string
+          palette?: string[] | null
           rarity?: string | null
           slug?: string
           status?: Database["public"]["Enums"]["content_status"]
@@ -1687,6 +1699,57 @@ export type Database = {
         }
         Relationships: []
       }
+      daily_puzzles: {
+        Row: {
+          atom_id: string | null
+          atom_word: string
+          clue: string
+          created_at: string
+          display_order: number
+          id: string
+          payload: Json | null
+          puzzle_form: string
+          scrambled: string
+          slug: string
+          solution: string
+          source_emoji: string | null
+          status: Database["public"]["Enums"]["content_status"]
+          updated_at: string
+        }
+        Insert: {
+          atom_id?: string | null
+          atom_word: string
+          clue: string
+          created_at?: string
+          display_order?: number
+          id?: string
+          payload?: Json | null
+          puzzle_form?: string
+          scrambled: string
+          slug: string
+          solution: string
+          source_emoji?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          updated_at?: string
+        }
+        Update: {
+          atom_id?: string | null
+          atom_word?: string
+          clue?: string
+          created_at?: string
+          display_order?: number
+          id?: string
+          payload?: Json | null
+          puzzle_form?: string
+          scrambled?: string
+          slug?: string
+          solution?: string
+          source_emoji?: string | null
+          status?: Database["public"]["Enums"]["content_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
       distribution_recipients: {
         Row: {
           amount: number
@@ -2065,6 +2128,7 @@ export type Database = {
           payment_processor_fee: number | null
           platform_fee_percent: number
           status: Database["public"]["Enums"]["exchange_status"]
+          stripe_invoice_id: string | null
           stripe_payment_intent: string | null
           stripe_session_id: string | null
           updated_at: string
@@ -2085,6 +2149,7 @@ export type Database = {
           payment_processor_fee?: number | null
           platform_fee_percent?: number
           status?: Database["public"]["Enums"]["exchange_status"]
+          stripe_invoice_id?: string | null
           stripe_payment_intent?: string | null
           stripe_session_id?: string | null
           updated_at?: string
@@ -2105,6 +2170,7 @@ export type Database = {
           payment_processor_fee?: number | null
           platform_fee_percent?: number
           status?: Database["public"]["Enums"]["exchange_status"]
+          stripe_invoice_id?: string | null
           stripe_payment_intent?: string | null
           stripe_session_id?: string | null
           updated_at?: string
@@ -6547,6 +6613,7 @@ export type Database = {
       wares: {
         Row: {
           artisan_profile_id: string | null
+          billing_interval: string | null
           cover_url: string | null
           created_at: string
           created_by: string
@@ -6567,12 +6634,14 @@ export type Database = {
           shipping_info: Json | null
           slug: string
           status: Database["public"]["Enums"]["content_status"]
+          stripe_price_id: string | null
           updated_at: string
           updated_by: string | null
           ware_type: Database["public"]["Enums"]["ware_type"]
         }
         Insert: {
           artisan_profile_id?: string | null
+          billing_interval?: string | null
           cover_url?: string | null
           created_at?: string
           created_by: string
@@ -6593,12 +6662,14 @@ export type Database = {
           shipping_info?: Json | null
           slug: string
           status?: Database["public"]["Enums"]["content_status"]
+          stripe_price_id?: string | null
           updated_at?: string
           updated_by?: string | null
           ware_type?: Database["public"]["Enums"]["ware_type"]
         }
         Update: {
           artisan_profile_id?: string | null
+          billing_interval?: string | null
           cover_url?: string | null
           created_at?: string
           created_by?: string
@@ -6619,6 +6690,7 @@ export type Database = {
           shipping_info?: Json | null
           slug?: string
           status?: Database["public"]["Enums"]["content_status"]
+          stripe_price_id?: string | null
           updated_at?: string
           updated_by?: string | null
           ware_type?: Database["public"]["Enums"]["ware_type"]
