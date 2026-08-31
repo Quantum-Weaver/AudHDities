@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--sanctuary-emerald:#00CEC9;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .gem{width:26px;height:26px;border-radius:8px;background:rgba(0,206,201,.14);
+      border:1px solid rgba(0,206,201,.32);display:inline-flex;align-items:center;
+      justify-content:center;flex:none;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9317;</span>
+    <span style="font-size:15px;font-weight:600;">Emeralds &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect/emeralds</span></span>
+    <span class="src">appreciation, kept as a record and never as a score</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">Emeralds do not live in this realm &mdash; they live in the Observatory&rsquo;s resonance record, and the Bridge reads that seam. Given is honest today. Received is not missing: it is unjoined, and the join is one door away.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the room</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+            <p style="margin:0 0 10px;font-size:12px;color:rgba(224,224,224,.70);display:flex;align-items:center;gap:7px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+              Return to the Bridge
+            </p>
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">Emeralds</h1>
+            <p style="margin:0 0 22px;font-size:12.5px;color:rgba(224,224,224,.70);">Every emerald is a spark of appreciation</p>
+
+            <p class="rl-h" style="margin-bottom:10px;">Given</p>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+              <div class="card" style="display:flex;align-items:center;gap:12px;padding:13px 14px;">
+                <span class="gem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00CEC9" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></span>
+                <div style="flex:1;min-width:0;">
+                  <p style="margin:0;font-size:12.5px;">You gave an emerald to <span style="font-weight:600;">Halden Frost</span></p>
+                  <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.65);">for the signal &ldquo;A slow reading room, Thursdays&rdquo;</p>
+                </div>
+                <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">Aug 28</span>
+              </div>
+              <div class="card" style="display:flex;align-items:center;gap:12px;padding:13px 14px;">
+                <span class="gem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00CEC9" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></span>
+                <div style="flex:1;min-width:0;">
+                  <p style="margin:0;font-size:12.5px;">You gave an emerald to <span style="font-weight:600;">Petrichor</span></p>
+                  <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.65);">&ldquo;this made a bad week easier. thank you.&rdquo;</p>
+                </div>
+                <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">Aug 21</span>
+              </div>
+            </div>
+
+            <p class="rl-h" style="margin-bottom:10px;">Received</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div class="card" style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-color:rgba(0,206,201,.24);">
+                <span class="gem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00CEC9" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></span>
+                <div style="flex:1;min-width:0;">
+                  <p style="margin:0;font-size:12.5px;"><span style="font-weight:600;">Bramblewick</span> gave you an emerald</p>
+                  <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.65);">for the map you made</p>
+                </div>
+                <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">Aug 29</span>
+              </div>
+              <div class="card" style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-color:rgba(0,206,201,.24);">
+                <span class="gem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00CEC9" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></span>
+                <div style="flex:1;min-width:0;">
+                  <p style="margin:0;font-size:12.5px;"><span style="font-weight:600;color:rgba(224,224,224,.80);">Name not yet reachable</span> gave you an emerald</p>
+                  <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.65);">for the signal &ldquo;First Light, any hour&rdquo;</p>
+                </div>
+                <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">Aug 17</span>
+              </div>
+            </div>
+
+            <p style="margin:16px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);">No totals. The record is the list; a number beside your own kindness is a score, and this house does not keep one.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The room before any emerald has moved</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 28px;">
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">Emeralds</h1>
+            <p style="margin:0 0 22px;font-size:12.5px;color:rgba(224,224,224,.70);">Every emerald is a spark of appreciation</p>
+            <p class="rl-h" style="margin-bottom:9px;">Given</p>
+            <div class="card" style="padding:22px 18px;text-align:center;margin-bottom:18px;">
+              <p style="margin:0 0 4px;font-size:13px;color:rgba(224,224,224,.80);">You have not given one yet.</p>
+              <p style="margin:0 auto;max-width:300px;font-size:11.5px;color:rgba(224,224,224,.66);text-wrap:pretty;">An emerald is given from wherever the thing you liked stands &mdash; a signal, a work, a room. They gather here afterwards.</p>
+            </div>
+            <p class="rl-h" style="margin-bottom:9px;">Received</p>
+            <div class="card" style="padding:22px 18px;text-align:center;">
+              <p style="margin:0 0 4px;font-size:13px;color:rgba(224,224,224,.80);">Nobody has given you one yet.</p>
+              <p style="margin:0 auto;max-width:300px;font-size:11.5px;color:rgba(224,224,224,.66);text-wrap:pretty;">When someone appreciates something you made or sent, it will arrive here with their name on it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:18px 16px 20px;">
+            <h1 style="margin:0 0 12px;font-size:18px;font-weight:700;color:#0C0F1D;">Emeralds</h1>
+            <p style="margin:0 0 8px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#636E72;font-weight:600;">Received</p>
+            <div class="lt-card" style="display:flex;align-items:center;gap:11px;padding:11px 12px;">
+              <span style="width:24px;height:24px;border-radius:7px;background:#E0E0E0;border:1px solid rgba(12,15,29,.20);display:inline-flex;align-items:center;justify-content:center;flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A885" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></span>
+              <div style="flex:1;min-width:0;">
+                <p style="margin:0;font-size:12px;color:#0C0F1D;"><span style="font-weight:600;">Bramblewick</span> gave you an emerald</p>
+                <p style="margin:0;font-size:11px;color:#2D3436;">for the map you made</p>
+              </div>
+              <span style="font-size:10.5px;color:#636E72;flex:none;">Aug 29</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground this room reads</p>
+        <div class="grd">
+          <p class="rl-b">The resonance record in the Observatory &mdash; the seam this room has always read</p><span class="stands">exists</span>
+          <p class="rl-b">Every emerald you gave, with what it was for</p><span class="stands">exists</span>
+          <p class="rl-b">The signals and works an emerald can point at, each with a maker</p><span class="stands">exists</span>
+          <p class="rl-b">A door that reads Received &mdash; the emeralds pointed at things you made</p><span class="tobe">to be created</span>
+          <p class="rl-b">Permission to read another vessel&rsquo;s public face</p><span class="tobe">to be created</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Received is unjoined, not absent</p>
+        <p class="rl-b">The room says today that Received &ldquo;awaits a proper endpoint.&rdquo; That was honest and it is now out of date. An emerald already records the thing it praised; that thing already records who made it. Received is those two facts read in one breath.</p>
+        <p class="rl-b" style="margin-top:9px;">So what is owed is <span class="k">a door, not a table</span> &mdash; nothing is stored twice, nothing new is invented, and the Observatory keeps ownership of emeralds exactly as it does now.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The two tiles are gone</p>
+        <p class="rl-b">The room as it stands opens with two big numbers &mdash; Sparks Given and Sparks Received &mdash; one of them a live count of your own generosity and the other a permanent dash. A number beside your kindness turns a gift into a tally, which is the shape this house refuses everywhere else.</p>
+        <p class="rl-b" style="margin-top:9px;">The list says everything the tile said, and says it about the emerald rather than about you.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">Both halves get their own quiet state, and each names where the act happens &mdash; an emerald is given from wherever the thing stands, not from this room. The empty room teaches the gesture.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .glyph{width:34px;height:34px;border-radius:10px;background:rgba(0,184,148,.12);
+      border:1px solid rgba(0,184,148,.28);display:inline-flex;align-items:center;
+      justify-content:center;flex:none;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9315;</span>
+    <span style="font-size:15px;font-weight:600;">Channels &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect/channels</span> and one channel</span>
+    <span class="src">reading the realm&rsquo;s own channels, at last</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">Both rooms ask a door that has never existed, in a neighbouring realm. The channels table is <span class="k">iris&rsquo;s own</span>. Re-pointed, the directory reads real rooms, and each one carries the display name of the vessel who opened it.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the directory</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+            <p style="margin:0 0 10px;font-size:12px;color:rgba(224,224,224,.70);display:flex;align-items:center;gap:7px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+              Return to the Bridge
+            </p>
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">Channels</h1>
+            <p style="margin:0 0 18px;font-size:12.5px;color:rgba(224,224,224,.70);">Rooms that are open to anyone</p>
+
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(224,224,224,.13);border-radius:9px;padding:9px 13px;margin-bottom:16px;display:flex;align-items:center;gap:9px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.45)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+              <span style="font-size:12px;color:rgba(224,224,224,.50);">Search channels</span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+
+              <div class="card" style="padding:15px 14px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
+                  <span class="glyph"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg></span>
+                  <div style="min-width:0;">
+                    <p style="margin:0;font-size:13.5px;font-weight:600;">The Slow Reading Room</p>
+                    <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.55);">slow-reading</p>
+                  </div>
+                </div>
+                <p style="margin:0 0 10px;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.70);">One chapter a week, read at whatever pace the day allows.</p>
+                <p style="margin:0;font-size:11px;color:rgba(224,224,224,.60);">Opened by <span style="color:rgba(224,224,224,.86);font-weight:600;">Halden Frost</span></p>
+              </div>
+
+              <div class="card" style="padding:15px 14px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
+                  <span class="glyph"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/></svg></span>
+                  <div style="min-width:0;">
+                    <p style="margin:0;font-size:13.5px;font-weight:600;">Low Spoons Kitchen</p>
+                    <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.55);">low-spoons-kitchen</p>
+                  </div>
+                </div>
+                <p style="margin:0 0 10px;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.70);">Food that takes under ten minutes and asks nothing of you.</p>
+                <p style="margin:0;font-size:11px;color:rgba(224,224,224,.60);">Opened by <span style="color:rgba(224,224,224,.86);font-weight:600;">Petrichor</span></p>
+              </div>
+
+              <div class="card" style="padding:15px 14px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
+                  <span class="glyph"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg></span>
+                  <div style="min-width:0;">
+                    <p style="margin:0;font-size:13.5px;font-weight:600;">Night Shift</p>
+                    <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.55);">night-shift</p>
+                  </div>
+                </div>
+                <p style="margin:0 0 10px;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.70);">For everyone whose good hours start after midnight.</p>
+                <p style="margin:0;font-size:11px;color:rgba(224,224,224,.60);">Opened by <span style="color:rgba(224,224,224,.78);font-weight:600;">Name not yet reachable</span></p>
+              </div>
+
+              <div class="card" style="padding:15px 14px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
+                  <span class="glyph"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.4 5.2L20 10l-4 4 1 6-5-2.8L7 20l1-6-4-4 5.6-.8z"/></svg></span>
+                  <div style="min-width:0;">
+                    <p style="margin:0;font-size:13.5px;font-weight:600;">First Light</p>
+                    <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.55);">first-light</p>
+                  </div>
+                </div>
+                <p style="margin:0 0 10px;font-size:11.5px;line-height:1.5;color:rgba(224,224,224,.70);">Where new vessels say hello, at any hour, with no pressure to.</p>
+                <p style="margin:0;font-size:11px;color:rgba(224,224,224,.60);">Opened by <span style="color:rgba(224,224,224,.86);font-weight:600;">Quantum Weaver</span></p>
+              </div>
+
+            </div>
+
+            <p style="margin:14px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);">No subscriber numbers. The base does not hold one, and a room is not a size.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Dark &mdash; one channel</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+            <p style="margin:0 0 14px;font-size:12px;color:rgba(224,224,224,.70);">Return to Channels</p>
+            <div class="card" style="padding:22px 20px;">
+              <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
+                <span class="glyph" style="width:40px;height:40px;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg></span>
+                <div style="flex:1;min-width:0;">
+                  <h2 style="margin:0;font-size:19px;font-weight:700;">The Slow Reading Room</h2>
+                  <p style="margin:1px 0 0;font-size:11.5px;color:rgba(224,224,224,.58);">slow-reading &middot; open to anyone</p>
+                </div>
+              </div>
+              <p style="margin:0 0 14px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.80);">One chapter a week, read at whatever pace the day allows. Nobody is behind here. If you miss three weeks the room is still the room.</p>
+              <p style="margin:0 0 18px;font-size:11.5px;color:rgba(224,224,224,.65);">Opened by <span style="color:rgba(224,224,224,.88);font-weight:600;">Halden Frost</span> &middot; standing since March</p>
+
+              <div style="border:1px dashed rgba(224,224,224,.16);border-radius:11px;padding:24px 18px;text-align:center;">
+                <p style="margin:0 0 5px;font-size:13px;color:rgba(224,224,224,.80);">This room has no words in it yet.</p>
+                <p style="margin:0 auto;max-width:310px;font-size:11.5px;color:rgba(224,224,224,.66);text-wrap:pretty;">A channel can be opened, named and described today. Speaking inside one is the part still to be built &mdash; nothing in the base yet joins a word to a room.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The directory when no channel is open</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 30px;">
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">Channels</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">Rooms that are open to anyone</p>
+            <div style="text-align:center;padding:32px 20px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.26)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:12px;"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>
+              <p style="margin:0 0 6px;font-size:15px;color:rgba(224,224,224,.82);">No rooms are open yet.</p>
+              <p style="margin:0 auto;max-width:300px;font-size:12.5px;color:rgba(224,224,224,.66);text-wrap:pretty;">When a vessel opens one, it will stand here with its name, its purpose, and who opened it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:18px 16px 20px;">
+            <h1 style="margin:0 0 12px;font-size:18px;font-weight:700;color:#0C0F1D;">Channels</h1>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;">
+              <div class="lt-card" style="padding:12px 11px;">
+                <p style="margin:0;font-size:12.5px;font-weight:600;color:#0C0F1D;">The Slow Reading Room</p>
+                <p style="margin:1px 0 7px;font-size:10.5px;color:#636E72;">slow-reading</p>
+                <p style="margin:0;font-size:11px;color:#2D3436;">Opened by <span style="font-weight:600;">Halden Frost</span></p>
+              </div>
+              <div class="lt-card" style="padding:12px 11px;">
+                <p style="margin:0;font-size:12.5px;font-weight:600;color:#0C0F1D;">Low Spoons Kitchen</p>
+                <p style="margin:1px 0 7px;font-size:10.5px;color:#636E72;">low-spoons-kitchen</p>
+                <p style="margin:0;font-size:11px;color:#2D3436;">Opened by <span style="font-weight:600;">Petrichor</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground these rooms read</p>
+        <div class="grd">
+          <p class="rl-b">The channels table &mdash; name, address, purpose, kind, who opened it</p><span class="stands">exists</span>
+          <p class="rl-b">The steward&rsquo;s display name, on their own profile</p><span class="stands">exists</span>
+          <p class="rl-b">A door that reads the realm&rsquo;s own channels, stewards named</p><span class="tobe">to be created</span>
+          <p class="rl-b">A door for one channel</p><span class="tobe">to be created</span>
+          <p class="rl-b">Words spoken inside a channel</p><span class="tobe">to be created</span>
+          <p class="rl-b">Belonging to a channel &mdash; joining, leaving, being a member</p><span class="tobe">to be created</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">What the re-point fixes</p>
+        <p class="rl-b">Both rooms today ask a neighbouring realm for channels. That door has never existed, in any version of this house, so both rooms have always shown nothing and blamed the emptiness on the community. The table they wanted is <span class="k">iris&rsquo;s own</span>, and it has been standing there the whole time.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Two things the board refuses to draw</p>
+        <p class="rl-b"><span class="k">Subscriber counts.</span> The room as it stands prints a number of subscribers on every card. The base holds no such number, and nothing anywhere counts members &mdash; so every one of those numbers is a zero dressed as a measurement.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">A subscribe button that only changes its own mind.</span> Today the button flips a word on the screen and remembers nothing. A control that does nothing is a small deception, so it is not drawn until there is somewhere for the joining to live.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">The channel with no words says exactly which part is built and which part is not, in one plain sentence, without apologising and without blaming the reader for a quiet room.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

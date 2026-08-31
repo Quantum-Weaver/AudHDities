@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;--cosmic-dark:#0874C4;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#74B9FF 0%,#0874C4 50%,#74B9FF 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .field{background:rgba(255,255,255,.05);border:1px solid rgba(224,224,224,.13);
+      border-radius:9px;padding:10px 13px;font-size:12px;color:rgba(224,224,224,.50);}
+    .lbl{font-size:11.5px;color:rgba(224,224,224,.78);margin:0 0 5px;display:block;}
+    .badge{display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:9999px;
+      border:1px solid rgba(224,224,224,.18);font-size:10.5px;color:rgba(224,224,224,.78);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#74B9FF;">&#9318;</span>
+    <span style="font-size:15px;font-weight:600;">The Healing Flame &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect/support</span> and one thread</span>
+    <span class="src">the letter you sent, and the answer, both with names on them</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">The one room in the realm that has always really worked &mdash; you can write, and it lands. What it has never done is show you the letter afterwards. The thread room is reachable only by guessing its address.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the room</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+            <p style="margin:0 0 10px;font-size:12px;color:rgba(224,224,224,.70);display:flex;align-items:center;gap:7px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+              Return to the Bridge
+            </p>
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">The Healing Flame</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">You are not alone. We are here for you.</p>
+
+            <div class="card" style="padding:20px 18px;margin-bottom:18px;">
+              <p style="margin:0 0 15px;font-size:11.5px;color:rgba(224,224,224,.68);">Writing as <span style="color:rgba(224,224,224,.90);font-weight:600;">Quantum Weaver</span></p>
+              <div style="display:flex;flex-direction:column;gap:13px;">
+                <div><span class="lbl">What do you need help with?</span><div class="field">A subject, in your own words</div></div>
+                <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;">
+                  <div><span class="lbl">What kind of thing is it?</span><div class="field">Choose one</div></div>
+                  <div><span class="lbl">How soon do you need us?</span><div class="field">Choose one</div></div>
+                </div>
+                <div><span class="lbl">Tell us what is going on</span><div class="field" style="min-height:64px;">As much or as little as you have room for</div></div>
+              </div>
+              <div style="display:flex;justify-content:flex-end;margin-top:15px;">
+                <span style="display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:10px;background:rgba(108,92,231,.55);border:1px solid rgba(108,92,231,.7);font-size:13px;color:#FFFFFF;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
+                  Send
+                </span>
+              </div>
+            </div>
+
+            <p class="rl-h" style="margin-bottom:10px;">Your letters</p>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px;">
+              <div class="card" style="display:flex;align-items:center;gap:12px;padding:13px 14px;">
+                <span style="width:8px;height:8px;border-radius:9999px;background:#00B894;flex:none;"></span>
+                <div style="flex:1;min-width:0;">
+                  <p style="margin:0;font-size:12.5px;font-weight:600;">the reader keeps skipping lines</p>
+                  <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.65);">Answered by <span style="color:rgba(224,224,224,.86);font-weight:600;">Wren Vale</span> &middot; yesterday</p>
+                </div>
+                <span class="badge" style="flex:none;">Answered</span>
+              </div>
+              <div class="card" style="display:flex;align-items:center;gap:12px;padding:13px 14px;">
+                <span style="width:8px;height:8px;border-radius:9999px;background:#FDCB6E;flex:none;"></span>
+                <div style="flex:1;min-width:0;">
+                  <p style="margin:0;font-size:12.5px;font-weight:600;">can the wash be turned right down?</p>
+                  <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.65);">Sent 3 days ago &middot; nobody has answered yet</p>
+                </div>
+                <span class="badge" style="flex:none;">Waiting</span>
+              </div>
+            </div>
+
+            <div class="card" style="padding:17px 16px;">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FDCB6E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6z"/></svg>
+                <h3 style="margin:0;font-size:13px;font-weight:600;">If you are in immediate crisis</h3>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:rgba(224,224,224,.70);">
+                <p style="margin:0;"><span style="color:rgba(224,224,224,.88);">National Suicide Prevention Lifeline:</span> 988 (US)</p>
+                <p style="margin:0;"><span style="color:rgba(224,224,224,.88);">Crisis Text Line:</span> Text HOME to 741741 (US)</p>
+                <p style="margin:0;"><span style="color:rgba(224,224,224,.88);">The Trevor Project:</span> 1-866-488-7386 (LGBTQ+ youth)</p>
+                <p style="margin:7px 0 0;color:rgba(224,224,224,.65);">You are not alone. Reaching out is an act of sovereignty.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Dark &mdash; one thread</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+            <p style="margin:0 0 14px;font-size:12px;color:rgba(224,224,224,.70);">Return to the Healing Flame</p>
+            <div class="card" style="padding:22px 20px;">
+              <span class="badge" style="margin-bottom:12px;">Answered</span>
+              <h2 style="margin:0 0 4px;font-size:18px;font-weight:700;">the reader keeps skipping lines</h2>
+              <p style="margin:0 0 16px;font-size:11.5px;color:rgba(224,224,224,.65);">Written by <span style="color:rgba(224,224,224,.88);font-weight:600;">Quantum Weaver</span> &middot; Thursday, 28 August</p>
+
+              <div style="background:rgba(255,255,255,.05);border-radius:11px;padding:14px 15px;margin-bottom:14px;">
+                <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.82);">The reader jumps two lines whenever I scroll with the keyboard. It is fine with a mouse. I lose my place every time and have to start the paragraph again.</p>
+              </div>
+
+              <div style="border:1px solid rgba(116,185,255,.28);background:rgba(116,185,255,.06);border-radius:11px;padding:14px 15px;">
+                <p style="margin:0 0 6px;font-size:11px;color:rgba(224,224,224,.70);">Answered by <span style="color:rgba(224,224,224,.90);font-weight:600;">Wren Vale</span> &middot; Friday, 29 August</p>
+                <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.82);">Found it &mdash; the jump is the page scrolling under the reader rather than the reader itself. Mended, and it will be in the next pass. Thank you for describing exactly when it happened; that is what made it findable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The room before you have written anything</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 28px;">
+            <p class="rl-h" style="margin-bottom:10px;">Your letters</p>
+            <div class="card" style="padding:26px 20px;text-align:center;">
+              <p style="margin:0 0 5px;font-size:13.5px;color:rgba(224,224,224,.82);">You have not written to us yet.</p>
+              <p style="margin:0 auto;max-width:310px;font-size:12px;color:rgba(224,224,224,.66);text-wrap:pretty;">When you do, your letter will stand here with whatever answer comes back &mdash; and it will stay, so you never have to remember what you asked.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:18px 16px 20px;">
+            <h1 style="margin:0 0 3px;font-size:18px;font-weight:700;color:#0C0F1D;">The Healing Flame</h1>
+            <p style="margin:0 0 14px;font-size:11.5px;color:#2D3436;">You are not alone. We are here for you.</p>
+            <div class="lt-card" style="padding:14px 14px;">
+              <p style="margin:0 0 3px;font-size:12.5px;font-weight:600;color:#0C0F1D;">the reader keeps skipping lines</p>
+              <p style="margin:0 0 9px;font-size:11px;color:#636E72;">Answered by <span style="font-weight:600;color:#2D3436;">Wren Vale</span> &middot; yesterday</p>
+              <div style="background:#E0E0E0;border-radius:9px;padding:10px 11px;">
+                <p style="margin:0;font-size:11.5px;line-height:1.55;color:#2D3436;">Found it &mdash; the jump is the page scrolling under the reader.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">This room wears the Sanctuary&rsquo;s calm blue rather than the community green &mdash; the same difference the built app already makes between the two.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground these rooms read</p>
+        <div class="grd">
+          <p class="rl-b">The letters table &mdash; subject, message, kind, priority, the answer, and who it was handed to</p><span class="stands">exists</span>
+          <p class="rl-b">Sending a letter</p><span class="stands">exists</span>
+          <p class="rl-b">The writer&rsquo;s and the answerer&rsquo;s display names, on their own profiles</p><span class="stands">exists</span>
+          <p class="rl-b">A door that hands you back your own letters, names carried</p><span class="tobe">to be created</span>
+          <p class="rl-b">A door that reads one letter and its answer, both named</p><span class="tobe">to be created</span>
+        </div>
+        <p class="rl-b" style="margin-top:12px;">Neither door is a new place to store anything. The letter already records who wrote it and who it was handed to, and both of those are vessels with faces of their own &mdash; the doors only read what is already written down.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The letters come back</p>
+        <p class="rl-b">Today the room sends a letter, thanks you, and then forgets it in front of you. The thread page exists and nothing in the app links to it &mdash; you would have to know the address to reach your own words.</p>
+        <p class="rl-b" style="margin-top:9px;">The list of your letters closes that. Only your own: this table is shared with the Forge&rsquo;s contact form, and someone else&rsquo;s letter is not this room&rsquo;s to show.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">An answer with a person behind it</p>
+        <p class="rl-b">An answer signed by nobody reads like an automatic reply, which is the last thing the Healing Flame should sound like. A name makes the answer a person and gives the reader someone to have been helped by.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Urgency is not a promise</p>
+        <p class="rl-b">The room asks how soon you need help, and the sent screen answers &ldquo;within 24 hours.&rdquo; That number is a promise nothing in the house can keep. The waiting letter above says only that nobody has answered yet, which is true at every hour.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">An unanswered letter is marked waiting, not overdue and not failed. The crisis card stands whatever else is on the page, and never moves below the fold.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

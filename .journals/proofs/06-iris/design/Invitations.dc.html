@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9319;</span>
+    <span style="font-size:15px;font-weight:600;">Invitations &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect/invitations</span></span>
+    <span class="src">one real door to hand someone; nothing that only pretends</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">While the Sanctuary is not taking open signups, someone comes in because a vessel asked them in. The room as it stands has a send button that sends nothing and a link that leads nowhere. Drawn here as one warm, working page: <span class="k">a door you carry yourself.</span></p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the room, once the invitation road is laid</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+            <p style="margin:0 0 10px;font-size:12px;color:rgba(224,224,224,.70);display:flex;align-items:center;gap:7px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+              Return to the Bridge
+            </p>
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">Invitations</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">Bring someone in</p>
+
+            <div class="card" style="padding:20px 18px;margin-bottom:16px;">
+              <h3 style="margin:0 0 8px;font-size:14.5px;font-weight:600;">The Sanctuary opens by invitation</h3>
+              <p style="margin:0 0 6px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.80);">The front door is not open to everyone at the moment. That is on purpose &mdash; this is a small place and it is being grown slowly, on purpose, by hand.</p>
+              <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.80);">So the way in is <span class="k">someone already inside</span>. That is you. Below is your door, and you decide who gets handed it.</p>
+            </div>
+
+            <div class="card" style="padding:20px 18px;margin-bottom:16px;border-color:rgba(0,184,148,.24);">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00B894" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 7h3a4 4 0 0 1 0 8h-3"/><path d="M9 17H6a4 4 0 0 1 0-8h3"/><path d="M8 12h8"/></svg>
+                <h3 style="margin:0;font-size:14.5px;font-weight:600;">Your door</h3>
+              </div>
+              <p style="margin:0 0 13px;font-size:12px;line-height:1.55;color:rgba(224,224,224,.72);">Anyone who comes in through this arrives already knowing you asked them.</p>
+              <div style="display:flex;gap:10px;">
+                <div style="flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid rgba(224,224,224,.13);border-radius:9px;padding:10px 13px;">
+                  <p style="margin:0;font-family:'JetBrains Mono',Monaco,Consolas,monospace;font-size:11.5px;color:rgba(224,224,224,.80);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">audhdities.com/enter/invite/quantum-weaver</p>
+                </div>
+                <span style="display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 15px;border-radius:9px;background:rgba(108,92,231,.55);border:1px solid rgba(108,92,231,.7);font-size:12.5px;color:#FFFFFF;flex:none;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  Copy
+                </span>
+              </div>
+              <p style="margin:12px 0 0;font-size:11.5px;line-height:1.55;color:rgba(224,224,224,.68);">Send it however you already talk to them &mdash; a message, a note, out loud. The Sanctuary does not send mail on your behalf, and does not want their address.</p>
+            </div>
+
+            <div class="card" style="padding:20px 18px;margin-bottom:16px;">
+              <h3 style="margin:0 0 8px;font-size:13.5px;font-weight:600;">What the Sanctuary remembers about this</h3>
+              <p style="margin:0;font-size:12px;line-height:1.6;color:rgba(224,224,224,.76);">Nothing yet, and that is a choice rather than an oversight. No list of who you invited, no note of who accepted, no reminder to nudge anyone. If a record of invitations is ever wanted, it is worth wanting on purpose &mdash; not arriving by accident because a page had a space for it.</p>
+            </div>
+
+            <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;padding:18px 16px;text-align:center;">
+              <p style="margin:0 auto;max-width:360px;font-size:12px;line-height:1.6;color:rgba(224,224,224,.72);text-wrap:pretty;">Every invitation extends the Sanctuary. Welcome those who seek sovereignty, not exploitation.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The same room today &mdash; before the road exists, and still honest</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">Invitations</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">Bring someone in</p>
+
+            <div class="card" style="padding:20px 18px;margin-bottom:14px;">
+              <h3 style="margin:0 0 8px;font-size:14.5px;font-weight:600;">The Sanctuary opens by invitation</h3>
+              <p style="margin:0;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.80);">The front door is not open to everyone at the moment. The way in is someone already inside &mdash; and that is you.</p>
+            </div>
+
+            <div class="card" style="padding:22px 18px;border-style:dashed;border-color:rgba(253,203,110,.35);">
+              <h3 style="margin:0 0 8px;font-size:13.5px;font-weight:600;color:rgba(253,203,110,.95);">Your own door is still being made</h3>
+              <p style="margin:0 0 13px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);">A link of your own &mdash; one that says who asked them in &mdash; is not built yet. Rather than hand you a link that leads nowhere, here is the one address that works today:</p>
+              <div style="background:rgba(255,255,255,.05);border:1px solid rgba(224,224,224,.13);border-radius:9px;padding:10px 13px;">
+                <p style="margin:0;font-family:'JetBrains Mono',Monaco,Consolas,monospace;font-size:11.5px;color:rgba(224,224,224,.80);">audhdities.com</p>
+              </div>
+              <p style="margin:12px 0 0;font-size:11.5px;line-height:1.55;color:rgba(224,224,224,.68);">Tell them you sent them. For now that is the whole invitation, and it is enough.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:18px 16px 20px;">
+            <h1 style="margin:0 0 12px;font-size:18px;font-weight:700;color:#0C0F1D;">Invitations</h1>
+            <div class="lt-card" style="padding:14px 14px;">
+              <p style="margin:0 0 5px;font-size:13px;font-weight:600;color:#0C0F1D;">Your door</p>
+              <p style="margin:0 0 10px;font-size:11.5px;line-height:1.55;color:#2D3436;">Anyone who comes in through this arrives already knowing you asked them.</p>
+              <div style="display:flex;gap:9px;">
+                <div style="flex:1;min-width:0;background:#E0E0E0;border:1px solid rgba(12,15,29,.16);border-radius:8px;padding:8px 11px;">
+                  <p style="margin:0;font-family:'JetBrains Mono',Monaco,Consolas,monospace;font-size:11px;color:#2D3436;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">audhdities.com/enter/invite/quantum-weaver</p>
+                </div>
+                <span style="display:inline-flex;align-items:center;padding:0 13px;border-radius:8px;background:#5B4CCE;color:#FFFFFF;font-size:11.5px;flex:none;">Copy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground this room reads</p>
+        <div class="grd">
+          <p class="rl-b">The Sanctuary&rsquo;s own front door</p><span class="stands">exists</span>
+          <p class="rl-b">The vessel&rsquo;s own display name and address</p><span class="stands">exists</span>
+          <p class="rl-b">A table for mail the Sanctuary sends</p><span class="stands">exists</span>
+          <p class="rl-b">The invitation road &mdash; a page that greets someone arriving by a vessel&rsquo;s link</p><span class="tobe">to be created</span>
+          <p class="rl-b">Anything that actually sends mail</p><span class="tobe">to be created</span>
+          <p class="rl-b">A record of invitations sent and accepted</p><span class="tobe">to be created</span>
+        </div>
+        <p class="rl-b" style="margin-top:12px;">The last one is drawn as a refusal rather than a gap: a house that starts remembering who invited whom has started keeping a social graph, and that is a decision to take deliberately or not at all.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Two things that leave</p>
+        <p class="rl-b"><span class="k">The send button.</span> Today it takes an address and a message, does nothing with either, and says &ldquo;Sent!&rdquo; No mail is sent by anything in this house. A button that lies about having helped someone is the worst kind on a page about welcome.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">The Sent Invitations list.</span> A permanent empty box for a thing that was never recorded &mdash; it reads as a failure of yours rather than an absence of ours.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Two rooms, one truth</p>
+        <p class="rl-b">The first drawing is the room once the invitation road is laid; the second is the same room today, with the road named as unbuilt and the one address that really works handed over instead. Neither hands the reader a link that goes nowhere. The copy link today points at a road that has never existed anywhere in this house.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Whose word this is</p>
+        <p class="rl-b">Whether the front door is open or closed is KP&rsquo;s to say, not a canvas&rsquo;s &mdash; it stands open in the tree today. This board draws the room for the state he named: <span class="k">open by invitation.</span> Nothing here closes anything.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">The second drawing is a waiting state that still gives the reader something to do. That is the whole test: a room that is waiting should hand over the largest true thing it has, not an apology.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

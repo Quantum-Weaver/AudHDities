@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .avatar{width:32px;height:32px;border-radius:9999px;background:#0C0F1D;
+      border:1px solid rgba(224,224,224,.16);display:inline-flex;align-items:center;
+      justify-content:center;font-size:12.5px;color:rgba(224,224,224,.72);flex:none;}
+    .tag{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:9999px;
+      border:1px solid rgba(224,224,224,.16);font-size:10.5px;color:rgba(224,224,224,.72);}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9316;</span>
+    <span style="font-size:15px;font-weight:600;">The Pulse &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect/feed</span></span>
+    <span class="src">the card shows what a signal actually holds</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">The room asks for posts from a realm that has neither the door nor the table. The post-shaped thing this house holds is a <span class="k">signal</span> &mdash; and the card here shows exactly what a signal carries and not one thing more.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the room</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+            <p style="margin:0 0 10px;font-size:12px;color:rgba(224,224,224,.70);display:flex;align-items:center;gap:7px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+              Return to the Bridge
+            </p>
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">The Pulse</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">Signals the Sanctuary has sent out</p>
+
+            <div style="display:flex;flex-direction:column;gap:13px;">
+
+              <div class="card" style="overflow:hidden;">
+                <div style="height:78px;background:linear-gradient(135deg,rgba(0,184,148,.35) 0%,rgba(0,168,133,.22) 55%,rgba(34,211,238,.20) 100%);"></div>
+                <div style="padding:15px 16px 17px;">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                    <span class="avatar">H</span>
+                    <div style="flex:1;min-width:0;">
+                      <p style="margin:0;font-size:12.5px;font-weight:600;">Halden Frost</p>
+                      <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.58);">2 days ago</p>
+                    </div>
+                    <span class="tag" style="flex:none;">gathering</span>
+                  </div>
+                  <h3 style="margin:0 0 6px;font-size:15.5px;font-weight:700;">A slow reading room, Thursdays</h3>
+                  <p style="margin:0 0 11px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);">One chapter a week. No catching up, no attendance, no shame for the weeks you miss. Bring whatever you are already reading.</p>
+                  <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px;">
+                    <span class="tag">reading</span><span class="tag">low pressure</span><span class="tag">evenings</span>
+                  </div>
+                  <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);">4 vessels have answered this signal</p>
+                </div>
+              </div>
+
+              <div class="card" style="padding:15px 16px 17px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                  <span class="avatar">P</span>
+                  <div style="flex:1;min-width:0;">
+                    <p style="margin:0;font-size:12.5px;font-weight:600;">Petrichor</p>
+                    <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.58);">5 days ago</p>
+                  </div>
+                  <span class="tag" style="flex:none;">asking</span>
+                </div>
+                <h3 style="margin:0 0 6px;font-size:15.5px;font-weight:700;">Anyone else lose words in the afternoon?</h3>
+                <p style="margin:0 0 11px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);">Not looking for advice. Just want to know whether this is a thing other people have.</p>
+                <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);">11 vessels have answered this signal</p>
+              </div>
+
+              <div class="card" style="padding:15px 16px 17px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                  <span class="avatar" style="border-style:dashed;border-color:rgba(253,203,110,.40);color:rgba(253,203,110,.75);">&#8226;</span>
+                  <div style="flex:1;min-width:0;">
+                    <p style="margin:0;font-size:12.5px;font-weight:600;color:rgba(224,224,224,.78);">Name not yet reachable</p>
+                    <p style="margin:0;font-size:10.5px;color:rgba(224,224,224,.58);">a week ago</p>
+                  </div>
+                  <span class="tag" style="flex:none;">offering</span>
+                </div>
+                <h3 style="margin:0 0 6px;font-size:15.5px;font-weight:700;">Free proofreading, two pages at a time</h3>
+                <p style="margin:0 0 11px;font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.78);">I like doing it and I have the hours. Two pages is my limit per person per week.</p>
+                <p style="margin:0;font-size:11.5px;color:rgba(224,224,224,.65);">No one has answered this signal yet</p>
+              </div>
+
+            </div>
+
+            <p style="margin:15px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);">No emerald counts, no comment counts. Neither is anywhere in this house, and a card that prints a zero is making a claim.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The room when nothing has been sent</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 30px;">
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">The Pulse</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">Signals the Sanctuary has sent out</p>
+            <div style="text-align:center;padding:32px 20px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.26)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:12px;"><circle cx="12" cy="12" r="2.5"/><path d="M7.5 7.5a6.4 6.4 0 0 0 0 9"/><path d="M16.5 16.5a6.4 6.4 0 0 0 0-9"/><path d="M4.5 4.5a10.6 10.6 0 0 0 0 15"/><path d="M19.5 19.5a10.6 10.6 0 0 0 0-15"/></svg>
+              <p style="margin:0 0 6px;font-size:15px;color:rgba(224,224,224,.82);">The Pulse is quiet.</p>
+              <p style="margin:0 auto;max-width:300px;font-size:12.5px;color:rgba(224,224,224,.66);text-wrap:pretty;">When a vessel sends a signal &mdash; something offered, something asked, something gathering &mdash; it will arrive here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:18px 16px 20px;">
+            <h1 style="margin:0 0 12px;font-size:18px;font-weight:700;color:#0C0F1D;">The Pulse</h1>
+            <div class="lt-card" style="padding:13px 13px 15px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
+                <span style="width:28px;height:28px;border-radius:9999px;background:#E0E0E0;border:1px solid rgba(12,15,29,.18);display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;color:#2D3436;flex:none;">H</span>
+                <div style="flex:1;"><p style="margin:0;font-size:12px;font-weight:600;color:#0C0F1D;">Halden Frost</p><p style="margin:0;font-size:10.5px;color:#636E72;">2 days ago</p></div>
+                <span style="display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:9999px;border:1px solid rgba(12,15,29,.20);font-size:10px;color:#2D3436;">gathering</span>
+              </div>
+              <h3 style="margin:0 0 5px;font-size:14px;font-weight:700;color:#0C0F1D;">A slow reading room, Thursdays</h3>
+              <p style="margin:0 0 8px;font-size:11.5px;line-height:1.55;color:#2D3436;">One chapter a week. No catching up, no attendance.</p>
+              <p style="margin:0;font-size:11px;color:#636E72;">4 vessels have answered this signal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground this room reads</p>
+        <div class="grd">
+          <p class="rl-b">The signals table &mdash; all nine things a signal holds</p><span class="stands">exists</span>
+          <p class="rl-b">The sender&rsquo;s display name, on their own profile</p><span class="stands">exists</span>
+          <p class="rl-b">A door that reads published signals, senders named</p><span class="tobe">to be created</span>
+          <p class="rl-b">A room for one signal on its own</p><span class="tobe">to be created</span>
+          <p class="rl-b">Sending a signal from inside the Sanctuary</p><span class="tobe">to be created</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">What a signal actually holds</p>
+        <p class="rl-b">A name. A description. Its own address. What kind of signal it is. Some tags. A picture, if one was given. How many vessels have answered it. Who sent it, and when.</p>
+        <p class="rl-b" style="margin-top:9px;">That list is the whole card. Every element drawn above is one of those nine things &mdash; and nothing drawn above is anything else.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What came off the card</p>
+        <p class="rl-b">The room as it stands prints an emerald count and a comment count on every card. Neither exists anywhere in this house: no column holds them, no table feeds them, so both would always read zero and both would always look like a verdict on the person who wrote it.</p>
+        <p class="rl-b" style="margin-top:9px;">The one number kept is the count of vessels who <span class="k">answered</span> &mdash; that one the base really keeps, and it is written in words rather than stamped on a badge, because it describes the signal and not its sender.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The card&rsquo;s door</p>
+        <p class="rl-b">Today each card is a link to a room that does not exist &mdash; a reader who clicks lands nowhere. Either the signal opens into a room of its own, which is a small new page, or the card stops pretending to be a door. Drawn here as a door, because a signal with answers has somewhere to put them.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">The quiet Pulse names the three kinds of signal a vessel might send, so the empty room teaches what the full one would hold.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

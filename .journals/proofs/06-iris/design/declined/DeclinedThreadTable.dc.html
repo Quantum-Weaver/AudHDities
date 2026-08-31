@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{--deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--error:#E17055;--hearth-gold:#FDCB6E;--sanctuary-green:#00B894;}
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .q{border-left:2px solid rgba(34,211,238,.5);padding-left:12px;
+      font-size:12.5px;line-height:1.6;color:rgba(224,224,224,.86);margin:0;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+  </style>
+</helmet>
+<div style="background:#0C0F1D;padding:28px 26px 30px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 6px;">
+    <span style="font-size:14px;font-weight:700;color:#E17055;">&times;</span>
+    <span style="font-size:14px;font-weight:600;">Declined &mdash; a conversations table, to hold what a conversation is</span>
+  </div>
+  <p class="src" style="margin:0 0 20px;">boards &#9313; and &#9314; &middot; declined by the house crystal</p>
+
+  <div style="border:1px solid rgba(225,112,85,.28);border-radius:12px;background:rgba(225,112,85,.04);padding:20px 22px;margin-bottom:20px;">
+    <p class="rl-h" style="margin-bottom:10px;">What was drawn, and set down</p>
+    <p class="rl-b" style="margin-bottom:12px;">A real conversation: its own row, its own name, its two vessels, its own last-spoken time, a proper unread count kept up to date. Every message points at it. The Stream becomes a plain list of rows rather than a gathering done in the moment.</p>
+    <div style="background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:11px;padding:15px;">
+      <p style="margin:0 0 9px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(224,224,224,.50);">a conversation, as a stored thing</p>
+      <div style="display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:rgba(224,224,224,.68);">
+        <p style="margin:0;">who is in it &middot; when it last moved &middot; how many words are unread &middot; whether it is hidden</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <p class="rl-h">Why it was declined &mdash; the house crystal, in KP&rsquo;s own frame</p>
+    <p class="q">What is needed already exists. Refraction, not manufacture.</p>
+    <p class="src" style="margin:8px 0 0;">And in the commission itself: <em>&ldquo;assuming backend things exist that are needed (we will create them and not be cuplicating things)&rdquo;</em> &mdash; KP &#9883; 2026-08-31, verbatim, spelling kept.</p>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <p class="rl-h">And why the ruling is right, in the realm&rsquo;s own terms</p>
+    <p class="rl-b"><span class="k">The pair already is the conversation.</span> Every message in this house records who spoke and who was spoken to. Those two facts together name the conversation exactly, with no ambiguity and no second place for it to be wrong. A table would be a second copy of something the messages already say.</p>
+    <p class="rl-b" style="margin-top:9px;">And a copy is a thing that can <span class="k">disagree with itself</span>. A stored unread count drifts from the messages it counts; a stored last-moved time drifts from the last word. Every one of those drifts is a room telling a vessel something untrue about their own life.</p>
+    <p class="rl-b" style="margin-top:9px;">The teaching this realm inherited is the sharper version: <em>which word I answer</em> and <em>which conversation I am in</em> are two facts and must never be collapsed into one. A conversations table does not honour that &mdash; it makes the second fact into a thing, and then the first has to be squeezed in beside it.</p>
+  </div>
+
+  <div>
+    <p class="rl-h">What was kept from it</p>
+    <p class="rl-b">The <span class="k">address</span>. The idea was right that a conversation needs a name you can walk to. It got one without a table: the address of a conversation is <em>the other person</em>. That also cures the send bug for free, because the room you are standing in now says who the message is for &mdash; and a message to yourself is refused rather than stored.</p>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

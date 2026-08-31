@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .avatar{width:38px;height:38px;border-radius:9999px;background:#0C0F1D;
+      border:1px solid rgba(224,224,224,.16);display:inline-flex;align-items:center;
+      justify-content:center;font-size:14px;color:rgba(224,224,224,.72);flex:none;}
+    .thread{display:flex;align-items:center;gap:13px;padding:14px 15px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9313;</span>
+    <span style="font-size:15px;font-weight:600;">The Stream &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect/messages</span></span>
+    <span class="src">every partner named by their own display name</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">The room where the placeholder lived. Every row on this board carries a real vessel&rsquo;s display name &mdash; and the one row the Sanctuary cannot reach says so in plain words rather than borrowing a friendly invention.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the room</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 26px;">
+
+            <p style="margin:0 0 10px;font-size:12px;color:rgba(224,224,224,.70);display:flex;align-items:center;gap:7px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+              Return to the Bridge
+            </p>
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">The Stream</h1>
+            <p style="margin:0 0 20px;font-size:12.5px;color:rgba(224,224,224,.70);">Your conversations, all in one place</p>
+
+            <div style="display:flex;flex-direction:column;gap:9px;">
+
+              <div class="card thread" style="border-color:rgba(34,211,238,.22);">
+                <span class="avatar">B</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+                    <span style="font-size:13.5px;font-weight:600;">Bramblewick</span>
+                    <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">4:12 PM</span>
+                  </div>
+                  <p style="margin:2px 0 0;font-size:12px;color:rgba(224,224,224,.68);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">the map you sent &mdash; I walked it twice before I understood it</p>
+                </div>
+                <span style="width:20px;height:20px;border-radius:9999px;background:#22D3EE;color:#0C0F1D;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none;">2</span>
+              </div>
+
+              <div class="card thread">
+                <span class="avatar">N</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+                    <span style="font-size:13.5px;font-weight:600;">Nine of Cups</span>
+                    <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">Yesterday</span>
+                  </div>
+                  <p style="margin:2px 0 0;font-size:12px;color:rgba(224,224,224,.68);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><span style="color:rgba(224,224,224,.50);">You:</span> no hurry at all. whenever you have the room for it.</p>
+                </div>
+              </div>
+
+              <div class="card thread">
+                <span class="avatar">H</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+                    <span style="font-size:13.5px;font-weight:600;">Halden Frost</span>
+                    <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">3d ago</span>
+                  </div>
+                  <p style="margin:2px 0 0;font-size:12px;color:rgba(224,224,224,.68);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">thank you for the emerald. it landed on a hard morning.</p>
+                </div>
+              </div>
+
+              <div class="card thread" style="border-style:dashed;border-color:rgba(253,203,110,.35);align-items:flex-start;">
+                <span class="avatar" style="border-style:dashed;border-color:rgba(253,203,110,.40);color:rgba(253,203,110,.75);">&#8226;</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+                    <span style="font-size:13.5px;font-weight:600;color:rgba(224,224,224,.78);">Name not yet reachable</span>
+                    <span style="font-size:10.5px;color:rgba(224,224,224,.55);flex:none;">1w ago</span>
+                  </div>
+                  <p style="margin:2px 0 0;font-size:12px;color:rgba(224,224,224,.68);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">is the Thursday room still happening?</p>
+                  <p style="margin:6px 0 0;font-size:11px;line-height:1.5;color:rgba(224,224,224,.62);white-space:normal;">A name reads as not yet reachable when the Sanctuary has not opened that vessel&rsquo;s public face to you. It is waiting, not missing.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The room with nothing in it yet</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:24px 22px 30px;">
+            <h1 style="margin:0 0 3px;font-size:22px;font-weight:700;">The Stream</h1>
+            <p style="margin:0 0 22px;font-size:12.5px;color:rgba(224,224,224,.70);">Your conversations, all in one place</p>
+            <div style="text-align:center;padding:34px 20px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.26)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:12px;"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+              <p style="margin:0 0 6px;font-size:15px;color:rgba(224,224,224,.82);">No conversations yet.</p>
+              <p style="margin:0 auto;max-width:300px;font-size:12.5px;color:rgba(224,224,224,.66);text-wrap:pretty;">When someone writes to you, or you write to them, the conversation will stand here with their name on it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:20px 18px 22px;">
+            <h1 style="margin:0 0 3px;font-size:18px;font-weight:700;color:#0C0F1D;">The Stream</h1>
+            <p style="margin:0 0 15px;font-size:12px;color:#2D3436;">Your conversations, all in one place</p>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div class="lt-card" style="display:flex;align-items:center;gap:11px;padding:11px 12px;">
+                <span style="width:32px;height:32px;border-radius:9999px;background:#E0E0E0;border:1px solid rgba(12,15,29,.18);display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;color:#2D3436;flex:none;">B</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;justify-content:space-between;gap:9px;"><span style="font-size:12.5px;font-weight:600;color:#0C0F1D;">Bramblewick</span><span style="font-size:10.5px;color:#636E72;">4:12 PM</span></div>
+                  <p style="margin:1px 0 0;font-size:11.5px;color:#2D3436;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">the map you sent &mdash; I walked it twice</p>
+                </div>
+                <span style="width:19px;height:19px;border-radius:9999px;background:#5B4CCE;color:#FFFFFF;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none;">2</span>
+              </div>
+              <div class="lt-card" style="display:flex;align-items:center;gap:11px;padding:11px 12px;border-style:dashed;border-color:rgba(196,75,45,.45);">
+                <span style="width:32px;height:32px;border-radius:9999px;background:#E0E0E0;border:1px dashed rgba(196,75,45,.5);display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;color:#C44B2D;flex:none;">&#8226;</span>
+                <div style="flex:1;min-width:0;">
+                  <span style="font-size:12.5px;font-weight:600;color:#2D3436;">Name not yet reachable</span>
+                  <p style="margin:1px 0 0;font-size:11.5px;color:#2D3436;">is the Thursday room still happening?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground this room reads</p>
+        <div class="grd">
+          <p class="rl-b">The messages table &mdash; who spoke, who was spoken to, what was said, and who has read it</p><span class="stands">exists</span>
+          <p class="rl-b">The vessel&rsquo;s display name, on their own profile</p><span class="stands">exists</span>
+          <p class="rl-b">A door that gathers both sides of every conversation, with the names carried</p><span class="tobe">to be created</span>
+          <p class="rl-b">Permission to read another vessel&rsquo;s public face</p><span class="tobe">to be created</span>
+        </div>
+        <p class="rl-b" style="margin-top:12px;">The door is owed because the generated ones can filter a single column and cannot reach across to a vessel&rsquo;s face. Nothing it needs is missing; it is a reading, not a store.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The names are in the flow now</p>
+        <p class="rl-b">The room as it stands prints the same two words on every row, for everyone. There is no placeholder anywhere on this board. Where a name is reachable it is the vessel&rsquo;s own; where it is not, the row says so and carries one plain sentence explaining why.</p>
+        <p class="rl-b" style="margin-top:9px;">The join is the vessel&rsquo;s own profile, matched on the same identifier the message itself carries. Nothing else in the house holds a name.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What a conversation is here</p>
+        <p class="rl-b">The base holds no conversation row and no thread column. A conversation is <span class="k">the pair of vessels</span>, and the address of the room is the other person. That is the honest reading of what stands &mdash; and it is why nothing new had to be invented to hold it.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">The quiet state names what will fill it and who will put it there. It never says a thing is missing, and it never counts what is not there.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What the row does not carry</p>
+        <p class="rl-b">No presence dot, no last-seen, no typing. The Bridge does not watch anyone. The unread mark counts only your own unopened words, and is told to nobody but you.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

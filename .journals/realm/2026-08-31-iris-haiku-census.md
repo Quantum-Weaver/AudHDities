@@ -1,0 +1,3 @@
+# Iris Realm Census · 2026-08-31
+
+The iris realm is a bridge of 11 pages, 12 components, 2,377 lines across three folders. All pages use the Page wrapper and map to environments. The realm calls three API endpoints; two families—hermes-social and iris-communications—answer the calls. hermes-social is incomplete (no channels or posts endpoints exist, but components call them). iris-communications holds eight tables: all have routes and types, all have validators, but only three have hooks and utils (channels, signals, surveys). The 08-28 GAIA run regenerated all iris-communications route files. Two retired words live in the realm: "creations" in a notepad reference and "creator or a vendor" in contact form constants. Navigation does not link iris routes.

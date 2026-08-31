@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .st{display:grid;grid-template-columns:132px 1fr;gap:9px 14px;align-items:baseline;}
+    .stn{font-size:11.5px;color:rgba(224,224,224,.88);font-weight:600;}
+    .stw{font-size:11.5px;color:rgba(224,224,224,.72);line-height:1.5;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9320;</span>
+    <span style="font-size:15px;font-weight:600;">The ways between &mdash; and the law of waiting</span>
+    <span class="src">every road in the realm, and every room&rsquo;s quiet state</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">The realm is a wheel: one hub, every room one step from it, every room one step back. This board draws the wheel, marks the two roads that lead nowhere today, and sets down the words each room says when it has nothing to show.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">The wheel</p>
+        <div class="card" style="padding:20px 18px;">
+          <svg width="430" height="392" viewBox="0 0 430 392" role="img" aria-label="The Bridge hub with seven rooms, each one step away and one step back">
+            <rect x="4" y="158" width="118" height="52" rx="11" fill="rgba(0,184,148,.12)" stroke="#00B894" stroke-width="1.3"/>
+            <text x="63" y="180" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12.5" font-weight="600" fill="#E0E0E0">The Bridge</text>
+            <text x="63" y="196" text-anchor="middle" font-family="JetBrains Mono,Monaco,Consolas,monospace" font-size="10" fill="rgba(224,224,224,.62)">/connect</text>
+
+            <path d="M122 184 H150" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <path d="M150 26 V346" stroke="rgba(224,224,224,.22)" stroke-width="1.2" fill="none"/>
+
+            <path d="M150 26 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="8" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="31" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">The Stream</text>
+            <text x="412" y="31" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10.5" fill="rgba(224,224,224,.62)">&#8594; a conversation</text>
+
+            <path d="M150 80 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="62" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="85" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">Channels</text>
+            <text x="412" y="85" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10.5" fill="rgba(224,224,224,.62)">&#8594; a channel</text>
+
+            <path d="M150 134 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="116" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="139" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">The Pulse</text>
+            <text x="412" y="139" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10.5" fill="#FDCB6E">&#8594; a signal &mdash; road unbuilt</text>
+
+            <path d="M150 188 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="170" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="193" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">Emeralds</text>
+
+            <path d="M150 242 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="224" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="247" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">The Healing Flame</text>
+            <text x="412" y="247" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10.5" fill="rgba(224,224,224,.62)">&#8594; a thread</text>
+
+            <path d="M150 296 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="278" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="301" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">The Voice</text>
+
+            <path d="M150 346 H176" stroke="rgba(224,224,224,.30)" stroke-width="1.2" fill="none"/>
+            <rect x="176" y="328" width="248" height="36" rx="9" fill="#1A1F35" stroke="rgba(224,224,224,.16)" stroke-width="1"/>
+            <text x="188" y="351" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" fill="#E0E0E0">Invitations</text>
+            <text x="412" y="351" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10.5" fill="#FDCB6E">&#8594; the invitation road &mdash; unbuilt</text>
+
+            <text x="4" y="384" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10.5" fill="rgba(224,224,224,.60)">Every room returns to the hub by its own line. Every deeper room returns to its own room.</text>
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The two roads that lead nowhere today</p>
+        <div class="card" style="padding:17px 16px;">
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">Every card on the Pulse is a link to a room that does not exist.</span> A reader who touches one lands nowhere at all. Either the signal gets a room of its own, or the card stops being a door.</p></div>
+            <div class="row10"><span class="dot" style="background:#E17055;"></span><p class="rl-b"><span class="k">The invitation link points at a road that has never been laid.</span> Not moved, not renamed &mdash; there is nothing under that whole part of the house. A vessel copying that link is handing a friend a dead end.</p></div>
+            <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">And one road that exists with no way in.</span> A support thread has a room of its own and nothing anywhere links to it &mdash; you would have to know the address. The list of your own letters is what opens it.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The ways out of the realm</p>
+        <div class="card" style="padding:17px 16px;">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The street</span> already lists the Bridge with four of its rooms. It is the only place in the app that offers them, and the main bar does not.</p></div>
+            <div class="row10"><span class="dot" style="background:#00B894;"></span><p class="rl-b"><span class="k">The Observatory</span> holds the emeralds this realm shows, and the Hearth&rsquo;s Constellation reads the connections this realm makes. Both seams already run.</p></div>
+            <div class="row10"><span class="dot" style="background:#FDCB6E;"></span><p class="rl-b"><span class="k">The Grammar</span> is where the Voice will one day open, and it waits on two things that are not this canvas&rsquo;s: the Grammar&rsquo;s own first light, and KP&rsquo;s word.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed. The same wheel, the same words.</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:18px 16px;">
+            <svg width="398" height="140" viewBox="0 0 398 140" role="img" aria-label="The wheel in the light dress">
+              <rect x="4" y="46" width="106" height="46" rx="10" fill="rgba(0,168,133,.16)" stroke="#00A885" stroke-width="1.3"/>
+              <text x="57" y="66" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12" font-weight="600" fill="#0C0F1D">The Bridge</text>
+              <text x="57" y="81" text-anchor="middle" font-family="JetBrains Mono,Monaco,Consolas,monospace" font-size="9.5" fill="#636E72">/connect</text>
+              <path d="M110 69 H136" stroke="rgba(12,15,29,.32)" stroke-width="1.2" fill="none"/>
+              <path d="M136 22 V118" stroke="rgba(12,15,29,.24)" stroke-width="1.2" fill="none"/>
+              <path d="M136 22 H160" stroke="rgba(12,15,29,.32)" stroke-width="1.2" fill="none"/>
+              <rect x="160" y="6" width="232" height="32" rx="8" fill="#F5F5DC" stroke="rgba(12,15,29,.16)" stroke-width="1"/>
+              <text x="172" y="26" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="11.5" fill="#0C0F1D">The Stream</text>
+              <path d="M136 70 H160" stroke="rgba(12,15,29,.32)" stroke-width="1.2" fill="none"/>
+              <rect x="160" y="54" width="232" height="32" rx="8" fill="#F5F5DC" stroke="rgba(12,15,29,.16)" stroke-width="1"/>
+              <text x="172" y="74" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="11.5" fill="#0C0F1D">Channels</text>
+              <path d="M136 118 H160" stroke="rgba(12,15,29,.32)" stroke-width="1.2" fill="none"/>
+              <rect x="160" y="102" width="232" height="32" rx="8" fill="#F5F5DC" stroke="rgba(12,15,29,.16)" stroke-width="1"/>
+              <text x="172" y="122" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="11.5" fill="#0C0F1D">The Pulse</text>
+              <text x="384" y="122" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="10" fill="#C44B2D">road unbuilt</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#E17055;margin:0;"></span><span class="src">broken today</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The law of waiting</p>
+        <p class="rl-b">A room with nothing in it is <span class="k">waiting, never missing</span>. Every quiet state on this canvas is drawn at full size, in the room&rsquo;s own frame, and every one of them does three things: it says plainly that the room is quiet, it says what will fill it, and it says whose act fills it.</p>
+        <p class="rl-b" style="margin-top:9px;">None of them apologises. None of them counts what is not there. None of them blames the community for the silence &mdash; a room that says &ldquo;be the first&rdquo; has handed the reader a chore.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What each room says when it is quiet</p>
+        <div class="st">
+          <span class="stn">The Bridge</span><span class="stw">The Bridge is quiet. Nothing is waiting for you right now.</span>
+          <span class="stn">The Stream</span><span class="stw">No conversations yet. When someone writes to you, it will stand here with their name on it.</span>
+          <span class="stn">A conversation</span><span class="stw">Nothing said yet. This conversation begins whenever you want it to.</span>
+          <span class="stn">Channels</span><span class="stw">No rooms are open yet. When a vessel opens one, it will stand here.</span>
+          <span class="stn">A channel</span><span class="stw">This room has no words in it yet &mdash; and that part is still being built.</span>
+          <span class="stn">The Pulse</span><span class="stw">The Pulse is quiet. When a vessel sends a signal, it will arrive here.</span>
+          <span class="stn">Emeralds, given</span><span class="stw">You have not given one yet. They gather here afterwards.</span>
+          <span class="stn">Emeralds, received</span><span class="stw">Nobody has given you one yet. It will arrive with their name on it.</span>
+          <span class="stn">The Healing Flame</span><span class="stw">You have not written to us yet. Your letter will stay, so you never have to remember what you asked.</span>
+          <span class="stn">A thread</span><span class="stw">Nobody has answered yet. Waiting, never overdue and never failed.</span>
+          <span class="stn">Invitations</span><span class="stw">Your own door is still being made &mdash; here is the address that works today.</span>
+          <span class="stn">The Voice</span><span class="stw">Kept exactly as it stands. That room was ruled and closed already.</span>
+          <span class="stn">A name</span><span class="stw">Name not yet reachable. It is waiting, not missing.</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The tally, whole</p>
+        <div class="grd">
+          <p class="rl-b">Records the realm already holds &mdash; messages with their reply links, channels, signals, letters, the vessel&rsquo;s display name, the emeralds seam, and a table for mail</p><span class="stands">seven</span>
+          <p class="rl-b">Things genuinely still to be created</p><span class="tobe">fifteen</span>
+        </div>
+        <p class="rl-b" style="margin-top:12px;">Of the fifteen: <span class="k">one join</span> that carries a vessel&rsquo;s display name into this realm &middot; <span class="k">seven doors</span> that read what those records already hold, one per room and one to send &middot; <span class="k">one door across a seam</span>, for emeralds received &middot; <span class="k">one permission</span>, drafted and waiting for KP&rsquo;s hand &middot; <span class="k">three pieces of a room&rsquo;s own substance</span> &mdash; words inside a channel, belonging to one, sending a signal &middot; and <span class="k">two roads</span> that have never been laid.</p>
+        <p class="rl-b" style="margin-top:9px;">A sixteenth &mdash; whether the house remembers who invited whom, and whether it ever sends mail &mdash; is drawn as a refusal held open for KP rather than as a gap.</p>
+        <p class="rl-b" style="margin-top:9px;"><span class="k">Not one of the fifteen is a new place to store something the house already stores.</span> Every door on the list is a reading: the generated doors can filter one column at a time and cannot reach across to a vessel&rsquo;s face, which is the whole reason the names never made it into the rooms.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">A note on the doors, for honesty&rsquo;s sake</p>
+        <p class="rl-b">Seven of these doors were written once during this sitting, in this same lane, and were taken back out of the tree while the canvas was being drawn. Nothing of them was ever committed, so the house holds none of them now.</p>
+        <p class="rl-b" style="margin-top:9px;">They are counted as <span class="k">to be created</span> because that is the truth of the tree. What they proved is on these boards: the shapes work, the records really do carry everything the rooms need, and building them is creation rather than duplication.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">One more thing the wheel shows</p>
+        <p class="rl-b">The realm is not in the main bar. The street lists it and the bar does not, so a vessel who never opens the street may never learn the Bridge is there. That is a road question rather than a room question, and it belongs to whoever rules the bar.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

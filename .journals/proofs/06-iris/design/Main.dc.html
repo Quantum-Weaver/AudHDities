@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root{
+      --deep-space:#0C0F1D;--surface:#1A1F35;--star-dust:#E0E0E0;
+      --neurospark:#22D3EE;--quantum:#6C5CE7;--quantum-dark:#5B4CCE;
+      --sanctuary-green:#00B894;--sanctuary-emerald:#00CEC9;--library-dark:#00A885;
+      --hearth-gold:#FDCB6E;--error:#E17055;--info:#74B9FF;
+      --void-base:#636E72;--void-dark:#2D3436;--void-light:#B2BEC3;
+      --albedo:#E0E0E0;--moon:#F5F5DC;--nigredo:#0C0F1D;
+    }
+    body{margin:0;background:var(--deep-space);color:var(--star-dust);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:var(--neurospark);text-decoration:none;}
+    a:hover{color:#81ECEC;text-decoration:underline;}
+    .wash{position:absolute;inset:0;opacity:.3;pointer-events:none;
+      background-image:linear-gradient(135deg,#00B894 0%,#00A885 50%,#00B894 100%);}
+    .rl-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+      color:rgba(224,224,224,.55);margin:0 0 8px;font-weight:600;}
+    .rl-b{font-size:12.5px;line-height:1.55;color:rgba(224,224,224,.78);margin:0;}
+    .dot{width:8px;height:8px;border-radius:9999px;flex:none;margin-top:6px;}
+    .row10{display:flex;gap:9px;align-items:flex-start;}
+    .k{color:var(--star-dust);font-weight:600;}
+    .src{font-family:"JetBrains Mono",Monaco,Consolas,monospace;font-size:11px;
+      color:rgba(224,224,224,.5);}
+    .card{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:12px;}
+    .stands{color:#00B894;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .tobe{color:#FDCB6E;font-weight:700;font-size:10px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+    .grd{display:grid;grid-template-columns:1fr auto;gap:9px 14px;align-items:baseline;}
+    .lt-card{background:#F5F5DC;border:1px solid rgba(12,15,29,.12);border-radius:12px;}
+    .avatar{width:34px;height:34px;border-radius:9999px;background:#0C0F1D;
+      border:1px solid rgba(224,224,224,.16);display:inline-flex;align-items:center;
+      justify-content:center;font-size:13px;color:rgba(224,224,224,.72);flex:none;}
+    .door{background:#1A1F35;border:1px solid rgba(224,224,224,.10);border-radius:10px;
+      padding:14px 12px;}
+  </style>
+</helmet>
+<div style="position:relative;background:#0C0F1D;padding:30px 32px 34px;box-sizing:border-box;">
+
+  <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap;">
+    <span style="font-size:15px;font-weight:700;color:#00B894;">&#9312;</span>
+    <span style="font-size:15px;font-weight:600;">The Bridge &mdash; <span style="font-family:'JetBrains Mono',Monaco,Consolas,monospace;">/connect</span></span>
+    <span class="src">the hub: every door, and what is waiting</span>
+  </div>
+  <p class="rl-b" style="margin:0 0 20px;max-width:830px;">The skeleton of the realm. Seven doors, and one honest area that says what is waiting for you &mdash; drawn in both the state where something waits and the state where nothing does.</p>
+
+  <div style="display:flex;gap:26px;align-items:flex-start;">
+
+    <div style="width:470px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <p class="rl-h">Dark &mdash; the hub, with something waiting</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;">
+
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-bottom:1px solid rgba(224,224,224,.08);">
+              <span style="font-size:12px;font-weight:700;letter-spacing:.16em;">AUDHDITIES</span>
+              <span style="font-size:13px;color:rgba(224,224,224,.70);">The Bridge</span>
+            </div>
+
+            <div style="padding:26px 22px 28px;">
+
+              <div style="text-align:center;margin-bottom:22px;">
+                <span style="display:inline-flex;align-items:center;gap:7px;height:26px;padding:0 12px;border-radius:9999px;background:rgba(0,184,148,.12);border:1px solid rgba(0,184,148,.30);font-size:11.5px;color:#00B894;margin-bottom:12px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h16"/><path d="M6 17V9"/><path d="M18 17V9"/><path d="M4 9c4-5 12-5 16 0"/></svg>
+                  The Connection
+                </span>
+                <h1 style="margin:0 0 9px;font-size:26px;font-weight:700;line-height:1.2;">The Bridge</h1>
+                <p style="margin:0 auto;max-width:340px;font-size:13.5px;color:rgba(224,224,224,.72);text-wrap:pretty;">Where sovereign souls connect. Every message, every channel, every emerald &mdash; threads in the tapestry of community.</p>
+              </div>
+
+              <p class="rl-h" style="margin-bottom:10px;">The doors</p>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:22px;">
+                <div class="door"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">The Stream</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">your conversations</p></div>
+                <div class="door"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">Channels</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">rooms that are open</p></div>
+                <div class="door"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">The Pulse</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">signals sent out</p></div>
+                <div class="door"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">Emeralds</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">appreciation, both ways</p></div>
+                <div class="door"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">The Healing Flame</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">ask for help</p></div>
+                <div class="door"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">The Voice</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">every tongue welcome</p></div>
+                <div class="door" style="grid-column:span 3;"><p style="margin:0;font-size:12.5px;color:rgba(224,224,224,.86);">Invitations</p><p style="margin:2px 0 0;font-size:10.5px;color:rgba(224,224,224,.55);">bring someone in</p></div>
+              </div>
+
+              <p class="rl-h" style="margin-bottom:10px;">What is waiting for you</p>
+              <div class="card" style="padding:6px 4px;margin-bottom:16px;">
+                <div style="display:flex;align-items:center;gap:11px;padding:11px 13px;border-bottom:1px solid rgba(224,224,224,.07);">
+                  <span class="avatar" style="width:30px;height:30px;font-size:12px;">B</span>
+                  <div style="flex:1;min-width:0;">
+                    <p style="margin:0;font-size:12.5px;"><span style="font-weight:600;">Bramblewick</span> <span style="color:rgba(224,224,224,.60);">wrote to you</span></p>
+                    <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.60);">two words unread &middot; in the Stream</p>
+                  </div>
+                  <span style="font-size:10.5px;color:rgba(224,224,224,.55);">4:12 PM</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:11px;padding:11px 13px;border-bottom:1px solid rgba(224,224,224,.07);">
+                  <span class="avatar" style="width:30px;height:30px;font-size:12px;color:#74B9FF;">&#9873;</span>
+                  <div style="flex:1;min-width:0;">
+                    <p style="margin:0;font-size:12.5px;"><span style="color:rgba(224,224,224,.60);">Your letter</span> <span style="font-weight:600;">&ldquo;the reader keeps skipping&rdquo;</span> <span style="color:rgba(224,224,224,.60);">was answered</span></p>
+                    <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.60);">at the Healing Flame</p>
+                  </div>
+                  <span style="font-size:10.5px;color:rgba(224,224,224,.55);">Yesterday</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:11px;padding:11px 13px;">
+                  <span class="avatar" style="width:30px;height:30px;font-size:12px;">H</span>
+                  <div style="flex:1;min-width:0;">
+                    <p style="margin:0;font-size:12.5px;"><span style="font-weight:600;">Halden Frost</span> <span style="color:rgba(224,224,224,.60);">sent a signal</span></p>
+                    <p style="margin:1px 0 0;font-size:11px;color:rgba(224,224,224,.60);">&ldquo;A slow reading room, Thursdays&rdquo; &middot; on the Pulse</p>
+                  </div>
+                  <span style="font-size:10.5px;color:rgba(224,224,224,.55);">2d</span>
+                </div>
+              </div>
+
+              <div style="border:1px solid rgba(224,224,224,.12);border-radius:12px;padding:20px 18px;text-align:center;">
+                <h2 style="margin:0 0 8px;font-size:15px;font-weight:700;">The Bridge Covenant</h2>
+                <p style="margin:0 auto;max-width:360px;font-size:12px;line-height:1.6;color:rgba(224,224,224,.72);text-wrap:pretty;">Every message sent on the Bridge is a thread in the tapestry of the Sanctuary. We do not surveil. We do not sell data. We do not optimize for engagement. Your words are yours. Your connections are sacred.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">The same area when nothing is waiting &mdash; drawn as a state, not an absence</p>
+        <div style="position:relative;border:1px solid rgba(224,224,224,.10);border-radius:12px;overflow:hidden;background:#0C0F1D;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:22px 20px 24px;">
+            <p class="rl-h" style="margin-bottom:10px;">What is waiting for you</p>
+            <div class="card" style="padding:30px 22px;text-align:center;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(224,224,224,.28)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:10px;"><path d="M4 17h16"/><path d="M6 17V9"/><path d="M18 17V9"/><path d="M4 9c4-5 12-5 16 0"/></svg>
+              <p style="margin:0 0 5px;font-size:14px;color:rgba(224,224,224,.80);">The Bridge is quiet.</p>
+              <p style="margin:0 auto;max-width:290px;font-size:12px;color:rgba(224,224,224,.65);text-wrap:pretty;">Nothing is waiting for you right now. When someone writes, answers or sends a signal, it will stand here.</p>
+            </div>
+            <p style="margin:11px 0 0;font-size:11.5px;color:rgba(224,224,224,.62);text-align:center;">Quiet, not empty. The doors stay in place either way.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="rl-h">Light &mdash; proposed. Cosmic tokens only; no light dress is built today.</p>
+        <div style="position:relative;background:#E0E0E0;color:#0C0F1D;border:1px solid rgba(12,15,29,.14);border-radius:12px;overflow:hidden;">
+          <div class="wash"></div>
+          <div style="position:relative;z-index:1;padding:22px 18px 24px;">
+            <div style="text-align:center;margin-bottom:15px;">
+              <h1 style="margin:0 0 6px;font-size:21px;font-weight:700;color:#0C0F1D;">The Bridge</h1>
+              <p style="margin:0 auto;max-width:290px;font-size:12.5px;color:#2D3436;text-wrap:pretty;">Where sovereign souls connect.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:14px;">
+              <div class="lt-card" style="padding:11px 9px;"><p style="margin:0;font-size:11.5px;color:#0C0F1D;">The Stream</p></div>
+              <div class="lt-card" style="padding:11px 9px;"><p style="margin:0;font-size:11.5px;color:#0C0F1D;">Channels</p></div>
+              <div class="lt-card" style="padding:11px 9px;"><p style="margin:0;font-size:11.5px;color:#0C0F1D;">The Pulse</p></div>
+            </div>
+            <div class="lt-card" style="padding:6px 4px;">
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border-bottom:1px solid rgba(12,15,29,.10);">
+                <span style="width:26px;height:26px;border-radius:9999px;background:#E0E0E0;border:1px solid rgba(12,15,29,.18);display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#2D3436;flex:none;">B</span>
+                <p style="margin:0;font-size:12px;color:#0C0F1D;"><span style="font-weight:600;">Bramblewick</span> <span style="color:#2D3436;">wrote to you</span></p>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;">
+                <span style="width:26px;height:26px;border-radius:9999px;background:#E0E0E0;border:1px solid rgba(12,15,29,.18);display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:#2D3436;flex:none;">H</span>
+                <p style="margin:0;font-size:12px;color:#0C0F1D;"><span style="font-weight:600;">Halden Frost</span> <span style="color:#2D3436;">sent a signal</span></p>
+              </div>
+            </div>
+            <p style="margin:12px 0 0;text-align:center;font-size:11.5px;color:#5B4CCE;">Return to the Hearth</p>
+          </div>
+        </div>
+        <p class="rl-b" style="margin-top:9px;">The house link colour does not survive the inversion, so the light dress carries <span class="src">quantum.dark</span> where the dark one carries <span class="src">neurospark</span>. Same tokens, no new colours.</p>
+      </div>
+
+    </div>
+
+    <div style="width:352px;flex:none;display:flex;flex-direction:column;gap:20px;">
+
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#00B894;margin:0;"></span><span class="src">the ground stands</span></span>
+        <span style="display:inline-flex;gap:6px;align-items:center;"><span class="dot" style="background:#FDCB6E;margin:0;"></span><span class="src">to be created</span></span>
+      </div>
+
+      <div>
+        <p class="rl-h">The ground this room reads</p>
+        <div class="grd">
+          <p class="rl-b">The messages, letters and signals tables &mdash; everything the waiting area names</p><span class="stands">exists</span>
+          <p class="rl-b">The vessel&rsquo;s display name, on their own profile</p><span class="stands">exists</span>
+          <p class="rl-b">A door that reads the three together, with the names carried</p><span class="tobe">to be created</span>
+          <p class="rl-b">Permission to read another vessel&rsquo;s public face</p><span class="tobe">to be created</span>
+        </div>
+        <p class="rl-b" style="margin-top:12px;">Every line in the waiting area comes from a table that already stands. What is owed is a door that reads them together &mdash; not one new place to store anything.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">What changes here</p>
+        <p class="rl-b">The hub today reads nothing at all &mdash; seven cards and a covenant, and no idea whether anyone has spoken to you. The waiting area is the only new thing on this board, and it is a gathering of what the tables already hold.</p>
+        <p class="rl-b" style="margin-top:9px;">It carries no numbers about you. It says who, and what, and which room the thing is in. A count of your own life is a score, and this house does not keep one.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">The names</p>
+        <p class="rl-b">Every person named on this board is named by their vessel&rsquo;s own display name, taken from their own profile. That is the only place in this house a name can honestly come from.</p>
+        <p class="rl-b" style="margin-top:9px;">The one thing still to be created is a permission: today a vessel may read their own face and no one else&rsquo;s. Until that opens, a name the Sanctuary cannot reach is said plainly and never replaced with an invention.</p>
+      </div>
+
+      <div>
+        <p class="rl-h">Waiting, not missing</p>
+        <p class="rl-b">The quiet state is drawn at the same size and in the same frame as the full one. It is a room in a state, not a hole where a room should be &mdash; and the seven doors do not move or dim when nothing is waiting.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

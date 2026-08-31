@@ -1,0 +1,44 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "The Bridge" },
+    { "id": "page-2", "name": "Declined" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "page": "page-1", "x": 0, "y": 0, "w": 920, "h": 2500, "expand": "fit", "title": "1 - The Bridge hub, and what is waiting" },
+    { "file": "Stream.dc.html", "page": "page-1", "x": 1000, "y": 0, "w": 920, "h": 2300, "expand": "fit", "title": "2 - The Stream, every partner named" },
+    { "file": "Conversation.dc.html", "page": "page-1", "x": 2000, "y": 0, "w": 920, "h": 2550, "expand": "fit", "title": "3 - The Conversation, and the reply as an address" },
+    { "file": "Channels.dc.html", "page": "page-1", "x": 3000, "y": 0, "w": 920, "h": 3000, "expand": "fit", "title": "4 - Channels, re-pointed at the realm's own" },
+    { "file": "Pulse.dc.html", "page": "page-1", "x": 4000, "y": 0, "w": 920, "h": 2550, "expand": "fit", "title": "5 - The Pulse, what a signal actually holds" },
+    { "file": "Emeralds.dc.html", "page": "page-1", "x": 0, "y": 3260, "w": 920, "h": 2350, "expand": "fit", "title": "6 - Emeralds, and Received unjoined not absent" },
+    { "file": "Flame.dc.html", "page": "page-1", "x": 1000, "y": 3260, "w": 920, "h": 2900, "expand": "fit", "title": "7 - The Healing Flame, and the letters that come back" },
+    { "file": "Invitations.dc.html", "page": "page-1", "x": 2000, "y": 3260, "w": 920, "h": 2500, "expand": "fit", "title": "8 - Invitations, a door you carry yourself" },
+    { "file": "Ways.dc.html", "page": "page-1", "x": 3000, "y": 3260, "w": 920, "h": 2600, "expand": "fit", "title": "9 - The ways between, and the law of waiting" },
+
+    { "file": "DeclinedNameStandIn.dc.html", "page": "page-2", "x": 0, "y": 0, "w": 640, "h": 1180, "expand": "fit", "title": "Declined - a friendly stand-in for an unreachable name" },
+    { "file": "DeclinedThreadTable.dc.html", "page": "page-2", "x": 740, "y": 0, "w": 640, "h": 1180, "expand": "fit", "title": "Declined - a conversations table" },
+    { "file": "DeclinedReactionsNow.dc.html", "page": "page-2", "x": 1480, "y": 0, "w": 640, "h": 1320, "expand": "fit", "title": "Declined - reactions drawn now" },
+    { "file": "DeclinedInvitationMachinery.dc.html", "page": "page-2", "x": 2220, "y": 0, "w": 640, "h": 1280, "expand": "fit", "title": "Declined - invitations with a record and a real send" }
+  ],
+  "annotations": [
+    {
+      "id": "note-the-bridge",
+      "page": "page-1",
+      "x": 0,
+      "y": -700,
+      "w": 980,
+      "text": "THE BRIDGE - realm 6 of THE AUDHDITIES CONDUCTING PLAN, drawn as a SKELETON at KP's word: 'what i want at this point is to see a skeleton of iris's realm' and 'draw design proofs not code'.\n\nSo this canvas draws the FRAME - the rooms, the ground each one honestly reads, the ways between them, and the waiting states as first-class drawings rather than afterthoughts. It does not draw features. Nine boards. Top row: 1 the hub with an honest waiting area - 2 the Stream - 3 the Conversation - 4 Channels, directory and one room - 5 the Pulse. Bottom row: 6 Emeralds - 7 the Healing Flame - 8 Invitations - 9 the ways between, with every room's quiet words gathered in one place.\n\nTHE NAMES. KP's ruling, verbatim: 'please complete iris, if names do not exist in the flow, put them in the flow, the names come from the vessels display name, there is zero other logical places to derive it from.' Every person on every board is named by their vessel's own display name. There is no placeholder anywhere on this canvas. Where the base cannot yet open another vessel's face, the row says 'Name not yet reachable' and carries one plain sentence saying why - and the cure is a single permission waiting for KP's hand, marked TO BE CREATED on five boards.\n\nTHE GROUND. Each board carries a short list on its right rail: what that room reads, marked EXISTS where the record already stands, and TO BE CREATED where it genuinely does not. That marking is the point. KP's ruling: 'assuming backend things exist that are needed (we will create them and not be cuplicating things)' - so NOTHING on this canvas asks for a second place to store something the house already stores. Seven records already stand: messages with their reply links, channels, signals, letters, the vessel's display name on their own profile, the emeralds seam in the Observatory, and a table for mail. Fifteen things are to be created, and every one of them is a reading, a room, a road or a permission - one join for the names, seven doors that read what those records already hold, one door across a seam for emeralds received, one permission drafted and waiting for KP's hand, three pieces of a room's own substance, and two roads never laid. A sixteenth - whether the house remembers who invited whom - is drawn as a refusal held open for him rather than as a gap.\n\nBoard 9 carries one note worth reading: seven of those doors were written once during this sitting, in this same lane, and were taken back out of the tree while the canvas was being drawn. Nothing of them was ever committed, so they are counted honestly as to be created - but their shapes were read from the working files first, and they are what these boards draw.\n\nBOTH DRESSES. Every board draws the room in the dark ground the app is actually built in, and then the same room in a proposed light dress made only of cosmic tokens - albedo ground, moon raised, nigredo text, and quantum.dark carrying the links, because the house's link colour does not survive the inversion. No light theme is built in the app today; every light band on this canvas is a proposal and says so.\n\nThe Voice is not drawn. That room was ruled and closed on 2026-07-30 and its second stage waits on the Grammar and on KP's word; a skeleton has no business redrawing a finished room. Nothing in src/ was edited to draw this."
+    },
+    {
+      "id": "note-declined",
+      "page": "page-2",
+      "x": 0,
+      "y": -460,
+      "w": 980,
+      "text": "DECLINED - four alternatives drawn and set down, each with the ground that declined it.\n\nKept on the canvas rather than deleted, because a design without its refusals is a claim with no reason attached. Each makes the honest case for the thing it refused before refusing it, and each records what was kept from the idea afterwards - which is usually the part worth having.\n\nTwo were declined by KP's own words the same day: the friendly stand-in, by 'zero other logical places to derive it from'; the conversations table, by 'we will create them and not be cuplicating things'.\n\nThe fourth is the important one. Invitations with a real record and a real send is the version everyone expects, and it lost on a reason worth reading: a list of who you invited, who opened it and who never replied is a social graph about people who are not here, and one of those rows is a quiet record of being turned down. That is a thing to want deliberately or not at all, and the wanting is KP's."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}
