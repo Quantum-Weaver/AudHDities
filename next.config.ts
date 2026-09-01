@@ -53,6 +53,24 @@ const nextConfig: NextConfig = {
           destination: '/artifacts-proxy/:path*',
           has: [{ type: 'host', value: 'artifacts.audhdities.com' }],
         },
+        // kp.audhdities.com/grimoire is the home of the grimoire — KP's word,
+        // 2026-08-31. Same shape as the artifacts pair above: host-conditioned,
+        // so these two rules only ever match when the Host header is exactly
+        // kp.audhdities.com, and every other host is untouched. Both land on
+        // src/app/grimoire/route.ts, a public (ungated) door that reads
+        // `grimoire.html` out of the private `artifacts` bucket. The domain
+        // itself must be added to the Vercel project and a CNAME created —
+        // KP's hands, not this file's.
+        {
+          source: '/',
+          destination: '/grimoire',
+          has: [{ type: 'host', value: 'kp.audhdities.com' }],
+        },
+        {
+          source: '/grimoire',
+          destination: '/grimoire',
+          has: [{ type: 'host', value: 'kp.audhdities.com' }],
+        },
       ],
     };
   },

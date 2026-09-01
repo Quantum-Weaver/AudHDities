@@ -1,13 +1,13 @@
-// app/(prometheus)/studio/effects/page.tsx
+// app/(prometheus)/studio/graphics/page.tsx
 
 import { Page } from '@/components/bifrost/Page';
 
 export const metadata = {
-  title: 'Effects Lab | Sovereign Sanctuary',
+  title: 'Graphics Lab | Sovereign Sanctuary',
   description: 'Weave magic into your creations'
 };
 
-export default async function EffectsLabPage() {
+export default async function GraphicsLabPage() {
   return (
     <Page 
       showForeground={false}

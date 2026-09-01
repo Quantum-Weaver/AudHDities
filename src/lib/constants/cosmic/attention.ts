@@ -1,8 +1,16 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/attention.ts */
+// QUANTUM ATTENTION SYSTEM — the Bird-Wisdom Spectrum
+// Named attention modes (pace / density / dwell / transition-style), ADHD-friendly
+// by design.
+// ============================================================================
 
 import { durations, easing } from './motion';
 import type { ViewportAnchor } from './positioning';
+
+// ============================================================================
+// ATTENTION MODES — five bird-species, five ways of attending
+// ============================================================================
 
 /** Visual/interaction density a mode presents. */
 export type AttentionDensity = 'sparse' | 'balanced' | 'rich';
@@ -92,6 +100,10 @@ export function getAttentionMode(name: AttentionModeKey = DEFAULT_ATTENTION_MODE
   return ATTENTION_MODES[name];
 }
 
+// ============================================================================
+// ATTENTION MODE SELECTOR — the switching affordance for ATTENTION_MODES
+// ============================================================================
+
 export interface AttentionModeSelectorConfig {
   /** Where the selector control anchors in the viewport (reuses positioning.ts's anchors) */
   anchor: ViewportAnchor;
@@ -116,6 +128,10 @@ export const ATTENTION_MODE_SELECTOR: AttentionModeSelectorConfig = {
   switchEasing: 'quantum',
   classPrefix: '.attention-selector',
 };
+
+// ============================================================================
+// PER-DEITY VOICE BUNDLE — lightweight tokens per Council seat
+// ============================================================================
 
 export interface DeityVoiceBundle {
   /** Council seat name */
@@ -242,5 +258,4 @@ export function getDeityVoiceBundle(seat: DeityVoiceKey): DeityVoiceBundle {
 
 export type { AttentionMode as AttentionModeType, AttentionDensity as AttentionDensityType };
 export type { DeityVoiceBundle as DeityVoiceBundleType, DeityVoiceKey as DeityVoiceKeyType };
-// S-5
 export type { AttentionModeSelectorConfig as AttentionModeSelectorConfigType };

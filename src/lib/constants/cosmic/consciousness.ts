@@ -1,7 +1,15 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/consciousness.ts */
+// QUANTUM CONSCIOUSNESS SYSTEM - SINGLE SOURCE OF TRUTH
+// Bridges user state (tier, sovereignty, session) to system expression
+// Controls continuity beam intensity, animation complexity, and immersive responses
+// ============================================================================
 
 import type { EnvironmentKey } from './positioning';
+
+// ============================================================================
+// 1. CONSCIOUSNESS LEVELS - User's journey stage
+// ============================================================================
 
 export const CONSCIOUSNESS_LEVELS = {
   /** Dormant - New user, minimal interaction */
@@ -32,6 +40,10 @@ export const CONSCIOUSNESS_LEVELS = {
 
 export type ConsciousnessLevel = typeof CONSCIOUSNESS_LEVELS[keyof typeof CONSCIOUSNESS_LEVELS];
 
+// ============================================================================
+// 2. BEAM INTENSITY MAPPING - By user tier and consciousness level
+// ============================================================================
+
 export type UserTier = 'community' | 'ally' | 'corporate' | 'council';
 export type BeamIntensityLevel = 'low' | 'medium' | 'high' | 'quantum';
 
@@ -58,6 +70,10 @@ export const CONSCIOUSNESS_TO_BEAM_INTENSITY: Record<ConsciousnessLevel, BeamInt
   [CONSCIOUSNESS_LEVELS.COSMIC]: 'quantum',
   [CONSCIOUSNESS_LEVELS.TRANSCENDENT]: 'quantum',
 } as const;
+
+// ============================================================================
+// 3. BEAM ACTIVATION LOGIC - When the beam should appear
+// ============================================================================
 
 export interface BeamActivationState {
   /** Whether the beam is active */
@@ -131,6 +147,10 @@ export function calculateBeamActivation(state: SessionState): BeamActivationStat
   };
 }
 
+// ============================================================================
+// 4. BEAM VARIANTS - By session state and user attributes
+// ============================================================================
+
 export const BEAM_VARIANT_BY_STATE = {
   /** Default variant - standard quantum sweep */
   default: 'default',
@@ -153,6 +173,10 @@ export const BEAM_VARIANT_BY_STATE = {
   house_codex: 'house_codex',
   house_executioner: 'house_executioner',
 } as const;
+
+// ============================================================================
+// 5. VESSEL CAPACITY - Cognitive load and animation complexity
+// ============================================================================
 
 export const VESSEL_CAPACITY_LEVELS = {
   /** Single stream - focused, linear processing */
@@ -182,6 +206,10 @@ export function getVesselCapacityFromScore(score: number): VesselCapacity {
   if (score >= 200) return VESSEL_CAPACITY_LEVELS.MULTI_STREAM;
   return VESSEL_CAPACITY_LEVELS.SINGLE;
 }
+
+// ============================================================================
+// 6. ENTITY STATES - Council member current status
+// ============================================================================
 
 export const ENTITY_STATES = {
   /** Forming - Entity is being created/recognized */
@@ -217,6 +245,10 @@ export const ENTITY_STATES = {
 } as const;
 
 export type EntityState = typeof ENTITY_STATES[keyof typeof ENTITY_STATES];
+
+// ============================================================================
+// 7. RESONANCE PATTERNS - System coordination modes
+// ============================================================================
 
 export const RESONANCE_PATTERN_TYPES = {
   /** Individual - Solo interaction */
@@ -260,6 +292,10 @@ export const RESONANCE_PATTERNS: Record<ResonancePatternType, {
     transitionMultiplier: 2,
   },
 };
+
+// ============================================================================
+// 8. AWARENESS DOMAINS - Which information layers are active
+// ============================================================================
 
 export const AWARENESS_DOMAINS = {
   /** Self - Personal data, profile, settings */
@@ -324,6 +360,10 @@ export function getResonancePattern(activeUserCount: number): ResonancePatternTy
   return RESONANCE_PATTERN_TYPES.INDIVIDUAL;
 }
 
+// ============================================================================
+// 10. GLOBAL-PAUSE STATE — the world-pause, the Sanctuary's gentlest law
+// ============================================================================
+
 export const PAUSE_MODES = {
   /** Active — the world runs normally */
   ACTIVE: 'active',
@@ -373,6 +413,10 @@ export function isPaused(mode: PauseMode): boolean {
   return mode !== PAUSE_MODES.ACTIVE;
 }
 
+// ============================================================================
+// 11. RECOVERY ENTITY STATES — fault & recovery (companions hold the recovering)
+// ============================================================================
+
 export const RECOVERY_ENTITY_STATES = {
   /** Faulted — the entity has stumbled and needs holding */
   FAULTED: 'faulted',
@@ -383,6 +427,10 @@ export const RECOVERY_ENTITY_STATES = {
 } as const;
 
 export type RecoveryEntityState = typeof RECOVERY_ENTITY_STATES[keyof typeof RECOVERY_ENTITY_STATES];
+
+// ============================================================================
+// 12. DIMENSIONAL FREQUENCY TOKEN — consciousness-floor as interface selector
+// ============================================================================
 
 export const CONSCIOUSNESS_FLOORS = {
   /** 3D/4D — Physical and temporal consciousness (grounded, action-oriented) */
@@ -445,6 +493,10 @@ export const DIMENSIONAL_FREQUENCY_TOKENS: Record<ConsciousnessFloor, Dimensiona
   },
 };
 
+// ============================================================================
+// 13. ELEMENTAL CONSCIOUSNESS PALETTE — pagan framework shapes consciousness
+// ============================================================================
+
 export const ELEMENTAL_CONSCIOUSNESS_PALETTE = {
   /** Earth — grounded, action, embodiment (earth.base from colors.ts) */
   earth: {
@@ -498,10 +550,10 @@ export type {
   EntityState as EntityStateType,
   ResonancePatternType as ResonancePatternTypeType,
   AwarenessDomain as AwarenessDomainType,
-  PauseMode as PauseModeType,           // O-2
-  GlobalPauseConfig as GlobalPauseConfigType, // O-2
-  RecoveryEntityState as RecoveryEntityStateType, // O-3
-  ConsciousnessFloor as ConsciousnessFloorType, // H-1
-  DimensionalFrequencyToken as DimensionalFrequencyTokenType, // H-1
-  ElementalConsciousnessKey as ElementalConsciousnessKeyType, // H-4
+  PauseMode as PauseModeType,
+  GlobalPauseConfig as GlobalPauseConfigType,
+  RecoveryEntityState as RecoveryEntityStateType,
+  ConsciousnessFloor as ConsciousnessFloorType,
+  DimensionalFrequencyToken as DimensionalFrequencyTokenType,
+  ElementalConsciousnessKey as ElementalConsciousnessKeyType,
 };

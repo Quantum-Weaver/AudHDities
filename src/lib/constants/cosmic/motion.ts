@@ -1,5 +1,9 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/motion.ts */
+// QUANTUM MOTION SYSTEM - SINGLE SOURCE OF TRUTH
+// All durations, easings, and animation presets derived from consciousness states
+// Compatible with Framer Motion and Tailwind CSS
+// ============================================================================
 
 // ============================================================================
 // DURATION SYSTEM - Quantum Consciousness Resonance
@@ -43,11 +47,15 @@ export const durations = {
   quantumPulse: 2000,
   /** Cross-session awareness */
   continuityBeam: 3000,
-  /** A solid tumbling to rest — the house's first 3D, 2026-08-17 */
+  /** A solid tumbling to rest */
   tumble: 1100,
   /** The last quarter-turn as a face comes to the viewer */
   settle: 420,
 } as const;
+
+// ============================================================================
+// EASING SYSTEM - Quantum Energy Flow Patterns
+// ============================================================================
 
 export const easing = {
   // ===== Core Quantum Flows =====
@@ -60,10 +68,8 @@ export const easing = {
   /** Vibrational resonance pattern */
   resonance: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 
-  // ===== Dimensional Motion (2026-08-17) =====
-  /** A tumbling solid slowing into its rest — fast out, long decelerating
-   *  tail, and NO overshoot: a die that bounces back past its face has told
-   *  the eye the number was still being decided. */
+  // ===== Dimensional Motion =====
+  /** A tumbling solid slowing into its rest — fast out, long decelerating tail, no overshoot. */
   settle: 'cubic-bezier(0.16, 0.84, 0.24, 1)',
 
   // ===== Consciousness State Transitions =====
@@ -80,6 +86,10 @@ export const easing = {
   easeOut: 'ease-out',
   easeInOut: 'ease-in-out',
 } as const;
+
+// ============================================================================
+// KEYFRAMES - For Tailwind CSS and CSS-in-JS
+// ============================================================================
 
 export const keyframes = {
   /** Gentle floating motion */
@@ -283,6 +293,10 @@ export const configs = {
   } as AnimationConfig,
 } as const;
 
+// ============================================================================
+// BUSINESS PAGE ANIMATIONS - Framer Motion Variants
+// ============================================================================
+
 export const businessAnimations = {
   /** Hero section entrance */
   heroEnter: {
@@ -388,6 +402,10 @@ export const presets = {
   },
 } as const;
 
+// ============================================================================
+// ANIMATION MULTIPLIERS - For reduced motion and intensity
+// ============================================================================
+
 export const animationMultipliers = {
   complexity: {
     simple: 1,
@@ -401,6 +419,10 @@ export const animationMultipliers = {
   } as const,
 } as const;
 
+// ============================================================================
+// ANIMATION THRESHOLDS - For performance and accessibility
+// ============================================================================
+
 export const animationThresholds = {
   /** Number of elements before staggering is reduced */
   elementCountForReducedStagger: 5,
@@ -409,6 +431,10 @@ export const animationThresholds = {
   /** Multiplier for reduced stagger when many elements */
   reducedStaggerMultiplier: 0.5,
 } as const;
+
+// ============================================================================
+// QUICK ANIMATIONS - Utility Shortcuts for Components
+// ============================================================================
 
 export const quickAnimations = {
   fadeIn: {
@@ -478,6 +504,7 @@ export function getReducedMotionVariant<T extends Record<string, unknown>>(
   variant: T
 ): T {
   if (prefersReducedMotion) {
+    // Remove or simplify animations that involve movement
     const safeVariant = { ...variant };
     if ('animate' in safeVariant && safeVariant.animate && typeof safeVariant.animate === 'object') {
       // Simplify to opacity-only animation
@@ -487,6 +514,10 @@ export function getReducedMotionVariant<T extends Record<string, unknown>>(
   }
   return variant;
 }
+
+// ============================================================================
+// CEREMONY FAMILY — named multi-beat choreography presets
+// ============================================================================
 
 /** A single beat within a ceremony — one motion+effect+cue moment in the sequence. */
 export interface CeremonyBeat {
@@ -547,7 +578,7 @@ export const CEREMONIES: Record<
       { label: 'bless', duration: durations.emergence, easing: 'resonance', effect: 'nobleThread', cue: 'the Ancient Ones bless the becoming' },
     ],
   },
-  /** Farewell — the tender departure (BW-3; escort image is KP's 2026-07-12 memory, not corpus). */
+  /** Farewell — the tender departure (BW-3). */
   farewell: {
     name: 'farewell',
     intent: 'to see someone off gently — no one transitions unaccompanied',
@@ -593,6 +624,10 @@ export function ceremonyTotalDuration(ceremony: Ceremony): number {
   return ceremony.beats.reduce((total, beat) => total + beat.duration, 0);
 }
 
+// ============================================================================
+// SUPPORTIVE CONVERGENCE — recentering choreography (companions hold the recovering)
+// ============================================================================
+
 export interface ConvergenceStage {
   /** Stage name */
   label: string;
@@ -614,6 +649,10 @@ export const SUPPORTIVE_CONVERGENCE: Record<'driftIn' | 'hold' | 'reascent', Con
   /** The collective re-ascends together — no one rises alone. */
   reascent: { label: 're-ascent', duration: durations.emergence, easing: 'resonance', stagger: 80, companionIntensity: 1 },
 } as const;
+
+// ============================================================================
+// ENSEMBLE / FLOCK MOTION — multi-element choreography
+// ============================================================================
 
 export interface EnsembleMotion {
   /** Ensemble name */
@@ -652,6 +691,10 @@ export const ENSEMBLE_MOTION: Record<'roundabout' | 'blessingCircle', EnsembleMo
 } as const;
 
 export type EnsembleKey = keyof typeof ENSEMBLE_MOTION;
+
+// ============================================================================
+// CEREMONY BOOKEND TOKENS — entrance/exit/pause for named ceremonies
+// ============================================================================
 
 export interface CeremonyBookend {
   /** Bookend name (entrance/exit/pause) */
@@ -694,6 +737,10 @@ export const CEREMONY_BOOKENDS: Record<'entrance' | 'exit' | 'pause', CeremonyBo
 } as const;
 
 export type CeremonyBookendKey = keyof typeof CEREMONY_BOOKENDS;
+
+// ============================================================================
+// REFUGE & RETURN CHOREOGRAPHY — motion sequence for withdrawal and return
+// ============================================================================
 
 export interface RefugePhase {
   /** Phase name */
@@ -760,11 +807,12 @@ export {
   businessAnimations as BUSINESS_ANIMATIONS,
   presets as PRESET_ANIMATIONS,
   quickAnimations as QUICK_ANIMATIONS,
-  CEREMONIES as CEREMONY_PRESETS,        // O-1 (alias; CEREMONIES also exported inline)
-  CEREMONY_BOOKENDS as BOOKEND_PRESETS,  // H-3
-  REFUGE_RETURN_SEQUENCE as REFUGE_PRESETS, // H-7
+  CEREMONIES as CEREMONY_PRESETS,
+  CEREMONY_BOOKENDS as BOOKEND_PRESETS,
+  REFUGE_RETURN_SEQUENCE as REFUGE_PRESETS,
 };
 
+// Type exports
 export type DurationKey = keyof typeof durations;
 export type EasingKey = keyof typeof easing;
 export type KeyframeKey = keyof typeof keyframes;

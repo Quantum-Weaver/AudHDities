@@ -18,7 +18,15 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
+  // `/grimoire` is exempt (2026-08-31): src/app/grimoire/route.ts is a public,
+  // ungated page answered `Cache-Control: public`, read through a bare anon
+  // client. Running updateSession on it would refresh the visitor's session
+  // and could stamp a Set-Cookie onto a response meant to be shared — so the
+  // door is left alone. The exemption is the exact path only; `/grimoire/x`
+  // and everything else still refresh as before. (kp.audhdities.com's bare
+  // root is rewritten to /grimoire AFTER this runs, so `/` there still passes
+  // through updateSession — a harmless cookie refresh, never a gate.)
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|grimoire$|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };

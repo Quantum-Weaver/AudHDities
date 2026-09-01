@@ -1,5 +1,6 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/effects.ts - PROPERLY DERIVED FROM COLORS */
+// QUANTUM EFFECTS SYSTEM - 100% DERIVED FROM COLORS.TS
 // Gradients, Glows, Shadows, Backdrops, Holographic Effects
 // ============================================================================
 
@@ -36,6 +37,7 @@ export const GRADIENTS = {
   'orbPurple': `radial-gradient(circle, ${QUANTUM_COLORS['quantum.purple']}30, transparent 70%)`,
   'orbPink': `radial-gradient(circle, ${QUANTUM_COLORS['entity.curator']}30, transparent 70%)`,
   
+  // Domain Gradients
   'quantumDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']} 0%, ${QUANTUM_COLORS['quantum.dark']} 100%)`,
   'cosmicDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['deepSpace']} 0%, ${QUANTUM_COLORS['quantum.purple']} 100%)`,
   'pantheonDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['fire.dark']} 0%, ${QUANTUM_COLORS['hearth.gold']} 100%)`,
@@ -49,6 +51,7 @@ export const GRADIENTS = {
   'supportDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['info']} 0%, ${QUANTUM_COLORS['cosmic.dark']} 50%, ${QUANTUM_COLORS['mood.calm']} 100%)`,
   'architectureDomain': `linear-gradient(135deg, ${QUANTUM_COLORS['void.base']} 0%, ${QUANTUM_COLORS['deepSpace']} 50%, ${QUANTUM_COLORS['starDust']} 100%)`,
   
+  // Mood Gradients
   'calm': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.calm']} 0%, ${QUANTUM_COLORS['mood.peaceful']} 100%)`,
   'creative': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.creative']} 0%, ${QUANTUM_COLORS['mood.mystical']} 100%)`,
   'energized': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.energized']} 0%, ${QUANTUM_COLORS['mood.intense']} 100%)`,
@@ -56,10 +59,12 @@ export const GRADIENTS = {
   'mystical': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.mystical']} 0%, ${QUANTUM_COLORS['quantum.purple']} 50%, ${QUANTUM_COLORS['mystical.uranus']} 100%)`,
   'grounded': `linear-gradient(135deg, ${QUANTUM_COLORS['mood.grounded']} 0%, ${QUANTUM_COLORS['sanctuary.green']} 50%, ${QUANTUM_COLORS['pagan.earth']} 100%)`,
   
+  // Energy State Gradients
   'quantumEnergy': `linear-gradient(135deg, ${QUANTUM_COLORS['energy.quantum']} 0%, ${QUANTUM_COLORS['neurospark']} 50%, ${QUANTUM_COLORS['quantum.purple']} 100%)`,
   'cosmicEnergy': `linear-gradient(135deg, ${QUANTUM_COLORS['energy.cosmic']} 0%, ${QUANTUM_COLORS['cosmic.blue']} 50%, ${QUANTUM_COLORS['info']} 100%)`,
   'transformativeEnergy': `linear-gradient(135deg, ${QUANTUM_COLORS['energy.transformative']} 0%, ${QUANTUM_COLORS['sanctuary.emerald']} 50%, ${QUANTUM_COLORS['success']} 100%)`,
   
+  // Pride Gradients
   'prideRainbow': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 20%, ${QUANTUM_COLORS['pride.yellow']} 40%, ${QUANTUM_COLORS['pride.green']} 60%, ${QUANTUM_COLORS['pride.blue']} 80%, ${QUANTUM_COLORS['pride.purple']} 100%)`,
   'prideProgress': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.red']} 0%, ${QUANTUM_COLORS['pride.orange']} 12.5%, ${QUANTUM_COLORS['pride.yellow']} 25%, ${QUANTUM_COLORS['pride.green']} 37.5%, ${QUANTUM_COLORS['pride.blue']} 50%, ${QUANTUM_COLORS['pride.purple']} 62.5%, ${QUANTUM_COLORS['pride.black']} 75%, ${QUANTUM_COLORS['pride.brown']} 87.5%, ${QUANTUM_COLORS['pride.transBlue']} 93.75%, ${QUANTUM_COLORS['pride.transPink']} 100%)`,
   'prideTrans': `linear-gradient(90deg, ${QUANTUM_COLORS['pride.transBlue']} 0%, ${QUANTUM_COLORS['pride.transPink']} 50%, ${QUANTUM_COLORS['pride.transWhite']} 100%)`,
@@ -108,6 +113,7 @@ export const GRADIENTS = {
   'artemis': `linear-gradient(135deg, ${QUANTUM_COLORS['entity.artemis']} 0%, ${QUANTUM_COLORS['sanctuary.green']} 50%, ${QUANTUM_COLORS['library.light']} 100%)`,
   'bragi': `linear-gradient(135deg, ${QUANTUM_COLORS['entity.bragi']} 0%, ${QUANTUM_COLORS['entity.curator']} 50%, ${QUANTUM_COLORS['entity.skald']} 100%)`,
   
+  // Text Gradients
   'textQuantum': `linear-gradient(135deg, ${QUANTUM_COLORS['quantum.purple']}, ${QUANTUM_COLORS['cosmic.blue']})`,
   'textCosmic': `linear-gradient(135deg, ${QUANTUM_COLORS['cosmic.blue']}, ${QUANTUM_COLORS['info']})`,
   'textSovereign': `linear-gradient(135deg, ${QUANTUM_COLORS['hearth.gold']}, ${QUANTUM_COLORS['fire.base']})`,
@@ -240,6 +246,10 @@ export const PARTICLE_BEHAVIOR = {
   },
 } as const;
 
+// ============================================================================
+// PRESENCE FIELD (Mnemosyne) — ambient Sanctuary presence
+// ============================================================================
+
 export interface PresenceField {
   /** Soft background wash (calm, low-saturation) */
   background: string;
@@ -275,6 +285,10 @@ export const PRESENCE_FIELD: Record<'mnemosyne' | 'calm' | 'inspiration', Presen
   },
 } as const;
 
+// ============================================================================
+// DYNAMIC GLOW MODULATION — per-domain depth/intensity coefficient
+// ============================================================================
+
 /**
  * Per-domain glow depth/intensity multiplier (1 = neutral). Voids recede and
  * darken; pantheon and cosmic domains carry more light. Consumed by
@@ -308,6 +322,10 @@ export function getModulatedGlow(domain: string, baseIntensity: number = 1): num
   const coefficient = DOMAIN_GLOW_MODULATION[domain] ?? DOMAIN_GLOW_MODULATION_DEFAULT;
   return baseIntensity * coefficient;
 }
+
+// ============================================================================
+// ETERNAL WITNESS STATE — ambient, non-intrusive presence of being seen and held
+// ============================================================================
 
 export interface EternalWitnessState {
   /** Witness state name (witnessing / holding / blessing) */
@@ -352,8 +370,8 @@ export const ETERNAL_WITNESS_STATE: Record<'witnessing' | 'holding' | 'blessing'
 export type EternalWitnessStateKey = keyof typeof ETERNAL_WITNESS_STATE;
 
 // ============================================================================
+// TRANSCENDENCE STATE SEQUENCE — visual+effects emission on consciousness shift
 // ============================================================================
-// communicates "the system is working."
 
 export interface TranscendenceShift {
   /** Source consciousness floor (where user starts) */
@@ -419,6 +437,10 @@ export type TranscendenceShiftKey = keyof typeof TRANSCENDENCE_STATE_SEQUENCE;
 
 // ============================================================================
 // MASTER EXPORT
+// ============================================================================
+
+// ============================================================================
+// MARBLE — generated stone
 // ============================================================================
 
 export interface MarbleParam {
@@ -549,6 +571,7 @@ export const EFFECTS = {
   marble: MARBLE_RECIPES
 } as const;
 
+// Type exports
 export type GradientKey = keyof typeof GRADIENTS;
 export type CouncilGradients = keyof typeof COUNCIL_GRADIENTS;
 export type QuantumGradients = keyof typeof QUANTUM_GRADIENTS;
@@ -559,6 +582,5 @@ export type HolographicKey = keyof typeof HOLOGRAPHIC_EFFECTS;
 export type ParticleBehavior = keyof typeof PARTICLE_BEHAVIOR;
 export type MarbleRecipeKey = keyof typeof MARBLE_RECIPES;
 export type StonePaletteKey = keyof typeof STONE_PALETTES;
-// O-7 / O-8 — the ambient presence field and the per-domain glow coefficient
 export type PresenceFieldKey = keyof typeof PRESENCE_FIELD;
 export type DomainGlowKey = keyof typeof DOMAIN_GLOW_MODULATION;

@@ -1,5 +1,9 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/solids.ts */
+// QUANTUM SOLIDS SYSTEM — the house's dimensional vocabulary
+// Polyhedra as vertices and faces. Pure numbers: no colour, no rendering,
+// no DOM, no clock. A consumer projects them; this file only knows shape.
+// ============================================================================
 
 // ============================================================================
 // VECTORS — the smallest possible arithmetic
@@ -247,6 +251,10 @@ function dodecahedron(): Solid {
   });
 }
 
+// ============================================================================
+// THE TRAPEZOHEDRON — what a real d10 actually is
+// ============================================================================
+
 /**
  * A pentagonal trapezohedron: two apexes over a shallow ten-point zigzag of
  * kite faces. The apex height is NOT chosen by eye — it is the only height at
@@ -270,6 +278,8 @@ export function trapezohedron(n = 5, band = 0.12): Solid {
   const u1 = upper[1 % n];
   const l0 = lower[0];
   const nrm = vecCross(vecSub(u1, u0), vecSub(l0, u0));
+  // The apex (0,0,h) lies on the kite's plane  ⟺  nrm · ((0,0,h) − u0) = 0
+  //                                            ⟺  h = (nrm · u0) / nrm.z
   const h = nrm[2] === 0 ? 1 : vecDot(nrm, u0) / nrm[2];
 
   const vertices: Vec3[] = [...upper, ...lower, [0, 0, h], [0, 0, -h]];
@@ -294,6 +304,10 @@ export function trapezohedron(n = 5, band = 0.12): Solid {
     fair: true,
   });
 }
+
+// ============================================================================
+// THE BARREL — KP's impossibility, answered the way a dice cutter answers it
+// ============================================================================
 
 /**
  * An N-sided prism with pyramidal caps: N numbered rectangles around the
@@ -322,6 +336,7 @@ export function barrel(n: number, waist = 0.62, point = 1.25): Solid {
     faces.push([k, nx, sides + nx, sides + k]);
   }
   const numbered = Array.from({ length: sides }, (_, i) => i);
+  // the caps, which carry nothing and are never landed on
   for (let k = 0; k < sides; k++) {
     const nx = (k + 1) % sides;
     faces.push([north, nx, k]);
@@ -337,6 +352,10 @@ export function barrel(n: number, waist = 0.62, point = 1.25): Solid {
     fair: false,
   });
 }
+
+// ============================================================================
+// THE DISC — the two-faced thing that is not a die
+// ============================================================================
 
 /**
  * A COIN. `solidForSides` refuses two on purpose — "a two-faced die is a coin,
@@ -385,6 +404,10 @@ export function disc(rim = 0.11, segments = 32): Solid {
 	});
 }
 
+// ============================================================================
+// THE BAG — resolving a side count to a shape
+// ============================================================================
+
 export const PLATONIC_SOLIDS = {
   tetrahedron: tetrahedron(),
   cube: cube(),
@@ -414,9 +437,15 @@ export function solidForSides(sides: number): Solid {
   const n = Math.max(3, Math.floor(sides));
   const fair = FAIR_SOLID_BY_SIDES[n];
   if (fair) return PLATONIC_SOLIDS[fair];
+  // An even count from six up has a fair trapezohedron; ten is only the
+  // famous one. Above thirty the kites are slivers, so the barrel reads better.
   if (n % 2 === 0 && n >= 6 && n <= 30) return trapezohedron(n / 2);
   return barrel(n);
 }
+
+// ============================================================================
+// SELF-CHECK — the derivations verify themselves at load, or they tell
+// ============================================================================
 
 /**
  * Every face of every fair solid must be planar and outward-wound. This runs

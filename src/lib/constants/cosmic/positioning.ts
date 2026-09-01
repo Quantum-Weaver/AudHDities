@@ -1,14 +1,16 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/positioning.ts */
+// QUANTUM POSITIONING SYSTEM - COORDINATE GRAPHING FOR IMMERSIVE EXPERIENCES
+// Single source of truth for viewport anchors, parallax layers, zoom targets,
+// beam origins, camera positions, and coordinate utilities.
+// Derived from dimensions.ts and environment keys.
+// ============================================================================
 
 import { BASE_UNIT, SCREEN_CATEGORIES } from './dimensions';
 
 /**
  * Environment key for zoom/consciousness targeting.
- * The ancestor `assets/mapper` module that once declared the full union no
- * longer exists anywhere in the tree (its import broke every distribution
- * target's typecheck) — until an asset mapper is rebuilt, environments are
- * open strings and ZOOM_TARGETS' keys are the de-facto canon.
+ * Open strings — ZOOM_TARGETS' keys are the de-facto canon.
  */
 export type EnvironmentKey = string;
 
@@ -43,6 +45,10 @@ export const VIEWPORT_ANCHORS = {
 
 export type ViewportAnchor = keyof typeof VIEWPORT_ANCHORS;
 
+// ============================================================================
+// 2. PARALLAX LAYERS - Depth factors for immersive scrolling
+// ============================================================================
+
 export const PARALLAX_LAYERS = {
   /** Deepest background - stars, nebulae, cosmic backdrop */
   cosmic: { factor: 0.05, zIndex: 0, blur: 0 },
@@ -75,6 +81,10 @@ export function getParallaxTransform(
   const factor = getParallaxFactor(layer, intensity);
   return `translate(${x * factor}px, ${y * factor}px)`;
 }
+
+// ============================================================================
+// 3. ZOOM TARGETS - Coordinates for panorama zooming
+// ============================================================================
 
 export interface ZoomTarget {
   /** X coordinate in panorama (0-100%) */
@@ -316,6 +326,10 @@ export function getZoomTarget(environment: EnvironmentKey): ZoomTarget {
   };
 }
 
+// ============================================================================
+// 4. BEAM ORIGINS & PATHS - For Continuity Beam
+// ============================================================================
+
 export interface BeamPath {
   /** Starting point (percentage of screen width) */
   startX: number;
@@ -350,6 +364,10 @@ export type BeamOrigin = keyof typeof BEAM_ORIGINS;
 export function getBeamPath(origin: BeamOrigin = 'topLeft'): BeamPath {
   return BEAM_ORIGINS[origin];
 }
+
+// ============================================================================
+// 5. CAMERA POSITIONS - For 3D panorama navigation
+// ============================================================================
 
 export interface CameraPosition {
   /** X coordinate in 3D space */
@@ -387,6 +405,10 @@ export type CameraPreset = keyof typeof CAMERA_POSITIONS;
 export function getCameraPosition(preset: CameraPreset = 'default'): CameraPosition {
   return CAMERA_POSITIONS[preset];
 }
+
+// ============================================================================
+// 6. ORBIT CONTROLS - For interactive panorama navigation
+// ============================================================================
 
 export interface OrbitConfig {
   /** Enable auto-rotation */
@@ -515,6 +537,10 @@ export function coordinateAngle(
   return (Math.atan2(dy, dx) * 180) / Math.PI;
 }
 
+// ============================================================================
+// 8. RESPONSIVE COORDINATES - Adjusts for screen category
+// ============================================================================
+
 export interface ResponsiveCoordinate {
   mobile: number;
   tablet: number;
@@ -532,6 +558,10 @@ export function getResponsiveCoordinate(
   if (screenWidth < SCREEN_CATEGORIES.IMMERSIVE.min) return coord.desktop;
   return coord.immersive;
 }
+
+// ============================================================================
+// 9. SCENE PRIMITIVES FOR THE STAGE — camera moves + timeline
+// ============================================================================
 
 export interface CameraMove {
   /** Starting camera preset */
@@ -621,6 +651,12 @@ export function sceneTotalDuration(sequence: SceneSequence): number {
     return total + moveDuration + beat.hold;
   }, 0);
 }
+
+// ============================================================================
+// 11. DIMENSIONAL PROJECTION
+// ============================================================================
+// Coordinate space: x runs right, y runs DOWN (screen convention), z runs
+// TOWARD the viewer. Rotations apply X, then Y, then Z — v′ = Rz·Ry·Rx·v.
 
 /** Where the house's light stands: upper-left and slightly in front, which is
  *  the same corner plate-forge lights from (`sheen()` sweeps upper-left, and
@@ -730,8 +766,9 @@ export function specular(
 }
 
 // ----------------------------------------------------------------------------
+// THE FIRST-PERSON TABLE — a surface seen from where someone sits
 // ----------------------------------------------------------------------------
-// interacted with."
+// These constants drive a CSS 3D plane; `rotate3`/`project` are for our own projection.
 
 export const FIRST_PERSON_TABLE = {
   /** How far the eye sits from the surface, in CSS pixels. */
@@ -801,7 +838,7 @@ export type {
   BeamOrigin as BeamOriginType,
   CameraPreset as CameraPresetType,
   OrbitMode as OrbitModeType,
-  CameraMove as CameraMoveType,       // O-6
-  SceneBeat as SceneBeatType,         // O-6
-  SceneSequence as SceneSequenceType, // O-6
+  CameraMove as CameraMoveType,
+  SceneBeat as SceneBeatType,
+  SceneSequence as SceneSequenceType,
 };

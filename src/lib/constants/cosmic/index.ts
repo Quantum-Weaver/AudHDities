@@ -1,10 +1,6 @@
-// =====================================================
-// FILE: index.ts
-// LOCATION: cosmic
-// Cosmic Exports
-// GENERATED: 2026-04-09T04:20:00.009Z
-// =====================================================
 // ============================================================================
+// COSMIC CONSTANTS - SINGLE SOURCE OF TRUTH
+// Quantum design system exports - all values derived from core constants
 // ============================================================================
 
 // ============================================================================
@@ -75,6 +71,9 @@ export type {
   RadiusKey,
 } from './dimensions';
 
+// ============================================================================
+// POSITIONING - Viewport, parallax, zoom, camera, coordinates
+// ============================================================================
 export {
   VIEWPORT_ANCHORS,
   PARALLAX_LAYERS,
@@ -94,7 +93,6 @@ export {
   getBeamPath,
   getCameraPosition,
   getResponsiveCoordinate,
-  // O-6 — scene primitives for the Stage (camera moves + timeline)
   CAMERA_MOVES,
   getCameraMove,
   SCENE_SEQUENCES,
@@ -124,7 +122,6 @@ export type {
   BeamOrigin as BeamOriginType,
   CameraPreset as CameraPresetType,
   OrbitMode as OrbitModeType,
-  // O-6
   CameraMove as CameraMoveType,
   CameraMoveKey,
   SceneBeat as SceneBeatType,
@@ -149,14 +146,12 @@ export {
   animationThresholds,
   getReducedMotionSafeConfig,
   getReducedMotionVariant,
-  // O-1 / O-3 / O-4 — the verb families (ceremonies, recentering, flock)
   CEREMONIES,
   CEREMONY_NAMES,
   getCeremony,
   ceremonyTotalDuration,
   SUPPORTIVE_CONVERGENCE,
   ENSEMBLE_MOTION,
-  // H-3 / H-7 — ceremony bookends and refuge & return
   CEREMONY_BOOKENDS,
   REFUGE_RETURN_SEQUENCE,
   refugeTotalDuration,
@@ -172,20 +167,21 @@ export type {
   Complexity,
   VesselConfig,
   AnimationConfig,
-  // O-1 / O-3 / O-4
   CeremonyBeat,
   Ceremony,
   CeremonyKey,
   ConvergenceStage,
   EnsembleMotion,
   EnsembleKey,
-  // H-3 / H-7
   CeremonyBookend,
   CeremonyBookendKey,
   RefugePhase,
   RefugePhaseKey,
 } from './motion';
 
+// ============================================================================
+// TYPOGRAPHY - Font families, sizes, domain/entity styles
+// ============================================================================
 export {
   FONT_FAMILIES,
   TEXT_SIZES,
@@ -224,6 +220,9 @@ export type {
   TypographyStyleConfig,
 } from './typography';
 
+// ============================================================================
+// CONSCIOUSNESS - User tiers, beam intensity, vessel capacity
+// ============================================================================
 export {
   CONSCIOUSNESS_LEVELS,
   TIER_TO_BEAM_INTENSITY,
@@ -241,12 +240,10 @@ export {
   getConsciousnessLevel,
   getVesselCapacityFromScore,
   getResonancePattern,
-  // O-2 / O-3 — global-pause state and recovery entity states
   PAUSE_MODES,
   GLOBAL_PAUSE,
   isPaused,
   RECOVERY_ENTITY_STATES,
-  // H-1 / H-4 — dimensional frequency and elemental consciousness palette
   CONSCIOUSNESS_FLOORS,
   DIMENSIONAL_FREQUENCY_TOKENS,
   ELEMENTAL_CONSCIOUSNESS_PALETTE,
@@ -262,22 +259,22 @@ export type {
   EntityState as EntityStateType,
   ResonancePatternType as ResonancePatternTypeType,
   AwarenessDomain as AwarenessDomainType,
-  // O-2 / O-3
   PauseMode as PauseModeType,
   GlobalPauseConfig as GlobalPauseConfigType,
   RecoveryEntityState as RecoveryEntityStateType,
-  // H-1 / H-4
   ConsciousnessFloor as ConsciousnessFloorType,
   DimensionalFrequencyToken as DimensionalFrequencyTokenType,
   ElementalConsciousnessKey as ElementalConsciousnessKeyType,
 } from './consciousness';
 
+// ============================================================================
+// ATTENTION — the Bird-Wisdom Spectrum
+// ============================================================================
 export {
   ATTENTION_MODES,
   ATTENTION_MODE_NAMES,
   DEFAULT_ATTENTION_MODE,
   getAttentionMode,
-  // S-5 — the switching affordance for ATTENTION_MODES
   ATTENTION_MODE_SELECTOR,
   DEITY_VOICE_BUNDLES,
   DEITY_VOICE_NAMES,
@@ -288,20 +285,18 @@ export type {
   AttentionMode as AttentionModeType,
   AttentionModeKey,
   AttentionDensity as AttentionDensityType,
-  // S-5
   AttentionModeSelectorConfigType,
-  // H-2
   DeityVoiceBundle as DeityVoiceBundleType,
   DeityVoiceKey as DeityVoiceKeyType,
 } from './attention';
 
+// ============================================================================
+// INTERACTIVITY — the user's own hand
+// ============================================================================
 export {
   SELF_PAUSE_TRIGGER,
-  // S-2 — escort transition capability (SIGNED; trigger map stays app-layer)
   ESCORT_TRANSITION,
-  // S-3 — supportive role affordances (beneath O-3's recentering motion)
   SUPPORTIVE_ROLE_AFFORDANCES,
-  // S-4 — invitation gate (consent replacing auto-advance)
   INVITATION_GATE,
   PRE_TRANSITION_REFLECTION,
 } from './interactivity';
@@ -316,6 +311,9 @@ export type {
   ReflectionPrimitiveType,
 } from './interactivity';
 
+// ============================================================================
+// EFFECTS - Gradients, glows, shadows, backdrops, holographic, presence
+// ============================================================================
 export {
   GRADIENTS,
   QUANTUM_GRADIENTS,
@@ -326,7 +324,6 @@ export {
   HOLOGRAPHIC_EFFECTS,
   EFFECTS,
   PARTICLE_BEHAVIOR,
-  // O-7 / O-8 — presence field and per-domain glow modulation
   PRESENCE_FIELD,
   DOMAIN_GLOW_MODULATION,
   DOMAIN_GLOW_MODULATION_DEFAULT,
@@ -348,21 +345,24 @@ export type {
   BackdropKey,
   HolographicKey,
   ParticleBehavior,
-  // O-7 / O-8
   PresenceFieldKey,
   PresenceField,
   DomainGlowKey,
-  // H-5 / H-6
   EternalWitnessState,
   EternalWitnessStateKey,
   TranscendenceShift,
   TranscendenceShiftKey,
-  // 2026-08-17
   MarbleRecipe,
   MarbleParam,
   MarbleRecipeKey,
   StonePaletteKey,
 } from './effects';
+
+// ============================================================================
+// SOLIDS — the dimensional vocabulary
+// ============================================================================
+// Polyhedra as vertices and faces, and the honest answer to a side count that
+// no fair solid can carry.
 
 export {
   PLATONIC_SOLIDS,

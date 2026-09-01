@@ -1,5 +1,8 @@
 // ============================================================================
 /* resonance-ziggy/modules/cosmic/constants/colors.ts - PURE VALUES ONLY*/
+// QUANTUM COLOR SYSTEM - SINGLE SOURCE OF TRUTH
+// PURE VALUES ONLY - No gradients, no animations, just colors
+// ============================================================================
 
 export const QUANTUM_COLORS = {
   // ============================================================================
