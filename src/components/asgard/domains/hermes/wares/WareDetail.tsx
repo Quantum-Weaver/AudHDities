@@ -10,8 +10,10 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { CheckoutButton } from '@/components/asgard/domains/hermes/checkout/CheckoutButton';
 import { PriceBreakdown } from '@/components/asgard/domains/hermes/checkout/PriceBreakdown';
 import { TheBodies } from '@/components/asgard/domains/hermes/wares/TheBodies';
+import { WareLicence } from '@/components/asgard/domains/hermes/wares/WareLicence';
 import { formatMinorUnits } from '@/lib/economics/split';
 import { recurrenceOf, intervalPhrase } from '@/lib/economics/recurrence';
+import { sphragisOf } from '@/lib/wares/sphragis';
 import { ArrowLeft, Package, TrendingUp } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
@@ -103,6 +105,7 @@ export function WareDetail() {
   const settled = ware.quantity_available !== null && ware.quantity_available <= 0;
   const recurrence = recurrenceOf(ware);
   const isGifted = ware.pricing_model === 'free';
+  const licence = sphragisOf(ware);
   const showsSplit =
     (ware.pricing_model === 'fixed' || ware.pricing_model === 'pay_what_you_want') &&
     ware.price !== null && ware.price > 0;
@@ -205,6 +208,8 @@ export function WareDetail() {
               <CheckoutButton product={ware} size="md" />
             )}
           </div>
+
+          {licence && <WareLicence sphragis={licence} />}
 
           {(isGifted || held) && <TheBodies wareId={ware.id} />}
         </Card>

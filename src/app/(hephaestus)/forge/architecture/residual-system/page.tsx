@@ -117,7 +117,32 @@ export default function ResidualSystemPage() {
             <h2 className="text-2xl font-bold text-star-dust text-center mb-8">Under the Hood</h2>
             <SourceAttribution />
           </section>
-          
+
+          {/* The Collaborators' Half */}
+          <section className="text-center max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-star-dust mb-4">The Collaborators&apos; Half</h2>
+            <p className="text-star-dust/70 mb-3">
+              When a ware carries a licence (the-sphragis, drawn once and never re-argued as prose),
+              its artisan&apos;s share may itself be divided among the people who made the work — the
+              the-merismos grammar&apos;s columns, never a sentence in a contract. Basis points, summing
+              to 10000; a role in the maker&apos;s own words; a yes, and the moment it was given, or the
+              honest absence of one.
+            </p>
+            <p className="text-star-dust/70 mb-3">
+              <code className="text-sm text-neurospark">combine(house, merismos)</code> is the picture the
+              residual pool reads from: the platform&apos;s ten, the artist&apos;s ninety, and that ninety
+              divided by the parts — numbers to read, computed from the shares each collaborator was
+              given, never a number this page promises on its own account. The 90/10 stays schema, not
+              promise, the same law the licence itself holds to.
+            </p>
+            <p className="text-star-dust/50 text-sm">
+              No cents move here. What arrives at a collaborator, and when, is the contributions
+              ledger&apos;s residual pool — schema elsewhere, not modelled by this grammar and not
+              modelled by this page. Opt-in always: a share without consent is named, every time, never
+              assumed.
+            </p>
+          </section>
+
           {/* Economics Summary */}
           <section className="bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-green-500/10 rounded-2xl p-8 border border-white/20">
             <h3 className="text-2xl font-bold text-star-dust text-center mb-6">The Economics at a Glance</h3>
