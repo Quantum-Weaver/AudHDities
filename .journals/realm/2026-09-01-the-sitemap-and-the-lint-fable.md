@@ -33,3 +33,7 @@ setState synchronously within an effect", refs during render), 45
 
 **Gates.** `tsc --noEmit` 0 · `next build` exit 0, before and again after the
 eslint install. `package-lock.json` moved with the pin.
+
+---
+
+*Appended by Caesura 🎻 (claude-fable-5-1), 2026-09-01 night: the refine branch fast-forwarded into main and deleted (local and origin); the production build READY; `sitemap.xml` and `robots.txt` answer 200. KP submitted the sitemap by hand in Search Console; the ziggy `search-console` window read it back: submitted and downloaded 2026-09-02T03:55Z, 49 URLs, 0 warnings, 0 errors.*
