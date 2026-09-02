@@ -120,24 +120,38 @@ export default function ResidualSystemPage() {
 
           {/* The Collaborators' Half */}
           <section className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-star-dust mb-4">The Collaborators&apos; Half</h2>
+            <h2 className="text-2xl font-bold text-star-dust mb-4">The Contributors&apos; Half</h2>
             <p className="text-star-dust/70 mb-3">
               When a ware carries a licence (the-sphragis, drawn once and never re-argued as prose),
-              its artisan&apos;s share may itself be divided among the people who made the work — the
-              the-merismos grammar&apos;s columns, never a sentence in a contract. Basis points, summing
-              to 10000; a role in the maker&apos;s own words; a yes, and the moment it was given, or the
-              honest absence of one.
+              its artisan&apos;s share is divided among the people who made the work &mdash; the
+              the-merismos grammar&apos;s columns, never a sentence in a contract. A name; a role in the
+              maker&apos;s own words; a yes, and the moment it was given, or the honest absence of one.
+              <strong className="text-star-dust/80"> There is no share on a column</strong>, because
+              there is no share to set.
+            </p>
+            <p className="text-star-dust/70 mb-3">
+              <strong className="text-star-dust/80">KP &#9883;, verbatim:</strong>{' '}
+              <em>
+                &ldquo;there is nothing to do but divide by the number of contributors, regardless of
+                role.&rdquo;
+              </em>{' '}
+              Everything left is <strong className="text-star-dust/80">divided equally</strong> &mdash;
+              no ranking, no percentage shares &mdash; and the main artisan is one of them. A role is
+              recorded and never weighed: the divisor is the headcount, and it is the only number the
+              grammar holds.
             </p>
             <p className="text-star-dust/70 mb-3">
               <code className="text-sm text-neurospark">combine(house, merismos)</code> is the picture the
               residual pool reads from: the platform&apos;s ten, the artist&apos;s ninety, and that ninety
-              divided by the parts — numbers to read, computed from the shares each collaborator was
-              given, never a number this page promises on its own account. The 90/10 stays schema, not
-              promise, the same law the licence itself holds to.
+              divided equally among the contributors &mdash; numbers to read, never a number this page
+              promises on its own account. The 90/10 stays schema, not promise, the same law the licence
+              itself holds to. <strong className="text-star-dust/80">Neither dial lives in that
+              grammar</strong>: the residual pledge and the covenant pledge are set here, on the
+              platform, and what reaches the division is what is left after them.
             </p>
             <p className="text-star-dust/50 text-sm">
-              No cents move here. What arrives at a collaborator, and when, is the contributions
-              ledger&apos;s residual pool — schema elsewhere, not modelled by this grammar and not
+              No cents move here. What arrives at a contributor, and when, is the contributions
+              ledger&apos;s residual pool &mdash; schema elsewhere, not modelled by this grammar and not
               modelled by this page. Opt-in always: a share without consent is named, every time, never
               assumed.
             </p>
@@ -155,7 +169,7 @@ export default function ResidualSystemPage() {
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-400 mb-2">90%</div>
                 <div className="text-star-dust font-medium">Artisan Profit</div>
-                <div className="text-star-dust/40 text-sm">The ware&apos;s own &mdash; divided equally among its contributors</div>
+                <div className="text-star-dust/40 text-sm">The ware&apos;s own &mdash; divided equally among its contributors, regardless of role</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-400 mb-2">0-50%</div>
@@ -177,7 +191,7 @@ export default function ResidualSystemPage() {
               <Infinity size={14} className="text-neurospark" />
               <span className="text-sm text-star-dust/60">Only a ware&apos;s main artisan can add contributors</span>
               <span className="text-star-dust/30">•</span>
-              <span className="text-sm text-star-dust/60">Contributors divide equally &mdash; no roles, no ranking</span>
+              <span className="text-sm text-star-dust/60">Contributors divide equally &mdash; regardless of role, no ranking</span>
               <span className="text-star-dust/30">•</span>
               <span className="text-sm text-star-dust/60">Both dials are voluntary and changeable at any time</span>
               <span className="text-star-dust/30">•</span>

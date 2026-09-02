@@ -133,31 +133,30 @@ export interface SphragisSplit {
 	[k: string]: unknown; // ridden whole — a realm's residual pool, its collaborators' shares
 }
 
-/** THE COLLABORATOR SPLITS, AS COLUMNS — law 1's other half, said out loud:
- *  the licence is DATA, and the collaborator splits are COLUMNS rather than a
- *  sentence somebody re-argues after the record is out.
+/** THE CONTRIBUTORS, AS COLUMNS — law 1's other half, said out loud: the
+ *  licence is DATA, and the people who made the work are COLUMNS rather than
+ *  a sentence somebody re-argues after the record is out.
  *
  *  This is `the-merismos`'s `Merismos`, written out STRUCTURALLY so a value
  *  from that water assigns straight in — honoured BY SHAPE, never by import,
  *  the same way the envelope is honoured here as a bare id string. Standalone
  *  by law: this water imports no sibling and never will.
  *
- *  It divides `split.artist` and nothing else. `points` are basis points and
- *  a whole merismos sums to 10000; this water DOES NOT VALIDATE that — it
- *  TELLS what it found and leaves the numbers exactly as declared, because a
- *  silent correction is how a promise gets back in. `the-merismos.validate`
- *  is where the fault gets named. */
+ *  It divides `split.artist` and nothing else, AND IT DIVIDES IT EQUALLY. KP
+ *  ⚛, verbatim: *"there is nothing to do but divide by the number of
+ *  contributors, regardless of role."* There is no weight on a part, no
+ *  percentage and no basis point — the divisor is the headcount, the main
+ *  artisan is ONE OF THEM, and a `role` is recorded and never weighed. A
+ *  legacy `points` field from before that ruling rides here whole through the
+ *  index signature, ignored, the way every other realm key rides. */
 export interface SphragisCollaborators {
 	parts: Array<{
 		who: { name: string; [k: string]: unknown };
-		/** free text — 'vocals', 'engineer', 'cover'. Never a sealed enum. */
-		role: string;
-		/** basis points of the artist's share. */
-		points: number;
+		/** free text — 'vocals', 'engineer', 'cover'. Never a sealed enum, and
+		 *  never weighed: it is remembered, not ranked. */
+		role?: string;
 		[k: string]: unknown;
 	}>;
-	/** the artist's share, and only it. The platform's ten is not divided. */
-	of: 'artist-share';
 	[k: string]: unknown;
 }
 
@@ -352,22 +351,25 @@ export function draw(declaration: Declaration): Sphragis {
 	}
 	flagged.push(`the split is schema, not promise: artist ${shares.artist} · platform ${shares.platform}, in the data and in every rendering`);
 
-	// THE COLLABORATOR SPLITS ARE COLUMNS. Held whole, never validated here,
-	// never normalized, and ABSENT when none was declared — so a licence
-	// without collaborators canonicalizes exactly as it did before this field
-	// existed, and every seal already taken over one still binds.
+	// THE CONTRIBUTORS ARE COLUMNS. Held whole, never validated here, never
+	// normalized, and ABSENT when none was declared — so a licence without
+	// collaborators canonicalizes exactly as it did before this field existed,
+	// and every seal already taken over one still binds.
 	let columns: SphragisCollaborators | undefined;
 	if (collaborators) {
 		const parts = Array.isArray(collaborators.parts) ? collaborators.parts.map((p) => ({ ...p })) : [];
 		columns = { ...collaborators, parts };
-		const points = parts.reduce((a, p) => a + (typeof p.points === 'number' && Number.isFinite(p.points) ? p.points : 0), 0);
-		const named = parts.map((p) => `${p.who && typeof p.who.name === 'string' ? p.who.name : '(unnamed)'} · ${p.role} · ${p.points}`).join(' | ');
+		const named = parts
+			.map((p) => {
+				const name = p.who && typeof p.who.name === 'string' ? p.who.name : '(unnamed)';
+				return typeof p.role === 'string' && p.role.length > 0 ? `${name} · ${p.role}` : name;
+			})
+			.join(' | ');
 		flagged.push(
-			points === 10000
-				? `the collaborator splits ride as columns of this licence: ${parts.length} part${parts.length === 1 ? '' : 's'} of the ${collaborators.of}, summing to 10000 basis points — ${named}`
-				: `the collaborator splits ride as columns of this licence: ${parts.length} part${parts.length === 1 ? '' : 's'} of the ${collaborators.of}, summing to ${points} basis points and NOT 10000 — told in plain words and left exactly as declared, and named as a fault by the-merismos rather than quietly corrected here — ${named}`
+			`the contributors ride as columns of this licence: ${parts.length} of them, and the artist's share is divided EQUALLY among them — ${named}`
 		);
-		flagged.push('the collaborator splits are a DESCRIPTION OF SHARES, never a promise of money — this grammar moves nothing, and consent to a share is the-merismos\'s to record and never implied by appearing in this licence');
+		flagged.push('there is nothing to do but divide by the number of contributors, regardless of role — the main artisan is one of them, and a role here is recorded and never weighed; there is no ranking and no percentage share in this licence');
+		flagged.push('the contributors are a DESCRIPTION OF SHARES, never a promise of money — this grammar moves nothing, and consent to a share is the-merismos\'s to record and never implied by appearing in this licence');
 	}
 
 	flagged.push(LAWYER_GATE);
@@ -544,12 +546,13 @@ export function render(sphragis: Sphragis): Rendering {
 	const columns = sphragis.collaborators;
 	if (columns) {
 		const parts = Array.isArray(columns.parts) ? columns.parts : [];
-		const points = parts.reduce((a, p) => a + (typeof p.points === 'number' && Number.isFinite(p.points) ? p.points : 0), 0);
-		lines.push(`THE COLLABORATOR SPLITS — the ${columns.of}, divided. Columns in the licence, not a sentence about it. Basis points; ${points} of 10000${points === 10000 ? '' : ' — WHICH DOES NOT CLOSE, and is told rather than corrected'}.`);
+		lines.push(`THE CONTRIBUTORS — the artist's share, DIVIDED EQUALLY among ${parts.length}. Columns in the licence, not a sentence about it. No ranking, no percentage shares; the main artisan is one of them.`);
 		parts.forEach((part) => {
 			const name = part.who && typeof part.who.name === 'string' ? part.who.name : '(unnamed)';
-			lines.push(`      ${part.points} bp — ${name} · ${part.role}`);
+			const role = typeof part.role === 'string' && part.role.length > 0 ? ` · ${part.role}` : '';
+			lines.push(`      an equal share — ${name}${role}`);
 		});
+		lines.push('      A role is recorded here and never weighed: there is nothing to do but divide by the number of contributors, regardless of role.');
 		lines.push('      These are shares described, never money promised. Nothing in this licence pays anybody, and a share here is opt-in — consent is recorded elsewhere and is never implied by appearing on this page.');
 		lines.push('');
 	}

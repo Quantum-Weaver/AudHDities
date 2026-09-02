@@ -4,7 +4,7 @@ The single editable truth for this water is:
 C:\_superposition\resonance-awen\tools\the-sphragis\src\index.ts
 
 Do not edit index.ts in THIS folder - it is a byte-faithful mirror
-(SHA256 at the copy: B0587DC13278723288CFC4DB3806BBCF5BD793AC9D14C29091FE3D75051D837D),
+(SHA256 at the copy: 3A5A9E57D316BBC31B62615B839C19B3793FFDF6514795D79769373E36E5B463),
 taken 2026-09-02 when hermes's wares became the sphragis's second consumer —
 the README's own words, waiting since 2026-08-14: "one water, two realms,
 the spring's law standing on schedule."

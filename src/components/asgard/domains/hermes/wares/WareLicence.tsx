@@ -63,16 +63,19 @@ export function WareLicence({ sphragis }: { sphragis: Sphragis }) {
           <div className="flex items-center gap-1.5 mb-2">
             <Users className="h-3.5 w-3.5 text-star-dust/60" aria-hidden="true" />
             <span className="text-xs font-medium text-star-dust/70">
-              Collaborator splits — the {collaborators.of}, divided
+              The contributors &mdash; the artisan&apos;s share, divided equally among{' '}
+              {collaborators.parts.length}
             </span>
           </div>
           <ul className="space-y-1">
             {collaborators.parts.map((part, i) => {
               const consent = (part as { consent?: { at?: string } }).consent;
+              const role = typeof part.role === 'string' && part.role.length > 0 ? part.role : null;
               return (
                 <li key={i} className="text-xs text-star-dust/50 flex items-center justify-between">
                   <span>
-                    {part.points} bp — {part.who?.name ?? '(unnamed)'} · {part.role}
+                    an equal share &mdash; {part.who?.name ?? '(unnamed)'}
+                    {role ? ` · ${role}` : ''}
                   </span>
                   <span>{consent?.at ? `consented ${consent.at}` : 'not yet consented'}</span>
                 </li>
@@ -80,8 +83,12 @@ export function WareLicence({ sphragis }: { sphragis: Sphragis }) {
             })}
           </ul>
           <p className="text-xs text-star-dust/40 mt-2">
-            Shares described, never money promised — consent is recorded by the-merismos and never
-            implied by appearing here.
+            Divided equally, regardless of role &mdash; no ranking, no percentage shares, and the
+            main artisan is one of them. A role is recorded here and never weighed.
+          </p>
+          <p className="text-xs text-star-dust/40 mt-1">
+            Shares described, never money promised &mdash; consent is recorded by the-merismos and
+            never implied by appearing here.
           </p>
         </div>
       )}

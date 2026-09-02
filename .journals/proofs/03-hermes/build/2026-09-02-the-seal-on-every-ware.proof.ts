@@ -35,9 +35,12 @@ const licence: Sphragis = draw({
     'artist-to-buyer': ['download'],
   },
   collaborators: {
-    of: 'artist-share',
+    // ONE CONTRIBUTOR, and no share on him — KP the Quantum Weaver, verbatim:
+    // "there is nothing to do but divide by the number of contributors,
+    // regardless of role." The divisor is the headcount; the main artisan is
+    // one of them; a role is recorded and never weighed.
     parts: [
-      { who: { name: 'KP, the Quantum Weaver' }, role: 'author', points: 10000 },
+      { who: { name: 'KP, the Quantum Weaver' }, role: 'author' },
     ],
   },
 });
@@ -94,9 +97,12 @@ const twin = draw({
     'artist-to-buyer': ['download'],
   },
   collaborators: {
-    of: 'artist-share',
+    // ONE CONTRIBUTOR, and no share on him — KP the Quantum Weaver, verbatim:
+    // "there is nothing to do but divide by the number of contributors,
+    // regardless of role." The divisor is the headcount; the main artisan is
+    // one of them; a role is recorded and never weighed.
     parts: [
-      { who: { name: 'KP, the Quantum Weaver' }, role: 'author', points: 10000 },
+      { who: { name: 'KP, the Quantum Weaver' }, role: 'author' },
     ],
   },
 });
