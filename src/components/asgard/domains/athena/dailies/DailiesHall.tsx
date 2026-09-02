@@ -10,7 +10,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Shuffle, Sparkles, Eye } from 'lucide-react';
+import { ArrowLeft, Shuffle, Sparkles, Eye, Grid3x3 } from 'lucide-react';
 import { useDailies } from '@/lib/hooks/useDailies';
 import type { Puzzle } from '@/lib/dailies/shelf';
 
@@ -263,6 +263,28 @@ export function DailiesHall({ puzzles }: Props) {
           >
             <Shuffle size={14} /> Hand me one
           </button>
+        </div>
+
+        {/* Other dailies — same shelf, a different shape of the same day */}
+        <div className="mb-8">
+          <Link
+            href="/library/dailies/sudoku"
+            className="flex items-center gap-4 rounded-xl border border-star-dust/10 bg-star-dust/[0.03]
+                       p-5 hover:border-hearth-gold/30
+                       focus-visible:outline-none focus-visible:ring-2
+                       focus-visible:ring-hearth-gold focus-visible:ring-offset-2
+                       focus-visible:ring-offset-deep-space"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-hearth-gold/10">
+              <Grid3x3 size={18} className="text-hearth-gold" />
+            </span>
+            <span>
+              <span className="block text-sm font-semibold text-star-dust">The Daily Number</span>
+              <span className="block text-xs text-star-dust/70">
+                Nine digits, quietly disarranged — the same sky for everyone.
+              </span>
+            </span>
+          </Link>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

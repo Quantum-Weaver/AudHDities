@@ -1,0 +1,67 @@
+Fixed date: 2026-09-02
+
+-- gentle --
+PASS — gentle: givens identical across two calls
+PASS — gentle: solution identical across two calls
+PASS — gentle: countSolutions(givens) === 1 (got 1)
+FAIL — gentle: clue count === 42 (got 41)
+PASS — gentle: solution grid is fully filled (1-9 everywhere)
+PASS — gentle: every given matches the solution at its cell
+
+-- steady --
+PASS — steady: givens identical across two calls
+PASS — steady: solution identical across two calls
+PASS — steady: countSolutions(givens) === 1 (got 1)
+FAIL — steady: clue count === 34 (got 33)
+PASS — steady: solution grid is fully filled (1-9 everywhere)
+PASS — steady: every given matches the solution at its cell
+
+-- deep --
+PASS — deep: givens identical across two calls
+PASS — deep: solution identical across two calls
+PASS — deep: countSolutions(givens) === 1 (got 1)
+FAIL — deep: clue count === 28 (got 27)
+PASS — deep: solution grid is fully filled (1-9 everywhere)
+PASS — deep: every given matches the solution at its cell
+
+-- supplementary: clue-count landing across other dates --
+  2026-01-01  gentle -> 42 clues
+  2026-01-01  steady -> 34 clues
+  2026-01-01  deep   -> 28 clues
+  2026-02-14  gentle -> 42 clues
+  2026-02-14  steady -> 33 clues
+  2026-02-14  deep   -> 27 clues
+  2026-03-03  gentle -> 41 clues
+  2026-03-03  steady -> 33 clues
+  2026-03-03  deep   -> 28 clues
+  2026-05-05  gentle -> 42 clues
+  2026-05-05  steady -> 34 clues
+  2026-05-05  deep   -> 27 clues
+  2026-09-02  gentle -> 41 clues
+  2026-09-02  steady -> 33 clues
+  2026-09-02  deep   -> 27 clues
+  2026-09-03  gentle -> 42 clues
+  2026-09-03  steady -> 34 clues
+  2026-09-03  deep   -> 27 clues
+  2026-12-25  gentle -> 41 clues
+  2026-12-25  steady -> 34 clues
+  2026-12-25  deep   -> 27 clues
+  2027-06-10  gentle -> 41 clues
+  2027-06-10  steady -> 33 clues
+  2027-06-10  deep   -> 28 clues
+  gentle: 4/8 exact at 42, 4/8 land at 41 (one clue fewer), 0 elsewhere
+  steady: 4/8 exact at 34, 4/8 land at 33 (one clue fewer), 0 elsewhere
+  deep: 3/8 exact at 28, 5/8 land at 27 (one clue fewer), 0 elsewhere
+
+FINDING: the documented clue counts (42/34/28) are the digger's TARGET, not a
+guarantee. Because holes are dug in mirror pairs and only the center cell (4,4)
+can be removed alone, the achieved count lands on the target only when that one
+unpaired removal happens to succeed for a given seed; otherwise the walk (which
+stays odd-parity from 81) steps past the even target and the digger's
+`givensCount <= target` break condition stops it one clue SHORT — target-1,
+a slightly harder puzzle than advertised, never an easier one. This is a
+property of the shipped engine as landed, not a bug in this proof — the engine
+was kept byte-identical per instruction, so it is reported here rather than
+silently patched.
+
+3 STRICT CHECK(S) FAILED — see FINDING above
