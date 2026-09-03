@@ -37,6 +37,8 @@ When you request this, the app sends **only the search terms for that one track*
 
 **Resonance Standards — two links, handed to your browser.** Resonance Standards makes no request of its own. It offers two links, and when you tap one it hands the address to your own browser to open. Nothing about you is sent with it; the app itself never speaks to a network.
 
+**Resonance Awen — one read, of our own register.** Resonance Awen reads the Sanctuary's public tool registry from our own base when you open the shelf or press refresh, so the cards show what stands today. The request carries no content of yours and no identity; it asks only for the public rows, and it happens at open and at your own press, never in the background. Nothing you make in the app is sent anywhere. Awen keeps one thing on your device: your theme.
+
 ## Your control
 
 - **Export:** you can export your data (e.g., as JSON) at any time, from within the app.
