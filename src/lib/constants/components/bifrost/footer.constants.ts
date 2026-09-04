@@ -6,7 +6,7 @@
 
 // ─── Content ───────────────────────────────────────────────────────────────
 /** Copyright text displayed in the footer */
-export const FOOTER_COPYRIGHT = '© 2026 AudHDities Sanctuary';
+export const FOOTER_COPYRIGHT = '© 2026 AudHDities Sanctuary LLC. All rights reserved.';
 
 /** Link definitions for footer navigation */
 export const FOOTER_LINKS = {
