@@ -2,28 +2,30 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
-import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, BookOpen, Clock, GraduationCap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, GraduationCap } from 'lucide-react';
+import { Procession } from '@/components/shapes';
+import type { Geometry, Section } from '@/lib/procession';
 import { useLearningPathsList } from '@/lib/generated/hooks/athena-gamification/learning_paths';
 import { useLessonsList } from '@/lib/generated/hooks/athena-gamification/lessons';
-import type { CardData } from '@/types/components/runes/card.types';
+import type { LessonsRow } from '@/lib/generated/types/athena-gamification/lessons';
 
 const DIFFICULTY_COLORS: Record<string, string> = {
   beginner: 'bg-emerald-500/20 text-emerald-400', intermediate: 'bg-amber-500/20 text-amber-400',
   advanced: 'bg-fire-base/20 text-fire-light', master: 'bg-purple-500/20 text-purple-400',
 };
 
-// Stable params — the generated list hooks refetch on params IDENTITY
-// (the StatusBar pattern); an inline object here would loop the fetch.
+// Held at module level: the list hook refetches on params identity.
 const LESSONS_PARAMS = {
   filters: { status: 'published' },
   limit: 100,
 };
+
+// The corridor's card height, shortened so its foot clears the fold.
+const CORRIDOR: Partial<Geometry> = { cardVh: 56 };
 
 interface PathStep {
   lesson_id: string;
@@ -33,10 +35,9 @@ interface PathStep {
 
 export function CourseDetail() {
   const params = useParams();
-  const router = useRouter();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  // Memoized on the slug — the generated hooks refetch on params identity.
+  // Held on the slug: the list hook refetches on params identity.
   const courseParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
   const { data: courses, loading } = useLearningPathsList(courseParams);
   const course = courses[0] ?? null;
@@ -57,76 +58,131 @@ export function CourseDetail() {
   }, [course?.id]);
 
   const lessonById = useMemo(
-    () => new Map(lessons.map((l) => [l.id, l])),
+    () => new Map(lessons.map((l) => [l.id, l] as const)),
     [lessons]
   );
-  const walk = steps
-    .map((s) => ({ step: s, lesson: lessonById.get(s.lesson_id) }))
-    .filter((w) => !!w.lesson);
 
-  if (loading) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6"><Skeleton variant="text" className="h-6 w-32 mb-4" /><Skeleton variant="card" className="h-64" /></div></main>);
-  if (!course) return (<main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6 text-center"><GraduationCap className="h-12 w-12 text-star-dust/20 mx-auto mb-4" /><p className="text-star-dust/40">This course has not been written yet.</p><Link href="/library/courses" className="text-neurospark hover:underline mt-4 inline-block">Return to the Curriculum</Link></div></main>);
+  const walk = useMemo(
+    () =>
+      steps
+        .map((s) => lessonById.get(s.lesson_id))
+        .filter((l): l is LessonsRow => !!l),
+    [steps, lessonById]
+  );
 
-  const cd: CardData = { id: course.id, type: 'value', title: course.name, value: course.difficulty || '' };
+  const sections = useMemo<Section[]>(
+    () =>
+      walk.map((lesson) => ({
+        id: lesson.id,
+        title: lesson.name,
+        rooms: [
+          {
+            id: lesson.id,
+            name: lesson.name,
+            line: lesson.lesson_type,
+            story: lesson.description,
+            address: `/library/lessons/${lesson.slug}`,
+          },
+        ],
+      })),
+    [walk]
+  );
+
+  if (loading) return (<main className="min-h-screen py-12!"><div className="container mx-auto! max-w-3xl px-6!"><Skeleton variant="text" className="h-6 w-32 mb-4!" /><Skeleton variant="card" className="h-64" /></div></main>);
+  if (!course) return (<main className="min-h-screen py-12!"><div className="container mx-auto! max-w-3xl px-6! text-center"><GraduationCap className="mx-auto! mb-4! h-12 w-12 text-star-dust/20" /><p className="text-star-dust/40">This course has not been written yet.</p><Link href="/library/courses" className="mt-4! inline-block text-neurospark hover:underline">Return to the Curriculum</Link></div></main>);
 
   return (
-    <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6">
-      <Link href="/library/courses" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6"><ArrowLeft className="h-4 w-4" />Return to the Curriculum</Link>
-      <Card data={cd} variant="sanctuary" radius="xl" shadow="md" className="p-8">
-        <div className="flex items-center justify-between mb-4">{course.difficulty && <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${DIFFICULTY_COLORS[course.difficulty] || ''}`}>{course.difficulty}</Badge>}{course.estimated_duration && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{course.estimated_duration}</span>}</div>
-        <h1 className="text-2xl font-bold text-star-dust mb-4">{course.name}</h1>
-        <p className="text-star-dust/70 leading-relaxed mb-6">{course.description}</p>
-        {course.path_type && <Badge variant="outline" size="sm" className="text-[10px] capitalize mb-6">{course.path_type.replace(/_/g, ' ')}</Badge>}
+    <main className="min-h-screen py-6!">
+      <div className="container mx-auto! max-w-3xl px-6!">
+        <Link
+          href="/library/courses"
+          className="mb-3! flex items-center gap-2 text-sm text-star-dust/60 transition-colors hover:text-star-dust"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Return to the Curriculum
+        </Link>
 
-        {walk.length > 0 && (
-          <div className="mb-6">
-            <h2 className="mb-3 text-sm font-medium uppercase tracking-wide text-star-dust/40">
-              The path — {walk.length} {walk.length === 1 ? 'step' : 'steps'}
-            </h2>
-            <ol className="space-y-2">
-              {walk.map(({ step, lesson }, index) => (
-                <li key={step.lesson_id}>
-                  <Link
-                    href={`/library/lessons/${lesson!.slug}`}
-                    className="group flex items-start gap-3 rounded-lg border border-star-dust/10 bg-white/5 p-3 transition-colors hover:border-star-dust/25 motion-reduce:transition-none"
-                  >
-                    <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-neurospark/10 text-xs text-neurospark">
-                      {index + 1}
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-medium text-star-dust">
-                        {lesson!.name}
-                      </span>
-                      {lesson!.description && (
-                        <span className="mt-0.5 block text-xs text-star-dust/70">
-                          {lesson!.description}
-                        </span>
-                      )}
-                    </span>
-                    <span className="flex items-center gap-2 text-xs text-star-dust/70">
-                      {lesson!.estimated_duration && (
-                        <span className="flex items-center gap-1">
-                          <Clock size={11} />
-                          {lesson!.estimated_duration}
-                        </span>
-                      )}
-                      <BookOpen size={12} aria-hidden="true" />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
+        <div className="mb-4!">
+          <div className="mb-2! flex flex-wrap items-center gap-2">
+            {course.difficulty && (
+              <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${DIFFICULTY_COLORS[course.difficulty] || ''}`}>
+                {course.difficulty}
+              </Badge>
+            )}
+            {course.path_type && (
+              <Badge variant="outline" size="sm" className="text-[10px] capitalize">
+                {course.path_type.replace(/_/g, ' ')}
+              </Badge>
+            )}
+            {course.estimated_duration && (
+              <span className="flex items-center gap-1 text-xs text-star-dust/70">
+                <Clock size={12} aria-hidden="true" />
+                {course.estimated_duration}
+              </span>
+            )}
+            {sections.length > 0 && (
+              <span className="text-xs text-star-dust/70">
+                {sections.length} {sections.length === 1 ? 'lesson' : 'lessons'}, one press each
+              </span>
+            )}
           </div>
-        )}
-        {walk.length === 0 && steps.length === 0 && (
-          <p className="mb-6 text-xs text-star-dust/70">
-            This course&rsquo;s path is still being laid — its lessons will
-            appear here as they are written.
+          <h1 className="text-2xl font-bold text-star-dust">{course.name}</h1>
+          {course.description && (
+            <p className="mt-2! line-clamp-2 text-sm leading-relaxed text-star-dust/70">{course.description}</p>
+          )}
+        </div>
+
+        {sections.length > 0 ? (
+          <Procession
+            sections={sections}
+            geometry={CORRIDOR}
+            label={`${course.name} — its lessons in path order`}
+          >
+            {(room, card, deck) => {
+              const lesson = lessonById.get(room.id);
+              return (
+                <>
+                  <div className="mb-3! flex items-center justify-between gap-2">
+                    <span className="text-xs uppercase tracking-wide text-hearth-gold">
+                      Lesson {deck.ordinal} of {sections.length}
+                    </span>
+                    {lesson?.estimated_duration && (
+                      <span className="flex items-center gap-1 text-xs text-star-dust/70">
+                        <Clock size={12} aria-hidden="true" />
+                        {lesson.estimated_duration}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="text-xl font-semibold text-star-dust">{room.name}</h2>
+                  {room.line && (
+                    <p className="mt-1! text-xs uppercase tracking-wide text-star-dust/40">
+                      {String(room.line).replace(/_/g, ' ')}
+                    </p>
+                  )}
+                  {room.story && (
+                    <p className="mt-4! text-sm leading-relaxed text-star-dust/70">{room.story}</p>
+                  )}
+                  {room.address && (
+                    <Link
+                      href={room.address}
+                      data-testid={`lesson-door-${deck.ordinal}`}
+                      className="mt-6! inline-flex min-h-[44px] items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5! text-sm text-star-dust transition-colors hover:bg-white/10"
+                    >
+                      Read it
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  )}
+                </>
+              );
+            }}
+          </Procession>
+        ) : (
+          <p className="text-xs text-star-dust/70">
+            This course&rsquo;s path is still being laid — its lessons will appear here as they are
+            written.
           </p>
         )}
-
-        <div><Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button></div>
-      </Card>
-    </div></main>
+      </div>
+    </main>
   );
 }

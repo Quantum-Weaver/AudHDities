@@ -1,8 +1,5 @@
 // src/components/asgard/domains/athena/dailies/SudokuGame.tsx
-// Landed from resonance-void/intake/daily-sudoku/components/sudoku/sudoku-game.tsx
-// by KP's word (2026-09-02). Written by Kimi. Unchanged except this header —
-// the @/lib/sudoku import already matches this repo's alias, so nothing else moved.
-//
+
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -29,10 +26,15 @@ interface SavedProgress {
   completed: boolean;
 }
 
-export function SudokuGame() {
+interface SudokuGameProps {
+  /** The depth the board opens at. */
+  depth?: Difficulty;
+}
+
+export function SudokuGame({ depth = 'steady' }: SudokuGameProps) {
   const [dateKey, setDateKey] = useState<string | null>(null);
   const [dateLabel, setDateLabel] = useState('');
-  const [difficulty, setDifficulty] = useState<Difficulty>('steady');
+  const [difficulty, setDifficulty] = useState<Difficulty>(depth);
   const [puzzle, setPuzzle] = useState<DailyPuzzle | null>(null);
 
   const [entries, setEntries] = useState<number[]>(() => Array(81).fill(0));

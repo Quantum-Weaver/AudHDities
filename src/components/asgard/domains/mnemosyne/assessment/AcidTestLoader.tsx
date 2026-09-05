@@ -22,7 +22,7 @@ export function AcidTestLoader() {
       .then(r => r.json())
       .then(result => {
         if (result.success) {
-          const rows = result.data?.data ?? result.data ?? [];
+          const rows = result.data?.questions ?? result.data?.data ?? result.data ?? [];
           const list: AssessmentQuestion[] = (Array.isArray(rows) ? rows : [])
             .filter((q: { question_text?: unknown }) => typeof q?.question_text === 'string')
             .sort((a: { display_order?: number }, b: { display_order?: number }) =>

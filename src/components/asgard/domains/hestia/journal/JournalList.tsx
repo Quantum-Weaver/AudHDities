@@ -1,11 +1,10 @@
 // src/components/asgard/domains/hestia/journal/JournalList.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 import { Card } from '@/components/runes/Card';
-import { CardHeader, CardContent } from '@/components/runes/cards';
 import { Button } from '@/components/yggdrasil/Button';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
@@ -14,9 +13,10 @@ import { FormField } from '@/components/forging/FormField';
 import { Input } from '@/components/forging/Input';
 import { Textarea } from '@/components/forging/Textarea';
 import { Select } from '@/components/forging/Select';
+import { Procession } from '@/components/shapes';
+import type { Section } from '@/lib/procession';
 import { ArrowLeft, Plus, Feather, Clock, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { CardData } from '@/types/components/runes/card.types';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TYPES
@@ -57,6 +57,11 @@ const MOOD_COLORS: Record<string, string> = {
   curious: 'bg-teal-500/20 text-teal-400 border-teal-500/30',
 };
 
+const PLACE_BACK =
+  'min-h-[44px] rounded-full border border-white/10 bg-white/5 px-5! text-sm text-star-dust ' +
+  'hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold ' +
+  'focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space';
+
 // ═══════════════════════════════════════════════════════════════════════════
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
@@ -67,6 +72,8 @@ export function JournalList() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [walk, setWalk] = useState(0);
+  const rail = useRef<HTMLDivElement | null>(null);
 
   const fetchEntries = async () => {
     if (!user) return;
@@ -127,17 +134,35 @@ export function JournalList() {
     });
   };
 
-  const previewContent = (content: string) => {
-    return content.length > 120 ? content.slice(0, 120) + '...' : content;
+  // Each entry becomes one deck.
+  const sections = useMemo<Section[]>(
+    () =>
+      entries.map((entry) => ({
+        id: entry.journal_entries_id,
+        title: entry.title,
+        rooms: [{ id: entry.journal_entries_id, name: entry.title }],
+      })),
+    [entries]
+  );
+
+  const byId = useMemo(
+    () => new Map(entries.map((entry) => [entry.journal_entries_id, entry])),
+    [entries]
+  );
+
+  // Stands the walk back at the first entry.
+  const placeBack = () => {
+    setWalk((n) => n + 1);
+    requestAnimationFrame(() => rail.current?.scrollIntoView({ block: 'center' }));
   };
 
   // ─── Loading State ───────────────────────────────────────────────────
   if (authLoading || loading) {
     return (
-      <main className="min-h-screen py-12">
-        <div className="container max-w-3xl mx-auto px-6">
-          <Skeleton variant="text" className="h-8 w-48 mb-8" />
-          <div className="space-y-4">
+      <main className="min-h-screen py-12!">
+        <div className="container max-w-3xl mx-auto! px-6!">
+          <Skeleton variant="text" className="h-8 w-48 mb-8!" />
+          <div className="space-y-4!">
             {[1, 2, 3].map((i) => (
               <Skeleton key={i} variant="card" className="h-32" />
             ))}
@@ -150,8 +175,8 @@ export function JournalList() {
   // ─── Unauthenticated ─────────────────────────────────────────────────
   if (!user) {
     return (
-      <main className="min-h-screen py-12">
-        <div className="container max-w-3xl mx-auto px-6 text-center">
+      <main className="min-h-screen py-12!">
+        <div className="container max-w-3xl mx-auto! px-6! text-center">
           <p className="text-star-dust/60">Enter the Sanctuary to see your vessel.</p>
         </div>
       </main>
@@ -159,21 +184,21 @@ export function JournalList() {
   }
 
   return (
-    <main className="min-h-screen py-12">
-      <div className="container max-w-3xl mx-auto px-6">
+    <main className="min-h-screen py-12!">
+      <div className="container max-w-3xl mx-auto! px-6!">
 
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8!">
           <div>
             <Link
               href="/vessel"
-              className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"
+              className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2!"
             >
               <ArrowLeft className="h-4 w-4" />
               Return to Vessel
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">The Scroll</h1>
-            <p className="text-sm text-star-dust/70 mt-1">Your words, your story, your truth</p>
+            <p className="text-sm text-star-dust/70 mt-1!">Your words, your story, your truth</p>
           </div>
           <Button
             variant="primary"
@@ -181,9 +206,9 @@ export function JournalList() {
             onClick={() => setShowForm(!showForm)}
           >
             {showForm ? (
-              <X className="h-4 w-4 mr-2" />
+              <X className="h-4 w-4 mr-2!" />
             ) : (
-              <Plus className="h-4 w-4 mr-2" />
+              <Plus className="h-4 w-4 mr-2!" />
             )}
             {showForm ? 'Cancel' : 'Weave a Thread'}
           </Button>
@@ -195,7 +220,7 @@ export function JournalList() {
             variant="sanctuary"
             radius="lg"
             shadow="md"
-            className="p-6 mb-8"
+            className="p-6! mb-8!"
           >
             <Form onSubmit={handleCreate}>
               <FormField label="Title" required>
@@ -226,7 +251,7 @@ export function JournalList() {
               </FormField>
               <FormActions>
                 <Button type="submit" variant="primary" loading={isSaving}>
-                  <Feather className="h-4 w-4 mr-2" />
+                  <Feather className="h-4 w-4 mr-2!" />
                   Add to Scroll
                 </Button>
               </FormActions>
@@ -234,42 +259,39 @@ export function JournalList() {
           </Card>
         )}
 
-        {/* Entries List */}
+        {/* The walk */}
         {entries.length === 0 ? (
-          <div className="text-center py-20">
-            <Feather className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
-            <p className="text-star-dust/70 text-lg mb-2">Your scroll awaits your first words</p>
+          <div className="text-center py-20!">
+            <Feather className="h-12 w-12 text-star-dust/20 mx-auto! mb-4!" />
+            <p className="text-star-dust/70 text-lg mb-2!">Your scroll awaits your first words</p>
             <p className="text-star-dust/70 text-sm">Tap &ldquo;Weave a Thread&rdquo; to begin</p>
           </div>
         ) : (
-          <div className="space-y-4">
-            {entries.map((entry) => {
-              const cardData: CardData = {
-                id: entry.journal_entries_id,
-                type: 'value',
-                title: entry.title,
-                value: entry.mood || 'entry',
-              };
+          <div ref={rail}>
+            {entries.length > 1 && (
+              <div className="flex justify-end mb-3!">
+                <button
+                  type="button"
+                  onClick={placeBack}
+                  aria-label="the top of the scroll"
+                  data-testid="scroll-place-back"
+                  className={PLACE_BACK}
+                >
+                  top
+                </button>
+              </div>
+            )}
 
-              return (
-                <Link key={entry.journal_entries_id} href={`/vessel/journal/${entry.journal_entries_id}`}>
-                  <Card
-                    data={cardData}
-                    variant="glass"
-                    radius="lg"
-                    shadow="sm"
-                    interactive
-                    className="p-5"
-                  >
+            <Procession key={walk} sections={sections} label="The Scroll">
+              {(room) => {
+                const entry = byId.get(room.id);
+                if (!entry) return null;
+                return (
+                  <article>
                     <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-star-dust mb-1">
-                          {entry.title}
-                        </h3>
-                        <p className="text-sm text-star-dust/50 line-clamp-2">
-                          {previewContent(entry.content)}
-                        </p>
-                        <div className="flex items-center gap-3 mt-3">
+                      <div className="min-w-0">
+                        <h2 className="text-xl font-semibold text-star-dust">{entry.title}</h2>
+                        <div className="flex flex-wrap items-center gap-3 mt-2!">
                           <span className="flex items-center gap-1 text-xs text-star-dust/70">
                             <Clock size={12} />
                             {formatDate(entry.created_at)}
@@ -285,11 +307,34 @@ export function JournalList() {
                           )}
                         </div>
                       </div>
+                      <Link
+                        href={`/vessel/journal/${entry.journal_entries_id}`}
+                        className="flex-none text-sm text-star-dust/60 hover:text-star-dust transition-colors"
+                      >
+                        open
+                      </Link>
                     </div>
-                  </Card>
-                </Link>
-              );
-            })}
+
+                    <p className="whitespace-pre-wrap leading-relaxed text-star-dust/80 mt-5!">
+                      {entry.content}
+                    </p>
+
+                    {entry.tags && entry.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 border-t border-white/10 mt-6! pt-4!">
+                        {entry.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full border border-white/10 bg-white/5 text-xs text-star-dust/50 px-2.5! py-1!"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </article>
+                );
+              }}
+            </Procession>
           </div>
         )}
       </div>

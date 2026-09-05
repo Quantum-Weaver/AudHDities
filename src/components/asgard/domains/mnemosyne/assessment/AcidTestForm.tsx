@@ -14,6 +14,7 @@ import { Textarea } from "@/components/forging/Textarea";
 export interface AssessmentOption {
   value: string;
   label: string;
+  score: number;
 }
 
 export interface AssessmentQuestion {
@@ -33,11 +34,19 @@ interface AnswerValue {
   value: string | number;
 }
 
+export interface AcidTestReading {
+  category: string;
+  band: string;
+  summaryText: string;
+  recommendations: string[];
+}
+
 export interface AcidTestResult {
   persona: string | null;
   personaDescription: string | null;
   summary: string | null;
   category: string | null;
+  readings: AcidTestReading[];
   raw: unknown;
 }
 
@@ -47,22 +56,10 @@ export interface AcidTestResult {
 
 const RESULT_REDIRECT = '/vessel' as const;
 
-const PERSONA_EMOJIS: Record<string, string> = {
-  masked_traveler: '🎭🌍',
-  tab_hoarder: '📑🔥',
-  seam_warrior: '🧦⚔️',
-  void_dweller: '🌑👁️',
-  pattern_seeker: '🌀🔍',
-  quantum_witness: '✨👁️',
-};
-
-const PERSONA_DESCRIPTIONS: Record<string, string> = {
-  masked_traveler: "You have been navigating the world in disguise. The Sanctuary welcomes you home.",
-  tab_hoarder: "Your many open tabs reflect a mind hungry for connection and pattern.",
-  seam_warrior: "You have been fighting invisible battles. Your awareness is your strength.",
-  void_dweller: "You find peace in the spaces between. Your introspection is a gift.",
-  pattern_seeker: "You see connections others miss. Your vision will shape the Sanctuary.",
-  quantum_witness: "You perceive reality across dimensions. Your consciousness is sovereign.",
+const BAND_WORDS: Record<string, string> = {
+  low: 'Low',
+  mid: 'Mid',
+  high: 'High',
 };
 
 // ============================================================================
@@ -73,20 +70,38 @@ function parseOptions(raw: unknown): AssessmentOption[] {
   if (!Array.isArray(raw)) return [];
   return raw
     .map((o, i): AssessmentOption | null => {
-      if (typeof o === 'string') return { value: o, label: o };
+      if (typeof o === 'string') return { value: o, label: o, score: 0 };
       if (o && typeof o === 'object') {
         const r = o as Record<string, unknown>;
         const value = String(r.value ?? r.id ?? r.slug ?? i);
         const label = String(r.label ?? r.text ?? r.answer_text ?? r.value ?? value);
-        return { value, label };
+        const score = Number(r.score);
+        return { value, label, score: Number.isFinite(score) ? score : 0 };
       }
       return null;
     })
     .filter((o): o is AssessmentOption => !!o);
 }
 
-function formatPersonaDisplay(persona: string): string {
-  return persona.split("_").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+/** submit_acid_test returns one entry per category, in the question order. */
+function parseReadings(raw: unknown): AcidTestReading[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((entry): AcidTestReading | null => {
+      if (!entry || typeof entry !== 'object') return null;
+      const r = entry as Record<string, unknown>;
+      const category = typeof r.category === 'string' ? r.category : '';
+      if (!category) return null;
+      return {
+        category,
+        band: typeof r.band === 'string' ? r.band : '',
+        summaryText: typeof r.summary_text === 'string' ? r.summary_text : '',
+        recommendations: Array.isArray(r.recommendations)
+          ? r.recommendations.filter((m): m is string => typeof m === 'string')
+          : [],
+      };
+    })
+    .filter((r): r is AcidTestReading => !!r);
 }
 
 /** submit_acid_test returns Json whose exact shape the server owns — read it kindly. */
@@ -95,17 +110,18 @@ function parseResult(raw: unknown): AcidTestResult {
   const inner = (r.result_data && typeof r.result_data === 'object' ? r.result_data : {}) as Record<string, unknown>;
   const persona =
     (typeof r.persona === 'string' && r.persona) ||
-    (typeof inner.persona === 'string' && inner.persona) ||
+    (typeof inner.persona_name === 'string' && inner.persona_name) ||
     (typeof r.category === 'string' && r.category) || null;
   return {
     persona,
     personaDescription:
       (typeof r.persona_description === 'string' && r.persona_description) ||
-      (persona && PERSONA_DESCRIPTIONS[persona]) || null,
+      (typeof inner.persona_description === 'string' && inner.persona_description) || null,
     summary:
       (typeof r.summary_text === 'string' && r.summary_text) ||
       (typeof r.summary === 'string' && r.summary) || null,
     category: (typeof r.category === 'string' && r.category) || null,
+    readings: parseReadings(r.readings),
     raw,
   };
 }
@@ -231,9 +247,8 @@ function ProgressIndicator({ current, total }: { current: number; total: number 
 // RESULT VIEW
 // ============================================================================
 
-function ResultView({ result }: { result: AcidTestResult }) {
-  const personaDisplay = result.persona ? formatPersonaDisplay(result.persona) : 'Sovereign';
-  const emoji = (result.persona && PERSONA_EMOJIS[result.persona]) || '✨';
+function ResultView({ result, onContinue }: { result: AcidTestResult; onContinue: () => void }) {
+  const personaDisplay = result.persona || 'Sovereign';
 
   return (
     <Card
@@ -241,26 +256,57 @@ function ResultView({ result }: { result: AcidTestResult }) {
       variant="glass"
       radius="2xl"
       shadow="lg"
-      className="p-8 text-center space-y-6"
+      className="p-8 space-y-8"
     >
-      <div className="text-6xl mb-4">{emoji}</div>
+      <div className="text-center space-y-4">
+        <h2 className="text-2xl font-bold text-star-dust">
+          The Loom Recognizes You
+        </h2>
 
-      <h2 className="text-2xl font-bold text-star-dust">
-        The Loom Recognizes You
-      </h2>
+        <div className="text-xl text-neurospark">
+          {personaDisplay}
+        </div>
 
-      <div className="text-xl text-neurospark">
-        {personaDisplay}
+        {(result.personaDescription || result.summary) && (
+          <p className="text-star-dust/60 max-w-md mx-auto">
+            {result.personaDescription || result.summary}
+          </p>
+        )}
       </div>
 
-      {(result.personaDescription || result.summary) && (
-        <p className="text-star-dust/60 max-w-md mx-auto">
-          {result.personaDescription || result.summary}
-        </p>
+      {result.readings.length > 0 && (
+        <div className="space-y-6">
+          {result.readings.map((reading) => (
+            <div key={reading.category} className="border-t border-star-dust/10 pt-6 space-y-3">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="text-lg font-bold text-star-dust">{reading.category}</h3>
+                <span className="text-sm text-neurospark">
+                  {BAND_WORDS[reading.band] || reading.band}
+                </span>
+              </div>
+
+              {reading.summaryText && (
+                <p className="text-star-dust/60 text-sm leading-relaxed">{reading.summaryText}</p>
+              )}
+
+              {reading.recommendations.length > 0 && (
+                <ul className="space-y-2">
+                  {reading.recommendations.map((message, i) => (
+                    <li key={i} className="text-star-dust/40 text-sm pl-4 border-l border-star-dust/10">
+                      {message}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       )}
 
-      <div className="animate-pulse text-star-dust/40 text-sm">
-        Entering the Sanctuary...
+      <div className="flex justify-center">
+        <Button type="button" variant="primary" onClick={onContinue}>
+          Continue ✨
+        </Button>
       </div>
     </Card>
   );
@@ -329,10 +375,17 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     setIsSubmitting(true);
     setError(null);
 
-    const answersPayload = answers.map(a => ({
-      question_id: a.questionId,
-      value: a.value,
-    }));
+    const answersPayload = answers.map(a => {
+      const question = questions.find(q => q.id === a.questionId);
+      const options = parseOptions(question?.options);
+      const index = options.findIndex(o => o.value === String(a.value));
+      return {
+        question_id: a.questionId,
+        value: a.value,
+        option_index: index >= 0 ? index : null,
+        score: index >= 0 ? options[index].score : (typeof a.value === 'number' ? a.value : 0),
+      };
+    });
 
     try {
       const response = await fetch("/api/generated/mnemosyne-assessment/submit_acid_test", {
@@ -352,10 +405,6 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
       const parsed = parseResult(payload.data ?? payload);
       setResult(parsed);
       onComplete?.(parsed);
-
-      setTimeout(() => {
-        router.push(RESULT_REDIRECT);
-      }, 2000);
 
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to submit. Please try again.");
@@ -387,7 +436,7 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
   }, [isFirstQuestion]);
 
   if (result) {
-    return <ResultView result={result} />;
+    return <ResultView result={result} onContinue={() => router.push(RESULT_REDIRECT)} />;
   }
 
   if (!questions.length) {

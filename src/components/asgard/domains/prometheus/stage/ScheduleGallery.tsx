@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
+import { Gallery } from '@/components/shapes';
+import type { GalleryConfig } from '@/lib/gallery';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
@@ -17,6 +19,26 @@ interface ScheduledEvent {
   scheduled_for: string | null;
   genre: string | null;
 }
+
+const formatDate = (d: string | null) => {
+  if (!d) return 'TBA';
+  return new Date(d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+};
+
+const SCHEDULE: GalleryConfig<ScheduledEvent> = {
+  searchIn: [(e) => e.title, (e) => e.genre],
+  card: {
+    id: (e) => e.id,
+    title: (e) => e.title,
+    badges: (e) => [e.event_type || 'event', e.genre],
+    meta: (e) => formatDate(e.scheduled_for),
+    address: (e) => `/stage/schedule/${e.id}`,
+  },
+  empty: {
+    silent: 'No events scheduled yet',
+    unmatched: 'No event answers to that title or genre',
+  },
+};
 
 export function ScheduleGallery() {
   const [events, setEvents] = useState<ScheduledEvent[]>([]);
@@ -43,11 +65,6 @@ export function ScheduleGallery() {
     );
   }
 
-  const formatDate = (d: string | null) => {
-    if (!d) return 'TBA';
-    return new Date(d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-  };
-
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-6xl mx-auto px-6">
@@ -65,26 +82,32 @@ export function ScheduleGallery() {
             <p className="text-star-dust/40 text-lg">No events scheduled yet</p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {events.map(event => {
-              const cd: CardData = { id: event.id, type: 'event', title: event.title, description: event.description || '' };
+          <Gallery
+            items={events}
+            config={SCHEDULE}
+            label="Narrow the calendar by title or genre"
+            placeholder="Narrow by title or genre"
+            bare
+          >
+            {card => {
+              const cd: CardData = { id: card.id, type: 'event', title: card.title };
               return (
-                <Link key={event.id} href={`/stage/schedule/${event.id}`}>
-                  <Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-                    <div className="flex items-center justify-between mb-3">
-                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">{event.event_type || 'event'}</Badge>
-                      {event.genre && <Badge variant="outline" size="sm" className="text-[10px]">{event.genre}</Badge>}
+                <Link href={card.address} className="block h-full">
+                  <Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5! h-full">
+                    <div className="flex items-center justify-between mb-3!">
+                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">{card.badges[0]}</Badge>
+                      {card.badges[1] && <Badge variant="outline" size="sm" className="text-[10px]">{card.badges[1]}</Badge>}
                     </div>
-                    <h3 className="text-lg font-semibold text-star-dust mb-2">{event.title}</h3>
+                    <h3 className="text-lg font-semibold text-star-dust mb-2!">{card.title}</h3>
                     <div className="flex items-center gap-1 text-xs text-star-dust/40 mt-auto">
                       <Clock size={12} />
-                      <span>{formatDate(event.scheduled_for)}</span>
+                      <span>{card.meta}</span>
                     </div>
                   </Card>
                 </Link>
               );
-            })}
-          </div>
+            }}
+          </Gallery>
         )}
       </div>
     </main>
