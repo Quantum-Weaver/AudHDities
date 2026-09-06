@@ -1,7 +1,7 @@
 # DISTRIBUTED MIRROR - the source of truth lives in resonance-awen
 
 The single editable truth for this water is:
-C:\_superposition\resonance-awen\tools\the-merismos\src\index.ts
+../resonance-awen/tools/the-merismos/src/index.ts
 
 Do not edit index.ts in THIS folder - it is a byte-faithful mirror
 (SHA256 at the copy: E4AE3FFF02C0FE3E7B2315DE705DB0B8990B1719A44FFDA763D2A989F3A775A6),

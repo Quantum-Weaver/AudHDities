@@ -3,7 +3,7 @@
 As of 2026-07-15 (Shuttle Run 04, Phase 3, KP's signature), the Cosmic
 Design System's **single editable truth** is:
 
-    C:\_superposition\resonance-ziggy\modules\cosmic\
+    ../resonance-ziggy/modules/cosmic/
 
 **Do not edit the eight token files in THIS folder.** They remain here
 as the distributed mirror so this app's 76 runtime consumers keep

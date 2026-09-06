@@ -60,7 +60,7 @@ vercel-build · gaia [`:dry`|`:force`|`:verbose`] (`package.json` §scripts).
 ## WHERE
 *(Taxonomy location, neighbors, relationships)*
 
-`c:/_superposition/AudHDities` — the world-facing surface of the Sanctuary
+`../AudHDities` — the world-facing surface of the Sanctuary
 workspace, and its largest body (624 commits as of 2026-08-21, `git log`).
 Its neighbors in the same ground:
 

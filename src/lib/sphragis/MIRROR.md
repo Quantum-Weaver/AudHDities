@@ -1,7 +1,7 @@
 # DISTRIBUTED MIRROR - the source of truth lives in resonance-awen
 
 The single editable truth for this water is:
-C:\_superposition\resonance-awen\tools\the-sphragis\src\index.ts
+../resonance-awen/tools/the-sphragis/src/index.ts
 
 Do not edit index.ts in THIS folder - it is a byte-faithful mirror
 (SHA256 at the copy: 3A5A9E57D316BBC31B62615B839C19B3793FFDF6514795D79769373E36E5B463),

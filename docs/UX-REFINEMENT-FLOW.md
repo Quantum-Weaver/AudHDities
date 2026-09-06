@@ -53,7 +53,7 @@ failures are the map) into docs/UX-REFINEMENT-LOG.md.
 Own porch first (law 2). Then, in order: this file → `_NOTEPAD.md` (KP's
 working notes — read, never edit) → `docs/design/` → the source-book
 index (`docs/design/ziggy-ux-sourcebook-index.md` if present, else
-`C:\_superposition\AudHDities\docs\design\`) → README. Write nothing yet.
+`docs/design/`) → README. Write nothing yet.
 
 ### Step 2 — TRIAGE PASS (with KP's eye — blocking, his call per bucket)
 Map the frozen refactor into three buckets, dir by dir:

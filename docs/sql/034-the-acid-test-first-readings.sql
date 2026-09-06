@@ -2,8 +2,8 @@
 -- 034 — THE ACID TEST'S FIRST READINGS (DRAFT — NOT APPLIED)
 -- ============================================================================
 -- public.assessment_readings does not exist in the base today (confirmed by
--- grep: zero hits for "assessment_readings" anywhere in C:/_superposition/
--- AudHDities). This file creates it, wards it, and seeds the twenty-one
+-- grep: zero hits for "assessment_readings" anywhere in the
+-- AudHDities repo). This file creates it, wards it, and seeds the twenty-one
 -- category x band readings for THE ACID TEST (/questionaire): one row per
 -- category — Executive Flow, Time & Structure, Cognitive Style, Social
 -- Architecture, Sensory Experience, Connection & Purpose, Emotional
