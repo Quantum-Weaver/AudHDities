@@ -321,8 +321,8 @@ export function getBeamAnimation(config: BeamConfig) {
   
   return {
     animate: {
-      x: [path.startX, path.endX],
-      y: [path.startY, path.endY],
+      x: [`${path.startX}%`, `${path.endX}%`],
+      y: 0,
     },
     transition: {
       duration: adjustedDuration,

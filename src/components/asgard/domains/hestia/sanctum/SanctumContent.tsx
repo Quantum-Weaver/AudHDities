@@ -16,8 +16,9 @@ import { Switch } from '@/components/forging/Switch';
 import { Slider } from '@/components/forging/Slider';
 import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
 import { CovenantSpace } from '@/components/asgard/domains/hestia/sanctum/CovenantSpace';
+import { SanctumSection } from '@/components/asgard/domains/hestia/sanctum/SanctumSection';
 import { InventoryShelf } from '@/components/asgard/domains/hestia/sanctum/InventoryShelf';
-import { ArrowLeft, Save, Shield } from 'lucide-react';
+import { ArrowLeft, Save } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
@@ -208,14 +209,7 @@ export function SanctumContent() {
           </div>
         </Card>
 
-        <Card
-          variant="sanctuary"
-          data={identityCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Sovereign Identity</h2>
+        <SanctumSection id="sovereign-identity" title="Sovereign Identity" data={identityCardData}>
           <Form onSubmit={handleSave}>
             <FormField label="Display Name" optional>
               <Input
@@ -239,16 +233,9 @@ export function SanctumContent() {
               />
             </FormField>
           </Form>
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={preferencesCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Accessibility</h2>
+        <SanctumSection id="accessibility" title="Accessibility" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-4">
             Shape the Sanctuary to welcome your nervous system.
           </p>
@@ -263,16 +250,9 @@ export function SanctumContent() {
               Off unless you turn it on. It stays on once you do.
             </p>
           </div>
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={preferencesCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Your Realm</h2>
+        <SanctumSection id="your-realm" title="Your Realm" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-4">
             Choose the environment the Sanctuary wears for you — previewed as
             you choose, remembered every time you return.
@@ -284,16 +264,9 @@ export function SanctumContent() {
               updateConfigField('environment_preference', newValue);
             }}
           />
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={preferencesCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Interiors</h2>
+        <SanctumSection id="interiors" title="Interiors" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-4">
             Your own graphics for the inside of your home. Only you see them.
           </p>
@@ -301,16 +274,9 @@ export function SanctumContent() {
             bucket="interiors"
             onWear={(item) => updateConfigField('interior_url', item ? `${user.id}/${item.name}` : null)}
           />
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={preferencesCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Exteriors</h2>
+        <SanctumSection id="exteriors" title="Exteriors" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-4">
             Your own graphics for the outside of your home, shown on your community profile.
           </p>
@@ -318,16 +284,9 @@ export function SanctumContent() {
             bucket="exteriors"
             onWear={(item) => updateIdentityField('exterior_url', item?.url ?? null)}
           />
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={preferencesCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <h2 className="text-lg font-semibold text-star-dust mb-4">Ceremonies</h2>
+        <SanctumSection id="ceremonies" title="Ceremonies" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-4">
             Small rites at the thresholds — yours to invite, easy to decline.
             Nothing plays unless you choose it here.
@@ -346,29 +305,13 @@ export function SanctumContent() {
               onChange={(checked) => { setCeremonyFarewell(checked); updateConfigField('ceremony_farewell', checked); }}
             />
           </div>
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={covenantCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
+        <SanctumSection id="the-covenant" title="The Covenant" data={covenantCardData}>
           <CovenantSpace />
-        </Card>
+        </SanctumSection>
 
-        <Card
-          variant="sanctuary"
-          data={preferencesCardData}
-          radius="lg"
-          shadow="md"
-          className="p-8 mb-6 bg-surface/90"
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <Shield className="h-4 w-4 text-neurospark" />
-            <h2 className="text-lg font-semibold text-star-dust">Your Daily Rhythm</h2>
-          </div>
+        <SanctumSection id="your-daily-rhythm" title="Your Daily Rhythm" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-6">
             Your own boundaries for the bubbles — a kindness to your future
             self, never a score. They follow your vessel to every device.
@@ -412,7 +355,7 @@ export function SanctumContent() {
               either way.
             </p>
           </div>
-        </Card>
+        </SanctumSection>
 
         <div className="flex items-center gap-4">
           <Button

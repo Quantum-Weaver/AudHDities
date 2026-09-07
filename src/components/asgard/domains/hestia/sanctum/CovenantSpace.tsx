@@ -101,7 +101,6 @@ export function CovenantSpace() {
     <div className="text-left">
       <div className="flex items-center gap-2 mb-4">
         <HeartHandshake className="h-4 w-4 text-neurospark" aria-hidden="true" />
-        <h2 className="text-lg font-semibold text-star-dust">The Covenant</h2>
       </div>
       <p className="text-sm text-star-dust/60 mb-2">
         The covenant pool is the Sanctuary&apos;s shared dividend: a portion of
