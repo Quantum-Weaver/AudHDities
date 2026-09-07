@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Skeleton } from '@/components/runes/Skeleton';
 import AvatarUpload from '@/components/runes/AvatarUpload';
@@ -17,6 +18,7 @@ import { Slider } from '@/components/forging/Slider';
 import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
 import { CovenantSpace } from '@/components/asgard/domains/hestia/sanctum/CovenantSpace';
 import { SanctumSection } from '@/components/asgard/domains/hestia/sanctum/SanctumSection';
+import { PayoutsSpace } from '@/components/asgard/domains/hestia/sanctum/PayoutsSpace';
 import { InventoryShelf } from '@/components/asgard/domains/hestia/sanctum/InventoryShelf';
 import { ArrowLeft, Save } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -25,6 +27,8 @@ import type { CardData } from '@/types/components/runes/card.types';
 export function SanctumContent() {
   const router = useRouter();
   const { user, profile, loading, refreshProfile } = useAuth();
+  const { roles } = useUser();
+  const isPaid = roles.includes('artisan') || roles.includes('merchant');
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [dyslexiaFont, setDyslexiaFont] = useState(false);
@@ -310,6 +314,12 @@ export function SanctumContent() {
         <SanctumSection id="the-covenant" title="The Covenant" data={covenantCardData}>
           <CovenantSpace />
         </SanctumSection>
+
+        {isPaid && (
+          <SanctumSection id="payouts" title="Payouts" data={covenantCardData}>
+            <PayoutsSpace />
+          </SanctumSection>
+        )}
 
         <SanctumSection id="your-daily-rhythm" title="Your Daily Rhythm" data={preferencesCardData}>
           <p className="text-sm text-star-dust/70 mb-6">

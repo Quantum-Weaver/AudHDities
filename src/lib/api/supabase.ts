@@ -58,6 +58,18 @@ export async function createApiSupabase(base: SupabaseBase = 'superposition') {
 }
 
 /**
+ * Server-only client with the base's own key: no cookies, no session.
+ * For callers that arrive without a user, such as Stripe's webhook.
+ */
+export function createServiceSupabase() {
+  const key = process.env.SUPABASE_SECRET_KEY;
+  if (!key) throw new Error('SUPABASE_SECRET_KEY is not set');
+  return createSupabaseJsClient<Database>(process.env.NEXT_PUBLIC_SUPABASE_URL!, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
+
+/**
  * Get Supabase with service role for admin operations
  * WARNING: Only use in admin-only routes
  */

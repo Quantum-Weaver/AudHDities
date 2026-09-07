@@ -1,6 +1,7 @@
 // app/api/webhook/stripe/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
+import { createServiceSupabase } from '@/lib/api/supabase';
 import { stripe as getStripe } from '@/lib/stripe/server';
 import { writeLedgerRowsForExchange } from '@/lib/economics/ledger';
 
@@ -139,6 +140,30 @@ export async function POST(request: NextRequest) {
         console.error(`Failed to mark exchange failed for session ${session.id}:`, failError);
       } else {
         console.log(`Session ${session.id} ${event.type} — pending exchange marked failed`);
+      }
+      break;
+    }
+
+    case 'account.updated': {
+      const account = event.data.object;
+      const details = {
+        payouts_enabled: Boolean(account.payouts_enabled),
+        charges_enabled: Boolean(account.charges_enabled),
+        details_submitted: Boolean(account.details_submitted),
+        currently_due: account.requirements?.currently_due ?? [],
+        updated_at: eventAtIso,
+      };
+      const { error: accountError } = await createServiceSupabase()
+        .from('user_financial')
+        .update({
+          payout_details: details,
+          payout_schedule: account.settings?.payouts?.schedule?.interval ?? null,
+        })
+        .eq('stripe_account_id', account.id);
+      if (accountError) {
+        console.error(`Failed to record account.updated for ${account.id}:`, accountError);
+      } else {
+        console.log(`Account ${account.id} updated — payouts_enabled ${details.payouts_enabled}`);
       }
       break;
     }
