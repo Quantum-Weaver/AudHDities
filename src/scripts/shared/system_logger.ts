@@ -11,6 +11,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
 const REGISTRY_PATH = path.join(PROJECT_ROOT, 'config/generated/system_registry.ts');
+const REPO_ROOT = path.resolve(__dirname, '../../..');
+
+// A registry row names a file relative to the repo root, forward slashes; a file outside the repo keeps its own path.
+function registryPath(filePath: string): string {
+  const rel = path.relative(REPO_ROOT, path.resolve(filePath));
+  const outside = rel === '' || rel.startsWith('..') || path.isAbsolute(rel);
+  return (outside ? filePath : rel).split(path.sep).join('/');
+}
 
 export type SystemName = 'COSMIC' | 'GAIA';
 export type LogLevel = 'info' | 'warning' | 'error' | 'success';
@@ -141,10 +149,11 @@ export class SystemLogger {
    */
   addGeneratedFile(filePath: string): void {
     if (this.currentRun) {
-      this.currentRun.generatedFiles.push(filePath);
-      
+      const key = registryPath(filePath);
+      this.currentRun.generatedFiles.push(key);
+
       const section = this.system === 'COSMIC' ? this.registry.cosmic : this.registry.gaia;
-      section.files[filePath] = {
+      section.files[key] = {
         hash: generateFileHash(filePath),
         generatedAt: new Date().toISOString()
       };
