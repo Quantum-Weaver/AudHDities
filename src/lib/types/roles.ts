@@ -57,14 +57,14 @@ export const USER_TIER_MAP = new Map(
 );
 
 // =====================================================
-// ROLE TYPES — user_roles rows
+// ROLE TYPES — the roles column on community_profiles
 // =====================================================
 
 export type UserRole = Database['public']['Enums']['user_role'];
 
 export interface RoleFlags {
-  isCreator: boolean;
-  isVendor: boolean;
+  isArtisan: boolean;
+  isMerchant: boolean;
   isAdmin: boolean;
   isQuantumWeaver: boolean; // sovereign_tier === 'sovereign_weaver'
   userTier: UserTier;
@@ -87,13 +87,13 @@ export interface UserPermissions {
 // =====================================================
 
 export function getUserPermissions(flags: RoleFlags): UserPermissions {
-  const { isCreator, isVendor, isAdmin, isQuantumWeaver, roles } = flags;
+  const { isArtisan, isMerchant, isAdmin, isQuantumWeaver, roles } = flags;
   const isCouncil = roles?.includes('council') ?? false;
 
   return {
-    // Creator capabilities
-    canCreateProducts: isCreator || isAdmin || isQuantumWeaver,
-    canSellProducts: isVendor || isAdmin || isQuantumWeaver,
+    // Artisan capabilities
+    canCreateProducts: isArtisan || isAdmin || isQuantumWeaver,
+    canSellProducts: isMerchant || isAdmin || isQuantumWeaver,
 
     // Moderation & governance
     canModerate: isAdmin || isCouncil,
@@ -109,13 +109,13 @@ export function getUserPermissions(flags: RoleFlags): UserPermissions {
 
 // Legacy function signature for backward compatibility
 export function getUserPermissionsLegacy(
-  isCreator: boolean,
-  isVendor: boolean,
+  isArtisan: boolean,
+  isMerchant: boolean,
   isAdmin: boolean
 ): UserPermissions {
   return getUserPermissions({
-    isCreator,
-    isVendor,
+    isArtisan,
+    isMerchant,
     isAdmin,
     isQuantumWeaver: false,
     userTier: 'dweller',

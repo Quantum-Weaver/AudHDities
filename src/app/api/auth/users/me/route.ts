@@ -15,14 +15,13 @@ export async function GET() {
       );
     }
 
-    const [profileRes, rolesRes, sigilsRes] = await Promise.all([
+    const [profileRes, sigilsRes] = await Promise.all([
       supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
-      supabase.from('user_roles').select('role').eq('user_id', user.id),
       supabase.from('vessel_sigils').select('*').eq('user_id', user.id),
     ]);
 
     const profile = profileRes.data ?? null;
-    const roles = (rolesRes.data ?? []).map(r => r.role);
+    const roles = profile?.roles ?? [];
     const sigils = sigilsRes.data ?? [];
 
     if (profileRes.error) {
@@ -30,7 +29,7 @@ export async function GET() {
     }
 
     let wares: unknown[] = [];
-    if (roles.includes('creator') || roles.includes('vendor')) {
+    if (roles.includes('artisan') || roles.includes('merchant')) {
       const { data: userWares } = await supabase
         .from('wares')
         .select('*')

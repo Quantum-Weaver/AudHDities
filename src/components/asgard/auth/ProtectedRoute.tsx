@@ -6,7 +6,7 @@ import { useRequireRole } from '@/hooks/useRequireRole';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
-  requiredRole?: 'admin' | 'creator' | 'vendor';
+  requiredRole?: 'admin' | 'artisan' | 'merchant';
   redirectTo?: string;
 }
 

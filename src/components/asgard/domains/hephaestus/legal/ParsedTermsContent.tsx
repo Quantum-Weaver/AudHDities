@@ -11,7 +11,7 @@ const iconMap: Record<string, React.ReactNode> = {
   'User Accounts': <Users className="text-purple-400" size={20} />,
   'Neurodivergent Accessibility': <Heart className="text-pink-400" size={20} />,
   'Economic Terms': <DollarSign className="text-green-400" size={20} />,
-  'Creator and Vendor Terms': <Palette className="text-purple-400" size={20} />,
+  'Artisan and Merchant Terms': <Palette className="text-purple-400" size={20} />,
   'Community Guidelines': <Heart className="text-pink-400" size={20} />,
   'Privacy': <Lock className="text-neurospark" size={20} />,
   'Intellectual Property': <Scale className="text-purple-400" size={20} />,

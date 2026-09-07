@@ -77,7 +77,7 @@ export function TwoStreamFlow() {
             description="Tiered pricing based on Acid Test"
           />
           
-          {/* UPDATED: 90% Creator, 10% Platform */}
+          {/* UPDATED: 90% Artisan, 10% Platform */}
           <div className="grid grid-cols-2 gap-2 my-2">
             <FlowItemMini label="Artisan Profit" percent="90%" color="purple" />
             <FlowItemMini label="Platform Fee" percent="10%" color="cyan" />

@@ -59,7 +59,7 @@ export function MerchantDetail() {
     ...(merchant.secondary_categories || []),
   ];
 
-  const cardData: CardData = { id: merchant.id, type: 'vendor', title: merchant.vendor_name, description: merchant.bio || '' };
+  const cardData: CardData = { id: merchant.id, type: 'merchant', title: merchant.merchant_name, description: merchant.bio || '' };
 
   return (
     <main className="min-h-screen py-12">
@@ -71,11 +71,11 @@ export function MerchantDetail() {
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center text-2xl font-bold text-star-dust/60">
-              {merchant.vendor_name?.charAt(0)?.toUpperCase() || 'M'}
+              {merchant.merchant_name?.charAt(0)?.toUpperCase() || 'M'}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold text-star-dust">{merchant.vendor_name}</h1>
+                <h1 className="text-2xl font-bold text-star-dust">{merchant.merchant_name}</h1>
                 {merchant.verified_at && <Shield size={18} className="text-neurospark" aria-label="Verified" />}
               </div>
               {merchant.business_type && (

@@ -259,7 +259,7 @@ export default function ArtisanOnboardingPage() {
               "Make first sale!"
             ]}
             actionText="Apply to Become an Artisan"
-            actionLink="/council/applications/creator"
+            actionLink="/council/applications/artisan"
           />
           
           <div className="mt-12 text-center">

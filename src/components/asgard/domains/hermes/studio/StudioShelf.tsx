@@ -46,7 +46,7 @@ export function StudioShelf() {
   const [walled, setWalled] = useState(false);
   const [filter, setFilter] = useState('all');
 
-  const isArtisan = roles.includes('creator');
+  const isArtisan = roles.includes('artisan');
 
   useEffect(() => {
     if (!user) return;

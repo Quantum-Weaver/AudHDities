@@ -298,7 +298,7 @@ export default async function MerchantOnboardingPage() {
               "Optional: Set each ware's residual pledge"
             ]}
             actionText="Apply to Become a Merchant"
-            actionLink="/council/applications/vendor"
+            actionLink="/council/applications/merchant"
           />
         </div>
       </main>

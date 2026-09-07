@@ -11,7 +11,7 @@ const projections = [
     phase: 'Foundation',
     metrics: [
       { label: 'Platform Fee', value: '10%', icon: TrendingUp, color: 'cyan', description: 'Fixed rate' },
-      { label: 'Creator Earnings', value: '$50K', icon: DollarSign, color: 'purple', description: 'From sales' },
+      { label: 'Artisan Earnings', value: '$50K', icon: DollarSign, color: 'purple', description: 'From sales' },
       { label: 'Contributor Payouts', value: '$10K', icon: Users, color: 'pink', description: 'From residual pool' },
       { label: 'Covenant Distribution', value: '$5K', icon: Heart, color: 'green', description: 'Community dignity share' },
     ],
@@ -21,7 +21,7 @@ const projections = [
     phase: 'Growth',
     metrics: [
       { label: 'Platform Fee', value: '10%', icon: TrendingUp, color: 'cyan', description: 'Fixed rate (unchanged)' },
-      { label: 'Creator Earnings', value: '$500K - $1M', icon: DollarSign, color: 'purple', description: 'Full-time incomes' },
+      { label: 'Artisan Earnings', value: '$500K - $1M', icon: DollarSign, color: 'purple', description: 'Full-time incomes' },
       { label: 'Contributor Payouts', value: '$100K - $250K', icon: Users, color: 'pink', description: 'Long-tail residual income' },
       { label: 'Covenant Distribution', value: '$50K - $100K', icon: Heart, color: 'green', description: 'Basic dignity for all members' },
     ],
@@ -31,7 +31,7 @@ const projections = [
     phase: 'Mature Ecosystem',
     metrics: [
       { label: 'Platform Fee', value: '10%', icon: TrendingUp, color: 'cyan', description: 'Fixed rate (unchanged)' },
-      { label: 'Creator Earnings', value: '$2M - $5M', icon: DollarSign, color: 'purple', description: '50+ full-time creators' },
+      { label: 'Artisan Earnings', value: '$2M - $5M', icon: DollarSign, color: 'purple', description: '50+ full-time creators' },
       { label: 'Contributor Payouts', value: '$500K - $1M', icon: Users, color: 'pink', description: '500+ receiving forever' },
       { label: 'Covenant Distribution', value: '$250K - $500K', icon: Heart, color: 'green', description: 'Universal basic dignity' },
     ],

@@ -14,6 +14,9 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
 import { HOME_LABELS } from '@/lib/constants/components/asgard/domains/hestia/home/home.constants';
+import type { UserRole } from '@/lib/types/roles';
+
+type RoleCatalogEntry = { role: UserRole; label: string; icon_emoji: string | null; sort_order: number };
 
 interface EarnedSigil {
   id: string;
@@ -59,6 +62,18 @@ export function VesselContent() {
   const [sigils, setSigils] = useState<EarnedSigil[]>([]);
   const [events, setEvents] = useState<CurrentEvent[]>([]);
   const [bubblesOnVessel, setBubblesOnVessel] = useState(false);
+  const [roleCatalog, setRoleCatalog] = useState<RoleCatalogEntry[]>([]);
+
+  useEffect(() => {
+    fetch('/api/generated/hestia-core/role_catalog?limit=20')
+      .then(r => r.json())
+      .then(res => {
+        const rows = res.success ? (res.data?.data ?? res.data ?? []) : [];
+        const entries = (Array.isArray(rows) ? rows : []) as RoleCatalogEntry[];
+        setRoleCatalog([...entries].sort((a, b) => a.sort_order - b.sort_order));
+      })
+      .catch(() => setRoleCatalog([]));
+  }, []);
   const [isCrossing] = useState(() => {
     if (typeof window === 'undefined') return true;
     try {
@@ -141,7 +156,7 @@ export function VesselContent() {
     { href: '/notifications', label: 'The Call', icon: Bell, id: 'notifications' },
   ];
 
-  if (roles.includes('creator') || isQuantumWeaver) {
+  if (roles.includes('artisan') || isQuantumWeaver) {
     quickLinks.push({ href: '/bazaar/studio', label: 'The Loom', icon: Palette, id: 'studio' });
   }
 
@@ -180,10 +195,14 @@ export function VesselContent() {
 
         <div className="flex items-center gap-2 mb-4 flex-wrap justify-center">
           <Badge variant="default">{TIER_LABELS[tier] ?? prettify(tier)}</Badge>
-          {roles.includes('creator') && <Badge variant="default">Creator</Badge>}
-          {roles.includes('vendor') && <Badge variant="default">Vendor</Badge>}
-          {roles.includes('curator') && <Badge variant="default">Curator</Badge>}
-          {roles.includes('council') && <Badge variant="default">Council</Badge>}
+          {roleCatalog
+            .filter(entry => entry.role !== 'community' && roles.includes(entry.role))
+            .map(entry => (
+              <Badge key={entry.role} variant="default">
+                {entry.icon_emoji && <span aria-hidden="true">{entry.icon_emoji} </span>}
+                {entry.label}
+              </Badge>
+            ))}
           {isQuantumWeaver && <Badge variant="default">Quantum Weaver</Badge>}
         </div>
 

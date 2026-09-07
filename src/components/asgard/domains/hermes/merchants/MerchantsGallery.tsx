@@ -24,7 +24,7 @@ export function MerchantsGallery() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('/api/generated/hermes-social/merchant_profiles?status=active&order=vendor_name.asc')
+    fetch('/api/generated/hermes-social/merchant_profiles?status=active&order=merchant_name.asc')
       .then((r) => r.json())
       .then((result) => {
         if (result.success) setMerchants(result.data?.data || result.data || []);
@@ -35,7 +35,7 @@ export function MerchantsGallery() {
 
   const filtered = useMemo(() =>
     merchants.filter((m) =>
-      m.vendor_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      m.merchant_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (m.tagline || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
       (m.bio || '').toLowerCase().includes(searchTerm.toLowerCase())
     ), [merchants, searchTerm]);
@@ -87,7 +87,7 @@ export function MerchantsGallery() {
                 radius="lg"
                 shadow="sm"
                 data={{
-                  id: m.id, type: 'vendor', title: m.vendor_name,
+                  id: m.id, type: 'merchant', title: m.merchant_name,
                   description: m.tagline || m.bio || undefined,
                   businessType: m.business_type || undefined,
                   isVerified: !!m.verified_at,

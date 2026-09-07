@@ -117,7 +117,7 @@ export function StudioForm({ initialKind }: StudioFormProps) {
     setBodies((rows) => rows.map((r) => (r.key === key ? { ...r, ...patch } : r)));
   }, []);
 
-  const isArtisan = roles.includes('creator');
+  const isArtisan = roles.includes('artisan');
 
   const handleSubmit = async (data: Record<string, unknown>) => {
     if (!user || !kind) return;

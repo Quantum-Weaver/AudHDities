@@ -85,7 +85,7 @@ export interface SplitInput {
   residualPledgePercent: number;
   /**
    * ware_participants.user_id + wares.created_by, distinct, in a STABLE order
-   * (the caller sorts by ware_participants.created_at, the creator last if they
+   * (the caller sorts by ware_participants.created_at, the artisan last if they
    * are not already among them). Read by PRESENCE, not by publication:
    * is_public is a display toggle only, and a kept-quiet participant is paid.
    */

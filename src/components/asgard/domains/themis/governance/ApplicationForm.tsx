@@ -22,7 +22,7 @@ import { useCommunityProfilesList } from "@/lib/generated/hooks/hestia-core/comm
 // TYPES
 // =====================================================
 
-export type ApplicationType = "creator" | "vendor";
+export type ApplicationType = "artisan" | "merchant";
 
 export interface ApplicationFormProps {
   userId: string;
@@ -248,7 +248,7 @@ export function ApplicationForm({
         sectionFields.push("description", "experience", "motivation");
         break;
       case 3:
-        if (applicationType === "creator") sectionFields.push("portfolio_url");
+        if (applicationType === "artisan") sectionFields.push("portfolio_url");
         break;
       case 4:
         return formData.accept_terms;
@@ -291,7 +291,7 @@ export function ApplicationForm({
       return;
     }
 
-    const form_data = applicationType === "creator" ? {
+    const form_data = applicationType === "artisan" ? {
       creative_categories: formData.creative_categories,
       portfolio_url: formData.portfolio_url,
       creative_description: formData.description,
@@ -381,10 +381,10 @@ export function ApplicationForm({
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-star-dust mb-2">
-          {applicationType === "creator" ? "Artisan Application" : "Merchant Application"}
+          {applicationType === "artisan" ? "Artisan Application" : "Merchant Application"}
         </h1>
         <p className="text-star-dust/60">
-          Join the Sanctuary as a sovereign {applicationType === "creator" ? "artisan" : "merchant"}
+          Join the Sanctuary as a sovereign {applicationType === "artisan" ? "artisan" : "merchant"}
         </p>
       </div>
 
@@ -430,7 +430,7 @@ export function ApplicationForm({
         <div>
           <Input
             name="business_name"
-            label={applicationType === "creator" ? "Artisan Name" : "Business Name"}
+            label={applicationType === "artisan" ? "Artisan Name" : "Business Name"}
             required
             value={formData.business_name}
             onChange={(e) => updateField("business_name", e.target.value)}
@@ -440,11 +440,11 @@ export function ApplicationForm({
               if (error) setErrors(prev => ({ ...prev, business_name: error }));
             }}
             error={touched.business_name ? errors.business_name : undefined}
-            placeholder={applicationType === "creator" ? "Your creative name" : "Your business name"}
+            placeholder={applicationType === "artisan" ? "Your creative name" : "Your business name"}
           />
         </div>
 
-        {applicationType === "vendor" && (
+        {applicationType === "merchant" && (
           <div>
             <Select
               name="business_type"
@@ -567,7 +567,7 @@ export function ApplicationForm({
         isCompleted={isSectionCompleted(3)}
         stepNumber={3}
       >
-        {applicationType === "creator" && (
+        {applicationType === "artisan" && (
           <div>
             <Input
               name="portfolio_url"
@@ -616,7 +616,7 @@ export function ApplicationForm({
               <span className="text-star-dust/60">Business Name:</span>
               <span className="text-star-dust">{formData.business_name || "—"}</span>
             </div>
-            {applicationType === "vendor" && formData.business_type && (
+            {applicationType === "merchant" && formData.business_type && (
               <div className="flex justify-between">
                 <span className="text-star-dust/60">Business Type:</span>
                 <span className="text-star-dust capitalize">{formData.business_type.replace("_", " ")}</span>

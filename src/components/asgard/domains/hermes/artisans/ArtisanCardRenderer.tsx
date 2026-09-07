@@ -11,9 +11,9 @@ import { Shield, Package } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/runes/Card';
 
-interface CreatorCardData {
+interface ArtisanCardData {
   id: string;
-  type: 'creator';
+  type: 'artisan';
   title: string;
   description?: string;
   image?: string;
@@ -45,7 +45,7 @@ export const ArtisanCardRenderer: React.FC<ArtisanCardRendererProps> = ({
   shadow = 'sm',
   interactive = true,
 }) => {
-  const creator = data as CreatorCardData;
+  const artisan = data as ArtisanCardData;
 
   return (
     <Card data={data} variant={variant} interactive={interactive} radius={radius} shadow={shadow} className="p-5 h-full">
@@ -54,32 +54,32 @@ export const ArtisanCardRenderer: React.FC<ArtisanCardRendererProps> = ({
           <div className="flex items-center gap-3">
             <Avatar size="lg">
               <AvatarFallback>
-                {creator.title?.charAt(0)?.toUpperCase() || 'C'}
+                {artisan.title?.charAt(0)?.toUpperCase() || 'A'}
               </AvatarFallback>
             </Avatar>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-star-dust font-semibold">{creator.title}</span>
-                {creator.isVerified && (
+                <span className="text-star-dust font-semibold">{artisan.title}</span>
+                {artisan.isVerified && (
                   <Shield size={14} className="text-neurospark" />
                 )}
               </div>
-              {creator.tier && (
-                <span className="text-xs text-star-dust/40 capitalize">{creator.tier}</span>
+              {artisan.tier && (
+                <span className="text-xs text-star-dust/40 capitalize">{artisan.tier}</span>
               )}
             </div>
           </div>
         }
         badge={
-          creator.house ? (
+          artisan.house ? (
             <Badge variant="outline" size="sm" className="text-[10px]">
-              House {HOUSE_LABELS[creator.house] || creator.house}
+              House {HOUSE_LABELS[artisan.house] || artisan.house}
             </Badge>
           ) : undefined
         }
       />
-      {creator.description && (
-        <CardContent description={creator.description} />
+      {artisan.description && (
+        <CardContent description={artisan.description} />
       )}
     </Card>
   );

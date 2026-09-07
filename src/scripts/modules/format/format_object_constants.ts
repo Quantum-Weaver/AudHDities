@@ -45,7 +45,7 @@ export function getDeityGroupForEnum(enumName: string): { deityName: string; dom
   }
   
   // Fallback based on enum name patterns
-  if (enumName.includes('user_') || enumName.includes('profile') || enumName.includes('creator') || enumName.includes('vendor')) {
+  if (enumName.includes('user_') || enumName.includes('profile') || enumName.includes('artisan') || enumName.includes('merchant')) {
     return { deityName: 'hestia', domain: 'core', folderName: 'hestia-core' };
   }
   if (enumName.includes('product') || enumName.includes('sale') || enumName.includes('payout') || enumName.includes('subscription')) {

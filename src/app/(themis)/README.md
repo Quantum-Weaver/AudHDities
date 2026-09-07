@@ -32,10 +32,10 @@ src/app/(themis)/council/
     ├── page.tsx                      # Applications (/council/applications)
     ├── [id]/
     │   └── page.tsx                  # Application Detail (stub)
-    ├── creator/
-    │   └── page.tsx                  # Creator Application (/council/applications/creator)
-    └── vendor/
-        └── page.tsx                  # Vendor Application (/council/applications/vendor)
+    ├── artisan/
+    │   └── page.tsx                  # Artisan Application (/council/applications/artisan)
+    └── merchant/
+        └── page.tsx                  # Merchant Application (/council/applications/merchant)
 ```
 
 ---
@@ -141,8 +141,8 @@ src/components/asgard/domains/themis/
 - **Features:** Queue for reviewers, Apply buttons for users, Approve/Reject actions
 - **Access:** Public view, review actions restricted to moderators/admins
 
-### Creator / Vendor Application (`/council/applications/creator`, `/vendor`)
-- **Purpose:** Submit an application to become a creator or vendor
+### Artisan / Merchant Application (`/council/applications/artisan`, `/merchant`)
+- **Purpose:** Submit an application to become an artisan or merchant
 - **Data:** `useCreateApplications()` + `useCommunityProfilesList()` — generated hooks; duplicate-pending guard via applications query
 - **Components:** ApplicationForm (shared), Card, Button, Skeleton
 - **Features:** Auth-gated form, one pending application per user enforced client-side

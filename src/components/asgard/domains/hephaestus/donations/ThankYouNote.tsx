@@ -54,7 +54,7 @@ export function ThankYouNote({ amount, className }: ThankYouNoteProps) {
             <span className="text-sanctuary-green">✓</span> Maintain the Sanctuary for all members
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-sanctuary-green">✓</span> Support neurodivergent creators
+            <span className="text-sanctuary-green">✓</span> Support neurodivergent artisans
           </li>
           <li className="flex items-center gap-2">
             <span className="text-sanctuary-green">✓</span> Develop accessible creative tools

@@ -114,11 +114,11 @@ export function TransparencyLedger() {
         
         <div className="space-y-3">
           <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-            <p className="text-green-400 text-sm">✓ Verified creator: @tjdpoetry</p>
+            <p className="text-green-400 text-sm">✓ Verified artisan: @tjdpoetry</p>
             <p className="text-star-dust/40 text-xs mt-1">March 20, 2026 · Admin Log #142</p>
           </div>
           <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
-            <p className="text-green-400 text-sm">✓ Approved vendor application: Blackwing Textiles</p>
+            <p className="text-green-400 text-sm">✓ Approved merchant application: Blackwing Textiles</p>
             <p className="text-star-dust/40 text-xs mt-1">March 19, 2026 · Admin Log #141</p>
           </div>
           <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-3">
@@ -143,7 +143,7 @@ export function TransparencyLedger() {
                   <p className="text-star-dust/40 text-xs mt-1">March 15, 2026 · Admin Log #138</p>
                 </div>
                 <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
-                  <p className="text-yellow-400 text-sm">⚠️ Pending review: Creator application - Quantum Muse</p>
+                  <p className="text-yellow-400 text-sm">⚠️ Pending review: Artisan application - Quantum Muse</p>
                   <p className="text-star-dust/40 text-xs mt-1">March 14, 2026 · Admin Log #137</p>
                 </div>
               </motion.div>

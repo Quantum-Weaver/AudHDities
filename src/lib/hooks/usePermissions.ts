@@ -8,18 +8,18 @@ export function usePermissions() {
   const { roles, sovereignTier, isLoading } = useUser();
 
   const isAdmin = roles.includes('admin');
-  const isCreator = roles.includes('creator');
-  const isVendor = roles.includes('vendor');
+  const isArtisan = roles.includes('artisan');
+  const isMerchant = roles.includes('merchant');
   const isCommunity = roles.includes('community') || roles.includes('council') || sovereignTier !== null;
 
   const can = useMemo(() => ({
     viewAll: isAdmin,
     editAny: isAdmin,
-    createProducts: isCreator || isAdmin,
-    createVendorItems: isVendor || isAdmin,
+    createProducts: isArtisan || isAdmin,
+    createVendorItems: isMerchant || isAdmin,
     moderate: isAdmin,
     accessCommunityTier: isCommunity,
-  }), [isAdmin, isCreator, isVendor, isCommunity]);
+  }), [isAdmin, isArtisan, isMerchant, isCommunity]);
 
-  return { isAdmin, isCreator, isVendor, isCommunity, can, loading: isLoading };
+  return { isAdmin, isArtisan, isMerchant, isCommunity, can, loading: isLoading };
 }

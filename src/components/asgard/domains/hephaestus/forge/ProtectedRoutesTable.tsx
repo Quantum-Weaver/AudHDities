@@ -15,7 +15,7 @@ const protectedRoutes = [
       'AuthGuard, inverted: a vessel already signed in on arrival is sent to /vessel rather than shown the door twice.',
   },
   {
-    path: '/council/applications/creator · /council/applications/vendor',
+    path: '/council/applications/artisan · /council/applications/merchant',
     description:
       'The form renders only for a signed-in vessel; a visitor is asked to sign in first, and is turned away from nothing else.',
   },

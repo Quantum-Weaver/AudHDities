@@ -31,7 +31,7 @@ export interface AuthGuardProps {
 // ─── Protected Route Props ─────────────────────────────────────────────────
 export interface ProtectedRouteProps {
   children: React.ReactNode;
-  requiredRole?: 'admin' | 'creator' | 'vendor';
+  requiredRole?: 'admin' | 'artisan' | 'merchant';
   redirectTo?: string;
 }
 

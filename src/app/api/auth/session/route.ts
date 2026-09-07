@@ -18,10 +18,11 @@ export async function GET() {
       );
     }
 
-    const [profileRes, rolesRes] = await Promise.all([
-      supabase.from('community_profiles').select('*').eq('created_by', user.id).maybeSingle(),
-      supabase.from('user_roles').select('role').eq('user_id', user.id),
-    ]);
+    const profileRes = await supabase
+      .from('community_profiles')
+      .select('*')
+      .eq('created_by', user.id)
+      .maybeSingle();
 
     if (profileRes.error) {
       console.error('Profile fetch error:', profileRes.error);
@@ -30,7 +31,7 @@ export async function GET() {
     return NextResponse.json({
       user,
       profile: profileRes.data || null,
-      roles: (rolesRes.data ?? []).map(r => r.role),
+      roles: profileRes.data?.roles ?? [],
     });
   } catch (error) {
     console.error('Session error:', error);

@@ -86,8 +86,8 @@ export interface EntityCardData extends BaseCardData {
   entity_id?: string;
 }
 
-export interface CreatorCardData extends BaseCardData {
-  type: 'creator';
+export interface ArtisanCardData extends BaseCardData {
+  type: 'artisan';
   avatar?: string;
   house?: string;
   tier?: string;
@@ -96,8 +96,8 @@ export interface CreatorCardData extends BaseCardData {
   creators_id?: string;
 }
 
-export interface VendorCardData extends BaseCardData {
-  type: 'vendor';
+export interface MerchantCardData extends BaseCardData {
+  type: 'merchant';
   logo?: string;
   businessType?: string;
   productCount?: number;
@@ -210,8 +210,8 @@ export type CardData =
   | EventCardData
   | ProposalCardData
   | EntityCardData
-  | CreatorCardData
-  | VendorCardData
+  | ArtisanCardData
+  | MerchantCardData
   | ValueCardData
   | PillarCardData
   | StatCardData

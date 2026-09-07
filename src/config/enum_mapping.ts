@@ -131,7 +131,7 @@ export const ENUM_MAPPING: Record<string, EnumMappingEntry> = {
     "enumName": "user_role",
     "deityFolder": "hestia-core",
     "referencedIn": [
-      "user_roles"
+      "community_profiles"
     ],
     "priority": 100
   },

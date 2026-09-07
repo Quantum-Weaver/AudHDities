@@ -8,14 +8,14 @@ import { durations } from '@/lib/constants/cosmic/motion';
 
 export const HOME_METADATA = {
   TITLE: 'AudHDities — Sovereign Sanctuary',
-  DESCRIPTION: 'A place where you belong. For neurodivergent creators, contributors, and community.',
+  DESCRIPTION: 'A place where you belong. For neurodivergent artisans, contributors, and community.',
 } as const;
 
 export const HOME_LABELS = {
   BADGE: 'A Sovereign Sanctuary',
   HEADING_PREFIX: 'A Place Where',
   HEADING_HIGHLIGHT: 'You Belong',
-  SUBTITLE: 'For neurodivergent creators, contributors, and community.',
+  SUBTITLE: 'For neurodivergent artisans, contributors, and community.',
   SUBTITLE_SECOND: 'Come as you are. Your sovereignty is respected here.',
   CTA: 'Enter the Sanctuary',
   TRUST_1: 'No hidden fees',

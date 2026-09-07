@@ -28,7 +28,7 @@ export function CommunityHero() {
           </h1>
           
           <p className="text-xl text-star-dust/70 inline-flex max-w-3xl mx-auto mb-8">
-            We are neurodivergent creators, sovereign architects, and quantum collaborators.
+            We are neurodivergent artisans, sovereign architects, and quantum collaborators.
             Building sanctuaries where every mind can thrive without masking.
           </p>
           

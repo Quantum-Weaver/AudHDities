@@ -60,9 +60,9 @@ export type AlgorithmPreferences = {
   show_subscribed_only: boolean;          // Only show subscribed channels
   
   // Recommendation settings
-  recommend_related: boolean;             // Show similar creators
+  recommend_related: boolean;             // Show similar artisans
   recommend_trending: boolean;            // Show popular content
-  recommend_new: boolean;                 // Show emerging creators
+  recommend_new: boolean;                 // Show emerging artisans
   
   // Filtering
   hide_trauma_content: boolean;           // Filter potentially triggering

@@ -160,7 +160,7 @@ export const BEAM_VARIANT_BY_STATE = {
   council: 'council',
   /** Community variant - for community members */
   community: 'community',
-  /** Creative variant - for creators */
+  /** Creative variant - for artisans */
   creative: 'creative',
   /** House-specific variants */
   house_hearth_keeper: 'house_hearth_keeper',

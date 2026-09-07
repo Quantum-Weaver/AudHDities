@@ -78,7 +78,7 @@ export const PRODUCT_CATEGORIES: { value: ProductCategory; label: string; descri
   { value: 'event', label: 'Event', description: 'Live or virtual gathering' },
   { value: 'service', label: 'Service', description: 'Consultation, coaching' },
   { value: 'commission', label: 'Commission', description: 'Custom work' },
-  { value: 'donation', label: 'Donation', description: 'Support the creator' },
+  { value: 'donation', label: 'Donation', description: 'Support the artisan' },
   { value: 'clothing', label: 'Clothing', description: 'Apparel and accessories' },
   { value: 'bundle', label: 'Bundle', description: 'Multiple items together' },
 ];

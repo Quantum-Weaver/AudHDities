@@ -87,7 +87,7 @@ export function ArtisansGallery() {
                 radius="lg"
                 shadow="sm"
                 data={{
-                  id: a.id, type: 'creator', title: a.artisan_name,
+                  id: a.id, type: 'artisan', title: a.artisan_name,
                   description: a.tagline || a.bio || undefined,
                   avatar: a.avatar_url || undefined,
                   isVerified: !!a.verified_at,

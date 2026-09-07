@@ -32,7 +32,7 @@ export const CONTACT_LABELS = {
   PRIVACY_HEADING: 'Privacy',
   PRIVACY_BODY: 'Your information is never shared',
   PRIVACY_LINK_TEXT: 'Read our privacy policy →',
-  APPLICATION_NOTE_TITLE: 'Standing as a creator or a vendor:',
+  APPLICATION_NOTE_TITLE: 'Standing as an artisan or a merchant:',
   APPLICATION_NOTE_BODY: 'Those rooms are in the Council, at /council/applications. This door is for everything else — and for anything you would rather just ask.',
   ALTERNATIVE_CONTACT: 'Or reach us directly at',
   FORM_HEADING: 'Send us a message',

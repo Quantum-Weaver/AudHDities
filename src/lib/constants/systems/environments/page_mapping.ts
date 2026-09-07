@@ -393,7 +393,7 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
   '/council/applications': { 
     default: 'council',
     title: 'Applications',
-    subtitle: 'Join the Sanctuary as a creator, vendor, or curator'
+    subtitle: 'Join the Sanctuary as an artisan, merchant, or curator'
   },
   '/council/applications/*': { 
     default: 'council',

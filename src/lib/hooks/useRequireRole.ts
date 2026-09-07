@@ -5,13 +5,13 @@ import { usePermissions } from './usePermissions';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-type RequiredRole = 'admin' | 'creator' | 'vendor';
+type RequiredRole = 'admin' | 'artisan' | 'merchant';
 
 export function useRequireRole(
   requiredRole: RequiredRole,
   redirectTo: string = '/sanctuary'
 ) {
-  const { isAdmin, isCreator, isVendor, loading } = usePermissions();
+  const { isAdmin, isArtisan, isMerchant, loading } = usePermissions();
   const router = useRouter();
 
   useEffect(() => {
@@ -23,18 +23,18 @@ export function useRequireRole(
       case 'admin':
         hasAccess = isAdmin;
         break;
-      case 'creator':
-        hasAccess = isCreator || isAdmin;
+      case 'artisan':
+        hasAccess = isArtisan || isAdmin;
         break;
-      case 'vendor':
-        hasAccess = isVendor || isAdmin;
+      case 'merchant':
+        hasAccess = isMerchant || isAdmin;
         break;
     }
 
     if (!hasAccess) {
       router.push(redirectTo);
     }
-  }, [isAdmin, isCreator, isVendor, loading, requiredRole, router, redirectTo]);
+  }, [isAdmin, isArtisan, isMerchant, loading, requiredRole, router, redirectTo]);
 
-  return { isAdmin, isCreator, isVendor, loading };
+  return { isAdmin, isArtisan, isMerchant, loading };
 }

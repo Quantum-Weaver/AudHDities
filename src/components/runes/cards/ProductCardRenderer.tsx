@@ -65,7 +65,7 @@ export const ProductCardRenderer: React.FC<ProductCardRendererProps> = ({
       {productData.creator && (
         <CardFooter 
           actions={[
-            <span key="creator" className="text-xs text-[var(--color-star-dust)]/50">
+            <span key="artisan" className="text-xs text-[var(--color-star-dust)]/50">
               by {productData.creator.name}
             </span>
           ]}

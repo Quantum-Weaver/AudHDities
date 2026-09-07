@@ -34,8 +34,8 @@ export interface UseUserReturn {
   error: Error | null;
   isAuthenticated: boolean;
   isAdmin: boolean;
-  isCreator: boolean;
-  isVendor: boolean;
+  isArtisan: boolean;
+  isMerchant: boolean;
   isQuantumWeaver: boolean;
   sovereignTier: SovereignTier | null;
   refetch: () => Promise<void>;
@@ -54,15 +54,12 @@ export function useUser(): UseUserReturn {
     roles: UserRole[];
   }> => {
     try {
-      const [profileRes, rolesRes] = await Promise.all([
-        fetch(`/api/generated/hestia-core/community_profiles?created_by=${userId}&limit=1`).then(r => r.json()),
-        fetch(`/api/generated/hestia-core/user_roles?user_id=${userId}&limit=20`).then(r => r.json()),
-      ]);
+      const profileRes = await fetch(`/api/generated/hestia-core/community_profiles?created_by=${userId}&limit=1`).then(r => r.json());
       const profileRows = profileRes.success ? (profileRes.data?.data ?? profileRes.data ?? []) : [];
-      const roleRows = rolesRes.success ? (rolesRes.data?.data ?? rolesRes.data ?? []) : [];
+      const profile: CommunityProfilesRow | null = Array.isArray(profileRows) ? (profileRows[0] ?? null) : profileRows;
       return {
-        profile: Array.isArray(profileRows) ? (profileRows[0] ?? null) : profileRows,
-        roles: (Array.isArray(roleRows) ? roleRows : []).map((r: { role: UserRole }) => r.role),
+        profile,
+        roles: (profile?.roles ?? []) as UserRole[],
       };
     } catch (err) {
       console.error('Error fetching identity:', err);
@@ -116,8 +113,8 @@ export function useUser(): UseUserReturn {
     user, profile, roles, isLoading, error,
     isAuthenticated: !!user,
     isAdmin: roles.includes('admin'),
-    isCreator: roles.includes('creator'),
-    isVendor: roles.includes('vendor'),
+    isArtisan: roles.includes('artisan'),
+    isMerchant: roles.includes('merchant'),
     isQuantumWeaver: profile?.sovereign_tier === 'sovereign_weaver',
     sovereignTier: profile?.sovereign_tier ?? null,
     refetch: loadUser,

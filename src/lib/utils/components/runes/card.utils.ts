@@ -11,8 +11,8 @@ import type {
   EventCardData,
   ProposalCardData,
   EntityCardData,
-  CreatorCardData,
-  VendorCardData,
+  ArtisanCardData,
+  MerchantCardData,
   StatCardData,
   StepCardData,
   ValueCardData,
@@ -58,12 +58,12 @@ export function isEntityCard(data: CardData): data is EntityCardData {
   return data.type === 'entity';
 }
 
-export function isCreatorCard(data: CardData): data is CreatorCardData {
-  return data.type === 'creator';
+export function isArtisanCard(data: CardData): data is ArtisanCardData {
+  return data.type === 'artisan';
 }
 
-export function isVendorCard(data: CardData): data is VendorCardData {
-  return data.type === 'vendor';
+export function isMerchantCard(data: CardData): data is MerchantCardData {
+  return data.type === 'merchant';
 }
 
 export function isStatCard(data: CardData): data is StatCardData {

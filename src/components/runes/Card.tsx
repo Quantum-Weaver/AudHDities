@@ -165,11 +165,11 @@ export const SmartCard: React.FC<SmartCardProps> = ({ data, variant, ...props })
     return <EventCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }
 
-  if (data.type === 'creator') {
+  if (data.type === 'artisan') {
     return <ArtisanCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }
 
-  if (data.type === 'vendor') {
+  if (data.type === 'merchant') {
     return <MerchantCardRenderer data={data} variant={effectiveVariant} {...props} />;
   }
 

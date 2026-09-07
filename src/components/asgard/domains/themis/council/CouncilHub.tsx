@@ -102,7 +102,7 @@ export function CouncilHub() {
   }
 
   const isAdmin = roles.includes('admin') || roles.includes('council');
-  const isCouncilTier = roles.includes('council');
+  const isCouncilTier = roles.includes('council') || roles.includes('admin');
 
   return (
     <main className="min-h-screen py-12">

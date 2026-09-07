@@ -20,7 +20,7 @@ const streams = [
     title: 'Sales Stream',
     icon: Palette,
     color: 'purple',
-    description: 'Creator products and services',
+    description: 'Artisan products and services',
     flow: [
       { label: 'Artisan Profit', to: '90% → the pledge, then equal shares', color: 'purple' },
       { label: 'Platform Fee', to: '10% → 70% machine, 30% residual pool', color: 'cyan' },

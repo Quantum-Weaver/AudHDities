@@ -8,7 +8,7 @@ By accessing or using AUDHDITIES ("the Platform"), you agree to be bound by thes
 
 ## 1. Our Commitment
 
-AUDHDITIES is a sovereign sanctuary for neurodivergent creators, vendors, and community members. We are committed to:
+AUDHDITIES is a sovereign sanctuary for neurodivergent artisans, merchants, and community members. We are committed to:
 
 - **Transparency**: All platform fees and residual distributions are publicly visible
 - **Fairness**: Neurodivergent users receive subsidized access through the Acid Test
@@ -24,8 +24,8 @@ You are responsible for maintaining the security of your account and for all act
 
 ### 2.3 Account Types
 - **Community Members**: All users have a community profile
-- **Creators**: Users who have been approved to sell digital/physical creations
-- **Vendors**: Users who have been approved to provide services to creators
+- **Artisans**: Users who have been approved to sell digital/physical wares
+- **Merchants**: Users who have been approved to provide services to artisans
 - **Admins**: Users who help maintain the Platform
 
 ## 3. Neurodivergent Accessibility
@@ -55,10 +55,10 @@ We believe neurodivergence is not a disorder but a different operating system. O
 ### 4.3 The 50% Covenant
 Users may pledge up to 50% of their earnings to the Sanctuary Commons to fund community access and mutual aid.
 
-## 5. Creator and Vendor Terms
+## 5. Artisan and Merchant Terms
 
 ### 5.1 Approval Process
-All creators and vendors must complete an application and be verified by admin review.
+All artisans and merchants must complete an application and be verified by admin review.
 
 ### 5.2 Prohibited Content
 - Hate speech or discriminatory material
@@ -67,7 +67,7 @@ All creators and vendors must complete an application and be verified by admin r
 - Anything promoting violence or illegal activities
 
 ### 5.3 Residual Obligations
-Creators agree that the profit of a ware, after any residual pledge, is divided equally among that ware's contributors, the main artisan included. No contributor is assigned a percentage share, and no share is weighted or ranked by role or by extent of contribution.
+Artisans agree that the profit of a ware, after any residual pledge, is divided equally among that ware's contributors, the main artisan included. No contributor is assigned a percentage share, and no share is weighted or ranked by role or by extent of contribution.
 
 ## 6. Community Guidelines
 

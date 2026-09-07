@@ -23,8 +23,8 @@ interface Application {
 }
 
 const APPLICATION_TYPE_LABELS: Record<string, string> = {
-  creator: 'Artisan',
-  vendor: 'Merchant',
+  artisan: 'Artisan',
+  merchant: 'Merchant',
   curator: 'Curator',
 };
 
@@ -85,10 +85,10 @@ export function ApplicationsHub() {
 
         {!isReviewer && (
           <div className="mb-8 flex gap-4">
-            <Link href="/council/applications/apply?type=creator">
+            <Link href="/council/applications/apply?type=artisan">
               <Button variant="primary" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Artisan</Button>
             </Link>
-            <Link href="/council/applications/apply?type=vendor">
+            <Link href="/council/applications/apply?type=merchant">
               <Button variant="outline" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Merchant</Button>
             </Link>
           </div>

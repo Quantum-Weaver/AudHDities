@@ -69,7 +69,7 @@ export function ArtisanDetail() {
     ...(artisan.secondary_categories || []),
   ];
 
-  const cardData: CardData = { id: artisan.id, type: 'creator', title: artisan.artisan_name, description: artisan.bio || '' };
+  const cardData: CardData = { id: artisan.id, type: 'artisan', title: artisan.artisan_name, description: artisan.bio || '' };
 
   return (
     <main className="min-h-screen py-12">

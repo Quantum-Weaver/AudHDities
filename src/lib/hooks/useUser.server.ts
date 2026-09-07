@@ -7,8 +7,8 @@ export interface ServerUserReturn {
   profile: Profile | null;
   isAuthenticated: boolean;
   isAdmin: boolean;
-  isCreator: boolean;
-  isVendor: boolean;
+  isArtisan: boolean;
+  isMerchant: boolean;
   isQuantumWeaver: boolean;
   userTier: Profile['user_tier'] | 'ally';
   sovereigntyScore: number;
@@ -28,8 +28,8 @@ export async function useServerUser(): Promise<ServerUserReturn> {
     profile,
     isAuthenticated: !!user,
     isAdmin: profile?.is_admin === true,
-    isCreator: profile?.is_creator === true,
-    isVendor: profile?.is_vendor === true,
+    isArtisan: profile?.is_creator === true,
+    isMerchant: profile?.is_vendor === true,
     isQuantumWeaver: profile?.is_quantum_weaver === true,
     userTier: profile?.user_tier || 'ally',
     sovereigntyScore: profile?.sovereignty_score || 0,

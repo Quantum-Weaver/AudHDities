@@ -84,17 +84,17 @@ export async function isAdmin(): Promise<boolean> {
 }
 
 /**
- * Check if user is creator
+ * Check if user is an artisan
  */
-export async function isCreator(): Promise<boolean> {
+export async function isArtisan(): Promise<boolean> {
   const { profile } = await auth();
   return profile?.is_creator === true;
 }
 
 /**
- * Check if user is vendor
+ * Check if user is a merchant
  */
-export async function isVendor(): Promise<boolean> {
+export async function isMerchant(): Promise<boolean> {
   const { profile } = await auth();
   return profile?.is_vendor === true;
 }
@@ -156,7 +156,7 @@ export async function requireAdmin(): Promise<Session> {
 }
 
 /**
- * Require creator role
+ * Require artisan role
  */
 export async function requireCreator(): Promise<Session> {
   const session = await auth();
@@ -166,14 +166,14 @@ export async function requireCreator(): Promise<Session> {
   }
   
   if (!session.profile?.is_creator) {
-    throw new Error('Forbidden: Creator access required');
+    throw new Error('Forbidden: Artisan access required');
   }
   
   return session;
 }
 
 /**
- * Require vendor role
+ * Require merchant role
  */
 export async function requireVendor(): Promise<Session> {
   const session = await auth();
@@ -183,7 +183,7 @@ export async function requireVendor(): Promise<Session> {
   }
   
   if (!session.profile?.is_vendor) {
-    throw new Error('Forbidden: Vendor access required');
+    throw new Error('Forbidden: Merchant access required');
   }
   
   return session;

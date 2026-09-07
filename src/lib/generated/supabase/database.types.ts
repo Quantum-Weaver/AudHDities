@@ -230,51 +230,6 @@ export type Database = {
         }
         Relationships: []
       }
-      analytics: {
-        Row: {
-          created_at: string
-          dimension: string | null
-          dimension_value: string | null
-          id: string
-          metric_name: string
-          metric_unit: string | null
-          metric_value: number
-          notes: string | null
-          period: string
-          period_end: string | null
-          period_start: string | null
-          source_table: string | null
-        }
-        Insert: {
-          created_at?: string
-          dimension?: string | null
-          dimension_value?: string | null
-          id?: string
-          metric_name: string
-          metric_unit?: string | null
-          metric_value: number
-          notes?: string | null
-          period?: string
-          period_end?: string | null
-          period_start?: string | null
-          source_table?: string | null
-        }
-        Update: {
-          created_at?: string
-          dimension?: string | null
-          dimension_value?: string | null
-          id?: string
-          metric_name?: string
-          metric_unit?: string | null
-          metric_value?: number
-          notes?: string | null
-          period?: string
-          period_end?: string | null
-          period_start?: string | null
-          source_table?: string | null
-        }
-        Relationships: []
-      }
       anchor_events: {
         Row: {
           anchor_id: string | null
@@ -459,8 +414,8 @@ export type Database = {
           social_links: Json | null
           status: Database["public"]["Enums"]["profile_status"]
           tagline: string | null
-          total_creations: number | null
           total_followers: number | null
+          total_wares: number | null
           updated_at: string
           updated_by: string | null
           verified_at: string | null
@@ -485,8 +440,8 @@ export type Database = {
           social_links?: Json | null
           status?: Database["public"]["Enums"]["profile_status"]
           tagline?: string | null
-          total_creations?: number | null
           total_followers?: number | null
+          total_wares?: number | null
           updated_at?: string
           updated_by?: string | null
           verified_at?: string | null
@@ -511,8 +466,8 @@ export type Database = {
           social_links?: Json | null
           status?: Database["public"]["Enums"]["profile_status"]
           tagline?: string | null
-          total_creations?: number | null
           total_followers?: number | null
+          total_wares?: number | null
           updated_at?: string
           updated_by?: string | null
           verified_at?: string | null
@@ -622,6 +577,39 @@ export type Database = {
           status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
           updated_by?: string | null
+        }
+        Relationships: []
+      }
+      assessment_readings: {
+        Row: {
+          band: string
+          category: string
+          created_at: string | null
+          display_order: number | null
+          id: string
+          recommendations: Json | null
+          status: string | null
+          summary_text: string
+        }
+        Insert: {
+          band: string
+          category: string
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          recommendations?: Json | null
+          status?: string | null
+          summary_text: string
+        }
+        Update: {
+          band?: string
+          category?: string
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          recommendations?: Json | null
+          status?: string | null
+          summary_text?: string
         }
         Relationships: []
       }
@@ -769,57 +757,6 @@ export type Database = {
         }
         Relationships: []
       }
-      bubble_superposition: {
-        Row: {
-          bubble_id: string | null
-          cooldown_minutes: number | null
-          created_at: string
-          created_by: string | null
-          current_scene_id: string | null
-          id: string
-          max_instances: number | null
-          probability: number | null
-          spawn_locations: string[] | null
-          state_type: string | null
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-          visual_effect: string | null
-        }
-        Insert: {
-          bubble_id?: string | null
-          cooldown_minutes?: number | null
-          created_at?: string
-          created_by?: string | null
-          current_scene_id?: string | null
-          id?: string
-          max_instances?: number | null
-          probability?: number | null
-          spawn_locations?: string[] | null
-          state_type?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-          visual_effect?: string | null
-        }
-        Update: {
-          bubble_id?: string | null
-          cooldown_minutes?: number | null
-          created_at?: string
-          created_by?: string | null
-          current_scene_id?: string | null
-          id?: string
-          max_instances?: number | null
-          probability?: number | null
-          spawn_locations?: string[] | null
-          state_type?: string | null
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-          visual_effect?: string | null
-        }
-        Relationships: []
-      }
       bubbles: {
         Row: {
           animation_url: string | null
@@ -889,75 +826,6 @@ export type Database = {
           status?: Database["public"]["Enums"]["content_status"]
           updated_at?: string
           updated_by?: string | null
-        }
-        Relationships: []
-      }
-      calendar: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          display_order: number
-          end_at: string | null
-          event_type: string | null
-          icon_url: string | null
-          id: string
-          is_recurring: boolean
-          location_text: string | null
-          location_uri: string | null
-          name: string
-          recurrence_rule: string | null
-          slug: string
-          start_at: string
-          status: Database["public"]["Enums"]["content_status"]
-          timezone: string
-          updated_at: string
-          updated_by: string | null
-          visibility_scope: string
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          display_order?: number
-          end_at?: string | null
-          event_type?: string | null
-          icon_url?: string | null
-          id?: string
-          is_recurring?: boolean
-          location_text?: string | null
-          location_uri?: string | null
-          name: string
-          recurrence_rule?: string | null
-          slug: string
-          start_at: string
-          status?: Database["public"]["Enums"]["content_status"]
-          timezone?: string
-          updated_at?: string
-          updated_by?: string | null
-          visibility_scope?: string
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          display_order?: number
-          end_at?: string | null
-          event_type?: string | null
-          icon_url?: string | null
-          id?: string
-          is_recurring?: boolean
-          location_text?: string | null
-          location_uri?: string | null
-          name?: string
-          recurrence_rule?: string | null
-          slug?: string
-          start_at?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          timezone?: string
-          updated_at?: string
-          updated_by?: string | null
-          visibility_scope?: string
         }
         Relationships: []
       }
@@ -1260,6 +1128,7 @@ export type Database = {
           display_name: string
           icon_emoji: string | null
           id: string
+          roles: Database["public"]["Enums"]["user_role"][]
           sensory_hints: string | null
           slug: string
           social_links: Json | null
@@ -1279,6 +1148,7 @@ export type Database = {
           display_name: string
           icon_emoji?: string | null
           id: string
+          roles?: Database["public"]["Enums"]["user_role"][]
           sensory_hints?: string | null
           slug: string
           social_links?: Json | null
@@ -1298,6 +1168,7 @@ export type Database = {
           display_name?: string
           icon_emoji?: string | null
           id?: string
+          roles?: Database["public"]["Enums"]["user_role"][]
           sensory_hints?: string | null
           slug?: string
           social_links?: Json | null
@@ -1845,69 +1716,6 @@ export type Database = {
           total_amount?: number
           updated_at?: string
           updated_by?: string | null
-        }
-        Relationships: []
-      }
-      email_communications: {
-        Row: {
-          body_template: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          email_type: string | null
-          from_email: string | null
-          from_name: string
-          id: string
-          is_active: boolean
-          name: string
-          reply_to: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          subject_template: string | null
-          trigger_event: string | null
-          updated_at: string
-          updated_by: string | null
-          variables: Json | null
-        }
-        Insert: {
-          body_template?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          email_type?: string | null
-          from_email?: string | null
-          from_name?: string
-          id?: string
-          is_active?: boolean
-          name: string
-          reply_to?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          subject_template?: string | null
-          trigger_event?: string | null
-          updated_at?: string
-          updated_by?: string | null
-          variables?: Json | null
-        }
-        Update: {
-          body_template?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          email_type?: string | null
-          from_email?: string | null
-          from_name?: string
-          id?: string
-          is_active?: boolean
-          name?: string
-          reply_to?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          subject_template?: string | null
-          trigger_event?: string | null
-          updated_at?: string
-          updated_by?: string | null
-          variables?: Json | null
         }
         Relationships: []
       }
@@ -2783,105 +2591,6 @@ export type Database = {
         }
         Relationships: []
       }
-      gift_wrappings: {
-        Row: {
-          animation_url: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          icon_url: string | null
-          id: string
-          is_limited: boolean
-          name: string
-          rarity: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          theme: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          animation_url?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          icon_url?: string | null
-          id?: string
-          is_limited?: boolean
-          name: string
-          rarity?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          theme?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          animation_url?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          icon_url?: string | null
-          id?: string
-          is_limited?: boolean
-          name?: string
-          rarity?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          theme?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      gifts: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          gift_type: string | null
-          id: string
-          is_anonymous: boolean
-          message: string | null
-          opened_at: string | null
-          recipient_id: string
-          reference_id: string | null
-          sender_id: string
-          status: string
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          gift_type?: string | null
-          id?: string
-          is_anonymous?: boolean
-          message?: string | null
-          opened_at?: string | null
-          recipient_id: string
-          reference_id?: string | null
-          sender_id: string
-          status?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          gift_type?: string | null
-          id?: string
-          is_anonymous?: boolean
-          message?: string | null
-          opened_at?: string | null
-          recipient_id?: string
-          reference_id?: string | null
-          sender_id?: string
-          status?: string
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       grant_applications: {
         Row: {
           attachment_ids: string[] | null
@@ -3575,66 +3284,6 @@ export type Database = {
         }
         Relationships: []
       }
-      maintenance: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          cron_expression: string | null
-          description: string | null
-          id: string
-          is_enabled: boolean
-          last_run_at: string | null
-          last_run_status: string | null
-          name: string
-          next_run_at: string | null
-          priority: string
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          task_config: Json | null
-          task_type: string | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          cron_expression?: string | null
-          description?: string | null
-          id?: string
-          is_enabled?: boolean
-          last_run_at?: string | null
-          last_run_status?: string | null
-          name: string
-          next_run_at?: string | null
-          priority?: string
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          task_config?: Json | null
-          task_type?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          cron_expression?: string | null
-          description?: string | null
-          id?: string
-          is_enabled?: boolean
-          last_run_at?: string | null
-          last_run_status?: string | null
-          name?: string
-          next_run_at?: string | null
-          priority?: string
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          task_config?: Json | null
-          task_type?: string | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       memories: {
         Row: {
           confidence: number | null
@@ -3680,6 +3329,7 @@ export type Database = {
           customization_policy: string | null
           icon_emoji: string | null
           id: string
+          merchant_name: string
           primary_category: string | null
           return_policy: string | null
           secondary_categories: string[] | null
@@ -3694,7 +3344,6 @@ export type Database = {
           total_sales: number | null
           updated_at: string
           updated_by: string | null
-          vendor_name: string
           verified_at: string | null
           verified_by: string | null
           website_url: string | null
@@ -3710,6 +3359,7 @@ export type Database = {
           customization_policy?: string | null
           icon_emoji?: string | null
           id?: string
+          merchant_name: string
           primary_category?: string | null
           return_policy?: string | null
           secondary_categories?: string[] | null
@@ -3724,7 +3374,6 @@ export type Database = {
           total_sales?: number | null
           updated_at?: string
           updated_by?: string | null
-          vendor_name: string
           verified_at?: string | null
           verified_by?: string | null
           website_url?: string | null
@@ -3740,6 +3389,7 @@ export type Database = {
           customization_policy?: string | null
           icon_emoji?: string | null
           id?: string
+          merchant_name?: string
           primary_category?: string | null
           return_policy?: string | null
           secondary_categories?: string[] | null
@@ -3754,7 +3404,6 @@ export type Database = {
           total_sales?: number | null
           updated_at?: string
           updated_by?: string | null
-          vendor_name?: string
           verified_at?: string | null
           verified_by?: string | null
           website_url?: string | null
@@ -4162,93 +3811,6 @@ export type Database = {
         }
         Relationships: []
       }
-      platform_config: {
-        Row: {
-          category: string
-          config_key: string
-          config_type: string
-          config_value: Json
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          is_public: boolean
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          category?: string
-          config_key: string
-          config_type?: string
-          config_value?: Json
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          is_public?: boolean
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          category?: string
-          config_key?: string
-          config_type?: string
-          config_value?: Json
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          is_public?: boolean
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
-      platform_settings: {
-        Row: {
-          category: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          is_public: boolean
-          setting_key: string
-          setting_type: string | null
-          setting_value: Json | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          category?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          is_public?: boolean
-          setting_key: string
-          setting_type?: string | null
-          setting_value?: Json | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          category?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          is_public?: boolean
-          setting_key?: string
-          setting_type?: string | null
-          setting_value?: Json | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Relationships: []
-      }
       policies: {
         Row: {
           archived_at: string | null
@@ -4300,54 +3862,6 @@ export type Database = {
           updated_at?: string
           updated_by?: string | null
           with_check?: string | null
-        }
-        Relationships: []
-      }
-      processes: {
-        Row: {
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          name: string
-          priority: string
-          process_type: string | null
-          related_protocol_id: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          steps: Json | null
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          name: string
-          priority?: string
-          process_type?: string | null
-          related_protocol_id?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          steps?: Json | null
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          name?: string
-          priority?: string
-          process_type?: string | null
-          related_protocol_id?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          steps?: Json | null
-          updated_at?: string
-          updated_by?: string | null
         }
         Relationships: []
       }
@@ -4611,54 +4125,6 @@ export type Database = {
           updated_at?: string
           updated_by?: string | null
           window_seconds?: number
-        }
-        Relationships: []
-      }
-      reference_values: {
-        Row: {
-          applies_to: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          id: string
-          name: string
-          priority: number
-          reference_data: Json | null
-          reference_type: string | null
-          slug: string
-          status: Database["public"]["Enums"]["content_status"]
-          updated_at: string
-          updated_by: string | null
-        }
-        Insert: {
-          applies_to?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          name: string
-          priority?: number
-          reference_data?: Json | null
-          reference_type?: string | null
-          slug: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
-        }
-        Update: {
-          applies_to?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          id?: string
-          name?: string
-          priority?: number
-          reference_data?: Json | null
-          reference_type?: string | null
-          slug?: string
-          status?: Database["public"]["Enums"]["content_status"]
-          updated_at?: string
-          updated_by?: string | null
         }
         Relationships: []
       }
@@ -4938,6 +4404,36 @@ export type Database = {
           },
         ]
       }
+      role_catalog: {
+        Row: {
+          created_at: string
+          icon_emoji: string | null
+          id: string
+          label: string
+          role: Database["public"]["Enums"]["user_role"]
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          icon_emoji?: string | null
+          id?: string
+          label: string
+          role: Database["public"]["Enums"]["user_role"]
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          icon_emoji?: string | null
+          id?: string
+          label?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       scene_participants: {
         Row: {
           created_at: string
@@ -5102,45 +4598,6 @@ export type Database = {
           timezone?: string
           updated_at?: string
           updated_by?: string | null
-        }
-        Relationships: []
-      }
-      script_executions: {
-        Row: {
-          completed_at: string | null
-          created_at: string
-          duration_ms: number | null
-          executed_by: string | null
-          id: string
-          parameters: Json | null
-          result: Json | null
-          script_id: string | null
-          started_at: string
-          status: string
-        }
-        Insert: {
-          completed_at?: string | null
-          created_at?: string
-          duration_ms?: number | null
-          executed_by?: string | null
-          id?: string
-          parameters?: Json | null
-          result?: Json | null
-          script_id?: string | null
-          started_at?: string
-          status?: string
-        }
-        Update: {
-          completed_at?: string | null
-          created_at?: string
-          duration_ms?: number | null
-          executed_by?: string | null
-          id?: string
-          parameters?: Json | null
-          result?: Json | null
-          script_id?: string | null
-          started_at?: string
-          status?: string
         }
         Relationships: []
       }
@@ -5775,48 +5232,6 @@ export type Database = {
         }
         Relationships: []
       }
-      user_page_views: {
-        Row: {
-          created_at: string
-          deity_domain: string | null
-          first_visited_at: string
-          icon_emoji: string | null
-          id: string
-          last_visited_at: string
-          page_name: string | null
-          page_path: string
-          updated_at: string
-          user_id: string
-          visit_count: number
-        }
-        Insert: {
-          created_at?: string
-          deity_domain?: string | null
-          first_visited_at?: string
-          icon_emoji?: string | null
-          id?: string
-          last_visited_at?: string
-          page_name?: string | null
-          page_path: string
-          updated_at?: string
-          user_id: string
-          visit_count?: number
-        }
-        Update: {
-          created_at?: string
-          deity_domain?: string | null
-          first_visited_at?: string
-          icon_emoji?: string | null
-          id?: string
-          last_visited_at?: string
-          page_name?: string | null
-          page_path?: string
-          updated_at?: string
-          user_id?: string
-          visit_count?: number
-        }
-        Relationships: []
-      }
       user_private: {
         Row: {
           address: Database["public"]["CompositeTypes"]["address"] | null
@@ -5871,42 +5286,6 @@ export type Database = {
           phone_number?: string | null
           updated_at?: string
           updated_by?: string | null
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
-          assigned_by: string | null
-          created_at: string
-          created_by: string | null
-          icon_emoji: string | null
-          id: string
-          role: Database["public"]["Enums"]["user_role"]
-          updated_at: string
-          updated_by: string | null
-          user_id: string
-        }
-        Insert: {
-          assigned_by?: string | null
-          created_at?: string
-          created_by?: string | null
-          icon_emoji?: string | null
-          id?: string
-          role: Database["public"]["Enums"]["user_role"]
-          updated_at?: string
-          updated_by?: string | null
-          user_id: string
-        }
-        Update: {
-          assigned_by?: string | null
-          created_at?: string
-          created_by?: string | null
-          icon_emoji?: string | null
-          id?: string
-          role?: Database["public"]["Enums"]["user_role"]
-          updated_at?: string
-          updated_by?: string | null
-          user_id?: string
         }
         Relationships: []
       }
@@ -6101,6 +5480,7 @@ export type Database = {
           autoplay_video: boolean
           bubble_daily_max: number
           bubble_hourly_max: number
+          bubble_vessel_button: boolean
           ceremony_arrival: boolean
           ceremony_farewell: boolean
           content_warnings: string
@@ -6135,6 +5515,7 @@ export type Database = {
           autoplay_video?: boolean
           bubble_daily_max?: number
           bubble_hourly_max?: number
+          bubble_vessel_button?: boolean
           ceremony_arrival?: boolean
           ceremony_farewell?: boolean
           content_warnings?: string
@@ -6169,6 +5550,7 @@ export type Database = {
           autoplay_video?: boolean
           bubble_daily_max?: number
           bubble_hourly_max?: number
+          bubble_vessel_button?: boolean
           ceremony_arrival?: boolean
           ceremony_farewell?: boolean
           content_warnings?: string
@@ -6633,6 +6015,7 @@ export type Database = {
           residual_pool_percent: number | null
           shipping_info: Json | null
           slug: string
+          sphragis: Json | null
           status: Database["public"]["Enums"]["content_status"]
           stripe_price_id: string | null
           updated_at: string
@@ -6661,6 +6044,7 @@ export type Database = {
           residual_pool_percent?: number | null
           shipping_info?: Json | null
           slug: string
+          sphragis?: Json | null
           status?: Database["public"]["Enums"]["content_status"]
           stripe_price_id?: string | null
           updated_at?: string
@@ -6689,6 +6073,7 @@ export type Database = {
           residual_pool_percent?: number | null
           shipping_info?: Json | null
           slug?: string
+          sphragis?: Json | null
           status?: Database["public"]["Enums"]["content_status"]
           stripe_price_id?: string | null
           updated_at?: string
@@ -6884,6 +6269,8 @@ export type Database = {
           isSetofReturn: false
         }
       }
+      preview_acid_test: { Args: { p_answers: Json }; Returns: Json }
+      score_acid_test: { Args: { p_answers: Json }; Returns: Json }
       submit_acid_test: {
         Args: { p_answers: Json; p_user_id: string }
         Returns: Json
@@ -6916,7 +6303,7 @@ export type Database = {
         | "rejected"
         | "suspended"
         | "withdrawn"
-      application_type: "creator" | "vendor" | "curator" | "council"
+      application_type: "artisan" | "merchant" | "curator" | "council"
       content_status: "draft" | "published" | "archived"
       display_theme:
         | "cosmic_dark"
@@ -6977,8 +6364,8 @@ export type Database = {
       subscription_tier: "community" | "ally" | "council" | "corporate"
       user_role:
         | "community"
-        | "creator"
-        | "vendor"
+        | "artisan"
+        | "merchant"
         | "curator"
         | "council"
         | "admin"
@@ -7059,12 +6446,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -7088,11 +6475,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -7113,11 +6500,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -7138,11 +6525,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -7155,11 +6542,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -7181,7 +6568,7 @@ export const Constants = {
         "suspended",
         "withdrawn",
       ],
-      application_type: ["creator", "vendor", "curator", "council"],
+      application_type: ["artisan", "merchant", "curator", "council"],
       content_status: ["draft", "published", "archived"],
       display_theme: [
         "cosmic_dark",
@@ -7246,8 +6633,8 @@ export const Constants = {
       subscription_tier: ["community", "ally", "council", "corporate"],
       user_role: [
         "community",
-        "creator",
-        "vendor",
+        "artisan",
+        "merchant",
         "curator",
         "council",
         "admin",

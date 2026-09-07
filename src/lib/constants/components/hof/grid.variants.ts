@@ -28,8 +28,8 @@ export const GRID_VARIANTS = {
   QUEST: 'quest',
   COURSE: 'course',
   EVENT: 'event',
-  CREATOR: 'creator',
-  VENDOR: 'vendor',
+  ARTISAN: 'artisan',
+  MERCHANT: 'merchant',
   GALLERY: 'gallery',
   DASHBOARD: 'dashboard',
   ADMIN: 'admin',
@@ -66,8 +66,8 @@ export const GRID_COLUMNS: Record<
   [GRID_VARIANTS.QUEST]: { mobile: 1, tablet: 2, desktop: 3, wide: 4 },
   [GRID_VARIANTS.COURSE]: { mobile: 1, tablet: 2, desktop: 2, wide: 3 },
   [GRID_VARIANTS.EVENT]: { mobile: 1, tablet: 2, desktop: 3, wide: 4 },
-  [GRID_VARIANTS.CREATOR]: { mobile: 2, tablet: 3, desktop: 4, wide: 6 },
-  [GRID_VARIANTS.VENDOR]: { mobile: 2, tablet: 3, desktop: 4, wide: 6 },
+  [GRID_VARIANTS.ARTISAN]: { mobile: 2, tablet: 3, desktop: 4, wide: 6 },
+  [GRID_VARIANTS.MERCHANT]: { mobile: 2, tablet: 3, desktop: 4, wide: 6 },
   [GRID_VARIANTS.GALLERY]: { mobile: 2, tablet: 3, desktop: 4, wide: 6 },
   [GRID_VARIANTS.DASHBOARD]: { mobile: 1, tablet: 2, desktop: 2, wide: 3 },
   [GRID_VARIANTS.ADMIN]: { mobile: 1, tablet: 1, desktop: 1, wide: 1 },
@@ -81,8 +81,8 @@ export const GRID_GAPS: Record<GridVariant, string> = {
   [GRID_VARIANTS.QUEST]: SPACING_SCALE['6'],     // 24px
   [GRID_VARIANTS.COURSE]: SPACING_SCALE['8'],    // 32px
   [GRID_VARIANTS.EVENT]: SPACING_SCALE['6'],     // 24px
-  [GRID_VARIANTS.CREATOR]: SPACING_SCALE['4'],   // 16px
-  [GRID_VARIANTS.VENDOR]: SPACING_SCALE['4'],    // 16px
+  [GRID_VARIANTS.ARTISAN]: SPACING_SCALE['4'],   // 16px
+  [GRID_VARIANTS.MERCHANT]: SPACING_SCALE['4'],    // 16px
   [GRID_VARIANTS.GALLERY]: SPACING_SCALE['2'],   // 8px
   [GRID_VARIANTS.DASHBOARD]: SPACING_SCALE['4'], // 16px
   [GRID_VARIANTS.ADMIN]: SPACING_SCALE['2'],     // 8px
@@ -100,8 +100,8 @@ export const GRID_CONTAINER_WIDTHS: Record<GridVariant, string> = {
   [GRID_VARIANTS.QUEST]: CONTAINER_MAX_WIDTHS['2xl'],
   [GRID_VARIANTS.COURSE]: CONTAINER_MAX_WIDTHS.xl,
   [GRID_VARIANTS.EVENT]: CONTAINER_MAX_WIDTHS['2xl'],
-  [GRID_VARIANTS.CREATOR]: CONTAINER_MAX_WIDTHS.xl,
-  [GRID_VARIANTS.VENDOR]: CONTAINER_MAX_WIDTHS.xl,
+  [GRID_VARIANTS.ARTISAN]: CONTAINER_MAX_WIDTHS.xl,
+  [GRID_VARIANTS.MERCHANT]: CONTAINER_MAX_WIDTHS.xl,
   [GRID_VARIANTS.GALLERY]: CONTAINER_MAX_WIDTHS.full,
   [GRID_VARIANTS.DASHBOARD]: CONTAINER_MAX_WIDTHS.xl,
   [GRID_VARIANTS.ADMIN]: CONTAINER_MAX_WIDTHS.xl,
@@ -119,8 +119,8 @@ export const GRID_VARIANT_CLASSES: Record<GridVariant, string> = {
   [GRID_VARIANTS.QUEST]: `border-[${MOOD_COLORS.mystical}]/20 hover:border-[${MOOD_COLORS.mystical}]/40`,
   [GRID_VARIANTS.COURSE]: `border-[${DOMAIN_COLORS.library.base}]/20 hover:border-[${DOMAIN_COLORS.library.base}]/40`,
   [GRID_VARIANTS.EVENT]: `border-[${DOMAIN_COLORS.music.base}]/20 hover:border-[${DOMAIN_COLORS.music.base}]/40`,
-  [GRID_VARIANTS.CREATOR]: `border-[${DOMAIN_COLORS.community.base}]/20 hover:border-[${DOMAIN_COLORS.community.base}]/40`,
-  [GRID_VARIANTS.VENDOR]: `border-[${DOMAIN_COLORS.library.base}]/20 hover:border-[${DOMAIN_COLORS.library.base}]/40`,
+  [GRID_VARIANTS.ARTISAN]: `border-[${DOMAIN_COLORS.community.base}]/20 hover:border-[${DOMAIN_COLORS.community.base}]/40`,
+  [GRID_VARIANTS.MERCHANT]: `border-[${DOMAIN_COLORS.library.base}]/20 hover:border-[${DOMAIN_COLORS.library.base}]/40`,
   [GRID_VARIANTS.GALLERY]: `border-transparent hover:border-[${DOMAIN_COLORS.quantum.base}]/30`,
   [GRID_VARIANTS.DASHBOARD]: `border-[${DOMAIN_COLORS.architecture.base}]/20 hover:border-[${DOMAIN_COLORS.architecture.base}]/40`,
   [GRID_VARIANTS.ADMIN]: `border-[${STATUS_COLORS.planned}]/20 hover:border-[${STATUS_COLORS.planned}]/40`,

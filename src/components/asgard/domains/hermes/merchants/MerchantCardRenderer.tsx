@@ -10,9 +10,9 @@ import { Shield, Package, Globe } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { CardProps } from '@/components/runes/Card';
 
-interface VendorCardData {
+interface MerchantCardData {
   id: string;
-  type: 'vendor';
+  type: 'merchant';
   title: string;
   description?: string;
   image?: string;
@@ -43,7 +43,7 @@ export const MerchantCardRenderer: React.FC<MerchantCardRendererProps> = ({
   shadow = 'sm',
   interactive = true,  
 }) => {
-  const vendor = data as VendorCardData;
+  const merchant = data as MerchantCardData;
 
   return (
     <Card data={data} variant={variant} interactive={interactive} radius={radius} shadow={shadow} className="p-5 h-full">
@@ -51,31 +51,31 @@ export const MerchantCardRenderer: React.FC<MerchantCardRendererProps> = ({
         title={
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-star-dust/60 text-lg font-bold">
-              {vendor.title?.charAt(0)?.toUpperCase() || 'V'}
+              {merchant.title?.charAt(0)?.toUpperCase() || 'M'}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-star-dust font-semibold">{vendor.title}</span>
-                {vendor.isVerified && (
+                <span className="text-star-dust font-semibold">{merchant.title}</span>
+                {merchant.isVerified && (
                   <Shield size={14} className="text-neurospark" />
                 )}
               </div>
-              {vendor.businessType && (
+              {merchant.businessType && (
                 <span className="text-xs text-star-dust/40">
-                  {BUSINESS_TYPE_LABELS[vendor.businessType] || vendor.businessType}
+                  {BUSINESS_TYPE_LABELS[merchant.businessType] || merchant.businessType}
                 </span>
               )}
             </div>
           </div>
         }
       />
-      {vendor.description && (
-        <CardContent description={vendor.description} />
+      {merchant.description && (
+        <CardContent description={merchant.description} />
       )}
       <div className="flex items-center gap-3 mt-2 flex-wrap">
-        {vendor.website && (
+        {merchant.website && (
           <span className="flex items-center gap-1 text-xs text-star-dust/40">
-            <Globe size={12} />{vendor.website}
+            <Globe size={12} />{merchant.website}
           </span>
         )}
       </div>

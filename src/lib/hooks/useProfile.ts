@@ -35,7 +35,7 @@ export function useProfile(): UseProfileReturn {
   const permissions = useMemo((): ProfilePermissions => {
     const isOwner = !!user && !!profile && profile.created_by === user.id;
     const isAdmin = roles.includes('admin');
-    const isModerator = roles.includes('council');
+    const isModerator = roles.includes('council') || roles.includes('admin');
     return {
       canEdit: isOwner || isAdmin,
       isOwner,
