@@ -9,40 +9,34 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { getEnvironmentAffect } from "@/lib/constants/systems/environments/affects";
-import { AssetMapper } from "@/lib/constants/systems/assets/mapper";
 import type { EnvironmentKey } from "@/lib/constants/systems/assets/mapper";
 import { cn } from "@/lib/utils";
 
 export interface EnvironmentLayerProps {
   /** Environment key (home, council, library, music, …). */
   environment: EnvironmentKey;
-  /** Mood (1–4): which of the environment's four panoramas dresses the layer. */
+  /** Variant (1–4) — accepted for API continuity with the image era; the
+   *  token era currently wears one dress per environment. Kept so callers
+   *  and the resolver's variant arithmetic need no change. */
   variant?: number;
   /** Enable the breathing (system reduced-motion preference always wins). */
   animated?: boolean;
-  /** Strength of the wash over the panorama (0–1). */
+  /** Ambient strength of the wash over the app's dark base (0–1). The old
+   *  panoramas were photographs behind content; the token wash is calmer on
+   *  purpose — attention returned, never harvested. */
   washOpacity?: number;
   /** Additional classes. */
   className?: string;
 }
 
-/** The panorama path for an environment and mood, from the mapper's own paths. */
-function panoramaFor(environment: EnvironmentKey, variant: number): string | undefined {
-  const dress = (AssetMapper.environments as Record<string, { background?: string }>)[environment]?.background;
-  if (!dress) return undefined;
-  const mood = Math.min(4, Math.max(1, Math.round(variant) || 1));
-  return dress.replace(/-1(\.[a-z]+)$/, `-${mood}$1`);
-}
-
 export default function EnvironmentLayer({
   environment,
-  variant = 1,
+  variant: _variant = 1,
   animated = true,
   washOpacity = 0.3,
   className,
 }: EnvironmentLayerProps) {
   const affect = getEnvironmentAffect(environment);
-  const panorama = panoramaFor(environment, variant);
   const prefersReducedMotion = useReducedMotion();
   const breathes = animated && !prefersReducedMotion;
 
@@ -54,12 +48,6 @@ export default function EnvironmentLayer({
         className
       )}
     >
-      {panorama && (
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${panorama})` }}
-        />
-      )}
       <motion.div
         className="absolute inset-0"
         style={{
