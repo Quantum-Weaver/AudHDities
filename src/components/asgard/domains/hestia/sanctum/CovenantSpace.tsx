@@ -104,8 +104,7 @@ export function CovenantSpace() {
       </div>
       <p className="text-sm text-star-dust/60 mb-2">
         The covenant pool is the Sanctuary&apos;s shared dividend: a portion of
-        your earnings you choose to send into the commons, divided equally
-        among every active member.
+        your earnings you choose to send into the commons.
       </p>
       <p className="text-sm text-star-dust/70 mb-6">
         Zero is a whole and honorable setting — the covenant is a gift, never
