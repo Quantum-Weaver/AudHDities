@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #0C0F1D; color: #E0E0E0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+    a { color: #22D3EE; } a:hover { color: #7D6CEA; }
+    .opt:hover { border-color: rgba(34,211,238,0.4) !important; }
+    .btn:hover { filter: brightness(1.08); }
+  </style>
+</helmet>
+<div style="width: 390px; min-height: 900px; padding: 40px 16px; box-sizing: border-box; background: linear-gradient(160deg, #1B1230 0%, #2A1A3F 45%, #3A1D33 100%);">
+  <div style="width: 100%; box-sizing: border-box; padding: 24px; border-radius: 12px; border: 1px solid rgba(224,224,224,0.10); background: rgba(26,31,53,0.28); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); display: flex; flex-direction: column; gap: 22px;">
+
+    <p style="margin: 0; font-size: 14px; line-height: 1.55; color: rgba(224,224,224,0.6);">These questions are mirrors. They ask how you experience thought, sensation, time, and connection. Your answers belong only to you.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: rgba(224,224,224,0.6);">
+        <span>Question 1 of 10</span>
+        <span>10%</span>
+      </div>
+      <div style="height: 8px; border-radius: 999px; background: rgba(224,224,224,0.10); overflow: hidden;">
+        <div style="height: 100%; width: 10%; border-radius: 999px; background: linear-gradient(90deg, #22D3EE, #6C5CE7);"></div>
+      </div>
+    </div>
+
+    <h2 style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 700; color: #E0E0E0; text-wrap: balance;">The texture that affects you most is:</h2>
+
+    <div role="radiogroup" style="display: flex; flex-direction: column; gap: 10px;">
+      <sc-for list="{{options}}" as="o" hint-placeholder-count="5">
+        <div class="opt" role="radio" aria-checked="{{o.selected}}" onClick="{{o.pick}}" style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 12px 14px; border-radius: 12px; border: 1px solid {{o.border}}; background: {{o.bg}}; box-shadow: {{o.ring}}; cursor: pointer; transition: border-color 150ms, background 150ms, box-shadow 150ms;">
+          <span style="flex: 0 0 auto; width: 22px; height: 22px; border-radius: 999px; border: 2px solid {{o.dotBorder}}; background: {{o.dotBg}}; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">
+            <sc-if value="{{o.selected}}" hint-placeholder-val="{{ true }}">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.5 L5 9 L9.5 3.5" stroke="#0C0F1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </sc-if>
+          </span>
+          <span style="font-size: 16px; line-height: 1.4; color: {{o.text}};">{{o.label}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-top: 4px;">
+      <button class="btn" type="button" style="height: 48px; padding: 0 16px; border-radius: 12px; border: 1px solid rgba(224,224,224,0.30); background: transparent; color: #E0E0E0; font-size: 16px; font-weight: 500; font-family: inherit; cursor: pointer;">Previous</button>
+      <button class="btn" type="button" style="height: 48px; padding: 0 16px; border-radius: 12px; border: none; background: #6C5CE7; color: #FFFFFF; font-size: 16px; font-weight: 500; font-family: inherit; cursor: pointer;">Next</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#22D3EE","options":["#22D3EE","#6C5CE7","#FDCB6E","#00B894"]},"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { picked: 2 };
+  }
+  renderVals() {
+    const accent = this.props.accent || '#22D3EE';
+    const hex = accent.replace('#', '');
+    const r = parseInt(hex.slice(0, 2), 16), g = parseInt(hex.slice(2, 4), 16), b = parseInt(hex.slice(4, 6), 16);
+    const tint = 'rgba(' + r + ',' + g + ',' + b + ',0.14)';
+    const labels = [
+      'No textures bother me particularly',
+      'Microfiber or velvet, instant recoil',
+      'Tags in clothing, they must be eliminated',
+      'Wet food or unexpected textures in my mouth',
+      'I could list at least five textures that are unacceptable'
+    ];
+    const options = labels.map((label, i) => {
+      const selected = this.state.picked === i;
+      return {
+        label,
+        selected,
+        border: selected ? accent : 'rgba(224,224,224,0.14)',
+        bg: selected ? tint : 'linear-gradient(90deg, rgba(224,224,224,0.07), rgba(224,224,224,0.02))',
+        ring: selected ? ('inset 0 0 0 1px ' + accent + ', 0 0 24px rgba(' + r + ',' + g + ',' + b + ',0.22)') : 'none',
+        dotBorder: selected ? accent : 'rgba(224,224,224,0.35)',
+        dotBg: selected ? accent : 'transparent',
+        text: selected ? '#FFFFFF' : 'rgba(224,224,224,0.88)',
+        pick: () => this.setState({ picked: i })
+      };
+    });
+    return { accent, options };
+  }
+}
+</script>
+</body>
+</html>

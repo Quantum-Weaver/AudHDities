@@ -1,0 +1,67 @@
+{
+ "draws": [
+  {
+   "n": 10,
+   "categories": 7,
+   "ids_distinct": 10
+  },
+  {
+   "n": 10,
+   "categories": 7,
+   "ids_distinct": 10
+  },
+  {
+   "n": 10,
+   "categories": 7,
+   "ids_distinct": 10
+  },
+  {
+   "n": 10,
+   "categories": 7,
+   "ids_distinct": 10
+  },
+  {
+   "n": 10,
+   "categories": 7,
+   "ids_distinct": 10
+  }
+ ],
+ "score_top": {
+  "ratio": 1.0,
+  "max_total": 156,
+  "total_score": 156
+ },
+ "score_empty": {
+  "ratio": 0,
+  "max_total": 0,
+  "total_score": 0,
+  "category_scores": {}
+ },
+ "rows_for_vessel": 1,
+ "score_first_option": {
+  "ratio": 0.0192,
+  "max_total": 156,
+  "total_score": 3
+ },
+ "three_takes_one_vessel": [
+  {
+   "max": "156",
+   "take": "middle",
+   "total": "115",
+   "persona": "Codex Builder"
+  },
+  {
+   "max": "167",
+   "take": "best",
+   "total": "167",
+   "persona": "Sovereign Weaver"
+  },
+  {
+   "max": "162",
+   "take": "worst",
+   "total": "3",
+   "persona": "Sovereign Weaver"
+  }
+ ],
+ "assessment_results_rows_after": 1
+}

@@ -1,0 +1,43 @@
+{
+ "rolled_back_block": {
+  "rows": 1,
+  "the_one_row": {
+   "rank": "9",
+   "takes": "2",
+   "persona": "Time Drifter"
+  },
+  "visitor_draw": {
+   "n": "10",
+   "ok": "true"
+  },
+  "visitor_preview": {
+   "ok": "true",
+   "max": "156",
+   "total": "108",
+   "stored": "false",
+   "persona": "Time Drifter",
+   "readings": 7
+  },
+  "vessel_take_bottom": {
+   "ok": "true",
+   "total": "0",
+   "persona": "Time Drifter"
+  },
+  "vessel_take_same_answers": {
+   "ok": "true",
+   "total": "108",
+   "stored": "true",
+   "persona": "Time Drifter"
+  }
+ },
+ "front_door_as_visitor": {
+  "draw_success": true,
+  "draw_total_questions": 10,
+  "preview_success": true,
+  "preview_stored": false,
+  "preview_persona": "Sovereign Weaver",
+  "preview_readings": 7,
+  "submit_refused": true,
+  "assessment_results_rows_after": 1
+ }
+}

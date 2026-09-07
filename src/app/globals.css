@@ -18,10 +18,12 @@
    the globals.css". Nothing authored here — only the import of what exists. */
 @config "../../tailwind.generated.config.mjs";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html {

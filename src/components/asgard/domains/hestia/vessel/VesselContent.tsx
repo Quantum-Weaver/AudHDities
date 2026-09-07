@@ -246,7 +246,7 @@ export function VesselContent() {
 
       {bubblesOnVessel && (
         <div className="mt-6 flex justify-center">
-          <Link href="/library/bubbles">
+          <Link href="/library/bubbles/play">
             <Button variant="secondary" size="md">
               <Droplets className="h-4 w-4 mr-2" />Play bubbles
             </Button>

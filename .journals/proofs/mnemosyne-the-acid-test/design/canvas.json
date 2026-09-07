@@ -1,0 +1,10 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "Question, desktop", "x": 0, "y": 0, "w": 920, "h": 760, "is_interactive": true },
+    { "file": "Phone.dc.html", "title": "Question, phone", "x": 1020, "y": 0, "w": 390, "h": 900, "is_interactive": true }
+  ],
+  "annotations": [
+    { "id": "how-to-read", "x": 0, "y": -150, "w": 420, "text": "Click an answer on either frame to see the selected state. Previous and Next share one fixed shape and size, not sized by their words. The accent chip above each frame changes the selection colour." }
+  ],
+  "launch": { "view": "canvas" }
+}

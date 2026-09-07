@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/yggdrasil/Button";
 import { Card } from "@/components/runes/Card";
 import { Slider } from "@/components/forging/Slider";
-import { RadioGroup, Radio } from "@/components/forging/Radio";
 import { Textarea } from "@/components/forging/Textarea";
 
 export interface AssessmentOption {
@@ -47,6 +46,7 @@ export interface AcidTestResult {
   summary: string | null;
   category: string | null;
   readings: AcidTestReading[];
+  stored: boolean;
   raw: unknown;
 }
 
@@ -55,6 +55,9 @@ export interface AcidTestResult {
 // ============================================================================
 
 const RESULT_REDIRECT = '/vessel' as const;
+const VISITOR_REDIRECT = '/sanctuary' as const;
+const KEEP_REDIRECT = '/login?redirect=%2Fquestionaire' as const;
+export const PENDING_KEY = 'acid-test-pending' as const;
 
 const BAND_WORDS: Record<string, string> = {
   low: 'Low',
@@ -104,8 +107,8 @@ function parseReadings(raw: unknown): AcidTestReading[] {
     .filter((r): r is AcidTestReading => !!r);
 }
 
-/** submit_acid_test returns Json whose exact shape the server owns — read it kindly. */
-function parseResult(raw: unknown): AcidTestResult {
+/** submit_acid_test and preview_acid_test return Json whose exact shape the server owns — read it kindly. */
+export function parseResult(raw: unknown): AcidTestResult {
   const r = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>;
   const inner = (r.result_data && typeof r.result_data === 'object' ? r.result_data : {}) as Record<string, unknown>;
   const persona =
@@ -122,6 +125,7 @@ function parseResult(raw: unknown): AcidTestResult {
       (typeof r.summary === 'string' && r.summary) || null,
     category: (typeof r.category === 'string' && r.category) || null,
     readings: parseReadings(r.readings),
+    stored: r.stored === true,
     raw,
   };
 }
@@ -144,22 +148,48 @@ function QuestionRenderer({ question, value, onChange, disabled }: QuestionRende
 
   if (questionType === 'multiple_choice' || (options.length > 0 && questionType !== 'slider' && questionType !== 'scale' && questionType !== 'text')) {
     return (
-      <RadioGroup
-        name={question.id}
-        value={typeof currentValue === "string" ? currentValue : ""}
-        onChange={(val) => onChange({ questionId: question.id, value: val })}
-        className="space-y-3"
-      >
-        {options.map((option) => (
-          <Radio
-            key={option.value}
-            value={option.value}
-            label={option.label}
-            disabled={disabled}
-            className="w-full p-4 border border-star-dust/10 rounded-lg data-[state=checked]:border-neurospark data-[state=checked]:bg-neurospark/10"
-          />
-        ))}
-      </RadioGroup>
+      <div role="radiogroup" className="flex flex-col gap-3">
+        {options.map((option) => {
+          const selected = currentValue === option.value;
+          return (
+            <label
+              key={option.value}
+              className={cn(
+                "flex items-center gap-4 min-h-14 px-[18px] py-[14px] rounded-xl border transition-colors",
+                "has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-neurospark/60",
+                selected
+                  ? "border-neurospark bg-neurospark/15 shadow-[inset_0_0_0_1px_#22D3EE,0_0_24px_rgba(34,211,238,0.22)] text-white"
+                  : "border-star-dust/15 bg-gradient-to-r from-star-dust/[0.07] to-star-dust/[0.02] hover:border-neurospark/40 text-star-dust/90",
+                disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"
+              )}
+            >
+              <input
+                type="radio"
+                name={question.id}
+                value={option.value}
+                checked={selected}
+                onChange={() => onChange({ questionId: question.id, value: option.value })}
+                disabled={disabled}
+                className="sr-only"
+              />
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full border-2",
+                  selected ? "border-neurospark bg-neurospark" : "border-star-dust/35"
+                )}
+              >
+                {selected && (
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2.5 6.5 L5 9 L9.5 3.5" stroke="#0C0F1D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </span>
+              <span className="text-[17px] leading-snug">{option.label}</span>
+            </label>
+          );
+        })}
+      </div>
     );
   }
 
@@ -247,7 +277,15 @@ function ProgressIndicator({ current, total }: { current: number; total: number 
 // RESULT VIEW
 // ============================================================================
 
-function ResultView({ result, onContinue }: { result: AcidTestResult; onContinue: () => void }) {
+function ResultView({
+  result,
+  onContinue,
+  onKeep,
+}: {
+  result: AcidTestResult;
+  onContinue: () => void;
+  onKeep?: () => void;
+}) {
   const personaDisplay = result.persona || 'Sovereign';
 
   return (
@@ -303,10 +341,22 @@ function ResultView({ result, onContinue }: { result: AcidTestResult; onContinue
         </div>
       )}
 
-      <div className="flex justify-center">
-        <Button type="button" variant="primary" onClick={onContinue}>
-          Continue ✨
-        </Button>
+      <div className="flex flex-col items-center gap-3">
+        {onKeep && (
+          <p className="text-star-dust/50 text-sm text-center">
+            Sign in and this result stays with your vessel.
+          </p>
+        )}
+        <div className="flex justify-center gap-3 w-full">
+          {onKeep && (
+            <Button type="button" variant="primary" size="lg" className="w-full sm:w-44" onClick={onKeep}>
+              Keep ✨
+            </Button>
+          )}
+          <Button type="button" variant={onKeep ? 'outline' : 'primary'} size="lg" className="w-full sm:w-44" onClick={onContinue}>
+            {onKeep ? 'Continue' : 'Continue ✨'}
+          </Button>
+        </div>
       </div>
     </Card>
   );
@@ -341,17 +391,20 @@ function LoadingView({ className }: { className?: string }) {
 export interface AcidTestFormProps {
   questions: AssessmentQuestion[];
   userId?: string;
+  initialResult?: AcidTestResult | null;
   onComplete?: (result: AcidTestResult) => void;
   className?: string;
 }
 
-export function AcidTestForm({ questions, userId, onComplete, className }: AcidTestFormProps) {
+export function AcidTestForm({ questions, userId, initialResult, onComplete, className }: AcidTestFormProps) {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<AnswerValue[]>([]);
+  const [sent, setSent] = useState<unknown[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<AcidTestResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const shown = result ?? initialResult ?? null;
 
   const currentQuestion = questions[currentIndex];
   const currentAnswer = answers.find(a => a.questionId === currentQuestion?.id);
@@ -387,15 +440,21 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
       };
     });
 
+    setSent(answersPayload);
+
     try {
-      const response = await fetch("/api/generated/mnemosyne-assessment/submit_acid_test", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          p_user_id: userId,
-          p_answers: answersPayload,
-        }),
-      });
+      // Signed in, the result is stored to the vessel; signed out, it is only shown
+      const response = userId
+        ? await fetch("/api/generated/mnemosyne-assessment/submit_acid_test", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ p_user_id: userId, p_answers: answersPayload }),
+          })
+        : await fetch("/api/acid-test/preview", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ p_answers: answersPayload }),
+          });
 
       const payload = await response.json();
       if (!response.ok || payload.success === false) {
@@ -435,8 +494,18 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
     }
   }, [isFirstQuestion]);
 
-  if (result) {
-    return <ResultView result={result} onContinue={() => router.push(RESULT_REDIRECT)} />;
+  if (shown) {
+    const keep = () => {
+      try { sessionStorage.setItem(PENDING_KEY, JSON.stringify(sent)); } catch { /* the sign-in still proceeds */ }
+      router.push(KEEP_REDIRECT);
+    };
+    return (
+      <ResultView
+        result={shown}
+        onContinue={() => router.push(shown.stored ? RESULT_REDIRECT : VISITOR_REDIRECT)}
+        onKeep={shown.stored ? undefined : keep}
+      />
+    );
   }
 
   if (!questions.length) {
@@ -480,10 +549,12 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
           <p className="text-fire-base text-sm">{error}</p>
         )}
 
-        <div className="flex justify-between gap-4 pt-4">
+        <div className="flex justify-between gap-3 pt-6">
           <Button
             type="button"
             variant="outline"
+            size="lg"
+            className="w-full sm:w-44"
             onClick={handlePrevious}
             disabled={isFirstQuestion || isSubmitting}
           >
@@ -493,6 +564,8 @@ export function AcidTestForm({ questions, userId, onComplete, className }: AcidT
           <Button
             type="button"
             variant="primary"
+            size="lg"
+            className="w-full sm:w-44"
             onClick={handleNext}
             disabled={isSubmitting}
           >
