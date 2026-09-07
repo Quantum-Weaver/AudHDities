@@ -1126,6 +1126,7 @@ export type Database = {
           created_at: string
           created_by: string | null
           display_name: string
+          exterior_url: string | null
           icon_emoji: string | null
           id: string
           roles: Database["public"]["Enums"]["user_role"][]
@@ -1146,6 +1147,7 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           display_name: string
+          exterior_url?: string | null
           icon_emoji?: string | null
           id: string
           roles?: Database["public"]["Enums"]["user_role"][]
@@ -1166,6 +1168,7 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           display_name?: string
+          exterior_url?: string | null
           icon_emoji?: string | null
           id?: string
           roles?: Database["public"]["Enums"]["user_role"][]
@@ -5502,9 +5505,11 @@ export type Database = {
           high_contrast: boolean
           icon_emoji: string | null
           id: string
+          interior_url: string | null
           language: string
           reduce_motion: boolean
           reduce_transparency: boolean
+          storage_limit_bytes: number
           theme: Database["public"]["Enums"]["display_theme"]
           timezone: string
           updated_at: string
@@ -5537,9 +5542,11 @@ export type Database = {
           high_contrast?: boolean
           icon_emoji?: string | null
           id: string
+          interior_url?: string | null
           language?: string
           reduce_motion?: boolean
           reduce_transparency?: boolean
+          storage_limit_bytes?: number
           theme?: Database["public"]["Enums"]["display_theme"]
           timezone?: string
           updated_at?: string
@@ -5572,9 +5579,11 @@ export type Database = {
           high_contrast?: boolean
           icon_emoji?: string | null
           id?: string
+          interior_url?: string | null
           language?: string
           reduce_motion?: boolean
           reduce_transparency?: boolean
+          storage_limit_bytes?: number
           theme?: Database["public"]["Enums"]["display_theme"]
           timezone?: string
           updated_at?: string

@@ -16,6 +16,7 @@ const identityUpdateSchema = z.object({
   sensory_hints: z.string().max(500).optional().nullable(),
   social_links: z.any().optional().nullable(),
   covenant_pledge_percent: z.number().int().min(0).max(50).optional().nullable(),
+  exterior_url: z.string().url().optional().nullable(),
 });
 
 // vessel_config — how the Sanctuary presents itself to this vessel
@@ -40,6 +41,7 @@ const configUpdateSchema = z.object({
   bubble_hourly_max: z.number().int().min(0).max(999).optional(),
   bubble_vessel_button: z.boolean().optional(),
   environment_preference: z.string().regex(/^[a-z_]+:[1-4]$/).optional(),
+  interior_url: z.string().max(300).optional().nullable(),
 });
 
 export async function PATCH(request: NextRequest) {

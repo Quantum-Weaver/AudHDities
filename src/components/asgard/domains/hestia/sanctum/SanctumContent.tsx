@@ -16,6 +16,7 @@ import { Switch } from '@/components/forging/Switch';
 import { Slider } from '@/components/forging/Slider';
 import { EnvironmentSelector } from '@/components/asgard/domains/hestia/sanctum/EnvironmentSelector';
 import { CovenantSpace } from '@/components/asgard/domains/hestia/sanctum/CovenantSpace';
+import { InventoryShelf } from '@/components/asgard/domains/hestia/sanctum/InventoryShelf';
 import { ArrowLeft, Save, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -282,6 +283,40 @@ export function SanctumContent() {
               setEnvironmentPreference(newValue);
               updateConfigField('environment_preference', newValue);
             }}
+          />
+        </Card>
+
+        <Card
+          variant="sanctuary"
+          data={preferencesCardData}
+          radius="lg"
+          shadow="md"
+          className="p-8 mb-6 bg-surface/90"
+        >
+          <h2 className="text-lg font-semibold text-star-dust mb-4">Interiors</h2>
+          <p className="text-sm text-star-dust/70 mb-4">
+            Your own graphics for the inside of your home. Only you see them.
+          </p>
+          <InventoryShelf
+            bucket="interiors"
+            onWear={(item) => updateConfigField('interior_url', item ? `${user.id}/${item.name}` : null)}
+          />
+        </Card>
+
+        <Card
+          variant="sanctuary"
+          data={preferencesCardData}
+          radius="lg"
+          shadow="md"
+          className="p-8 mb-6 bg-surface/90"
+        >
+          <h2 className="text-lg font-semibold text-star-dust mb-4">Exteriors</h2>
+          <p className="text-sm text-star-dust/70 mb-4">
+            Your own graphics for the outside of your home, shown on your community profile.
+          </p>
+          <InventoryShelf
+            bucket="exteriors"
+            onWear={(item) => updateIdentityField('exterior_url', item?.url ?? null)}
           />
         </Card>
 
