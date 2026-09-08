@@ -18,6 +18,9 @@ export const HOME_LABELS = {
   SUBTITLE: 'For neurodivergent artisans, contributors, and community.',
   SUBTITLE_SECOND: 'Come as you are. Your sovereignty is respected here.',
   CTA: 'Enter the Sanctuary',
+  CTA_VESSEL: 'Your Vessel',
+  CTA_FORGE: 'The Forge',
+  CTA_LOGIN: 'Log in / Sign up',
   TRUST_1: 'No hidden fees',
   TRUST_2: '100% transparent',
   TRUST_3: 'Community-owned',
@@ -27,6 +30,9 @@ export const HOME_LABELS = {
 
 export const HOME_ROUTES = {
   SANCTUARY: '/sanctuary',
+  VESSEL: '/vessel',
+  FORGE: '/forge',
+  LOGIN: '/login',
 } as const;
 
 export const HOME_DIMENSIONS = {

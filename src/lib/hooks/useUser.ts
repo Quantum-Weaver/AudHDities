@@ -72,8 +72,9 @@ export function useUser(): UseUserReturn {
     setError(null);
     try {
       const { data: { user: currentUser }, error: userError } = await supabase.auth.getUser();
-      if (userError) throw userError;
-      setUser(currentUser);
+      // A signed-out browser answers with AuthSessionMissingError: a visitor, not a failure.
+      if (userError && userError.name !== 'AuthSessionMissingError') throw userError;
+      setUser(currentUser ?? null);
       if (currentUser) {
         const identity = await fetchIdentity(currentUser.id);
         setProfile(identity.profile);

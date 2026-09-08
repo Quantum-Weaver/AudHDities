@@ -5,19 +5,22 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 import { cva } from 'class-variance-authority';
 import { HOME_TRANSITION } from './home.constants';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 export const homeHeroSectionVariants = cva(
-  'min-h-screen flex-wrap inline-flex items-center justify-center'
+  'min-h-screen flex-wrap inline-flex items-center justify-center px-4 py-12 sm:px-8'
 );
 
 // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const homeHeroWrapperVariants = cva(
-  'relative w-full py-20 px-6'
+  [reliefPanelVariants(), 'w-full max-w-6xl mx-auto py-20 px-6'].join(' ')
 );
 
 export const homeHeroBgVariants = cva(
   'absolute inset-0 bg-gradient-to-br from-deep-space via-deep-space/95 to-deep-space/90'
 );
+
+export const homeHeroGlossVariants = reliefGlossVariants;
 
 // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const homeOrbVariants = cva(

@@ -1,16 +1,10 @@
 // src/app/page.tsx
 
-import { redirect } from 'next/navigation';
-import { createServerSupabase } from '@/lib/supabase/server';
-import { AUTH_ROUTES } from '@/lib/constants/components/asgard/auth/auth.constants';
 import { Page } from '@/components/bifrost/Page';
-import Link from 'next/link';
-import { Button } from '@/components/yggdrasil/Button';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 import {
   HOME_LABELS,
-  HOME_ROUTES,
   HOME_DIMENSIONS,
 } from '@/lib/constants/components/asgard/domains/hestia/home/home.constants';
 
@@ -18,6 +12,7 @@ import {
   homeHeroSectionVariants,
   homeHeroWrapperVariants,
   homeHeroBgVariants,
+  homeHeroGlossVariants,
   homeOrbVariants,
   homeContentVariants,
   homeBadgeVariants,
@@ -26,17 +21,12 @@ import {
   homeHeadingVariants,
   homeHeadingHighlightVariants,
   homeSubtitleVariants,
-  homeCtaContainerVariants,
-  homeCtaIconVariants,
   homeTrustMarkersVariants,
 } from '@/lib/constants/components/asgard/domains/hestia/home/home.variants';
 import AuthenticatedGreeting from '@/components/asgard/domains/hestia/home/AuthenticatedGreeting';
+import HomeDoors from '@/components/asgard/domains/hestia/home/HomeDoors';
 
-export default async function Home() {
-  const supabase = await createServerSupabase();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect(AUTH_ROUTES.SANCTUARY);
-
+export default function Home() {
   return (
     <Page
       variant={1}
@@ -58,6 +48,7 @@ export default async function Home() {
           <div className={homeHeroBgVariants()} />
           <div className={homeOrbVariants({ color: 'cyan', position: 'topLeft' })} />
           <div className={homeOrbVariants({ color: 'purple', position: 'bottomRight' })} />
+          <div className={homeHeroGlossVariants()} />
 
           <div className={homeContentVariants()}>
             <div className={homeBadgeVariants()}>
@@ -78,14 +69,7 @@ export default async function Home() {
               {HOME_LABELS.SUBTITLE_SECOND}
             </p>
 
-            <div className={homeCtaContainerVariants()}>
-              <Link href={HOME_ROUTES.SANCTUARY}>
-                <Button size="lg" className="group">
-                  {HOME_LABELS.CTA}
-                  <ArrowRight size={HOME_DIMENSIONS.CTA_ICON_SIZE} className={homeCtaIconVariants()} />
-                </Button>
-              </Link>
-            </div>
+            <HomeDoors />
 
             <div className={homeTrustMarkersVariants()}>
               <span>✨ {HOME_LABELS.TRUST_1}</span>

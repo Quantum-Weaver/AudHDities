@@ -3,6 +3,8 @@
 
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 interface DocsHeroProps {
   /** Counted from DocsContent's own DOC_SECTIONS. Required on purpose — a
@@ -13,10 +15,11 @@ interface DocsHeroProps {
 
 export function DocsHero({ documentCount }: DocsHeroProps) {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className={cn(reliefPanelVariants(), 'container mx-auto mt-6 mb-10 py-24')}>
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
       <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-400/5 rounded-full blur-3xl animate-pulse delay-700" />
+      <div className={reliefGlossVariants()} />
       
       <div className="relative z-10 container max-w-6xl mx-auto px-6 text-center">
         <motion.div
