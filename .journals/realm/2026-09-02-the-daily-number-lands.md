@@ -14,7 +14,7 @@ Neither imported a package the site does not already have; the `@/*` alias alrea
 beside `DailiesHall.tsx` — the site keeps no per-feature subfolders here, so the intake's nested
 `components/sudoku/` did not carry over) · `src/app/(athena)/library/dailies/sudoku/page.tsx`, rebuilt
 onto the site's own `Page` wrapper (`showForeground={false} showContinuityBeam={true}`, the same shape
-`library/badges/page.tsx` uses) rather than the intake's bare version. All five tokens the README named
+`library/sigils/page.tsx` uses) rather than the intake's bare version. All five tokens the README named
 — `bg-deep-space`, `text-star-dust`, `ring-hearth-gold`, `bg-bifrost-base/25`, `text-bifrost-light` —
 were already real, load-bearing classes elsewhere in this tree (`hearth.gold #FDCB6E`,
 `bifrost.base #6C5CE7`, `bifrost.light #7D6CEA` in `tailwind.generated.config.mjs`; `deep-space` and

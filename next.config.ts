@@ -76,6 +76,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: '/library/sigils', destination: '/library/sigils', permanent: true },
+      { source: '/library/sigils/:path*', destination: '/library/sigils/:path*', permanent: true },
       // The docs hub renamed docs → forge; old addresses still land.
       {
         source: '/docs/:path*',

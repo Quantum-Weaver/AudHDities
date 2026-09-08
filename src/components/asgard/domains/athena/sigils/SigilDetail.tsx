@@ -1,9 +1,10 @@
-// src/components/asgard/domains/athena/badges/BadgeDetail.tsx
+// src/components/asgard/domains/athena/sigils/SigilDetail.tsx
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
@@ -26,15 +27,35 @@ const RARITY_GLOW: Record<string, string> = {
   legendary: '0 0 20px rgba(253,203,110,0.5)', mythic: '0 0 24px rgba(34,211,238,0.6)',
 };
 
-export function BadgeDetail() {
+export function SigilDetail() {
   const params = useParams();
   const router = useRouter();
+  const { user } = useUser();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
-  // Memoized on the slug — the generated hooks refetch on params identity.
+  // The generated hooks refetch on params identity; memoized on the slug.
   const sigilParams = useMemo(() => ({ filters: { slug }, limit: 1 }), [slug]);
   const { data: sigils, loading } = useSigilsList(sigilParams);
   const sigil = sigils[0] ?? null;
+  const sigilId = sigil?.id ?? null;
+
+  const [held, setHeld] = useState<{ userId: string; sigilId: string; yours: boolean } | null>(null);
+
+  useEffect(() => {
+    if (!user || !sigilId) return;
+    let alive = true;
+    fetch(`/api/generated/hestia-core/vessel_sigils?user_id=${encodeURIComponent(user.id)}&sigil_id=${encodeURIComponent(sigilId)}&limit=1`)
+      .then((r) => r.json())
+      .then((res) => {
+        if (!alive) return;
+        const rows = res?.success ? (res.data?.data ?? res.data ?? []) : [];
+        setHeld({ userId: user.id, sigilId, yours: Array.isArray(rows) && rows.length > 0 });
+      })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [user, sigilId]);
+
+  const yours = !!user && !!sigilId && held?.userId === user.id && held.sigilId === sigilId && held.yours;
 
   if (loading) {
     return (
@@ -53,7 +74,7 @@ export function BadgeDetail() {
         <div className="container max-w-3xl mx-auto px-6 text-center">
           <Award className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
           <p className="text-star-dust/40">This honor has not been forged yet.</p>
-          <Link href="/library/badges" className="text-neurospark hover:underline mt-4 inline-block">Return to the Honors</Link>
+          <Link href="/library/sigils" className="text-neurospark hover:underline mt-4 inline-block">Return to the Honors</Link>
         </div>
       </main>
     );
@@ -65,23 +86,24 @@ export function BadgeDetail() {
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-3xl mx-auto px-6">
-        <Link href="/library/badges" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6">
+        <Link href="/library/sigils" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors motion-reduce:transition-none text-sm mb-6">
           <ArrowLeft className="h-4 w-4" />Return to the Honors
         </Link>
 
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8 text-center"
           style={{ boxShadow: glow || 'none' }}
         >
-          <div className="w-24 h-24 rounded-2xl mx-auto mb-6 flex items-center justify-center text-4xl bg-white/5 border-2 border-white/10">
+          <div className={cn('w-24 h-24 rounded-2xl mx-auto mb-6 flex items-center justify-center text-4xl bg-white/5 border-2', yours ? 'border-neurospark/40' : 'border-white/10')}>
             {sigil.icon_emoji || '🪶'}
           </div>
 
           <h1 className="text-2xl font-bold text-star-dust mb-2">{sigil.name}</h1>
           <p className="text-star-dust/60 mb-6 max-w-lg mx-auto">{sigil.description}</p>
 
-          <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
+            {yours && <Badge variant="outline" size="sm" className="text-[10px] text-neurospark border-neurospark/40">yours</Badge>}
             {sigil.rarity && <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', RARITY_COLORS[sigil.rarity] || '')}>{sigil.rarity}</Badge>}
-            {sigil.category && <Badge variant="outline" size="sm" className="text-[10px] capitalize">{sigil.category.replace(/_/g, ' ')}</Badge>}
+            {sigil.category && <Badge variant="outline" size="sm" className="text-[10px] capitalize">{sigil.category.replace(/[-_]/g, ' ')}</Badge>}
           </div>
 
           <Button variant="ghost" size="md" onClick={() => router.back()}>Back</Button>

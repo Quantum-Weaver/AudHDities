@@ -532,7 +532,7 @@ export function ConstellationContent() {
                 <p className="text-sm text-star-dust/80">Your timeline</p>
               </Card>
             </Link>
-            <Link href="/library/badges">
+            <Link href="/library/sigils">
               <Card
                 data={{ id: 'summary-sigils', type: 'value', title: 'Your sigils', value: '' }}
                 variant="interactive"

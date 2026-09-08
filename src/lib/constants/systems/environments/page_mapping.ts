@@ -199,14 +199,14 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'Scroll Detail',
     subtitle: 'Ancient words, eternal truth'
   },
-  '/library/badges': { 
+  '/library/sigils': { 
     default: 'observatory',
     title: 'The Honors',
     subtitle: 'Your achievements recognized'
   },
-  '/library/badges/*': { 
+  '/library/sigils/*': { 
     default: 'observatory',
-    title: 'Badge Detail',
+    title: 'Sigil Detail',
     subtitle: 'A mark of sovereignty'
   },
   '/library/bubbles': { 

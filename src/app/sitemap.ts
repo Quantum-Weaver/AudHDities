@@ -50,7 +50,7 @@ const PUBLIC_ROUTES: readonly string[] = [
   '/bazaar/wares',
   // athena — the library
   '/library',
-  '/library/badges',
+  '/library/sigils',
   '/library/bubbles',
   '/library/bubbles/play',
   '/library/courses',

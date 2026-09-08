@@ -660,7 +660,7 @@ this pass touches it.
 
 ---
 
-## 7 · ⑥ THE HONORS — `/library/badges` · `/[slug]`
+## 7 · ⑥ THE HONORS — `/library/sigils` · `/[slug]`
 
 **Routes:** `badges/page.tsx` · `badges/[slug]/page.tsx`
 **Components:** `badges/BadgesGallery.tsx` (151) · `badges/BadgeDetail.tsx` (92)
@@ -720,7 +720,7 @@ ruled with his ⚛ **"bazaar and library go"**, 2026-08-24.
 ### Printed checks — ⑥
 
 - [ ] `tsc 0` · build 0.
-- [ ] CDP walk at `/library/badges` **signed out**, picture read: the empty
+- [ ] CDP walk at `/library/sigils` **signed out**, picture read: the empty
       state alone, no cards, no chips, no search field, no count.
 - [ ] Signed-in walk: **unreached unless KP supplies a vessel** — say so
       plainly; do not assert the earned path passed.
@@ -1005,7 +1005,7 @@ does:**
   against `008:124` *"markers of becoming, never achievements"*. **Named for
   KP; the replacement is unwritten — his to rule** (§7).
 - *Badge Detail* — `page_mapping.ts:216`. Same. The route path
-  `/library/badges` and the component names `BadgesGallery` / `BadgeDetail`
+  `/library/sigils` and the component names `BadgesGallery` / `BadgeDetail`
   are **identifiers**, not copy, and are **not renamed in this pass**.
 
 ---

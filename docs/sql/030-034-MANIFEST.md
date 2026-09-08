@@ -33,7 +33,7 @@
 
 **031**
 - `ON CONFLICT (slug)` is unverified — no `CREATE TABLE` for `public.sigils` exists in the tree. STEP 1a reads for the unique index; if it returns nothing, do not force — create the guard or rewrite as `NOT EXISTS`.
-- `sigil_unlocks` is the rule table, `vessel_sigils` the holding table; both exist with routes, and BadgesGallery already reads earned vs unearned. Missing: unlock rows and the code that evaluates them. A future file is a rules file needing a name and `trigger_type` per unlock.
+- `sigil_unlocks` is the rule table, `vessel_sigils` the holding table; both exist with routes, and SigilsGallery already reads earned vs unearned. Missing: unlock rows and the code that evaluates them. A future file is a rules file needing a name and `trigger_type` per unlock.
 - Three silent marks — Uncounted, The Bookmark, The Pause — become re-engagement, missed-deadline and stopping notifications if the granting announces itself. Award code, not description.
 - Three marks need a human judge — Knocked First, Kept Whole, The Door Built. Self-claim, or leave as definitions. Decide before any unlock row.
 - Rarity is a ranking vocabulary; legendary paints a gold glow. Thirty rows make the ladder visible. Decide whether the field keeps weight.

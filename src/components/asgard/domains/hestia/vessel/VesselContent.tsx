@@ -89,7 +89,7 @@ export function VesselContent() {
   useEffect(() => {
     if (!user) return;
     Promise.all([
-      fetch(`/api/generated/hestia-core/vessel_sigils?created_by=${user.id}&sort=created_at&order=desc&limit=6`).then(r => r.json()),
+      fetch(`/api/generated/hestia-core/vessel_sigils?user_id=${user.id}&sort=created_at&order=desc&limit=6`).then(r => r.json()),
       fetch(`/api/generated/athena-gamification/sigils?limit=100`).then(r => r.json()),
     ]).then(([unlockRes, sigilRes]) => {
       if (!unlockRes.success || !sigilRes.success) return;
@@ -212,7 +212,7 @@ export function VesselContent() {
         {sigils.length > 0 && (
           <div className="flex flex-wrap gap-2 justify-center mb-4">
             {sigils.map(s => (
-              <Link key={s.id} href={`/library/badges/${s.slug}`}>
+              <Link key={s.id} href={`/library/sigils/${s.slug}`}>
                 <Badge variant="outline" size="sm" className={cn('text-[10px] cursor-pointer', (s.rarity && RARITY_COLORS[s.rarity]) || '')}>
                   <Award className="h-3 w-3 mr-1 inline" />{s.name}
                 </Badge>

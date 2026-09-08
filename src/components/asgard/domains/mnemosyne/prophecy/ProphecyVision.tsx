@@ -86,7 +86,7 @@ export function ProphecyVision() {
           <div className="flex items-center gap-3 mb-4"><Award className="h-5 w-5 text-purple-400" /><h3 className="text-lg font-semibold text-star-dust">Honors to Earn</h3></div>
           <div className="flex flex-wrap gap-2">
             {unearnedSigils.slice(0, 8).map(s => (
-              <Link key={s.id} href={`/library/badges/${s.slug}`}>
+              <Link key={s.id} href={`/library/sigils/${s.slug}`}>
                 <Badge variant="outline" size="sm" className={cn('text-[10px] cursor-pointer', RARITY_COLORS[s.rarity] || '')}>{s.name}</Badge>
               </Link>
             ))}

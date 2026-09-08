@@ -66,7 +66,7 @@ export const THE_STREET: StreetRealm[] = [
       { href: '/library/courses', label: 'The Curriculum' },
       { href: '/library/lessons', label: 'The Lessons' },
       { href: '/library/knowledge', label: 'The Archive' },
-      { href: '/library/badges', label: 'The Honors' },
+      { href: '/library/sigils', label: 'The Honors' },
       { href: '/library/bubbles', label: 'The Floating Stars' },
       { href: '/library/bubbles/play', label: 'Pop the Stars' },
       { href: '/library/dailies', label: 'The Dailies' },

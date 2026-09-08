@@ -36,9 +36,9 @@ src/app/(athena)/
 │   │   ├── page.tsx                  # ✅ The Archive — scrolls gallery (/library/knowledge)
 │   │   └── [slug]/page.tsx           # ✅ Scroll Detail (/library/knowledge/[slug])
 │   │
-│   ├── badges/
-│   │   ├── page.tsx                  # ✅ The Honors — sigils gallery (/library/badges)
-│   │   └── [slug]/page.tsx           # ✅ Sigil Detail (/library/badges/[slug])
+│   ├── sigils/
+│   │   ├── page.tsx                  # ✅ The Honors — sigils gallery (/library/sigils)
+│   │   └── [slug]/page.tsx           # ✅ Sigil Detail (/library/sigils/[slug])
 │   │
 │   └── dailies/
 │       └── page.tsx                  # ✅ The Dailies — word scramble (/library/dailies)
@@ -66,7 +66,7 @@ All client components live at `src/components/asgard/domains/athena/`:
 | The Curriculum | `courses/CoursesGallery` | `courses/CourseDetail` | — |
 | The Lessons | `lessons/LessonsGallery` | `lessons/LessonDetail` | — |
 | The Archive | `knowledge/KnowledgeGallery` | `knowledge/KnowledgeDetail` | — |
-| The Honors | `badges/BadgesGallery` | `badges/BadgeDetail` | — |
+| The Honors | `sigils/SigilsGallery` | `sigils/SigilDetail` | — |
 
 ---
 
@@ -77,12 +77,12 @@ generated hooks; details fetch by `slug`.
 
 | Hall | Table | Deity Group | Notes |
 |------|-------|-------------|-------|
-| Quests | `quests` | athena-gamification | `name`/`quest_type`/`difficulty`; `objectives`/`rewards` are Json (rendering beyond string-lists waits for row 10) |
+| Quests | `quests` | athena-gamification | `name`/`quest_type`/`difficulty`; `objectives` is a Json string-list; a vessel walks, ticks and sets down through `/api/auth/vessel/quests` (`vessel_quests` + `quest_progress`) |
 | Bubbles | `bubbles` | athena-gamification | points + colors DERIVE from `rarity`; collections resolve via `collection_sets` (hestia-core); pops record to `vessel_bubbles` (hestia-core). **The game has NO tiers** (detiered 2026-07-31, KP's word): flat charter caps — 500 points/day · 100 pops/hour — every rarity open to every vessel; personal boundaries device-local, always allowed lower |
 | Courses | `learning_paths` | athena-gamification | `name`/`path_type`/`difficulty`/`estimated_duration`; **CourseDetail walks the path** — `path_lessons` (ordered, via the generated route) joined to published lessons, rendered as numbered steps, no completion percentages |
 | Lessons | `lessons` | athena-gamification | `lesson_type`; `content` is Json (body/url shapes rendered, richer waits for row 10) |
 | Knowledge | `mythology` | athena-gamification | RETURNED at KP's word 2026-07-29 (docs/sql/005); story-frames shape: `story` + `teachings` + `provenance` (the myth lane's law, docs/sql/007) |
-| Badges | `sigils` | athena-gamification | the badge successor; `rarity`/`category`/`icon_emoji` |
+| Sigils | `sigils` | athena-gamification | the whole shelf shown, the vessel's own lit through `vessel_sigils`; `rarity`/`category`/`icon_emoji` |
 
 **Cross-realm seams:** the collection machinery (`vessel_bubbles`,
 `collection_sets`, `vessel_sigils`, `vessel_quests`) is the Hearth's
@@ -113,7 +113,7 @@ All anon-door verified.
 |------|-------|
 | More scrolls for the Archive | the myth lane's looms, KP's eye per scroll |
 | Row 10 design sitting (dailies, Json shapes, Grammar data contract) | KP convenes; opening frame waits on the REALM-BUS |
-| 🚩 VITAL-REVISIT trio: completion_points math · sigil award triggers · quest submission machinery | with row 10 or its own sitting |
+| 🚩 VITAL-REVISIT pair: completion_points math · sigil award triggers (`sigil_unlocks` holds no rows; nothing writes `vessel_sigils`) | with row 10 or its own sitting |
 
 ---
 

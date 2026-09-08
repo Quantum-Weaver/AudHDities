@@ -3,7 +3,7 @@
 // Landed from resonance-void/intake/daily-sudoku/app/library/dailies/sudoku/page.tsx
 // by KP's word (2026-09-02). Written by Kimi. Reshaped to the site's own page
 // convention (the Page wrapper every other library route uses — see
-// library/badges/page.tsx) rather than the intake's bare version; the game
+// library/sigils/page.tsx) rather than the intake's bare version; the game
 // itself is untouched.
 
 import { Page } from '@/components/bifrost/Page';

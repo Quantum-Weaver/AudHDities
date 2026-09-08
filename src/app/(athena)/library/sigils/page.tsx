@@ -1,16 +1,16 @@
-// src/app/(athena)/library/badges/page.tsx
+// src/app/(athena)/library/sigils/page.tsx
 import { Page } from '@/components/bifrost/Page';
-import { BadgesGallery } from '@/components/asgard/domains/athena/badges/BadgesGallery';
+import { SigilsGallery } from '@/components/asgard/domains/athena/sigils/SigilsGallery';
 
 export const metadata = {
   title: 'The Honors | Sovereign Sanctuary',
   description: 'Sigils earned through sovereignty',
 };
 
-export default function BadgesPage() {
+export default function SigilsPage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
-      <BadgesGallery />
+      <SigilsGallery />
     </Page>
   );
 }

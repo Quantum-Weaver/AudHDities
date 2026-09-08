@@ -1,14 +1,16 @@
 // src/components/asgard/domains/athena/quests/QuestsGallery.tsx
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Compass, Search, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useQuestsList } from '@/lib/generated/hooks/athena-gamification/quests';
+import { readWalks, WALK_WORDS } from '@/lib/quests/walk';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const DIFFICULTY_COLORS: Record<string, string> = {
@@ -18,8 +20,7 @@ const DIFFICULTY_COLORS: Record<string, string> = {
   master: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
 };
 
-// Stable params — the generated list hooks refetch on params IDENTITY
-// (the StatusBar pattern); an inline object here would loop the fetch.
+// The generated list hooks refetch on params identity; this object stays stable.
 const QUESTS_PARAMS = {
   filters: { status: 'published' },
   sort: 'display_order',
@@ -27,11 +28,29 @@ const QUESTS_PARAMS = {
   limit: 100,
 };
 
+const EMPTY_WORDS = new Map<string, string>();
+
 export function QuestsGallery() {
+  const { user } = useUser();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [walks, setWalks] = useState<{ userId: string; words: Map<string, string> } | null>(null);
 
   const { data: quests, loading } = useQuestsList(QUESTS_PARAMS);
+
+  useEffect(() => {
+    if (!user) return;
+    let alive = true;
+    readWalks().then((rows) => {
+      if (!alive || !rows) return;
+      const words = new Map<string, string>();
+      rows.forEach((w) => { const word = WALK_WORDS[w.status]; if (word) words.set(w.quest_id, word); });
+      setWalks({ userId: user.id, words });
+    });
+    return () => { alive = false; };
+  }, [user]);
+
+  const walkWords = user && walks?.userId === user.id ? walks.words : EMPTY_WORDS;
 
   const questTypes = useMemo(() => {
     const set = new Set<string>();
@@ -67,11 +86,10 @@ export function QuestsGallery() {
     <main className="min-h-screen py-12">
       <div className="container max-w-6xl mx-auto px-6">
 
-        {/* Header */}
         <div className="mb-8">
           <Link
             href="/library"
-            className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-2"
+            className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors motion-reduce:transition-none text-sm mb-2"
           >
             <ArrowLeft className="h-4 w-4" />
             Return to the Library
@@ -80,7 +98,6 @@ export function QuestsGallery() {
           <p className="text-sm text-star-dust/70 mt-1">Quests that shape your sovereignty</p>
         </div>
 
-        {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-star-dust/40" size={16} />
@@ -122,7 +139,6 @@ export function QuestsGallery() {
           )}
         </div>
 
-        {/* Active Filter Indicator */}
         {selectedType && (
           <div className="flex items-center gap-2 mb-6 text-sm text-star-dust/40">
             <span className="capitalize">Filtered by: {selectedType.replace(/_/g, ' ')}</span>
@@ -132,7 +148,6 @@ export function QuestsGallery() {
           </div>
         )}
 
-        {/* Empty State */}
         {filteredQuests.length === 0 && (
           <div className="text-center py-20">
             <Compass className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
@@ -145,7 +160,6 @@ export function QuestsGallery() {
           </div>
         )}
 
-        {/* Quest Grid */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredQuests.map(quest => {
             const cardData: CardData = {
@@ -154,9 +168,15 @@ export function QuestsGallery() {
               title: quest.name,
               description: quest.description || '',
             };
+            const word = walkWords.get(quest.id);
 
             return (
-              <Link key={quest.id} href={`/library/quests/${quest.slug}`}>
+              <Link
+                key={quest.id}
+                href={`/library/quests/${quest.slug}`}
+                aria-label={word ? `${quest.name}, ${word}` : quest.name}
+                className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space"
+              >
                 <Card
                   data={cardData}
                   variant="interactive"
@@ -164,12 +184,19 @@ export function QuestsGallery() {
                   shadow="sm"
                   className="p-5 h-full"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    {quest.quest_type && (
-                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">
-                        {quest.quest_type.replace(/_/g, ' ')}
-                      </Badge>
-                    )}
+                  <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {quest.quest_type && (
+                        <Badge variant="outline" size="sm" className="text-[10px] capitalize">
+                          {quest.quest_type.replace(/_/g, ' ')}
+                        </Badge>
+                      )}
+                      {word && (
+                        <Badge variant="outline" size="sm" className="text-[10px] text-neurospark border-neurospark/40">
+                          {word}
+                        </Badge>
+                      )}
+                    </div>
                     {quest.difficulty && (
                       <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', DIFFICULTY_COLORS[quest.difficulty] || '')}>
                         {quest.difficulty}
