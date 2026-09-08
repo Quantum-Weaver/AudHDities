@@ -4,6 +4,8 @@
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { ArrowRight, BookOpen, Palette, Heart } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 const PATHWAYS = [
   {
@@ -34,8 +36,10 @@ const PATHWAYS = [
 
 export function SanctuaryPathways() {
   return (
-    <section className="py-24 px-6 bg-white/5">
-      <div className="container max-w-6xl mx-auto">
+    <section className="py-12 px-6">
+      <div className={cn(reliefPanelVariants(), 'container max-w-6xl mx-auto py-20 px-6 bg-white/5')}>
+        <div className={reliefGlossVariants()} />
+        <div className="relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-star-dust mb-4">
             Enter the Sanctuary
@@ -67,6 +71,7 @@ export function SanctuaryPathways() {
               </Card>
             </Link>
           ))}
+        </div>
         </div>
       </div>
     </section>

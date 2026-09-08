@@ -3,6 +3,8 @@
 
 import { Card } from '@/components/runes/Card';
 import { Eye, Users, Shield } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 const PROBLEMS = [
   {
@@ -30,8 +32,10 @@ const PROBLEMS = [
 
 export function SanctuaryProblem() {
   return (
-    <section className="py-24 px-6 bg-white/5">
-      <div className="container max-w-6xl mx-auto">
+    <section className="py-12 px-6">
+      <div className={cn(reliefPanelVariants(), 'container max-w-6xl mx-auto py-20 px-6 bg-white/5')}>
+        <div className={reliefGlossVariants()} />
+        <div className="relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-star-dust mb-4">
             A Gentle Acknowledgment
@@ -56,6 +60,7 @@ export function SanctuaryProblem() {
               <p className="text-star-dust/60 text-sm">{problem.description}</p>
             </Card>
           ))}
+        </div>
         </div>
       </div>
     </section>

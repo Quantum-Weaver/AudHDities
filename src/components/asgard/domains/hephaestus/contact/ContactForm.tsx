@@ -8,7 +8,7 @@ import { Input } from "@/components/forging/Input";
 import { Textarea } from "@/components/forging/Textarea";
 import { Spinner } from "@/components/yggdrasil/Spinner";
 import { CheckCircle, AlertCircle } from "lucide-react";
-import type { ContactSubmissionsInsertInput } from "@/lib/generated/validators/iris-communications/contact_submissions";
+import { CONTACT_API } from "@/lib/constants/components/asgard/domains/iris/contact/contact.constants";
 
 interface ContactFormProps {
   onSuccess?: () => void;
@@ -27,6 +27,8 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
     subject: "",
     message: "",
   });
+  // Honeypot: a field no person sees or fills; a bot that fills it is dropped quietly.
+  const [website, setWebsite] = useState("");
   
   const [errors, setErrors] = useState({
     name: "",
@@ -106,15 +108,15 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
     setErrorMessage(null);
     
     try {
-      const payload: ContactSubmissionsInsertInput = {
+      const payload = {
         name: formData.name,
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        status: "draft",
+        website,
       };
       
-      const response = await fetch("/api/generated/iris-communications/contact_submissions", {
+      const response = await fetch(CONTACT_API.ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -163,6 +165,16 @@ export default function ContactForm({ onSuccess, redirectTo }: ContactFormProps)
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input
+        type="text"
+        name="website"
+        value={website}
+        onChange={(e) => setWebsite(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
       {submitStatus === "error" && (
         <div className="p-3 bg-fire-base/10 border border-fire-base/30 rounded-lg flex items-start gap-2">
           <AlertCircle className="text-fire-base flex-shrink-0 mt-0.5" size={16} />

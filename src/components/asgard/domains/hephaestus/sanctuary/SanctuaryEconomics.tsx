@@ -5,11 +5,15 @@ import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Button } from '@/components/yggdrasil/Button';
 import { Eye, Zap, Coins } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 export function SanctuaryEconomics() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-neurospark/5 via-quantum-purple/5 to-fire-base/5">
-      <div className="container max-w-6xl mx-auto">
+    <section className="py-12 px-6">
+      <div className={cn(reliefPanelVariants(), 'container max-w-6xl mx-auto py-20 px-6 bg-gradient-to-b from-neurospark/5 via-quantum-purple/5 to-fire-base/5')}>
+        <div className={reliefGlossVariants()} />
+        <div className="relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full mb-4">
             <Coins size={14} className="text-neurospark" />
@@ -61,6 +65,7 @@ export function SanctuaryEconomics() {
               Learn How Residuals Work
             </Button>
           </Link>
+        </div>
         </div>
       </div>
     </section>

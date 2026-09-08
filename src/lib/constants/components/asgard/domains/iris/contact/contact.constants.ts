@@ -78,7 +78,7 @@ export const CONTACT_ROUTES = {
 
 // ─── API ───────────────────────────────────────────────────────────────────
 export const CONTACT_API = {
-  ENDPOINT: '/api/generated/iris-communications/contact_submissions',
+  ENDPOINT: '/api/contact',
   REDIRECT_DELAY_MS: 2000,
 } as const;
 
