@@ -187,7 +187,7 @@ const BreadcrumbDropdown = React.forwardRef<HTMLDivElement, BreadcrumbDropdownPr
         {isOpen && (
           <div
             ref={dropdownRef}
-            className="absolute left-0 top-full mt-2 z-50 min-w-[160px] rounded-lg bg-surface border border-white/10 shadow-lg py-1 animate-in fade-in zoom-in-95 duration-100"
+            className="absolute left-0 top-full mt-2 z-50 min-w-[160px] max-w-[calc(100vw-2rem)] rounded-lg bg-surface border border-white/10 shadow-lg py-1 animate-in fade-in zoom-in-95 duration-100"
           >
             {items.map((item, idx) => (
               <React.Fragment key={idx}>

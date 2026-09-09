@@ -1,0 +1,140 @@
+{
+  "ran": "2026-09-09T19:33:32.486Z",
+  "tree": "src/components/bifrost/StreetTree.tsx",
+  "choice": "src/components/seidr/immersive/Learscail.tsx",
+  "total": 26,
+  "passed": 26,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "every realm of the street stands as a row",
+      "result": "10 realms",
+      "passed": true
+    },
+    {
+      "check": "the rows stand in the street order",
+      "result": "The Hearth · The Stage & Studio · The Library · The Bazaar · The Bridge · The Observatory · The Council · The Forge · The Nexus · The Realms",
+      "passed": true
+    },
+    {
+      "check": "every room is grouped under its realm, none lost",
+      "result": "55 of 55 rooms",
+      "passed": true
+    },
+    {
+      "check": "each room is grouped under the realm that holds it",
+      "result": "55 distinct pairs",
+      "passed": true
+    },
+    {
+      "check": "the realm the path stands in is the one open",
+      "result": "The Library",
+      "passed": true
+    },
+    {
+      "check": "no other realm is open",
+      "result": "1 open",
+      "passed": true
+    },
+    {
+      "check": "a path off the street opens nothing",
+      "result": "0 open",
+      "passed": true
+    },
+    {
+      "check": "a deeper path opens the realm that holds the longer room",
+      "result": "The Hearth",
+      "passed": true
+    },
+    {
+      "check": "a walked realm carries the walked mark",
+      "result": "The Library · walked",
+      "passed": true
+    },
+    {
+      "check": "a second walked realm carries it too",
+      "result": "The Bazaar · walked",
+      "passed": true
+    },
+    {
+      "check": "an unwalked realm carries the not-yet mark",
+      "result": "The Forge · not yet walked",
+      "passed": true
+    },
+    {
+      "check": "the always-open realm is walked without discovery",
+      "result": "The Hearth · walked",
+      "passed": true
+    },
+    {
+      "check": "the mark follows the set exactly",
+      "result": "3 of 10 marked walked",
+      "passed": true
+    },
+    {
+      "check": "no mark stands before the shelf is read",
+      "result": "walked · null on every realm",
+      "passed": true
+    },
+    {
+      "check": "every realm is named whether walked or not",
+      "result": "10 names",
+      "passed": true
+    },
+    {
+      "check": "every rendered door is a room of the street",
+      "result": "8 doors",
+      "passed": true
+    },
+    {
+      "check": "the open realm renders its own rooms",
+      "result": "The Hearth · 8 rooms",
+      "passed": true
+    },
+    {
+      "check": "a folded realm renders no door",
+      "result": "The Library · 0 doors",
+      "passed": true
+    },
+    {
+      "check": "every realm is named in the markup",
+      "result": "10 names",
+      "passed": true
+    },
+    {
+      "check": "every door carries a 44px hit target",
+      "result": "18 rows at min-h-11",
+      "passed": true
+    },
+    {
+      "check": "no choice on an empty shelf reads as the drawing",
+      "result": "false",
+      "passed": true
+    },
+    {
+      "check": "the words choice round-trips",
+      "result": "true",
+      "passed": true
+    },
+    {
+      "check": "the choice is kept under its own key",
+      "result": "audhdities.learscail.asWords.v1 = true",
+      "passed": true
+    },
+    {
+      "check": "the drawing choice round-trips",
+      "result": "false",
+      "passed": true
+    },
+    {
+      "check": "a locked shelf reads as the drawing, never a throw",
+      "result": "false",
+      "passed": true
+    },
+    {
+      "check": "a locked shelf is written to without a throw",
+      "result": "no throw",
+      "passed": true
+    }
+  ]
+}

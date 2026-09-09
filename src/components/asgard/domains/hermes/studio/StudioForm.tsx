@@ -539,7 +539,7 @@ export function StudioForm({ initialKind }: StudioFormProps) {
           className="mt-6 p-6"
         >
           <h3 className="text-sm font-semibold text-star-dust mb-3">The Economics</h3>
-          <div className="grid grid-cols-3 gap-4 text-center text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-sm">
             <div>
               <p className="text-neurospark font-bold">10%</p>
               <p className="text-star-dust/40 text-xs">Platform Fee</p>

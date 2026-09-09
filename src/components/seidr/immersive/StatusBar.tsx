@@ -78,7 +78,7 @@ function SovereigntyDisplay({ score }: { score: number }) {
     : 'Every journey begins with a single step.';
 
   return (
-    <HStack align="center" space="sm" className="group cursor-default shrink-0">
+    <HStack align="center" space="sm" className="group cursor-default shrink-0 relative">
       <Shield className="h-3.5 w-3.5 text-neurospark" />
       <div className="flex items-center gap-2">
         <span className="text-xs text-star-dust/70 font-medium tabular-nums">
@@ -94,7 +94,7 @@ function SovereigntyDisplay({ score }: { score: number }) {
         </div>
       </div>
       {/* Tooltip on hover */}
-      <span className="hidden group-hover:block absolute top-full mt-1 left-0 bg-deep-space/95 backdrop-blur-lg border border-white/10 rounded-lg px-2 py-1 text-[10px] text-star-dust/60 whitespace-nowrap">
+      <span className="hidden group-hover:block absolute top-full mt-1 left-0 max-w-[calc(100vw-2rem)] bg-deep-space/95 backdrop-blur-lg border border-white/10 rounded-lg px-2 py-1 text-[10px] text-star-dust/60 whitespace-normal">
         {milestone}
       </span>
     </HStack>

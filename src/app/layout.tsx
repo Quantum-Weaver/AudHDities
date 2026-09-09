@@ -1,4 +1,5 @@
 // src/app/layout.tsx
+import type { Viewport } from 'next';
 import { ReactNode } from 'react';
 import '@/app/globals.css';
 
@@ -13,17 +14,22 @@ import '@/styles/custom_overrides.css';
 import { Navigation } from '@/components/bifrost/Navigation';
 import { LayoutChrome } from '@/components/bifrost/LayoutChrome';
 import AuthButton from '@/components/asgard/auth/AuthButton';
-import Footer from '@/components/bifrost/Footer';
 
 export const metadata = {
   title: 'AudHDities — Sovereign Sanctuary',
   description: 'A place where you belong.',
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="overflow-x-hidden">
+      <body>
         
         <LayoutChrome>
           {/* The auth button breathes like a nav item: the same gap the bar

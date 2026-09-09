@@ -1,9 +1,11 @@
 // src/components/asgard/domains/mnemosyne/grammar/DoorTiles.tsx
 
+import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import {
   COUNTED_FROM_ROWS,
   LINE_TABLES,
+  TILE_ROOMS,
   TILE_TABLES,
   type DoorCounts,
 } from '@/lib/grammar/grammar-contract';
@@ -20,11 +22,11 @@ export function DoorTiles({ counts }: { counts: DoorCounts }) {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
         {TILE_TABLES.map((table) => {
           const tile = counts[table];
-          return (
+          const room = TILE_ROOMS[table] ?? null;
+          const face = (
             <Card
-              key={tile.table}
               data={{ id: tile.table, type: 'value', title: tile.label, value: tile.count ?? '' }}
-              variant="glass"
+              variant={room ? 'interactive' : 'glass'}
               size="full"
               radius="lg"
               shadow="sm"
@@ -36,6 +38,15 @@ export function DoorTiles({ counts }: { counts: DoorCounts }) {
               <span className="text-xs uppercase tracking-wide text-star-dust/40">{tile.label}</span>
               {tile.fault ? <GrammarFaultBlock fault={tile.fault} className="text-[11px]" /> : null}
             </Card>
+          );
+          return room ? (
+            <Link key={tile.table} href={room} className="block h-full">
+              {face}
+            </Link>
+          ) : (
+            <div key={tile.table} className="h-full">
+              {face}
+            </div>
           );
         })}
       </div>

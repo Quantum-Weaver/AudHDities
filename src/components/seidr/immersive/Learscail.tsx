@@ -5,17 +5,17 @@
 
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { List, Map as MapIcon } from 'lucide-react';
 import {
   surveyMappa,
-  makeMappa,
   unfurl,
   isDiscovered,
   type Mappa,
 } from '@/lib/waters/the-learscail';
+import StreetTree from '@/components/bifrost/StreetTree';
 import { THE_STREET, realmOfPath } from '@/lib/constants/systems/the-street';
 import { quickResolveAffect } from '@/lib/constants/systems/environments/affects';
 import { useDiscovery } from '@/hooks/useDiscovery';
@@ -132,6 +132,61 @@ function terrainMarks(terrain: Terrain, cx: number, cy: number, col: number, row
   return marks;
 }
 
+/** The shelf the map-or-words choice keeps. */
+export const ASWORDS_SHELF = 'audhdities.learscail.asWords.v1';
+
+/** The least of a shelf this preference needs. */
+export interface WordsShelf {
+  getItem(key: string): string | null;
+  setItem(key: string, value: string): void;
+}
+
+function shelfOf(given?: WordsShelf | null): WordsShelf | null {
+  if (given) return given;
+  if (typeof window === 'undefined') return null;
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
+/** Reads the map-or-words choice; false when no choice stands. */
+export function readAsWords(given?: WordsShelf | null): boolean {
+  const shelf = shelfOf(given);
+  if (!shelf) return false;
+  try {
+    return shelf.getItem(ASWORDS_SHELF) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+const wordsWatchers = new Set<() => void>();
+
+/** Keeps the map-or-words choice and tells every map that reads it. */
+export function writeAsWords(value: boolean, given?: WordsShelf | null): void {
+  const shelf = shelfOf(given);
+  if (shelf) {
+    try {
+      shelf.setItem(ASWORDS_SHELF, value ? 'true' : 'false');
+    } catch {
+      /* Private mode, full disk, a locked shelf — the map still works. */
+    }
+  }
+  for (const watcher of wordsWatchers) watcher();
+}
+
+/** Listens for the choice changing, here or in another tab. */
+function watchAsWords(onChange: () => void): () => void {
+  wordsWatchers.add(onChange);
+  if (typeof window !== 'undefined') window.addEventListener('storage', onChange);
+  return () => {
+    wordsWatchers.delete(onChange);
+    if (typeof window !== 'undefined') window.removeEventListener('storage', onChange);
+  };
+}
+
 export interface LearscailProps {
   /** Called when the vessel walks through a door — the caller folds the map. */
   onTravel?: () => void;
@@ -141,7 +196,13 @@ export interface LearscailProps {
 export default function Learscail({ onTravel, className }: LearscailProps) {
   const pathname = usePathname();
   const { discovered, ready } = useDiscovery();
-  const [asWords, setAsWords] = useState(false);
+
+  // The kept choice; the drawing stands until the shelf has been read.
+  const asWords = useSyncExternalStore(
+    watchAsWords,
+    () => readAsWords(),
+    () => false
+  );
 
   // The land itself — surveyed once from the street, never per-render.
   const formula = useMemo(
@@ -180,180 +241,165 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
         </p>
         <button
           type="button"
-          onClick={() => setAsWords((w) => !w)}
-          className="flex items-center gap-1.5 rounded border border-star-dust/20 px-2.5 py-1 text-xs text-star-dust/70 transition-colors hover:border-star-dust/40 focus-visible:border-star-dust/40 motion-reduce:transition-none"
+          onClick={() => writeAsWords(!asWords)}
+          className="hidden items-center gap-1.5 rounded border border-star-dust/20 px-2.5 py-1 text-xs text-star-dust/70 transition-colors hover:border-star-dust/40 focus-visible:border-star-dust/40 motion-reduce:transition-none md:flex"
         >
           {asWords ? <MapIcon className="h-3.5 w-3.5" aria-hidden="true" /> : <List className="h-3.5 w-3.5" aria-hidden="true" />}
           {asWords ? 'Show the map' : 'Show the list'}
         </button>
       </div>
 
-      {asWords ? (
-        <PlainLens mappa={mappa} onTravel={onTravel} />
-      ) : (
+      {!ready ? (
         <div
-          className="relative flex-1 overflow-hidden rounded-lg border border-star-dust/15"
+          className="min-h-0 flex-1 rounded-lg border border-star-dust/15"
           style={{ backgroundImage: paper }}
-        >
-          <svg
-            viewBox="0 0 1200 800"
-            preserveAspectRatio="xMidYMid meet"
-            role="group"
-            aria-label="The Sanctuary, drawn as land"
-            className="h-full w-full"
+          aria-hidden="true"
+        />
+      ) : (
+        <>
+          {/* The street in words — always below md, and above md when chosen. */}
+          <div className={cn('min-h-0 flex-1 overflow-y-auto', asWords ? 'block' : 'md:hidden')}>
+            <StreetTree compact onTravel={onTravel} />
+          </div>
+
+          {/* The drawing — from md upward. */}
+          <div
+            className={cn(
+              'relative min-h-0 flex-1 overflow-hidden rounded-lg border border-star-dust/15',
+              asWords ? 'hidden' : 'hidden md:block'
+            )}
+            style={{ backgroundImage: paper }}
           >
-            <rect x="0" y="0" width="1200" height="800" fill={VELLUM} opacity="0.88" />
+            <svg
+              viewBox="0 0 1200 800"
+              preserveAspectRatio="xMidYMid meet"
+              role="group"
+              aria-label="The Sanctuary, drawn as land"
+              className="h-full w-full"
+            >
+              <rect x="0" y="0" width="1200" height="800" fill={VELLUM} opacity="0.88" />
 
-            {opened.marches.map((march) => (
-              <path
-                key={`march-${march.section}`}
-                d={toPath(march.polygon)}
-                fill={VELLUM_PALE}
-                stroke={INK_SOFT}
-                strokeWidth={0.6}
-                strokeDasharray="3 5"
-                opacity={0.5}
-              />
-            ))}
+              {opened.marches.map((march) => (
+                <path
+                  key={`march-${march.section}`}
+                  d={toPath(march.polygon)}
+                  fill={VELLUM_PALE}
+                  stroke={INK_SOFT}
+                  strokeWidth={0.6}
+                  strokeDasharray="3 5"
+                  opacity={0.5}
+                />
+              ))}
 
-            {opened.provinces.map((province) => {
-              const realm = realmByName.get(province.group);
-              const known = ready && isDiscovered(mappa, province.group);
-              const d = toPath(province.outline);
-              const standing = here?.name === province.group;
+              {opened.provinces.map((province) => {
+                const realm = realmByName.get(province.group);
+                const known = isDiscovered(mappa, province.group);
+                const d = toPath(province.outline);
+                const standing = here?.name === province.group;
 
-              if (!known) {
+                if (!known) {
+                  return (
+                    <g key={province.group}>
+                      <title>Unnamed ground — waiting, not missing.</title>
+                      <path
+                        d={d}
+                        fill={VELLUM_PALE}
+                        stroke={INK_SOFT}
+                        strokeWidth={1.2}
+                        opacity={0.55}
+                      />
+                    </g>
+                  );
+                }
+
+                // DISCOVERED: land drawn as land, named, walkable — forever.
+                const terrain = TERRAIN_OF[province.group] ?? 'meadow';
                 return (
-                  <g key={province.group}>
-                    <title>Unnamed ground — waiting, not missing.</title>
+                  <Link
+                    key={province.group}
+                    href={realm?.href ?? '/'}
+                    onClick={onTravel}
+                    aria-label={
+                      standing
+                        ? `${province.group} — ${realm?.whisper ?? ''}. You are here.`
+                        : `${province.group} — ${realm?.whisper ?? 'walk here'}`
+                    }
+                    aria-current={standing ? 'page' : undefined}
+                    className="group outline-none"
+                  >
+                    <title>
+                      {standing
+                        ? `${province.group} — you are here`
+                        : `${province.group} — ${realm?.whisper ?? ''}`}
+                    </title>
+
+                    {province.sections.map((section) => (
+                      <path
+                        key={section.section}
+                        d={toPath(section.polygon)}
+                        fill={shadeOf(terrain, section.col, section.row)}
+                      />
+                    ))}
+
+                    {/* The mapmaker's marks: trees, waves, hills, tufts. */}
+                    {province.sections.map((section) =>
+                      terrainMarks(terrain, section.center.x, section.center.y, section.col, section.row)
+                    )}
+
                     <path
                       d={d}
-                      fill={VELLUM_PALE}
-                      stroke={INK_SOFT}
-                      strokeWidth={1.2}
-                      opacity={0.55}
+                      fill="transparent"
+                      stroke={INK}
+                      strokeWidth={standing ? 3.4 : 1.8}
+                      className="transition-[fill] duration-200 [fill:transparent] group-hover:[fill:rgba(58,47,38,0.10)] group-focus-visible:[fill:rgba(58,47,38,0.14)] motion-reduce:transition-none"
                     />
-                  </g>
-                );
-              }
 
-              // DISCOVERED: land drawn as land, named, walkable — forever.
-              const terrain = TERRAIN_OF[province.group] ?? 'meadow';
-              return (
-                <Link
-                  key={province.group}
-                  href={realm?.href ?? '/'}
-                  onClick={onTravel}
-                  aria-label={
-                    standing
-                      ? `${province.group} — ${realm?.whisper ?? ''}. You are here.`
-                      : `${province.group} — ${realm?.whisper ?? 'walk here'}`
-                  }
-                  aria-current={standing ? 'page' : undefined}
-                  className="group outline-none"
-                >
-                  <title>
-                    {standing
-                      ? `${province.group} — you are here`
-                      : `${province.group} — ${realm?.whisper ?? ''}`}
-                  </title>
-
-                  {province.sections.map((section) => (
-                    <path
-                      key={section.section}
-                      d={toPath(section.polygon)}
-                      fill={shadeOf(terrain, section.col, section.row)}
-                    />
-                  ))}
-
-                  {/* The mapmaker's marks: trees, waves, hills, tufts. */}
-                  {province.sections.map((section) =>
-                    terrainMarks(terrain, section.center.x, section.center.y, section.col, section.row)
-                  )}
-
-                  <path
-                    d={d}
-                    fill="transparent"
-                    stroke={INK}
-                    strokeWidth={standing ? 3.4 : 1.8}
-                    className="transition-[fill] duration-200 [fill:transparent] group-hover:[fill:rgba(58,47,38,0.10)] group-focus-visible:[fill:rgba(58,47,38,0.14)] motion-reduce:transition-none"
-                  />
-
-                  <text
-                    x={province.center.x}
-                    y={province.center.y}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    fill={INK}
-                    fontSize={standing ? 21 : 19}
-                    fontWeight={600}
-                    style={{ letterSpacing: '0.02em', paintOrder: 'stroke' }}
-                    stroke={VELLUM}
-                    strokeWidth={4}
-                  >
-                    {province.group}
-                  </text>
-
-                  {standing && (
                     <text
                       x={province.center.x}
-                      y={province.center.y + 20}
+                      y={province.center.y}
                       textAnchor="middle"
                       dominantBaseline="middle"
-                      fill={INK_SOFT}
-                      fontSize={12}
-                      style={{ letterSpacing: '0.08em', paintOrder: 'stroke' }}
+                      fill={INK}
+                      fontSize={standing ? 21 : 19}
+                      fontWeight={600}
+                      style={{ letterSpacing: '0.02em', paintOrder: 'stroke' }}
                       stroke={VELLUM}
-                      strokeWidth={3.5}
+                      strokeWidth={4}
                     >
-                      you are here
+                      {province.group}
                     </text>
-                  )}
-                </Link>
-              );
-            })}
-          </svg>
-        </div>
+
+                    {standing && (
+                      <text
+                        x={province.center.x}
+                        y={province.center.y + 20}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill={INK_SOFT}
+                        fontSize={12}
+                        style={{ letterSpacing: '0.08em', paintOrder: 'stroke' }}
+                        stroke={VELLUM}
+                        strokeWidth={3.5}
+                      >
+                        you are here
+                      </text>
+                    )}
+                  </Link>
+                );
+              })}
+            </svg>
+          </div>
+        </>
       )}
 
-      <p className="mt-3 text-xs text-star-dust/40">
+      <p className={cn('mt-3 text-xs text-star-dust/40', asWords ? 'hidden' : 'hidden md:block')}>
         Ground you have walked is named. The rest is drawn but unnamed — it is
         waiting, not missing, and nothing is required of you to find it.
       </p>
+      <p className={cn('mt-3 text-xs text-star-dust/40', asWords ? 'block' : 'md:hidden')}>
+        Every realm is named here, and its rooms fold open beneath it. The mark
+        beside a name says which ground you have already walked.
+      </p>
     </div>
-  );
-}
-
-/** The same landscape, told in words — always one tap away. */
-function PlainLens({ mappa, onTravel }: { mappa: Mappa; onTravel?: () => void }) {
-  const { ready } = useDiscovery();
-  return (
-    <ul className="grid flex-1 auto-rows-min grid-cols-1 gap-2 overflow-y-auto sm:grid-cols-2">
-      {THE_STREET.map((realm) => {
-        const known = ready && isDiscovered(mappa, realm.name);
-        if (!known) {
-          return (
-            <li
-              key={realm.name}
-              className="rounded border border-dashed border-star-dust/15 px-3 py-2 text-sm text-star-dust/40"
-            >
-              Unnamed ground — waiting, not missing.
-            </li>
-          );
-        }
-        return (
-          <li key={realm.name}>
-            <Link
-              href={realm.href}
-              onClick={onTravel}
-              className="block rounded border border-star-dust/15 px-3 py-2 transition-colors hover:border-star-dust/35 focus-visible:border-star-dust/35 motion-reduce:transition-none"
-            >
-              <span className="text-sm text-star-dust">{realm.name}</span>
-              <span className="block text-xs text-star-dust/40">{realm.whisper}</span>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
   );
 }

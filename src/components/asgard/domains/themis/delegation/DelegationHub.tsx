@@ -73,7 +73,7 @@ export function DelegationHub() {
               variant="glass" radius="lg" shadow="sm" className="p-6 text-center"
             >
               <Sparkles className="h-5 w-5 text-purple-400 mx-auto mb-3" />
-              <div className="grid grid-cols-3 gap-4 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
                 <div>
                   <span className="w-6 h-6 rounded-full bg-neurospark/20 flex items-center justify-center text-xs text-neurospark mb-2">1</span>
                   <h4 className="text-sm font-medium text-star-dust mb-1">Choose</h4>

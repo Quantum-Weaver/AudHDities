@@ -620,6 +620,11 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The Covenant',
     subtitle: 'Your data is yours. Always.'
   },
+  '/apps': {
+    default: 'home',
+    title: 'The apps',
+    subtitle: 'What AudHDities publishes'
+  },
   '/apps/privacy': {
     default: 'home',
     title: 'App Privacy',

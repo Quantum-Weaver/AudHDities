@@ -1,6 +1,6 @@
 {
-  "passed": 56,
-  "total": 56,
+  "passed": 96,
+  "total": 96,
   "checks": [
     {
       "set": "grouping",
@@ -227,7 +227,7 @@
     {
       "set": "lattice",
       "check": "the four kinds shelve in order, an unnamed kind after them",
-      "result": "rank 2 · axis 1 · facet 1 · dimension 1 · kindred 1",
+      "result": "rank 2 · facet 1 · axis 1 · dimension 1 · kindred 1",
       "pass": true
     },
     {
@@ -336,6 +336,246 @@
       "set": "cards",
       "check": "an organism card carries its own parts and badges",
       "result": "function · typescript",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "the five case renderings print in order",
+      "result": "beam_resonance · BEAM_RESONANCE · beam-resonance · beamResonance · BeamResonance",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a case rendering the row does not carry prints none",
+      "result": "BEAM_RESONANCE · beam-resonance · BeamResonance",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a molecule badges only what its row carries",
+      "result": "concept · kebab-case · ui · covalent",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a molecule with no domain badges neither it nor its group",
+      "result": "concept · kebab-case · covalent",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "an organism badges only what its row carries",
+      "result": "function · typescript · stable",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a sensory override prints one line per key, the null values dropped",
+      "result": "emoji ♒︎ · color_hex #00CED1",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a compound no dressing overrides says so, and prints no line",
+      "result": "no dressing overrides this name yet",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "the chain reads in bond order, not in the order the base answered",
+      "result": "beam · resonance",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "each link in the chain opens its atom room",
+      "result": "/grammar/atoms/beam · /grammar/atoms/resonance",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a link carries the face its atom carries and no other",
+      "result": "null|♒︎",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "the head wears the first face the chain carries",
+      "result": "♒︎",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "the line under a link is its role, its bond type and its counted strength",
+      "result": "modifier · covalent · strength 5",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a bond carrying no strength prints none",
+      "result": "modifier · covalent",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a link with neither role nor bond type prints no line",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "the molecules an organism holds read in the order held, the unnamed dropped",
+      "result": "calculateResonance · beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a held molecule carries its role and its bond type, and no face",
+      "result": "action · covalent",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "part of opens the organism room of each name",
+      "result": "/grammar/organisms/calculateBeamResonance",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "a membership opens the scheme room, its name encoded",
+      "result": "/grammar/schemes/Form%20of%20Being",
+      "pass": true
+    },
+    {
+      "set": "compound",
+      "check": "the crumb names the tier and matches the atom room word for word",
+      "result": "grammar · molecule · read live through the anon door",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the count line reads the base count, in its own words",
+      "result": "63 atoms wear this face · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "a face nobody wears says so, and counts nothing",
+      "result": "no atom wears this face yet",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the room addresses a face by its own name, encoded",
+      "result": "/grammar/categories/private%20data",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the atoms are one tier group carrying the base total, not the page count",
+      "result": "63 atoms · 1 shown",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the group waits with the face’s own empty, never the search’s",
+      "result": "no atom wears this face yet",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "the four kinds shelve rank, facet, axis, dimension, in that order",
+      "result": "rank · facet · axis · dimension",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "the cards shelve in the lattice’s own order, an unnamed kind after them",
+      "result": "rank 2 · facet 1 · axis 1 · dimension 1 · kindred 1",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "no scheme is lost in the shelving",
+      "result": "6 of 6",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "a shelf counts its own schemes from rows",
+      "result": "2 schemes · counted from rows · 1 scheme · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "a card carries its counted members, its counted edges and its door",
+      "result": "Being · 2 members · 1 edge · counted from rows · /grammar/schemes/Being",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "a scheme with no membership and no edge counts zero, never blank",
+      "result": "0 members · 0 edges · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "a card keeps the description the row carries, and invents none",
+      "result": "what a thing is",
+      "pass": true
+    },
+    {
+      "set": "shelves",
+      "check": "a tally unread is said, never counted as zero",
+      "result": "the register was unreadable",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a membership naming no concept is dropped, never invented",
+      "result": "beam-resonance · resonance · calculateBeamResonance",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "each member opens the room of its own tier",
+      "result": "molecule /grammar/molecules/beam-resonance · atom /grammar/atoms/resonance · organism /grammar/organisms/calculateBeamResonance",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a member carries its tier word, its primacy and the face its atom wears",
+      "result": "beam-resonance · molecule · ♒︎",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a scheme with no membership waits with its own sentence",
+      "result": "no member yet",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "an edge reads as one sentence, subject, typed arrow, object",
+      "result": "resonance —broader→ beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "the arrow carries the relation type the row holds",
+      "result": "—related→",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "an end the base does not name says so, and is no door",
+      "result": "a concept the base does not name",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a scheme with no edge waits with its own sentence",
+      "result": "no edge in this scheme",
       "pass": true
     }
   ]

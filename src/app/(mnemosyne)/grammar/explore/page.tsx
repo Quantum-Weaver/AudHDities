@@ -3,6 +3,7 @@
 // ║   EXPLORE — the three tiers searched, the faces, the lattice             ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { BookOpen } from 'lucide-react';
 import { Page } from '@/components/bifrost/Page';
 import { CategoryFaces } from '@/components/asgard/domains/mnemosyne/grammar/CategoryFaces';
@@ -19,6 +20,8 @@ import {
   GRAMMAR_TITLE,
   SEARCH_PARAM,
   boundQuery,
+  categoryRoomAddress,
+  categoryRoomLine,
 } from '@/lib/grammar/grammar-contract';
 
 export const metadata: Metadata = {
@@ -49,6 +52,9 @@ export default async function ExplorePage({
 
   const [categories, schemes] = await Promise.all([readCategories(), readSchemes()]);
   const results = q ? await searchGrammar(q, category) : null;
+  const chosen = categories.ok
+    ? (categories.value.find((row) => row.name === category) ?? null)
+    : null;
 
   return (
     <Page showForeground={false} showContinuityBeam={true}>
@@ -68,6 +74,15 @@ export default async function ExplorePage({
               <SearchForm q={q} category={category} action={ROUTE} />
               {results ? <SearchNote results={results} /> : null}
             </div>
+
+            {chosen ? (
+              <Link
+                href={categoryRoomAddress(chosen.name)}
+                className="text-[13px] text-neurospark hover:text-star-dust"
+              >
+                {categoryRoomLine(chosen)}
+              </Link>
+            ) : null}
 
             {results?.tiers.map((tier) => <TierGroup key={tier.tier} result={tier} />)}
 

@@ -45,7 +45,7 @@ export const Footer = ({
   variant,
   size,
   copyright = FOOTER_COPYRIGHT,
-  links = [FOOTER_LINKS.TERMS, FOOTER_LINKS.PRIVACY],
+  links = [FOOTER_LINKS.TERMS, FOOTER_LINKS.PRIVACY, FOOTER_LINKS.APPS],
   className,
 }: FooterProps) => {
   return (

@@ -77,9 +77,10 @@ const nextConfig: NextConfig = {
           destination: '/grammar/explore',
           has: [{ type: 'host', value: 'grammar.audhdities.com' }],
         },
+        // A path already under /grammar, a framework/API/proxy/grimoire path, or any path ending in a file extension falls through unmatched; every other path gains the prefix once.
         {
-          source: '/:path*',
-          destination: '/grammar/:path*',
+          source: '/:path((?!grammar(?:/|$)|_next/|api/|artifacts-proxy/|grimoire(?:/|$)|.*\\.[a-z0-9]{1,8}$).*)',
+          destination: '/grammar/:path',
           has: [{ type: 'host', value: 'grammar.audhdities.com' }],
         },
       ],

@@ -64,8 +64,8 @@ export function DignityFloor() {
       </div>
       
       {/* Comparison Table */}
-      <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-        <div className="grid grid-cols-3 gap-4 p-4 border-b border-white/10 bg-white/5">
+      <div className="bg-white/5 border border-white/10 rounded-xl overflow-x-auto">
+        <div className="grid grid-cols-3 gap-4 p-4 border-b border-white/10 bg-white/5 min-w-[36rem]">
           <div className="text-star-dust font-bold">What We Measure</div>
           <div className="text-star-dust/40 text-sm">Traditional Platforms</div>
           <div className="text-neurospark text-sm">AUDHDITIES</div>
@@ -78,7 +78,7 @@ export function DignityFloor() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
             viewport={{ once: true }}
-            className="grid grid-cols-3 gap-4 p-4 border-b border-white/5 hover:bg-white/5 transition-colors"
+            className="grid grid-cols-3 gap-4 p-4 border-b border-white/5 hover:bg-white/5 transition-colors min-w-[36rem]"
           >
             <div className="text-star-dust text-sm">{comp.metric}</div>
             <div className="text-star-dust/40 text-sm">{comp.traditional}</div>

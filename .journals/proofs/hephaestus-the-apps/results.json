@@ -1,0 +1,174 @@
+{
+  "passed": 28,
+  "total": 28,
+  "checks": [
+    {
+      "set": "standing",
+      "check": "only channels whose standing is not none are printed",
+      "result": "audhdities · galaxy · play",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a none channel is never printed",
+      "result": "microsoft none",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "the channels keep register order",
+      "result": "audhdities · galaxy · microsoft · play",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a standing prints with spaces, never underscores",
+      "result": "planned · building · internal testing · closed testing · open testing · in review · published · rejected · withdrawn",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a zero price prints free",
+      "result": "free",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a set price prints in dollars and cents",
+      "result": "$4.99",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a null price prints nothing",
+      "result": "null · galaxy null",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a price that is not dollars carries its own code",
+      "result": "2.50 EUR",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a listing url is carried when the register holds one",
+      "result": "https://audhdities.com/apps/sudoku",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a channel with no listing url carries null",
+      "result": "galaxy null · play null",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "one channel prints its channel, its standing and its price",
+      "result": "play in review $4.99",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "the line joins every standing channel",
+      "result": "audhdities published free · galaxy internal testing · play in review $4.99",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "four none standings and no platform print the one sentence",
+      "result": "not yet in any store",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "four none standings with a platform print no standing at all",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "standing",
+      "check": "a currency other than dollars reaches the line",
+      "result": "galaxy published 2.50 EUR",
+      "pass": true
+    },
+    {
+      "set": "platforms",
+      "check": "an empty available_on is no line",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "platforms",
+      "check": "one platform prints its label and itself",
+      "result": "available on · windows",
+      "pass": true
+    },
+    {
+      "set": "platforms",
+      "check": "many platforms print in register order",
+      "result": "available on · android · windows",
+      "pass": true
+    },
+    {
+      "set": "platforms",
+      "check": "an empty name in available_on is dropped",
+      "result": "available on · windows · android",
+      "pass": true
+    },
+    {
+      "set": "count",
+      "check": "the count line counts the rows it was handed",
+      "result": "3 apps and games in the register · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "count",
+      "check": "an empty register counts zero",
+      "result": "0 apps and games in the register · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "a refused read carries what happened, why, and the next step",
+      "result": "the register refused this read · beacons · permission denied for table beacons · next · a read policy on beacons for the anon door",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "a refused read shows no app",
+      "result": "0 rows",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "an unnamed door carries its own sentence and no fault",
+      "result": "register unread · the knowledge door is not named on this host",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "the select names every column the page prints",
+      "result": "23 columns",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "the four standings, the four listings and the four prices are selected",
+      "result": "audhdities · galaxy · microsoft · play",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "story and home are not selected",
+      "result": "name, slug, beacon_type, status, definition, repo_url, is_public, version, icon_emoji, available_on, audhdities_status, galaxy_status, microsoft_status, play_status, audhdities_listing_url, galaxy_listing_url, microsoft_listing_url, play_listing_url, audhdities_price_cents, galaxy_price_cents, microsoft_price_cents, play_price_cents, currency",
+      "pass": true
+    },
+    {
+      "set": "types",
+      "check": "only apps and games are read",
+      "result": "app · game",
+      "pass": true
+    }
+  ]
+}

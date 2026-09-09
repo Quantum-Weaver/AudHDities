@@ -1,0 +1,246 @@
+{
+  "passed": 40,
+  "total": 40,
+  "checks": [
+    {
+      "set": "door",
+      "check": "an unnamed door is seen as unnamed",
+      "result": "false",
+      "pass": true
+    },
+    {
+      "set": "door",
+      "check": "every read faults when the door is unnamed",
+      "result": "5 of 5",
+      "pass": true
+    },
+    {
+      "set": "door",
+      "check": "the unnamed door is never asked of the client",
+      "result": "0",
+      "pass": true
+    },
+    {
+      "set": "door",
+      "check": "the unnamed door faults in three parts, in its own words",
+      "result": "molecules · the knowledge door is not named on this host",
+      "pass": true
+    },
+    {
+      "set": "door",
+      "check": "a named door is seen as named",
+      "result": "true",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "a refusal carries the base's own message and the table",
+      "result": "molecules · permission denied for table molecules",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "a refusal faults in three parts, never empty",
+      "result": "a read policy on molecules for the anon door",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "a refusal on a second read faults the whole reading",
+      "result": "sensory_lexicon · permission denied for table sensory_lexicon",
+      "pass": true
+    },
+    {
+      "set": "case",
+      "check": "the atom is read whole by an ilike, never an eq",
+      "result": "ilike · limit",
+      "pass": true
+    },
+    {
+      "set": "case",
+      "check": "a word typed in one case finds the row stored in another",
+      "result": "Resonance",
+      "pass": true
+    },
+    {
+      "set": "case",
+      "check": "a molecule is found case-blind by its name",
+      "result": "beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "case",
+      "check": "an unknown name answers no row, never a fault",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "the atoms are carried in bond order",
+      "result": "1 beam · 2 resonance",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "each bond carries its role, its type and its strength",
+      "result": "modifier · covalent · 2",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "an atom wears its own sense, an atom with none wears nothing",
+      "result": "null · ♒︎",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "each bonded atom opens its own room",
+      "result": "/grammar/atoms/beam",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "the sensory override rides through the read, one line per key",
+      "result": "emoji ♒︎ · color_hex #00CED1",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "the organisms it belongs to are named",
+      "result": "calculate-beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "its membership carries the scheme, its kind and its primacy",
+      "result": "Being · axis",
+      "pass": true
+    },
+    {
+      "set": "molecule",
+      "check": "an edge is named from this molecule's end, the other side named and tiered",
+      "result": "broader · subject · atom resonance · related · object · atom beam",
+      "pass": true
+    },
+    {
+      "set": "organism",
+      "check": "the molecules it holds are named in order, each a door",
+      "result": "beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "organism",
+      "check": "its direct atoms carry position, role and strength",
+      "result": "beam · verb · 4",
+      "pass": true
+    },
+    {
+      "set": "organism",
+      "check": "an edge from the organism's end names the other side",
+      "result": "narrower · molecule create-resonance",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the face is read case-blind, with its own emoji",
+      "result": "Being · 👁️",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "a dressed row that overrides is never counted among the face",
+      "result": "anchor · resonance",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the count is the base count of the face, not the page",
+      "result": "2",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "the atoms are read in word order and each opens its room",
+      "result": "/grammar/atoms/anchor",
+      "pass": true
+    },
+    {
+      "set": "category",
+      "check": "a face no atom wears counts zero, never nothing",
+      "result": "0",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "every member carries the tier it belongs to",
+      "result": "molecule beam-resonance · atom resonance · organism calculate-beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "the members are ordered by the sort order the lattice holds",
+      "result": "1 · 2 · 3",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a member carries its primacy, and an atom member its face",
+      "result": "true · ♒︎",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "each member opens the room of its own tier",
+      "result": "/grammar/organisms/calculate-beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "only the edges drawn within this scheme are carried, both ends named",
+      "result": "beam-resonance broader resonance",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a scheme carries the schemes standing under it",
+      "result": "Layout",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a scheme under no other names no parent",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a scheme standing under another names its parent",
+      "result": "Being",
+      "pass": true
+    },
+    {
+      "set": "scheme",
+      "check": "a scheme carries only the edges keyed to it",
+      "result": "related",
+      "pass": true
+    },
+    {
+      "set": "counts",
+      "check": "every scheme is tallied, counted from rows",
+      "result": "Being 3 · Layout 1",
+      "pass": true
+    },
+    {
+      "set": "counts",
+      "check": "the edges are tallied per scheme, a scheme-less edge dropped",
+      "result": "Being 1 · Layout 1",
+      "pass": true
+    },
+    {
+      "set": "counts",
+      "check": "the tally is read from rows, never from a head count",
+      "result": "schemes · scheme_memberships · concept_relations",
+      "pass": true
+    }
+  ]
+}

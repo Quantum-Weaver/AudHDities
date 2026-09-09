@@ -4,8 +4,8 @@ import { tierMeta, type TierResult } from '@/lib/grammar/grammar-contract';
 import { DressedCardFace } from './DressedCard';
 import { GrammarFaultBlock } from './GrammarFault';
 
-/** One tier of a search: its heading, its count, its cards or its own empty. */
-export function TierGroup({ result }: { result: TierResult }) {
+/** One tier of a search: its heading, its count, the table it reads, its cards or its own empty. */
+export function TierGroup({ result, source }: { result: TierResult; source?: string }) {
   return (
     <section className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-3">
@@ -13,6 +13,7 @@ export function TierGroup({ result }: { result: TierResult }) {
           {result.heading}
         </h2>
         <span className="text-xs text-star-dust/40">{tierMeta(result)}</span>
+        {source ? <span className="text-[11px] text-star-dust/35">{source}</span> : null}
       </div>
       {result.fault ? <GrammarFaultBlock fault={result.fault} /> : null}
       {!result.fault && result.cards.length === 0 ? (

@@ -12,6 +12,7 @@ export const FOOTER_COPYRIGHT = '© 2026 AudHDities LLC. All rights reserved.';
 export const FOOTER_LINKS = {
   TERMS: { href: '/terms', label: 'Terms of Service' },
   PRIVACY: { href: '/privacy', label: 'Privacy Policy' },
+  APPS: { href: '/apps', label: 'Apps' },
 } as const;
 
 /** Separator character between footer links */

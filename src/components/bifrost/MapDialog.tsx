@@ -55,15 +55,12 @@ export default function MapDialog() {
         if (e.target === ref.current) close();
       }}
       className={cn(
-        'h-[80vh] w-[80vw] max-w-none max-h-none rounded-xl border border-star-dust/15',
+        'inset-0 h-[100dvh] w-full max-w-none max-h-none rounded-none border border-star-dust/15',
+        'md:h-[80vh] md:w-[80vw] md:rounded-xl',
         'bg-(--color-deep-space)',
         'backdrop:bg-(--color-deep-space)/80 backdrop:backdrop-blur-sm'
       )}
-      // globals.css carries an unlayered `* { margin: 0; padding: 0 }` reset
-      // (src/app/globals.css:21) that sits outside any @layer, so it beats
-      // every Tailwind margin/padding utility app-wide regardless of
-      // specificity — confirmed by computed style (m-auto/p-6 both measured
-      // as 0). Inline styles are the one thing that reliably outranks it.
+      // The dialog's centring margin and its inner padding.
       style={{ margin: 'auto', padding: '1.5rem' }}
     >
       <div className="flex h-full flex-col gap-4" onClick={(e) => e.stopPropagation()}>
@@ -74,7 +71,7 @@ export default function MapDialog() {
             onClick={close}
             aria-label="Fold the map"
             style={{ padding: '0.25rem' }}
-            className={cn('rounded text-star-dust/60 hover:text-star-dust focus-visible:text-star-dust', FOCUS_RING)}
+            className={cn('inline-flex min-h-11 min-w-11 items-center justify-center rounded text-star-dust/60 hover:text-star-dust focus-visible:text-star-dust', FOCUS_RING)}
           >
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
@@ -84,8 +81,9 @@ export default function MapDialog() {
           <Learscail onTravel={close} className="h-full" />
         </div>
 
-        <div className="max-h-[24vh] shrink-0 overflow-y-auto">
-          <div className="grid auto-rows-min grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-3">
+        {/* The flat index — from md upward. */}
+        <div className="hidden shrink-0 overflow-y-auto md:block md:max-h-[24vh]">
+          <div className="grid auto-rows-min grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
             {THE_STREET.map((realm) => (
               <section key={realm.name} aria-label={realm.name} className="flex flex-col gap-2">
                 <h3 className="text-xs font-medium uppercase tracking-wide text-star-dust/62">

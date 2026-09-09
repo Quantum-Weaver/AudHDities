@@ -11,6 +11,7 @@ import {
   WEARING_CATEGORY_FACE,
   atomCases,
   atomFace,
+  categoryRoomAddress,
   measuresBadge,
   present,
   type AtomWhole,
@@ -56,10 +57,12 @@ export function AtomHead({ whole }: { whole: AtomWhole }) {
 
         <div className="flex flex-wrap gap-1.5 pt-1.5">
           {whole.category_name ? (
-            <Badge variant="outline" size="sm" pill>
-              {whole.category_face ? `${whole.category_face} ` : ''}
-              {whole.category_name}
-            </Badge>
+            <Link href={categoryRoomAddress(whole.category_name)}>
+              <Badge variant="outline" size="sm" pill>
+                {whole.category_face ? `${whole.category_face} ` : ''}
+                {whole.category_name}
+              </Badge>
+            </Link>
           ) : null}
           {badges.map((badge) => (
             <Badge key={badge} variant="outline" size="sm" pill>

@@ -25,6 +25,7 @@ import {
   bondLine,
   moreLine,
   present,
+  schemeAddress,
   senseChannels,
   tierAddress,
   type AtomBonds,
@@ -203,7 +204,12 @@ export function LatticePanel({
         <div className="flex flex-col gap-1.5 text-[13px]">
           {lattice.memberships.map((membership) => (
             <span key={`${membership.scheme}-${membership.schemeType}`} className="text-star-dust/70">
-              {membership.scheme}
+              <Link
+                href={schemeAddress(membership.scheme)}
+                className="text-star-dust/70 hover:text-neurospark"
+              >
+                {membership.scheme}
+              </Link>
               <span className="text-star-dust/35"> · {membership.schemeType}</span>
               {membership.primary ? (
                 <span className="text-neurospark"> · {PRIMARY_LABEL}</span>

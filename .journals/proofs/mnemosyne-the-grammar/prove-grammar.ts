@@ -6,6 +6,7 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
+  ATOM_CRUMB,
   ATOM_SEARCH_COLUMNS,
   DOOR_LABELS,
   DOOR_TABLES,
@@ -15,6 +16,10 @@ import {
   NOT_IN_A_SCHEME,
   NOT_YET_SENSED,
   NO_DRESSING,
+  NO_FACE_WORN,
+  NO_COMPOUND_DRESSING,
+  NO_MEMBER_YET,
+  NO_SCHEME_EDGE,
   NO_TYPED_EDGES,
   ORGANISM_CHIP_LIMIT,
   QUERY_MAX,
@@ -29,33 +34,66 @@ import {
   atomCard,
   atomCases,
   atomFace,
+  atomLinks,
   baseFault,
   bondChips,
   bondLine,
   boundQuery,
+  categoryCountLine,
+  categoryRoomAddress,
+  categoryTier,
+  chainLinkLine,
+  compoundAtoms,
+  compoundCases,
+  compoundFace,
+  compoundMolecules,
   doorUnnamedFault,
+  edgeArrow,
+  edgeSentence,
+  edgeSideWord,
+  emojiByAtom,
   ilikePattern,
   latticeEdges,
   measuresBadge,
   membershipViews,
+  moleculeBadges,
   moleculeCard,
+  moleculeLinks,
+  overrideLines,
   moreLine,
+  nameLinks,
+  organismBadges,
   organismCard,
+  schemeAddress,
+  schemeCardLine,
+  schemeMembers,
+  schemeTallies,
   senseChannels,
+  shelfLine,
+  shelveSchemeCards,
   shelveSchemes,
   splitDressings,
+  tallyByScheme,
   tallyLine,
   tierAddress,
+  tierCrumb,
   tierMeta,
   type AtomDressing,
   type AtomSearchRow,
   type AtomWhole,
+  type CompoundAtomRow,
+  type CompoundMoleculeRow,
   type GrammarTier,
   type MembershipJoinRow,
+  type MoleculeDetail,
   type MoleculeSearchRow,
+  type OrganismDetail,
   type OrganismSearchRow,
   type RelationJoinRow,
   type SchemeChip,
+  type SchemeEdge,
+  type SchemeKeyRow,
+  type SchemeMemberRow,
   type SearchResults,
   type TierResult,
 } from '../../../src/lib/grammar/grammar-contract';
@@ -207,13 +245,84 @@ const ORGANISM_NAMES = [
   'seedResonanceLattice',
 ];
 
+const BEAM_ID = '22222222-2222-2222-2222-222222222222';
+const BEAM_RESONANCE_ID = '33333333-3333-3333-3333-333333333333';
+const CALCULATE_BEAM_RESONANCE_ID = '44444444-4444-4444-4444-444444444444';
+
+const MOLECULE: MoleculeDetail = {
+  atom_words: 'beam resonance',
+  bond_type: 'covalent',
+  camel_case: 'beamResonance',
+  definition: 'the beam a resonance is carried on',
+  domain: 'ui',
+  functional_group: null,
+  id: BEAM_RESONANCE_ID,
+  kebab_case: 'beam-resonance',
+  molecule_type: 'concept',
+  name: 'beam-resonance',
+  naming_convention: 'kebab-case',
+  pascal_case: 'BeamResonance',
+  screaming_case: 'BEAM_RESONANCE',
+  snake_case: 'beam_resonance',
+  total_weight: 9,
+};
+
+const ORGANISM: OrganismDetail = {
+  acronym: null,
+  camel_case: 'calculateBeamResonance',
+  definition: null,
+  domain: 'typescript',
+  habitat: null,
+  id: CALCULATE_BEAM_RESONANCE_ID,
+  kebab_case: 'calculate-beam-resonance',
+  lifecycle: 'stable',
+  name: 'calculateBeamResonance',
+  organism_type: 'function',
+  pascal_case: 'CalculateBeamResonance',
+  screaming_case: 'CALCULATE_BEAM_RESONANCE',
+  snake_case: 'calculate_beam_resonance',
+};
+
+const BOND_ROWS: CompoundAtomRow[] = [
+  {
+    position: 2,
+    role: 'core_type',
+    bond_type: 'covalent',
+    bond_strength: 8,
+    atom_id: RESONANCE_ID,
+    atoms: { atom_word: 'resonance', category_name: 'consciousness' },
+  },
+  {
+    position: 1,
+    role: 'modifier',
+    bond_type: 'covalent',
+    bond_strength: 5,
+    atom_id: BEAM_ID,
+    atoms: { atom_word: 'beam', category_name: 'light' },
+  },
+];
+
+const HELD_ROWS: CompoundMoleculeRow[] = [
+  { position: 2, role: null, bond_type: 'covalent', molecules: { name: 'beam-resonance' } },
+  { position: 1, role: 'action', bond_type: 'covalent', molecules: { name: 'calculateResonance' } },
+  { position: 3, role: null, bond_type: 'ionic', molecules: null },
+];
+
+const FACES = emojiByAtom([
+  { atom_id: BEAM_ID, emoji: null },
+  { atom_id: RESONANCE_ID, emoji: '♒︎' },
+]);
+
+const CHAIN = atomLinks(compoundAtoms(BOND_ROWS, FACES));
+const HELD = moleculeLinks(compoundMolecules(HELD_ROWS));
+
 const SCHEMES: SchemeChip[] = [
-  { name: 'Species', scheme_type: 'rank', sort_order: 8 },
-  { name: 'Domain', scheme_type: 'rank', sort_order: 1 },
-  { name: 'Being', scheme_type: 'axis', sort_order: 2 },
-  { name: 'Layout', scheme_type: 'facet', sort_order: 10 },
-  { name: 'form', scheme_type: 'dimension', sort_order: 5 },
-  { name: 'Weave', scheme_type: 'kindred', sort_order: 1 },
+  { name: 'Species', scheme_type: 'rank', sort_order: 8, description: 'the finest rank' },
+  { name: 'Domain', scheme_type: 'rank', sort_order: 1, description: null },
+  { name: 'Being', scheme_type: 'axis', sort_order: 2, description: 'what a thing is' },
+  { name: 'Layout', scheme_type: 'facet', sort_order: 10, description: null },
+  { name: 'form', scheme_type: 'dimension', sort_order: 5, description: null },
+  { name: 'Weave', scheme_type: 'kindred', sort_order: 1, description: null },
 ];
 
 function tier(
@@ -637,6 +746,358 @@ function main() {
     organismCard(ORGANISMS[0]).parts.join(' · ') === 'calculate · beam · resonance' &&
       organismCard(ORGANISMS[0]).badges.join(' · ') === 'function · typescript',
     organismCard(ORGANISMS[0]).badges.join(' · ')
+  );
+
+  // ── the compound's room ─────────────────────────────────────
+
+  record(
+    'compound',
+    'the five case renderings print in order',
+    compoundCases(MOLECULE).join(' · ') ===
+      'beam_resonance · BEAM_RESONANCE · beam-resonance · beamResonance · BeamResonance',
+    compoundCases(MOLECULE).join(' · ')
+  );
+  record(
+    'compound',
+    'a case rendering the row does not carry prints none',
+    compoundCases({ ...MOLECULE, camel_case: null, snake_case: null }).join(' · ') ===
+      'BEAM_RESONANCE · beam-resonance · BeamResonance',
+    compoundCases({ ...MOLECULE, camel_case: null, snake_case: null }).join(' · ')
+  );
+  record(
+    'compound',
+    'a molecule badges only what its row carries',
+    moleculeBadges(MOLECULE).join(' · ') === 'concept · kebab-case · ui · covalent',
+    moleculeBadges(MOLECULE).join(' · ')
+  );
+  record(
+    'compound',
+    'a molecule with no domain badges neither it nor its group',
+    moleculeBadges({ ...MOLECULE, domain: null }).join(' · ') ===
+      'concept · kebab-case · covalent',
+    moleculeBadges({ ...MOLECULE, domain: null }).join(' · ')
+  );
+  record(
+    'compound',
+    'an organism badges only what its row carries',
+    organismBadges(ORGANISM).join(' · ') === 'function · typescript · stable' &&
+      organismBadges({ ...ORGANISM, acronym: 'CBR' }).join(' · ') ===
+        'function · typescript · stable · CBR',
+    organismBadges(ORGANISM).join(' · ')
+  );
+  record(
+    'compound',
+    'a sensory override prints one line per key, the null values dropped',
+    overrideLines({ emoji: '♒︎', color_hex: '#00CED1', taste: null })
+      .map((line) => `${line.label} ${line.value}`)
+      .join(' · ') === 'emoji ♒︎ · color_hex #00CED1',
+    overrideLines({ emoji: '♒︎', color_hex: '#00CED1', taste: null })
+      .map((line) => `${line.label} ${line.value}`)
+      .join(' · ')
+  );
+  record(
+    'compound',
+    'a compound no dressing overrides says so, and prints no line',
+    overrideLines(null).length === 0 && overrideLines('').length === 0,
+    NO_COMPOUND_DRESSING
+  );
+  record(
+    'compound',
+    'the chain reads in bond order, not in the order the base answered',
+    CHAIN.map((link) => link.name).join(' · ') === 'beam · resonance',
+    CHAIN.map((link) => link.name).join(' · ')
+  );
+  record(
+    'compound',
+    'each link in the chain opens its atom room',
+    CHAIN.map((link) => link.address).join(' · ') ===
+      '/grammar/atoms/beam · /grammar/atoms/resonance',
+    CHAIN.map((link) => link.address).join(' · ')
+  );
+  record(
+    'compound',
+    'a link carries the face its atom carries and no other',
+    CHAIN.map((link) => link.face).join('|') === '|' + FACES[RESONANCE_ID],
+    CHAIN.map((link) => String(link.face)).join('|')
+  );
+  record(
+    'compound',
+    'the head wears the first face the chain carries',
+    compoundFace(compoundAtoms(BOND_ROWS, FACES)) === FACES[RESONANCE_ID] &&
+      compoundFace([]) === null,
+    String(compoundFace(compoundAtoms(BOND_ROWS, FACES)))
+  );
+  record(
+    'compound',
+    'the line under a link is its role, its bond type and its counted strength',
+    chainLinkLine(CHAIN[0]) === 'modifier · covalent · strength 5',
+    String(chainLinkLine(CHAIN[0]))
+  );
+  record(
+    'compound',
+    'a bond carrying no strength prints none',
+    chainLinkLine({ ...CHAIN[0], strength: null }) === 'modifier · covalent',
+    String(chainLinkLine({ ...CHAIN[0], strength: null }))
+  );
+  record(
+    'compound',
+    'a link with neither role nor bond type prints no line',
+    chainLinkLine(nameLinks(['calculateBeamResonance'], 'organisms')[0]) === null,
+    'null'
+  );
+  record(
+    'compound',
+    'the molecules an organism holds read in the order held, the unnamed dropped',
+    HELD.map((link) => link.name).join(' · ') === 'calculateResonance · beam-resonance',
+    HELD.map((link) => link.name).join(' · ')
+  );
+  record(
+    'compound',
+    'a held molecule carries its role and its bond type, and no face',
+    chainLinkLine(HELD[0]) === 'action · covalent' && HELD[0].face === null,
+    String(chainLinkLine(HELD[0]))
+  );
+  record(
+    'compound',
+    'part of opens the organism room of each name',
+    nameLinks(['calculateBeamResonance'], 'organisms')[0].address ===
+      '/grammar/organisms/calculateBeamResonance',
+    nameLinks(['calculateBeamResonance'], 'organisms')[0].address
+  );
+  record(
+    'compound',
+    'a membership opens the scheme room, its name encoded',
+    schemeAddress('Form of Being') === '/grammar/schemes/Form%20of%20Being',
+    schemeAddress('Form of Being')
+  );
+  record(
+    'compound',
+    'the crumb names the tier and matches the atom room word for word',
+    tierCrumb('atoms') === ATOM_CRUMB &&
+      tierCrumb('molecules') === 'grammar · molecule · read live through the anon door' &&
+      tierCrumb('organisms') === 'grammar · organism · read live through the anon door',
+    tierCrumb('molecules')
+  );
+
+  // ── the category's room ─────────────────────────
+
+  record(
+    'category',
+    'the count line reads the base count, in its own words',
+    categoryCountLine(63) === '63 atoms wear this face · counted from rows' &&
+      categoryCountLine(1) === '1 atom wears this face · counted from rows',
+    categoryCountLine(63)
+  );
+  record(
+    'category',
+    'a face nobody wears says so, and counts nothing',
+    categoryCountLine(0) === NO_FACE_WORN,
+    NO_FACE_WORN
+  );
+  record(
+    'category',
+    'the room addresses a face by its own name, encoded',
+    categoryRoomAddress('private data') === '/grammar/categories/private%20data',
+    categoryRoomAddress('private data')
+  );
+
+  const worn = categoryTier({
+    row: { name: 'consciousness', icon_emoji: '👁️', description: null, sort_order: 1 },
+    cards: [atomCard(atomRow())],
+    total: 63,
+  });
+  record(
+    'category',
+    'the atoms are one tier group carrying the base total, not the page count',
+    worn.total === 63 && worn.cards.length === 1 && worn.fault === null,
+    tierMeta(worn)
+  );
+  record(
+    'category',
+    'the group waits with the face’s own empty, never the search’s',
+    worn.empty === NO_FACE_WORN,
+    worn.empty
+  );
+
+  // ── the lattice's shelves ───────────────────────
+
+  record(
+    'shelves',
+    'the four kinds shelve rank, facet, axis, dimension, in that order',
+    SCHEME_SHELVES.join(' · ') === 'rank · facet · axis · dimension',
+    SCHEME_SHELVES.join(' · ')
+  );
+
+  const tallies = schemeTallies(
+    [
+      { id: 'scheme-being', name: 'Being' },
+      { id: 'scheme-domain', name: 'Domain' },
+      { id: 'scheme-species', name: 'Species' },
+      { id: 'scheme-layout', name: 'Layout' },
+      { id: 'scheme-form', name: 'form' },
+      { id: 'scheme-weave', name: 'Weave' },
+    ],
+    tallyByScheme([
+      { scheme_id: 'scheme-being' },
+      { scheme_id: 'scheme-being' },
+      { scheme_id: 'scheme-domain' },
+      { scheme_id: null },
+    ] as SchemeKeyRow[]),
+    tallyByScheme([{ scheme_id: 'scheme-being' }] as SchemeKeyRow[])
+  );
+  const carded = shelveSchemeCards(SCHEMES, tallies);
+  record(
+    'shelves',
+    'the cards shelve in the lattice’s own order, an unnamed kind after them',
+    carded.map((shelf) => shelf.kind).join(' · ') === `${SCHEME_SHELVES.join(' · ')} · kindred`,
+    carded.map((shelf) => `${shelf.kind} ${shelf.cards.length}`).join(' · ')
+  );
+  record(
+    'shelves',
+    'no scheme is lost in the shelving',
+    carded.reduce((sum, shelf) => sum + shelf.cards.length, 0) === SCHEMES.length,
+    `${SCHEMES.length} of ${SCHEMES.length}`
+  );
+  record(
+    'shelves',
+    'a shelf counts its own schemes from rows',
+    shelfLine(carded[0]) === '2 schemes · counted from rows' &&
+      shelfLine(carded[3]) === '1 scheme · counted from rows',
+    `${shelfLine(carded[0])} · ${shelfLine(carded[3])}`
+  );
+
+  const being = carded[2].cards[0];
+  record(
+    'shelves',
+    'a card carries its counted members, its counted edges and its door',
+    schemeCardLine(being) === '2 members · 1 edge · counted from rows' &&
+      being.address === '/grammar/schemes/Being',
+    `${being.name} · ${schemeCardLine(being)} · ${being.address}`
+  );
+  record(
+    'shelves',
+    'a scheme with no membership and no edge counts zero, never blank',
+    schemeCardLine(carded[0].cards[0]) === '0 members · 0 edges · counted from rows',
+    schemeCardLine(carded[0].cards[0])
+  );
+  record(
+    'shelves',
+    'a card keeps the description the row carries, and invents none',
+    being.description === 'what a thing is' && carded[1].cards[0].description === null,
+    String(being.description)
+  );
+  record(
+    'shelves',
+    'a tally unread is said, never counted as zero',
+    schemeCardLine(shelveSchemeCards(SCHEMES, null)[2].cards[0]) === REGISTER_UNREAD,
+    REGISTER_UNREAD
+  );
+
+  // ── the scheme's room ──────────────────────────
+
+  const memberRows: SchemeMemberRow[] = [
+    {
+      is_primary: false,
+      sort_order: 2,
+      atom_id: RESONANCE_ID,
+      atoms: { atom_word: 'resonance' },
+      molecules: null,
+      organisms: null,
+    },
+    {
+      is_primary: true,
+      sort_order: 1,
+      atom_id: null,
+      atoms: null,
+      molecules: { name: 'beam-resonance' },
+      organisms: null,
+    },
+    {
+      is_primary: false,
+      sort_order: 3,
+      atom_id: null,
+      atoms: null,
+      molecules: null,
+      organisms: { name: 'calculateBeamResonance' },
+    },
+    {
+      is_primary: false,
+      sort_order: 4,
+      atom_id: null,
+      atoms: null,
+      molecules: null,
+      organisms: null,
+    },
+  ];
+  const members = schemeMembers(memberRows, { [RESONANCE_ID]: '♒︎' });
+  record(
+    'scheme',
+    'a membership naming no concept is dropped, never invented',
+    members.length === 3,
+    members.map((one) => one.name).join(' · ')
+  );
+  record(
+    'scheme',
+    'each member opens the room of its own tier',
+    members.map((one) => one.address).join(' · ') ===
+      [
+        tierAddress('molecules', 'beam-resonance'),
+        tierAddress('atoms', 'resonance'),
+        tierAddress('organisms', 'calculateBeamResonance'),
+      ].join(' · '),
+    members.map((one) => `${one.word} ${one.address}`).join(' · ')
+  );
+  record(
+    'scheme',
+    'a member carries its tier word, its primacy and the face its atom wears',
+    members[0].primary && members[0].word === 'molecule' && members[1].emoji === '♒︎',
+    `${members[0].name} · ${members[0].word} · ${String(members[1].emoji)}`
+  );
+  record(
+    'scheme',
+    'a scheme with no membership waits with its own sentence',
+    schemeMembers([], {}).length === 0,
+    NO_MEMBER_YET
+  );
+
+  const edge: SchemeEdge = {
+    relationType: 'broader',
+    subject: {
+      tier: 'atoms',
+      word: 'atom',
+      name: 'resonance',
+      address: tierAddress('atoms', 'resonance'),
+    },
+    object: {
+      tier: 'molecules',
+      word: 'molecule',
+      name: 'beam-resonance',
+      address: tierAddress('molecules', 'beam-resonance'),
+    },
+  };
+  record(
+    'scheme',
+    'an edge reads as one sentence, subject, typed arrow, object',
+    edgeSentence(edge) === 'resonance —broader→ beam-resonance',
+    edgeSentence(edge)
+  );
+  record(
+    'scheme',
+    'the arrow carries the relation type the row holds',
+    edgeArrow('related') === '—related→',
+    edgeArrow('related')
+  );
+  record(
+    'scheme',
+    'an end the base does not name says so, and is no door',
+    edgeSideWord({ tier: 'atoms', word: 'atom', name: null, address: null }) === edgeSideWord(null),
+    edgeSideWord(null)
+  );
+  record(
+    'scheme',
+    'a scheme with no edge waits with its own sentence',
+    NO_SCHEME_EDGE === 'no edge in this scheme',
+    NO_SCHEME_EDGE
   );
 
   // ── the tally ──────────────────────────────────────────────────────────────

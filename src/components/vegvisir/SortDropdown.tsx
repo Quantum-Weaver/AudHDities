@@ -100,7 +100,7 @@ export function SortDropdown({
               SORT_DROPDOWN_Z_INDEX.DROPDOWN,
               "bg-surface border border-white/10",
               SORT_DROPDOWN_RADIUS,
-              "overflow-hidden min-w-[160px]"
+              "overflow-hidden min-w-[160px] max-w-[calc(100vw-2rem)]"
             )}
           >
             {options.map((option) => (

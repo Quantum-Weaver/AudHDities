@@ -11,13 +11,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import {
   Menu, X, Store, Shield, Compass, User,
   Library,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
+import StreetTree, { FOCUS_RING } from '@/components/bifrost/StreetTree';
 import { THE_STREET } from '@/lib/constants/systems/the-street';
 import type { RealmKey } from '@/lib/constants/systems/trio';
 
@@ -71,20 +72,61 @@ const THE_FOUR: BarItem[] = [
 // COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
 
-/** A 2px hearth-gold ring at 2px offset — 12.7:1 on the bar ground. Drawn on
- *  its own so it can never be confused with the active tint. Exported —
- *  MapDialog borrows it so the map's controls read as the same hand. */
-export const FOCUS_RING =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hearth-gold focus-visible:ring-offset-2 focus-visible:ring-offset-deep-space';
+/** The focus ring, re-exported from StreetTree. */
+export { FOCUS_RING };
+
+/** The drawer panel's own id — the button that opens it points here. */
+const DRAWER_ID = 'bifrost-drawer';
 
 export function Navigation({ className }: { className?: string }) {
   const pathname = usePathname();
   const { user, profile } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerPath, setDrawerPath] = useState(pathname);
+  const [entered, setEntered] = useState(false);
 
-  useEffect(() => {
+  const closeDrawer = useCallback(() => {
     setDrawerOpen(false);
-  }, [pathname]);
+    setEntered(false);
+  }, []);
+
+  // Every change of path folds the drawer.
+  if (drawerPath !== pathname) {
+    setDrawerPath(pathname);
+    setDrawerOpen(false);
+    setEntered(false);
+  }
+
+  // The panel drops in on the frame after it mounts, so the slide is seen.
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const frame = requestAnimationFrame(() => setEntered(true));
+    return () => {
+      cancelAnimationFrame(frame);
+      setEntered(false);
+    };
+  }, [drawerOpen]);
+
+  // Escape folds the drawer.
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeDrawer();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [drawerOpen, closeDrawer]);
+
+  // The page beneath holds still while the drawer stands open.
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const body = document.body;
+    const standing = body.style.overflow;
+    body.style.overflow = 'hidden';
+    return () => {
+      body.style.overflow = standing;
+    };
+  }, [drawerOpen]);
 
   const isActive = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href + '/'));
 
@@ -166,24 +208,30 @@ export function Navigation({ className }: { className?: string }) {
         {drawerOpen && (
           <div
             className="fixed inset-0 z-40 bg-deep-space/60 backdrop-blur-sm"
-            onClick={() => setDrawerOpen(false)}
+            onClick={closeDrawer}
           />
         )}
 
-        {/* Drawer — anchored to the top, drops down under the bar
-            (KP, 2026-08-27: "anchor to the top rather than left"). Full
-            width, its own scroll, the column centered. */}
-        <div className={cn(
-          'fixed top-0 left-0 right-0 z-50 max-h-[85vh] w-full bg-(--color-deep-space)/95 backdrop-blur-xl border-b border-white/10 shadow-2xl',
-          'flex flex-col transition-transform duration-200 motion-reduce:transition-none',
-          drawerOpen ? 'translate-y-0' : '-translate-y-full'
-        )}>
+        {/* Drawer — anchored to the top, full width, its own scroll,
+            mounted only while open. */}
+        {drawerOpen && (
+        <div
+          id={DRAWER_ID}
+          role="dialog"
+          aria-modal="true"
+          aria-label="The Sanctuary — every door"
+          className={cn(
+            'fixed top-0 left-0 right-0 z-50 max-h-[85vh] w-full bg-(--color-deep-space)/95 backdrop-blur-xl border-b border-white/10 shadow-2xl',
+            'flex flex-col transition-transform duration-200 motion-reduce:transition-none',
+            entered ? 'translate-y-0' : '-translate-y-full'
+          )}
+        >
           {/* Header */}
           <div className="mx-auto w-full max-w-md flex items-center justify-between p-4 border-b border-white/10">
             <Link href="/" className="text-base font-bold bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent">
               Sanctuary
             </Link>
-            <button onClick={() => setDrawerOpen(false)} className={cn('p-1.5 rounded-lg text-star-dust/60 hover:text-star-dust hover:bg-white/5', FOCUS_RING)}>
+            <button onClick={closeDrawer} aria-label="Fold the menu" className={cn('inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-star-dust/60 hover:text-star-dust hover:bg-white/5', FOCUS_RING)}>
               <X className="h-5 w-5" />
             </button>
           </div>
@@ -221,32 +269,10 @@ export function Navigation({ className }: { className?: string }) {
 
             <div className="h-px bg-white/10" />
 
-            {/* The street, whole — same map, drawer form */}
-            {THE_STREET.map((realm) => (
-              <section key={realm.name} aria-label={realm.name}>
-                <h3 className="mb-1 px-3 text-[10px] font-medium uppercase tracking-wide text-star-dust/62">
-                  {realm.name}
-                </h3>
-                <div className="flex flex-col">
-                  {realm.rooms.map((room) => (
-                    <Link
-                      key={room.href}
-                      href={room.href}
-                      aria-current={isActive(room.href) ? 'page' : undefined}
-                      className={cn(
-                        'flex min-h-11 items-center rounded-lg px-3 py-2 text-sm transition-all motion-reduce:transition-none',
-                        FOCUS_RING,
-                        isActive(room.href)
-                          ? 'bg-neurospark/20 text-neurospark'
-                          : 'text-star-dust/70 hover:text-star-dust hover:bg-white/5'
-                      )}
-                    >
-                      {room.label}
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            ))}
+            {/* The street, whole — every realm named, its rooms folded under it */}
+            <section aria-label="The street">
+              <StreetTree compact onTravel={closeDrawer} />
+            </section>
 
             <div className="h-px bg-white/10" />
 
@@ -261,10 +287,14 @@ export function Navigation({ className }: { className?: string }) {
             </Link>
           </div>
         </div>
+        )}
 
         {/* Floating Button */}
         <button
-          onClick={() => setDrawerOpen(!drawerOpen)}
+          type="button"
+          onClick={() => (drawerOpen ? closeDrawer() : setDrawerOpen(true))}
+          aria-expanded={drawerOpen}
+          aria-controls={drawerOpen ? DRAWER_ID : undefined}
           className={cn(
             'fixed bottom-6 left-6 z-30 h-12 w-12 rounded-xl',
             'bg-(--color-deep-space)/90 backdrop-blur-lg border border-white/10',

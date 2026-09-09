@@ -144,6 +144,11 @@ export function tierAddress(tier: GrammarTier, name: string): string {
   return `${TIER_ROUTES[tier]}/${encodeURIComponent(name)}`;
 }
 
+/** The one word this tier is named by. */
+export function tierWord(tier: GrammarTier): string {
+  return TIER_NOUNS[tier].one;
+}
+
 // ── the dressed card ───────────────────────────────────────────────────────
 
 export const WEARING_CATEGORY_FACE = "wearing its category's face";
@@ -342,7 +347,7 @@ export function tallyLine(results: SearchResults): string {
 // ── the faces and the lattice ──────────────────────────────────────────────
 
 export type CategoryFace = Pick<CategoryRow, 'name' | 'icon_emoji' | 'description' | 'sort_order'>;
-export type SchemeChip = Pick<SchemeRow, 'name' | 'scheme_type' | 'sort_order'>;
+export type SchemeChip = Pick<SchemeRow, 'name' | 'scheme_type' | 'sort_order' | 'description'>;
 
 export const FACES_HEADING = 'The faces';
 export const FACES_META = 'each a filter';
@@ -352,7 +357,7 @@ export const NO_CATEGORY = 'no category stands in the register yet';
 export const NO_SCHEME = 'no scheme stands in the lattice yet';
 
 /** The four kinds of scheme, in the order the lattice shelves them. */
-export const SCHEME_SHELVES: readonly string[] = ['rank', 'axis', 'facet', 'dimension'];
+export const SCHEME_SHELVES: readonly string[] = ['rank', 'facet', 'axis', 'dimension'];
 
 export interface SchemeShelf {
   kind: string;
@@ -617,6 +622,413 @@ export function splitDressings(rows: readonly AtomDressing[]): DressingsView {
   return { hearth, dressings };
 }
 
+// ── the relation, from either end ──────────────────────────────────────────
+
+/** The two columns a relation names each tier by. */
+export const RELATION_COLUMN: Record<GrammarTier, { subject: string; object: string }> = {
+  atoms: { subject: 'subject_atom_id', object: 'object_atom_id' },
+  molecules: { subject: 'subject_molecule_id', object: 'object_molecule_id' },
+  organisms: { subject: 'subject_organism_id', object: 'object_organism_id' },
+};
+
+/** The filter that finds every relation carrying this concept at either end. */
+export function relationFilter(tier: GrammarTier, id: string): string {
+  return `${RELATION_COLUMN[tier].subject}.eq.${id},${RELATION_COLUMN[tier].object}.eq.${id}`;
+}
+
+export interface RelationSidesRow {
+  relation_type: string;
+  subject_atom_id: string | null;
+  subject_molecule_id: string | null;
+  subject_organism_id: string | null;
+  object_atom_id: string | null;
+  object_molecule_id: string | null;
+  object_organism_id: string | null;
+}
+
+export interface EdgeSide {
+  tier: GrammarTier;
+  /** The tier's own word: atom, molecule or organism. */
+  word: string;
+  /** Null when the base holds no name for this id. */
+  name: string | null;
+  /** The room this side opens, null when it has no name. */
+  address: string | null;
+}
+
+/** The id one end of a relation carries, with the tier that holds it. */
+export function relationEnd(
+  row: RelationSidesRow,
+  end: 'subject' | 'object'
+): { tier: GrammarTier; id: string } | null {
+  for (const tier of TIERS) {
+    const column = RELATION_COLUMN[tier][end] as keyof RelationSidesRow;
+    const id = row[column];
+    if (typeof id === 'string' && id.length > 0) return { tier, id };
+  }
+  return null;
+}
+
+/** Every id a relation read names, gathered per tier. */
+export function relationIds(rows: readonly RelationSidesRow[]): Record<GrammarTier, string[]> {
+  const gathered: Record<GrammarTier, Set<string>> = {
+    atoms: new Set(),
+    molecules: new Set(),
+    organisms: new Set(),
+  };
+  for (const row of rows) {
+    for (const end of ['subject', 'object'] as const) {
+      const side = relationEnd(row, end);
+      if (side) gathered[side.tier].add(side.id);
+    }
+  }
+  return {
+    atoms: Array.from(gathered.atoms),
+    molecules: Array.from(gathered.molecules),
+    organisms: Array.from(gathered.organisms),
+  };
+}
+
+/** One end of a relation, named from the lookup, or null when the end is empty. */
+export function relationSide(
+  row: RelationSidesRow,
+  end: 'subject' | 'object',
+  names: Readonly<Record<string, string>>
+): EdgeSide | null {
+  const side = relationEnd(row, end);
+  if (!side) return null;
+  const name = names[side.id] ?? null;
+  return {
+    tier: side.tier,
+    word: tierWord(side.tier),
+    name,
+    address: name ? tierAddress(side.tier, name) : null,
+  };
+}
+
+export interface ConceptEdge {
+  relationType: string;
+  direction: 'subject' | 'object';
+  /** The end that is not this concept. */
+  other: EdgeSide | null;
+}
+
+/** The typed edges a relation read answers, each named from this concept's end. */
+export function conceptEdges(
+  rows: readonly RelationSidesRow[],
+  tier: GrammarTier,
+  id: string,
+  names: Readonly<Record<string, string>>
+): ConceptEdge[] {
+  return rows.map((row) => {
+    const subject = row[RELATION_COLUMN[tier].subject as keyof RelationSidesRow] === id;
+    return {
+      relationType: row.relation_type,
+      direction: subject ? ('subject' as const) : ('object' as const),
+      other: relationSide(row, subject ? 'object' : 'subject', names),
+    };
+  });
+}
+
+// ── the compound's room ────────────────────────────────────────────────────
+
+export const NO_ATOM_BOND = 'no atom bonds recorded';
+export const NOT_IN_AN_ORGANISM = 'part of no organism';
+export const NO_MOLECULE_HELD = 'holds no molecule';
+
+export type MoleculeDetail = Pick<
+  MoleculeRow,
+  | 'atom_words'
+  | 'bond_type'
+  | 'camel_case'
+  | 'definition'
+  | 'domain'
+  | 'functional_group'
+  | 'id'
+  | 'kebab_case'
+  | 'molecule_type'
+  | 'name'
+  | 'naming_convention'
+  | 'pascal_case'
+  | 'screaming_case'
+  | 'sensory_override'
+  | 'snake_case'
+  | 'total_weight'
+>;
+
+export type OrganismDetail = Pick<
+  OrganismRow,
+  | 'acronym'
+  | 'camel_case'
+  | 'definition'
+  | 'domain'
+  | 'habitat'
+  | 'id'
+  | 'kebab_case'
+  | 'lifecycle'
+  | 'name'
+  | 'organism_type'
+  | 'pascal_case'
+  | 'screaming_case'
+  | 'sensory_override'
+  | 'snake_case'
+>;
+
+export interface CompoundAtom {
+  key: string;
+  position: number | null;
+  role: string | null;
+  bondType: string | null;
+  bondStrength: number | null;
+  word: string;
+  categoryName: string | null;
+  emoji: string | null;
+  address: string;
+}
+
+export interface CompoundAtomRow {
+  position: number | null;
+  role: string | null;
+  bond_type?: string | null;
+  bond_strength: number | null;
+  atom_id: string;
+  atoms: { atom_word: string; category_name: string | null } | null;
+}
+
+export interface CompoundMolecule {
+  key: string;
+  position: number | null;
+  role: string | null;
+  bondType: string | null;
+  name: string;
+  address: string;
+}
+
+export interface CompoundMoleculeRow {
+  position: number | null;
+  role: string | null;
+  bond_type: string | null;
+  molecules: { name: string } | null;
+}
+
+export interface AtomEmojiRow {
+  atom_id: string;
+  emoji: string | null;
+}
+
+/** The sensory face of each atom that carries one, keyed by atom id. */
+export function emojiByAtom(rows: readonly AtomEmojiRow[]): Record<string, string> {
+  const faces: Record<string, string> = {};
+  for (const row of rows) {
+    if (row.emoji) faces[row.atom_id] = row.emoji;
+  }
+  return faces;
+}
+
+/** The atoms a bond read answers, in position order, each a door. */
+export function compoundAtoms(
+  rows: readonly CompoundAtomRow[],
+  faces: Readonly<Record<string, string>>
+): CompoundAtom[] {
+  const bonded: CompoundAtom[] = [];
+  for (const row of rows) {
+    if (!row.atoms) continue;
+    bonded.push({
+      key: row.atom_id,
+      position: row.position,
+      role: row.role,
+      bondType: row.bond_type ?? null,
+      bondStrength: row.bond_strength,
+      word: row.atoms.atom_word,
+      categoryName: row.atoms.category_name,
+      emoji: faces[row.atom_id] ?? null,
+      address: tierAddress('atoms', row.atoms.atom_word),
+    });
+  }
+  return bonded.sort((one, other) => (one.position ?? 0) - (other.position ?? 0));
+}
+
+/** The molecules an organism holds, in position order, each a door. */
+export function compoundMolecules(rows: readonly CompoundMoleculeRow[]): CompoundMolecule[] {
+  const held: CompoundMolecule[] = [];
+  for (const row of rows) {
+    if (!row.molecules) continue;
+    held.push({
+      key: row.molecules.name,
+      position: row.position,
+      role: row.role,
+      bondType: row.bond_type,
+      name: row.molecules.name,
+      address: tierAddress('molecules', row.molecules.name),
+    });
+  }
+  return held.sort((one, other) => (one.position ?? 0) - (other.position ?? 0));
+}
+
+export interface MoleculeWhole {
+  row: MoleculeDetail;
+  atoms: CompoundAtom[];
+  organismNames: string[];
+  memberships: SchemeMembershipView[];
+  edges: ConceptEdge[];
+}
+
+export interface OrganismWhole {
+  row: OrganismDetail;
+  molecules: CompoundMolecule[];
+  atoms: CompoundAtom[];
+  memberships: SchemeMembershipView[];
+  edges: ConceptEdge[];
+}
+
+// ── the category's room ────────────────────────────────────────────────────
+
+export const NO_FACE_WORN = 'no atom wears this face yet';
+
+export interface CategoryWhole {
+  row: CategoryFace;
+  cards: DressedCard[];
+  /** The base's own count of the atoms wearing this face. */
+  total: number;
+}
+
+// ── the lattice's rooms ────────────────────────────────────────────────────
+
+export const NO_MEMBER_YET = 'no member yet';
+export const NO_SCHEME_EDGE = 'no edge in this scheme';
+
+export type SchemeDetail = Pick<
+  SchemeRow,
+  'deity_name' | 'description' | 'id' | 'name' | 'parent_scheme_id' | 'scheme_type' | 'sort_order'
+>;
+
+export interface SchemeMember {
+  key: string;
+  tier: GrammarTier;
+  /** The tier's own word: atom, molecule or organism. */
+  word: string;
+  name: string;
+  primary: boolean;
+  emoji: string | null;
+  sortOrder: number | null;
+  address: string;
+}
+
+export interface SchemeMemberRow {
+  is_primary: boolean;
+  sort_order: number | null;
+  atom_id: string | null;
+  atoms: { atom_word: string } | null;
+  molecules: { name: string } | null;
+  organisms: { name: string } | null;
+}
+
+/** The tier and name a membership row carries, or null when it names none. */
+export function memberNamed(row: SchemeMemberRow): { tier: GrammarTier; name: string } | null {
+  if (row.atoms) return { tier: 'atoms', name: row.atoms.atom_word };
+  if (row.molecules) return { tier: 'molecules', name: row.molecules.name };
+  if (row.organisms) return { tier: 'organisms', name: row.organisms.name };
+  return null;
+}
+
+/** A scheme's members, by sort order then by name, each a door. */
+export function schemeMembers(
+  rows: readonly SchemeMemberRow[],
+  faces: Readonly<Record<string, string>>
+): SchemeMember[] {
+  const members: SchemeMember[] = [];
+  for (const row of rows) {
+    const named = memberNamed(row);
+    if (!named) continue;
+    members.push({
+      key: `${named.tier} · ${named.name}`,
+      tier: named.tier,
+      word: tierWord(named.tier),
+      name: named.name,
+      primary: row.is_primary,
+      emoji: row.atom_id ? (faces[row.atom_id] ?? null) : null,
+      sortOrder: row.sort_order,
+      address: tierAddress(named.tier, named.name),
+    });
+  }
+  return members.sort((one, other) => {
+    const order = (one.sortOrder ?? 0) - (other.sortOrder ?? 0);
+    return order !== 0 ? order : one.name.localeCompare(other.name, 'en');
+  });
+}
+
+export interface SchemeEdge {
+  relationType: string;
+  subject: EdgeSide | null;
+  object: EdgeSide | null;
+}
+
+/** The typed edges drawn within one scheme, both ends named. */
+export function schemeEdges(
+  rows: readonly RelationSidesRow[],
+  names: Readonly<Record<string, string>>
+): SchemeEdge[] {
+  return rows.map((row) => ({
+    relationType: row.relation_type,
+    subject: relationSide(row, 'subject', names),
+    object: relationSide(row, 'object', names),
+  }));
+}
+
+export interface SchemeWhole {
+  row: SchemeDetail;
+  /** Null when this scheme stands under no other. */
+  parentName: string | null;
+  children: SchemeChip[];
+  members: SchemeMember[];
+  edges: SchemeEdge[];
+}
+
+export interface SchemeIdRow {
+  id: string;
+  name: string;
+}
+
+export interface SchemeKeyRow {
+  scheme_id: string | null;
+}
+
+export interface SchemeTally {
+  name: string;
+  members: number;
+  edges: number;
+}
+
+/** Each scheme's tally, keyed by its name. */
+export type SchemeTallies = Record<string, SchemeTally>;
+
+/** The rows counted per scheme id, the rows naming no scheme dropped. */
+export function tallyByScheme(rows: readonly SchemeKeyRow[]): Record<string, number> {
+  const tally: Record<string, number> = {};
+  for (const row of rows) {
+    if (!row.scheme_id) continue;
+    tally[row.scheme_id] = (tally[row.scheme_id] ?? 0) + 1;
+  }
+  return tally;
+}
+
+/** Every scheme with its membership and edge counts, counted from rows. */
+export function schemeTallies(
+  schemes: readonly SchemeIdRow[],
+  members: Readonly<Record<string, number>>,
+  edges: Readonly<Record<string, number>>
+): SchemeTallies {
+  const tallies: SchemeTallies = {};
+  for (const scheme of schemes) {
+    tallies[scheme.name] = {
+      name: scheme.name,
+      members: members[scheme.id] ?? 0,
+      edges: edges[scheme.id] ?? 0,
+    };
+  }
+  return tallies;
+}
+
 // ── the door's rooms ───────────────────────────────────────────────────────
 
 export const NOT_YET_WIRED = 'not yet wired';
@@ -691,7 +1103,7 @@ export const ORGANISM_SEARCH_COLUMNS = [
 
 export const CATEGORY_COLUMNS = ['name', 'icon_emoji', 'description', 'sort_order'].join(', ');
 
-export const SCHEME_COLUMNS = ['name', 'scheme_type', 'sort_order'].join(', ');
+export const SCHEME_COLUMNS = ['name', 'scheme_type', 'sort_order', 'description'].join(', ');
 
 export const ATOM_WHOLE_COLUMNS = [
   'affinity',
@@ -733,10 +1145,402 @@ export const ATOM_DRESSING_COLUMNS = [
   'is_override',
 ].join(', ');
 
+export const MOLECULE_DETAIL_COLUMNS = [
+  'atom_words',
+  'bond_type',
+  'camel_case',
+  'definition',
+  'domain',
+  'functional_group',
+  'id',
+  'kebab_case',
+  'molecule_type',
+  'name',
+  'naming_convention',
+  'pascal_case',
+  'screaming_case',
+  'sensory_override',
+  'snake_case',
+  'total_weight',
+].join(', ');
+
+export const ORGANISM_DETAIL_COLUMNS = [
+  'acronym',
+  'camel_case',
+  'definition',
+  'domain',
+  'habitat',
+  'id',
+  'kebab_case',
+  'lifecycle',
+  'name',
+  'organism_type',
+  'pascal_case',
+  'screaming_case',
+  'sensory_override',
+  'snake_case',
+].join(', ');
+
+export const SCHEME_DETAIL_COLUMNS = [
+  'deity_name',
+  'description',
+  'id',
+  'name',
+  'parent_scheme_id',
+  'scheme_type',
+  'sort_order',
+].join(', ');
+
 export const MOLECULE_BOND_COLUMNS = 'molecules(name)';
 export const ORGANISM_BOND_COLUMNS = 'organisms(name)';
 export const MEMBERSHIP_COLUMNS = 'is_primary, schemes(name, scheme_type)';
 export const RELATION_COLUMNS = 'relation_type, subject_atom_id, object_atom_id';
 
+export const MOLECULE_ATOM_COLUMNS =
+  'position, role, bond_type, bond_strength, atom_id, atoms(atom_word, category_name)';
+export const ORGANISM_ATOM_COLUMNS =
+  'position, role, bond_strength, atom_id, atoms(atom_word, category_name)';
+export const ORGANISM_MOLECULE_COLUMNS = 'position, role, bond_type, molecules(name)';
+export const SENSORY_FACE_COLUMNS = 'atom_id, emoji';
+export const ATOM_NAME_COLUMNS = 'id, atom_word';
+export const NAME_COLUMNS = 'id, name';
+export const SCHEME_MEMBER_COLUMNS =
+  'is_primary, sort_order, atom_id, atoms(atom_word), molecules(name), organisms(name)';
+export const SCHEME_KEY_COLUMNS = 'scheme_id';
+export const RELATION_SIDES_COLUMNS = [
+  'relation_type',
+  'subject_atom_id',
+  'subject_molecule_id',
+  'subject_organism_id',
+  'object_atom_id',
+  'object_molecule_id',
+  'object_organism_id',
+].join(', ');
+
 /** The bond read's ceiling: every name is counted, this many are carried back. */
 export const BOND_READ_LIMIT = 200;
+
+/** The category read's ceiling: every atom is counted, this many are carried back. */
+export const CATEGORY_ATOM_LIMIT = 200;
+
+/** The lattice count read's ceiling, one row per membership and per edge. */
+export const LATTICE_READ_LIMIT = 5000;
+
+// ── the compound's room, drawn ─────────────────────────────────────────────
+
+export const COMPOUND_ATOMS_HEADING = 'The atoms';
+export const COMPOUND_MOLECULES_HEADING = 'The molecules';
+export const PART_OF_HEADING = 'Part of';
+export const MOLECULE_ATOM_SOURCE = 'molecule_atoms';
+export const ORGANISM_ATOM_SOURCE = 'organism_atoms';
+export const ORGANISM_MOLECULE_SOURCE = 'organism_molecules';
+
+export const COMPOUND_HOUSE_WORDS: readonly string[] = ['the hearth', 'the heart'];
+
+export const STRENGTH_LABEL = 'strength';
+export const NO_COMPOUND_DRESSING = 'no dressing overrides this name yet';
+export const MOLECULE_DRESSING_SOURCE = 'molecules.sensory_override';
+export const ORGANISM_DRESSING_SOURCE = 'organisms.sensory_override';
+
+export interface OverrideLine {
+  key: string;
+  label: string | null;
+  value: string;
+}
+
+/** A stored override read as its own shape, a JSON text parsed, anything else kept whole. */
+function parsedOverride(override: unknown): unknown {
+  if (typeof override !== 'string') return override;
+  const text = override.trim();
+  if (!text) return null;
+  try {
+    return JSON.parse(text) as unknown;
+  } catch {
+    return text;
+  }
+}
+
+/** One value printed as the line shows it. */
+function printedOverride(value: unknown): string {
+  if (typeof value === 'string') return value.trim();
+  if (typeof value === 'object') return JSON.stringify(value);
+  return String(value);
+}
+
+/** The keys and values a sensory override carries, one line each, the null ones dropped. */
+export function overrideLines(override: unknown): OverrideLine[] {
+  const held = parsedOverride(override);
+  if (held === null || held === undefined) return [];
+
+  const lines: OverrideLine[] = [];
+  if (Array.isArray(held)) {
+    held.forEach((value, index) => {
+      const printed = printedOverride(value);
+      if (printed) lines.push({ key: String(index), label: null, value: printed });
+    });
+    return lines;
+  }
+
+  if (typeof held !== 'object') {
+    const printed = printedOverride(held);
+    return printed ? [{ key: printed, label: null, value: printed }] : [];
+  }
+
+  for (const [label, value] of Object.entries(held as Record<string, unknown>)) {
+    if (value === null || value === undefined) continue;
+    const printed = printedOverride(value);
+    if (printed) lines.push({ key: label, label, value: printed });
+  }
+  return lines;
+}
+
+const CRUMB_TAIL = 'read live through the anon door';
+
+/** The crumb a tier's room prints. */
+export function tierCrumb(tier: GrammarTier): string {
+  return `grammar · ${tierWord(tier)} · ${CRUMB_TAIL}`;
+}
+
+export interface CompoundCases {
+  snake_case: string | null;
+  screaming_case: string | null;
+  kebab_case: string | null;
+  camel_case: string | null;
+  pascal_case: string | null;
+}
+
+/** The five case renderings, in the order the room prints them. */
+export function compoundCases(row: CompoundCases): string[] {
+  return present([
+    row.snake_case,
+    row.screaming_case,
+    row.kebab_case,
+    row.camel_case,
+    row.pascal_case,
+  ]);
+}
+
+/** The badges a molecule row carries, the null ones dropped. */
+export function moleculeBadges(row: MoleculeDetail): string[] {
+  return present([
+    row.molecule_type,
+    row.naming_convention,
+    row.domain,
+    row.functional_group,
+    row.bond_type,
+  ]);
+}
+
+/** The badges an organism row carries, the null ones dropped. */
+export function organismBadges(row: OrganismDetail): string[] {
+  return present([
+    row.organism_type,
+    row.domain,
+    row.habitat,
+    row.lifecycle,
+    row.acronym,
+  ]);
+}
+
+/** The first face the bonded atoms carry, or null when none carries one. */
+export function compoundFace(atoms: readonly CompoundAtom[]): string | null {
+  for (const atom of atoms) {
+    if (atom.emoji) return atom.emoji;
+  }
+  return null;
+}
+
+export interface ChainLink {
+  key: string;
+  face: string | null;
+  name: string;
+  role: string | null;
+  bondType: string | null;
+  strength: number | null;
+  address: string;
+}
+
+/** The bonded atoms as chain links, in the order the bonds hold them. */
+export function atomLinks(atoms: readonly CompoundAtom[]): ChainLink[] {
+  return atoms.map((atom) => ({
+    key: atom.key,
+    face: atom.emoji,
+    name: atom.word,
+    role: atom.role,
+    bondType: atom.bondType,
+    strength: atom.bondStrength,
+    address: atom.address,
+  }));
+}
+
+/** The held molecules as chain links, in the order the bonds hold them. */
+export function moleculeLinks(molecules: readonly CompoundMolecule[]): ChainLink[] {
+  return molecules.map((molecule) => ({
+    key: molecule.key,
+    face: null,
+    name: molecule.name,
+    role: molecule.role,
+    bondType: molecule.bondType,
+    strength: null,
+    address: molecule.address,
+  }));
+}
+
+/** Names of one tier as chain links, each a door. */
+export function nameLinks(names: readonly string[], tier: GrammarTier): ChainLink[] {
+  return names.map((name) => ({
+    key: name,
+    face: null,
+    name,
+    role: null,
+    bondType: null,
+    strength: null,
+    address: tierAddress(tier, name),
+  }));
+}
+
+/** The line under a chain link: its role, its bond type and its strength, the null ones dropped. */
+export function chainLinkLine(link: ChainLink): string | null {
+  const strength = link.strength === null ? null : `${STRENGTH_LABEL} ${link.strength}`;
+  const carried = present([link.role, link.bondType, strength]);
+  return carried.length > 0 ? carried.join(' · ') : null;
+}
+
+// ── the category's room, wired ─────────────────────────────────────────────
+
+export const CATEGORY_PILL = 'The Grammar · a face';
+export const CATEGORY_SOURCE = 'categories · atom_dressed';
+export const CATEGORY_CRUMB = 'grammar · category · read live through the anon door';
+export const NO_CATEGORY_DESCRIPTION = 'no description recorded';
+
+/** The room one category's face opens. */
+export function categoryRoomAddress(name: string): string {
+  return `/grammar/categories/${encodeURIComponent(name)}`;
+}
+
+/** The line above the results that opens the chosen face's own room. */
+export function categoryRoomLine(row: CategoryFace): string {
+  return row.icon_emoji
+    ? `open ${row.icon_emoji} ${row.name}'s room`
+    : `open ${row.name}'s room`;
+}
+
+/** The count of the atoms wearing this face, or the sentence for a face nobody wears. */
+export function categoryCountLine(total: number): string {
+  if (total === 0) return NO_FACE_WORN;
+  const noun = total === 1 ? 'atom wears' : 'atoms wear';
+  return `${total.toLocaleString('en')} ${noun} this face · ${COUNTED_FROM_ROWS}`;
+}
+
+/** A category's atoms as the one tier group its room shows. */
+export function categoryTier(whole: CategoryWhole): TierResult {
+  return {
+    tier: 'atoms',
+    heading: TIER_HEADINGS.atoms,
+    total: whole.total,
+    cards: whole.cards,
+    empty: NO_FACE_WORN,
+    fault: null,
+  };
+}
+
+// ── the lattice's rooms, wired ─────────────────────────────────────────────
+
+export const LATTICE_TITLE = 'Not a hierarchy';
+export const LATTICE_SENTENCE =
+  '“i see the system as a omnidimensional lattice” … “not a hierarchy”';
+export const LATTICE_SENTENCE_ADDRESS =
+  'KP · resonance-grammar/docs/sql/006-the-lattice.sql:8';
+export const LATTICE_SOURCE = 'schemes · scheme_memberships · concept_relations';
+
+/** The lattice room's description, the scheme count carried when the schemes were read. */
+export function latticeDescription(total: number | null): string {
+  const named = total === null ? 'The schemes' : `The ${total} schemes`;
+  return `${named} of the Grammar, shelved by kind, each with its counted members and edges`;
+}
+export const SCHEME_CRUMB = 'grammar · scheme · read live through the anon door';
+export const BACK_TO_LATTICE = 'The lattice';
+export const MEMBERS_HEADING = 'The members';
+export const MEMBERS_SOURCE = 'scheme_memberships';
+export const EDGES_HEADING = 'The edges';
+export const EDGES_SOURCE = 'concept_relations';
+export const NO_SCHEME_DESCRIPTION = 'no description recorded';
+export const PARENT_LABEL = 'under';
+export const CHILDREN_LABEL = 'holds';
+export const EDGE_SIDE_UNNAMED = 'a concept the base does not name';
+
+/** The room one scheme opens. */
+export function schemeAddress(name: string): string {
+  return `/grammar/schemes/${encodeURIComponent(name)}`;
+}
+
+export interface SchemeCard {
+  name: string;
+  kind: string;
+  description: string | null;
+  /** Null when the tallies were not read. */
+  members: number | null;
+  edges: number | null;
+  address: string;
+}
+
+export interface SchemeKindShelf {
+  kind: string;
+  cards: SchemeCard[];
+}
+
+/** The schemes shelved by kind as cards, each carrying its counted tally. */
+export function shelveSchemeCards(
+  rows: readonly SchemeChip[],
+  tallies: SchemeTallies | null
+): SchemeKindShelf[] {
+  return shelveSchemes(rows).map((shelf) => ({
+    kind: shelf.kind,
+    cards: shelf.chips.map((chip) => {
+      const tally = tallies ? (tallies[chip.name] ?? null) : null;
+      return {
+        name: chip.name,
+        kind: chip.scheme_type,
+        description: chip.description,
+        members: tally ? tally.members : null,
+        edges: tally ? tally.edges : null,
+        address: schemeAddress(chip.name),
+      };
+    }),
+  }));
+}
+
+/** The count line one shelf prints in its header. */
+export function shelfLine(shelf: SchemeKindShelf): string {
+  const held = shelf.cards.length;
+  return `${held} ${held === 1 ? 'scheme' : 'schemes'} · ${COUNTED_FROM_ROWS}`;
+}
+
+/** The tally line one scheme card prints, or the sentence for a tally unread. */
+export function schemeCardLine(card: SchemeCard): string {
+  if (card.members === null || card.edges === null) return REGISTER_UNREAD;
+  const members = `${card.members} ${card.members === 1 ? 'member' : 'members'}`;
+  const edges = `${card.edges} ${card.edges === 1 ? 'edge' : 'edges'}`;
+  return `${members} · ${edges} · ${COUNTED_FROM_ROWS}`;
+}
+
+/** The typed arrow drawn between two ends of an edge. */
+export function edgeArrow(relationType: string): string {
+  return `—${relationType}→`;
+}
+
+/** The word one end of an edge is read by. */
+export function edgeSideWord(side: EdgeSide | null): string {
+  return side?.name ?? EDGE_SIDE_UNNAMED;
+}
+
+/** One edge as its whole sentence: subject, typed arrow, object. */
+export function edgeSentence(edge: SchemeEdge): string {
+  return `${edgeSideWord(edge.subject)} ${edgeArrow(edge.relationType)} ${edgeSideWord(edge.object)}`;
+}
+
+/** The tables a door tile opens a room of. */
+export const TILE_ROOMS: Partial<Record<DoorTable, string>> = {
+  categories: '/grammar/explore',
+  schemes: '/grammar/schemes',
+};

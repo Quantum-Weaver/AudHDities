@@ -191,49 +191,51 @@ export function SchemaExplorer() {
 
                   {isExpanded && (
                     <div className="p-4 border-t border-white/10 bg-black/20">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="text-left text-star-dust/50 border-b border-white/10">
-                            <th className="pb-2">Column</th>
-                            <th className="pb-2">Type</th>
-                            <th className="pb-2">Nullable</th>
-                            <th className="pb-2">Default</th>
-                            <th className="pb-2">Constraints</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {columns.map((col) => (
-                            <tr key={col.column_name} className="border-b border-white/5">
-                              <td className="py-2 font-mono text-star-dust/80">
-                                {col.column_name}
-                              </td>
-                              <td className="py-2 font-mono text-neurospark text-xs">
-                                {col.column_type}
-                              </td>
-                              <td className="py-2">
-                                {col.is_nullable === 'YES' ? (
-                                  <span className="text-yellow-400">✓</span>
-                                ) : (
-                                  <span className="text-red-400">✗</span>
-                                )}
-                              </td>
-                              <td className="py-2 font-mono text-xs text-star-dust/40">
-                                {col.column_default || '—'}
-                              </td>
-                              <td className="py-2">
-                                <div className="flex gap-1">
-                                  {col.is_primary_key && (
-                                    <Key size={12} className="text-yellow-400" aria-label="Primary Key" />
-                                  )}
-                                  {col.is_foreign_key && (
-                                    <Link size={12} className="text-blue-400" aria-label={`FK to ${col.foreign_key_table}.${col.foreign_key_column}`} />
-                                  )}
-                                </div>
-                              </td>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="text-left text-star-dust/50 border-b border-white/10">
+                              <th className="pb-2">Column</th>
+                              <th className="pb-2">Type</th>
+                              <th className="pb-2">Nullable</th>
+                              <th className="pb-2">Default</th>
+                              <th className="pb-2">Constraints</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody>
+                            {columns.map((col) => (
+                              <tr key={col.column_name} className="border-b border-white/5">
+                                <td className="py-2 font-mono text-star-dust/80">
+                                  {col.column_name}
+                                </td>
+                                <td className="py-2 font-mono text-neurospark text-xs">
+                                  {col.column_type}
+                                </td>
+                                <td className="py-2">
+                                  {col.is_nullable === 'YES' ? (
+                                    <span className="text-yellow-400">✓</span>
+                                  ) : (
+                                    <span className="text-red-400">✗</span>
+                                  )}
+                                </td>
+                                <td className="py-2 font-mono text-xs text-star-dust/40">
+                                  {col.column_default || '—'}
+                                </td>
+                                <td className="py-2">
+                                  <div className="flex gap-1">
+                                    {col.is_primary_key && (
+                                      <Key size={12} className="text-yellow-400" aria-label="Primary Key" />
+                                    )}
+                                    {col.is_foreign_key && (
+                                      <Link size={12} className="text-blue-400" aria-label={`FK to ${col.foreign_key_table}.${col.foreign_key_column}`} />
+                                    )}
+                                  </div>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   )}
                 </div>

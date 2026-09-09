@@ -1,11 +1,13 @@
 // src/components/asgard/domains/mnemosyne/grammar/SchemeShelves.tsx
 
+import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import {
   LATTICE_HEADING,
   LATTICE_META,
   NO_SCHEME,
+  schemeAddress,
   shelveSchemes,
   type GrammarFault,
   type SchemeChip,
@@ -55,9 +57,11 @@ export function SchemeShelves({
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {shelf.chips.map((chip) => (
-                  <Badge key={chip.name} variant="outline" size="sm" pill>
-                    {chip.name}
-                  </Badge>
+                  <Link key={chip.name} href={schemeAddress(chip.name)}>
+                    <Badge variant="outline" size="sm" pill>
+                      {chip.name}
+                    </Badge>
+                  </Link>
                 ))}
               </div>
             </Card>
