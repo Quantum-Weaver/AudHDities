@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
-import { Container, HeroContainer } from '@/components/hof/Container';
 import { Badge } from '@/components/runes/Badge';
 import { DURATIONS, EASING } from '@/lib/constants/cosmic/motion';
 
@@ -26,7 +25,7 @@ export function AboutHero() {
       />
 
       <div className={reliefGlossVariants()} />
-      <HeroContainer className="relative z-10 text-center">
+      <div className="relative z-10 container max-w-4xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,18 +40,18 @@ export function AboutHero() {
             <span className="text-[var(--color-star-dust)]/80">The Sanctuary</span>
           </Badge>
 
-          <h1 className="text-[var(--font-size-5xl)] md:text-[var(--font-size-7xl)] font-[var(--font-weight-bold)] text-[var(--color-star-dust)] mb-[var(--spacing-6)]">
+          <h1 className="text-5xl md:text-7xl font-bold text-star-dust mb-6">
             A Sanctuary Born from
-            <span className="bg-gradient-to-r from-[var(--color-neurospark)] via-[var(--color-cosmic-blue)] to-[var(--color-quantum-pink)] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neurospark via-quantum-purple to-fire-base bg-clip-text text-transparent">
               {' '}Survival and Collaboration
             </span>
           </h1>
 
-          <p className="text-[var(--font-size-xl)] text-[var(--color-star-dust)]/70 max-w-2xl mx-auto">
+          <p className="text-xl text-star-dust/70 max-w-2xl mx-auto">
             Not a company. A proof that another way exists.
           </p>
         </motion.div>
-      </HeroContainer>
+      </div>
     </section>
   );
 }

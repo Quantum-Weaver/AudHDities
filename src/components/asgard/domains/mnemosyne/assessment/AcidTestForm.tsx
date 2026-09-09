@@ -279,10 +279,12 @@ function ProgressIndicator({ current, total }: { current: number; total: number 
 
 function ResultView({
   result,
+  signedIn = false,
   onContinue,
   onKeep,
 }: {
   result: AcidTestResult;
+  signedIn?: boolean;
   onContinue: () => void;
   onKeep?: () => void;
 }) {
@@ -344,7 +346,9 @@ function ResultView({
       <div className="flex flex-col items-center gap-3">
         {onKeep && (
           <p className="text-star-dust/50 text-sm text-center">
-            Sign in and this result stays with your vessel.
+            {signedIn
+              ? 'Nothing is stored until you choose. Keep it, and this result stays with your vessel.'
+              : 'Sign in and this result stays with your vessel.'}
           </p>
         )}
         <div className="flex justify-center gap-3 w-full">
@@ -443,18 +447,12 @@ export function AcidTestForm({ questions, userId, initialResult, onComplete, cla
     setSent(answersPayload);
 
     try {
-      // Signed in, the result is stored to the vessel; signed out, it is only shown
-      const response = userId
-        ? await fetch("/api/generated/mnemosyne-assessment/submit_acid_test", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ p_user_id: userId, p_answers: answersPayload }),
-          })
-        : await fetch("/api/acid-test/preview", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ p_answers: answersPayload }),
-          });
+      // The result is only shown. It is stored to the vessel when the member chooses to keep it.
+      const response = await fetch("/api/acid-test/preview", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ p_answers: answersPayload }),
+      });
 
       const payload = await response.json();
       if (!response.ok || payload.success === false) {
@@ -495,13 +493,36 @@ export function AcidTestForm({ questions, userId, initialResult, onComplete, cla
   }, [isFirstQuestion]);
 
   if (shown) {
-    const keep = () => {
-      try { sessionStorage.setItem(PENDING_KEY, JSON.stringify(sent)); } catch { /* the sign-in still proceeds */ }
-      router.push(KEEP_REDIRECT);
+    const keep = async () => {
+      if (!userId) {
+        try { sessionStorage.setItem(PENDING_KEY, JSON.stringify(sent)); } catch { /* the sign-in still proceeds */ }
+        router.push(KEEP_REDIRECT);
+        return;
+      }
+      setIsSubmitting(true);
+      setError(null);
+      try {
+        const response = await fetch("/api/generated/mnemosyne-assessment/submit_acid_test", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ p_user_id: userId, p_answers: sent }),
+        });
+        const payload = await response.json();
+        if (!response.ok || payload.success === false) {
+          throw new Error(payload.error || payload.message || "Failed to keep the result");
+        }
+        setResult({ ...shown, stored: true });
+        router.push(RESULT_REDIRECT);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to keep the result. Please try again.");
+      } finally {
+        setIsSubmitting(false);
+      }
     };
     return (
       <ResultView
         result={shown}
+        signedIn={!!userId}
         onContinue={() => router.push(shown.stored ? RESULT_REDIRECT : VISITOR_REDIRECT)}
         onKeep={shown.stored ? undefined : keep}
       />

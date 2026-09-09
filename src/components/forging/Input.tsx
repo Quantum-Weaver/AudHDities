@@ -14,7 +14,6 @@ import type { InputProps } from '@/types/components/forging/input.types';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────────
 import {
-  generateInputId,
   resolveIconModifier,
   getInputAriaDescribedBy,
   resolveInputVariant,
@@ -77,7 +76,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const inputId = generateInputId(id);
+    const reactId = React.useId();
+    const inputId = id ?? `input-${reactId}`;
     const hasError = !!error;
     const iconModifier = resolveIconModifier(leftIcon, rightIcon);
 

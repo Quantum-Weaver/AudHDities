@@ -25,8 +25,7 @@ import {
 } from '@/lib/constants/components/forging/radio.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import {
-  generateRadioId,
+import {
   getRadioDescriptionId,
 } from '@/lib/utils/components/forging/radio.utils';
 
@@ -106,7 +105,8 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     ref
   ) => {
     const { name, value: groupValue, onChange, size, variant } = useRadioGroup();
-    const radioId = generateRadioId(id);
+    const reactId = React.useId();
+    const radioId = id || `radio-${reactId}`;
     const isChecked = groupValue === value;
     const hasError = !!error;
     const hasHelper = !!helper && !hasError;

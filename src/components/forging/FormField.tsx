@@ -36,8 +36,7 @@ import {
 } from '@/lib/constants/components/forging/form_field.variants';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────
-import {
-  generateFieldId,
+import {
   getHelperId,
   getErrorId,
 } from '@/lib/utils/components/forging/form_field.utils';
@@ -85,7 +84,8 @@ export const FormField = React.forwardRef<HTMLDivElement, FormFieldProps>(
     ref
   ) => {
     const hasError = !!error;
-    const fieldId = id || generateFieldId();
+    const reactId = React.useId();
+    const fieldId = id || `field-${reactId}`;
     const helperId = getHelperId(fieldId);
     const errorId = getErrorId(fieldId);
 

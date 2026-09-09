@@ -13,7 +13,7 @@ This policy covers the website at audhdities.com. Our apps keep everything on yo
 The controller of your data is **AudHDities LLC**, a United States company.
 
 - Contact for anything in this policy: **support@audhdities.com**
-- Mailing address: [the business mailing address]
+- Mailing address: AudHDities, 2005 N. Prospect Ave #1134, Champaign, IL 61822, United States
 - We have not appointed a Data Protection Officer. Privacy questions go to the address above and are answered by the people who run the sanctuary.
 
 ## 2. Information We Collect
@@ -21,8 +21,7 @@ The controller of your data is **AudHDities LLC**, a United States company.
 ### 2.1 Information You Give Us
 - **Account**: email address, username, display name, and a password we never see in plain text
 - **Profile**: bio, avatar, banner, and the preferences you choose to set
-- **Sensory hints**: an optional note about how you like the site to behave, given only if you choose to
-- **The Acid Test**: your answers and result, stored to your vessel only if you are signed in or choose to keep them
+- **The Acid Test**: your answers and result, stored to your vessel only when you choose to keep them
 - **Artisan and merchant details**: portfolio, business details, and categories, if you apply
 - **Messages**: what you send through the contact form
 
@@ -40,7 +39,7 @@ The controller of your data is **AudHDities LLC**, a United States company.
 | Provide and maintain the Platform | Contract |
 | Process applications and payments | Contract |
 | Answer your messages and account questions | Contract |
-| Store your sensory hints and Acid Test result | Your explicit consent |
+| Store your Acid Test result | Your explicit consent |
 | Keep the site secure and prevent abuse | Legitimate interest in running a safe service |
 | Keep transaction records | Legal obligation |
 
@@ -48,12 +47,12 @@ We make no decisions about you by automated means alone, and we do not profile y
 
 ## 4. Sensitive Information
 
-Your sensory hints and your Acid Test result can reveal how your mind works. We treat them as sensitive.
+Your Acid Test result can reveal how your mind works. We treat it as sensitive.
 
-- We store them only with your explicit consent, given when you enter them or choose to keep them
-- You can withdraw that consent at any time by deleting them from your vessel or asking us to
-- We never use them for advertising, ranking, or profiling
-- We never share them with anyone except the service that stores our database
+- We store it only with your explicit consent, given when you choose to keep it
+- You can withdraw that consent at any time by asking us to delete it
+- We never use it for advertising, ranking, or profiling
+- We never share it with anyone except the service that stores our database
 
 ## 5. Who We Share With
 
@@ -115,7 +114,7 @@ No system is perfect. If a breach ever affects your data, we will tell you and t
 
 ## 10. Children
 
-The Platform is not directed to children. If you are under 13, or under 16 in the European Union or the United Kingdom, please do not create an account. If you believe a child has given us personal information, tell us at support@audhdities.com and we will delete it.
+The Platform is not directed to children. If you are under 13, please do not create an account. If you are under 18, please have a parent's or guardian's consent, as the Terms of Service ask. If you believe a child has given us personal information, tell us at support@audhdities.com and we will delete it.
 
 ## 11. Changes to This Policy
 

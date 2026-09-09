@@ -17,8 +17,7 @@ import {
   composeSwitchTrackClasses,
   composeSwitchThumbClasses,
   composeSwitchLabelClasses,
-  composeSwitchHelperClasses,
-  generateSwitchId,
+  composeSwitchHelperClasses,
 } from '@/lib/utils/components/forging/switch.utils';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -46,7 +45,8 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
     const [internalChecked, setInternalChecked] = React.useState(defaultChecked);
     const isControlled = checked !== undefined;
     const isChecked = isControlled ? checked : internalChecked;
-    const switchId = generateSwitchId(id);
+    const reactId = React.useId();
+    const switchId = id || `switch-${reactId}`;
     const hasError = !!error;
 
     const handleClick = () => {

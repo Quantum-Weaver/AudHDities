@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import type { TextareaProps } from '@/types/components/forging/textarea.types';
 
 // ─── Utilities ─────────────────────────────────────────────────────────────────
-import { generateTextareaId, getTextareaAriaDescribedBy } from '@/lib/utils/components/forging/textare.utils';
+import { getTextareaAriaDescribedBy } from '@/lib/utils/components/forging/textare.utils';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 import {
@@ -64,7 +64,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     },
     ref
   ) => {
-    const textareaId = id || generateTextareaId();
+    const reactId = React.useId();
+    const textareaId = id || `textarea-${reactId}`;
     const hasError = !!error;
 
     return (
