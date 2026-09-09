@@ -1,6 +1,6 @@
 // ============================================================================
 // GENERATED TAILWIND CONFIG - DO NOT EDIT DIRECTLY
-// Generated: 2026-09-01T04:24:13.588Z
+// Generated: 2026-09-09T20:56:13.367Z
 // Source: colors.ts, motion.ts, dimensions.ts, typography.ts, effects.ts
 // ============================================================================
 
@@ -452,7 +452,7 @@ export default {
         }
       },
       screens: {
-        "sm": "767px",
+        "sm": "640px",
         "md": "768px",
         "lg": "1024px",
         "xl": "1280px",
