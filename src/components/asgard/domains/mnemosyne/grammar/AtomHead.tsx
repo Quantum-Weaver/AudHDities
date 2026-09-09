@@ -7,6 +7,7 @@ import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/Hous
 import {
   ATOM_CRUMB,
   BACK_TO_EXPLORE,
+  HOUSE_WORDS_ADDRESS,
   NO_DEFINITION,
   WEARING_CATEGORY_FACE,
   atomCases,
@@ -78,7 +79,7 @@ export function AtomHead({ whole }: { whole: AtomWhole }) {
       </div>
 
       <p className="max-w-[880px] text-base leading-relaxed text-star-dust/70">
-        {whole.definition ? withHouseWords(whole.definition) : NO_DEFINITION}
+        {whole.definition ? withHouseWords(whole.definition, HOUSE_WORDS_ADDRESS) : NO_DEFINITION}
       </p>
     </div>
   );

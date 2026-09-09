@@ -12,10 +12,10 @@ export const HOUSE_WORDS_GLOSSARY =
 const KP_WORD = /\bKP\b/;
 
 /** The footnote marker that follows the house word. */
-function Marker() {
+function Marker({ href }: { href: string }) {
   return (
     <Link
-      href={HOUSE_WORDS_HREF}
+      href={href}
       className="align-super text-[10px] ml-0.5 text-neurospark hover:text-star-dust"
     >
       1
@@ -23,8 +23,11 @@ function Marker() {
   );
 }
 
-/** Text with a superscript footnote on its first house word. */
-export function withHouseWords(text: string | null | undefined): ReactNode {
+/** Text with a superscript footnote on its first house word, pointing where the room tells it. */
+export function withHouseWords(
+  text: string | null | undefined,
+  href: string = HOUSE_WORDS_HREF
+): ReactNode {
   if (!text) return text ?? null;
   const found = KP_WORD.exec(text);
   if (!found) return text;
@@ -32,7 +35,7 @@ export function withHouseWords(text: string | null | undefined): ReactNode {
   return (
     <>
       {text.slice(0, cut)}
-      <Marker />
+      <Marker href={href} />
       {text.slice(cut)}
     </>
   );

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/HouseWords';
 import {
+  HOUSE_WORDS_ADDRESS,
   NO_SCHEME,
   NO_SCHEME_DESCRIPTION,
   schemeCardLine,
@@ -34,7 +35,7 @@ export function SchemeShelf({ shelf }: { shelf: SchemeKindShelf }) {
                     : 'text-[13px] text-star-dust/35'
                 }
               >
-                {card.description ? withHouseWords(card.description) : NO_SCHEME_DESCRIPTION}
+                {card.description ? withHouseWords(card.description, HOUSE_WORDS_ADDRESS) : NO_SCHEME_DESCRIPTION}
               </span>
             </Link>
           ))}

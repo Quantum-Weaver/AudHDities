@@ -11,6 +11,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import { getRealmHeader } from '@/lib/constants/systems/trio';
 import { cn } from '@/lib/utils';
 
@@ -45,6 +46,7 @@ export default function Header({
 }: HeaderProps) {
   const { setEnvironment } = useContinuityBeam();
   const pathname = usePathname();
+  const houseHref = useHouseHref();
 
   const metadata = getRealmHeader(pathname);
 
@@ -60,7 +62,7 @@ export default function Header({
     <header className={cn(headerVariants({ variant }), className)}>
       <div className={headerContentVariants({ variant })}>
         <Link
-          href="/"
+          href={houseHref('/')}
           className="group"
           onMouseEnter={hoverHandlers.handleMouseEnter}
           onMouseLeave={hoverHandlers.handleMouseLeave}

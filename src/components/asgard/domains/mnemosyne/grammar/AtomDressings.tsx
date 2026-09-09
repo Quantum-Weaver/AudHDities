@@ -1,5 +1,6 @@
 // src/components/asgard/domains/mnemosyne/grammar/AtomDressings.tsx
 
+import Link from 'next/link';
 import {
   DRESSINGS_HEADING,
   DRESSINGS_SOURCE,
@@ -7,6 +8,7 @@ import {
   HEARTH_LINE,
   NO_DRESSING,
   atomFace,
+  folksonomyAddress,
   splitDressings,
   type AtomDressing,
   type AtomWhole,
@@ -46,9 +48,12 @@ export function AtomDressings({
 
       {split?.dressings.map((dressing) => (
         <div key={dressing.key} className="flex items-start gap-3 rounded-lg bg-white/[0.03] p-3">
-          <span className="w-24 shrink-0 text-xs leading-5 text-star-dust/50">
+          <Link
+            href={folksonomyAddress(dressing.folksonomy)}
+            className="w-24 shrink-0 text-xs leading-5 text-neurospark hover:text-star-dust"
+          >
             {dressing.folksonomy}
-          </span>
+          </Link>
           <span className="flex items-start gap-2 text-[13px] leading-5 text-star-dust/60">
             {dressing.emoji ? <span>{dressing.emoji}</span> : null}
             {dressing.colour ? (

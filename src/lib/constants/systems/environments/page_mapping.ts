@@ -281,6 +281,11 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     title: 'The senses',
     subtitle: 'No emoji has a single meaning'
   },
+  '/grammar/senses/*': {
+    default: 'library',
+    title: 'The mark',
+    subtitle: 'One mark, many meanings'
+  },
   '/grammar/folksonomies': {
     default: 'library',
     title: 'The folksonomies',

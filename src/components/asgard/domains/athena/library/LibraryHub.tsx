@@ -14,7 +14,7 @@ const SECTIONS = [
   { title: 'The Honors', description: 'Sigils earned through sovereignty', href: '/library/sigils', icon: Award, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
   { title: 'The Floating Stars', description: 'Stars drift past. Pop what catches your eye.', href: '/library/bubbles', icon: Droplets, color: 'text-teal-400', bg: 'bg-teal-500/10' },
   { title: 'The Dailies', description: 'Word puzzles drawn from the Grammar', href: '/library/dailies', icon: Puzzle, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
-  { title: 'The Grammar', description: 'The shared vocabulary, defined once', href: '/grammar', icon: Languages, color: 'text-neurospark', bg: 'bg-neurospark/10' },
+  { title: 'The Grammar', description: 'The shared vocabulary, defined once', href: 'https://grammar.audhdities.com', icon: Languages, color: 'text-neurospark', bg: 'bg-neurospark/10' },
 ];
 
 export function LibraryHub() {

@@ -1045,22 +1045,58 @@ export const GRAMMAR_DOORS: readonly GrammarDoor[] = [
     line: 'Search the three tiers, walk the faces, read the lattice.',
     href: '/grammar/explore',
   },
-  { title: 'Senses', line: NOT_YET_WIRED, href: null },
-  { title: 'Folksonomies', line: NOT_YET_WIRED, href: null },
+  {
+    title: 'Senses',
+    line: 'Every mark once, the atoms that wear it, and the colours chosen.',
+    href: '/grammar/senses',
+  },
+  {
+    title: 'Folksonomies',
+    line: 'Every umbrella of collective meaning, each dressing beside its hearth.',
+    href: '/grammar/folksonomies',
+  },
   { title: 'Carry', line: NOT_YET_WIRED, href: null },
 ];
 
-/** The house words a Grammar room footnotes, each told once on /about. */
-export const GRAMMAR_HOUSE_WORDS: readonly string[] = [
-  'the hearth',
-  'the heart',
-  'a folksonomy',
-  'a seed',
+/** One house word and what it means. */
+export interface HouseWord {
+  word: string;
+  meaning: string;
+}
+
+/** The house words, told on the Grammar's door and footnoted by every room. */
+export const HOUSE_WORDS: readonly HouseWord[] = [
+  {
+    word: 'the hearth',
+    meaning: 'the shared vocabulary, defined once, common to every vessel who reads it.',
+  },
+  {
+    word: 'the heart',
+    meaning: 'a vessel’s own layer of meaning, laid beside the hearth and never over it.',
+  },
+  {
+    word: 'a folksonomy',
+    meaning:
+      'the umbrella a collective understanding lives under, in any sense or atom, whether or not it is mainstream language.',
+  },
+  {
+    word: 'a seed',
+    meaning:
+      'a numbered paper of SQL that lands rows in the Grammar; the Grammar changes only when one lands.',
+  },
 ];
+
+export const HOUSE_WORDS_HEADING = 'House words';
+
+/** The section of the Grammar's door that tells the house words. */
+export const HOUSE_WORDS_ANCHOR = 'house-words';
+export const HOUSE_WORDS_ADDRESS = `/grammar#${HOUSE_WORDS_ANCHOR}`;
+
+export const GRAMMAR_HOUSE_WORDS: readonly string[] = HOUSE_WORDS.map((entry) => entry.word);
 
 export const ATOM_HOUSE_WORDS: readonly string[] = ['the hearth', 'the heart', 'a folksonomy'];
 
-export const HOUSE_WORDS_TAIL = 'house words, each told once on /about';
+export const HOUSE_WORDS_TAIL = 'house words, each told once on the Grammar’s door';
 
 export const GRAMMAR_PILL = 'The Grammar';
 export const EXPLORE_PILL = 'The Grammar · Explore';
@@ -1544,3 +1580,362 @@ export const TILE_ROOMS: Partial<Record<DoorTable, string>> = {
   categories: '/grammar/explore',
   schemes: '/grammar/schemes',
 };
+
+// ── the senses' rooms ──────────────────────────────────────────────────────
+
+export const SENSES_PILL = 'The senses';
+export const SENSES_TITLE = 'No emoji has a single meaning';
+export const SENSES_SENTENCE =
+  '“No emoji has a single meaning. The Grammar preserves ALL definitions… Both are true. Neither overwrites the other.”';
+export const SENSES_SENTENCE_ADDRESS = 'resonance-grammar/docs/RESONANCE-GRAMMAR.md:148-153';
+export const WALL_HEADING = 'The wall';
+export const COLOUR_SHELF_HEADING = 'The colour shelf';
+export const COLOUR_SHELF_SOURCE = 'sensory_lexicon.color_hex';
+export const SENSE_CRUMB = 'grammar · a mark · read live through the anon door';
+export const BACK_TO_SENSES = 'The senses';
+export const OTHER_MEANINGS_HEADING = 'The same mark, other meanings';
+export const OTHER_MEANINGS_SOURCE = 'thesaurus';
+export const SENSE_SOURCE = 'atom_dressed · sensory_lexicon';
+export const NO_MARK_WORN = 'no atom wears this mark';
+export const NO_COLOUR_CHOSEN = 'no colour chosen yet';
+export const NO_OTHER_MEANING = 'no folksonomy dresses this mark yet';
+
+export type SenseRow = Pick<SensoryLexiconRow, 'emoji' | 'color_hex'>;
+
+export interface SenseMark {
+  emoji: string;
+  count: number;
+  address: string;
+}
+
+export interface ColourChoice {
+  hex: string;
+  count: number;
+}
+
+export interface SensesWall {
+  marks: SenseMark[];
+  colours: ColourChoice[];
+  /** How many lexicon rows were read. */
+  rowsRead: number;
+  withEmoji: number;
+  withColour: number;
+  /** True when the read ceiling was met before the rows ran out. */
+  truncated: boolean;
+}
+
+/** The room one mark opens. */
+export function senseAddress(emoji: string): string {
+  return `/grammar/senses/${encodeURIComponent(emoji)}`;
+}
+
+/** Every distinct mark with the atoms wearing it, by count then by mark. */
+export function markTally(rows: readonly SenseRow[]): SenseMark[] {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    if (!row.emoji) continue;
+    counts.set(row.emoji, (counts.get(row.emoji) ?? 0) + 1);
+  }
+  return Array.from(counts, ([emoji, count]) => ({
+    emoji,
+    count,
+    address: senseAddress(emoji),
+  })).sort((one, other) =>
+    other.count !== one.count ? other.count - one.count : one.emoji.localeCompare(other.emoji, 'en')
+  );
+}
+
+/** Every distinct colour with the atoms carrying it, by count then by hex. */
+export function colourTally(rows: readonly SenseRow[]): ColourChoice[] {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    if (!row.color_hex) continue;
+    counts.set(row.color_hex, (counts.get(row.color_hex) ?? 0) + 1);
+  }
+  return Array.from(counts, ([hex, count]) => ({ hex, count })).sort((one, other) =>
+    other.count !== one.count ? other.count - one.count : one.hex.localeCompare(other.hex, 'en')
+  );
+}
+
+/** The wall and the shelf built from the lexicon rows, every number counted here. */
+export function sensesWall(rows: readonly SenseRow[], truncated: boolean): SensesWall {
+  return {
+    marks: markTally(rows),
+    colours: colourTally(rows),
+    rowsRead: rows.length,
+    withEmoji: rows.filter((row) => Boolean(row.emoji)).length,
+    withColour: rows.filter((row) => Boolean(row.color_hex)).length,
+    truncated,
+  };
+}
+
+/** The wall's count line: the marks, and the atoms that wear one. */
+export function wallLine(wall: SensesWall): string {
+  const marks = `${wall.marks.length.toLocaleString('en')} ${wall.marks.length === 1 ? 'mark' : 'marks'}`;
+  const worn = `${wall.withEmoji.toLocaleString('en')} of ${wall.rowsRead.toLocaleString('en')} atoms wear one`;
+  return `${marks} · ${worn} · ${COUNTED_FROM_ROWS}`;
+}
+
+/** The shelf's count line: the colours chosen, out of the rows read. */
+export function colourShelfLine(wall: SensesWall): string {
+  if (wall.withColour === 0) return NO_COLOUR_CHOSEN;
+  const chosen = `${wall.colours.length.toLocaleString('en')} ${wall.colours.length === 1 ? 'colour' : 'colours'}`;
+  const carried = `${wall.withColour.toLocaleString('en')} of ${wall.rowsRead.toLocaleString('en')} atoms carry one`;
+  return `${chosen} · ${carried} · ${COUNTED_FROM_ROWS}`;
+}
+
+/** The line one colour swatch prints beside its hex. */
+export function colourLine(colour: ColourChoice): string {
+  return `${colour.count.toLocaleString('en')} ${colour.count === 1 ? 'atom' : 'atoms'}`;
+}
+
+/** The count line one mark's room prints, or the sentence for a mark nobody wears. */
+export function markCountLine(total: number): string {
+  if (total === 0) return NO_MARK_WORN;
+  const noun = total === 1 ? 'atom wears' : 'atoms wear';
+  return `${total.toLocaleString('en')} ${noun} this mark · ${COUNTED_FROM_ROWS}`;
+}
+
+export type ThesaurusEntry = Pick<
+  ThesaurusRow,
+  'word' | 'emoji' | 'definition' | 'color_hex' | 'folksonomy_type' | 'notes'
+>;
+
+export interface SenseMeaning {
+  key: string;
+  word: string;
+  folksonomy: string;
+  definition: string | null;
+  colour: string | null;
+  address: string;
+}
+
+export interface SenseWhole {
+  emoji: string;
+  cards: DressedCard[];
+  /** The base's own count of the atoms wearing this mark. */
+  total: number;
+  meanings: SenseMeaning[];
+}
+
+/** A mark's atoms as the one tier group its room shows. */
+export function senseTier(whole: SenseWhole): TierResult {
+  return {
+    tier: 'atoms',
+    heading: TIER_HEADINGS.atoms,
+    total: whole.total,
+    cards: whole.cards,
+    empty: NO_MARK_WORN,
+    fault: null,
+  };
+}
+
+// ── the folksonomies' rooms ────────────────────────────────────────────────
+
+export const FOLKSONOMIES_PILL = 'The folksonomies';
+export const FOLKSONOMIES_TITLE = 'The heart beside the hearth';
+export const FOLKSONOMY_SENTENCE =
+  'A folksonomy is “the category umbrella a collective understanding exists that might not be mainstream language”; it “can be more than emojis, it can be any sensory_lexicon, or atom”; and the apps are “satellite ‘starter’ folksonomies, to demostrate the concept in action that we are encouraging” — KP’s words, spelling kept.';
+export const FOLKSONOMY_SENTENCE_ADDRESS = 'KP · 2026-09-09';
+export const FOLKSONOMIES_SOURCE = 'folksonomies · thesaurus';
+export const FOLKSONOMY_SOURCE = 'thesaurus · atom_dressed';
+export const FOLKSONOMY_CRUMB = 'grammar · a folksonomy · read live through the anon door';
+export const BACK_TO_FOLKSONOMIES = 'The folksonomies';
+export const FOLKSONOMY_DRESSINGS_HEADING = 'The dressings';
+export const STARTER_MARK = 'a starter folksonomy';
+export const STARTER_STATUS = 'complete';
+export const NO_FOLKSONOMY_DRESSING = 'no dressing in this folksonomy yet';
+export const NO_HEARTH_WORD = 'no hearth atom carries this word';
+export const NO_FOLKSONOMY = 'no folksonomy stands in the register yet';
+export const NO_FOLKSONOMY_PURPOSE = 'no purpose recorded';
+export const NOTES_LABEL = 'notes';
+export const KEPT_BY_LABEL = 'kept by';
+
+export type FolksonomyFace = Pick<
+  FolksonomyRow,
+  'name' | 'purpose' | 'status' | 'notes' | 'created_by'
+>;
+
+export interface FolksonomyKeyRow {
+  folksonomy_type: string | null;
+}
+
+export interface FolksonomyCard {
+  name: string;
+  purpose: string | null;
+  status: string;
+  dressings: number;
+  starter: boolean;
+  address: string;
+}
+
+/** The room one folksonomy opens. */
+export function folksonomyAddress(name: string): string {
+  return `/grammar/folksonomies/${encodeURIComponent(name)}`;
+}
+
+/** The dressings counted per folksonomy, a row naming none dropped. */
+export function tallyByFolksonomy(rows: readonly FolksonomyKeyRow[]): Record<string, number> {
+  const tally: Record<string, number> = {};
+  for (const row of rows) {
+    if (!row.folksonomy_type) continue;
+    tally[row.folksonomy_type] = (tally[row.folksonomy_type] ?? 0) + 1;
+  }
+  return tally;
+}
+
+/** True for a folksonomy the register holds complete, the starters. */
+export function isStarter(row: FolksonomyFace): boolean {
+  return row.status.trim().toLowerCase() === STARTER_STATUS;
+}
+
+/** Every folksonomy as a card, its dressings counted from rows. */
+export function folksonomyCards(
+  rows: readonly FolksonomyFace[],
+  tally: Readonly<Record<string, number>>
+): FolksonomyCard[] {
+  return rows.map((row) => ({
+    name: row.name,
+    purpose: row.purpose,
+    status: row.status,
+    dressings: tally[row.name] ?? 0,
+    starter: isStarter(row),
+    address: folksonomyAddress(row.name),
+  }));
+}
+
+/** The dressing count line, or the sentence for a folksonomy holding none. */
+export function dressingCountLine(count: number): string {
+  if (count === 0) return NO_FOLKSONOMY_DRESSING;
+  const noun = count === 1 ? 'dressing' : 'dressings';
+  return `${count.toLocaleString('en')} ${noun} · ${COUNTED_FROM_ROWS}`;
+}
+
+export interface HearthBeside {
+  word: string;
+  face: string | null;
+  faceFromCategory: boolean;
+  definition: string | null;
+  categoryName: string | null;
+  address: string;
+}
+
+export interface DressingBeside {
+  key: string;
+  word: string;
+  emoji: string | null;
+  colour: string | null;
+  definition: string | null;
+  /** Null when the hearth carries no atom of this word. */
+  hearth: HearthBeside | null;
+}
+
+export interface FolksonomyWhole {
+  row: FolksonomyFace;
+  dressings: DressingBeside[];
+}
+
+/** Each word a thesaurus read names, and its lower-case form, for one lookup. */
+export function hearthWords(entries: readonly ThesaurusEntry[]): string[] {
+  const wanted = new Set<string>();
+  for (const entry of entries) {
+    const word = entry.word.trim();
+    if (!word) continue;
+    wanted.add(word);
+    wanted.add(word.toLowerCase());
+  }
+  return Array.from(wanted);
+}
+
+/** The hearth rows keyed by their word, case-blind. */
+export function hearthByWord(rows: readonly AtomSearchRow[]): Record<string, AtomSearchRow> {
+  const held: Record<string, AtomSearchRow> = {};
+  for (const row of rows) {
+    if (!row.atom_word) continue;
+    held[row.atom_word.toLowerCase()] = row;
+  }
+  return held;
+}
+
+/** One hearth atom read as the row shown beside a dressing. */
+export function hearthBeside(row: AtomSearchRow): HearthBeside | null {
+  const word = row.atom_word;
+  if (!word) return null;
+  const face = atomFace(row);
+  return {
+    word,
+    face: face.glyph,
+    faceFromCategory: face.fromCategory,
+    definition: row.definition,
+    categoryName: row.category_name,
+    address: tierAddress('atoms', word),
+  };
+}
+
+/** Every dressing beside the hearth atom it dresses, matched by word, case-blind. */
+export function dressingsBeside(
+  entries: readonly ThesaurusEntry[],
+  rows: readonly AtomSearchRow[]
+): DressingBeside[] {
+  const hearth = hearthByWord(rows);
+  return entries
+    .map((entry) => {
+      const found = hearth[entry.word.trim().toLowerCase()] ?? null;
+      return {
+        key: `${entry.folksonomy_type} · ${entry.word}`,
+        word: entry.word,
+        emoji: entry.emoji,
+        colour: entry.color_hex,
+        definition: entry.definition,
+        hearth: found ? hearthBeside(found) : null,
+      };
+    })
+    .sort((one, other) => one.word.localeCompare(other.word, 'en'));
+}
+
+/** The meanings a mark carries across the folksonomies, each a door to its room. */
+export function senseMeanings(entries: readonly ThesaurusEntry[]): SenseMeaning[] {
+  return entries
+    .map((entry) => ({
+      key: `${entry.folksonomy_type} · ${entry.word}`,
+      word: entry.word,
+      folksonomy: entry.folksonomy_type,
+      definition: entry.definition,
+      colour: entry.color_hex,
+      address: folksonomyAddress(entry.folksonomy_type),
+    }))
+    .sort((one, other) =>
+      one.folksonomy !== other.folksonomy
+        ? one.folksonomy.localeCompare(other.folksonomy, 'en')
+        : one.word.localeCompare(other.word, 'en')
+    );
+}
+
+// ── the senses' and the folksonomies' columns ──────────────────────────────
+
+export const SENSE_ROW_COLUMNS = ['emoji', 'color_hex'].join(', ');
+
+export const FOLKSONOMY_COLUMNS = ['name', 'purpose', 'status', 'notes', 'created_by'].join(', ');
+
+export const THESAURUS_COLUMNS = [
+  'word',
+  'emoji',
+  'definition',
+  'color_hex',
+  'folksonomy_type',
+  'notes',
+].join(', ');
+
+export const FOLKSONOMY_KEY_COLUMNS = 'folksonomy_type';
+
+/** The lexicon read's ceiling, one row per atom. */
+export const SENSES_READ_LIMIT = 3000;
+
+/** The rows one lexicon read carries back, the door's own page. */
+export const SENSES_PAGE = 1000;
+
+/** The mark room's ceiling: every atom is counted, this many are carried back. */
+export const SENSE_ATOM_LIMIT = 200;
+
+/** The thesaurus read's ceiling, one row per dressing. */
+export const THESAURUS_READ_LIMIT = 500;

@@ -1,6 +1,6 @@
 {
-  "passed": 96,
-  "total": 96,
+  "passed": 118,
+  "total": 118,
   "checks": [
     {
       "set": "grouping",
@@ -576,6 +576,138 @@
       "set": "scheme",
       "check": "a scheme with no edge waits with its own sentence",
       "result": "no edge in this scheme",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "every mark stands once, ordered by the atoms wearing it then by the mark",
+      "result": "💭 3 · ♒︎ 2 · 🪁 1",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a row wearing no mark is counted in the rows, never on the wall",
+      "result": "6 of 7 · 3 marks",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the wall says how many marks, and how many atoms wear one, counted from rows",
+      "result": "3 marks · 6 of 7 atoms wear one · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the colours are tallied by count then hex, a colourless row dropped",
+      "result": "#00CED1 2 · #4682B4 1",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the shelf counts the colours chosen out of the rows read",
+      "result": "2 colours · 3 of 7 atoms carry one · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a swatch of one atom reads in the singular",
+      "result": "1 atom",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a lexicon with no colour chosen says so",
+      "result": "no colour chosen yet",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a mark opens its own room, escaped into the address",
+      "result": "/grammar/senses/%E2%99%92%EF%B8%8E",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the mark room counts its atoms from rows, one of them in the singular",
+      "result": "1 atom wears this mark · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a mark no atom wears says so, and its group waits with the same sentence",
+      "result": "no atom wears this mark",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "one mark carries every folksonomy meaning, by folksonomy then word, each a door",
+      "result": "Compass:Beam · Compass:resonance · Echoes:Calm",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the dressings are counted per folksonomy, a row naming none dropped",
+      "result": "Echoes 2 · Compass 1",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "each card carries its counted dressings and opens its own room",
+      "result": "2 · /grammar/folksonomies/Echoes",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a folksonomy the register holds complete is marked a starter",
+      "result": "Echoes true · Hearth false",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a folksonomy holding no dressing waits with its own sentence",
+      "result": "no dressing in this folksonomy yet",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a dressing count reads in the singular, and says it is counted from rows",
+      "result": "1 dressing · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "each word is asked for as it stands and in lower case, once",
+      "result": "Calm · calm · Beam · beam · resonance",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the hearth rows are keyed by their word, case-blind",
+      "result": "resonance · beam",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "each dressing stands beside the hearth atom of its word, by word order",
+      "result": "Beam → beam · Calm → no hearth atom carries this word · resonance → resonance",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the dressing keeps its own words and the hearth keeps its own, neither overwritten",
+      "result": "the ring an app answers with · a shared ring",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the hearth beside a dressing borrows its category face, marked, and opens its room",
+      "result": "🧱 · /grammar/atoms/beam",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the senses and the folksonomies are doors, the carry still says it is not wired",
+      "result": "Explore /grammar/explore · Senses /grammar/senses · Folksonomies /grammar/folksonomies · Carry not yet wired",
       "pass": true
     }
   ]

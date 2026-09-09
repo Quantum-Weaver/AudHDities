@@ -8,6 +8,7 @@
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { User, LogOut } from 'lucide-react';
@@ -38,6 +39,7 @@ import {
 export default function AuthButton() {
   const router = useRouter();
   const { user, profile, signOut } = useAuth();
+  const houseHref = useHouseHref();
 
   // ─── Hover State ─────────────────────────────────────────────────────
   const [isHovered, setIsHovered] = useState(false);
@@ -114,7 +116,7 @@ export default function AuthButton() {
 
   return (
     <Link
-      href={AUTH_ROUTES.LOGIN}
+      href={houseHref(AUTH_ROUTES.LOGIN)}
       onMouseEnter={hoverHandlers.handleMouseEnter}
       onMouseLeave={hoverHandlers.handleMouseLeave}
       onFocus={hoverHandlers.handleFocus}

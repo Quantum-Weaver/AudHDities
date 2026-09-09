@@ -15,6 +15,9 @@ import {
   GRAMMAR_TITLE,
   HEART_SENTENCE,
   HEARTH_SENTENCE,
+  HOUSE_WORDS,
+  HOUSE_WORDS_ANCHOR,
+  HOUSE_WORDS_HEADING,
 } from '@/lib/grammar/grammar-contract';
 
 export const metadata: Metadata = {
@@ -44,6 +47,22 @@ export default async function GrammarPage() {
 
             <DoorTiles counts={counts} />
             <DoorCards />
+
+            <section id={HOUSE_WORDS_ANCHOR} className="flex flex-col gap-3 scroll-mt-24">
+              <h2 className="text-sm font-medium uppercase tracking-wide text-star-dust/50">
+                {HOUSE_WORDS_HEADING}
+              </h2>
+              <ul className="flex flex-col gap-2">
+                {HOUSE_WORDS.map((entry) => (
+                  <li key={entry.word} className="text-sm leading-relaxed text-star-dust/60">
+                    <span className="font-semibold text-star-dust">{entry.word}</span>
+                    {' — '}
+                    {entry.meaning}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
             <GrammarFootnote words={GRAMMAR_HOUSE_WORDS} />
           </div>
         </div>

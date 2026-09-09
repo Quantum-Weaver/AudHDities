@@ -7,6 +7,7 @@ import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/Hous
 import {
   BACK_TO_LATTICE,
   CHILDREN_LABEL,
+  HOUSE_WORDS_ADDRESS,
   NO_SCHEME_DESCRIPTION,
   PARENT_LABEL,
   SCHEME_CRUMB,
@@ -64,7 +65,7 @@ export function SchemeHead({ whole }: { whole: SchemeWhole }) {
             : 'max-w-[880px] text-base text-star-dust/35'
         }
       >
-        {whole.row.description ? withHouseWords(whole.row.description) : NO_SCHEME_DESCRIPTION}
+        {whole.row.description ? withHouseWords(whole.row.description, HOUSE_WORDS_ADDRESS) : NO_SCHEME_DESCRIPTION}
       </p>
 
       {whole.children.length > 0 ? (

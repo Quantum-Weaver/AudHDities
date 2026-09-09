@@ -17,12 +17,14 @@ import { X } from 'lucide-react';
 import Learscail from '@/components/seidr/immersive/Learscail';
 import { THE_STREET } from '@/lib/constants/systems/the-street';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import { cn } from '@/lib/utils';
 import { FOCUS_RING } from './Navigation';
 
 export default function MapDialog() {
   const pathname = usePathname();
   const { mapOpen, setMapOpen } = useContinuityBeam();
+  const houseHref = useHouseHref();
   const ref = useRef<HTMLDialogElement>(null);
 
   const close = useCallback(() => setMapOpen(false), [setMapOpen]);
@@ -93,7 +95,7 @@ export default function MapDialog() {
                   {realm.rooms.map((room) => (
                     <li key={room.href}>
                       <Link
-                        href={room.href}
+                        href={houseHref(room.href)}
                         aria-current={isActive(room.href) ? 'page' : undefined}
                         onClick={close}
                         style={{ padding: '0.25rem 0.5rem' }}

@@ -21,6 +21,7 @@ import {
   type StreetRealm,
 } from '@/lib/constants/systems/the-street';
 import { useDiscovery } from '@/hooks/useDiscovery';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import { cn } from '@/lib/utils';
 
 /** A 2px hearth-gold ring at 2px offset — 12.7:1 on the bar ground. */
@@ -67,6 +68,7 @@ export interface StreetTreeProps {
 export default function StreetTree({ onTravel, className, compact = false }: StreetTreeProps) {
   const pathname = usePathname() || '/';
   const { discovered, ready } = useDiscovery();
+  const houseHref = useHouseHref();
 
   const rows = useMemo(
     () => streetRows(pathname, discovered, ready),
@@ -131,7 +133,7 @@ export default function StreetTree({ onTravel, className, compact = false }: Str
                 return (
                   <li key={room.href}>
                     <Link
-                      href={room.href}
+                      href={houseHref(room.href)}
                       onClick={onTravel}
                       aria-current={active ? 'page' : undefined}
                       className={cn(

@@ -1,6 +1,6 @@
 {
-  "passed": 40,
-  "total": 40,
+  "passed": 58,
+  "total": 58,
   "checks": [
     {
       "set": "door",
@@ -240,6 +240,114 @@
       "set": "counts",
       "check": "the tally is read from rows, never from a head count",
       "result": "schemes · scheme_memberships · concept_relations",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "every distinct mark is grouped from the rows, by count then by mark",
+      "result": "💭 3 · ♒︎ 2",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "each mark opens its own room, escaped into the address",
+      "result": "/grammar/senses/%E2%99%92%EF%B8%8E",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a row wearing no mark is counted in the rows read, never on the wall",
+      "result": "5 of 6",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the colours are tallied from the same rows, by count then by hex",
+      "result": "#00CED1 2 · #4682B4 1",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the lexicon is read in one bounded pass, never head-counted",
+      "result": "sensory_lexicon",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a mark carries every hearth atom wearing it, counted by the base",
+      "result": "1 · resonance",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a mark carries the thesaurus rows that also wear it, each a door to its room",
+      "result": "Echoes Resonance",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "one mark carries the meanings of more than one folksonomy, by folksonomy then word",
+      "result": "Compass:Beam · Echoes:Calm",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a mark no atom wears counts zero and waits with its own sentence",
+      "result": "0 · no atom wears this mark",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "every folksonomy is carried with its dressings counted from rows",
+      "result": "Echoes 2 · Hearth 0",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a folksonomy the register holds complete is marked a starter",
+      "result": "Echoes true · Hearth false",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the dressings are counted from rows, never from a head count",
+      "result": "folksonomies · thesaurus",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a folksonomy is found by its name, whatever its case",
+      "result": "Echoes",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "each dressing is joined to the hearth atom of its word, case-blind",
+      "result": "Calm → no hearth atom carries this word · Resonance → resonance",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "the hearth beside a dressing is the base row, never an override",
+      "result": "a shared ring · the ring an app answers with",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a dressing whose word the hearth does not carry stands alone",
+      "result": "Calm · null",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a folksonomy holding no dressing asks the hearth nothing",
+      "result": "folksonomies · thesaurus",
+      "pass": true
+    },
+    {
+      "set": "folksonomy",
+      "check": "a name the register does not hold reads null, never invented",
+      "result": "null",
       "pass": true
     }
   ]

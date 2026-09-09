@@ -5,8 +5,8 @@ Every row is a fixture: nothing here reaches a base or the network.
 
 | file | proves | run |
 |---|---|---|
-| `prove-grammar.ts` | the search grouping, the honest empties, the face fallback, the dressings beside the hearth, the bond truncation, the lattice reading, the fault shape, the door's counts, the query bounding, the compound's chain with its bond strength, the compound's sensory override, the category's count, the lattice's shelves and a scheme's members and edges | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar.ts` |
-| `prove-grammar-read.ts` | the reads themselves against a fake knowledge client: the door gate, the fault carrying the base's message, the case-blind lookups, the compound's bond order, the category's base rows, the scheme's tiers, the lattice counts | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar-read.ts` |
+| `prove-grammar.ts` | the search grouping, the honest empties, the face fallback, the dressings beside the hearth, the bond truncation, the lattice reading, the fault shape, the door's counts, the query bounding, the compound's chain with its bond strength, the compound's sensory override, the category's count, the lattice's shelves and a scheme's members and edges, the mark wall and the colour shelf, the folksonomy cards and each dressing beside its hearth | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar.ts` |
+| `prove-grammar-read.ts` | the reads themselves against a fake knowledge client: the door gate, the fault carrying the base's message, the case-blind lookups, the compound's bond order, the category's base rows, the scheme's tiers, the lattice counts, the lexicon grouped in one bounded pass, and a folksonomy's dressings joined to the hearth | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar-read.ts` |
 | `results.json` | the last run's checks for `prove-grammar.ts` | |
 | `results-read.json` | the last run's checks for `prove-grammar-read.ts` | |
 
@@ -23,7 +23,10 @@ For the compound's room: one molecule row in its five cases and one organism row
 two atom bonds held out of position order, each with a role, a bond type and a
 bond strength, one of the two atoms wearing a face, three held molecules of which
 one names none, one sensory override of two keys and one null, and a category
-face counted at 63 atoms.
+face counted at 63 atoms. For the senses and the folksonomies: seven lexicon rows
+carrying three marks and two colours with one row wearing neither, three thesaurus
+entries across two folksonomies, two folksonomy rows one complete and one growing,
+and two hearth rows one of which no dressing names.
 
 ## the contract's checks
 
@@ -125,8 +128,30 @@ face counted at 63 atoms.
 | scheme | the arrow carries the relation type the row holds | —related→ |
 | scheme | an end the base does not name says so, and is no door | a concept the base does not name |
 | scheme | a scheme with no edge waits with its own sentence | no edge in this scheme |
+| senses | every mark stands once, ordered by the atoms wearing it then by the mark | 💭 3 · ♒︎ 2 · 🪁 1 |
+| senses | a row wearing no mark is counted in the rows, never on the wall | 6 of 7 · 3 marks |
+| senses | the wall says how many marks, and how many atoms wear one, counted from rows | 3 marks · 6 of 7 atoms wear one · counted from rows |
+| senses | the colours are tallied by count then hex, a colourless row dropped | #00CED1 2 · #4682B4 1 |
+| senses | the shelf counts the colours chosen out of the rows read | 2 colours · 3 of 7 atoms carry one · counted from rows |
+| senses | a swatch of one atom reads in the singular | 1 atom |
+| senses | a lexicon with no colour chosen says so | no colour chosen yet |
+| senses | a mark opens its own room, escaped into the address | /grammar/senses/%E2%99%92%EF%B8%8E |
+| senses | the mark room counts its atoms from rows, one of them in the singular | 1 atom wears this mark · counted from rows |
+| senses | a mark no atom wears says so, and its group waits with the same sentence | no atom wears this mark |
+| senses | one mark carries every folksonomy meaning, by folksonomy then word, each a door | Compass:Beam · Compass:resonance · Echoes:Calm |
+| folksonomy | the dressings are counted per folksonomy, a row naming none dropped | Echoes 2 · Compass 1 |
+| folksonomy | each card carries its counted dressings and opens its own room | 2 · /grammar/folksonomies/Echoes |
+| folksonomy | a folksonomy the register holds complete is marked a starter | Echoes true · Hearth false |
+| folksonomy | a folksonomy holding no dressing waits with its own sentence | no dressing in this folksonomy yet |
+| folksonomy | a dressing count reads in the singular, and says it is counted from rows | 1 dressing · counted from rows |
+| folksonomy | each word is asked for as it stands and in lower case, once | Calm · calm · Beam · beam · resonance |
+| folksonomy | the hearth rows are keyed by their word, case-blind | resonance · beam |
+| folksonomy | each dressing stands beside the hearth atom of its word, by word order | Beam → beam · Calm → no hearth atom carries this word · resonance → resonance |
+| folksonomy | the dressing keeps its own words and the hearth keeps its own, neither overwritten | the ring an app answers with · a shared ring |
+| folksonomy | the hearth beside a dressing borrows its category face, marked, and opens its room | 🧱 · /grammar/atoms/beam |
+| folksonomy | the senses and the folksonomies are doors, the carry still says it is not wired | Explore /grammar/explore · Senses /grammar/senses · Folksonomies /grammar/folksonomies · Carry not yet wired |
 
-96 of 96.
+118 of 118.
 
 ## the reader's fake client
 
@@ -142,8 +167,10 @@ a sensory override, one organism, two
 molecule bonds held out of position order, one organism-molecule bond, one
 organism-atom bond, four scheme memberships across the three tiers, three typed
 relations of which one names no scheme, two schemes one standing under the other,
-two categories one of which no atom wears, and four `atom_dressed` rows of which
-one is an override.
+two categories one of which no atom wears, four `atom_dressed` rows of which
+one is an override, six `sensory_lexicon` rows carrying two marks and two colours,
+two folksonomy rows one complete and one holding nothing, and three thesaurus rows
+of which two share one mark.
 
 ## the reader's checks
 
@@ -189,5 +216,23 @@ one is an override.
 | counts | every scheme is tallied, counted from rows | Being 3 · Layout 1 |
 | counts | the edges are tallied per scheme, a scheme-less edge dropped | Being 1 · Layout 1 |
 | counts | the tally is read from rows, never from a head count | schemes · scheme_memberships · concept_relations |
+| senses | every distinct mark is grouped from the rows, by count then by mark | 💭 3 · ♒︎ 2 |
+| senses | each mark opens its own room, escaped into the address | /grammar/senses/%E2%99%92%EF%B8%8E |
+| senses | a row wearing no mark is counted in the rows read, never on the wall | 5 of 6 |
+| senses | the colours are tallied from the same rows, by count then by hex | #00CED1 2 · #4682B4 1 |
+| senses | the lexicon is read in one bounded pass, never head-counted | sensory_lexicon |
+| senses | a mark carries every hearth atom wearing it, counted by the base | 1 · resonance |
+| senses | a mark carries the thesaurus rows that also wear it, each a door to its room | Echoes Resonance |
+| senses | one mark carries the meanings of more than one folksonomy, by folksonomy then word | Compass:Beam · Echoes:Calm |
+| senses | a mark no atom wears counts zero and waits with its own sentence | 0 · no atom wears this mark |
+| folksonomy | every folksonomy is carried with its dressings counted from rows | Echoes 2 · Hearth 0 |
+| folksonomy | a folksonomy the register holds complete is marked a starter | Echoes true · Hearth false |
+| folksonomy | the dressings are counted from rows, never from a head count | folksonomies · thesaurus |
+| folksonomy | a folksonomy is found by its name, whatever its case | Echoes |
+| folksonomy | each dressing is joined to the hearth atom of its word, case-blind | Calm → no hearth atom carries this word · Resonance → resonance |
+| folksonomy | the hearth beside a dressing is the base row, never an override | a shared ring · the ring an app answers with |
+| folksonomy | a dressing whose word the hearth does not carry stands alone | Calm · null |
+| folksonomy | a folksonomy holding no dressing asks the hearth nothing | folksonomies · thesaurus |
+| folksonomy | a name the register does not hold reads null, never invented | null |
 
-40 of 40.
+58 of 58.

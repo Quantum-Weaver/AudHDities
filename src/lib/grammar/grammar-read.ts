@@ -12,6 +12,8 @@ import {
   CATEGORY_COLUMNS,
   DOOR_LABELS,
   DOOR_TABLES,
+  FOLKSONOMY_COLUMNS,
+  FOLKSONOMY_KEY_COLUMNS,
   LATTICE_READ_LIMIT,
   MEMBERSHIP_COLUMNS,
   MOLECULE_ATOM_COLUMNS,
@@ -30,7 +32,13 @@ import {
   SCHEME_DETAIL_COLUMNS,
   SCHEME_KEY_COLUMNS,
   SCHEME_MEMBER_COLUMNS,
+  SENSES_PAGE,
+  SENSES_READ_LIMIT,
+  SENSE_ATOM_LIMIT,
+  SENSE_ROW_COLUMNS,
   SENSORY_FACE_COLUMNS,
+  THESAURUS_COLUMNS,
+  THESAURUS_READ_LIMIT,
   TIER_EMPTIES,
   TIER_HEADINGS,
   TIER_LIMIT,
@@ -41,7 +49,10 @@ import {
   compoundMolecules,
   conceptEdges,
   doorUnnamedFault,
+  dressingsBeside,
   emojiByAtom,
+  folksonomyCards,
+  hearthWords,
   ilikePattern,
   ilikeValue,
   latticeEdges,
@@ -53,7 +64,10 @@ import {
   schemeEdges,
   schemeMembers,
   schemeTallies,
+  senseMeanings,
+  sensesWall,
   sortNames,
+  tallyByFolksonomy,
   tallyByScheme,
   type AtomBonds,
   type AtomDressing,
@@ -68,6 +82,10 @@ import {
   type CompoundMoleculeRow,
   type DoorCount,
   type DoorCounts,
+  type FolksonomyCard,
+  type FolksonomyFace,
+  type FolksonomyKeyRow,
+  type FolksonomyWhole,
   type MembershipJoinRow,
   type MoleculeDetail,
   type MoleculeSearchRow,
@@ -87,6 +105,10 @@ import {
   type SchemeTallies,
   type SchemeWhole,
   type SearchResults,
+  type SenseRow,
+  type SenseWhole,
+  type SensesWall,
+  type ThesaurusEntry,
   type TierResult,
 } from './grammar-contract';
 
@@ -752,5 +774,151 @@ export async function readSchemeCounts(
       tallyByScheme((members.data ?? []) as unknown as SchemeKeyRow[]),
       tallyByScheme((edges.data ?? []) as unknown as SchemeKeyRow[])
     ),
+  };
+}
+
+// ── the senses' rooms ──────────────────────────────────────────────────────
+
+/** Every mark and every colour the lexicon carries, each counted from its rows. */
+export async function readSenses(client?: KnowledgeClient): Promise<Reading<SensesWall>> {
+  if (!knowledgeDoorNamed()) return { ok: false, fault: doorUnnamedFault('sensory_lexicon') };
+  const supabase = await knowledgeClient(client);
+
+  const rows: SenseRow[] = [];
+  let truncated = false;
+  for (let from = 0; from < SENSES_READ_LIMIT; from += SENSES_PAGE) {
+    const page = await supabase
+      .from('sensory_lexicon')
+      .select(SENSE_ROW_COLUMNS)
+      .order('atom_word', { ascending: true })
+      .range(from, Math.min(from + SENSES_PAGE, SENSES_READ_LIMIT) - 1);
+    if (page.error) return { ok: false, fault: baseFault('sensory_lexicon', page.error.message) };
+    const held = (page.data ?? []) as unknown as SenseRow[];
+    rows.push(...held);
+    if (held.length < SENSES_PAGE) break;
+    truncated = rows.length >= SENSES_READ_LIMIT;
+  }
+
+  return { ok: true, value: sensesWall(rows, truncated) };
+}
+
+/** One mark: every atom wearing it, counted, and every folksonomy meaning it carries. */
+export async function readSense(
+  emoji: string,
+  client?: KnowledgeClient
+): Promise<Reading<SenseWhole>> {
+  if (!knowledgeDoorNamed()) return { ok: false, fault: doorUnnamedFault('atom_dressed') };
+  const mark = emoji.trim();
+  const supabase = await knowledgeClient(client);
+
+  const atoms = await supabase
+    .from('atom_dressed')
+    .select(ATOM_SEARCH_COLUMNS, { count: 'exact' })
+    .eq('emoji', mark)
+    .eq('is_override', false)
+    .order('atom_word', { ascending: true })
+    .limit(SENSE_ATOM_LIMIT);
+  if (atoms.error) return { ok: false, fault: baseFault('atom_dressed', atoms.error.message) };
+  const cards = ((atoms.data ?? []) as unknown as AtomSearchRow[]).map(atomCard);
+
+  const dressings = await supabase
+    .from('thesaurus')
+    .select(THESAURUS_COLUMNS)
+    .eq('emoji', mark)
+    .order('folksonomy_type', { ascending: true })
+    .order('word', { ascending: true })
+    .limit(THESAURUS_READ_LIMIT);
+  if (dressings.error) return { ok: false, fault: baseFault('thesaurus', dressings.error.message) };
+
+  return {
+    ok: true,
+    value: {
+      emoji: mark,
+      cards,
+      total: atoms.count ?? cards.length,
+      meanings: senseMeanings((dressings.data ?? []) as unknown as ThesaurusEntry[]),
+    },
+  };
+}
+
+// ── the folksonomies' rooms ────────────────────────────────────────────────
+
+/** Every folksonomy, its dressings counted from the thesaurus rows. */
+export async function readFolksonomies(
+  client?: KnowledgeClient
+): Promise<Reading<FolksonomyCard[]>> {
+  if (!knowledgeDoorNamed()) return { ok: false, fault: doorUnnamedFault('folksonomies') };
+  const supabase = await knowledgeClient(client);
+
+  const folksonomies = await supabase
+    .from('folksonomies')
+    .select(FOLKSONOMY_COLUMNS)
+    .order('name', { ascending: true });
+  if (folksonomies.error) {
+    return { ok: false, fault: baseFault('folksonomies', folksonomies.error.message) };
+  }
+
+  const dressings = await supabase
+    .from('thesaurus')
+    .select(FOLKSONOMY_KEY_COLUMNS)
+    .limit(THESAURUS_READ_LIMIT);
+  if (dressings.error) return { ok: false, fault: baseFault('thesaurus', dressings.error.message) };
+
+  return {
+    ok: true,
+    value: folksonomyCards(
+      (folksonomies.data ?? []) as unknown as FolksonomyFace[],
+      tallyByFolksonomy((dressings.data ?? []) as unknown as FolksonomyKeyRow[])
+    ),
+  };
+}
+
+/** One folksonomy by its name, case-blind, its dressings beside the hearth atoms. */
+export async function readFolksonomy(
+  name: string,
+  client?: KnowledgeClient
+): Promise<Reading<FolksonomyWhole | null>> {
+  if (!knowledgeDoorNamed()) return { ok: false, fault: doorUnnamedFault('folksonomies') };
+  const named = ilikeValue(name.trim());
+  if (!named) return { ok: true, value: null };
+  const supabase = await knowledgeClient(client);
+
+  const folksonomy = await supabase
+    .from('folksonomies')
+    .select(FOLKSONOMY_COLUMNS)
+    .ilike('name', named)
+    .limit(1);
+  if (folksonomy.error) {
+    return { ok: false, fault: baseFault('folksonomies', folksonomy.error.message) };
+  }
+  const row = ((folksonomy.data ?? []) as unknown as FolksonomyFace[])[0] ?? null;
+  if (!row) return { ok: true, value: null };
+
+  const dressings = await supabase
+    .from('thesaurus')
+    .select(THESAURUS_COLUMNS)
+    .eq('folksonomy_type', row.name)
+    .order('word', { ascending: true })
+    .limit(THESAURUS_READ_LIMIT);
+  if (dressings.error) return { ok: false, fault: baseFault('thesaurus', dressings.error.message) };
+  const entries = (dressings.data ?? []) as unknown as ThesaurusEntry[];
+
+  const wanted = hearthWords(entries);
+  if (wanted.length === 0) return { ok: true, value: { row, dressings: [] } };
+
+  const hearth = await supabase
+    .from('atom_dressed')
+    .select(ATOM_SEARCH_COLUMNS)
+    .eq('is_override', false)
+    .in('atom_word', wanted)
+    .limit(BOND_READ_LIMIT);
+  if (hearth.error) return { ok: false, fault: baseFault('atom_dressed', hearth.error.message) };
+
+  return {
+    ok: true,
+    value: {
+      row,
+      dressings: dressingsBeside(entries, (hearth.data ?? []) as unknown as AtomSearchRow[]),
+    },
   };
 }

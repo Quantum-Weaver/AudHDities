@@ -5,6 +5,7 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/HouseWords';
 import {
+  HOUSE_WORDS_ADDRESS,
   NO_DEFINITION,
   WEARING_CATEGORY_FACE,
   type DressedCard as DressedCardShape,
@@ -58,7 +59,7 @@ export function DressedCardFace({ card }: { card: DressedCardShape }) {
       ) : null}
 
       <p className="text-sm leading-relaxed text-star-dust/60">
-        {card.definition ? withHouseWords(card.definition) : NO_DEFINITION}
+        {card.definition ? withHouseWords(card.definition, HOUSE_WORDS_ADDRESS) : NO_DEFINITION}
       </p>
 
       {card.badges.length > 0 ? (

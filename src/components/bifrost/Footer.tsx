@@ -7,6 +7,7 @@
 'use client';
 
 import { Container } from '@/components/hof/Container';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import { cn } from '@/lib/utils';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -48,6 +49,8 @@ export const Footer = ({
   links = [FOOTER_LINKS.TERMS, FOOTER_LINKS.PRIVACY, FOOTER_LINKS.APPS],
   className,
 }: FooterProps) => {
+  const houseHref = useHouseHref();
+
   return (
     <footer className={cn(footerVariants({ variant, size }), className)}>
       <div className="justify-center">
@@ -73,7 +76,7 @@ export const Footer = ({
           >
             {links.map((link, index) => (
               <span key={link.href}>
-                <a href={link.href}>{link.label}</a>
+                <a href={houseHref(link.href)}>{link.label}</a>
                 {index < links.length - 1 && (
                   <> {FOOTER_LINK_SEPARATOR} </>
                 )}

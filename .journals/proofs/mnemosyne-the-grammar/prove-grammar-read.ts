@@ -10,17 +10,24 @@ import {
   DOOR_UNNAMED,
   KNOWLEDGE_KEY_VAR,
   KNOWLEDGE_URL_VAR,
+  NO_HEARTH_WORD,
+  NO_MARK_WORN,
   REGISTER_UNREAD,
   overrideLines,
+  senseTier,
 } from '../../../src/lib/grammar/grammar-contract';
 import {
   knowledgeDoorNamed,
   readAtomWhole,
   readCategory,
+  readFolksonomies,
+  readFolksonomy,
   readMolecule,
   readOrganism,
   readScheme,
   readSchemeCounts,
+  readSense,
+  readSenses,
   type KnowledgeAnswer,
   type KnowledgeClient,
   type KnowledgeQuery,
@@ -196,6 +203,10 @@ const ORGANISM_ID = '44444444-4444-4444-4444-444444444444';
 const SCHEME_BEING = '55555555-5555-5555-5555-555555555555';
 const SCHEME_LAYOUT = '66666666-6666-6666-6666-666666666666';
 const OTHER_MOLECULE = '77777777-7777-7777-7777-777777777777';
+const ATOM_ARIA = '88888888-8888-8888-8888-888888888888';
+const ATOM_BLAZE = '99999999-9999-9999-9999-999999999999';
+const ATOM_CINDER = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+const ATOM_DUSK = 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
 
 const BASE: FakeBase = {
   rows: {
@@ -205,8 +216,54 @@ const BASE: FakeBase = {
       { id: ATOM_RESONANCE, atom_word: 'resonance', category_name: 'Being' },
     ],
     sensory_lexicon: [
-      { atom_id: ATOM_RESONANCE, emoji: '♒︎' },
-      { atom_id: ATOM_BEAM, emoji: null },
+      { atom_id: ATOM_RESONANCE, atom_word: 'resonance', emoji: '♒︎', color_hex: '#00CED1' },
+      { atom_id: ATOM_BEAM, atom_word: 'beam', emoji: null, color_hex: null },
+      { atom_id: ATOM_ARIA, atom_word: 'aria', emoji: '💭', color_hex: '#00CED1' },
+      { atom_id: ATOM_BLAZE, atom_word: 'blaze', emoji: '💭', color_hex: '#4682B4' },
+      { atom_id: ATOM_CINDER, atom_word: 'cinder', emoji: '💭', color_hex: null },
+      { atom_id: ATOM_DUSK, atom_word: 'dusk', emoji: '♒︎', color_hex: null },
+    ],
+    folksonomies: [
+      {
+        name: 'Echoes',
+        purpose: 'the app\'s mood lexicon, shipped',
+        status: 'complete',
+        notes: 'origin of the twelve',
+        created_by: 'KP',
+      },
+      {
+        name: 'Hearth',
+        purpose: 'the family app\'s lexicon, awaiting its season',
+        status: 'growing',
+        notes: null,
+        created_by: null,
+      },
+    ],
+    thesaurus: [
+      {
+        word: 'Resonance',
+        emoji: '♒︎',
+        definition: 'the ring an app answers with',
+        color_hex: '#4682B4',
+        folksonomy_type: 'Echoes',
+        notes: null,
+      },
+      {
+        word: 'Calm',
+        emoji: '💭',
+        definition: 'a settled stillness',
+        color_hex: '#6C5CE7',
+        folksonomy_type: 'Echoes',
+        notes: null,
+      },
+      {
+        word: 'Beam',
+        emoji: '💭',
+        definition: 'a line of light held',
+        color_hex: null,
+        folksonomy_type: 'Compass',
+        notes: null,
+      },
     ],
     molecules: [
       {
@@ -772,6 +829,169 @@ async function main() {
     'the tally is read from rows, never from a head count',
     counts.calls.every((call) => !call.counted && !call.head),
     counts.calls.map((call) => call.table).join(' · ')
+  );
+
+
+  // ── the senses ───────────────────────────────────────────────────────────
+
+  const wall = fakeClient(base());
+  const wallRead = await readSenses(wall.client);
+  const shelf = wallRead.ok ? wallRead.value : null;
+  record(
+    'senses',
+    'every distinct mark is grouped from the rows, by count then by mark',
+    shelf?.marks[0]?.emoji === '💭' &&
+      shelf?.marks[0]?.count === 3 &&
+      shelf?.marks[1]?.emoji === '♒︎' &&
+      shelf?.marks[1]?.count === 2,
+    shelf?.marks.map((mark) => `${mark.emoji} ${mark.count}`).join(' · ') ?? 'none'
+  );
+  record(
+    'senses',
+    'each mark opens its own room, escaped into the address',
+    shelf?.marks[1]?.address === '/grammar/senses/%E2%99%92%EF%B8%8E',
+    shelf?.marks[1]?.address ?? 'none'
+  );
+  record(
+    'senses',
+    'a row wearing no mark is counted in the rows read, never on the wall',
+    shelf?.rowsRead === 6 && shelf?.withEmoji === 5,
+    `${String(shelf?.withEmoji)} of ${String(shelf?.rowsRead)}`
+  );
+  record(
+    'senses',
+    'the colours are tallied from the same rows, by count then by hex',
+    shelf?.colours[0]?.hex === '#00CED1' &&
+      shelf?.colours[0]?.count === 2 &&
+      shelf?.withColour === 3,
+    shelf?.colours.map((colour) => `${colour.hex} ${colour.count}`).join(' · ') ?? 'none'
+  );
+  record(
+    'senses',
+    'the lexicon is read in one bounded pass, never head-counted',
+    wall.calls.filter((call) => call.table === 'sensory_lexicon').length === 1 &&
+      wall.calls.every((call) => !call.counted && !call.head) &&
+      shelf?.truncated === false,
+    wall.calls.map((call) => call.table).join(' · ')
+  );
+
+  const mark = fakeClient(base());
+  const markRead = await readSense('♒︎', mark.client);
+  const marked = markRead.ok ? markRead.value : null;
+  record(
+    'senses',
+    'a mark carries every hearth atom wearing it, counted by the base',
+    marked?.total === 1 && marked?.cards[0]?.title === 'resonance',
+    `${String(marked?.total)} · ${marked?.cards.map((card) => card.title).join(' · ') ?? 'none'}`
+  );
+  record(
+    'senses',
+    'a mark carries the thesaurus rows that also wear it, each a door to its room',
+    marked?.meanings.length === 1 &&
+      marked?.meanings[0]?.folksonomy === 'Echoes' &&
+      marked?.meanings[0]?.address === '/grammar/folksonomies/Echoes',
+    marked?.meanings.map((one) => `${one.folksonomy} ${one.word}`).join(' · ') ?? 'none'
+  );
+
+  const shared = fakeClient(base());
+  const sharedRead = await readSense('💭', shared.client);
+  record(
+    'senses',
+    'one mark carries the meanings of more than one folksonomy, by folksonomy then word',
+    sharedRead.ok &&
+      sharedRead.value.meanings.map((one) => `${one.folksonomy}:${one.word}`).join(' · ') ===
+        'Compass:Beam · Echoes:Calm',
+    sharedRead.ok
+      ? sharedRead.value.meanings.map((one) => `${one.folksonomy}:${one.word}`).join(' · ')
+      : sharedRead.fault.why
+  );
+
+  const bare = fakeClient(base());
+  const bareRead = await readSense('🪁', bare.client);
+  record(
+    'senses',
+    'a mark no atom wears counts zero and waits with its own sentence',
+    bareRead.ok &&
+      bareRead.value.total === 0 &&
+      senseTier(bareRead.value).empty === NO_MARK_WORN,
+    bareRead.ok ? `${bareRead.value.total} · ${senseTier(bareRead.value).empty}` : bareRead.fault.why
+  );
+
+  // ── the folksonomies ─────────────────────────────────────────────────────
+
+  const umbrellas = fakeClient(base());
+  const umbrellasRead = await readFolksonomies(umbrellas.client);
+  const cards = umbrellasRead.ok ? umbrellasRead.value : null;
+  record(
+    'folksonomy',
+    'every folksonomy is carried with its dressings counted from rows',
+    cards?.length === 2 && cards?.[0]?.dressings === 2 && cards?.[1]?.dressings === 0,
+    cards?.map((card) => `${card.name} ${card.dressings}`).join(' · ') ?? 'none'
+  );
+  record(
+    'folksonomy',
+    'a folksonomy the register holds complete is marked a starter',
+    cards?.[0]?.starter === true && cards?.[1]?.starter === false,
+    cards?.map((card) => `${card.name} ${String(card.starter)}`).join(' · ') ?? 'none'
+  );
+  record(
+    'folksonomy',
+    'the dressings are counted from rows, never from a head count',
+    umbrellas.calls.every((call) => !call.counted && !call.head),
+    umbrellas.calls.map((call) => call.table).join(' · ')
+  );
+
+  const room = fakeClient(base());
+  const roomRead = await readFolksonomy('echoes', room.client);
+  const umbrellaWhole = roomRead.ok ? roomRead.value : null;
+  record(
+    'folksonomy',
+    'a folksonomy is found by its name, whatever its case',
+    umbrellaWhole?.row.name === 'Echoes',
+    umbrellaWhole?.row.name ?? 'none'
+  );
+  record(
+    'folksonomy',
+    'each dressing is joined to the hearth atom of its word, case-blind',
+    umbrellaWhole?.dressings[1]?.word === 'Resonance' &&
+      umbrellaWhole?.dressings[1]?.hearth?.word === 'resonance' &&
+      umbrellaWhole?.dressings[1]?.hearth?.address === '/grammar/atoms/resonance',
+    umbrellaWhole?.dressings
+      .map((one) => `${one.word} → ${one.hearth?.word ?? NO_HEARTH_WORD}`)
+      .join(' · ') ?? 'none'
+  );
+  record(
+    'folksonomy',
+    'the hearth beside a dressing is the base row, never an override',
+    umbrellaWhole?.dressings[1]?.hearth?.definition === 'a shared ring' &&
+      umbrellaWhole?.dressings[1]?.definition === 'the ring an app answers with',
+    `${String(umbrellaWhole?.dressings[1]?.hearth?.definition)} · ${String(umbrellaWhole?.dressings[1]?.definition)}`
+  );
+  record(
+    'folksonomy',
+    'a dressing whose word the hearth does not carry stands alone',
+    umbrellaWhole?.dressings[0]?.word === 'Calm' && umbrellaWhole?.dressings[0]?.hearth === null,
+    `${String(umbrellaWhole?.dressings[0]?.word)} · ${String(umbrellaWhole?.dressings[0]?.hearth)}`
+  );
+
+  const waiting = fakeClient(base());
+  const waitingRead = await readFolksonomy('Hearth', waiting.client);
+  record(
+    'folksonomy',
+    'a folksonomy holding no dressing asks the hearth nothing',
+    waitingRead.ok &&
+      waitingRead.value?.dressings.length === 0 &&
+      waiting.calls.every((call) => call.table !== 'atom_dressed'),
+    waiting.calls.map((call) => call.table).join(' · ')
+  );
+
+  const missing = fakeClient(base());
+  const missingRead = await readFolksonomy('Nowhere', missing.client);
+  record(
+    'folksonomy',
+    'a name the register does not hold reads null, never invented',
+    missingRead.ok && missingRead.value === null,
+    missingRead.ok ? String(missingRead.value) : missingRead.fault.why
   );
 
   // ── the tally ──────────────────────────────────────────────────────────────

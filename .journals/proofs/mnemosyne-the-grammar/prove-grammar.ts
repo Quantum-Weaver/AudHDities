@@ -11,11 +11,17 @@ import {
   DOOR_LABELS,
   DOOR_TABLES,
   DOOR_UNNAMED,
+  GRAMMAR_DOORS,
   LINE_TABLES,
   MOLECULE_CHIP_LIMIT,
   NOT_IN_A_SCHEME,
   NOT_YET_SENSED,
+  NOT_YET_WIRED,
+  NO_COLOUR_CHOSEN,
   NO_DRESSING,
+  NO_FOLKSONOMY_DRESSING,
+  NO_HEARTH_WORD,
+  NO_MARK_WORN,
   NO_FACE_WORN,
   NO_COMPOUND_DRESSING,
   NO_MEMBER_YET,
@@ -57,6 +63,18 @@ import {
   measuresBadge,
   membershipViews,
   moleculeBadges,
+  colourLine,
+  colourShelfLine,
+  colourTally,
+  dressingCountLine,
+  dressingsBeside,
+  folksonomyAddress,
+  folksonomyCards,
+  hearthByWord,
+  hearthWords,
+  isStarter,
+  markCountLine,
+  markTally,
   moleculeCard,
   moleculeLinks,
   overrideLines,
@@ -68,18 +86,25 @@ import {
   schemeCardLine,
   schemeMembers,
   schemeTallies,
+  senseAddress,
   senseChannels,
+  senseMeanings,
+  senseTier,
+  sensesWall,
   shelfLine,
   shelveSchemeCards,
   shelveSchemes,
   splitDressings,
+  tallyByFolksonomy,
   tallyByScheme,
   tallyLine,
+  wallLine,
   tierAddress,
   tierCrumb,
   tierMeta,
   type AtomDressing,
   type AtomSearchRow,
+  type FolksonomyFace,
   type AtomWhole,
   type CompoundAtomRow,
   type CompoundMoleculeRow,
@@ -95,6 +120,8 @@ import {
   type SchemeKeyRow,
   type SchemeMemberRow,
   type SearchResults,
+  type SenseRow,
+  type ThesaurusEntry,
   type TierResult,
 } from '../../../src/lib/grammar/grammar-contract';
 
@@ -1098,6 +1125,238 @@ function main() {
     'a scheme with no edge waits with its own sentence',
     NO_SCHEME_EDGE === 'no edge in this scheme',
     NO_SCHEME_EDGE
+  );
+
+
+  // ── the senses ───────────────────────────────────────────────────────────
+
+  const senseRows: SenseRow[] = [
+    { emoji: '💭', color_hex: '#00CED1' },
+    { emoji: '💭', color_hex: '#4682B4' },
+    { emoji: '💭', color_hex: null },
+    { emoji: '♒︎', color_hex: '#00CED1' },
+    { emoji: '♒︎', color_hex: null },
+    { emoji: '🪁', color_hex: null },
+    { emoji: null, color_hex: null },
+  ];
+  const wall = sensesWall(senseRows, false);
+
+  record(
+    'senses',
+    'every mark stands once, ordered by the atoms wearing it then by the mark',
+    markTally(senseRows).map((one) => `${one.emoji} ${one.count}`).join(' · ') ===
+      '💭 3 · ♒︎ 2 · 🪁 1',
+    markTally(senseRows).map((one) => `${one.emoji} ${one.count}`).join(' · ')
+  );
+  record(
+    'senses',
+    'a row wearing no mark is counted in the rows, never on the wall',
+    wall.rowsRead === 7 && wall.withEmoji === 6 && wall.marks.length === 3,
+    `${wall.withEmoji} of ${wall.rowsRead} · ${wall.marks.length} marks`
+  );
+  record(
+    'senses',
+    'the wall says how many marks, and how many atoms wear one, counted from rows',
+    wallLine(wall) === '3 marks · 6 of 7 atoms wear one · counted from rows',
+    wallLine(wall)
+  );
+  record(
+    'senses',
+    'the colours are tallied by count then hex, a colourless row dropped',
+    colourTally(senseRows).map((one) => `${one.hex} ${one.count}`).join(' · ') ===
+      '#00CED1 2 · #4682B4 1',
+    colourTally(senseRows).map((one) => `${one.hex} ${one.count}`).join(' · ')
+  );
+  record(
+    'senses',
+    'the shelf counts the colours chosen out of the rows read',
+    colourShelfLine(wall) === '2 colours · 3 of 7 atoms carry one · counted from rows',
+    colourShelfLine(wall)
+  );
+  record(
+    'senses',
+    'a swatch of one atom reads in the singular',
+    colourLine({ hex: '#4682B4', count: 1 }) === '1 atom',
+    colourLine({ hex: '#4682B4', count: 1 })
+  );
+  record(
+    'senses',
+    'a lexicon with no colour chosen says so',
+    colourShelfLine(sensesWall([{ emoji: '💭', color_hex: null }], false)) === NO_COLOUR_CHOSEN,
+    colourShelfLine(sensesWall([{ emoji: '💭', color_hex: null }], false))
+  );
+  record(
+    'senses',
+    'a mark opens its own room, escaped into the address',
+    senseAddress('♒︎') === '/grammar/senses/%E2%99%92%EF%B8%8E',
+    senseAddress('♒︎')
+  );
+  record(
+    'senses',
+    'the mark room counts its atoms from rows, one of them in the singular',
+    markCountLine(2003) === '2,003 atoms wear this mark · counted from rows' &&
+      markCountLine(1) === '1 atom wears this mark · counted from rows',
+    markCountLine(1)
+  );
+  record(
+    'senses',
+    'a mark no atom wears says so, and its group waits with the same sentence',
+    markCountLine(0) === NO_MARK_WORN &&
+      senseTier({ emoji: '♒︎', cards: [], total: 0, meanings: [] }).empty === NO_MARK_WORN,
+    markCountLine(0)
+  );
+
+  const dressings: ThesaurusEntry[] = [
+    {
+      word: 'Calm',
+      emoji: '💭',
+      definition: 'a settled stillness',
+      color_hex: '#6C5CE7',
+      folksonomy_type: 'Echoes',
+      notes: null,
+    },
+    {
+      word: 'Beam',
+      emoji: '💭',
+      definition: 'a line of light held',
+      color_hex: null,
+      folksonomy_type: 'Compass',
+      notes: null,
+    },
+    {
+      word: 'resonance',
+      emoji: '💭',
+      definition: 'the ring an app answers with',
+      color_hex: null,
+      folksonomy_type: 'Compass',
+      notes: null,
+    },
+  ];
+
+  record(
+    'senses',
+    'one mark carries every folksonomy meaning, by folksonomy then word, each a door',
+    senseMeanings(dressings).map((one) => `${one.folksonomy}:${one.word}`).join(' · ') ===
+      'Compass:Beam · Compass:resonance · Echoes:Calm' &&
+      senseMeanings(dressings)[0].address === '/grammar/folksonomies/Compass',
+    senseMeanings(dressings).map((one) => `${one.folksonomy}:${one.word}`).join(' · ')
+  );
+
+  // ── the folksonomies ─────────────────────────────────────────────────────
+
+  const umbrellas: FolksonomyFace[] = [
+    {
+      name: 'Echoes',
+      purpose: 'the app\'s mood lexicon, shipped',
+      status: 'complete',
+      notes: 'origin of the twelve',
+      created_by: 'KP',
+    },
+    {
+      name: 'Hearth',
+      purpose: 'the family app\'s lexicon, awaiting its season',
+      status: 'growing',
+      notes: null,
+      created_by: null,
+    },
+  ];
+  const tally = tallyByFolksonomy([
+    { folksonomy_type: 'Echoes' },
+    { folksonomy_type: 'Echoes' },
+    { folksonomy_type: 'Compass' },
+    { folksonomy_type: null },
+  ]);
+  const umbrellaCards = folksonomyCards(umbrellas, tally);
+
+  record(
+    'folksonomy',
+    'the dressings are counted per folksonomy, a row naming none dropped',
+    tally.Echoes === 2 && tally.Compass === 1 && Object.keys(tally).length === 2,
+    Object.entries(tally).map(([name, count]) => `${name} ${count}`).join(' · ')
+  );
+  record(
+    'folksonomy',
+    'each card carries its counted dressings and opens its own room',
+    umbrellaCards[0].dressings === 2 &&
+      umbrellaCards[0].address === folksonomyAddress('Echoes'),
+    `${umbrellaCards[0].dressings} · ${umbrellaCards[0].address}`
+  );
+  record(
+    'folksonomy',
+    'a folksonomy the register holds complete is marked a starter',
+    isStarter(umbrellas[0]) && !isStarter(umbrellas[1]) && umbrellaCards[1].starter === false,
+    `${umbrellas[0].name} ${String(umbrellaCards[0].starter)} · ${umbrellas[1].name} ${String(umbrellaCards[1].starter)}`
+  );
+  record(
+    'folksonomy',
+    'a folksonomy holding no dressing waits with its own sentence',
+    umbrellaCards[1].dressings === 0 &&
+      dressingCountLine(umbrellaCards[1].dressings) === NO_FOLKSONOMY_DRESSING,
+    dressingCountLine(umbrellaCards[1].dressings)
+  );
+  record(
+    'folksonomy',
+    'a dressing count reads in the singular, and says it is counted from rows',
+    dressingCountLine(1) === '1 dressing · counted from rows' &&
+      dressingCountLine(21) === '21 dressings · counted from rows',
+    dressingCountLine(1)
+  );
+  record(
+    'folksonomy',
+    'each word is asked for as it stands and in lower case, once',
+    hearthWords(dressings).join(' · ') === 'Calm · calm · Beam · beam · resonance',
+    hearthWords(dressings).join(' · ')
+  );
+
+  const hearthRows: AtomSearchRow[] = [
+    atomRow({ atom_word: 'resonance', definition: 'a shared ring' }),
+    atomRow({
+      atom_id: BEAM_ID,
+      atom_word: 'beam',
+      definition: 'a spanning member',
+      emoji: null,
+      category_face: '🧱',
+      category_name: 'Structure',
+    }),
+  ];
+  const beside = dressingsBeside(dressings, hearthRows);
+
+  record(
+    'folksonomy',
+    'the hearth rows are keyed by their word, case-blind',
+    Object.keys(hearthByWord(hearthRows)).join(' · ') === 'resonance · beam',
+    Object.keys(hearthByWord(hearthRows)).join(' · ')
+  );
+  record(
+    'folksonomy',
+    'each dressing stands beside the hearth atom of its word, by word order',
+    beside.map((one) => `${one.word} → ${one.hearth?.word ?? NO_HEARTH_WORD}`).join(' · ') ===
+      `Beam → beam · Calm → ${NO_HEARTH_WORD} · resonance → resonance`,
+    beside.map((one) => `${one.word} → ${one.hearth?.word ?? NO_HEARTH_WORD}`).join(' · ')
+  );
+  record(
+    'folksonomy',
+    'the dressing keeps its own words and the hearth keeps its own, neither overwritten',
+    beside[2].definition === 'the ring an app answers with' &&
+      beside[2].hearth?.definition === 'a shared ring',
+    `${String(beside[2].definition)} · ${String(beside[2].hearth?.definition)}`
+  );
+  record(
+    'folksonomy',
+    'the hearth beside a dressing borrows its category face, marked, and opens its room',
+    beside[0].hearth?.face === '🧱' &&
+      beside[0].hearth?.faceFromCategory === true &&
+      beside[0].hearth?.address === '/grammar/atoms/beam',
+    `${String(beside[0].hearth?.face)} · ${String(beside[0].hearth?.address)}`
+  );
+  record(
+    'folksonomy',
+    'the senses and the folksonomies are doors, the carry still says it is not wired',
+    GRAMMAR_DOORS[1].href === '/grammar/senses' &&
+      GRAMMAR_DOORS[2].href === '/grammar/folksonomies' &&
+      GRAMMAR_DOORS[3].href === null &&
+      GRAMMAR_DOORS[3].line === NOT_YET_WIRED,
+    GRAMMAR_DOORS.map((door) => `${door.title} ${door.href ?? NOT_YET_WIRED}`).join(' · ')
   );
 
   // ── the tally ──────────────────────────────────────────────────────────────

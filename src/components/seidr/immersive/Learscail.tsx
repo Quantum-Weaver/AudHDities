@@ -19,6 +19,7 @@ import StreetTree from '@/components/bifrost/StreetTree';
 import { THE_STREET, realmOfPath } from '@/lib/constants/systems/the-street';
 import { quickResolveAffect } from '@/lib/constants/systems/environments/affects';
 import { useDiscovery } from '@/hooks/useDiscovery';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import { cn } from '@/lib/utils';
 
 /** The vellum's own earths — ink and parchment. Fixed, calm. */
@@ -196,6 +197,7 @@ export interface LearscailProps {
 export default function Learscail({ onTravel, className }: LearscailProps) {
   const pathname = usePathname();
   const { discovered, ready } = useDiscovery();
+  const houseHref = useHouseHref();
 
   // The kept choice; the drawing stands until the shelf has been read.
   const asWords = useSyncExternalStore(
@@ -317,7 +319,7 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
                 return (
                   <Link
                     key={province.group}
-                    href={realm?.href ?? '/'}
+                    href={houseHref(realm?.href ?? '/')}
                     onClick={onTravel}
                     aria-label={
                       standing

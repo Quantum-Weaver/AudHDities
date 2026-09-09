@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/useAuth';
+import { useHouseHref } from '@/hooks/useHouseHref';
 import StreetTree, { FOCUS_RING } from '@/components/bifrost/StreetTree';
 import { THE_STREET } from '@/lib/constants/systems/the-street';
 import type { RealmKey } from '@/lib/constants/systems/trio';
@@ -81,6 +82,7 @@ const DRAWER_ID = 'bifrost-drawer';
 export function Navigation({ className }: { className?: string }) {
   const pathname = usePathname();
   const { user, profile } = useAuth();
+  const houseHref = useHouseHref();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerPath, setDrawerPath] = useState(pathname);
   const [entered, setEntered] = useState(false);
@@ -143,7 +145,7 @@ export function Navigation({ className }: { className?: string }) {
         <div className="flex items-center gap-3 h-full">
           {THE_FOUR.map((item) => {
             const Icon = item.icon;
-            const href = user ? item.href : item.visitorHref;
+            const href = houseHref(user ? item.href : item.visitorHref);
             const active = isActive(item.href);
             return (
               <Link
@@ -171,7 +173,7 @@ export function Navigation({ className }: { className?: string }) {
           <div className="ml-auto flex items-center gap-3 pr-2">
             {user ? (
               <Link
-                href={realmDoor('hestia')}
+                href={houseHref(realmDoor('hestia'))}
                 className={cn(
                   'flex items-center gap-1.5 rounded-lg px-1.5 py-1 text-xs text-star-dust/62 hover:text-neurospark transition-colors motion-reduce:transition-none',
                   FOCUS_RING
@@ -182,7 +184,7 @@ export function Navigation({ className }: { className?: string }) {
               </Link>
             ) : (
               <Link
-                href={AUTH_DOOR}
+                href={houseHref(AUTH_DOOR)}
                 className={cn(
                   'rounded-lg px-1.5 py-1 text-xs text-star-dust/62 hover:text-star-dust transition-colors motion-reduce:transition-none',
                   FOCUS_RING
@@ -228,7 +230,7 @@ export function Navigation({ className }: { className?: string }) {
         >
           {/* Header */}
           <div className="mx-auto w-full max-w-md flex items-center justify-between p-4 border-b border-white/10">
-            <Link href="/" className="text-base font-bold bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent">
+            <Link href={houseHref('/')} className="text-base font-bold bg-gradient-to-r from-neurospark to-quantum-purple bg-clip-text text-transparent">
               Sanctuary
             </Link>
             <button onClick={closeDrawer} aria-label="Fold the menu" className={cn('inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-star-dust/60 hover:text-star-dust hover:bg-white/5', FOCUS_RING)}>
@@ -249,7 +251,7 @@ export function Navigation({ className }: { className?: string }) {
                   return (
                     <Link
                       key={item.label}
-                      href={user ? item.href : item.visitorHref}
+                      href={houseHref(user ? item.href : item.visitorHref)}
                       aria-current={active ? 'page' : undefined}
                       className={cn(
                         'flex min-h-11 items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all motion-reduce:transition-none',
@@ -276,7 +278,7 @@ export function Navigation({ className }: { className?: string }) {
 
             <div className="h-px bg-white/10" />
 
-            <Link href={user ? realmDoor('hestia') : AUTH_DOOR}
+            <Link href={houseHref(user ? realmDoor('hestia') : AUTH_DOOR)}
               className={cn(
                 'flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-star-dust/62 hover:text-star-dust hover:bg-white/5 transition-all motion-reduce:transition-none',
                 FOCUS_RING

@@ -6,6 +6,7 @@ import { Badge } from '@/components/runes/Badge';
 import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/HouseWords';
 import {
   BACK_TO_EXPLORE,
+  HOUSE_WORDS_ADDRESS,
   NO_DEFINITION,
   type GrammarTier,
   tierCrumb,
@@ -65,7 +66,7 @@ export function CompoundHead({
       </div>
 
       <p className="max-w-[880px] text-base leading-relaxed text-star-dust/70">
-        {definition ? withHouseWords(definition) : NO_DEFINITION}
+        {definition ? withHouseWords(definition, HOUSE_WORDS_ADDRESS) : NO_DEFINITION}
       </p>
     </div>
   );

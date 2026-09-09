@@ -1,0 +1,149 @@
+{
+  "ran": "2026-09-09T19:55:34.771Z",
+  "helper": "src/lib/site/house-href.ts",
+  "total": 28,
+  "passed": 28,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "the table names the grammar host",
+      "result": "grammar.audhdities.com → /grammar",
+      "passed": true
+    },
+    {
+      "check": "the canonical origin is the apex",
+      "result": "https://audhdities.com",
+      "passed": true
+    },
+    {
+      "check": "the grammar host reads its prefix",
+      "result": "/grammar",
+      "passed": true
+    },
+    {
+      "check": "the apex reads no prefix",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "no host reads no prefix",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "the host is read without its port and in any case",
+      "result": "/grammar",
+      "passed": true
+    },
+    {
+      "check": "the apex leaves an app path alone",
+      "result": "audhdities.com · /about → /about",
+      "passed": true
+    },
+    {
+      "check": "the apex leaves a grammar path alone",
+      "result": "audhdities.com · /grammar/explore → /grammar/explore",
+      "passed": true
+    },
+    {
+      "check": "www leaves an app path alone",
+      "result": "www.audhdities.com · /about → /about",
+      "passed": true
+    },
+    {
+      "check": "no host leaves an app path alone",
+      "result": "null · /about → /about",
+      "passed": true
+    },
+    {
+      "check": "an absent host leaves an app path alone",
+      "result": "undefined · /about → /about",
+      "passed": true
+    },
+    {
+      "check": "the realm's own door stays relative",
+      "result": "grammar.audhdities.com · /grammar → /grammar",
+      "passed": true
+    },
+    {
+      "check": "a room under the realm's prefix stays relative",
+      "result": "grammar.audhdities.com · /grammar/explore → /grammar/explore",
+      "passed": true
+    },
+    {
+      "check": "an anchor on the realm's own door stays relative",
+      "result": "grammar.audhdities.com · /grammar#house-words → /grammar#house-words",
+      "passed": true
+    },
+    {
+      "check": "about leaves the realm for the canonical host",
+      "result": "grammar.audhdities.com · /about → https://audhdities.com/about",
+      "passed": true
+    },
+    {
+      "check": "library leaves the realm for the canonical host",
+      "result": "grammar.audhdities.com · /library → https://audhdities.com/library",
+      "passed": true
+    },
+    {
+      "check": "terms leaves the realm for the canonical host",
+      "result": "grammar.audhdities.com · /terms → https://audhdities.com/terms",
+      "passed": true
+    },
+    {
+      "check": "the house door leaves the realm for the canonical host",
+      "result": "grammar.audhdities.com · / → https://audhdities.com/",
+      "passed": true
+    },
+    {
+      "check": "a path that only begins with the prefix letters leaves the realm",
+      "result": "grammar.audhdities.com · /grammarian → https://audhdities.com/grammarian",
+      "passed": true
+    },
+    {
+      "check": "a mailto address is left as written",
+      "result": "grammar.audhdities.com · mailto:audhdities@proton.me → mailto:audhdities@proton.me",
+      "passed": true
+    },
+    {
+      "check": "a tel address is left as written",
+      "result": "grammar.audhdities.com · tel:+15550000000 → tel:+15550000000",
+      "passed": true
+    },
+    {
+      "check": "an external https address is left as written",
+      "result": "grammar.audhdities.com · https://github.com/quantum-weaver → https://github.com/quantum-weaver",
+      "passed": true
+    },
+    {
+      "check": "an external http address is left as written",
+      "result": "grammar.audhdities.com · http://example.com/x → http://example.com/x",
+      "passed": true
+    },
+    {
+      "check": "a bare anchor is left as written",
+      "result": "grammar.audhdities.com · #house-words → #house-words",
+      "passed": true
+    },
+    {
+      "check": "a protocol-relative address is left as written",
+      "result": "grammar.audhdities.com · //example.com/x → //example.com/x",
+      "passed": true
+    },
+    {
+      "check": "an unknown subdomain leaves an app path alone",
+      "result": "kp.audhdities.com · /about → /about",
+      "passed": true
+    },
+    {
+      "check": "the artifacts host leaves an app path alone",
+      "result": "artifacts.audhdities.com · /about → /about",
+      "passed": true
+    },
+    {
+      "check": "localhost leaves an app path alone",
+      "result": "localhost:3000 · /about → /about",
+      "passed": true
+    }
+  ]
+}

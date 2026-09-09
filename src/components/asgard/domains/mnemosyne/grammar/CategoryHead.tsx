@@ -7,6 +7,7 @@ import {
   BACK_TO_EXPLORE,
   CATEGORY_CRUMB,
   CATEGORY_PILL,
+  HOUSE_WORDS_ADDRESS,
   NO_CATEGORY_DESCRIPTION,
   categoryCountLine,
   type CategoryFace,
@@ -51,7 +52,7 @@ export function CategoryHead({ row, total }: { row: CategoryFace; total: number 
             : 'max-w-[880px] text-base text-star-dust/35'
         }
       >
-        {row.description ? withHouseWords(row.description) : NO_CATEGORY_DESCRIPTION}
+        {row.description ? withHouseWords(row.description, HOUSE_WORDS_ADDRESS) : NO_CATEGORY_DESCRIPTION}
       </p>
     </div>
   );
