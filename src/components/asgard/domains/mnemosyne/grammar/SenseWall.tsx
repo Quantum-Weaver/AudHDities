@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {
   NO_MARK_WORN,
   SENSES_SOURCE,
+  SENSES_TRUNCATED,
   WALL_HEADING,
   wallLine,
   type SensesWall,
@@ -20,6 +21,10 @@ export function SenseWall({ wall }: { wall: SensesWall }) {
         <span className="text-xs text-star-dust/40">{wallLine(wall)}</span>
         <span className="text-[11px] text-star-dust/35">{SENSES_SOURCE}</span>
       </div>
+
+      {wall.truncated ? (
+        <p className="text-[11px] text-star-dust/40">{SENSES_TRUNCATED}</p>
+      ) : null}
 
       {wall.marks.length === 0 ? (
         <p className="text-xs text-star-dust/35">{NO_MARK_WORN}</p>

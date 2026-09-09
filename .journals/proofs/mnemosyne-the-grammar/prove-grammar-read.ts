@@ -13,6 +13,8 @@ import {
   NO_HEARTH_WORD,
   NO_MARK_WORN,
   REGISTER_UNREAD,
+  SENSES_READ_LIMIT,
+  SENSES_TRUNCATED,
   overrideLines,
   senseTier,
 } from '../../../src/lib/grammar/grammar-contract';
@@ -482,6 +484,37 @@ function base(): FakeBase {
   return { rows: BASE.rows };
 }
 
+/** A lexicon of `count` rows: one mark on every even row, another on every fourth. */
+function lexiconRows(count: number): Row[] {
+  const rows: Row[] = [];
+  for (let index = 0; index < count; index += 1) {
+    const word = `word-${String(index).padStart(5, '0')}`;
+    rows.push({
+      atom_id: word,
+      atom_word: word,
+      emoji: index % 2 === 0 ? '💭' : index % 4 === 1 ? '♒︎' : null,
+      color_hex: index % 10 === 0 ? '#00CED1' : null,
+    });
+  }
+  return rows;
+}
+
+/** The fake base carrying a lexicon of `count` rows in place of the six. */
+function lexiconBase(count: number): FakeBase {
+  return { rows: { ...BASE.rows, sensory_lexicon: lexiconRows(count) } };
+}
+
+/** The ranges one table was asked for, in the order it was asked. */
+function rangesOf(calls: readonly Call[], table: string): string[] {
+  return calls
+    .filter((call) => call.table === table)
+    .map((call) => {
+      const step = call.steps.find((one) => one.op === 'range');
+      const [from, to] = (step?.value as [number, number] | undefined) ?? [-1, -1];
+      return `${from}-${to}`;
+    });
+}
+
 // ── the proof ──────────────────────────────────────────────────────────────
 
 async function main() {
@@ -866,13 +899,57 @@ async function main() {
       shelf?.withColour === 3,
     shelf?.colours.map((colour) => `${colour.hex} ${colour.count}`).join(' · ') ?? 'none'
   );
+  const onePage = rangesOf(wall.calls, 'sensory_lexicon');
   record(
     'senses',
-    'the lexicon is read in one bounded pass, never head-counted',
-    wall.calls.filter((call) => call.table === 'sensory_lexicon').length === 1 &&
+    'the lexicon is read in pages, a lexicon inside one page taking one, never head-counted',
+    onePage.length === 1 &&
+      onePage[0] === '0-999' &&
       wall.calls.every((call) => !call.counted && !call.head) &&
+      shelf?.rowsRead === 6 &&
       shelf?.truncated === false,
-    wall.calls.map((call) => call.table).join(' · ')
+    `${onePage.join(' · ')} · ${String(shelf?.rowsRead)} rows`
+  );
+
+  const crossing = fakeClient(lexiconBase(1250));
+  const crossingRead = await readSenses(crossing.client);
+  const crossed = crossingRead.ok ? crossingRead.value : null;
+  const crossedPages = rangesOf(crossing.calls, 'sensory_lexicon');
+  record(
+    'senses',
+    'a lexicon crossing the page reads the next page, and stops at the short one',
+    crossedPages.join(' · ') === '0-999 · 1000-1999' &&
+      crossed?.rowsRead === 1250 &&
+      crossed?.truncated === false,
+    `${crossedPages.join(' · ')} · ${String(crossed?.rowsRead)} rows · truncated ${String(crossed?.truncated)}`
+  );
+  record(
+    'senses',
+    'the marks and the colours are counted across every page, never one alone',
+    crossed?.marks[0]?.count === 625 &&
+      crossed?.marks[1]?.count === 313 &&
+      crossed?.withEmoji === 938 &&
+      crossed?.colours[0]?.count === 125,
+    `${crossed?.marks.map((mark) => `${mark.emoji} ${mark.count}`).join(' · ') ?? 'none'} · ${String(crossed?.withEmoji)} of ${String(crossed?.rowsRead)} · ${crossed?.colours.map((colour) => `${colour.hex} ${colour.count}`).join(' · ') ?? 'none'}`
+  );
+
+  const ceiling = fakeClient(lexiconBase(SENSES_READ_LIMIT));
+  const ceilingRead = await readSenses(ceiling.client);
+  const capped = ceilingRead.ok ? ceilingRead.value : null;
+  const cappedPages = rangesOf(ceiling.calls, 'sensory_lexicon');
+  record(
+    'senses',
+    'a lexicon meeting the read ceiling reads to it, no further, and says the read stopped',
+    cappedPages.join(' · ') === '0-999 · 1000-1999 · 2000-2999' &&
+      capped?.rowsRead === SENSES_READ_LIMIT &&
+      capped?.truncated === true,
+    `${cappedPages.join(' · ')} · ${String(capped?.rowsRead)} rows · truncated ${String(capped?.truncated)}`
+  );
+  record(
+    'senses',
+    'the stopped read is said in the wall sentence, carrying the ceiling',
+    capped?.truncated === true && SENSES_TRUNCATED.includes(SENSES_READ_LIMIT.toLocaleString('en')),
+    SENSES_TRUNCATED
   );
 
   const mark = fakeClient(base());

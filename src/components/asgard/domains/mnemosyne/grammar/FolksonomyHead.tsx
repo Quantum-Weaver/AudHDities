@@ -8,6 +8,7 @@ import {
   BACK_TO_FOLKSONOMIES,
   FOLKSONOMIES_PILL,
   FOLKSONOMY_CRUMB,
+  HOUSE_WORDS_ADDRESS,
   KEPT_BY_LABEL,
   NOTES_LABEL,
   NO_FOLKSONOMY_PURPOSE,
@@ -61,7 +62,9 @@ export function FolksonomyHead({ row, dressings }: { row: FolksonomyFace; dressi
             : 'max-w-[880px] text-base text-star-dust/35'
         }
       >
-        {row.purpose ? withHouseWords(row.purpose) : NO_FOLKSONOMY_PURPOSE}
+        {row.purpose
+          ? withHouseWords(row.purpose, HOUSE_WORDS_ADDRESS)
+          : NO_FOLKSONOMY_PURPOSE}
       </p>
 
       {row.notes ? (
@@ -70,14 +73,14 @@ export function FolksonomyHead({ row, dressings }: { row: FolksonomyFace; dressi
             {NOTES_LABEL}
           </span>
           <p className="max-w-[880px] text-[13px] leading-relaxed text-star-dust/60">
-            {withHouseWords(row.notes)}
+            {withHouseWords(row.notes, HOUSE_WORDS_ADDRESS)}
           </p>
         </div>
       ) : null}
 
       {row.created_by ? (
         <span className="text-[11px] text-star-dust/35">
-          {KEPT_BY_LABEL} · {withHouseWords(row.created_by)}
+          {KEPT_BY_LABEL} · {withHouseWords(row.created_by, HOUSE_WORDS_ADDRESS)}
         </span>
       ) : null}
     </div>

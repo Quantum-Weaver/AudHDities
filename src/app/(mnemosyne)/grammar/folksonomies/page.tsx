@@ -16,6 +16,7 @@ import {
   FOLKSONOMY_SENTENCE,
   FOLKSONOMY_SENTENCE_ADDRESS,
   GRAMMAR_HOUSE_WORDS,
+  HOUSE_WORDS_ADDRESS,
   NO_FOLKSONOMY,
 } from '@/lib/grammar/grammar-contract';
 
@@ -43,7 +44,7 @@ export default async function FolksonomiesPage() {
               </div>
               <h1 className="text-3xl font-bold text-star-dust">{FOLKSONOMIES_TITLE}</h1>
               <p className="max-w-2xl leading-relaxed text-star-dust/60">
-                {withHouseWords(FOLKSONOMY_SENTENCE)}
+                {withHouseWords(FOLKSONOMY_SENTENCE, HOUSE_WORDS_ADDRESS)}
               </p>
               <span className="text-[11px] text-star-dust/35">
                 {FOLKSONOMY_SENTENCE_ADDRESS}

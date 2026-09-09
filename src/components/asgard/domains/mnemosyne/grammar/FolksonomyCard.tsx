@@ -6,6 +6,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Card } from '@/components/runes/Card';
 import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/HouseWords';
 import {
+  HOUSE_WORDS_ADDRESS,
   NO_FOLKSONOMY_PURPOSE,
   STARTER_MARK,
   dressingCountLine,
@@ -40,7 +41,9 @@ export function FolksonomyCardFace({ card }: { card: FolksonomyCardShape }) {
               : 'text-sm text-star-dust/35'
           }
         >
-          {card.purpose ? withHouseWords(card.purpose) : NO_FOLKSONOMY_PURPOSE}
+          {card.purpose
+            ? withHouseWords(card.purpose, HOUSE_WORDS_ADDRESS)
+            : NO_FOLKSONOMY_PURPOSE}
         </p>
 
         {card.starter ? (

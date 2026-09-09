@@ -3,8 +3,8 @@
 *The two remaining reading rooms built: the emoji wall with the colour shelf,
 one mark's room with every atom wearing it and what else it means, the eight
 umbrellas, and one umbrella's dressings each beside the hearth atom it dresses.
-Four reads, seven components, four pages, two door cards wired. Nothing
-committed.*
+Four reads, seven components, four pages, two door cards wired. Committed in
+98a98cfc, updated grammar hub.*
 
 ## What stands
 

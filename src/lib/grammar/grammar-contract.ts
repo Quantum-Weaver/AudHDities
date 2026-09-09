@@ -1934,6 +1934,9 @@ export const SENSES_READ_LIMIT = 3000;
 /** The rows one lexicon read carries back, the door's own page. */
 export const SENSES_PAGE = 1000;
 
+/** The sentence the wall prints when the read met its ceiling before the rows ran out. */
+export const SENSES_TRUNCATED = `the read stopped at ${SENSES_READ_LIMIT.toLocaleString('en')} rows; the marks above are counted from those`;
+
 /** The mark room's ceiling: every atom is counted, this many are carried back. */
 export const SENSE_ATOM_LIMIT = 200;
 

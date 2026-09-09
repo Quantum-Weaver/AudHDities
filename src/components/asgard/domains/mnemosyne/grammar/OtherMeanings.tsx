@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { withHouseWords } from '@/components/asgard/domains/aethelred/nexus/HouseWords';
 import {
+  HOUSE_WORDS_ADDRESS,
   NO_DEFINITION,
   NO_OTHER_MEANING,
   OTHER_MEANINGS_HEADING,
@@ -47,7 +48,9 @@ export function OtherMeanings({ meanings }: { meanings: readonly SenseMeaning[] 
                       : 'text-[13px] text-star-dust/35'
                   }
                 >
-                  {meaning.definition ? withHouseWords(meaning.definition) : NO_DEFINITION}
+                  {meaning.definition
+                    ? withHouseWords(meaning.definition, HOUSE_WORDS_ADDRESS)
+                    : NO_DEFINITION}
                 </span>
               </span>
             </div>

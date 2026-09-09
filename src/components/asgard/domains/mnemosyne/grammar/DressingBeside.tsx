@@ -6,6 +6,7 @@ import {
   FOLKSONOMY_DRESSINGS_HEADING,
   FOLKSONOMY_SOURCE,
   HEARTH_LABEL,
+  HOUSE_WORDS_ADDRESS,
   NO_DEFINITION,
   NO_FOLKSONOMY_DRESSING,
   NO_HEARTH_WORD,
@@ -45,7 +46,9 @@ function DressingRow({ dressing }: { dressing: DressingBesideShape }) {
                 : 'text-[13px] text-star-dust/35'
             }
           >
-            {dressing.definition ? withHouseWords(dressing.definition) : NO_DEFINITION}
+            {dressing.definition
+              ? withHouseWords(dressing.definition, HOUSE_WORDS_ADDRESS)
+              : NO_DEFINITION}
           </span>
         </div>
       </div>
@@ -83,7 +86,7 @@ function DressingRow({ dressing }: { dressing: DressingBesideShape }) {
               }
             >
               {dressing.hearth.definition
-                ? withHouseWords(dressing.hearth.definition)
+                ? withHouseWords(dressing.hearth.definition, HOUSE_WORDS_ADDRESS)
                 : NO_DEFINITION}
             </span>
           </div>
@@ -103,16 +106,19 @@ export function DressingsBesideHearth({
 }) {
   return (
     <Panel heading={FOLKSONOMY_DRESSINGS_HEADING} source={FOLKSONOMY_SOURCE}>
-      <span className="text-[11px] text-star-dust/40">{dressingCountLine(dressings.length)}</span>
-
       {dressings.length === 0 ? (
         <p className="text-[13px] text-star-dust/35">{NO_FOLKSONOMY_DRESSING}</p>
       ) : (
-        <div className="flex flex-col gap-3">
-          {dressings.map((dressing) => (
-            <DressingRow key={dressing.key} dressing={dressing} />
-          ))}
-        </div>
+        <>
+          <span className="text-[11px] text-star-dust/40">
+            {dressingCountLine(dressings.length)}
+          </span>
+          <div className="flex flex-col gap-3">
+            {dressings.map((dressing) => (
+              <DressingRow key={dressing.key} dressing={dressing} />
+            ))}
+          </div>
+        </>
       )}
     </Panel>
   );

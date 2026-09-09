@@ -1,6 +1,6 @@
 {
-  "passed": 58,
-  "total": 58,
+  "passed": 62,
+  "total": 62,
   "checks": [
     {
       "set": "door",
@@ -268,8 +268,32 @@
     },
     {
       "set": "senses",
-      "check": "the lexicon is read in one bounded pass, never head-counted",
-      "result": "sensory_lexicon",
+      "check": "the lexicon is read in pages, a lexicon inside one page taking one, never head-counted",
+      "result": "0-999 · 6 rows",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a lexicon crossing the page reads the next page, and stops at the short one",
+      "result": "0-999 · 1000-1999 · 1250 rows · truncated false",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the marks and the colours are counted across every page, never one alone",
+      "result": "💭 625 · ♒︎ 313 · 938 of 1250 · #00CED1 125",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "a lexicon meeting the read ceiling reads to it, no further, and says the read stopped",
+      "result": "0-999 · 1000-1999 · 2000-2999 · 3000 rows · truncated true",
+      "pass": true
+    },
+    {
+      "set": "senses",
+      "check": "the stopped read is said in the wall sentence, carrying the ceiling",
+      "result": "the read stopped at 3,000 rows; the marks above are counted from those",
       "pass": true
     },
     {

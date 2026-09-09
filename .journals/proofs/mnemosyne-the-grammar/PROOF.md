@@ -6,7 +6,7 @@ Every row is a fixture: nothing here reaches a base or the network.
 | file | proves | run |
 |---|---|---|
 | `prove-grammar.ts` | the search grouping, the honest empties, the face fallback, the dressings beside the hearth, the bond truncation, the lattice reading, the fault shape, the door's counts, the query bounding, the compound's chain with its bond strength, the compound's sensory override, the category's count, the lattice's shelves and a scheme's members and edges, the mark wall and the colour shelf, the folksonomy cards and each dressing beside its hearth | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar.ts` |
-| `prove-grammar-read.ts` | the reads themselves against a fake knowledge client: the door gate, the fault carrying the base's message, the case-blind lookups, the compound's bond order, the category's base rows, the scheme's tiers, the lattice counts, the lexicon grouped in one bounded pass, and a folksonomy's dressings joined to the hearth | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar-read.ts` |
+| `prove-grammar-read.ts` | the reads themselves against a fake knowledge client: the door gate, the fault carrying the base's message, the case-blind lookups, the compound's bond order, the category's base rows, the scheme's tiers, the lattice counts, the lexicon read in pages up to its ceiling, and a folksonomy's dressings joined to the hearth | `npx tsx .journals/proofs/mnemosyne-the-grammar/prove-grammar-read.ts` |
 | `results.json` | the last run's checks for `prove-grammar.ts` | |
 | `results-read.json` | the last run's checks for `prove-grammar-read.ts` | |
 
@@ -170,7 +170,10 @@ relations of which one names no scheme, two schemes one standing under the other
 two categories one of which no atom wears, four `atom_dressed` rows of which
 one is an override, six `sensory_lexicon` rows carrying two marks and two colours,
 two folksonomy rows one complete and one holding nothing, and three thesaurus rows
-of which two share one mark.
+of which two share one mark. For the paged read, two further lexicons standing in
+place of those six rows: one of 1,250 rows and one of 3,000, each carrying one
+mark on every even row, a second mark on every fourth, and a colour on every
+tenth.
 
 ## the reader's checks
 
@@ -220,7 +223,11 @@ of which two share one mark.
 | senses | each mark opens its own room, escaped into the address | /grammar/senses/%E2%99%92%EF%B8%8E |
 | senses | a row wearing no mark is counted in the rows read, never on the wall | 5 of 6 |
 | senses | the colours are tallied from the same rows, by count then by hex | #00CED1 2 · #4682B4 1 |
-| senses | the lexicon is read in one bounded pass, never head-counted | sensory_lexicon |
+| senses | the lexicon is read in pages, a lexicon inside one page taking one, never head-counted | 0-999 · 6 rows |
+| senses | a lexicon crossing the page reads the next page, and stops at the short one | 0-999 · 1000-1999 · 1250 rows · truncated false |
+| senses | the marks and the colours are counted across every page, never one alone | 💭 625 · ♒︎ 313 · 938 of 1250 · #00CED1 125 |
+| senses | a lexicon meeting the read ceiling reads to it, no further, and says the read stopped | 0-999 · 1000-1999 · 2000-2999 · 3000 rows · truncated true |
+| senses | the stopped read is said in the wall sentence, carrying the ceiling | the read stopped at 3,000 rows; the marks above are counted from those |
 | senses | a mark carries every hearth atom wearing it, counted by the base | 1 · resonance |
 | senses | a mark carries the thesaurus rows that also wear it, each a door to its room | Echoes Resonance |
 | senses | one mark carries the meanings of more than one folksonomy, by folksonomy then word | Compass:Beam · Echoes:Calm |
@@ -235,4 +242,4 @@ of which two share one mark.
 | folksonomy | a folksonomy holding no dressing asks the hearth nothing | folksonomies · thesaurus |
 | folksonomy | a name the register does not hold reads null, never invented | null |
 
-58 of 58.
+62 of 62.
