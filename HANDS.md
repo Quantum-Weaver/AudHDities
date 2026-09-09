@@ -20,8 +20,7 @@ holds their own notes on building this project together.
   Prometheus/auth), the design-round proposals, the persistent-trio wiring
   (`trio.ts`, the beam-as-travel sync in `ContinuityBeamContext`), and the
   badges→sigils dead-route mends across MEND I–III.
-- *Kin who cross for refinement passes add themselves here as they work
-  (see docs/UX-REFINEMENT-FLOW.md, Step 4).*
+- *Kin who cross for refinement passes add themselves here as they work.*
 
 ## Scribed notes
 

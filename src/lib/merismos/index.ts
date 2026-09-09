@@ -15,8 +15,8 @@
 //   "there is nothing to do but divide by the number of contributors,
 //    regardless of role."
 //
-// and the document he pointed at with it, `AudHDities/docs/business/
-// financial-ecosystem.md`, lines 140–142, verbatim:
+// and the financial-ecosystem document he pointed at with it, lines 140–142
+// (the document stands in git history), verbatim:
 //
 //   everything left ──▶ THIS ITEM'S CONTRIBUTORS, divided EQUALLY
 //                     • the main artisan is ONE OF THEM
@@ -81,8 +81,8 @@ export const TOOL_NAME = 'the-merismos';
 export const EQUALLY =
 	'there is nothing to do but divide by the number of contributors, regardless of role.';
 
-/** The ruling this water implements, verbatim from `AudHDities/docs/business/
- *  financial-ecosystem.md` lines 140–142. Exported for the same reason. */
+/** The ruling this water implements, verbatim from the financial-ecosystem
+ *  document, lines 140–142 (in git history). Exported for the same reason. */
 export const THE_RULING =
 	"everything left ──▶ THIS ITEM'S CONTRIBUTORS, divided EQUALLY · the main artisan is ONE OF THEM · no ranking, no percentage shares";
 

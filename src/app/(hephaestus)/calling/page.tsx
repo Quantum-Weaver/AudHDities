@@ -3,6 +3,8 @@
 // ║   THE CALLING — an invitation, not a job board                           ║
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 import { Page } from '@/components/bifrost/Page';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 import Link from 'next/link';
 import { CultureDeck } from '@/components/asgard/domains/hephaestus/calling/CultureDeck';
 import { CommunityVoices } from '@/components/asgard/domains/hephaestus/calling/CommunityVoices';
@@ -20,7 +22,10 @@ export default function CallingPage() {
       <main className="min-h-screen py-12">
         <div className="container max-w-5xl mx-auto px-6">
 
-          <div className="mb-10 text-center">
+          <div className={cn(reliefPanelVariants(), 'text-center mb-12 py-16 px-6')}>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+            <div className={reliefGlossVariants()} />
+            <div className="relative z-10">
             <h1 className="text-3xl font-bold text-star-dust mb-3">
               The Calling
             </h1>
@@ -33,6 +38,7 @@ export default function CallingPage() {
               posted, they emerge — from dwelling here, making things, and
               sharing them. Whatever you arrive carrying is enough.
             </p>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">

@@ -2,7 +2,6 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-2.0.0-brightgreen.svg)]()
-[![Status](https://img.shields.io/badge/status-under%20refinement-blue.svg)](docs/UX-REFINEMENT-FLOW.md)
 
 *Where neurodivergent minds build digital sovereignty together.*
 
@@ -88,7 +87,7 @@ generation pipeline against the live schema (`gaia:dry`, `gaia:force` and
 here — `src/styles/generated/` and `src/lib/constants/cosmic/` arrive by
 cosmic distribution and are MIRROR files, never edited in this repo.
 `npm run type-check` is the type gate; `npm run lint` is currently dead
-(`next lint` left Next 16 — known bug B4 in `docs/CHECKLIST.md`).
+(`next lint` left Next 16).
 
 ---
 
@@ -112,14 +111,12 @@ The app is organized as eleven route groups under `src/app/` — ten deities
 `page.tsx` files and 299 components. The generated layer is produced by GAIA
 from the live schema and never hand-edited; since the Great Retirement of
 2026-08-12 it is **one root**, `src/lib/generated/`, with
-`src/app/api/generated/` the lone Next.js exception. The repo is currently in
-its **UX refinement** era: all work follows the work-shuttle flow.
+`src/app/api/generated/` the lone Next.js exception.
 
 Structure is discovered, never declared — the generated map lives at
 `docs/blueprints/AudHDities/pbp.ai.json`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
-See [docs/UX-REFINEMENT-FLOW.md](docs/UX-REFINEMENT-FLOW.md) for the working method.
 See [HANDS.md](HANDS.md) for who builds this — human and AI, named honestly.
 
 Code contributions are by invitation for now; issues, suggestions, and

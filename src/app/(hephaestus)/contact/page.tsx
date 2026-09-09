@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Mail, Clock, Shield, Sparkles, Heart, MessageSquare } from 'lucide-react';
 
 import { Page } from '@/components/bifrost/Page';
+import { reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 import { Card } from '@/components/runes/Card';
 import ContactForm from '@/components/asgard/domains/hephaestus/contact/ContactForm';
 
@@ -115,6 +116,7 @@ export default function ContactPage() {
           <div className={contactHeroOverlayVariants()} />
           <div className={contactOrbVariants({ color: 'cyan', position: 'topLeft' })} />
           <div className={contactOrbVariants({ color: 'purple', position: 'bottomRight' })} />
+          <div className={reliefGlossVariants()} />
 
           <div className={contactHeroContentVariants()}>
             <div className={contactBadgeVariants()}>

@@ -3,15 +3,18 @@
 
 import { motion } from 'framer-motion';
 import { Brain, Sparkles } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 export function UXHero() {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className={cn(reliefPanelVariants(), 'container mx-auto mt-6 mb-10 py-20')}>
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-cyan-500/5" />
       <div className="absolute top-20 left-1/4 w-64 h-64 bg-purple-400/5 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-pink-400/5 rounded-full blur-3xl animate-pulse delay-700" />
       
+      <div className={reliefGlossVariants()} />
       <div className="relative z-10 container max-w-4xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

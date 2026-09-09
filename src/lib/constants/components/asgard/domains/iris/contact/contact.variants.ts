@@ -5,6 +5,7 @@
 // ╚═══════════════════════════════════════════════════════════════════════════╝
 
 import { cva } from 'class-variance-authority';
+import { reliefPanelVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 import {
   CONTACT_DIMENSIONS,
@@ -14,11 +15,7 @@ import {
 // ─── Hero Section ──────────────────────────────────────────────────────────
 // literal on purpose — Tailwind reads classes from source; a template here emitted nothing (2026-08-27)
 export const contactHeroSectionVariants = cva(
-  [
-    'relative',
-    'py-20',
-    'overflow-hidden',
-  ].join(' ')
+  [reliefPanelVariants(), 'container mx-auto mt-6 mb-10 py-20'].join(' ')
 );
 
 export const contactHeroOverlayVariants = cva(

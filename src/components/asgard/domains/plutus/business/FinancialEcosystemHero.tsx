@@ -3,6 +3,8 @@
 
 import { motion } from 'framer-motion';
 import { ArrowDown, CircleDollarSign, Heart } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 
 export function FinancialEcosystemHero() {
   const scrollToContent = () => {
@@ -13,7 +15,7 @@ export function FinancialEcosystemHero() {
   };
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <section className={cn(reliefPanelVariants(), 'container mx-auto mt-6 mb-10 min-h-[70vh] flex items-center justify-center')}>
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
       
@@ -22,6 +24,7 @@ export function FinancialEcosystemHero() {
       <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-purple-400/20 rounded-full animate-pulse delay-700" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border border-pink-400/10 rounded-full animate-pulse delay-1000" />
       
+      <div className={reliefGlossVariants()} />
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

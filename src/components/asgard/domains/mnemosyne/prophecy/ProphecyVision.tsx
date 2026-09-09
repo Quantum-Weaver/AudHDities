@@ -9,6 +9,7 @@ import { Badge } from '@/components/runes/Badge';
 import { Progress } from '@/components/runes/Progress';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Star, Award, Compass } from 'lucide-react';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 
@@ -56,8 +57,14 @@ export function ProphecyVision() {
     <main className="min-h-screen py-12">
       <div className="container max-w-3xl mx-auto px-6">
         <Link href="/observatory" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6"><ArrowLeft className="h-4 w-4" />Return to the Observatory</Link>
-        <h1 className="text-2xl font-bold text-star-dust mb-2">The Vision</h1>
-        <p className="text-sm text-star-dust/40 mb-8">What awaits the sovereign — quests to complete, honors to earn</p>
+        <div className={cn(reliefPanelVariants(), 'text-center mb-8 py-12 px-6')}>
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+          <div className={reliefGlossVariants()} />
+          <div className="relative z-10">
+            <h1 className="text-2xl font-bold text-star-dust mb-2">The Vision</h1>
+            <p className="text-sm text-star-dust/40">What awaits the sovereign — quests to complete, honors to earn</p>
+          </div>
+        </div>
 
         {/* Next Milestone */}
         {sovereigntyScore < 1000 && (

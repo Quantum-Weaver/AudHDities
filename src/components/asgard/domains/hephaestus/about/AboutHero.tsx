@@ -3,13 +3,15 @@
 
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 import { Container, HeroContainer } from '@/components/hof/Container';
 import { Badge } from '@/components/runes/Badge';
 import { DURATIONS, EASING } from '@/lib/constants/cosmic/motion';
 
 export function AboutHero() {
   return (
-    <section className="relative overflow-hidden py-[var(--spacing-24)]">
+    <section className={cn(reliefPanelVariants(), 'container mx-auto mt-6 mb-10 py-[var(--spacing-24)]')}>
       <div className="absolute inset-0 bg-[var(--gradient-quantum)] opacity-50" />
 
       {/* Ambient glow orbs */}
@@ -23,6 +25,7 @@ export function AboutHero() {
         aria-hidden="true"
       />
 
+      <div className={reliefGlossVariants()} />
       <HeroContainer className="relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

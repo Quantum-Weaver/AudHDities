@@ -26,7 +26,7 @@ const exampleSaleData: CardData = {
 // ============================================================================
 
 /** Fixed for every sale. Of this fee, 30% returns to the residual pool and
- *  70% funds the machine — see docs/architecture/residual-system.md. */
+ *  70% funds the machine. */
 const PLATFORM_FEE_PERCENT = 10;
 const FEE_TO_RESIDUAL_POOL_PERCENT = 30;
 

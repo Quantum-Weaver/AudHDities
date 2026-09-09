@@ -1,124 +1,135 @@
 # Privacy Policy
 
-*Last updated: March 19, 2026*
+*Last updated: September 8, 2026*
 
 ## Our Commitment to Privacy
 
-At AUDHDITIES, we believe privacy is not just about protecting data—it's about **honoring sovereignty**. Your information belongs to you. We are simply temporary stewards.
+At AudHDities, privacy is not a legal shield. It is how we honor your sovereignty. Your information belongs to you; we are temporary stewards, and this page says plainly what we hold, why, and how you take it back.
 
-## 1. Information We Collect
+This policy covers the website at audhdities.com. Our apps keep everything on your own device and have their own policy at audhdities.com/apps/privacy.
 
-### 1.1 Information You Provide
-- **Account Information**: Email, username, display name
-- **Profile Information**: Bio, avatar, banner, preferences
-- **Neurodivergent Preferences**: Sensory settings, communication style, accessibility needs (all optional)
-- **Creator/Vendor Information**: Portfolio, business details, categories (if you apply)
-- **Communications**: Messages you send via contact forms
+## 1. Who We Are
 
-### 1.2 Information We Collect Automatically
-- **Usage Data**: Pages visited, features used, time spent
-- **Device Information**: Browser type, operating system
-- **Cookies**: Essential cookies for authentication and preferences
+The controller of your data is **AudHDities LLC**, a United States company.
 
-### 1.3 Information from Third Parties
-- **Stripe**: Payment processing (we never store credit card details)
-- **Resend**: Email communications
-- **Supabase**: Database hosting (SOC2 compliant)
+- Contact for anything in this policy: **support@audhdities.com**
+- Mailing address: [the business mailing address]
+- We have not appointed a Data Protection Officer. Privacy questions go to the address above and are answered by the people who run the sanctuary.
 
-## 2. How We Use Your Information
+## 2. Information We Collect
+
+### 2.1 Information You Give Us
+- **Account**: email address, username, display name, and a password we never see in plain text
+- **Profile**: bio, avatar, banner, and the preferences you choose to set
+- **Sensory hints**: an optional note about how you like the site to behave, given only if you choose to
+- **The Acid Test**: your answers and result, stored to your vessel only if you are signed in or choose to keep them
+- **Artisan and merchant details**: portfolio, business details, and categories, if you apply
+- **Messages**: what you send through the contact form
+
+### 2.2 Information Collected Automatically
+- **Cookies**: only the ones that keep you signed in and remember your preferences. We set no advertising or tracking cookies, so we show no cookie banner.
+- **Host logs**: our host keeps standard request logs (IP address, browser, pages requested) for a short period to run and secure the site. We run no analytics, no advertising, and no tracking across other sites.
+
+### 2.3 Information From Others
+- **Stripe** tells us that a payment succeeded or failed. We never see or store card numbers.
+
+## 3. How We Use Your Information
 
 | Purpose | Legal Basis |
 |---------|-------------|
-| Provide and maintain the Platform | Contract performance |
-| Process your applications and payments | Contract performance |
-| Communicate with you about your account | Contract performance |
-| Improve and personalize your experience | Legitimate interests |
-| Protect against abuse and security threats | Legitimate interests |
-| Comply with legal obligations | Legal obligation |
+| Provide and maintain the Platform | Contract |
+| Process applications and payments | Contract |
+| Answer your messages and account questions | Contract |
+| Store your sensory hints and Acid Test result | Your explicit consent |
+| Keep the site secure and prevent abuse | Legitimate interest in running a safe service |
+| Keep transaction records | Legal obligation |
 
-## 3. Neurodivergent Data — Special Protection
+We make no decisions about you by automated means alone, and we do not profile you.
 
-Your neurodivergent identity and preferences are **sensitive information**. We:
+## 4. Sensitive Information
 
-- Never share this data with third parties without explicit consent
-- Store it with additional encryption
-- Allow you to delete it at any time
-- Never use it for advertising or profiling
+Your sensory hints and your Acid Test result can reveal how your mind works. We treat them as sensitive.
 
-## 4. Data Sharing and Disclosure
+- We store them only with your explicit consent, given when you enter them or choose to keep them
+- You can withdraw that consent at any time by deleting them from your vessel or asking us to
+- We never use them for advertising, ranking, or profiling
+- We never share them with anyone except the service that stores our database
 
-We do not sell your personal information. EVER.
+## 5. Who We Share With
 
-We may share data in these limited circumstances:
+We do not sell your personal information. Ever.
 
-| Scenario | What We Share |
-|----------|---------------|
-| **With your consent** | Anything you explicitly authorize |
-| **Service providers** | Necessary data for Stripe (payments), Resend (emails), Supabase (hosting) |
-| **Legal requirements** | If required by law (we'll notify you if permitted) |
-| **Business transfers** | If the platform is acquired (you'll have 30 days to delete your data) |
+| Recipient | What They Do For Us | Where |
+|-----------|---------------------|-------|
+| Supabase | Database, authentication, file storage | United States |
+| Vercel | Hosting and request logs | United States |
+| Stripe | Payment processing | United States |
+| Resend | Sends our transactional email, such as a contact reply | United States |
+| Proton | Holds our mailbox, where your messages to us arrive | Switzerland |
+| Cloudflare | Answers DNS for our domain; sees no page traffic or personal data | United States |
 
-## 5. Your Rights
+If you join our Discord community, Discord's own policy governs what you share there.
 
-Depending on your location, you may have:
+We may also disclose data if the law requires it, and we will tell you if we are permitted to. If the sanctuary ever changes hands, you will have 30 days' notice to delete your data first.
 
-- **Right to Access**: See what data we hold
-- **Right to Rectification**: Correct inaccurate data
-- **Right to Erasure**: Delete your account and data
-- **Right to Restrict**: Limit how we use your data
-- **Right to Portability**: Take your data elsewhere
-- **Right to Object**: Opt out of certain processing
+## 6. Where Your Data Lives
 
-To exercise these rights, contact us at privacy@audhdities.com.
+We are in the United States, and so are our service providers, so your data is processed there. Where the law of your country requires safeguards for that, our providers commit to them in their data processing agreements, through Standard Contractual Clauses or the EU-US Data Privacy Framework.
 
-## 6. Data Retention
+## 7. Your Rights
 
-We keep your data:
+Wherever you live, you can ask us to:
 
-| Data Type | Retention Period |
-|-----------|------------------|
-| Account information | Until you delete your account |
-| Transaction records | 7 years (tax/legal requirements) |
-| Communications | 2 years |
-| Usage logs | 6 months |
+- **Access** the data we hold about you
+- **Correct** anything inaccurate
+- **Delete** your account and data
+- **Restrict** how we use your data
+- **Receive** your data in a portable format
+- **Object** to processing based on our legitimate interests
+- **Withdraw consent** at any time, without affecting what came before
 
-## 7. Security
+Write to **support@audhdities.com**. We may ask you to confirm it is really you. We answer within one month.
 
-We protect your data with:
+If you are in the European Union, the United Kingdom, or another place with a data protection authority, you also have the right to lodge a complaint with that authority.
 
-- **Encryption in transit** (TLS/SSL)
-- **Encryption at rest** (database encryption)
-- **Row Level Security** (you see only your data)
-- **Regular security audits**
-- **Access controls** (only necessary personnel)
+## 8. Data Retention
 
-## 8. International Data Transfers
+| Data | Kept For |
+|------|----------|
+| Account and profile | Until you delete your account |
+| Sensitive information | Until you delete it or your account |
+| Transaction records | 7 years, for tax and accounting law |
+| Contact messages | 2 years |
+| Host request logs | A short period set by our host, days rather than months |
 
-Our servers are in the United States. If you're outside the US, your data will be transferred to and stored in the US. We use Standard Contractual Clauses to ensure adequate protection.
+When you delete your account, we erase what we hold within one month, except records the law requires us to keep.
 
-## 9. Children's Privacy
+## 9. Security
 
-The Platform is not directed to children under 13. If you believe a child has provided us with personal information, contact us immediately.
+- Encryption in transit (TLS) and at rest in our database
+- Row Level Security, so the database itself only shows you your own data
+- Access limited to the people who run the sanctuary
+- Regular review of the site with our own tools
 
-## 10. Changes to This Policy
+No system is perfect. If a breach ever affects your data, we will tell you and the authorities as the law requires.
 
-We'll notify you of material changes via email or platform notice. Continued use after changes constitutes acceptance.
+## 10. Children
 
-## 11. Contact Us
+The Platform is not directed to children. If you are under 13, or under 16 in the European Union or the United Kingdom, please do not create an account. If you believe a child has given us personal information, tell us at support@audhdities.com and we will delete it.
 
-For privacy questions:
-- Email: privacy@audhdities.com
-- Contact form: /contact
-- Data Protection Officer: dpo@audhdities.com
+## 11. Changes to This Policy
+
+We will tell you about material changes by email or a notice on the site before they take effect. The date at the top is the date of the current version.
 
 ## 12. California Privacy Rights
 
-California residents have additional rights under CCPA/CPRA. Contact us for more information.
+California residents have the rights described in section 7 under the CCPA and CPRA. We do not sell or share personal information as those laws define it. Contact us at the address above.
 
-## 13. GDPR Compliance
+## 13. Contact Us
 
-For EU residents, we comply with GDPR. Our designated representative can be reached at gdpr@audhdities.com.
+- Email: support@audhdities.com
+- Contact form: audhdities.com/contact
 
 ---
 
-*This Privacy Policy is designed to be transparent and aligned with our values. If you have questions, please ask.*
+*This policy is written to be read, not to hide behind. If any part of it is unclear, ask, and we will answer plainly.*

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Page } from '@/components/bifrost/Page';
 import { Card } from '@/components/runes/Card';
 import { cn } from '@/lib/utils';
+import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 import type { CardData } from '@/types/components/runes/card.types';
 
 export const metadata: Metadata = {
@@ -76,7 +77,10 @@ export default async function TransparencyPage() {
           {/* ════════════════════════════════════════════════════════════ */}
           {/* Hero                                                         */}
           {/* ════════════════════════════════════════════════════════════ */}
-          <section className="text-center mb-16">
+          <section className={cn(reliefPanelVariants(), 'text-center mb-16 py-16 px-6')}>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+            <div className={reliefGlossVariants()} />
+            <div className="relative z-10">
             <div className="inline-flex items-center gap-2 bg-star-dust/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-star-dust/20">
               <Eye size={14} className="text-neurospark" />
               <span className="text-sm text-star-dust/80">Radical Transparency</span>
@@ -92,6 +96,7 @@ export default async function TransparencyPage() {
               {' '}is the ware&apos;s own profit, and 30% of the fee returns to the residual pool — so 93% of
               every sale stays in the ecosystem.
             </p>
+            </div>
           </section>
 
           {/* ════════════════════════════════════════════════════════════ */}
