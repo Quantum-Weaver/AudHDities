@@ -71,6 +71,17 @@ const nextConfig: NextConfig = {
           destination: '/grimoire',
           has: [{ type: 'host', value: 'kp.audhdities.com' }],
         },
+        // grammar.audhdities.com serves the Grammar realm, Explore as its front page.
+        {
+          source: '/',
+          destination: '/grammar/explore',
+          has: [{ type: 'host', value: 'grammar.audhdities.com' }],
+        },
+        {
+          source: '/:path*',
+          destination: '/grammar/:path*',
+          has: [{ type: 'host', value: 'grammar.audhdities.com' }],
+        },
       ],
     };
   },

@@ -37,6 +37,14 @@ src/app/(mnemosyne)/
 │   │   └── page.tsx                # Constellations — connection web (/observatory/constellations)
 │   └── origin/
 │       └── page.tsx                # The Origin — the Sanctuary's story (/observatory/origin)
+│
+├── grammar/
+│   ├── page.tsx                     # The Grammar — the door: counted tiles, four doors (/grammar)
+│   ├── explore/
+│   │   └── page.tsx                 # Explore — a search across atoms, molecules and organisms, with the category faces and the four kinds of scheme (/grammar/explore)
+│   └── atoms/
+│       └── [word]/
+│           └── page.tsx             # The atom's room — its senses, root, bonds, lattice and dressings (/grammar/atoms/[word])
 ```
 
 ---
@@ -96,6 +104,30 @@ Four aggregate counts of the whole Sanctuary, anonymized by nature (totals only,
 
 ### 8. The Origin (`/observatory/origin`)
 The Sanctuary's creation story. How it was built. Why it exists. The collaboration between the Quantum Weaver and Aethelred. A sacred text rendered as an immersive experience.
+
+---
+
+## The Grammar
+
+Three rooms stand under `src/app/(mnemosyne)/grammar/`: the door (`/grammar`), Explore
+(`/grammar/explore`), and the atom's room (`/grammar/atoms/[word]`). All three read the
+KNOWLEDGE base through one reader, `src/lib/grammar/grammar-read.ts`, over the views
+`atom_whole` and `atom_dressed` and the tables `atoms`, `molecules`, `organisms`,
+`categories`, `schemes`, `scheme_memberships`, `concept_relations`, `molecule_atoms`,
+`organism_atoms`, `sensory_lexicon`, `etymology`, `thesaurus`, and `folksonomies`. Components
+live at `src/components/asgard/domains/mnemosyne/grammar/`. Every room is public, no session
+required, and cached by revalidation.
+
+The hearth — the shared definition `atom_whole` carries — is shown whole; a dressing — a
+`thesaurus` row typed by its folksonomy — is shown beside the hearth, never in its place.
+
+The door counts six tiles from rows (atoms, molecules, organisms, categories, schemes,
+senses) and opens four doors: Explore is live; Senses, Folksonomies, and Carry are named on
+the door as "not yet wired". Rooms for the compounds, the categories, and the lattice are not
+yet built and carry no door on this page.
+
+`grammar.audhdities.com` rewrites to `/grammar`, with `/grammar/explore` as its front page
+(`next.config.ts`).
 
 ---
 

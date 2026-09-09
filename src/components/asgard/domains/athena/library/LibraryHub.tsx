@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { BookOpen, Compass, GraduationCap, FileText, Award, Droplets, Puzzle, ArrowRight } from 'lucide-react';
+import { BookOpen, Compass, GraduationCap, FileText, Award, Droplets, Puzzle, Languages, ArrowRight } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const SECTIONS = [
@@ -14,6 +14,7 @@ const SECTIONS = [
   { title: 'The Honors', description: 'Sigils earned through sovereignty', href: '/library/sigils', icon: Award, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
   { title: 'The Floating Stars', description: 'Stars drift past. Pop what catches your eye.', href: '/library/bubbles', icon: Droplets, color: 'text-teal-400', bg: 'bg-teal-500/10' },
   { title: 'The Dailies', description: 'Word puzzles drawn from the Grammar', href: '/library/dailies', icon: Puzzle, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
+  { title: 'The Grammar', description: 'The shared vocabulary, defined once', href: '/grammar', icon: Languages, color: 'text-neurospark', bg: 'bg-neurospark/10' },
 ];
 
 export function LibraryHub() {
@@ -23,7 +24,7 @@ export function LibraryHub() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-star-dust mb-4">The Library</h1>
           <p className="text-lg text-star-dust/60 max-w-xl mx-auto">
-            Seven halls, open. Wander at whatever pace the day allows.
+            Eight halls, open. Wander at whatever pace the day allows.
           </p>
         </div>
 

@@ -235,6 +235,68 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
     subtitle: 'A word, disarranged'
   },
   
+  // ATHENA (Grammar)
+  '/grammar': {
+    default: 'library',
+    title: 'The Grammar',
+    subtitle: 'The shared vocabulary, defined once'
+  },
+  '/grammar/explore': {
+    default: 'library',
+    title: 'Explore',
+    subtitle: 'Search a word, or walk the faces'
+  },
+  '/grammar/atoms/*': {
+    default: 'library',
+    title: 'The atom',
+    subtitle: 'One word, whole'
+  },
+  '/grammar/molecules/*': {
+    default: 'library',
+    title: 'The molecule',
+    subtitle: 'Atoms in bond order'
+  },
+  '/grammar/organisms/*': {
+    default: 'library',
+    title: 'The organism',
+    subtitle: 'Molecules made whole'
+  },
+  '/grammar/categories/*': {
+    default: 'library',
+    title: 'The category',
+    subtitle: 'One face, its words'
+  },
+  '/grammar/schemes': {
+    default: 'library',
+    title: 'The lattice',
+    subtitle: 'Not a hierarchy'
+  },
+  '/grammar/schemes/*': {
+    default: 'library',
+    title: 'The scheme',
+    subtitle: 'Its members and its edges'
+  },
+  '/grammar/senses': {
+    default: 'library',
+    title: 'The senses',
+    subtitle: 'No emoji has a single meaning'
+  },
+  '/grammar/folksonomies': {
+    default: 'library',
+    title: 'The folksonomies',
+    subtitle: 'The heart beside the hearth'
+  },
+  '/grammar/folksonomies/*': {
+    default: 'library',
+    title: 'The folksonomy',
+    subtitle: 'One umbrella, its dressings'
+  },
+  '/grammar/carry': {
+    default: 'library',
+    title: 'The carry',
+    subtitle: 'Hold the Grammar on your own device'
+  },
+
   // PROMETHEUS (Stage)
   '/stage': { 
     default: 'music',

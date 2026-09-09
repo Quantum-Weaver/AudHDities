@@ -1,0 +1,342 @@
+{
+  "passed": 56,
+  "total": 56,
+  "checks": [
+    {
+      "set": "grouping",
+      "check": "three tiers, in order",
+      "result": "atoms · molecules · organisms",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "every card lands in its own tier",
+      "result": "atoms 1 · molecules 3 · organisms 1",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "a tier of one counts in the singular",
+      "result": "1 atom",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "a tier holding back rows says how many are shown",
+      "result": "61 molecules · 3 shown",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "the tally sums every tier that answered",
+      "result": "79 answers · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "a card opens its own room",
+      "result": "/grammar/atoms/resonance · /grammar/molecules/beam-resonance",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "a word with a space is escaped into its address",
+      "result": "/grammar/molecules/a%20name",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "the tier ceiling is the read limit",
+      "result": "24",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "each tier carries its own sentence",
+      "result": "no atom answers this search · no molecule answers this search · no organism answers this search",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "three tiers of none still counts zero, never nothing",
+      "result": "0 answers · counted from rows",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "an unread tier says unreadable, never empty",
+      "result": "the register was unreadable",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "a tally over no readable tier says unreadable",
+      "result": "the register was unreadable",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "every sensory channel is shown, a null one waiting",
+      "result": "9 channels · taste · smell not yet sensed",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "the colour channel carries its own swatch",
+      "result": "#00CED1",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "an atom in no scheme and on no edge says so",
+      "result": "not yet placed in a scheme · no typed edges yet",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "an atom bonded into nothing says so",
+      "result": "in no molecule yet · in no organism yet",
+      "pass": true
+    },
+    {
+      "set": "empties",
+      "check": "a bond count of one reads in the singular",
+      "result": "in 1 molecule",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "an atom wears its own sense's emoji",
+      "result": "♒︎",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "an atom with no sense wears its category's face, marked",
+      "result": "👁️ · wearing its category's face",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "an atom with neither invents no face",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "the whole view answers the same face reading",
+      "result": "♒︎",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "a card carries the borrow forward",
+      "result": "wearing its category's face",
+      "pass": true
+    },
+    {
+      "set": "dressings",
+      "check": "the hearth row is the one row that overrides nothing",
+      "result": "the hearth definition, held for everyone",
+      "pass": true
+    },
+    {
+      "set": "dressings",
+      "check": "the hearth row never appears among the dressings",
+      "result": "2 dressings",
+      "pass": true
+    },
+    {
+      "set": "dressings",
+      "check": "every folksonomy with an opinion is kept, labelled by name",
+      "result": "Compass 🧭 · Echoes 🌧️",
+      "pass": true
+    },
+    {
+      "set": "dressings",
+      "check": "a dressing keeps its own colour and its own definition",
+      "result": "Echoes · #4682B4",
+      "pass": true
+    },
+    {
+      "set": "dressings",
+      "check": "a word no folksonomy dresses says so",
+      "result": "no folksonomy dresses this word yet",
+      "pass": true
+    },
+    {
+      "set": "dressings",
+      "check": "a read of overrides alone yields no hearth row",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "bonds",
+      "check": "the first eight molecule names are chipped",
+      "result": "beam-resonance · button-resonance · calculateResonance · control-resonance · createResonance · deleteResonance · EmotionalResonance · entity-resonance",
+      "pass": true
+    },
+    {
+      "set": "bonds",
+      "check": "the chips are sorted case-blind",
+      "result": "beam-resonance · button-resonance · calculateResonance · control-resonance · createResonance · deleteResonance · EmotionalResonance",
+      "pass": true
+    },
+    {
+      "set": "bonds",
+      "check": "the rest are counted from the base, not from the page",
+      "result": "and 51 more",
+      "pass": true
+    },
+    {
+      "set": "bonds",
+      "check": "the first four organism names are chipped",
+      "result": "calculateBeamResonance · calculateButtonResonance · calculateResonanceScore · renderResonanceBeam · and 13 more",
+      "pass": true
+    },
+    {
+      "set": "bonds",
+      "check": "a bond row shorter than its limit holds nothing back",
+      "result": "0",
+      "pass": true
+    },
+    {
+      "set": "bonds",
+      "check": "the count line reads from the base count",
+      "result": "in 59 molecules",
+      "pass": true
+    },
+    {
+      "set": "lattice",
+      "check": "a membership with no scheme row is dropped, never invented",
+      "result": "Being · Layout",
+      "pass": true
+    },
+    {
+      "set": "lattice",
+      "check": "a membership carries its primacy and its kind",
+      "result": "Being · axis · primary",
+      "pass": true
+    },
+    {
+      "set": "lattice",
+      "check": "an edge is named from this atom’s own end",
+      "result": "broader · subject · related · object",
+      "pass": true
+    },
+    {
+      "set": "lattice",
+      "check": "the four kinds shelve in order, an unnamed kind after them",
+      "result": "rank 2 · axis 1 · facet 1 · dimension 1 · kindred 1",
+      "pass": true
+    },
+    {
+      "set": "lattice",
+      "check": "no scheme is lost in the shelving",
+      "result": "6 of 6",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "an unnamed door faults in three parts",
+      "result": "the register was unreadable · atoms · the knowledge door is not named on this host · NEXT_PUBLIC_SUPABASE_URL_KNOWLEDGE and NEXT_PUBLIC_SUPABASE_ANON_KEY_KNOWLEDGE named on this host",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "an unnamed door says so in its own words",
+      "result": "the knowledge door is not named on this host",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "a refusal carries the base's own message and the table",
+      "result": "thesaurus · permission denied for table thesaurus · next · a read policy on thesaurus for the anon door",
+      "pass": true
+    },
+    {
+      "set": "fault",
+      "check": "no fault ever reads empty",
+      "result": "the register was unreadable",
+      "pass": true
+    },
+    {
+      "set": "door",
+      "check": "eight tables are counted, six as tiles and two as a line",
+      "result": "atoms · molecules · organisms · categories · schemes · sensory_lexicon + folksonomies · thesaurus",
+      "pass": true
+    },
+    {
+      "set": "door",
+      "check": "every counted table carries a label",
+      "result": "atoms · molecules · organisms · categories · schemes · senses · folksonomies · dressings",
+      "pass": true
+    },
+    {
+      "set": "query",
+      "check": "a blank query is no query",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "query",
+      "check": "a query is trimmed and held to its ceiling",
+      "result": "80",
+      "pass": true
+    },
+    {
+      "set": "query",
+      "check": "the operator characters never reach the base",
+      "result": "%resonx%",
+      "pass": true
+    },
+    {
+      "set": "query",
+      "check": "a plain word becomes a plain contains pattern",
+      "result": "%reson%",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "the atom search reads the dressed view by its own columns",
+      "result": "atom_id, atom_word, definition, category_face, category_name, emoji, atom_type",
+      "pass": true
+    },
+    {
+      "set": "cases",
+      "check": "the three case renderings print in order",
+      "result": "resonance · RESONANCE · Resonance",
+      "pass": true
+    },
+    {
+      "set": "cases",
+      "check": "an atom with no case rendering prints none",
+      "result": "0",
+      "pass": true
+    },
+    {
+      "set": "cases",
+      "check": "the measures badge counts only the measures the row carries",
+      "result": "weight 5 · affinity 5 · valence 1",
+      "pass": true
+    },
+    {
+      "set": "cards",
+      "check": "a molecule card carries its stored parts",
+      "result": "beam · resonance",
+      "pass": true
+    },
+    {
+      "set": "cards",
+      "check": "a molecule with no atom_words falls to its kebab rendering",
+      "result": "create · resonance",
+      "pass": true
+    },
+    {
+      "set": "cards",
+      "check": "an organism card carries its own parts and badges",
+      "result": "function · typescript",
+      "pass": true
+    }
+  ]
+}
