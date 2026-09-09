@@ -1,0 +1,158 @@
+{
+  "ran": "2026-09-09T15:25:48.966Z",
+  "component": "src/components/asgard/domains/aethelred/nexus/Register.tsx",
+  "sets": [
+    "chair",
+    "board",
+    "keys"
+  ],
+  "total": 24,
+  "passed": 24,
+  "failed": 0,
+  "checks": [
+    {
+      "set": "chair",
+      "check": "every section heading rendered",
+      "result": "The seat as carved · The presence record · The agent rows · The boundaries that bind",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the seat count tile counts its rows",
+      "result": "tile 3 of 3 rows",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the record count tile counts its rows",
+      "result": "tile 2 of 2 rows",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the agent section prints its honest empty",
+      "result": "no agent row names this chair",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the refused section prints three parts",
+      "result": "what happened · why · next step",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the refused section never prints its empty",
+      "result": "unreadable, never empty",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "rows render in ord order",
+      "result": "duty before responsibilities",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "each stamp is the row's own, YYYY-MM-DD · HH:MM",
+      "result": "2026-09-09 · 08:12 · 2026-09-08 · 23:40 · 2026-08-10 · 09:15",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the tally counts the rows it stands under",
+      "result": "2 rows · the whole record, nothing summarised",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "the house word carries its footnote",
+      "result": "KP → /about",
+      "passed": true
+    },
+    {
+      "set": "chair",
+      "check": "no percentage anywhere",
+      "result": "no % in the markup",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "both section headings rendered",
+      "result": "The organs · The lamps",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "the organs count tile counts its rows",
+      "result": "tile 3 of 3 rows",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "the empty section prints its honest empty",
+      "result": "no lamp row yet",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "the empty section counts zero",
+      "result": "tile 0",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "an internal ref renders as an address",
+      "result": "href=\"/nexus/bridge\"",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "an external ref renders as an address",
+      "result": "href=\"https://audhdities.com/nexus/bridge\"",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "mark renders as a pill",
+      "result": "mark · poured",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "seat renders beside the key",
+      "result": "seat · aethelred",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "closed renders beside the value",
+      "result": "closed · 2026-09-01",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "the row's own stamp renders",
+      "result": "2026-09-08 · 19:02",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "a row without a stamp shows none",
+      "result": "no invented stamp",
+      "passed": true
+    },
+    {
+      "set": "board",
+      "check": "no percentage anywhere",
+      "result": "no % in the markup",
+      "passed": true
+    },
+    {
+      "set": "keys",
+      "check": "key · seat · mark · closed each carry the footnote",
+      "result": "4 of 4 strings",
+      "passed": true
+    }
+  ]
+}

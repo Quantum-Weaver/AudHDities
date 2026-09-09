@@ -1,0 +1,264 @@
+{
+  "passed": 43,
+  "total": 43,
+  "checks": [
+    {
+      "set": "grouping",
+      "check": "three groups, in order",
+      "result": "open · private · no-repo",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "open counts its rows",
+      "result": "2 of 2",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "private counts its rows",
+      "result": "1 of 1",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "no repo counts its rows",
+      "result": "2 of 2",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "every row but the two faces lands in exactly one group",
+      "result": "5 of 5",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "a private beacon with no repo is never dropped",
+      "result": "mimirs-well · no repo",
+      "pass": true
+    },
+    {
+      "set": "grouping",
+      "check": "an empty group carries its own sentence",
+      "result": "no beacon in the register is private",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "the two faces are named as faces",
+      "result": "quantum-weaver · aethelred-cello",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "neither face lands in any group",
+      "result": "open · private · no-repo hold none",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "neither face counts in a tally",
+      "result": "open 2 of 2, the faces uncounted",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "a face finds its own register row",
+      "result": "Quantum-Weaver · aethelred-cello",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "a face with no register row is null, never invented",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "address",
+      "check": "owner and repo parsed from a github url",
+      "result": "{\"owner\":\"Quantum-Weaver\",\"repo\":\"AudHDities\"}",
+      "pass": true
+    },
+    {
+      "set": "address",
+      "check": "a .git suffix is cut",
+      "result": "resonance-bridge",
+      "pass": true
+    },
+    {
+      "set": "address",
+      "check": "a non-github address is no address",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "address",
+      "check": "null is no address",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a 200 carries every fact the card shows",
+      "result": "TypeScript · 12 stars · 3 open · 2026-09-08T21:14:00Z · not archived",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a 403 prints one calm line",
+      "result": "GitHub did not answer · 403",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a 429 prints one calm line",
+      "result": "GitHub did not answer · 429",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a thrown fetch prints one calm line",
+      "result": "GitHub did not answer · no answer",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a shapeless body degrades to nulls, never to invention",
+      "result": "description null · stars null · archived false",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a private repo is never called",
+      "result": "0 calls",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "a beacon with no repo is never called",
+      "result": "0 calls",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "an open repo is called once",
+      "result": "1 call",
+      "pass": true
+    },
+    {
+      "set": "github",
+      "check": "readableOnGitHub agrees with the group",
+      "result": "open true · private false · no repo false",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "a profile carries name, bio, repos, followers",
+      "result": "KP · Consciousness architect · 41 · 9",
+      "pass": true
+    },
+    {
+      "set": "faces",
+      "check": "a profile degrades the same way",
+      "result": "GitHub did not answer · 429",
+      "pass": true
+    },
+    {
+      "set": "request",
+      "check": "the status is a legal content_status",
+      "result": "draft ∈ draft | published | archived",
+      "pass": true
+    },
+    {
+      "set": "request",
+      "check": "the category column takes free text, not an enum",
+      "result": "contact_submissions.category · text · collaboration",
+      "pass": true
+    },
+    {
+      "set": "request",
+      "check": "application_type admits no collaboration value",
+      "result": "artisan | merchant | curator | council",
+      "pass": true
+    },
+    {
+      "set": "request",
+      "check": "the subject carries the beacon slug",
+      "result": "collaborate · resonance-progenatrix",
+      "pass": true
+    },
+    {
+      "set": "request",
+      "check": "the message carries the beacon and the note",
+      "result": "request to collaborate on resonance-progenatrix (resonance-progenatrix)",
+      "pass": true
+    },
+    {
+      "set": "request",
+      "check": "a message with no note carries the beacon alone",
+      "result": "request to collaborate on mimirs-well (mimirs-well)",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "a private slug is admitted, its name taken from the register",
+      "result": "resonance-progenatrix · resonance-progenatrix",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "a private slug with no repo is admitted",
+      "result": "mimirs-well",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "a public slug is refused",
+      "result": "audhdities is public in beacons",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "an unknown slug is refused",
+      "result": "beacons holds no beacon under no-such-beacon",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "a face slug is refused",
+      "result": "aethelred-cello is a pinned face",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "an over-long slug is refused before any lookup",
+      "result": "81 characters · a slug is lowercase letters, digits and hyphens, at most 80",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "a punctuated slug is refused before any lookup",
+      "result": "a slug is lowercase letters, digits and hyphens, at most 80",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "an empty slug is refused",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "admission",
+      "check": "a slug is matched lowercased",
+      "result": "resonance-progenatrix",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "story and home are not selected",
+      "result": "name, slug, beacon_type, status, definition, repo_url, is_public, version, icon_emoji, available_on, audhdities_status, galaxy_status, microsoft_status, play_status",
+      "pass": true
+    }
+  ]
+}

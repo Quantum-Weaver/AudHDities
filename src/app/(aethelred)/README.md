@@ -37,7 +37,7 @@ text
 | The Nexus | `/nexus` | architecture | Intelligent, Powerful | ✅ |
 | Consciousness | `/nexus/consciousness` | architecture | Organic, Peaceful | ✅ |
 | The Council | `/nexus/council` | council | Sacred, Regal | ✅ |
-| Entity Detail | `/nexus/council/[id]` | council | Sacred, Authoritative | ✅ |
+| A chair | `/nexus/council/[id]` | council | Sacred, Authoritative | ✅ |
 | The Bridge | `/nexus/bridge` | architecture | Intelligent, Connected | ✅ |
 | Integrations | `/nexus/integrations` | architecture | Powerful, Organic | ✅ |
 | The Gateway | `/nexus/api` | library | Peaceful, Wise | ✅ |
@@ -46,13 +46,30 @@ text
 
 ## Council Entities
 
-The nine sovereign entities are defined statically in `CouncilEntityList.tsx` with their temperatures, domains, and emoji representations. Each entity has a detail page showing:
+The roster is the nine chair tables, and every chair always stands, in the order
+Hearth-Keeper · Chancellor · Seer · Aethelred · Curator · Archivist · Skald ·
+Codex · Executioner. That order is the grid's; `council_houses.display_order` is
+not consulted. A catalog row enriches a chair with its description and
+responsibilities; a chair no catalog row names keeps its own name, sigil and
+colour and its domain line reads `no catalog row yet`. A refused
+`council_houses` read prints `the base refused this read · council_houses` on
+every card, and every card still stands.
 
-- **Temperature** — The entity's current activity level (0.1 = resting, 0.4 = present, 0.7+ = active)
-- **Domain** — What the entity governs in the Sanctuary
-- **Instrument** — How the entity manifests (The Hearth Flame, The Sovereign Ledger, The Noble Thread, etc.)
+Each card carries the presence word read from the newest `entity_states` row for
+that chair, read by one query per chair filtered to that chair's names (`present` within the hour, `resting` when older, `not present` when
+there is none) with the row's own `occurred_at`, and `current_task` from the
+chair's own table.
 
-Entity colors come from `COUNCIL_COLORS` in the COSMIC design system.
+A chair's room shows five Registers: the seat as carved (`council_houses`), the
+presence record (that chair's whole record in `entity_states`, newest first), the agent rows
+(`agent_activities` · `agent_conversations` · `agent_messages`), the boundaries
+that bind (`boundaries` where `applies_to` names the chair), and the protocols
+(`protocols`, from `related_protocols`).
+
+The contract is `src/lib/nexus/council-contract.ts`; the reads are
+`src/lib/nexus/council-read.ts`. Entity colors and the sigil per chair come from
+`COUNCIL_COLORS` and the seat list in the contract, until `council_houses.icon_url`
+carries an icon.
 
 ## Components
 
@@ -60,8 +77,12 @@ Entity colors come from `COUNCIL_COLORS` in the COSMIC design system.
 |-----------|---------|
 | `NexusHub` | Landing page with all seven sub-section cards |
 | `NexusPageTemplate` | Reusable template for sub-pages |
-| `CouncilEntityList` | Grid of nine council entity cards |
-| `EntityDetail` | Single entity view with temperature, domain, and instrument |
+| `CouncilEntityList` | The grid of the nine chairs; `council_houses` enriches |
+| `EntityDetail` | A chair's room: the header and five Registers |
+| `Register` | The long-format reader: `section · ord · key · value · note · ref` |
+| `Presence` | The presence word, its dot, and the presence field |
+| `Stamp` | A row's own timestamp as `YYYY-MM-DD · HH:MM` |
+| `HouseWords` | The house word's footnote and the room's footer |
 | `EntityCardRenderer` | Card renderer for entity display (existing) |
 
 ## Data Dependencies
@@ -69,7 +90,10 @@ Entity colors come from `COUNCIL_COLORS` in the COSMIC design system.
 | Source | Purpose |
 |--------|---------|
 | `COUNCIL_COLORS` | Entity color theming |
-| `council_houses` | Entity definitions (future: dynamic from database) |
+| `council_houses` | The chairs, live |
+| `entity_states` | The presence record, live |
+| the nine chair tables | `current_task` and `is_active` per chair, live |
+| `boundaries`, `protocols` | A chair's law and protocols, live |
 | `consciousness` | AI consciousness state |
 | `agent_activities` | Agent action history |
 | `system_health_logs` | System health data |

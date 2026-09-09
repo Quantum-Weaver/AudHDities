@@ -238,3 +238,139 @@ filed. The navigation's new street map (bifrost, same sitting) walks
 here as "The Gateway — open repos."
 
 — Fable 🎻 (lane reimagining, the finishing hand)
+
+
+## FROM: aethelred-realm · 2026-09-09 — the Council reads live
+
+The first wire in this realm is run, and it is the Council, not the
+Health. `/nexus/council` and `/nexus/council/[id]` read superposition
+through the visitor's own session, server-side, on the Supabase client
+`src/lib/supabase/server.ts` — the one the artifacts proxy uses — so RLS
+decides per visitor and the app holds no key. Gaia's generated layer
+gives the row types; its client hooks and `/api/generated` routes are
+not on this road, because a hook fetches after paint and the generated
+route turns a PostgREST error into a 500, which costs the page its
+refusal sentence.
+
+**What now reads live:** `council_houses` · `entity_states` · the nine
+chair tables (`aethelred_house archivist chancellor codex curator
+executioner hearth_keeper seer skald`) · `agent_activities`
+`agent_conversations` `agent_messages` · `boundaries` · `protocols`.
+
+**The roster is the nine chair tables:**
+every chair always stands, in the order Hearth-Keeper · Chancellor ·
+Seer · Aethelred · Curator · Archivist · Skald · Codex · Executioner,
+reordered only by a matching catalog row's `display_order`.
+`council_houses` ENRICHES a chair — description, responsibilities,
+order; a chair no catalog row names keeps its own name, sigil and colour
+and its domain line reads `no catalog row yet`. The grid is never empty
+and no chair is ever filtered out. The chair's room renders for any of
+the nine slugs, each panel carrying its own honest empty.
+
+**The contract, written once** —
+`src/lib/nexus/council-contract.ts`: `COUNCIL_SEATS` (the roster, each
+seat with its table, sigil and `COUNCIL_COLORS` colour), `CouncilChair`
+(the seat, the catalog row that enriches it, the chair's own row, the
+presence), `CouncilPresence`, and `matchesEntity` lifted from
+`cosmic/theater/Theater.tsx:98`, with `matchesNames` over name, slug,
+table and `deity_alignment`. The Theater and themis import it when their
+season comes; the dialect recorded here on 2026-07-31 is now one file.
+
+**The reader** — `src/components/asgard/domains/aethelred/nexus/Register.tsx`,
+the long format `section · ord · key · value · note · ref`, tolerating
+`mark · seat · at · closed`, with a count tile counted from the rows and
+a source line per section. Proved against two differently-shaped row
+sets, and the contract proved beside it:
+`.journals/proofs/aethelred-the-register/` — 23 of 23 and 25 of 25.
+
+**Edge 5 closes.** `EntityDetail`'s 400 ms timer is gone, and with it
+`COUNCIL_ENTITIES`, `ENTITY_TEMPERATURES`, `ENTITY_DOMAINS`,
+`ENTITY_INSTRUMENTS` and `ENTITY_ICONS`. Presence is a read of the
+newest `entity_states` row: `present` within the hour, `resting` when
+older, `not present` when there is none, the row's own `occurred_at`
+beside the word, or `no row yet`. No percentage, no temperature, no
+progress bar on either page.
+
+**The refusal, so a room never dresses a policy as an empty:** every
+read returns `{ table, rows, fault }`, and a fault prints in a Register
+section in three parts — `the base refused this read` ·
+`<table> · <the base's message>` · `next · a read policy on <table> for
+this visitor`; on a card it prints as one line,
+`the base refused this read · <table>`, and the card still stands. A
+refused section never prints its empty. A table that answers zero rows
+without an error is indistinguishable from a table with no read policy
+from the app's side; that case prints the honest empty with the source
+line naming the table.
+
+Edges 1 and 5 are closed; 2, 3 and 4 stand as filed. Call is not built
+and its button is absent, not disabled. The Health, the Bridge, the
+Pulse, the Gateway and Integrations are untouched, as is `/nexus`.
+`EntityCardRenderer.tsx` still holds `Progress` and a temperature; it is
+reached only by `SmartCard`, which nothing calls, and by neither council
+page.
+
+— Fable 🎻 (lane aethelred-realm)
+
+
+## FROM: aethelred-gateway · 2026-09-09 — the Gateway reads the register
+
+The Gateway is wired, and the static catalog retires. `/nexus/api` reads
+the `beacons` register in the KNOWLEDGE base through its anon door —
+`createApiSupabase('knowledge')`, `src/lib/api/supabase.ts:20`, no cookie
+store, no session, knowledge's own RLS deciding what an anon read gets —
+and groups every row by privacy state: **Open** (`is_public` true with a
+`repo_url`), **Private** (`is_public` false with a `repo_url`), and **no
+repo** (`repo_url` null), each count counted from its rows, each empty
+group carrying its own sentence. `THE_SET`'s eleven hand-quoted repos and
+the two hand-quoted faces are gone; nothing on the page is typed.
+
+The door is named by `NEXT_PUBLIC_SUPABASE_URL_KNOWLEDGE` and
+`NEXT_PUBLIC_SUPABASE_ANON_KEY_KNOWLEDGE`. Unset, the page prints
+`register unread · the knowledge door is not named on this host` and
+invents nothing. Refused, it prints the refusal in three parts with the
+base's own message. Your native law holds: no constant wears a heartbeat.
+
+For an Open repo the page reads GitHub's public API server-side with no
+credential of any kind — `Accept` and `User-Agent` only, under
+`next: { revalidate: 3600 }` — and shows GitHub's own `description`
+beside the register's `definition` when the two differ, plus `pushed_at`
+as a stamp, `stargazers_count`, `language`, `open_issues_count` and
+`archived`. A 403, a 429, a thrown fetch or a shapeless body prints one
+line, `GitHub did not answer · <status>`, and the card stands on the
+register's own columns. GitHub is never called for a Private repo or for
+a beacon with no repo, and the proof counts the calls.
+
+A Private card carries no link and one action, **Request to collaborate**,
+a server action on `src/lib/supabase/server.ts` that lands one row in
+`contact_submissions` under the visitor's own session:
+`category` `collaboration` (a free-text column, no enum behind it),
+`status` `draft` (a legal `content_status`), `subject`
+`collaborate · <slug>`, `created_by` the visitor's id, and the visitor's
+note in `message`. `applications` was refused the work: its
+`application_type` enum is `artisan | merchant | curator | council` and
+admits no collaboration value. Success prints `request landed · <stamp>`
+from the row's own `created_at`; a refusal prints what happened, why, and
+the next step. **The insert policy on `contact_submissions` for
+`authenticated` is unverified from here — no SQL was run.**
+
+The two single-README front doors, the beacons `quantum-weaver` and
+`aethelred-cello`, are pinned as their own section below every group,
+`The two faces`. They never land in a group and
+never count in a group's tally; each card reads its own register row and
+GitHub's public users API (`name · bio · public_repos · followers`),
+degrading the same way.
+
+Tier is the README's: signed-in visitors, redirected to the login with a
+return address. `HouseWordsFooter` closes the page and `withHouseWords`
+carries `KP`'s footnote to `/about`. The contract is
+`src/lib/nexus/gateway-contract.ts`; the reads are `gateway-read.ts` and
+`gateway-github.ts`; the one write is `gateway-request.ts`. Proof:
+`.journals/proofs/aethelred-the-gateway/` — 33 of 33 against fixtures,
+no network, no base.
+
+Edge 1 stays closed and now stands on rows. Edges 2, 3 and 4 stand as
+filed. The Health, the Bridge, the Pulse and Integrations are untouched,
+as is `/nexus`. What waits on KP's hands: the two knowledge variable
+names on Vercel, and the insert policy.
+
+— Marram 🎻 (lane aethelred-gateway)

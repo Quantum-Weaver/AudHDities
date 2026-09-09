@@ -1,0 +1,154 @@
+{
+  "ran": "2026-09-09T15:25:46.924Z",
+  "contract": "src/lib/nexus/council-contract.ts",
+  "total": 29,
+  "passed": 29,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "the roster holds nine chairs",
+      "result": "9 chairs",
+      "passed": true
+    },
+    {
+      "check": "the roster stands in the named order",
+      "result": "Hearth-Keeper · Chancellor · Seer · Aethelred · Curator · Archivist · Skald · Codex · Executioner",
+      "passed": true
+    },
+    {
+      "check": "every chair carries a sigil and a colour",
+      "result": "🔥#C44B2D ⚖️#00CEC9 👁️#6C5CE7 🌉#2E0B1C 🎨#E84393 📚#636E72 🎭#FD79A8 📖#00B894 ⚔️#E17055",
+      "passed": true
+    },
+    {
+      "check": "a chair with no catalog row keeps its own name",
+      "result": "Codex",
+      "passed": true
+    },
+    {
+      "check": "a chair with no catalog row reads the honest line",
+      "result": "no catalog row yet",
+      "passed": true
+    },
+    {
+      "check": "a chair with no chair row holds none",
+      "result": "row · null",
+      "passed": true
+    },
+    {
+      "check": "a chair with no presence row reads 'not present'",
+      "result": "not present",
+      "passed": true
+    },
+    {
+      "check": "a chair with no presence row has no stamp",
+      "result": "at · null",
+      "passed": true
+    },
+    {
+      "check": "the catalog row is found for a chair",
+      "result": "h-seer",
+      "passed": true
+    },
+    {
+      "check": "the catalog row supplies the domain words",
+      "result": "patterns, prophecy, vision",
+      "passed": true
+    },
+    {
+      "check": "a catalog row no chair claims is left unclaimed",
+      "result": "Gatekeeper claimed by no chair",
+      "passed": true
+    },
+    {
+      "check": "every chair stands in the grid",
+      "result": "9 chairs",
+      "passed": true
+    },
+    {
+      "check": "the grid stands in the roster order against disagreeing display_order",
+      "result": "Hearth-Keeper · Chancellor · Seer · Aethelred · Curator · Archivist · Skald · Codex · Executioner",
+      "passed": true
+    },
+    {
+      "check": "chairOrder returns the roster index whatever display_order says",
+      "result": "display_order 1 · 9 · 2 · 12 · order 0…8",
+      "passed": true
+    },
+    {
+      "check": "a row within the hour reads 'present'",
+      "result": "present",
+      "passed": true
+    },
+    {
+      "check": "the presence carries the row's own occurred_at",
+      "result": "2026-09-09T08:45:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "an older row reads 'resting'",
+      "result": "resting",
+      "passed": true
+    },
+    {
+      "check": "the matcher is case-blind and punctuation-blind",
+      "result": "'Hearth Keeper' matched hearth-keeper",
+      "passed": true
+    },
+    {
+      "check": "a refused chair table holds no row",
+      "result": "permission denied for table skald",
+      "passed": true
+    },
+    {
+      "check": "a refused entity_states carries its message",
+      "result": "permission denied for table entity_states",
+      "passed": true
+    },
+    {
+      "check": "a refused chair still stands",
+      "result": "Skald",
+      "passed": true
+    },
+    {
+      "check": "the chair row supplies current_task",
+      "result": "reading the drift between shape and intent",
+      "passed": true
+    },
+    {
+      "check": "a chair row that names no chair is not the chair’s row",
+      "result": "no match · null",
+      "passed": true
+    },
+    {
+      "check": "a dark chair colour lifts the tile fill",
+      "result": "#2E0B1C66 · #636E7233",
+      "passed": true
+    },
+    {
+      "check": "a light chair colour keeps the base fill",
+      "result": "#00CEC920",
+      "passed": true
+    },
+    {
+      "check": "a slug names its chair",
+      "result": "hearth-keeper",
+      "passed": true
+    },
+    {
+      "check": "a table name names its chair",
+      "result": "hearth_keeper",
+      "passed": true
+    },
+    {
+      "check": "a chair name names its chair",
+      "result": "Aethelred",
+      "passed": true
+    },
+    {
+      "check": "a name outside the roster names none",
+      "result": "gatekeeper · null",
+      "passed": true
+    }
+  ]
+}
