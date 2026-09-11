@@ -1,9 +1,18 @@
 // src/lib/apps/apps-contract.ts
 // The company page's shapes: the register's columns, the four store channels,
-// the standing line, the platforms line, and the register fault.
+// the standing line, the platforms line, the testing links, and the register fault.
 
 import type { Database } from '@/lib/generated/supabase/knowledge/database.types';
-import { REGISTER_TABLE } from '@/lib/nexus/gateway-contract';
+import {
+  NO_STANDING,
+  REGISTER_TABLE,
+  statusWords,
+  STORE_TYPES,
+  TESTING_PUBLIC_COLUMN,
+  TRACK_COLUMNS,
+  trimmedText,
+  type TrackRow,
+} from '@/lib/nexus/gateway-contract';
 
 export type BeaconRow = Database['public']['Tables']['beacons']['Row'];
 
@@ -20,23 +29,15 @@ export type PublishedApp = Pick<
   | 'version'
   | 'icon_emoji'
   | 'available_on'
-  | 'audhdities_status'
-  | 'galaxy_status'
-  | 'microsoft_status'
-  | 'play_status'
-  | 'audhdities_listing_url'
-  | 'galaxy_listing_url'
-  | 'microsoft_listing_url'
-  | 'play_listing_url'
   | 'audhdities_price_cents'
   | 'galaxy_price_cents'
   | 'microsoft_price_cents'
   | 'play_price_cents'
   | 'currency'
->;
+> &
+  TrackRow;
 
-/** The select list for the published-apps read. */
-export const APP_COLUMNS = [
+const APP_BASE_COLUMNS = [
   'name',
   'slug',
   'beacon_type',
@@ -47,26 +48,22 @@ export const APP_COLUMNS = [
   'version',
   'icon_emoji',
   'available_on',
-  'audhdities_status',
-  'galaxy_status',
-  'microsoft_status',
-  'play_status',
-  'audhdities_listing_url',
-  'galaxy_listing_url',
-  'microsoft_listing_url',
-  'play_listing_url',
   'audhdities_price_cents',
   'galaxy_price_cents',
   'microsoft_price_cents',
   'play_price_cents',
   'currency',
-].join(', ');
+  ...TRACK_COLUMNS,
+];
+
+/** The select list for the published-apps read. */
+export const APP_COLUMNS = [...APP_BASE_COLUMNS, TESTING_PUBLIC_COLUMN].join(', ');
+
+/** The select list for a register that holds no testing_public column. */
+export const APP_COLUMNS_UNFLAGGED = APP_BASE_COLUMNS.join(', ');
 
 /** The two beacon types the company publishes. */
-export const APP_TYPES = ['app', 'game'] as const satisfies readonly BeaconRow['beacon_type'][];
-
-/** The standing value a channel carries when the app is not on it. */
-export const NO_STANDING = 'none';
+export const APP_TYPES = STORE_TYPES;
 
 /** Every standing a channel column may carry. */
 export const STANDINGS = [
@@ -123,11 +120,6 @@ export const NOT_IN_ANY_STORE = 'not yet in any store';
 export const PLATFORMS_LABEL = 'available on';
 export const PART_SEPARATOR = ' · ';
 
-/** A standing with its underscores opened into spaces. */
-export function standingWords(value: string): string {
-  return value.replace(/_/g, ' ');
-}
-
 /** The price a channel prints: free at zero, the amount when set, nothing when null. */
 export function priceWords(cents: number | null, currency: string): string | null {
   if (cents === null) return null;
@@ -144,10 +136,6 @@ export interface AppStanding {
   price: string | null;
 }
 
-function text(value: unknown): string {
-  return typeof value === 'string' ? value.trim() : '';
-}
-
 function cents(value: unknown): number | null {
   return typeof value === 'number' ? value : null;
 }
@@ -156,8 +144,8 @@ function cents(value: unknown): number | null {
 export function standingEntries(app: PublishedApp): AppStanding[] {
   return APP_CHANNELS.map((channel) => ({
     label: channel.label,
-    standing: text(app[channel.status]),
-    listing: text(app[channel.listing]) || null,
+    standing: trimmedText(app[channel.status]),
+    listing: trimmedText(app[channel.listing]) || null,
     price: priceWords(cents(app[channel.price]), app.currency),
   })).filter(
     (entry) => entry.standing.length > 0 && entry.standing.toLowerCase() !== NO_STANDING
@@ -166,7 +154,7 @@ export function standingEntries(app: PublishedApp): AppStanding[] {
 
 /** One channel's words: the channel, its standing, and its price when set. */
 export function standingText(entry: AppStanding): string {
-  const words = `${entry.label} ${standingWords(entry.standing)}`;
+  const words = `${entry.label} ${statusWords(entry.standing)}`;
   return entry.price ? `${words} ${entry.price}` : words;
 }
 

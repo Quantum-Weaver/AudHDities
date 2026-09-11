@@ -1,10 +1,11 @@
 // src/components/asgard/domains/hephaestus/apps/AppCard.tsx
-// One app or game of the register: its glyph, its definition, its badges, its standing.
+// One app or game of the register: its glyph, its definition, its badges, its
+// standing, and its testing links where the register opens them.
 
 import { ExternalLink, Package } from 'lucide-react';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
-import { NO_DEFINITION } from '@/lib/nexus/gateway-contract';
+import { NO_DEFINITION, TEST_IT, testItLinks } from '@/lib/nexus/gateway-contract';
 import {
   PART_SEPARATOR,
   platformsLine,
@@ -62,6 +63,29 @@ function Standing({ app }: { app: PublishedApp }) {
   );
 }
 
+/** One link per store whose testing track this row opens to the public. */
+function TestIt({ app }: { app: PublishedApp }) {
+  const links = testItLinks(app);
+  if (links.length === 0) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-star-dust/45">
+      <span className="text-star-dust/60">{TEST_IT}</span>
+      {links.map((link) => (
+        <a
+          key={link.label}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-neurospark hover:text-star-dust"
+        >
+          {link.label}
+          <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export function AppCard({ app }: { app: PublishedApp }) {
   const definition = app.definition?.trim() ?? '';
   const platforms = platformsLine(app);
@@ -105,6 +129,8 @@ export function AppCard({ app }: { app: PublishedApp }) {
       </div>
 
       <Standing app={app} />
+
+      <TestIt app={app} />
 
       {linked && app.repo_url ? (
         <div className="mt-auto border-t border-white/[0.06] pt-3">

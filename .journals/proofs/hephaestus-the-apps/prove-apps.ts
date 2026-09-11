@@ -12,7 +12,6 @@ import {
   FAULT_NEXT,
   FREE,
   NOT_IN_ANY_STORE,
-  NO_STANDING,
   PART_SEPARATOR,
   PLATFORMS_LABEL,
   platformsLine,
@@ -20,15 +19,16 @@ import {
   standingEntries,
   standingLine,
   standingText,
-  standingWords,
   STANDINGS,
   type AppsView,
   type PublishedApp,
 } from '../../../src/lib/apps/apps-contract';
 import {
   DOOR_UNNAMED,
+  NO_STANDING,
   REGISTER_REFUSED,
   REGISTER_TABLE,
+  statusWords,
 } from '../../../src/lib/nexus/gateway-contract';
 
 interface Check {
@@ -68,6 +68,19 @@ function app(over: Partial<PublishedApp>): PublishedApp {
     galaxy_price_cents: null,
     microsoft_price_cents: null,
     play_price_cents: null,
+    audhdities_testing_url: null,
+    galaxy_testing_url: null,
+    microsoft_testing_url: null,
+    play_testing_url: null,
+    audhdities_testing_version: null,
+    galaxy_testing_version: null,
+    microsoft_testing_version: null,
+    play_testing_version: null,
+    audhdities_published_version: null,
+    galaxy_published_version: null,
+    microsoft_published_version: null,
+    play_published_version: null,
+    testing_public: false,
     currency: 'USD',
     ...over,
   };
@@ -136,9 +149,9 @@ record(
 record(
   'standing',
   'a standing prints with spaces, never underscores',
-  standingWords('internal_testing') === 'internal testing' &&
-    STANDINGS.every((standing) => !standingWords(standing).includes('_')),
-  STANDINGS.map(standingWords).join(PART_SEPARATOR)
+  statusWords('internal_testing') === 'internal testing' &&
+    STANDINGS.every((standing) => !statusWords(standing).includes('_')),
+  STANDINGS.map(statusWords).join(PART_SEPARATOR)
 );
 record(
   'standing',
@@ -287,7 +300,7 @@ const columns = APP_COLUMNS.split(', ');
 record(
   'columns',
   'the select names every column the page prints',
-  columns.length === 23 && new Set(columns).size === 23,
+  columns.length === 36 && new Set(columns).size === 36,
   `${columns.length} columns`
 );
 record(

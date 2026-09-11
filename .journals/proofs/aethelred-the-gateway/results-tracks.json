@@ -1,0 +1,246 @@
+{
+  "passed": 40,
+  "total": 40,
+  "checks": [
+    {
+      "set": "cells",
+      "check": "one cell per store, in strip order",
+      "result": "Play · Galaxy · Microsoft · AudHDities",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "a status prints in plain words",
+      "result": "closed testing",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "an empty column reads none, never blank",
+      "result": "Galaxy none · Microsoft none",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "a column holding only spaces reads none",
+      "result": "none",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "the testing version is carried where the register holds one",
+      "result": "Play 1.4.1 · AudHDities null",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "the published version is carried where the register holds one",
+      "result": "AudHDities 1.4.0 · Play null",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "the testing link is carried where the register holds one",
+      "result": "Play https://play.google.com/apps/testing/com.audhdities.echoes · Galaxy null",
+      "pass": true
+    },
+    {
+      "set": "cells",
+      "check": "a store that stands is marked, a none store is not",
+      "result": "Play true · AudHDities true · Galaxy false",
+      "pass": true
+    },
+    {
+      "set": "strip",
+      "check": "an app prints a strip",
+      "result": "app",
+      "pass": true
+    },
+    {
+      "set": "strip",
+      "check": "a beacon of another type in no store prints none",
+      "result": "tool · no store",
+      "pass": true
+    },
+    {
+      "set": "strip",
+      "check": "a beacon of another type standing in one store prints none",
+      "result": "tool · microsoft in_review",
+      "pass": true
+    },
+    {
+      "set": "flag",
+      "check": "a link reaches a public face only when the flag is true",
+      "result": "testing_public false · 0 links",
+      "pass": true
+    },
+    {
+      "set": "flag",
+      "check": "the flag alone shows nothing when no link stands",
+      "result": "testing_public true · 0 links",
+      "pass": true
+    },
+    {
+      "set": "flag",
+      "check": "a flagged row names the store of every link it holds",
+      "result": "Play · https://play.google.com/apps/testing/com.audhdities.echoes",
+      "pass": true
+    },
+    {
+      "set": "flag",
+      "check": "two links keep strip order",
+      "result": "Play · Galaxy",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "the Gateway selects every track column and the flag",
+      "result": "20 track columns · testing_public",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "the apps page selects the same track columns and the flag",
+      "result": "20 track columns · testing_public",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "no column is named twice in either select",
+      "result": "31 · 36",
+      "pass": true
+    },
+    {
+      "set": "columns",
+      "check": "the unflagged selects name every track column and no flag",
+      "result": "30 · 35",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "a register holding the flag is read once, the flag as it stands",
+      "result": "1 read · testing_public true",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "a register holding no flag column is read again without it",
+      "result": "2 reads · the second unflagged",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "every row of that read carries the flag false, and its tracks stand",
+      "result": "1 row · testing_public false · play testing 1.4.1",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "that read says what is missing in one sentence",
+      "result": "beacons.testing_public is not in the register · every row reads false · next · resonance-grammar/docs/sql/150-the-testing-public.sql through the seed chain",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "the sentence names the column and the click that earns it",
+      "result": "beacons.testing_public is not in the register · every row reads false · next · resonance-grammar/docs/sql/150-the-testing-public.sql through the seed chain",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "a refused second read carries the base message alone, never two sentences",
+      "result": "permission denied for table beacons · no second sentence",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "any other refusal is carried whole and read no second time",
+      "result": "1 read · permission denied for table beacons",
+      "pass": true
+    },
+    {
+      "set": "read",
+      "check": "an empty answer is no row, no fault and no sentence",
+      "result": "0 rows · no fault",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "the strip names all four stores",
+      "result": "Play · Galaxy · Microsoft · AudHDities",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "the status prints in plain words, never with an underscore",
+      "result": "closed testing",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "an empty store prints none",
+      "result": "2 none cells of 2",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "the testing version and the published version print with their words",
+      "result": "testing 1.4.1 · published 1.4.0",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "the testing link is a link",
+      "result": "testing link",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "the strip stands whatever the flag says",
+      "result": "testing_public false · the link stands on the Gateway",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "a beacon of another type in no store prints no strip",
+      "result": "resonance-bridge · no strip",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "a beacon of another type standing in one store prints no strip",
+      "result": "resonance-grammar · no strip",
+      "pass": true
+    },
+    {
+      "set": "gateway",
+      "check": "the sentence for a register with no flag column prints once",
+      "result": "beacons.testing_public is not in the register · every row reads false · next · resonance-grammar/docs/sql/150-the-testing-public.sql through the seed chain",
+      "pass": true
+    },
+    {
+      "set": "apps",
+      "check": "a flagged row with a link prints the line, the store and the link",
+      "result": "Test it · Play · the link",
+      "pass": true
+    },
+    {
+      "set": "apps",
+      "check": "an unflagged row with a link prints nothing, not even a heading",
+      "result": "testing_public false · nothing",
+      "pass": true
+    },
+    {
+      "set": "apps",
+      "check": "a flagged row with no link prints nothing, not even a heading",
+      "result": "nothing",
+      "pass": true
+    },
+    {
+      "set": "apps",
+      "check": "nothing counted rides the line",
+      "result": "the store named, nothing counted",
+      "pass": true
+    }
+  ]
+}

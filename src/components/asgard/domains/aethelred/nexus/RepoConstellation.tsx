@@ -11,10 +11,15 @@ import {
   FACES_HEADING,
   NO_DEFINITION,
   NO_FACE_ROW,
+  PUBLISHED_WORD,
   REGISTER_REFUSED,
   REGISTER_TABLE,
   REGISTER_UNREAD,
-  STORE_STANDINGS,
+  showsTracks,
+  TESTING_LINK_WORD,
+  TESTING_WORD,
+  trackCells,
+  type GatewayBeacon,
   type GatewayCard,
   type GatewayFace,
   type GatewayGroupView,
@@ -65,6 +70,45 @@ function Tile({ emoji, open }: { emoji: string | null; open: boolean }) {
   );
 }
 
+/** The four stores' tracks: the status word, the versions, the testing link. */
+function Tracks({ beacon }: { beacon: GatewayBeacon }) {
+  if (!showsTracks(beacon)) return null;
+  return (
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      {trackCells(beacon).map((cell) => (
+        <div
+          key={cell.label}
+          className="flex flex-col gap-0.5 rounded-lg bg-white/[0.02] p-2 text-[11px] text-star-dust/40"
+        >
+          <span className="text-star-dust/60">{cell.label}</span>
+          <span>{cell.status}</span>
+          {cell.testingVersion ? (
+            <span>
+              {TESTING_WORD} {cell.testingVersion}
+            </span>
+          ) : null}
+          {cell.publishedVersion ? (
+            <span>
+              {PUBLISHED_WORD} {cell.publishedVersion}
+            </span>
+          ) : null}
+          {cell.testingUrl ? (
+            <a
+              href={cell.testingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-neurospark hover:text-star-dust"
+            >
+              {TESTING_LINK_WORD}
+              <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
+            </a>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function BeaconCard({ card, signedIn }: { card: GatewayCard; signedIn: boolean }) {
   const { beacon, github } = card;
   const open = beacon.is_public;
@@ -73,10 +117,6 @@ function BeaconCard({ card, signedIn }: { card: GatewayCard; signedIn: boolean }
   const definition = beacon.definition?.trim() ?? '';
   const fromGitHub = facts?.description?.trim() ?? '';
   const differs = fromGitHub.length > 0 && fromGitHub !== definition;
-  const standings = STORE_STANDINGS.map((standing) => ({
-    label: standing.label,
-    value: String(beacon[standing.key] ?? '').trim(),
-  })).filter((standing) => standing.value.length > 0 && standing.value.toLowerCase() !== 'none');
 
   return (
     <Card
@@ -146,11 +186,7 @@ function BeaconCard({ card, signedIn }: { card: GatewayCard; signedIn: boolean }
           available on · {beacon.available_on.join(' · ')}
         </span>
       ) : null}
-      {standings.length > 0 ? (
-        <span className="text-[11px] text-star-dust/35">
-          {standings.map((standing) => `${standing.label} ${standing.value}`).join(' · ')}
-        </span>
-      ) : null}
+      <Tracks beacon={beacon} />
 
       <div className="mt-auto border-t border-white/[0.06] pt-3">
         {linked && beacon.repo_url ? (
@@ -329,6 +365,7 @@ export function RepoConstellation({ view }: RepoConstellationProps) {
           </span>
           <SourceLine source="live · beacons · the knowledge register" />
           <SourceLine source="github · public api, no token" />
+          {view.tracksNote ? <span>{view.tracksNote}</span> : null}
         </div>
       ) : null}
 

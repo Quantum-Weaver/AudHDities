@@ -49,9 +49,9 @@ standings are `none`, whose `available_on` is empty and whose prices are null:
 | fault | a refused read carries what happened, why, and the next step | the register refused this read · beacons · permission denied for table beacons · next · a read policy on beacons for the anon door |
 | fault | a refused read shows no app | 0 rows |
 | fault | an unnamed door carries its own sentence and no fault | register unread · the knowledge door is not named on this host |
-| columns | the select names every column the page prints | 23 columns |
+| columns | the select names every column the page prints | 36 columns |
 | columns | the four standings, the four listings and the four prices are selected | audhdities · galaxy · microsoft · play |
-| columns | story and home are not selected | name, slug, beacon_type, status, definition, repo_url, is_public, version, icon_emoji, available_on, audhdities_status, galaxy_status, microsoft_status, play_status, audhdities_listing_url, galaxy_listing_url, microsoft_listing_url, play_listing_url, audhdities_price_cents, galaxy_price_cents, microsoft_price_cents, play_price_cents, currency |
+| columns | story and home are not selected | name, slug, beacon_type, status, definition, repo_url, is_public, version, icon_emoji, available_on, audhdities_price_cents, galaxy_price_cents, microsoft_price_cents, play_price_cents, currency, play_status, play_testing_version, play_published_version, play_testing_url, play_listing_url, galaxy_status, galaxy_testing_version, galaxy_published_version, galaxy_testing_url, galaxy_listing_url, microsoft_status, microsoft_testing_version, microsoft_published_version, microsoft_testing_url, microsoft_listing_url, audhdities_status, audhdities_testing_version, audhdities_published_version, audhdities_testing_url, audhdities_listing_url, testing_public |
 | types | only apps and games are read | app · game |
 
 **28 of 28.**

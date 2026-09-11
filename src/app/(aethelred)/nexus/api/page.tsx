@@ -63,6 +63,7 @@ export default async function GatewayPage() {
     groups,
     faces,
     fault: register.fault,
+    tracksNote: register.tracksNote,
     doorNamed: register.doorNamed,
     signedIn: true,
   };

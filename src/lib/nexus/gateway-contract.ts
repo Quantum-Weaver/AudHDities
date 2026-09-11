@@ -1,10 +1,154 @@
 // src/lib/nexus/gateway-contract.ts
-// The Gateway's shapes: the register's columns, the grouping, the GitHub read,
-// and the collaboration request.
+// The Gateway's shapes: the register's columns, the four stores' testing tracks,
+// the grouping, the GitHub read, and the collaboration request.
 
 import type { Database } from '@/lib/generated/supabase/knowledge/database.types';
 
 export type BeaconRow = Database['public']['Tables']['beacons']['Row'];
+
+/** The two beacon types a store carries. */
+export const STORE_TYPES = ['app', 'game'] as const satisfies readonly BeaconRow['beacon_type'][];
+
+/** The word a channel column carries when nothing stands on it. */
+export const NO_STANDING = 'none';
+
+/** The register column carrying a beacon's leave to show its testing links. */
+export const TESTING_PUBLIC_COLUMN = 'testing_public';
+
+/** A value as trimmed text, empty when it is not text. */
+export function trimmedText(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+/** A status with its underscores opened into spaces. */
+export function statusWords(value: string): string {
+  return value.replace(/_/g, ' ');
+}
+
+/** The four channels' track columns, and the flag a public face reads first. */
+export type TrackRow = Pick<
+  BeaconRow,
+  | 'play_status'
+  | 'play_testing_version'
+  | 'play_published_version'
+  | 'play_testing_url'
+  | 'play_listing_url'
+  | 'galaxy_status'
+  | 'galaxy_testing_version'
+  | 'galaxy_published_version'
+  | 'galaxy_testing_url'
+  | 'galaxy_listing_url'
+  | 'microsoft_status'
+  | 'microsoft_testing_version'
+  | 'microsoft_published_version'
+  | 'microsoft_testing_url'
+  | 'microsoft_listing_url'
+  | 'audhdities_status'
+  | 'audhdities_testing_version'
+  | 'audhdities_published_version'
+  | 'audhdities_testing_url'
+  | 'audhdities_listing_url'
+> & { testing_public: boolean };
+
+interface TrackChannel {
+  label: string;
+  status: keyof TrackRow;
+  testingVersion: keyof TrackRow;
+  publishedVersion: keyof TrackRow;
+  testingUrl: keyof TrackRow;
+  listingUrl: keyof TrackRow;
+}
+
+/** The four stores, in the order a strip prints them. */
+export const TESTING_TRACKS = [
+  {
+    label: 'Play',
+    status: 'play_status',
+    testingVersion: 'play_testing_version',
+    publishedVersion: 'play_published_version',
+    testingUrl: 'play_testing_url',
+    listingUrl: 'play_listing_url',
+  },
+  {
+    label: 'Galaxy',
+    status: 'galaxy_status',
+    testingVersion: 'galaxy_testing_version',
+    publishedVersion: 'galaxy_published_version',
+    testingUrl: 'galaxy_testing_url',
+    listingUrl: 'galaxy_listing_url',
+  },
+  {
+    label: 'Microsoft',
+    status: 'microsoft_status',
+    testingVersion: 'microsoft_testing_version',
+    publishedVersion: 'microsoft_published_version',
+    testingUrl: 'microsoft_testing_url',
+    listingUrl: 'microsoft_listing_url',
+  },
+  {
+    label: 'AudHDities',
+    status: 'audhdities_status',
+    testingVersion: 'audhdities_testing_version',
+    publishedVersion: 'audhdities_published_version',
+    testingUrl: 'audhdities_testing_url',
+    listingUrl: 'audhdities_listing_url',
+  },
+] as const satisfies readonly TrackChannel[];
+
+/** Every channel's track columns, for a select list. */
+export const TRACK_COLUMNS: readonly string[] = TESTING_TRACKS.flatMap((channel) => [
+  channel.status,
+  channel.testingVersion,
+  channel.publishedVersion,
+  channel.testingUrl,
+  channel.listingUrl,
+]);
+
+export const TESTING_WORD = 'testing';
+export const PUBLISHED_WORD = 'published';
+export const TESTING_LINK_WORD = 'testing link';
+export const TEST_IT = 'Test it';
+
+/** One store's cell in a tracks strip. */
+export interface TrackCell {
+  label: string;
+  /** The register's status word in plain words, none when the column is empty. */
+  status: string;
+  testingVersion: string | null;
+  publishedVersion: string | null;
+  testingUrl: string | null;
+  /** True when this store's status is anything but none. */
+  stands: boolean;
+}
+
+/** One named link to a store's testing track. */
+export interface TestItLink {
+  label: string;
+  url: string;
+}
+
+/** One cell per store, in strip order, an empty column reading none. */
+export function trackCells(row: TrackRow): TrackCell[] {
+  return TESTING_TRACKS.map((channel) => {
+    const status = trimmedText(row[channel.status]);
+    return {
+      label: channel.label,
+      status: status ? statusWords(status) : NO_STANDING,
+      testingVersion: trimmedText(row[channel.testingVersion]) || null,
+      publishedVersion: trimmedText(row[channel.publishedVersion]) || null,
+      testingUrl: trimmedText(row[channel.testingUrl]) || null,
+      stands: status.length > 0 && status.toLowerCase() !== NO_STANDING,
+    };
+  });
+}
+
+/** One link per store whose testing link stands, none at all until the flag is true. */
+export function testItLinks(row: TrackRow): TestItLink[] {
+  if (!row.testing_public) return [];
+  return trackCells(row).flatMap((cell) =>
+    cell.testingUrl ? [{ label: cell.label, url: cell.testingUrl }] : []
+  );
+}
 
 /** The register columns the Gateway shows. */
 export type GatewayBeacon = Pick<
@@ -19,14 +163,10 @@ export type GatewayBeacon = Pick<
   | 'version'
   | 'icon_emoji'
   | 'available_on'
-  | 'audhdities_status'
-  | 'galaxy_status'
-  | 'microsoft_status'
-  | 'play_status'
->;
+> &
+  TrackRow;
 
-/** The select list for the beacons read. */
-export const BEACON_COLUMNS = [
+const GATEWAY_COLUMNS = [
   'name',
   'slug',
   'beacon_type',
@@ -37,19 +177,20 @@ export const BEACON_COLUMNS = [
   'version',
   'icon_emoji',
   'available_on',
-  'audhdities_status',
-  'galaxy_status',
-  'microsoft_status',
-  'play_status',
-].join(', ');
+  ...TRACK_COLUMNS,
+];
 
-/** The four store standings a beacon carries. */
-export const STORE_STANDINGS = [
-  { key: 'audhdities_status', label: 'audhdities' },
-  { key: 'galaxy_status', label: 'galaxy' },
-  { key: 'microsoft_status', label: 'microsoft' },
-  { key: 'play_status', label: 'play' },
-] as const satisfies readonly { key: keyof GatewayBeacon; label: string }[];
+/** The select list for the beacons read. */
+export const BEACON_COLUMNS = [...GATEWAY_COLUMNS, TESTING_PUBLIC_COLUMN].join(', ');
+
+/** The select list for a register that holds no testing_public column. */
+export const BEACON_COLUMNS_UNFLAGGED = GATEWAY_COLUMNS.join(', ');
+
+/** True when a card prints a tracks strip: a beacon of a store type. */
+export function showsTracks(beacon: GatewayBeacon): boolean {
+  const types: readonly string[] = STORE_TYPES;
+  return types.includes(beacon.beacon_type);
+}
 
 export type GatewayGroupKey = 'open' | 'private' | 'no-repo';
 
@@ -190,6 +331,8 @@ export interface GatewayView {
   faces: GatewayFace[];
   /** The base's own message when the register read was refused. */
   fault: string | null;
+  /** The sentence for a register holding no testing_public column, else null. */
+  tracksNote: string | null;
   doorNamed: boolean;
   signedIn: boolean;
 }
@@ -200,6 +343,10 @@ export const REGISTER_TABLE = 'beacons';
 export const REGISTER_UNREAD = 'register unread';
 export const DOOR_UNNAMED = `${REGISTER_UNREAD} · the knowledge door is not named on this host`;
 export const REGISTER_REFUSED = 'the register refused this read';
+/** The paper that adds the flag column, and the chain that runs it. */
+export const TESTING_FLAG_CLICK =
+  'resonance-grammar/docs/sql/150-the-testing-public.sql through the seed chain';
+export const TESTING_FLAG_UNREAD = `${REGISTER_TABLE}.${TESTING_PUBLIC_COLUMN} is not in the register · every row reads false · next · ${TESTING_FLAG_CLICK}`;
 export const NO_DEFINITION = 'no definition recorded';
 export const NO_VERSION = 'no version recorded';
 export const SIGN_IN_TO_REQUEST = 'sign in to request';
