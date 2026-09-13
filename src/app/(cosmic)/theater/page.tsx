@@ -1,16 +1,16 @@
 // src/app/(cosmic)/theater/page.tsx
 import { Page } from '@/components/bifrost/Page';
-import { Theater } from '@/components/asgard/domains/cosmic/theater/Theater';
+import { MovingStage } from './MovingStage';
 
 export const metadata = {
   title: 'The Theater | Sovereign Sanctuary',
-  description: 'Witness the dance of consciousness',
+  description: 'The moving stylesheets, each effect on a sample',
 };
 
 export default function TheaterPage() {
   return (
     <Page showForeground={false} showContinuityBeam={true}>
-      <Theater />
+      <MovingStage />
     </Page>
   );
 }

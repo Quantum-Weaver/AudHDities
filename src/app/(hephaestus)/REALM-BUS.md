@@ -26,54 +26,49 @@ and never quieter than a change that already happened.
 
 ## The realm's standing state (kept current by the realm lane)
 
-- **Branch:** `refine/rewiring-2026-07` (repo-wide; KP merges main).
-- **What this realm is:** the transparency room — 21 static pages:
-  the `/forge` documentation hub (architecture · business · guides),
-  the legal covenants (`/privacy`, `/terms`), `/about`, and the
-  eight-section `/sanctuary` showpiece. ~67 components under
+- **Branch:** `main`.
+- **What this realm is:** the transparency room — 21 page files: the `/forge`
+  documentation hub (architecture · business · guides), the legal covenants
+  (`/privacy`, `/terms`, `/apps/privacy`), `/about`, `/accessibility`,
+  `/calling`, `/contact`, `/press`, `/transparency`, `/vision`, `/apps`, and
+  the `/sanctuary` showpiece. 68 `.tsx` files under
   `src/components/asgard/domains/hephaestus/`.
-- **The one live wire:** the contact form posts to the generated
-  `iris-communications/contact_submissions` API. Verified 2026-07-28:
-  the table survived the 151→117 pruning (active in the review,
-  present in current types). Everything else is static.
+- **The live wires — three:**
+  1. `/contact` — `ContactForm.tsx:119` POSTs to `/api/contact`, a
+     hand-written route that inserts `contact_submissions`
+     (`api/contact/route.ts:94`).
+  2. `/transparency` — a server component reading `ledger`, `admin_actions`
+     and completed `exchanges` directly through `createServerSupabase`
+     (`transparency/page.tsx:49-67`).
+  3. `/privacy`, `/terms` and `/apps/privacy` — each reads its markdown from
+     `docs/` with `fs.readFile` at prerender.
+
+  Every other page is static.
+- **One orphan:** `forge/MarkdownViewer.tsx:19` fetches `/api/forge/<file>`.
+  No `src/app/api/forge/` route stands, and no file imports the component.
 - **Open edges:**
-  1. ~~The map-truth sitting~~ — **RESOLVED 2026-07-30 at KP's ⚛
-     ruling ("i agree with the move"):** the seven pages moved back
-     to the realm root (`git mv`, histories kept) · README trued
-     whole (map, tables, `/sanctuary` row, migration note repaired) ·
-     `/docs → /forge` redirects installed in `next.config.ts` ·
-     in-app `/docs` links fixed (SanctuaryHero, SanctuaryPathways) ·
-     `page_mapping.ts` untouched and now correct · tsc 0. One
-     sliver remains: the **`'/docs'` key at page_mapping.ts:482**,
-     now shadowed by the config redirect (the reimaginer's artifact,
-     flagged below). The **`/vision` two-tellings question is
-     SETTLED** (KP's ⚛ "merge if logical," judged 2026-07-30: not
-     logical — manifesto and personal horizon share only a word; no
-     merge, no redirect, both stand; the name-crossing flagged on
-     mnemosyne's bus).
-  2. **The Calling** (`/careers`) — the realm's only ⏳ page, never
-     tackled; its components (BenefitsList · CultureDeck ·
-     TeamStories) already stand on the shelf. Held design intent
-     (reimaginer, 2026-07-29): an invitation, not a job board.
-  3. **Content-truth pass, post-refinement:** the schema and
-     residual-system pages describe a base that evolved 2026-07-28
-     (117 tables, self-knowing layer); what the Forge *says* must be
-     re-read against what is now true, before launch. Rides the
-     launch gates' outdated-documents pass — TENDER, KP's hand paces.
-- **Cross-realm seams:** `/forge/architecture/database-schema`
-  redirects (by design, in-page) into mnemosyne's Observatory —
-  `/vision` does NOT (ruled 2026-07-30; see the bus record below) ·
-  the contact form's table is iris's (`contact_submissions`) · the
+  1. **The two tellings of `/vision`** — the page stands at the root and
+     renders its own content; `/observatory/prophecy` renders
+     `ProphecyVision`. No redirect joins them. KP's.
+  2. **`/enter`** — `page_mapping.ts:673` keys it and no page stands behind
+     it.
+  3. **Content-truth pass, the standing half:** the Terms' non-economics
+     clauses name mechanisms the house does not have (an age gate, admin
+     review, focus modes, suspension, account deletion, a legal person, a
+     logo). A legal document is KP's.
+- **What is settled:** `/careers` is `/calling`; `page_mapping.ts:668` keys
+  `/calling` and carries no `/docs` key. `/donate` is gone.
+- **Cross-realm seams:** `/forge/architecture/database-schema` is a
+  `redirect('/observatory/schema')` and nothing else
+  (`database-schema/page.tsx:6`) — `/vision` does not redirect · the contact
+  form's table is iris's (`contact_submissions`) · `/transparency` reads
+  plutus's `ledger` and `exchanges` and themis's `admin_actions` · the
   residual-system and ecosystem pages document hermes's economy ·
-  `/sanctuary` tells the Acid Test story whose enforcement lives in
-  the schema · **the doors INTO the Forge (KP's ⚛ design, confirmed
-  2026-07-30):** the realm map's direct door (hestia's
-  RealmMapFurniture — "The Forge · Foundations") and, when its
-  season comes, the Library's Archive (athena's room, waiting on the
-  Grammar) as the scholarly passage — a reader in the Library walks
-  through the Archive to the house's own documents. The Forge
-  touches every realm by describing it; the native law above is this
-  seam's discipline.
+  `/sanctuary` tells the Acid Test story whose enforcement lives in the
+  schema · **the doors INTO the Forge:** the realm map's direct door
+  (hestia's RealmMapFurniture — "The Forge · Foundations") and, when its
+  season comes, the Library's Archive. The Forge touches every realm by
+  describing it; the native law above is this seam's discipline.
 
 ---
 

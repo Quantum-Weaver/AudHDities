@@ -86,16 +86,15 @@ export async function checkOwnership(
   ownerField: string = 'created_by'
 ): Promise<boolean> {
   const supabase = await createServerSupabase();
-  
-  const pkColumn = `${tableName}_id`;
-  
+
   const { data: record } = await supabase
     .from(tableName as any)
     .select(ownerField)
-    .eq(pkColumn, recordId)  // ← FIXED
+    .eq('id', recordId)
     .single();
-  
-  return (record as any)?.[ownerField] === userId;
+
+  const owner = (record as any)?.[ownerField];
+  return typeof owner === 'string' && owner === userId;
 }
 
 /**

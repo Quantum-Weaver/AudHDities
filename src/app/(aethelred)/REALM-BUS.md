@@ -16,21 +16,23 @@ reaches here.
 
 **Plus one native law:** *the Nexus never dresses a constant as a
 heartbeat.* This realm's whole purpose is making the invisible
-visible — so what its pages display must be either live from the base
-or plainly presented as a promise. Simulated loading over hardcoded
-data (EntityDetail's current 400ms timer) is inherited scaffolding,
-tolerated until wiring — never a pattern to extend. Radical
+visible — so what its pages display must be either live from the base,
+poured from a register, or plainly presented as a promise. Simulated
+loading over hardcoded data is never a pattern to extend. Radical
 transparency applies to the UI itself.
 
 ## The realm's standing state (kept current by the realm lane)
 
-- **The seat:** nine pages, all shipped, all beautiful, all static —
-  no code in this realm reads the base yet. Routes:
+- **The seat:** nine pages, all shipped, all reading. Routes:
   `/nexus` (hub) · consciousness · council + council/[id] · bridge ·
-  integrations · api · webhooks · status. Components at
-  `src/components/asgard/domains/aethelred/nexus/` (NexusHub ·
-  NexusPageTemplate · CouncilEntityList · EntityDetail ·
-  EntityCardRenderer).
+  integrations · api · webhooks · status. Seven read live tables through
+  the visitor's own session; bridge and integrations read poured registers
+  through the artifacts proxy; the hub names what each door reads.
+  Components at `src/components/asgard/domains/aethelred/nexus/`
+  (NexusHub · NexusRoom · NexusTile · CouncilEntityList · EntityDetail ·
+  Register · PouredMark · Presence · Stamp · HouseWords ·
+  RepoConstellation · RequestToCollaborate · NexusPageTemplate, worn by no
+  room now · EntityCardRenderer, called by no page in this group).
 - **Reading order:** this realm's `README.md` → this bus → the repo
   ledgers (`docs/CHECKLIST.md` · `BUILD-STATE.md` · `FEATURE-BOARD.md`
   · `SCHEMA-FINALIZE.md`).
@@ -44,30 +46,22 @@ transparency applies to the UI itself.
   'presence' to exist in the sanctuary eventually able to enhabit
   actions as any of the council seats." The future's chairs.
 - **Open edges:**
-  1. `/nexus/api/page.tsx` wears the wrong face — verbatim copy of
-     webhooks ("The Pulse"); hub + README promise "The Gateway."
-     One bounded fix when tidying or wiring reaches here.
-  2. The realm README's data-dependency table aged 2026-07-28: all
-     five `*_connection` tables it names were dropped by KP's ⚛ hand
-     (typegen-diff verified), and `system_health_logs` never existed
-     in the tree. Integrations' data layer needs a rethink before
-     that page can ever go live.
+  1. Closed. `/nexus/api` is the Gateway and reads the `beacons`
+     register through the KNOWLEDGE base's anon door.
+  2. Closed. The README's data-dependency table names only tables and
+     poured registers that exist. Integrations reads the poured Organs
+     register's own key names; the five `*_connection` tables and
+     `system_health_logs` are named nowhere in this group.
   3. SCHEMA-FINALIZE row 6 (aethelred-connections) is unwalked —
      but five of its nineteen rows were answered by the drops; the
      sitting starts five verdicts ahead.
-  4. **First-wire candidate:** The Health (`/nexus/status`) ←
-     the self-knowing layer (gaia_sync portrait, installed
-     2026-07-28 by KP's hand). The base can draw its own portrait;
-     this is the realm's natural first live wire, at KP's ⚛ word,
-     after the wiring season opens. Design register filed by the
-     reimaginer (below): breathing, not a dashboard with red —
-     a glance answers "is the house well" and returns the vessel
-     to their day.
-  5. **The interim cure (accepted, awaiting KP's ⚛ eye):** retire
-     EntityDetail's 400ms pretend-loading into honestly-waiting —
-     the seat's room says its presence is not yet wired, plainly,
-     with dignity. One bounded sitting, this lane's hands; it
-     changes a shipped page's face, so his word opens it.
+  4. Closed. The Health (`/nexus/status`) reads the self-knowing layer:
+     `gaia_config` as the portrait, the eight registries counted by the
+     base, and the rows carrying no verification as what stands apart.
+     One tile, no red, one sentence where a table drifts.
+  5. Closed. `EntityDetail` carries no timer and no constant; the
+     presence is the newest `entity_states` row for that chair, with
+     the row's own `occurred_at` beside the word.
 - **Cross-realm seams:** `council_houses` (entity definitions) lives
   in **themis-governance** — Council pages will cross that seam when
   wired; convene with themis-realm then · **three rooms, one

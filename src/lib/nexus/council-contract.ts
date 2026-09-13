@@ -8,6 +8,8 @@ import type { CouncilHousesRow } from '@/lib/generated/types/themis-governance/c
 import type { EntityStatesRow } from '@/lib/generated/types/aethelred-connections/entity_states';
 import type { SeerRow } from '@/lib/generated/types/aethelred-connections/seer';
 
+export { REFUSED } from '@/lib/nexus/read';
+
 /** Every Council seat table carries this row shape. */
 export type CouncilSeatRow = SeerRow;
 
@@ -206,7 +208,8 @@ export const NO_BOUNDARY_ROW = 'no boundary names this chair';
 export const NO_PROTOCOL_ROW = 'no protocol row names this chair';
 export const NO_PRESENCE_ROW = 'no presence row yet';
 export const NO_TASK = 'no task recorded';
-export const REFUSED = 'the base refused this read';
+export const NO_SLEEPER =
+  'Call · no sleeper runs on any machine yet, so no button stands here; a wake would land one row in agent_messages';
 
 /** The chair's domain words, from the catalog row only. */
 export function domainWords(house: CouncilHousesRow | null): string {

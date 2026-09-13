@@ -10,12 +10,12 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Play, Clock, User } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface Recording {
-  id: string; title: string; description: string | null;
-  event_type: string; genre: string | null; recorded_at: string | null;
-  performer_id: string;
-}
+type Recording = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'event_type' | 'genre' | 'recorded_at' | 'performer_id'
+>;
 
 export function RecordingDetail() {
   const params = useParams(); const router = useRouter();
@@ -40,7 +40,7 @@ export function RecordingDetail() {
     <main className="min-h-screen py-12"><div className="container max-w-3xl mx-auto px-6">
       <Link href="/stage/recordings" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6"><ArrowLeft className="h-4 w-4" />Return to the Echo</Link>
       <Card data={cd} variant="sanctuary" radius="xl" shadow="md" className="p-8">
-        <div className="flex items-center gap-2 mb-4"><Badge variant="outline" size="sm" className="text-[10px] capitalize">{recording.event_type}</Badge>{recording.genre && <Badge variant="outline" size="sm" className="text-[10px]">{recording.genre}</Badge>}</div>
+        <div className="flex items-center gap-2 mb-4">{recording.event_type && <Badge variant="outline" size="sm" className="text-[10px] capitalize">{recording.event_type}</Badge>}{recording.genre && <Badge variant="outline" size="sm" className="text-[10px]">{recording.genre}</Badge>}</div>
         <h1 className="text-2xl font-bold text-star-dust mb-4">{recording.title}</h1>
         {recording.description && <p className="text-star-dust/70 leading-relaxed mb-6">{recording.description}</p>}
         <div className="flex items-center gap-4 text-sm text-star-dust/40 mb-6">

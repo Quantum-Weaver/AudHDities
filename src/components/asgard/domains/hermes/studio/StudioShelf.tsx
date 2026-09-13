@@ -10,6 +10,9 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { isRung } from '@/components/asgard/domains/hermes/wares/RungLadder';
+import { formatMinorUnits } from '@/lib/economics/split';
+import { recurrenceOf, intervalPhrase } from '@/lib/economics/recurrence';
 import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
 type WareRow = Tables<'wares'>;
@@ -24,7 +27,25 @@ type ShelfRow = {
   /** a participated-in row is shown, clearly marked, with no Edit door */
   ownedByMe: boolean;
   editHref: string | null;
+  /** a ware that repeats, read through the ladder's own test */
+  rung: boolean;
+  /** the price as the shelf says it, or null when there is nothing to say */
+  priceLine: string | null;
 };
+
+/** What a card says about the money on a ware or a work. */
+function priceLineOf(row: {
+  pricing_model: string;
+  price: number | null;
+  billing_interval?: string | null;
+}): string | null {
+  if (row.pricing_model === 'free') return 'Gifted';
+  if (row.pricing_model === 'patronage_only') return 'Through patronage';
+  if (row.price === null || row.price <= 0) return 'Not for sale';
+  const amount = formatMinorUnits(Math.round(row.price * 100));
+  const recurrence = recurrenceOf({ billing_interval: row.billing_interval ?? null });
+  return recurrence ? `${amount} ${intervalPhrase(recurrence.interval)}` : amount;
+}
 
 const STATUS_WORDS: Record<string, string> = {
   draft: 'Draft',
@@ -52,8 +73,8 @@ export function StudioShelf() {
     if (!user) return;
     let alive = true;
 
-    // Scoped by ownership and by NOTHING ELSE — no status parameter is passed.
-    const own = `created_by=${encodeURIComponent(user.id)}&order=created_at.desc`;
+    // Scoped by ownership; no status parameter is passed.
+    const own = `created_by=${encodeURIComponent(user.id)}&sort=created_at&order=desc`;
 
     Promise.all([
       fetch(`/api/generated/plutus-economics/wares?${own}`).then((r) => r.json()).catch(() => null),
@@ -81,6 +102,8 @@ export function StudioShelf() {
             createdAt: w.created_at,
             ownedByMe: w.created_by === user.id,
             editHref: w.created_by === user.id ? `/bazaar/studio/${w.id}` : null,
+            rung: isRung(w),
+            priceLine: priceLineOf(w),
           })),
           ...works.map((w) => ({
             id: w.id,
@@ -90,6 +113,8 @@ export function StudioShelf() {
             createdAt: w.created_at,
             ownedByMe: w.created_by === user.id,
             editHref: null,
+            rung: false,
+            priceLine: priceLineOf(w),
           })),
         ].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 
@@ -108,6 +133,9 @@ export function StudioShelf() {
   const worksWithoutAWare = useMemo(() => {
     return new Set(rows.filter((r) => r.kind === 'work').map((r) => r.id));
   }, [rows]);
+
+  const rungs = useMemo(() => shown.filter((r) => r.rung), [shown]);
+  const rest = useMemo(() => shown.filter((r) => !r.rung), [shown]);
 
   if (authLoading || (user && loading)) {
     return (
@@ -230,48 +258,79 @@ export function StudioShelf() {
           </div>
         )}
 
-        {!walled && shown.length > 0 && (
-          <ul className="space-y-3" role="list">
-            {shown.map((row) => (
-              <li
-                key={`${row.kind}-${row.id}`}
-                className="flex flex-wrap items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4"
-              >
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <Badge variant="outline" size="sm" className="text-[10px] capitalize">{row.kind}</Badge>
-                    <Badge variant="outline" size="sm" className="text-[10px]">
-                      {STATUS_WORDS[row.status] || row.status}
-                    </Badge>
-                    {!row.ownedByMe && (
-                      <Badge variant="outline" size="sm" className="text-[10px]">You stood on this</Badge>
-                    )}
-                  </div>
-                  <p className="text-star-dust">{row.name}</p>
-                  {row.kind === 'work' && worksWithoutAWare.has(row.id) && (
-                    <p className="text-xs text-star-dust/40 mt-1">
-                      No ware on the stall from this one — and it does not need one.
-                    </p>
-                  )}
-                </div>
-                <div className="flex items-center gap-4">
-                  <Link
-                    href={row.kind === 'ware' ? `/bazaar/wares/${row.id}` : `/bazaar/works/${row.id}`}
-                    className="text-sm text-star-dust/60 hover:text-star-dust"
-                  >
-                    Open
-                  </Link>
-                  {row.editHref && (
-                    <Link href={row.editHref} className="text-sm text-neurospark hover:underline">
-                      Edit
-                    </Link>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
+        {!walled && rungs.length > 0 && (
+          <section className="mb-10" aria-labelledby="shelf-rungs-heading">
+            <h2 id="shelf-rungs-heading" className="text-lg font-semibold text-star-dust mb-1">
+              Your ladder
+            </h2>
+            <p className="text-sm text-star-dust/40 mb-4 max-w-2xl">
+              The wares of yours that repeat. A rung needs a Stripe Price id behind it before anyone
+              can stand on it.
+            </p>
+            <ul className="space-y-3" role="list">
+              {rungs.map((row) => (
+                <ShelfItem key={`${row.kind}-${row.id}`} row={row} worksWithoutAWare={worksWithoutAWare} />
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {!walled && rest.length > 0 && (
+          <section aria-labelledby="shelf-rest-heading">
+            {rungs.length > 0 && (
+              <h2 id="shelf-rest-heading" className="text-lg font-semibold text-star-dust mb-4">
+                Everything else
+              </h2>
+            )}
+            <ul className="space-y-3" role="list">
+              {rest.map((row) => (
+                <ShelfItem key={`${row.kind}-${row.id}`} row={row} worksWithoutAWare={worksWithoutAWare} />
+              ))}
+            </ul>
+          </section>
         )}
       </div>
     </main>
+  );
+}
+
+function ShelfItem({ row, worksWithoutAWare }: { row: ShelfRow; worksWithoutAWare: Set<string> }) {
+  return (
+    <li className="flex flex-wrap items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4">
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-2 mb-1">
+          <Badge variant="outline" size="sm" className="text-[10px] capitalize">{row.kind}</Badge>
+          <Badge variant="outline" size="sm" className="text-[10px]">
+            {STATUS_WORDS[row.status] || row.status}
+          </Badge>
+          {row.rung && <Badge variant="outline" size="sm" className="text-[10px]">Rung</Badge>}
+          {!row.ownedByMe && (
+            <Badge variant="outline" size="sm" className="text-[10px]">You stood on this</Badge>
+          )}
+        </div>
+        <p className="text-star-dust">{row.name}</p>
+        {row.priceLine && (
+          <p className="text-xs text-star-dust/50 mt-1">{row.priceLine}</p>
+        )}
+        {row.kind === 'work' && worksWithoutAWare.has(row.id) && (
+          <p className="text-xs text-star-dust/40 mt-1">
+            No ware on the stall from this one — and it does not need one.
+          </p>
+        )}
+      </div>
+      <div className="flex items-center gap-4">
+        <Link
+          href={row.kind === 'ware' ? `/bazaar/wares/${row.id}` : `/bazaar/works/${row.id}`}
+          className="text-sm text-star-dust/60 hover:text-star-dust"
+        >
+          Open
+        </Link>
+        {row.editHref && (
+          <Link href={row.editHref} className="text-sm text-neurospark hover:underline">
+            Edit
+          </Link>
+        )}
+      </div>
+    </li>
   );
 }

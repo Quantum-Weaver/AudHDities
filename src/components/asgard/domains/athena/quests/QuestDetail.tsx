@@ -13,6 +13,7 @@ import { ArrowLeft, Check, Compass } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useQuestsList } from '@/lib/generated/hooks/athena-gamification/quests';
 import { actOnWalk, readObjectives, readWalks, WALK_WORDS, type QuestWalk, type WalkAction } from '@/lib/quests/walk';
+import { claimSigils, type AwardedSigil } from '@/lib/sigils/earned';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const DIFFICULTY_COLORS: Record<string, string> = {
@@ -55,6 +56,7 @@ export function QuestDetail() {
   const [walled, setWalled] = useState<{ key: string } | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
+  const [earned, setEarned] = useState<AwardedSigil[]>([]);
   const [attempt, setAttempt] = useState(0);
 
   const readKey = user && questId ? `${user.id}:${questId}:${attempt}` : null;
@@ -85,8 +87,12 @@ export function QuestDetail() {
     setBusy(objectiveKey ?? action);
     setNote(null);
     const result = await actOnWalk(questId, action, objectiveKey);
-    if (result.ok) setRead({ key: readKey, walk: result.walk });
-    else setNote('That step did not land. It is safe to try again.');
+    if (result.ok) {
+      setRead({ key: readKey, walk: result.walk });
+      if (result.walk?.status === 'completed') setEarned(await claimSigils());
+    } else {
+      setNote('That step did not land. It is safe to try again.');
+    }
     setBusy(null);
   }, [questId, readKey]);
 
@@ -199,6 +205,12 @@ export function QuestDetail() {
 
           {walking && walk?.status === 'completed' && (
             <p className="mt-4 text-sm text-star-dust/70">Walked. It stays walked whether or not you return to it.</p>
+          )}
+          {earned.length > 0 && (
+            <p role="status" className="mt-2 text-sm text-star-dust/70">
+              {earned.length === 1 ? 'A mark landed on ' : `${earned.length} marks landed on `}
+              <Link href="/library/sigils" className={cn('rounded underline underline-offset-2 hover:text-neurospark', FOCUS)}>the Honors</Link>.
+            </p>
           )}
           {note && <p role="status" className="mt-4 text-sm text-star-dust/70">{note}</p>}
           {user && walkState === 'unread' && (

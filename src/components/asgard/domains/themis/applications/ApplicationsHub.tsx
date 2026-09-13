@@ -1,7 +1,7 @@
 // src/components/asgard/domains/themis/applications/ApplicationsHub.tsx
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
@@ -10,59 +10,78 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { useUser } from '@/hooks/useUser';
 import { ArrowLeft, UserCheck, FileText, Shield, CheckCircle, XCircle, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  APPLICATION_TYPE_LABELS,
+  isOpen,
+  statusColor,
+  statusLabel,
+} from '@/components/asgard/domains/themis/status';
+import { reviewApplication, type ReviewDecision } from '@/components/asgard/domains/themis/applications/review';
+import type { ApplicationsRow } from '@/lib/generated/types/themis-governance/applications';
 import type { CardData } from '@/types/components/runes/card.types';
 
-interface Application {
-  applications_id: string;
-  user_id: string;
-  application_type: string;
-  status: string;
-  form_data: any;
-  created_at: string;
-  review_notes: string | null;
-}
-
-const APPLICATION_TYPE_LABELS: Record<string, string> = {
-  artisan: 'Artisan',
-  merchant: 'Merchant',
-  curator: 'Curator',
-};
-
-const STATUS_COLORS: Record<string, string> = {
-  pending: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  verified: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  rejected: 'bg-red-500/20 text-red-400 border-red-500/30',
-  suspended: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
-};
-
 export function ApplicationsHub() {
-  const { profile, roles } = useUser();
-  const [applications, setApplications] = useState<Application[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { user, roles, isLoading } = useUser();
+  const [applications, setApplications] = useState<ApplicationsRow[]>([]);
+  const [reading, setReading] = useState(true);
+  const [fault, setFault] = useState<string | null>(null);
+  const [deciding, setDeciding] = useState<string | null>(null);
+
+  const isReviewer = roles.includes('admin');
 
   useEffect(() => {
-    fetch('/api/generated/themis-governance/applications?order=created_at.desc&limit=30')
-      .then((r) => r.json())
-      .then((result) => {
-        if (result.success) setApplications(result.data?.data || result.data || []);
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
+    if (isLoading) return;
+    let alive = true;
 
-  const isReviewer = roles.includes('admin') || roles.includes('council');
+    const read = async () => {
+      if (!isReviewer && !user) {
+        if (alive) setReading(false);
+        return;
+      }
+      const params = new URLSearchParams({ sort: 'created_at', order: 'desc', limit: '30' });
+      if (!isReviewer && user) params.set('user_id', user.id);
+      try {
+        const response = await fetch(`/api/generated/themis-governance/applications?${params.toString()}`);
+        const result = await response.json();
+        if (!alive) return;
+        if (result.success) setApplications(result.data?.data ?? []);
+        else setFault(result.error || 'The applications did not answer.');
+      } catch {
+        if (alive) setFault('The applications did not answer.');
+      } finally {
+        if (alive) setReading(false);
+      }
+    };
 
-  const formatDate = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  };
+    void read();
+    return () => { alive = false; };
+  }, [isLoading, isReviewer, user]);
 
-  if (loading) {
+  const decide = useCallback(async (application: ApplicationsRow, decision: ReviewDecision) => {
+    if (!user) return;
+    setDeciding(application.id);
+    setFault(null);
+    const result = await reviewApplication(application, decision, '', user.id);
+    const settled = result.status;
+    if (settled) {
+      setApplications((prev) =>
+        prev.map((row) => (row.id === application.id ? { ...row, status: settled } : row))
+      );
+    }
+    if (result.error) setFault(result.error);
+    setDeciding(null);
+  }, [user]);
+
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+  if (isLoading || reading) {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-5xl mx-auto px-6">
           <Skeleton variant="text" className="h-8 w-48 mb-8" />
           <div className="space-y-3">
-            {[1,2,3,4].map((i) => (<Skeleton key={i} variant="card" className="h-28" />))}
+            {[1, 2, 3, 4].map((i) => (<Skeleton key={i} variant="card" className="h-28" />))}
           </div>
         </div>
       </main>
@@ -83,18 +102,30 @@ export function ApplicationsHub() {
           </p>
         </div>
 
+        {fault && (
+          <div className="mb-6 p-4 bg-fire-base/10 border border-fire-base/30 rounded-lg">
+            <p className="text-fire-base text-sm">{fault}</p>
+          </div>
+        )}
+
         {!isReviewer && (
           <div className="mb-8 flex gap-4">
-            <Link href="/council/applications/apply?type=artisan">
+            <Link href="/council/applications/artisan">
               <Button variant="primary" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Artisan</Button>
             </Link>
-            <Link href="/council/applications/apply?type=merchant">
+            <Link href="/council/applications/merchant">
               <Button variant="outline" size="sm"><FileText className="h-4 w-4 mr-2" />Apply as Merchant</Button>
             </Link>
           </div>
         )}
 
-        {applications.length === 0 ? (
+        {!isReviewer && !user ? (
+          <div className="text-center py-20">
+            <UserCheck className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
+            <p className="text-star-dust/40 text-lg mb-2">Sign in to see your applications</p>
+            <Link href="/login" className="text-neurospark hover:underline text-sm">Sign in</Link>
+          </div>
+        ) : applications.length === 0 ? (
           <div className="text-center py-20">
             <UserCheck className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg">No applications yet</p>
@@ -105,29 +136,46 @@ export function ApplicationsHub() {
         ) : (
           <div className="space-y-3">
             {applications.map((app) => {
-              const cardData: CardData = { id: app.applications_id, type: 'value', title: app.application_type, value: app.status };
-              const appType = APPLICATION_TYPE_LABELS[app.application_type] || app.application_type?.replace(/_/g, ' ') || 'Unknown';
+              const cardData: CardData = { id: app.id, type: 'value', title: app.application_type, value: app.status };
+              const appType = APPLICATION_TYPE_LABELS[app.application_type] ?? app.application_type;
+              const open = isOpen(app.status);
               return (
-                <Card key={app.applications_id} data={cardData} variant="glass" radius="md" shadow="sm" className="p-4">
+                <Card key={app.id} data={cardData} variant="glass" radius="md" shadow="sm" className="p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', STATUS_COLORS[app.status] || '')}>
-                        {app.status}
+                      <Badge variant="outline" size="sm" className={cn('text-[10px]', statusColor(app.status))}>
+                        {statusLabel(app.status)}
                       </Badge>
                       <div>
-                        <p className="text-sm text-star-dust font-medium capitalize">{appType} Application</p>
+                        <Link href={`/council/applications/${app.id}`} className="text-sm text-star-dust font-medium hover:text-neurospark transition-colors">
+                          {appType} Application
+                        </Link>
                         <p className="text-xs text-star-dust/40">Submitted {formatDate(app.created_at)}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      {app.status === 'pending' && isReviewer && (
+                      {open && isReviewer && (
                         <>
-                          <Button variant="primary" size="sm"><CheckCircle className="h-3 w-3 mr-1" />Approve</Button>
-                          <Button variant="ghost" size="sm"><XCircle className="h-3 w-3 mr-1" />Reject</Button>
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            loading={deciding === app.id}
+                            onClick={() => decide(app, 'approve')}
+                          >
+                            <CheckCircle className="h-3 w-3 mr-1" />Approve
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            loading={deciding === app.id}
+                            onClick={() => decide(app, 'reject')}
+                          >
+                            <XCircle className="h-3 w-3 mr-1" />Reject
+                          </Button>
                         </>
                       )}
-                      {app.status === 'pending' && !isReviewer && (
-                        <span className="flex items-center gap-1 text-xs text-amber-400"><Clock size={12} />Under Review</span>
+                      {open && !isReviewer && (
+                        <span className="flex items-center gap-1 text-xs text-hearth-gold"><Clock size={12} />Under review</span>
                       )}
                       {app.review_notes && (
                         <span className="text-xs text-star-dust/40 max-w-[200px] truncate">{app.review_notes}</span>
@@ -142,7 +190,7 @@ export function ApplicationsHub() {
 
         <Card data={{ id: 'applications-covenant', type: 'value', title: 'Application Covenant', value: '' }}
           variant="glass" radius="lg" shadow="sm" className="mt-8 p-6 text-center">
-          <Shield className="h-5 w-5 text-purple-400 mx-auto mb-2" />
+          <Shield className="h-5 w-5 text-mood-creative mx-auto mb-2" />
           <p className="text-xs text-star-dust/40 max-w-lg mx-auto">
             Every application is reviewed with care. The Sanctuary welcomes artisans and merchants who share our values of sovereignty, transparency, and non-exploitation.
           </p>

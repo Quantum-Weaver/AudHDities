@@ -12,15 +12,9 @@ import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Clock, Trash2, Edit3 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { JournalEntriesRow } from '@/lib/generated/types/hestia-core/journal_entries';
 
-interface JournalEntry {
-  journal_entries_id: string;
-  title: string;
-  content: string;
-  mood?: string | null;
-  tags?: string[] | null;
-  created_at: string;
-}
+type JournalEntry = Pick<JournalEntriesRow, 'id' | 'title' | 'body' | 'mood' | 'tags' | 'created_at'>;
 
 const MOOD_COLORS: Record<string, string> = {
   contemplative: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
@@ -65,7 +59,7 @@ export function JournalDetail() {
     if (!entry) return;
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.journal_entries_id}`, {
+      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.id}`, {
         method: 'DELETE',
       });
       const result = await response.json();
@@ -118,9 +112,9 @@ export function JournalDetail() {
   }
 
   const cardData: CardData = {
-    id: entry.journal_entries_id,
+    id: entry.id,
     type: 'value',
-    title: entry.title,
+    title: entry.title ?? 'Untitled',
     value: entry.mood || 'entry',
   };
 
@@ -169,7 +163,7 @@ export function JournalDetail() {
 
             {/* Actions */}
             <div className="flex items-center gap-2">
-              <Link href={`/vessel/journal/${entry.journal_entries_id}/edit`}>
+              <Link href={`/vessel/journal/${entry.id}/edit`}>
                 <Button variant="ghost" size="sm">
                   <Edit3 className="h-4 w-4 mr-2" />Edit
                 </Button>
@@ -187,7 +181,7 @@ export function JournalDetail() {
           {/* Content */}
           <div className="prose prose-invert max-w-none">
             <p className="text-star-dust/80 leading-relaxed whitespace-pre-wrap">
-              {entry.content}
+              {entry.body}
             </p>
           </div>
 

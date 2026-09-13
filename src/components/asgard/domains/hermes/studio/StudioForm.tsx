@@ -18,6 +18,7 @@ import { ArrowLeft, Sparkles, Save, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { TablesInsert } from '@/lib/generated/supabase/database.helpers.js';
+import { SUPPORT_CADENCES, supportEndsAtFromDateInput } from '@/lib/economics/recurrence';
 
 export type LoomKind = 'work' | 'ware';
 
@@ -85,6 +86,32 @@ export function StudioForm({ initialKind }: StudioFormProps) {
 
   const fromWorkId = searchParams.get('from_work');
   const [prefill, setPrefill] = useState<{ name: string; description: string } | null>(null);
+  const [artisanProfileId, setArtisanProfileId] = useState<string | null>(null);
+  const [merchantProfileId, setMerchantProfileId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!user) return;
+    let alive = true;
+
+    const firstId = async (path: string): Promise<string | null> => {
+      const result = await fetch(path).then((r) => r.json()).catch(() => null);
+      if (!result?.success) return null;
+      const rows = result.data?.data || result.data || [];
+      const row = Array.isArray(rows) ? rows[0] : rows;
+      return row?.id ?? null;
+    };
+
+    Promise.all([
+      firstId(`/api/generated/hermes-social/artisan_profiles?created_by=${user.id}&limit=1`),
+      firstId(`/api/generated/hermes-social/merchant_profiles?created_by=${user.id}&limit=1`),
+    ]).then(([artisan, merchant]) => {
+      if (!alive) return;
+      setArtisanProfileId(artisan);
+      setMerchantProfileId(merchant);
+    });
+
+    return () => { alive = false; };
+  }, [user]);
 
   useEffect(() => {
     if (!fromWorkId) return;
@@ -136,6 +163,7 @@ export function StudioForm({ initialKind }: StudioFormProps) {
           description,
           work_type: (data.work_type as TablesInsert<'works'>['work_type']) || 'other',
           streaming_url: data.streaming_url ? String(data.streaming_url) : null,
+          artisan_profile_id: artisanProfileId,
           status: 'draft',
           created_by: user.id,
         };
@@ -145,6 +173,11 @@ export function StudioForm({ initialKind }: StudioFormProps) {
           body: JSON.stringify(body),
         });
       } else {
+        const cadence = String(data.billing_interval ?? 'once');
+        const priceId = data.stripe_price_id ? String(data.stripe_price_id).trim() : '';
+        const supportEndsAt = cadence === 'month_until'
+          ? supportEndsAtFromDateInput(String(data.support_ends_at ?? ''))
+          : null;
         const body: TablesInsert<'wares'> = {
           name,
           slug: slugify(name || 'ware'),
@@ -155,13 +188,18 @@ export function StudioForm({ initialKind }: StudioFormProps) {
           residual_pool_percent: data.residual_pool_percent
             ? parseInt(String(data.residual_pool_percent), 10)
             : 0,
+          billing_interval: cadence === 'once' ? null : 'month',
+          stripe_price_id: priceId.length > 0 ? priceId : null,
+          artisan_profile_id: artisanProfileId,
+          merchant_profile_id: merchantProfileId,
           status: 'draft',
           created_by: user.id,
         };
         response = await fetch('/api/generated/plutus-economics/wares', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
+          // support_ends_at stands on wares in docs/sql/053; it rides only when a date was named.
+          body: JSON.stringify(supportEndsAt ? { ...body, support_ends_at: supportEndsAt } : body),
         });
       }
 
@@ -464,6 +502,40 @@ export function StudioForm({ initialKind }: StudioFormProps) {
                       helper="Leave empty for gifted or patronage-only works. For pay-what-you-want, this is the suggested floor."
                     >
                       <Input name="price" type="number" placeholder="0.00" disabled={isSaving} />
+                    </FormField>
+                  </div>
+
+                  {/* Standing support */}
+                  <div className="border-t border-white/10 pt-6 mt-2 mb-4">
+                    <h3 className="text-lg font-semibold text-star-dust mb-1">Standing support</h3>
+                    <p className="text-sm text-star-dust/40 mb-4">
+                      A ware that repeats is a rung on your ladder. No rung buys anything another
+                      does not — the only difference between them is the amount.
+                    </p>
+
+                    <FormField label="How often" optional>
+                      <Select
+                        name="billing_interval"
+                        options={SUPPORT_CADENCES}
+                        defaultValue="once"
+                        disabled={isSaving}
+                      />
+                    </FormField>
+
+                    <FormField
+                      label="Until"
+                      optional
+                      helper="The day the support is set to stop. Read only when the cadence is each month until a date."
+                    >
+                      <Input name="support_ends_at" type="date" disabled={isSaving} />
+                    </FormField>
+
+                    <FormField
+                      label="Stripe Price id"
+                      optional
+                      helper="The Price made by your own hand in Stripe. A rung that repeats needs one before anyone can stand on it."
+                    >
+                      <Input name="stripe_price_id" placeholder="price_..." disabled={isSaving} />
                     </FormField>
                   </div>
 

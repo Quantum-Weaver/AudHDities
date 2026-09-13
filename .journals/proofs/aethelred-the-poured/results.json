@@ -1,0 +1,216 @@
+{
+  "passed": 42,
+  "total": 42,
+  "checks": [
+    {
+      "name": "the-organs · the page carries a register block",
+      "pass": true,
+      "detail": "lifted"
+    },
+    {
+      "name": "the-switchboard · the page carries a register block",
+      "pass": true,
+      "detail": "lifted"
+    },
+    {
+      "name": "the-hands · the page carries a register block",
+      "pass": true,
+      "detail": "lifted"
+    },
+    {
+      "name": "the-organs · the block parsed",
+      "pass": true,
+      "detail": "no fault"
+    },
+    {
+      "name": "the-organs · the block names itself",
+      "pass": true,
+      "detail": "the-organs"
+    },
+    {
+      "name": "the-organs · the block carries a published stamp",
+      "pass": true,
+      "detail": "2026-09-09T14:45:33-05:00"
+    },
+    {
+      "name": "the-organs · the block carries rows",
+      "pass": true,
+      "detail": "90 rows"
+    },
+    {
+      "name": "the-switchboard · the block parsed",
+      "pass": true,
+      "detail": "no fault"
+    },
+    {
+      "name": "the-switchboard · the block names itself",
+      "pass": true,
+      "detail": "the-switchboard"
+    },
+    {
+      "name": "the-switchboard · the block carries a published stamp",
+      "pass": true,
+      "detail": "2026-09-13T12:28:51-05:00"
+    },
+    {
+      "name": "the-switchboard · the block carries rows",
+      "pass": true,
+      "detail": "52 rows"
+    },
+    {
+      "name": "the-hands · the block parsed",
+      "pass": true,
+      "detail": "no fault"
+    },
+    {
+      "name": "the-hands · the block names itself",
+      "pass": true,
+      "detail": "the-hands"
+    },
+    {
+      "name": "the-hands · the block carries a published stamp",
+      "pass": true,
+      "detail": "2026-09-13T13:05:36-05:00"
+    },
+    {
+      "name": "the-hands · the block carries rows",
+      "pass": true,
+      "detail": "32 rows"
+    },
+    {
+      "name": "a page with no block answers a fault, never an empty",
+      "pass": true,
+      "detail": "no block found"
+    },
+    {
+      "name": "a block that is not JSON answers a fault",
+      "pass": true,
+      "detail": "the block is not JSON · Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+    },
+    {
+      "name": "a block with no rows answers a fault",
+      "pass": true,
+      "detail": "the block carries no rows"
+    },
+    {
+      "name": "the-organs · every poured row became a register row",
+      "pass": true,
+      "detail": "90 of 90"
+    },
+    {
+      "name": "the-organs · every row stands in a section",
+      "pass": true,
+      "detail": "10 sections"
+    },
+    {
+      "name": "the-organs · every row carries a key",
+      "pass": true,
+      "detail": "all keyed"
+    },
+    {
+      "name": "the-organs · every section the rows name has a section card",
+      "pass": true,
+      "detail": "10 sections"
+    },
+    {
+      "name": "the-organs · no ord repeats inside a section",
+      "pass": true,
+      "detail": "ords distinct per section"
+    },
+    {
+      "name": "the-switchboard · every poured row became a register row",
+      "pass": true,
+      "detail": "52 of 52"
+    },
+    {
+      "name": "the-switchboard · every row stands in a section",
+      "pass": true,
+      "detail": "4 sections"
+    },
+    {
+      "name": "the-switchboard · every row carries a key",
+      "pass": true,
+      "detail": "all keyed"
+    },
+    {
+      "name": "the-switchboard · every section the rows name has a section card",
+      "pass": true,
+      "detail": "4 sections"
+    },
+    {
+      "name": "the-switchboard · no ord repeats inside a section",
+      "pass": true,
+      "detail": "ords distinct per section"
+    },
+    {
+      "name": "the-hands · every poured row became a register row",
+      "pass": true,
+      "detail": "32 of 32"
+    },
+    {
+      "name": "the-hands · every row stands in a section",
+      "pass": true,
+      "detail": "2 sections"
+    },
+    {
+      "name": "the-hands · every row carries a key",
+      "pass": true,
+      "detail": "all keyed"
+    },
+    {
+      "name": "the-hands · every section the rows name has a section card",
+      "pass": true,
+      "detail": "2 sections"
+    },
+    {
+      "name": "the-hands · no ord repeats inside a section",
+      "pass": true,
+      "detail": "ords distinct per section"
+    },
+    {
+      "name": "a refused poured read stands as one section with its three parts",
+      "pass": true,
+      "detail": "what, why, next"
+    },
+    {
+      "name": "the lamps show no session id",
+      "pass": true,
+      "detail": "none on the page"
+    },
+    {
+      "name": "every entry that names a key is listed",
+      "pass": true,
+      "detail": "36 of 36"
+    },
+    {
+      "name": "every line in the register gets a section, including those naming no key",
+      "pass": true,
+      "detail": "10 sections"
+    },
+    {
+      "name": "a line naming no key prints its own sentence",
+      "pass": true,
+      "detail": "8 lines name none"
+    },
+    {
+      "name": "the key names are read off the mark",
+      "pass": true,
+      "detail": "names lifted"
+    },
+    {
+      "name": "the standing is read off the head",
+      "pass": true,
+      "detail": "standing lifted"
+    },
+    {
+      "name": "a note with no mark names no key",
+      "pass": true,
+      "detail": "null"
+    },
+    {
+      "name": "no listed value is longer than a name list",
+      "pass": true,
+      "detail": "no assignment on the page"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "passed": 36,
+  "total": 36,
+  "checks": [
+    {
+      "set": "seal",
+      "check": "the envelope carries the family marker",
+      "result": "resonance-export",
+      "pass": true
+    },
+    {
+      "set": "seal",
+      "check": "the envelope carries the version",
+      "result": "1",
+      "pass": true
+    },
+    {
+      "set": "seal",
+      "check": "the envelope names the app",
+      "result": "resonance-bubbles",
+      "pass": true
+    },
+    {
+      "set": "seal",
+      "check": "the counts ride on the outside",
+      "result": "{\"echoes\":3,\"folksonomy\":2,\"bubbles\":2}",
+      "pass": true
+    },
+    {
+      "set": "open",
+      "check": "the right app reads its own envelope",
+      "result": "envelope",
+      "pass": true
+    },
+    {
+      "set": "open",
+      "check": "another app is refused in the family sentence",
+      "result": "This file belongs to resonance-bubbles — resonance-echoes imports only its own envelopes.",
+      "pass": true
+    },
+    {
+      "set": "open",
+      "check": "a file that is not the family envelope is refused",
+      "result": "Not a resonance-bubbles export file.",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "the envelope shows its app before anything lands",
+      "result": "resonance-bubbles",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "the envelope shows its counts before anything lands",
+      "result": "{\"echoes\":3,\"folksonomy\":2,\"bubbles\":2}",
+      "pass": true
+    },
+    {
+      "set": "face",
+      "check": "a bare array shows no face",
+      "result": "null",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "one row per popped bubble",
+      "result": "2 pops",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the pop count rides with the row",
+      "result": "[{\"slug\":\"aurora\",\"pops\":3},{\"slug\":\"nebula\",\"pops\":1}]",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "a bubble popped no times is not a row",
+      "result": "dormant dropped",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "a nameless slug is not a row",
+      "result": "blank dropped",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "one row per found collection",
+      "result": "the-sky · the-deep",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the echoes in the file become journal rows",
+      "result": "2 journal rows",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "a journal row carries the app as a tag",
+      "result": "resonance-bubbles · Heard · Chime · 🔔",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "a journal row carries the echo date",
+      "result": "2026-09-11",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the collected date is the envelope stamp",
+      "result": "2026-09-13T19:06:06.153Z",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the rows it would land are counted",
+      "result": "2 vessel_bubbles · 2 vessel_collections · 2 journal_entries",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the folksonomy is told, not landed",
+      "result": "folksonomy 2 · echo intensity 2 · unreadable echoes 1 · the date a collection was found 2 · the sky counters 4",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the found date is told, not landed",
+      "result": "folksonomy · echo intensity · unreadable echoes · the date a collection was found · the sky counters",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the unreadable echo is told, not landed",
+      "result": "unreadable echoes 1",
+      "pass": true
+    },
+    {
+      "set": "bubbles",
+      "check": "the sky counters are told, not landed",
+      "result": "the sky counters 4",
+      "pass": true
+    },
+    {
+      "set": "echoes",
+      "check": "an echo with a name and a stamp lands",
+      "result": "1 journal rows",
+      "pass": true
+    },
+    {
+      "set": "echoes",
+      "check": "an echo without a stamp does not land",
+      "result": "unreadable echoes 1",
+      "pass": true
+    },
+    {
+      "set": "echoes",
+      "check": "the folksonomy is told, not landed",
+      "result": "folksonomy 1",
+      "pass": true
+    },
+    {
+      "set": "lantern",
+      "check": "a session with words lands",
+      "result": "1 journal rows",
+      "pass": true
+    },
+    {
+      "set": "lantern",
+      "check": "a session with no date or no words does not land",
+      "result": "sessions not landed 2",
+      "pass": true
+    },
+    {
+      "set": "lantern",
+      "check": "the reference shelf is told, not landed",
+      "result": "reference images 1",
+      "pass": true
+    },
+    {
+      "set": "lantern",
+      "check": "the duration, the capture and the outline are told, not landed",
+      "result": "reference images · durationMin, capturePath · sessions not landed",
+      "pass": true
+    },
+    {
+      "set": "merge",
+      "check": "the same file plans the same journal keys",
+      "result": "2026-09-11 A bell in the hall it rang twice",
+      "pass": true
+    },
+    {
+      "set": "merge",
+      "check": "two different echoes plan two different keys",
+      "result": "2026-09-12 Low light it rang twice",
+      "pass": true
+    },
+    {
+      "set": "register",
+      "check": "bubbles, echoes and lantern are read",
+      "result": "three readers",
+      "pass": true
+    },
+    {
+      "set": "register",
+      "check": "compass is named, not guessed at",
+      "result": "Compass carries a music library and mood events tied to tracks. Neither has a landing table on the Sanctuary yet.",
+      "pass": true
+    },
+    {
+      "set": "register",
+      "check": "an app nobody knows is named plainly",
+      "result": "The Sanctuary has no reader for resonance-nowhere yet.",
+      "pass": true
+    }
+  ]
+}

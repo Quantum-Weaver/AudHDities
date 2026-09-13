@@ -45,8 +45,8 @@ export function ContributionsGallery() {
   useEffect(() => {
     if (!user) { setLoading(false); return; }
     Promise.all([
-      fetch(`/api/generated/plutus-economics/ware_participants?user_id=${user.id}&order=created_at.desc`).then(r => r.json()),
-      fetch(`/api/generated/hermes-social/work_participants?user_id=${user.id}&order=created_at.desc`).then(r => r.json()),
+      fetch(`/api/generated/plutus-economics/ware_participants?user_id=${user.id}&sort=created_at&order=desc`).then(r => r.json()),
+      fetch(`/api/generated/hermes-social/work_participants?user_id=${user.id}&sort=created_at&order=desc`).then(r => r.json()),
     ])
       .then(([wares, works]) => {
         const wareRows: WareParticipation[] = wares.success ? (wares.data?.data || wares.data || []) : [];

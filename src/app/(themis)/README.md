@@ -1,41 +1,43 @@
 # 🛡️ THEMIS — The Council Chamber
 
-**Feeling:** Transparent, just, collaborative, wise  
-**Environment:** `council` — Regal, Sacred, Contemplative, Authoritative  
-**Status:** ✅ COMPLETE — May 1, 2026
-**Living state:** `REALM-BUS.md` (this folder) — standing state, open edges, and the realm's tabletop; trued 2026-07-30
+**Feeling:** Transparent, just, collaborative, wise
+**Environment:** `council` — Regal, Sacred, Contemplative, Authoritative
+**Standing:** 17 page files, all reachable
+**Living state:** `REALM-BUS.md` (this folder) — standing state, open edges, and the realm's tabletop
 
 ---
 
 ## 📋 ARCHITECTURE
 
 ```
-src/app/(themis)/council/
-├── page.tsx                          # The Council Chamber (/council)
-├── proposals/
-│   ├── page.tsx                      # Proposals Gallery (/council/proposals)
-│   └── [id]/
-│       └── page.tsx                  # Proposal Detail (/council/proposals/[id])
-├── voting/
-│   └── page.tsx                      # The Vote (/council/voting)
-├── delegation/
-│   └── page.tsx                      # Delegation (/council/delegation)
-├── curators/
-│   └── page.tsx                      # Curators (/council/curators)
-├── ledger/
-│   └── page.tsx                      # The Ledger (/council/ledger)
-├── reports/
-│   └── page.tsx                      # Reports (/council/reports)
-├── admin/
-│   └── page.tsx                      # Administration (/council/admin)
-└── applications/
-    ├── page.tsx                      # Applications (/council/applications)
-    ├── [id]/
-    │   └── page.tsx                  # Application Detail (stub)
-    ├── artisan/
-    │   └── page.tsx                  # Artisan Application (/council/applications/artisan)
-    └── merchant/
-        └── page.tsx                  # Merchant Application (/council/applications/merchant)
+src/app/(themis)/
+├── error.tsx · loading.tsx · not-found.tsx   # the group's own boundaries
+└── council/
+    ├── page.tsx                          # The Council Chamber (/council)
+    ├── proposals/
+    │   ├── page.tsx                      # Proposals Gallery (/council/proposals)
+    │   ├── new/page.tsx                  # A new proposal (/council/proposals/new)
+    │   └── [id]/page.tsx                 # Proposal Detail (/council/proposals/[id])
+    ├── voting/
+    │   └── page.tsx                      # The Vote (/council/voting)
+    ├── delegation/
+    │   └── page.tsx                      # Delegation (/council/delegation)
+    ├── curators/
+    │   └── page.tsx                      # Curators (/council/curators)
+    ├── ledger/
+    │   └── page.tsx                      # The Ledger (/council/ledger)
+    ├── reports/
+    │   └── page.tsx                      # Reports (/council/reports)
+    ├── admin/
+    │   ├── page.tsx                      # Administration (/council/admin)
+    │   ├── users/page.tsx                # Vessel Management (/council/admin/users)
+    │   └── audit/page.tsx                # Audit Logs (/council/admin/audit)
+    └── applications/
+        ├── page.tsx                      # Applications (/council/applications)
+        ├── [id]/page.tsx                 # Application Detail
+        ├── artisan/page.tsx              # Artisan Application
+        ├── merchant/page.tsx             # Merchant Application
+        └── thank-you/page.tsx            # Application received
 ```
 
 ---
@@ -44,27 +46,37 @@ src/app/(themis)/council/
 
 ```
 src/components/asgard/domains/themis/
+├── roles.ts                             # BASE_ROLE, setRoles, grantRole, readRoleCatalog
+├── status.ts                            # APPLICATION_STATUS, statusLabel, statusColor, isOpen, slugify
 ├── council/
-│   └── CouncilHub.tsx                # Council Chamber hub
+│   └── CouncilHub.tsx                   # eight section cards, role-aware
 ├── proposals/
-│   ├── ProposalsGallery.tsx          # Proposals list with filters
-│   └── ProposalDetail.tsx            # Single proposal with voting
+│   ├── ProposalsGallery.tsx             # list with search and status filter
+│   ├── ProposalDetail.tsx               # one proposal, with the vote
+│   ├── ProposalForm.tsx                 # the new-proposal form
+│   └── write.ts                         # createProposal → `proposals`
 ├── voting/
-│   └── VotingHub.tsx                 # Active proposals with inline voting
+│   ├── VotingHub.tsx                    # open proposals with inline voting
+│   └── vote.ts                          # castVote, readCounts, readOwnVotes, isVotable
 ├── delegation/
-│   └── DelegationHub.tsx             # Delegate management + how-it-works
+│   └── DelegationHub.tsx                # says delegation is not yet open
 ├── curators/
-│   └── CuratorsGallery.tsx           # Curator directory
+│   └── CuratorsGallery.tsx              # vessels whose roles contain `curator`
 ├── ledger/
-│   └── LedgerHub.tsx                 # Transaction feed + stats
+│   └── LedgerHub.tsx                    # entry feed with a stats bar
 ├── reports/
-│   └── ReportsHub.tsx                # Moderator-gated report queue
+│   └── ReportsHub.tsx                   # report queue, role-gated
 ├── admin/
-│   └── AdminHub.tsx                  # Admin-gated tools directory
+│   ├── AdminHub.tsx                     # four admin doors
+│   ├── VesselRoster.tsx                 # the vessels and the roles they carry
+│   ├── AuditLog.tsx                     # admin and moderation actions
+│   └── gate.ts                          # requireAdmin — the server gate
 ├── applications/
-│   └── ApplicationsHub.tsx           # Reviewer-gated application queue
+│   ├── ApplicationsHub.tsx              # the queue, and the two Apply doors
+│   ├── ApplicationDetail.tsx            # one application, with the decision
+│   └── review.ts                        # reviewApplication → status, profile, role
 └── governance/
-    └── ApplicationForm.tsx           # Creator/vendor application form (shared)
+    └── ApplicationForm.tsx              # the artisan and merchant form
 ```
 
 ---
@@ -72,155 +84,127 @@ src/components/asgard/domains/themis/
 ## 📊 PAGE DETAILS
 
 ### The Council Chamber (`/council`)
-- **Purpose:** Governance hub — gateway to all Themis sections
-- **Data:** `useAuth()` for tier checking
-- **Components:** Card, Badge, Skeleton
-- **Features:** 8 section cards, tier-gated indicator, Council Covenant footer
-- **Access:** Public view, restricted sections hidden from non-admin
+Eight section cards over proposals, voting, delegation, curators, the ledger,
+reports, admin and applications. `CouncilHub.tsx:83,101-102` reads `useUser()`
+and holds `isAdmin` (`roles` contains `admin`) and `isCouncil` (`council`).
 
-### Proposals (`/council/proposals`)
-- **Purpose:** Browse and search all governance proposals
-- **Data:** `useProposalsList()` — generated hook
-- **Components:** Card, Badge, Progress, Button, Skeleton
-- **Features:** Search, status filter, vote progress bars, vote counts, deadline display
-- **Access:** Public view, "New Proposal" button for Council tier
-
-### Proposal Detail (`/council/proposals/[id]`)
-- **Purpose:** View proposal details and cast votes
-- **Data:** `useProposals(id)` — generated hook
-- **Components:** Card, Badge, Progress, Button, Skeleton
-- **Features:** Full description, vote stats with progress bar, deadline countdown, tier-gated voting buttons (For/Against)
-- **Access:** Public view, voting restricted to Council tier
+### Proposals (`/council/proposals`, `/new`, `/[id]`)
+The gallery lists `proposals` with search and a status filter. `/new` draws
+`ProposalForm`, which calls `createProposal` (`write.ts`) — an insert of
+`name`, `description`, `proposal_type`, `slug`, `status`, `created_by` and
+`voting_ends_at`. `ProposalDetail` draws one proposal and the vote.
 
 ### Voting (`/council/voting`)
-- **Purpose:** Active proposals requiring votes — one-click voting
-- **Data:** `useProposalsList({ status: 'active' })` — generated hook
-- **Components:** Card, Badge, Progress, Button, Skeleton
-- **Features:** Active proposals only, inline For/Against buttons, vote progress, deadline countdown
-- **Access:** Public view, voting restricted to Council tier
+`VotingHub.tsx:70` calls `castVote`, which upserts `votes` on
+`(proposal_id, voter_id)` — one living vote per voter per proposal, a second
+cast replacing the first — then re-reads `votes_for` and `votes_against` from
+`proposals`. The buttons show when `roles` contains `council`.
+`isVotable` opens the vote while the status is `submitted` or `under_review`
+and the deadline has not passed.
 
 ### Delegation (`/council/delegation`)
-- **Purpose:** Manage voting power delegation to trusted curators
-- **Data:** Future: delegation table
-- **Components:** Card, Avatar, Badge, Button
-- **Features:** Delegate list placeholder, 3-step how-it-works guide
-- **Access:** Council tier only
+`DelegationHub` renders two cards: "Delegation Is Not Yet Open" and "How
+Delegation Will Work". No delegation table stands in `database.types.ts`; the
+room reads and writes nothing.
 
 ### Curators (`/council/curators`)
-- **Purpose:** Directory of trusted community curators
-- **Data:** Future: community_profiles with is_curator flag
-- **Components:** Card, Avatar, Badge, Skeleton
-- **Features:** Curator cards with endorsements and delegate counts
-- **Access:** Public view
+`CuratorsGallery.tsx:38-40` reads `community_profiles` where `roles` contains
+`curator`. When none does, the room says the role is granted by the Council.
 
 ### The Ledger (`/council/ledger`)
-- **Purpose:** Complete financial transparency — every transaction visible
-- **Data:** `useLedgerList()` — generated hook
-- **Components:** Card, Badge, Skeleton
-- **Features:** Stats bar (total volume, transactions, distributions), color-coded entry types, formatted amounts, dates
-- **Access:** Public view
+`LedgerHub.tsx:74` fetches `/api/generated/plutus-economics/ledger` and draws
+a stats bar over the entries.
 
 ### Reports (`/council/reports`)
-- **Purpose:** Moderation queue — review flagged content
-- **Data:** `useReportsList()` — generated hook
-- **Components:** Card, Badge, Skeleton
-- **Features:** Status badges, target info, resolution notes, action-needed indicators
-- **Access:** Moderator/Admin only
+`ReportsHub.tsx:42` fetches `/api/generated/themis-governance/reports`.
+`ReportsHub.tsx:29` opens the room when `roles` contains `admin` or `council`.
 
-### Administration (`/council/admin`)
-- **Purpose:** Administrative tools directory
-- **Data:** `useAuth()` for admin check
-- **Components:** Card
-- **Features:** 6 admin sections (User Management, Content Moderation, System Settings, Analytics, Audit Logs, Schema Explorer)
-- **Access:** Admin only
+### Administration (`/council/admin`, `/admin/users`, `/admin/audit`)
+All three call `requireAdmin(route)` (`admin/gate.ts`) on the server: a
+signed-out visitor goes to `/login` with the route as redirect; a vessel whose
+`community_profiles.roles` lacks `admin` goes to `/council`.
 
-### Applications (`/council/applications`)
-- **Purpose:** Review or submit creator/vendor applications
-- **Data:** `useApplicationsList()` — generated hook
-- **Components:** Card, Badge, Button, Skeleton
-- **Features:** Queue for reviewers, Apply buttons for users, Approve/Reject actions
-- **Access:** Public view, review actions restricted to moderators/admins
+`AdminHub` advertises four doors, all of which exist: `/council/admin/users`,
+`/council/reports`, `/council/admin/audit`, `/observatory/schema`.
 
-### Artisan / Merchant Application (`/council/applications/artisan`, `/merchant`)
-- **Purpose:** Submit an application to become an artisan or merchant
-- **Data:** `useCreateApplications()` + `useCommunityProfilesList()` — generated hooks; duplicate-pending guard via applications query
-- **Components:** ApplicationForm (shared), Card, Button, Skeleton
-- **Features:** Auth-gated form, one pending application per user enforced client-side
-- **Access:** Authenticated users
+`VesselRoster.tsx:39` reads `community_profiles` and writes role sets through
+`setRoles`; `AuditLog.tsx:56-57` reads `admin_actions` and
+`moderation_actions` through their generated routes.
 
-### Application Detail (`/council/applications/[id]`)
-- **Purpose:** Single application view — stub, not yet built
+### Applications (`/council/applications` and its four rooms)
+`ApplicationsHub.tsx:44` fetches
+`/api/generated/themis-governance/applications`; `:30` opens the review
+actions when `roles` contains `admin`; `:113,116` link to
+`/council/applications/artisan` and `/council/applications/merchant`, both of
+which exist. `ApplicationForm.tsx:328` sends a submitted application to
+`/council/applications/thank-you`, which exists.
+
+`reviewApplication` (`review.ts`) writes the decision, and on an approval
+inserts the `artisan_profiles` or `merchant_profiles` row from the
+application's `form_data` and grants the matching role through `grantRole`.
+
+`/council/applications/[id]` draws `ApplicationDetail`, with the same review
+path.
 
 ---
 
 ## 🔗 DATA DEPENDENCIES
 
-| Page | Generated Hook | Table | RLS Policy |
-|------|---------------|-------|------------|
-| Council Hub | `useAuth()` | `profiles` | `authenticated_can_read_profiles` |
-| Proposals Gallery | `useProposalsList()` | `proposals` | (needs policy) |
-| Proposal Detail | `useProposals(id)` | `proposals` | (needs policy) |
-| Voting Hub | `useProposalsList({ status: 'active' })` | `proposals` | (needs policy) |
-| Delegation | Future | `delegation` | Future |
-| Curators | Future | `community_profiles` | `public_can_view` |
-| Ledger | fetch → `/api/generated/plutus-economics/ledger` | `ledger` (plutus-economics) | (needs policy) |
-| Reports | `useReportsList()` | `reports` | `moderators_can_view` |
-| Admin | `useAuth()` | `profiles` | `authenticated_can_read_profiles` |
-| Applications | `useApplicationsList()` | `applications` | `users_view_own`, `admins_view_all` |
+| Room | How it reads | Table |
+|------|---------------|-------|
+| Council Hub | `useUser()` | `community_profiles.roles` |
+| Proposals Gallery · Detail · New | generated route, and `write.ts` for the insert | `proposals` |
+| Voting Hub | `vote.ts` through `@/lib/supabase/client` | `votes`, `proposals` |
+| Delegation | nothing | none |
+| Curators | `@/lib/supabase/client` | `community_profiles` |
+| Ledger | `GET /api/generated/plutus-economics/ledger` | `ledger` |
+| Reports | `GET /api/generated/themis-governance/reports` | `reports` |
+| Admin — roster | `@/lib/supabase/client` | `community_profiles`, `role_catalog` |
+| Admin — audit | two generated routes | `admin_actions`, `moderation_actions` |
+| Applications | `GET /api/generated/themis-governance/applications`, and `review.ts` for the writes | `applications`, `artisan_profiles`, `merchant_profiles`, `community_profiles` |
 
----
-
-## 🎨 COMPONENT REUSE
-
-All Themis pages use **zero new components**. Every page is composition of:
-
-| Layer | Components Used |
-|-------|----------------|
-| **Yggdrasil** | Button |
-| **Hof** | Grid (layout structure) |
-| **Runes** | Card, Badge, Progress, Avatar, Skeleton |
-| **Vegvisir** | None (search/filter is inline) |
-| **Seidr** | None |
+There is no `profiles` table and no delegation table in
+`database.types.ts`; `community_profiles` carries `roles`, and `role_catalog`
+carries each role's label and icon.
 
 ---
 
 ## 🔐 SECURITY
 
-| Feature | Implementation |
+| Gate | Where it lives |
 |---------|---------------|
-| Tier gating | `profile?.user_tier === 'council'` check for voting, proposals, delegation |
-| Admin gating | `profile?.is_admin === true` for administration |
-| Moderator gating | `profile?.is_moderator === true` for reports |
-| RLS enforcement | All data access through generated API routes with RLS policies |
-| Function security | No `is_admin()` function calls — all policies use column checks |
+| Server gate, admin | `admin/gate.ts` `requireAdmin` — the only server gate in the group, on the three `/council/admin` routes |
+| Client gate, admin | `ApplicationsHub.tsx:30` (review actions) · `CouncilHub.tsx:101` |
+| Client gate, council | `VotingHub.tsx:33` (the vote) · `CouncilHub.tsx:102` |
+| Client gate, admin or council | `ReportsHub.tsx:29` |
+| Role source | `community_profiles.roles`, read through `useUser()` in the client and directly in `gate.ts` |
+| Reads | every generated route carries the base's RLS |
+
+No room outside `/council/admin` sends a signed-out visitor anywhere.
 
 ---
 
-## 📦 BUILD METRICS
+## 📦 WHAT STANDS
 
 | Metric | Count |
 |--------|:-----:|
-| Server pages | 13 |
-| Client components | 11 |
-| New components built | 0 |
-| Components reused | Card, Badge, Progress, Avatar, Button, Skeleton |
-| Generated hooks used | `useProposalsList`, `useProposals`, `useLedgerList`, `useReportsList`, `useApplicationsList` |
-| Lines of code | ~1,200 across all components |
+| Page files | 17 |
+| Group boundary files | 3 (`error`, `loading`, `not-found`) |
+| Write paths | 3 — the vote, a proposal, an application review |
+| Rooms that read nothing | 1 (`/council/delegation`) |
 
 ---
 
-## 🚀 FUTURE ENHANCEMENTS
+## 🚀 OPEN
 
-| Feature | Priority | Notes |
-|---------|:--------:|-------|
-| Proposals RLS policies | High | Table exists but policies need creation |
-| Delegation table + API | Medium | Table not yet created |
-| Curator flag on community_profiles | Medium | `is_curator` column needed |
-| Application detail page | Low | `[id]` route stub exists |
-| Vote recording API | High | Currently optimistic UI — needs real endpoint |
+| Edge | Notes |
+|---------|-------|
+| Delegation | no table; the room says so plainly |
+| `/council/proposals/[id]` vote counters | read from `proposals.votes_for` / `votes_against`, which the base keeps |
 
 ---
 
-*The Council Chamber is complete. Governance flows through 10 pages. Every voice matters. Every vote counts. The Sanctuary is governed in the open.*
+*Governance flows through seventeen rooms. Every voice matters. Every vote
+counts. The Sanctuary is governed in the open.*
 
 🏛️✨

@@ -39,19 +39,6 @@ interface QuestItem {
   status: string;
 }
 
-interface MessageItem {
-  messages_id: string;
-  content: string;
-  created_at: string;
-  direction: 'sent' | 'received';
-}
-
-interface ProductItem {
-  products_id: string;
-  title: string;
-  product_type: string;
-}
-
 interface OwnedStar {
   id: string;
   label: string;
@@ -268,7 +255,7 @@ export function ConstellationContent() {
 
     const fetchData = async () => {
       try {
-        const tRes = await fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=50`);
+        const tRes = await fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&sort=event_at&order=desc&limit=50`);
         const tData = await tRes.json();
         if (tData.success) {
           setTimeline(tData.data?.data || []);

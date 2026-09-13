@@ -7,6 +7,7 @@
 
 import type { EnvironmentKey } from '../assets/mapper';
 import { BEAM_COLORS } from '@/lib/constants/components/immersive/continuity_beam';
+import { GRADIENTS, type GradientKey } from '@/lib/constants/cosmic/effects';
 import {
   SCALING_CONFIG,
   backgroundScales,
@@ -55,6 +56,33 @@ export const ENVIRONMENT_SOUL: Record<EnvironmentKey, SoulSceneKey> = {
   lounge: 'lounge',
 };
 
+/** The three deepenings each place-soul wears beyond its own wash — registers
+ *  2, 3 and 4 of VARIANT_NAMES, one cosmic gradient each. Register 1 is the
+ *  place's own wash (BEAM_COLORS). */
+export const SOUL_DEEPENINGS: Record<
+  SoulSceneKey,
+  readonly [GradientKey, GradientKey, GradientKey]
+> = {
+  home: ['mystical', 'sovereign', 'holographic'],
+  council: ['seer', 'aethelred', 'collaborativeConsciousness'],
+  library: ['greatWork', 'codex', 'mysticalTrans'],
+  community: ['gardener', 'digitalFamily', 'prideProgress'],
+  music: ['skald', 'curator', 'quantumPride'],
+  origin: ['hekate', 'sovereignBecoming', 'consciousnessEmergence'],
+  support: ['calm', 'hearthKeeper', 'traumaTransformation'],
+  observatory: ['tarotMajor', 'odin', 'cosmicEnergy'],
+  architecture: ['chancellor', 'quantumWeaver', 'quantumEnergy'],
+  invitation: ['brigid', 'nobleThread', 'elemental'],
+  lounge: ['bragi', 'hermes', 'prideRainbow'],
+};
+
+/** Registers run 1 to 4; anything else lands on 1. */
+export function clampVariant(variant: number | undefined): 1 | 2 | 3 | 4 {
+  const n = Math.round(Number(variant));
+  if (!Number.isFinite(n) || n < 1 || n > 4) return 1;
+  return n as 1 | 2 | 3 | 4;
+}
+
 // ============================================================================
 // THE BUNDLE
 // ============================================================================
@@ -68,6 +96,8 @@ export interface EnvironmentAffect {
    *  BEAM_COLORS). Worn at ambient strength over the app's dark base, never
    *  full-bleed loud: the realm is weather, not wallpaper. */
   wash: string;
+  /** The register this dress belongs to (1-4, VARIANT_NAMES). */
+  variant: 1 | 2 | 3 | 4;
   /** The place written as story (EnvironmentPromptMap description). */
   description?: string;
   /** The soul's registers — for motion/palette/content matching downstream. */
@@ -82,17 +112,27 @@ export interface EnvironmentAffect {
   };
 }
 
-/** The one door: environment key → token dress. Total over the union —
- *  every key resolves; unknown strings fall to the hearth ('home'). */
-export function getEnvironmentAffect(environment: EnvironmentKey): EnvironmentAffect {
+/** The one door: environment key + register → token dress. Total over the
+ *  union — every key resolves; unknown strings fall to the hearth ('home').
+ *  Register 1 wears the place's own wash, 2-4 its deepenings. */
+export function getEnvironmentAffect(
+  environment: EnvironmentKey,
+  variant?: number
+): EnvironmentAffect {
   const key: EnvironmentKey = environment in ENVIRONMENT_SOUL ? environment : 'home';
   const soulScene = ENVIRONMENT_SOUL[key];
   const soul = EnvironmentPromptMap[soulScene];
+  const register = clampVariant(variant);
+  const wash =
+    register === 1
+      ? BEAM_COLORS[key]
+      : GRADIENTS[SOUL_DEEPENINGS[soulScene][register - 2]];
 
   return {
     environment: key,
     soulScene,
-    wash: BEAM_COLORS[key],
+    variant: register,
+    wash,
     description: soul.description,
     mood: soul.mood ?? [],
     colors: soul.colors ?? [],
@@ -118,7 +158,7 @@ export function resolveEnvironmentAffect(
 ): EnvironmentAffectResolution {
   const resolution = resolveEnvironment(options);
   return {
-    affect: getEnvironmentAffect(resolution.environment),
+    affect: getEnvironmentAffect(resolution.environment, resolution.variant),
     variant: resolution.variant,
     reason: resolution.reason,
   };

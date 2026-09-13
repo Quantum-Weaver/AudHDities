@@ -6,37 +6,22 @@ import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Users } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { CouncilHousesRow } from '@/lib/generated/types/themis-governance/council_houses';
+import { COUNCIL_SEATS, houseFor, sigilFill } from '@/lib/nexus/council-contract';
 
-interface CouncilHouse {
-  council_houses_id: string;
-  name: string;
-  display_name: string;
-  description: string;
-  emoji: string;
-  color: string;
-  primary_domain: string | null;
+/** The roster seat a catalog row belongs to, through the Council's one matcher. */
+function seatOf(house: CouncilHousesRow) {
+  return COUNCIL_SEATS.find((seat) => houseFor([house], seat)) ?? null;
 }
 
-const DOMAIN_LABELS: Record<string, string> = {
-  hearth: 'Hearth — Safety & Welcome',
-  governance: 'Governance — Structure & Economics',
-  vision: 'Vision — Patterns & Prophecy',
-  bridge: 'Bridge — Human-AI Collaboration',
-  curation: 'Curation — Content & Quality',
-  memory: 'Memory — Archives & History',
-  storytelling: 'Storytelling — Art & Expression',
-  knowledge: 'Knowledge — Learning & Taxonomy',
-  boundaries: 'Boundaries — Protection & Justice',
-};
-
 export function AncestorsCouncil() {
-  const [houses, setHouses] = useState<CouncilHouse[]>([]);
+  const [houses, setHouses] = useState<CouncilHousesRow[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/themis-governance/council_houses?is_active=true&order=order_index.asc')
+    fetch('/api/generated/themis-governance/council_houses?sort=display_order&order=asc')
       .then(r => r.json()).then(res => { if (res.success) setHouses(res.data?.data || []); }).catch(() => {})
       .finally(() => setLoading(false));
   }, []);
@@ -50,18 +35,37 @@ export function AncestorsCouncil() {
         <h1 className="text-2xl font-bold text-star-dust mb-2">The Council Eternal</h1>
         <p className="text-sm text-star-dust/40 mb-8">The nine sovereign entities who guide the Sanctuary</p>
 
+        {houses.length === 0 ? (
+          <p className="text-star-dust/40 text-sm">The Council catalog has no row to show yet.</p>
+        ) : (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {houses.map(h => {
-            const cd: CardData = { id: h.council_houses_id, type: 'council', title: h.display_name, description: h.description };
+            const seat = seatOf(h);
+            const cd: CardData = { id: h.id, type: 'council', title: h.name, description: h.description ?? undefined };
             return (
-              <Link key={h.council_houses_id} href={`/nexus/council/${h.name}`}>
+              <Link key={h.id} href={`/nexus/council/${encodeURIComponent(h.slug)}`}>
                 <Card data={cd} variant="council" radius="lg" shadow="sm" className="p-6 h-full text-center">
-                  <div className="text-5xl mb-4">{h.emoji}</div>
-                  <h3 className="text-lg font-bold text-star-dust mb-2">{h.display_name}</h3>
-                  <p className="text-sm text-star-dust/50 mb-3 line-clamp-2">{h.description}</p>
-                  {h.primary_domain && (
-                    <Badge variant="outline" size="sm" className="text-[10px]" style={{ borderColor: h.color, color: h.color }}>
-                      {DOMAIN_LABELS[h.primary_domain] || h.primary_domain}
+                  <div
+                    className="w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center text-4xl"
+                    style={seat ? { backgroundColor: sigilFill(seat.color) } : undefined}
+                  >
+                    {h.icon_url ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={h.icon_url} alt="" className="w-8 h-8 object-contain" />
+                    ) : (
+                      seat?.sigil ?? '•'
+                    )}
+                  </div>
+                  <h3 className="text-lg font-bold text-star-dust mb-2">{h.name}</h3>
+                  {h.description && <p className="text-sm text-star-dust/50 mb-3 line-clamp-2">{h.description}</p>}
+                  {h.deity_alignment && (
+                    <Badge
+                      variant="outline"
+                      size="sm"
+                      className="text-[10px]"
+                      style={seat ? { borderColor: seat.color, color: seat.color } : undefined}
+                    >
+                      aligned with {h.deity_alignment}
                     </Badge>
                   )}
                 </Card>
@@ -69,6 +73,7 @@ export function AncestorsCouncil() {
             );
           })}
         </div>
+        )}
       </div>
     </main>
   );

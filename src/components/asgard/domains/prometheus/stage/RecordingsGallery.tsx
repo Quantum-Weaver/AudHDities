@@ -10,11 +10,12 @@ import { Gallery } from '@/components/shapes';
 import type { GalleryConfig } from '@/lib/gallery';
 import { ArrowLeft, Play, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface Recording {
-  id: string; title: string; description: string | null;
-  event_type: string; genre: string | null; recorded_at: string | null;
-}
+type Recording = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'event_type' | 'genre' | 'recorded_at'
+>;
 
 const formatDate = (d: string | null) => d ? new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
 
@@ -38,7 +39,7 @@ export function RecordingsGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?is_recorded=true&sort=recorded_at&order=desc')
+    fetch('/api/generated/prometheus-stage/events?status=published&is_recorded=true&sort=recorded_at&order=desc')
       .then(r => r.json())
       .then(result => { if (result.success) setRecordings(result.data?.data || result.data || []); })
       .catch(console.error)

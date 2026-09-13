@@ -104,7 +104,7 @@ export function MerchantDetail() {
           )}
 
           <Link
-            href={`/bazaar/wares?merchant_id=${merchant.created_by}`}
+            href={`/bazaar/wares?merchant_id=${merchant.id}`}
             className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
           >
             <Package size={14} aria-hidden="true" />

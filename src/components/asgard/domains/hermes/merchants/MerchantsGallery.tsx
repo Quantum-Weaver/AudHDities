@@ -24,7 +24,7 @@ export function MerchantsGallery() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('/api/generated/hermes-social/merchant_profiles?status=active&order=merchant_name.asc')
+    fetch('/api/generated/hermes-social/merchant_profiles?status=active&sort=merchant_name&order=asc')
       .then((r) => r.json())
       .then((result) => {
         if (result.success) setMerchants(result.data?.data || result.data || []);

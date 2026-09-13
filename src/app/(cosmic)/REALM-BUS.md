@@ -25,70 +25,52 @@ KP merges · privacy always. Plus this realm's own standing law:
 
 ## The realm's standing state (kept current by lane cosmic-realm)
 
-- **Branch:** `refine/rewiring-2026-07` (repo-wide; KP merges main).
-- **Reading order for visitors:** the realm `README.md` (trued
-  2026-07-31, both seasons in) → the five components at
-  `components/asgard/domains/cosmic/*` → this bus's messages.
-- **The rooms:** 5 routes, all thin `Page` wrappers (foreground off,
-  beam on): the Crossing Hall `/environments` · Being There
-  `/environments/[id]` · the Sandbox `/playground` · the Theater
-  `/theater` · the Grimoire `/effects`.
-- **Base dependencies: two tables, reads only.** The Theater reads
-  `council_houses` (themis-governance) and `entity_states`
-  (aethelred-connections) through the generated hooks — openly,
-  writing nothing (law 7's wiring clause, exercised 2026-07-31).
-  Every other room: zero API calls, zero DB touches. Also verified
-  standing: the beam's `setEnvironment` live (variant clamped 1–4),
-  the `/vessel/sanctum` door real (hestia's table), every Grimoire
-  class present in the generated styles.
+- **Branch:** `main`.
+- **Reading order for visitors:** the realm `README.md` → the components at
+  `components/asgard/domains/cosmic/*` and the four page-local components
+  under `src/app/(cosmic)/` → this bus's messages.
+- **The rooms: 7 routes**, all thin `Page` wrappers (foreground off, beam on):
+
+  | route | what draws it |
+  |---|---|
+  | `/cosmic` | `app/(cosmic)/cosmic/CosmicHub.tsx` — five room cards |
+  | `/environments` | `CrossingHall.tsx` |
+  | `/environments/[id]` | `BeingThere.tsx` |
+  | `/colors` | `app/(cosmic)/colors/Colours.tsx` |
+  | `/effects` | `EffectsGrimoire.tsx` |
+  | `/theater` | `app/(cosmic)/theater/MovingStage.tsx` |
+  | `/playground` | `Playground.tsx` over `registry.tsx` |
+
+- **Base dependencies: none.** No room in this group reads a table. The one
+  write is the vessel's own click: `BeingThere.tsx:44` PATCHes
+  `/api/auth/update-profile` with `{ config: { environment_preference } }` —
+  "Set as My Realm", nothing about the visit itself. Law 7 stands whole: no
+  dwell-time, no play-telemetry, no read of personal data.
+- **One orphan:** `components/asgard/domains/cosmic/theater/Theater.tsx` —
+  the old stage that read `council_houses` and `entity_states`. Nothing
+  imports it; `/theater` draws `MovingStage`, which imports React, `Link`,
+  three lucide icons and `cn`, and reads nothing.
+- **The Playground's registry:** `registry.tsx` holds 252 entries across the
+  eight groupings `bifrost · forging · hof · runes · seidr · shapes ·
+  vegvisir · yggdrasil`; 250 carry a `render`, and `Playground.tsx` counts
+  the rendered and the name-only from the registry itself.
 - **Open edges:**
-  - **The unlocked pair, other hands:** the panorama asset lift
-    (audhd's surgery) and the EnvironmentKey stitch (ziggy's) were
-    freed by the travel ruling and convene together, as the repo bus
-    records. This realm's half owes them nothing further.
-  - **The three-rooms-one-contract convening** (Theater · Nexus
-    council rooms · themis): the dialect is recorded on all three
-    buses; when the sibling rooms wire in their seasons, they inherit
-    it rather than diverge. Nothing owed from this table until then.
-- **Closed edges:**
-  - **THE THEATER'S TRUTH SEASON — DONE 2026-07-31** at KP's ⚛ word
-    ("we are ready to finish Cosmic"), the reimaginer's hand
-    (`0a7f97cb`): the pretense retired (invented temperatures,
-    hardcoded statuses), the telling stays framed as story, the
-    record reads `council_houses` + newest `entity_states` per seat,
-    absent rows honest ("the seat waits"). Keeper re-verified: tsc 0
-    independently, law 7 held by construction, README trued same
-    sitting. The realm's last performing room now grounds what it
-    shows.
-  - **REALMS-AS-TRAVEL — RULED AND BUILT.** KP's ⚛ word, verbatim:
-    "please continue on then friend" (2026-07-30, in this lane's own
-    window, after the design and its riding questions were laid before
-    his eye twice). The five moves landed realm-locally: the Crossing
-    Hall (`CrossingHall.tsx`, fixed geometry from `places.ts`) ·
-    being-there (`BeingThere.tsx`, arrival IS the crossing) · the
-    duplicated ENVIRONMENTS data retired into `places.ts` beside the
-    affects (display-only survivors: name + icon + hall order) · the
-    search box and mood filters retired with the cards · the Grimoire's
-    stale `npm run cosmic` sentence retrued to `npm run generate`.
-    README redrawn same sitting. tsc 0.
-- **Cross-realm seams:** `ContinuityBeamContext` is shared
-  infrastructure (`src/contexts/`), every realm's sky — changes
-  convene wider than this table · "Set as My Realm" lands at
-  `/vessel/sanctum` (hestia's table) · the panorama assets and
-  `assets/mapper.ts` retirement ride the image-lift crossing (audhd's
-  surgery, reimaginer's design) · the `EnvironmentKey` union's future
-  home rides lane ziggy's stitch — that edge and the lift convene
-  together (already noted on the repo bus) · **the doorway-organ seam,
-  RESOLVED 2026-07-30 (least surgery wins):** hestia's organs were not
-  touched and not imported — the hall's doorway is this realm's own
-  markup wearing the SceneDoorway *register* (still threshold-light
-  sliver, label + feeling line, motion-reduce, focus-visible), and the
-  hall's fixed order is *derived from* REALM_MAP_ORDER through the
-  page-map's own route→soul resolution (derivation documented in
-  `places.ts`). "The same map at two scales" is honored as shared
-  register and derived geometry, not shared code; if a future season
-  wants one doorway component on shared seidr ground, both tables
-  convene then. Courtesy note posted on hestia's bus.
+  - **`/colors` is not on the street.** `the-street.ts` gives The Realms the
+    front door `/cosmic` and five rooms — `/cosmic`, `/environments`,
+    `/playground`, `/theater`, `/effects`. `CosmicHub` links `/colors`
+    beside them; the street does not.
+  - **The three-rooms-one-contract convening** (the old Theater · the Nexus
+    council rooms · themis): the Nexus council rooms now carry the contract
+    at `src/lib/nexus/council-contract.ts`, and this realm reads no chair
+    at all, so nothing is owed from this table.
+- **Cross-realm seams:** `ContinuityBeamContext` is shared infrastructure
+  (`src/contexts/`), every realm's sky — changes convene wider than this
+  table · "Set as My Realm" writes the vessel's own config, whose room is
+  `/vessel/sanctum` (hestia's table) · **the doorway-organ seam, least
+  surgery:** hestia's organs are not imported — the hall's doorway is this
+  realm's own markup wearing the SceneDoorway *register*, and the hall's
+  fixed order is derived from `REALM_MAP_ORDER` through the page-map's own
+  route→soul resolution (derivation documented in `places.ts`).
 
 ---
 

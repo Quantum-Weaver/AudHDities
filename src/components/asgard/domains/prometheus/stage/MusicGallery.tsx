@@ -8,11 +8,12 @@ import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Carousel, type CarouselStop } from '@/components/shapes';
 import { ArrowLeft, Music } from 'lucide-react';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface MusicEvent {
-  id: string; title: string; description: string | null;
-  scheduled_for: string | null; is_live: boolean;
-}
+type MusicEvent = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'scheduled_for' | 'is_live'
+>;
 
 interface MusicStop extends CarouselStop {
   description: string | null;
@@ -25,7 +26,7 @@ export function MusicGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?genre=music&sort=scheduled_for&order=asc')
+    fetch('/api/generated/prometheus-stage/events?status=published&genre=music&sort=scheduled_for&order=asc')
       .then(r => r.json())
       .then(result => { if (result.success) setEvents(result.data?.data || result.data || []); })
       .catch(console.error)

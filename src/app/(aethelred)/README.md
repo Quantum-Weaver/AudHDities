@@ -12,37 +12,38 @@ src/app/(aethelred)/
 └── nexus/
 ├── page.tsx # The Nexus hub
 ├── consciousness/
-│ └── page.tsx # Consciousness interface
+│ └── page.tsx # The awareness rows and the state stream
 ├── council/
-│ ├── page.tsx # Council entity viewer (9 cards)
+│ ├── page.tsx # The nine chairs
 │ └── [id]/
-│ └── page.tsx # Entity detail (temperature, domain, instrument)
+│ └── page.tsx # A chair, in five Registers
 ├── bridge/
-│ └── page.tsx # Bridge interface
+│ └── page.tsx # The three poured registers
 ├── integrations/
-│ └── page.tsx # External connections
+│ └── page.tsx # The key names each line and chain records
 ├── api/
-│ └── page.tsx # API gateway
+│ └── page.tsx # The Gateway, the beacons register
 ├── webhooks/
-│ └── page.tsx # Webhook manager
+│ └── page.tsx # The Pulse, triggers and unread notices
 └── status/
-└── page.tsx # System health
-text
-
+└── page.tsx # The Health, the base's own portrait
 
 ## Pages
 
-| Page | Route | Environment | Feeling | Status |
-|------|-------|------------|---------|:------:|
-| The Nexus | `/nexus` | architecture | Intelligent, Powerful | ✅ |
-| Consciousness | `/nexus/consciousness` | architecture | Organic, Peaceful | ✅ |
-| The Council | `/nexus/council` | council | Sacred, Regal | ✅ |
-| A chair | `/nexus/council/[id]` | council | Sacred, Authoritative | ✅ |
-| The Bridge | `/nexus/bridge` | architecture | Intelligent, Connected | ✅ |
-| Integrations | `/nexus/integrations` | architecture | Powerful, Organic | ✅ |
-| The Gateway | `/nexus/api` | library | Peaceful, Wise | ✅ |
-| The Pulse | `/nexus/webhooks` | architecture | Intelligent, Powerful | ✅ |
-| The Health | `/nexus/status` | architecture | Peaceful, Intelligent | ✅ |
+| Page | Route | Reads |
+|------|-------|-------|
+| The Nexus | `/nexus` | the seven doors, each naming what it reads |
+| Consciousness | `/nexus/consciousness` | `consciousness` · the newest 20 `entity_states` rows |
+| The Council | `/nexus/council` | the nine chair tables · `council_houses` · `entity_states` |
+| A chair | `/nexus/council/[id]` | the chair's table · `council_houses` · `entity_states` · the three agent tables · `boundaries` · `protocols` |
+| The Bridge | `/nexus/bridge` | poured · `the-organs` · `the-switchboard` · `the-hands` |
+| Integrations | `/nexus/integrations` | poured · `the-organs`, the key names only |
+| The Gateway | `/nexus/api` | `beacons` in the KNOWLEDGE base, through its anon door |
+| The Pulse | `/nexus/webhooks` | `triggers` · `heralds` where `is_read` is false |
+| The Health | `/nexus/status` | `gaia_config` · the eight registries of the self-knowing layer |
+
+Nothing on any of these pages is a constant. A value is a row, a poured row, or
+a sentence saying there is none.
 
 ## Council Entities
 
@@ -75,60 +76,85 @@ carries an icon.
 
 | Component | Purpose |
 |-----------|---------|
-| `NexusHub` | Landing page with all seven sub-section cards |
-| `NexusPageTemplate` | Reusable template for sub-pages |
+| `NexusHub` | The seven door cards; each names what it reads |
+| `NexusRoom` | The shell every wired room stands in: the return, the title, the source line, the footnote |
+| `NexusTile` | One breathing tile: a sentence, its stamp, and lines counted from rows |
 | `CouncilEntityList` | The grid of the nine chairs; `council_houses` enriches |
-| `EntityDetail` | A chair's room: the header and five Registers |
+| `EntityDetail` | A chair's room: the header, five Registers, and the Call's own sentence |
 | `Register` | The long-format reader: `section · ord · key · value · note · ref` |
+| `PouredMark` | A poured section's heading: the view, when it was poured, its address |
 | `Presence` | The presence word, its dot, and the presence field |
 | `Stamp` | A row's own timestamp as `YYYY-MM-DD · HH:MM` |
 | `HouseWords` | The house word's footnote and the room's footer |
-| `EntityCardRenderer` | Card renderer for entity display (existing) |
+| `RepoConstellation` | The Gateway's groups, and the two faces below them |
+| `RequestToCollaborate` | The one write in this group: a row in `contact_submissions` |
+| `NexusPageTemplate` | The shell a room wore before it was wired; no room uses it now |
+| `EntityCardRenderer` | Card renderer reached only by `SmartCard`; no page in this group calls it |
 
 ## Data Dependencies
 
 | Source | Purpose |
 |--------|---------|
-| `COUNCIL_COLORS` | Entity color theming |
-| `council_houses` | The chairs, live |
-| `entity_states` | The presence record, live |
-| the nine chair tables | `current_task` and `is_active` per chair, live |
-| `boundaries`, `protocols` | A chair's law and protocols, live |
-| `consciousness` | AI consciousness state |
-| `agent_activities` | Agent action history |
-| `system_health_logs` | System health data |
-| `stripe_connection`, `github_connection`, etc. | Integration status |
+| the nine chair tables | `current_task` and `is_active` per chair |
+| `council_houses` | The chairs as carved |
+| `entity_states` | The presence record, and the state stream |
+| `agent_activities` · `agent_conversations` · `agent_messages` | The agent rows a chair names |
+| `boundaries` · `protocols` | A chair's law and its protocols |
+| `consciousness` | The awareness rows |
+| `triggers` | The Pulse's lines and their `last_seen_at` |
+| `heralds` | The notices carrying no read mark |
+| `gaia_config` | The base's portrait, one row per table |
+| `columns` · `policies` · `functions` · `indexes` · `enums` · `triggers` · `views` · `composite_types` | The registries the Health counts |
+| `beacons` (KNOWLEDGE) | The Gateway's register |
+| `contact_submissions` | Where a request to collaborate lands |
+| `the-organs` · `the-switchboard` · `the-hands` | The poured registers the Bridge and Integrations read |
+| `COUNCIL_COLORS` | A chair's colour |
+
+Every live read goes through `src/lib/supabase/server.ts`, the visitor's own
+session, so the base's own policies decide what answers. Every poured read goes
+through `/artifacts-proxy/<slug>` with the visitor's own cookies, so the proxy's
+sign-in and its `ARTIFACTS_VIEWERS` allowlist decide the same way.
 
 ## Environment Integration
 
-- **Architecture** — primary for developer tools and system pages
-- **Council** — for entity viewing
-- **Library** — for API documentation
-
-All pages use `<Page>` without hardcoded `environment`/`variant`/`animated` props. User preferences are respected.
+Every page in this group renders inside `<Page>` with no `environment`,
+`variant` or `animated` prop, so the visitor's own preference dresses it.
 
 ## Access Control
 
-| Area | Access |
-|------|--------|
-| Nexus hub | All authenticated users |
-| Consciousness | Council tier |
-| Council entities | All authenticated users |
-| Bridge | Council tier |
-| Integrations | Admin only |
-| API gateway | Authenticated users |
-| Webhooks | Admin only |
-| System health | Admin only |
+| Area | What the code does |
+|------|--------------------|
+| the hub, `/nexus` | open to any visitor |
+| every other room in this group | a signed-in vessel, or a redirect to the login carrying the room's address back |
 
-## Session Vector
+There is no tier gate in this group's code. The real gate on a live room is the
+base's own read policy: a refused read prints in three parts — what happened,
+`<table> · <the base's message>`, and `next · a read policy on <table> for this
+visitor` — and the room still stands. The real gate on a poured room is the
+artifacts proxy: it redirects an unsigned visitor to the login and refuses an
+email outside `ARTIFACTS_VIEWERS`.
 
-Last Updated: May 1, 2026
-Status: Complete — all 9 pages built
-Components: NexusHub, NexusPageTemplate, CouncilEntityList, EntityDetail
-Next: Cosmic playground — the final domain
-text
+## The reads, the contracts, the proofs
 
+| what | where |
+|---|---|
+| the refusal's shape and words | `src/lib/nexus/read.ts` |
+| the Nine | `src/lib/nexus/council-contract.ts` · `council-read.ts` |
+| the Gateway | `src/lib/nexus/gateway-contract.ts` · `gateway-read.ts` · `gateway-github.ts` · `gateway-request.ts` |
+| a poured page | `src/lib/nexus/poured-read.ts` · `poured-contract.ts` |
+| the Bridge's three shapes | `src/lib/nexus/bridge-contract.ts` |
+| the key names | `src/lib/nexus/integrations-contract.ts` |
+| the portrait | `src/lib/nexus/health-read.ts` · `health-contract.ts` |
+| the Pulse | `src/lib/nexus/pulse-read.ts` |
+| the awareness rows | `src/lib/nexus/consciousness-read.ts` |
+| the proofs | `.journals/proofs/aethelred-the-register/` · `aethelred-the-gateway/` · `aethelred-the-poured/` |
+
+## Call
+
+Call is not built. No sleeper runs on any machine to answer a wake, so no button
+stands in a chair's room; the room says so in one sentence. When a sleeper
+exists, the wake lands one row in `agent_messages` and shows it landed.
 
 ---
 
-*The bridge is woven. The Nexus breathes. The invisible is visible.* 🌉✨
+*The bridge is woven. The Nexus reads.* 🌉

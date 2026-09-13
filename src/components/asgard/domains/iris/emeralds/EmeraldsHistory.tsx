@@ -26,7 +26,7 @@ export function EmeraldsHistory() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/mnemosyne-assessment/resonance?user_id=${user.id}&order=created_at.desc&limit=20`)
+    fetch(`/api/generated/mnemosyne-assessment/resonance?user_id=${user.id}&sort=created_at&order=desc&limit=20`)
       .then(r => r.json())
       .then(result => { if (result.success) setGiven(result.data?.data || []); })
       .catch(console.error)

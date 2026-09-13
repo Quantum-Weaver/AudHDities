@@ -9,14 +9,25 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Button } from '@/components/yggdrasil/Button';
-import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, Star } from 'lucide-react';
+import { Settings, Zap, BookOpen, Users, Droplets, Palette, Award, Clock, TrendingUp, Bell, Home, Star, FileText, UserRound, Upload } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
-import { QuickLinks } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
+import { QuickLinks, type QuickLink } from '@/components/asgard/domains/hestia/vessel/QuickLinks';
+import { profileHref } from '@/components/asgard/domains/iris/profile/href';
 import { HOME_LABELS } from '@/lib/constants/components/asgard/domains/hestia/home/home.constants';
 import type { UserRole } from '@/lib/types/roles';
+import type { CouncilHousesRow } from '@/lib/generated/types/themis-governance/council_houses';
+import type { ApplicationsRow } from '@/lib/generated/types/themis-governance/applications';
+import {
+  ResultView,
+  parseResult,
+  isEmptyResult,
+  type AcidTestResult,
+} from '@/components/asgard/domains/mnemosyne/assessment/AcidTestForm';
 
 type RoleCatalogEntry = { role: UserRole; label: string; icon_emoji: string | null; sort_order: number };
+
+type VesselApplication = Pick<ApplicationsRow, 'id' | 'application_type' | 'status' | 'created_at'>;
 
 interface EarnedSigil {
   id: string;
@@ -63,6 +74,9 @@ export function VesselContent() {
   const [events, setEvents] = useState<CurrentEvent[]>([]);
   const [bubblesOnVessel, setBubblesOnVessel] = useState(false);
   const [roleCatalog, setRoleCatalog] = useState<RoleCatalogEntry[]>([]);
+  const [houses, setHouses] = useState<CouncilHousesRow[]>([]);
+  const [applications, setApplications] = useState<VesselApplication[]>([]);
+  const [reading, setReading] = useState<AcidTestResult | null>(null);
 
   useEffect(() => {
     fetch('/api/generated/hestia-core/role_catalog?limit=20')
@@ -111,6 +125,49 @@ export function VesselContent() {
       .then(r => r.json()).then(res => { if (res.success) setEvents(res.data?.data || []); }).catch(() => {});
   }, [user]);
 
+  // The Council House card: the houses that stand, and the one this vessel holds
+  useEffect(() => {
+    fetch('/api/generated/themis-governance/council_houses?sort=display_order&order=asc&limit=20')
+      .then(r => r.json())
+      .then(res => {
+        const rows = res.success ? (res.data?.data ?? res.data ?? []) : [];
+        setHouses((Array.isArray(rows) ? rows : []) as CouncilHousesRow[]);
+      })
+      .catch(() => setHouses([]));
+  }, []);
+
+  // This vessel's own applications
+  useEffect(() => {
+    if (!user) return;
+    fetch(`/api/generated/themis-governance/applications?user_id=${user.id}&sort=created_at&order=desc&limit=10`)
+      .then(r => r.json())
+      .then(res => {
+        const rows = res.success ? (res.data?.data ?? res.data ?? []) : [];
+        setApplications((Array.isArray(rows) ? rows : []) as VesselApplication[]);
+      })
+      .catch(() => setApplications([]));
+  }, [user]);
+
+  // The kept Acid Test reading
+  useEffect(() => {
+    if (!user) return;
+    fetch('/api/generated/mnemosyne-assessment/get_acid_test_results', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    })
+      .then(r => r.json())
+      .then(payload => {
+        if (payload.success === false) return;
+        const body = payload.data ?? payload;
+        const one = Array.isArray(body) ? body[0] : body;
+        if (!one) return;
+        const parsed = parseResult(one);
+        setReading(isEmptyResult(parsed) ? null : parsed);
+      })
+      .catch(() => {});
+  }, [user]);
+
   useEffect(() => {
     if (!user) return;
     fetch(`/api/generated/hestia-core/vessel_config?created_by=${user.id}&limit=1`)
@@ -147,20 +204,39 @@ export function VesselContent() {
     );
   }
 
-  const quickLinks = [
+  const quickLinks: QuickLink[] = [
     { href: '/vessel/home', label: 'The Home', icon: Home, id: 'home' },
     { href: '/vessel/sanctum', label: 'The Sanctum', icon: Settings, id: 'sanctum' },
     { href: '/vessel/journal', label: 'The Scroll', icon: BookOpen, id: 'journal' },
     { href: '/vessel/energy', label: 'Energy Log', icon: Zap, id: 'energy' },
     { href: '/vessel/constellation', label: 'Constellation', icon: Star, id: 'constellation' },
     { href: '/notifications', label: 'The Call', icon: Bell, id: 'notifications' },
+    { href: '/vessel/import', label: 'Bring your data in', icon: Upload, id: 'import' },
   ];
+
+  if (profile.slug) {
+    quickLinks.push({ href: profileHref(profile.slug), label: 'Your profile', icon: UserRound, id: 'profile' });
+  }
+
+  if (applications.length > 0) {
+    quickLinks.push({
+      href: '/council/applications',
+      label: 'Your Applications',
+      icon: FileText,
+      id: 'applications',
+      badge: prettify(applications[0].status),
+    });
+  }
 
   if (roles.includes('artisan') || isQuantumWeaver) {
     quickLinks.push({ href: '/bazaar/studio', label: 'The Loom', icon: Palette, id: 'studio' });
   }
 
   const tier = sovereignTier ?? 'dweller';
+  const heldHouseId = (profile as unknown as Record<string, unknown>).council_house_id;
+  const heldHouse = typeof heldHouseId === 'string'
+    ? houses.find(h => h.id === heldHouseId) ?? null
+    : null;
 
   const sovereigntyCardData: CardData = {
     id: `${user.id}-sovereignty`, type: 'stat', title: 'Sovereign Light',
@@ -234,10 +310,46 @@ export function VesselContent() {
 
         <Card variant="default" data={profileCardData} radius="lg" shadow="md" className="p-6">
           <div className="flex items-center gap-3 mb-3"><Users className="h-5 w-5 text-star-dust/60" /><h3 className="text-lg font-semibold text-star-dust">Council House</h3></div>
-          <p className="text-star-dust/60 text-sm mb-3">You have not yet joined a Council House.</p>
-          <p className="text-xs text-star-dust/70">Your house finds you when you take the Acid Test. No hurry.</p>
+          {heldHouse ? (
+            <>
+              <Link href={`/nexus/council/${heldHouse.slug}`} className="text-xl font-bold text-neurospark hover:underline">
+                {heldHouse.name}
+              </Link>
+              {heldHouse.description && (
+                <p className="text-star-dust/60 text-sm mt-2">{heldHouse.description}</p>
+              )}
+              {heldHouse.deity_alignment && (
+                <p className="text-xs text-star-dust/70 mt-2">{prettify(heldHouse.deity_alignment)}</p>
+              )}
+            </>
+          ) : houses.length > 0 ? (
+            <>
+              <p className="text-star-dust/60 text-sm mb-3">
+                {houses.length === 1 ? 'One house stands' : `${houses.length} houses stand`}, and none is yours yet.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {houses.map(h => (
+                  <Badge key={h.id} variant="outline" size="sm" className="text-[10px]">
+                    {h.name}
+                  </Badge>
+                ))}
+              </div>
+              <Link href="/nexus/council" className="text-xs text-neurospark hover:underline">
+                The Council
+              </Link>
+            </>
+          ) : (
+            <p className="text-star-dust/60 text-sm">The houses are not answering right now.</p>
+          )}
         </Card>
       </div>
+
+      {reading && (
+        <div className="mb-8">
+          <h3 className="text-sm font-medium text-star-dust/70 mb-3 flex items-center gap-2"><Award className="h-4 w-4" />Your Acid Test</h3>
+          <ResultView result={reading} />
+        </div>
+      )}
 
       {/* Recent Milestones — the `current` stream */}
       {events.length > 0 && (

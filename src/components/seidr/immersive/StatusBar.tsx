@@ -7,11 +7,13 @@ import { useStatusBar } from "@/hooks/useStatusBar";
 import { useRealm } from "@/hooks/useRealm";
 import { useEnergyEntriesList } from "@/lib/generated/hooks/hestia-core/energy_entries";
 import { useHeraldsList } from "@/lib/generated/hooks/hestia-core/heralds";
+import { useVesselConfigList } from "@/lib/generated/hooks/hestia-core/vessel_config";
 import { HStack } from "@/components/hof/Stack";
 import { cn } from "@/lib/utils";
 import { Shield, Zap, Bell } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { RealmKey } from "@/lib/constants/systems/trio";
+import { moonPhase, season } from "@/lib/sky";
 import {
   SOVEREIGN_PULSE,
   VESSEL_WHISPER,
@@ -25,7 +27,7 @@ export interface StatusBarProps {
 
 export function StatusBar({ className }: StatusBarProps) {
   const { user } = useAuth();
-  const { profile, sovereignTier, isAuthenticated } = useUser();
+  const { sovereignTier, isAuthenticated } = useUser();
   const sovereigntyScore = tierLight(sovereignTier);
   const { config } = useStatusBar();
   const { realm, config: realmConfig } = useRealm();
@@ -55,7 +57,7 @@ export function StatusBar({ className }: StatusBarProps) {
         {/* ════════════════════════════════════════════════════════════ */}
         {/* CENTER — Realm name + THE VOICE (L1-05's three cycling layers)  */}
         {/* ════════════════════════════════════════════════════════════ */}
-        <CenterVoice realm={realm} environment={realmConfig.environment} />
+        <CenterVoice realm={realm} environment={realmConfig.environment} userId={user.id} />
 
         {/* ════════════════════════════════════════════════════════════ */}
         {/* RIGHT — Energy + Heralds                                        */}
@@ -101,21 +103,96 @@ function SovereigntyDisplay({ score }: { score: number }) {
   );
 }
 
-function CenterVoice({ realm, environment }: { realm: RealmKey; environment?: string | null }) {
+function CenterVoice({
+  realm,
+  environment,
+  userId,
+}: {
+  realm: RealmKey;
+  environment?: string | null;
+  userId?: string;
+}) {
   const line = useVoiceRotation(realm);
+  const ownLine = useVesselLine(userId);
+  const sky = useSkyStamp();
 
   return (
     <div className="min-w-0 flex-1 flex items-center justify-center gap-2 overflow-hidden">
       <div className="shrink-0">
         <RealmDisplay environment={environment} />
       </div>
+      {ownLine && (
+        <>
+          <span className="hidden sm:inline text-star-dust/20 shrink-0" aria-hidden>·</span>
+          <span className="hidden sm:block truncate text-xs font-light text-star-dust/75 max-w-[16rem]">
+            {ownLine}
+          </span>
+        </>
+      )}
       <span className="hidden sm:inline text-star-dust/20 shrink-0" aria-hidden>·</span>
       <FadingText
         text={line}
-        className="hidden sm:block truncate text-xs font-light text-star-dust/55 max-w-[22rem]"
+        className="hidden md:block truncate text-xs font-light text-star-dust/55 max-w-[22rem]"
       />
+      {sky && (
+        <>
+          <span className="hidden lg:inline text-star-dust/20 shrink-0" aria-hidden>·</span>
+          <span className="hidden lg:block truncate text-xs font-light text-star-dust/55 shrink-0">
+            <span aria-hidden>{sky.emoji}</span> {sky.phase} · {sky.after} → {sky.next}
+          </span>
+        </>
+      )}
     </div>
   );
+}
+
+interface SkyStamp {
+  emoji: string;
+  phase: string;
+  after: string;
+  next: string;
+}
+
+/** The moon's phase and the wheel's standing, read from the clock after mount and hourly after. */
+function useSkyStamp(): SkyStamp | null {
+  const [stamp, setStamp] = useState<SkyStamp | null>(null);
+
+  useEffect(() => {
+    const read = () => {
+      const now = new Date();
+      const moon = moonPhase(now);
+      const wheel = season(now);
+      setStamp({
+        emoji: moon.emoji,
+        phase: moon.phase,
+        after: wheel.after.name,
+        next: wheel.next.name,
+      });
+    };
+    read();
+    const timer = setInterval(read, 60 * 60 * 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return stamp;
+}
+
+/** The vessel's own status line from vessel_config, trimmed, or null. */
+function useVesselLine(userId?: string): string | null {
+  const params = useMemo(
+    () => ({ limit: 1, ...(userId ? { filters: { created_by: userId } } : {}) }),
+    [userId],
+  );
+  const { data } = useVesselConfigList(params);
+
+  return useMemo(() => {
+    if (!userId) return null;
+    const row = data?.[0] as Record<string, unknown> | undefined;
+    const value = row?.status_line;
+    if (typeof value !== "string") return null;
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : null;
+  }, [data, userId]);
 }
 
 /**
@@ -232,17 +309,17 @@ function RealmDisplay({ environment }: { environment?: string | null }) {
 }
 
 function MetricsDisplay() {
-  const { profile } = useUser();
+  const { user } = useUser();
 
-  // ── ENERGY — WIRED FOR REAL (Run 08, Phase 5, Movement I Step 3) ──────────
+  // energy_entries.created_by carries the auth user id
   const energyParams = useMemo(
     () => ({
       limit: 1,
       sort: 'logged_at',
       order: 'desc' as const,
-      ...(profile?.id ? { filters: { created_by: profile.id } } : {}),
+      ...(user?.id ? { filters: { created_by: user.id } } : {}),
     }),
-    [profile?.id],
+    [user?.id],
   );
   const { data: energyRows } = useEnergyEntriesList(energyParams);
   const energyToday = useMemo<number | null>(() => {
@@ -253,18 +330,18 @@ function MetricsDisplay() {
     return latest.energy_level;
   }, [energyRows]);
 
-  // ── HERALDS — WIRED FOR REAL (Run 08, the heralds mend, 2026-07-20) ───────
+  // heralds.recipient carries the auth user id of the vessel addressed
   const heraldParams = useMemo(
     () => ({
       limit: 1,
-      ...(profile?.id
-        ? { filters: { recipient: profile.id, is_read: 'false' } }
+      ...(user?.id
+        ? { filters: { recipient: user.id, is_read: 'false' } }
         : {}),
     }),
-    [profile?.id],
+    [user?.id],
   );
   const { total: heraldTotal } = useHeraldsList(heraldParams);
-  const notifications = profile?.id ? heraldTotal : 0;
+  const notifications = user?.id ? heraldTotal : 0;
 
   return (
     <HStack align="center" space="md" className="shrink-0">

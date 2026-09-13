@@ -6,33 +6,27 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
-import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Users, MessageCircle, Bell, BellOff } from 'lucide-react';
+import { ArrowLeft, Users, MessageCircle } from 'lucide-react';
+import { readRow } from '../rows';
 import type { CardData } from '@/types/components/runes/card.types';
-
-interface Channel {
-  channels_id: string;
-  display_name: string;
-  handle: string;
-  description: string | null;
-  subscriber_count: number | null;
-  owner_id: string;
-}
+import type { ChannelsRow } from '@/lib/generated/types/iris-communications/channels';
 
 export function ChannelView() {
   const params = useParams();
-  const [channel, setChannel] = useState<Channel | null>(null);
+  const channelId = typeof params?.id === 'string' ? params.id : '';
+  const [channel, setChannel] = useState<ChannelsRow | null>(null);
   const [loading, setLoading] = useState(true);
-  const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/generated/hermes-social/channels/${params.id}`)
+    let cancelled = false;
+    fetch(`/api/generated/iris-communications/channels/${channelId}`)
       .then((r) => r.json())
-      .then((result) => { if (result.success) setChannel(result.data); })
+      .then((result) => { if (!cancelled) setChannel(readRow<ChannelsRow>(result)); })
       .catch(console.error)
-      .finally(() => setLoading(false));
-  }, [params.id]);
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, [channelId]);
 
   if (loading) {
     return (
@@ -57,7 +51,7 @@ export function ChannelView() {
     );
   }
 
-  const cardData: CardData = { id: channel.channels_id, type: 'value', title: channel.display_name, value: channel.handle };
+  const cardData: CardData = { id: channel.id, type: 'value', title: channel.name, value: channel.slug };
 
   return (
     <main className="min-h-screen py-12">
@@ -69,23 +63,20 @@ export function ChannelView() {
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-2xl font-bold text-star-dust">{channel.display_name}</h1>
-              <p className="text-sm text-star-dust/40">@{channel.handle}</p>
+              <h1 className="text-2xl font-bold text-star-dust">{channel.name}</h1>
+              <p className="text-sm text-star-dust/40">@{channel.slug}</p>
             </div>
-            <Button variant={subscribed ? 'ghost' : 'primary'} size="sm" onClick={() => setSubscribed(!subscribed)}>
-              {subscribed ? <><BellOff className="h-4 w-4 mr-2" />Unsubscribe</> : <><Bell className="h-4 w-4 mr-2" />Subscribe</>}
-            </Button>
+            {channel.channel_type && (
+              <Badge variant="outline" size="sm" className="text-[10px] capitalize">{channel.channel_type}</Badge>
+            )}
           </div>
 
           {channel.description && <p className="text-star-dust/70 leading-relaxed mb-6">{channel.description}</p>}
 
-          <div className="flex items-center gap-3 text-sm text-star-dust/40">
-            <span className="flex items-center gap-1"><Users size={14} />{channel.subscriber_count || 0} subscribers</span>
-          </div>
-
           <div className="mt-8 p-6 bg-white/5 rounded-xl text-center">
             <MessageCircle className="h-8 w-8 text-star-dust/20 mx-auto mb-3" />
-            <p className="text-star-dust/40 text-sm">Channel posts will appear here when the community begins to share.</p>
+            <p className="text-star-dust/40 text-sm">This channel holds no posts. The Sanctuary keeps its shared writing in the Pulse.</p>
+            <Link href="/connect/feed" className="text-neurospark hover:underline text-sm mt-3 inline-block">Go to the Pulse</Link>
           </div>
         </Card>
       </div>

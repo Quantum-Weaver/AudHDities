@@ -12,9 +12,11 @@ interface StudioPageTemplateProps {
   color: string;
   backHref: string;
   backLabel: string;
+  /** the room's standing sentence, shown under the description */
+  standing?: string;
 }
 
-export function StudioPageTemplate({ title, description, icon: Icon, color, backHref, backLabel }: StudioPageTemplateProps) {
+export function StudioPageTemplate({ title, description, icon: Icon, color, backHref, backLabel, standing }: StudioPageTemplateProps) {
   const cd: CardData = { id: title.toLowerCase().replace(/\s+/g, '-'), type: 'value', title, value: description };
 
   return (
@@ -30,7 +32,7 @@ export function StudioPageTemplate({ title, description, icon: Icon, color, back
           </div>
           <h1 className="text-2xl font-bold text-star-dust mb-4">{title}</h1>
           <p className="text-star-dust/60 max-w-lg mx-auto mb-6">{description}</p>
-          <p className="text-sm text-star-dust/40">The {title.toLowerCase()} awaits your first creation.</p>
+          <p className="text-sm text-star-dust/40">{standing ?? `The ${title.toLowerCase()} awaits your first creation.`}</p>
         </Card>
       </div>
     </main>

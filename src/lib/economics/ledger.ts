@@ -10,6 +10,7 @@ export interface ExchangeForLedger {
   id: string;
   buyer_id: string;
   ware_id: string | null;
+  work_id: string | null;
   gross_amount: number;
   currency: string;
   platform_fee_percent: number;
@@ -22,9 +23,14 @@ export interface WareForLedger {
   residual_pool_percent: number | null;
 }
 
+/** The ware or the work the exchange carried across, read the same way. */
+interface SubjectForLedger extends WareForLedger {
+  kind: 'ware' | 'work';
+}
+
 export interface LedgerOutcome {
   wrote: number;
-  skipped: 'already-written' | 'no-ware' | null;
+  skipped: 'already-written' | 'no-subject' | null;
   note?: string;
 }
 
@@ -39,11 +45,13 @@ const DESCRIPTIONS: Record<string, string> = {
 };
 
 /**
- * Write the flow's own lines for one COMPLETED exchange.
+ * Write the flow's own lines for one COMPLETED exchange, for a ware or a work.
  *
  * Reads first: if any ledger row already carries this exchange's id, it writes
  * nothing and says so. This is the same fact the .eq('status','pending') guard
  * protects at the exchanges row.
+ *
+ * A ware is handed in; a work is read from the exchange's own work_id.
  */
 export async function writeLedgerRowsForExchange(
   db: Db,
@@ -62,31 +70,25 @@ export async function writeLedgerRowsForExchange(
     return { wrote: 0, skipped: 'already-written' };
   }
 
-  if (!ware) {
+  // ── the ware, or the work when no ware stands ─────────────────────────
+  const subject = await subjectOf(db, exchange, ware);
+  if (!subject) {
     return {
       wrote: 0,
-      skipped: 'no-ware',
-      note: 'The exchange carries no ware; nothing was written and nothing was lost.',
+      skipped: 'no-subject',
+      note: 'The exchange carries no ware and no work; nothing was written and nothing was lost.',
     };
   }
 
   // ── the contributors, read by PRESENCE ────────────────────────────────
-  const participants = await db
-    .from('ware_participants')
-    .select('user_id, created_at')
-    .eq('ware_id', ware.id)
-    .order('created_at', { ascending: true });
-
   const contributorIds: string[] = [];
-  if (Array.isArray(participants.data)) {
-    for (const row of participants.data as Array<{ user_id: string }>) {
-      if (row?.user_id && !contributorIds.includes(row.user_id)) {
-        contributorIds.push(row.user_id);
-      }
+  for (const row of await participantsOf(db, subject)) {
+    if (row?.user_id && !contributorIds.includes(row.user_id)) {
+      contributorIds.push(row.user_id);
     }
   }
-  if (ware.created_by && !contributorIds.includes(ware.created_by)) {
-    contributorIds.push(ware.created_by);
+  if (subject.created_by && !contributorIds.includes(subject.created_by)) {
+    contributorIds.push(subject.created_by);
   }
 
   // ── each vessel's own covenant dial ───────────────────────────────────
@@ -116,7 +118,7 @@ export async function writeLedgerRowsForExchange(
   const lines = computeSplit({
     grossMinorUnits,
     platformFeePercent: exchange.platform_fee_percent ?? 10,
-    residualPledgePercent: ware.residual_pool_percent ?? 0,
+    residualPledgePercent: subject.residual_pool_percent ?? 0,
     contributorIds,
     covenantPercentByVessel,
   });
@@ -124,11 +126,14 @@ export async function writeLedgerRowsForExchange(
   const breakdown = {
     gross_minor_units: grossMinorUnits,
     platform_fee_percent: exchange.platform_fee_percent ?? 10,
-    residual_pledge_percent: ware.residual_pool_percent ?? 0,
+    residual_pledge_percent: subject.residual_pool_percent ?? 0,
     contributor_headcount: contributorIds.length,
     odd_cent_rule: ODD_CENT_RULE,
-    ware_id: ware.id,
-    ware_name: ware.name,
+    subject_kind: subject.kind,
+    ware_id: subject.kind === 'ware' ? subject.id : null,
+    ware_name: subject.kind === 'ware' ? subject.name : null,
+    work_id: subject.kind === 'work' ? subject.id : null,
+    work_name: subject.kind === 'work' ? subject.name : null,
   };
 
   const rows = lines
@@ -164,6 +169,52 @@ export async function writeLedgerRowsForExchange(
   }
 
   return { wrote: rows.length, skipped: null };
+}
+
+/** The ware when one was handed over, else the work the exchange names. */
+async function subjectOf(
+  db: Db,
+  exchange: ExchangeForLedger,
+  ware: WareForLedger | null,
+): Promise<SubjectForLedger | null> {
+  if (ware) return { kind: 'ware', ...ware };
+  if (!exchange.work_id) return null;
+
+  const work = await db
+    .from('works')
+    .select('id, name, created_by, residual_pool_percent')
+    .eq('id', exchange.work_id)
+    .maybeSingle();
+
+  const row = work.data;
+  if (!row) return null;
+  return {
+    kind: 'work',
+    id: row.id,
+    name: row.name,
+    created_by: row.created_by,
+    residual_pool_percent: row.residual_pool_percent,
+  };
+}
+
+/** ware_participants for a ware, work_participants for a work, oldest first. */
+async function participantsOf(
+  db: Db,
+  subject: SubjectForLedger,
+): Promise<Array<{ user_id: string }>> {
+  const read = subject.kind === 'ware'
+    ? await db
+      .from('ware_participants')
+      .select('user_id, created_at')
+      .eq('ware_id', subject.id)
+      .order('created_at', { ascending: true })
+    : await db
+      .from('work_participants')
+      .select('user_id, created_at')
+      .eq('work_id', subject.id)
+      .order('created_at', { ascending: true });
+
+  return Array.isArray(read.data) ? (read.data as Array<{ user_id: string }>) : [];
 }
 
 function firstId(data: unknown): string | null {

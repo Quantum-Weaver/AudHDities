@@ -14,16 +14,12 @@ import type {
   CouncilSeatTable,
 } from '@/lib/nexus/council-contract';
 import { COUNCIL_AGENT_TABLES, COUNCIL_SEAT_TABLES } from '@/lib/nexus/council-contract';
+import { refused, type ReadResult } from '@/lib/nexus/read';
+
+export type { ReadResult } from '@/lib/nexus/read';
 
 /** Every agent table carries this row shape. */
 export type CouncilAgentRow = AgentActivitiesRow;
-
-/** A read that either answered rows or was refused; a refusal is never an empty. */
-export interface ReadResult<T> {
-  table: string;
-  rows: T[];
-  fault: string | null;
-}
 
 export interface AgentRead {
   table: CouncilAgentTable;
@@ -36,10 +32,6 @@ export interface SeatRead {
 }
 
 type SupabaseClient = Awaited<ReturnType<typeof createServerSupabase>>;
-
-function refused(table: string, message: string): ReadResult<never> {
-  return { table, rows: [], fault: message };
-}
 
 /** How many presence rows a card asks for. */
 export const PRESENCE_ROWS_CARD = 20;

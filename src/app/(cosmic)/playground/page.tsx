@@ -4,7 +4,7 @@ import { Playground } from '@/components/asgard/domains/cosmic/playground/Playgr
 
 export const metadata = {
   title: 'The Sandbox | Sovereign Sanctuary',
-  description: 'Play, experiment, and create',
+  description: 'Every component outside asgard, by grouping',
 };
 
 export default function PlaygroundPage() {

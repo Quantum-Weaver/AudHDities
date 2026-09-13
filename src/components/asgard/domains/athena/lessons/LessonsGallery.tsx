@@ -1,13 +1,15 @@
 // src/components/asgard/domains/athena/lessons/LessonsGallery.tsx
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
+import { useUser } from '@/hooks/useUser';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, FileText, Search, Clock } from 'lucide-react';
 import { useLessonsList } from '@/lib/generated/hooks/athena-gamification/lessons';
+import { readIds, readMarks } from '@/lib/lessons/marks';
 import type { CardData } from '@/types/components/runes/card.types';
 
 const TYPE_COLORS: Record<string, string> = {
@@ -25,10 +27,27 @@ const LESSONS_PARAMS = {
   limit: 100,
 };
 
+const EMPTY_IDS = new Set<string>();
+
 export function LessonsGallery() {
   const [searchTerm, setSearchTerm] = useState('');
+  const { user } = useUser();
 
   const { data: lessons, loading } = useLessonsList(LESSONS_PARAMS);
+
+  const [marked, setMarked] = useState<{ key: string; ids: Set<string> } | null>(null);
+
+  useEffect(() => {
+    if (!user) return;
+    const key = user.id;
+    let alive = true;
+    readMarks().then((res) => {
+      if (alive && res) setMarked({ key, ids: readIds(res.marks) });
+    });
+    return () => { alive = false; };
+  }, [user]);
+
+  const readLessons = user && marked?.key === user.id ? marked.ids : EMPTY_IDS;
 
   const filtered = useMemo(() => lessons.filter(l => l.name.toLowerCase().includes(searchTerm.toLowerCase()) || (l.description || '').toLowerCase().includes(searchTerm.toLowerCase())), [lessons, searchTerm]);
 
@@ -44,7 +63,13 @@ export function LessonsGallery() {
           const cd: CardData = { id: l.id, type: 'value', title: l.name, value: l.lesson_type || '' };
           return (
             <Link key={l.id} href={`/library/lessons/${l.slug}`}><Card data={cd} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-              <div className="flex items-center justify-between mb-3">{l.lesson_type && <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${TYPE_COLORS[l.lesson_type] || ''}`}>{l.lesson_type.replace(/_/g, ' ')}</Badge>}{l.estimated_duration && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{l.estimated_duration}</span>}</div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  {l.lesson_type && <Badge variant="outline" size="sm" className={`text-[10px] capitalize ${TYPE_COLORS[l.lesson_type] || ''}`}>{l.lesson_type.replace(/_/g, ' ')}</Badge>}
+                  {readLessons.has(l.id) && <Badge variant="outline" size="sm" className="text-[10px] text-neurospark border-neurospark/40">read</Badge>}
+                </div>
+                {l.estimated_duration && <span className="flex items-center gap-1 text-xs text-star-dust/40"><Clock size={12} />{l.estimated_duration}</span>}
+              </div>
               <h3 className="text-lg font-semibold text-star-dust mb-2">{l.name}</h3><p className="text-sm text-star-dust/50 line-clamp-2">{l.description}</p>
             </Card></Link>
           );

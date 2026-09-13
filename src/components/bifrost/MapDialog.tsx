@@ -10,11 +10,11 @@
 
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
-import Learscail from '@/components/seidr/immersive/Learscail';
+import Learscail, { readAsWords, watchAsWords } from '@/components/seidr/immersive/Learscail';
 import { THE_STREET } from '@/lib/constants/systems/the-street';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { useHouseHref } from '@/hooks/useHouseHref';
@@ -26,6 +26,13 @@ export default function MapDialog() {
   const { mapOpen, setMapOpen } = useContinuityBeam();
   const houseHref = useHouseHref();
   const ref = useRef<HTMLDialogElement>(null);
+
+  // The Léarscáil's own map-or-words choice, read here too.
+  const asWords = useSyncExternalStore(
+    watchAsWords,
+    () => readAsWords(),
+    () => false
+  );
 
   const close = useCallback(() => setMapOpen(false), [setMapOpen]);
 
@@ -83,8 +90,13 @@ export default function MapDialog() {
           <Learscail onTravel={close} className="h-full" />
         </div>
 
-        {/* The flat index — from md upward. */}
-        <div className="hidden shrink-0 overflow-y-auto md:block md:max-h-[24vh]">
+        {/* The flat index — beside the drawing, folded when the words stand. */}
+        <div
+          className={cn(
+            'shrink-0 overflow-y-auto md:max-h-[24vh]',
+            asWords ? 'hidden' : 'hidden md:block'
+          )}
+        >
           <div className="grid auto-rows-min grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
             {THE_STREET.map((realm) => (
               <section key={realm.name} aria-label={realm.name} className="flex flex-col gap-2">

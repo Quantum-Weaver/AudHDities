@@ -1,8 +1,8 @@
 // src/components/asgard/domains/themis/proposals/ProposalDetail.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useState, useEffect, useCallback } from 'react';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
@@ -10,72 +10,82 @@ import { Progress } from '@/components/runes/Progress';
 import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { useUser } from '@/hooks/useUser';
-import { ArrowLeft, ThumbsUp, ThumbsDown, Clock, Users, Shield } from 'lucide-react';
+import { ArrowLeft, ThumbsUp, ThumbsDown, MinusCircle, Clock, Users, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { statusColor, statusLabel } from '@/components/asgard/domains/themis/status';
+import {
+  castVote,
+  isVotable,
+  readOwnVotes,
+  type VoteChoice,
+} from '@/components/asgard/domains/themis/voting/vote';
+import type { ProposalsRow } from '@/lib/generated/types/themis-governance/proposals';
 import type { CardData } from '@/types/components/runes/card.types';
-
-interface Proposal {
-  proposals_id: string;
-  title: string;
-  description: string;
-  status: string;
-  category: string;
-  votes_for: number;
-  votes_against: number;
-  deadline: string;
-  proposer_id: string;
-  created_at: string;
-}
-
-const STATUS_COLORS: Record<string, string> = {
-  active: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
-  passed: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30',
-  failed: 'bg-red-500/20 text-red-400 border-red-500/30',
-  pending: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
-  draft: 'bg-slate-500/20 text-slate-400 border-slate-500/30',
-};
 
 export function ProposalDetail() {
   const params = useParams();
-  const router = useRouter();
-  const { profile, roles } = useUser();
-  const [proposal, setProposal] = useState<Proposal | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, roles, isLoading } = useUser();
+  const [proposal, setProposal] = useState<ProposalsRow | null>(null);
+  const [ownVote, setOwnVote] = useState<VoteChoice | null>(null);
+  const [now, setNow] = useState(0);
+  const [reading, setReading] = useState(true);
+  const [fault, setFault] = useState<string | null>(null);
   const [voting, setVoting] = useState(false);
 
+  const id = typeof params.id === 'string' ? params.id : '';
+  const isCouncil = roles.includes('council');
+
   useEffect(() => {
-    fetch(`/api/generated/themis-governance/proposals/${params.id}`)
-      .then((r) => r.json())
-      .then((result) => { if (result.success) setProposal(result.data); })
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, [params.id]);
+    if (isLoading || !id) return;
+    let alive = true;
 
-  const handleVote = async (vote: 'for' | 'against') => {
-    if (!proposal || voting) return;
+    const read = async () => {
+      try {
+        const response = await fetch(`/api/generated/themis-governance/proposals/${id}`);
+        const result = await response.json();
+        if (!alive) return;
+        if (result.success) {
+          setProposal(result.data);
+          setNow(Date.now());
+          if (user) {
+            const cast = await readOwnVotes([id], user.id);
+            if (alive) setOwnVote(cast[id] ?? null);
+          }
+        } else {
+          setFault(result.error || 'This proposal could not be read.');
+        }
+      } catch {
+        if (alive) setFault('This proposal could not be read.');
+      } finally {
+        if (alive) setReading(false);
+      }
+    };
+
+    void read();
+    return () => { alive = false; };
+  }, [id, isLoading, user]);
+
+  const vote = useCallback(async (choice: VoteChoice) => {
+    if (!proposal || !user) return;
     setVoting(true);
-    try {
-      await new Promise((r) => setTimeout(r, 500));
-      setProposal((prev) => prev ? {
-        ...prev,
-        votes_for: vote === 'for' ? prev.votes_for + 1 : prev.votes_for,
-        votes_against: vote === 'against' ? prev.votes_against + 1 : prev.votes_against,
-      } : null);
-    } catch (err) {
-      console.error('Vote failed:', err);
-    } finally {
-      setVoting(false);
+    setFault(null);
+    const result = await castVote(proposal.id, user.id, choice);
+    if (result.error) {
+      setFault(result.error);
+    } else {
+      setOwnVote(choice);
+      const counts = result.counts;
+      if (counts) setProposal((prev) => (prev ? { ...prev, ...counts } : prev));
     }
-  };
+    setVoting(false);
+  }, [proposal, user]);
 
-  const formatDate = (dateStr: string) => {
-    if (!dateStr) return 'No deadline';
-    return new Date(dateStr).toLocaleDateString('en-US', {
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleDateString('en-US', {
       weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
     });
-  };
 
-  if (loading) {
+  if (isLoading || reading) {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6">
@@ -90,7 +100,7 @@ export function ProposalDetail() {
     return (
       <main className="min-h-screen py-12">
         <div className="container max-w-3xl mx-auto px-6 text-center">
-          <p className="text-star-dust/40">This proposal has been withdrawn.</p>
+          <p className="text-star-dust/40">{fault ?? 'This proposal has been withdrawn.'}</p>
           <Link href="/council/proposals" className="text-neurospark hover:underline mt-4 inline-block">Return to Proposals</Link>
         </div>
       </main>
@@ -99,17 +109,15 @@ export function ProposalDetail() {
 
   const totalVotes = proposal.votes_for + proposal.votes_against;
   const forPercent = totalVotes > 0 ? Math.round((proposal.votes_for / totalVotes) * 100) : 0;
-  const isCouncilTier = roles.includes('council') || roles.includes('admin');
-  const canVote = proposal.status === 'active' && isCouncilTier;
+  const open = isVotable(proposal, now);
+  const canVote = open && isCouncil;
 
   const cardData: CardData = {
-    id: proposal.proposals_id,
-    type: 'proposal',
-    title: proposal.title,
-    description: proposal.description,
-    status: proposal.status as any,
-    votesFor: proposal.votes_for,
-    votesAgainst: proposal.votes_against,
+    id: proposal.id,
+    type: 'value',
+    title: proposal.name,
+    value: proposal.status,
+    description: proposal.description ?? undefined,
   };
 
   return (
@@ -119,34 +127,40 @@ export function ProposalDetail() {
           <ArrowLeft className="h-4 w-4" />Return to Proposals
         </Link>
 
+        {fault && (
+          <div className="mb-6 p-4 bg-fire-base/10 border border-fire-base/30 rounded-lg">
+            <p className="text-fire-base text-sm">{fault}</p>
+          </div>
+        )}
+
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
-          {/* Status + Category */}
           <div className="flex items-center gap-3 mb-4">
-            <Badge variant="outline" size="sm" className={cn('text-[10px] capitalize', STATUS_COLORS[proposal.status] || '')}>
-              {proposal.status}
+            <Badge variant="outline" size="sm" className={cn('text-[10px]', statusColor(proposal.status))}>
+              {statusLabel(proposal.status)}
             </Badge>
-            {proposal.category && (
+            {proposal.proposal_type && (
               <Badge variant="outline" size="sm" className="text-[10px] capitalize">
-                {proposal.category}
+                {proposal.proposal_type}
               </Badge>
             )}
           </div>
 
-          <h1 className="text-2xl font-bold text-star-dust mb-4">{proposal.title}</h1>
-          <p className="text-star-dust/70 leading-relaxed mb-8">{proposal.description}</p>
+          <h1 className="text-2xl font-bold text-star-dust mb-4">{proposal.name}</h1>
+          {proposal.description && (
+            <p className="text-star-dust/70 leading-relaxed mb-8 whitespace-pre-line">{proposal.description}</p>
+          )}
 
-          {/* Vote Stats */}
           <div className="bg-white/5 rounded-xl p-6 mb-8">
-            <h3 className="text-sm font-medium text-star-dust/60 mb-4">Vote Results</h3>
+            <h2 className="text-sm font-medium text-star-dust/60 mb-4">Vote Results</h2>
             <div className="flex items-center gap-6 mb-4">
               <div className="flex items-center gap-2">
-                <ThumbsUp className="h-5 w-5 text-emerald-400" />
-                <span className="text-emerald-400 font-bold text-lg">{proposal.votes_for}</span>
+                <ThumbsUp className="h-5 w-5 text-sanctuary-green" />
+                <span className="text-sanctuary-green font-bold text-lg">{proposal.votes_for}</span>
                 <span className="text-xs text-star-dust/40">for</span>
               </div>
               <div className="flex items-center gap-2">
-                <ThumbsDown className="h-5 w-5 text-red-400" />
-                <span className="text-red-400 font-bold text-lg">{proposal.votes_against}</span>
+                <ThumbsDown className="h-5 w-5 text-fire-base" />
+                <span className="text-fire-base font-bold text-lg">{proposal.votes_against}</span>
                 <span className="text-xs text-star-dust/40">against</span>
               </div>
               <div className="flex items-center gap-2 ml-auto">
@@ -157,29 +171,34 @@ export function ProposalDetail() {
             <Progress value={forPercent} max={100} variant="default" size="md" />
           </div>
 
-          {proposal.deadline && (
+          {proposal.voting_ends_at && (
             <div className="flex items-center gap-2 text-sm text-star-dust/40 mb-8">
               <Clock size={14} />
-              <span>Voting ends: {formatDate(proposal.deadline)}</span>
+              <span>Voting ends: {formatDate(proposal.voting_ends_at)}</span>
             </div>
           )}
 
-          {/* Vote Buttons */}
           {canVote && (
-            <div className="flex gap-3">
-              <Button variant="primary" size="md" onClick={() => handleVote('for')} loading={voting}>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button variant={ownVote === 'for' ? 'primary' : 'outline'} size="md" onClick={() => vote('for')} loading={voting}>
                 <ThumbsUp className="h-4 w-4 mr-2" />Vote For
               </Button>
-              <Button variant="ghost" size="md" onClick={() => handleVote('against')} loading={voting}>
+              <Button variant={ownVote === 'against' ? 'primary' : 'outline'} size="md" onClick={() => vote('against')} loading={voting}>
                 <ThumbsDown className="h-4 w-4 mr-2" />Vote Against
               </Button>
+              <Button variant={ownVote === 'abstain' ? 'primary' : 'ghost'} size="md" onClick={() => vote('abstain')} loading={voting}>
+                <MinusCircle className="h-4 w-4 mr-2" />Abstain
+              </Button>
+              {ownVote && (
+                <span className="text-xs text-star-dust/40">Your voice is recorded as {ownVote}.</span>
+              )}
             </div>
           )}
 
-          {!canVote && proposal.status === 'active' && (
-            <div className="flex items-center gap-2 text-sm text-amber-400 bg-amber-500/10 rounded-xl px-4 py-3">
+          {!canVote && open && (
+            <div className="flex items-center gap-2 text-sm text-hearth-gold bg-hearth-gold/10 rounded-xl px-4 py-3">
               <Shield size={14} />
-              <span>Council tier required to vote. Reach 500 sovereignty to participate.</span>
+              <span>The vote is held by the Council role.</span>
             </div>
           )}
         </Card>

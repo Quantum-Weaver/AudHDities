@@ -10,12 +10,12 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Clock, Radio, Users } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface LiveEvent {
-  id: string; title: string; description: string | null;
-  event_type: string; performer_id: string; started_at: string | null;
-  is_live: boolean;
-}
+type LiveEvent = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'event_type' | 'performer_id' | 'started_at' | 'is_live'
+>;
 
 export function LiveDetail() {
   const params = useParams(); const router = useRouter();
@@ -46,7 +46,7 @@ export function LiveDetail() {
       <Card data={cd} variant="sanctuary" radius="xl" shadow="md" className="p-8">
         <div className="flex items-center gap-2 mb-4">
           <Badge variant="outline" size="sm" className="text-[10px] bg-red-500/20 text-red-400 border-red-500/30 animate-pulse">LIVE</Badge>
-          <Badge variant="outline" size="sm" className="text-[10px] capitalize">{event.event_type}</Badge>
+          {event.event_type && <Badge variant="outline" size="sm" className="text-[10px] capitalize">{event.event_type}</Badge>}
         </div>
         <h1 className="text-2xl font-bold text-star-dust mb-4">{event.title}</h1>
         {event.description && <p className="text-star-dust/70 leading-relaxed mb-6">{event.description}</p>}

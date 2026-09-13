@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useMemo, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { List, Map as MapIcon } from 'lucide-react';
@@ -179,7 +179,7 @@ export function writeAsWords(value: boolean, given?: WordsShelf | null): void {
 }
 
 /** Listens for the choice changing, here or in another tab. */
-function watchAsWords(onChange: () => void): () => void {
+export function watchAsWords(onChange: () => void): () => void {
   wordsWatchers.add(onChange);
   if (typeof window !== 'undefined') window.addEventListener('storage', onChange);
   return () => {
@@ -187,6 +187,9 @@ function watchAsWords(onChange: () => void): () => void {
     if (typeof window !== 'undefined') window.removeEventListener('storage', onChange);
   };
 }
+
+/** The survey's size until the box has measured itself. */
+const BOX_AT_REST = { width: 1200, height: 800 };
 
 export interface LearscailProps {
   /** Called when the vessel walks through a door — the caller folds the map. */
@@ -198,6 +201,8 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
   const pathname = usePathname();
   const { discovered, ready } = useDiscovery();
   const houseHref = useHouseHref();
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState(BOX_AT_REST);
 
   // The kept choice; the drawing stands until the shelf has been read.
   const asWords = useSyncExternalStore(
@@ -225,7 +230,25 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
     [formula, discovered]
   );
 
-  const opened = useMemo(() => unfurl(mappa, { width: 1200, height: 800 }), [mappa]);
+  // The drawing box's own width and height, remeasured as it changes.
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver((entries) => {
+      const rect = entries[0]?.contentRect;
+      if (!rect || rect.width <= 0 || rect.height <= 0) return;
+      const width = Math.round(rect.width);
+      const height = Math.round(rect.height);
+      setBox((standing) =>
+        standing.width === width && standing.height === height ? standing : { width, height }
+      );
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ready]);
+
+  // The land surveyed at the box's own size, so the drawing fills it.
+  const opened = useMemo(() => unfurl(mappa, box), [mappa, box]);
 
   const paper = useMemo(() => quickResolveAffect(pathname || '/').wash, [pathname]);
   const here = realmOfPath(pathname || '/');
@@ -266,6 +289,7 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
 
           {/* The drawing — from md upward. */}
           <div
+            ref={boxRef}
             className={cn(
               'relative min-h-0 flex-1 overflow-hidden rounded-lg border border-star-dust/15',
               asWords ? 'hidden' : 'hidden md:block'
@@ -273,13 +297,13 @@ export default function Learscail({ onTravel, className }: LearscailProps) {
             style={{ backgroundImage: paper }}
           >
             <svg
-              viewBox="0 0 1200 800"
+              viewBox={`0 0 ${box.width} ${box.height}`}
               preserveAspectRatio="xMidYMid meet"
               role="group"
               aria-label="The Sanctuary, drawn as land"
               className="h-full w-full"
             >
-              <rect x="0" y="0" width="1200" height="800" fill={VELLUM} opacity="0.88" />
+              <rect x="0" y="0" width={box.width} height={box.height} fill={VELLUM} opacity="0.88" />
 
               {opened.marches.map((march) => (
                 <path

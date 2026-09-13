@@ -13,7 +13,8 @@ import { Textarea } from "@/components/forging/Textarea";
 import { Select } from "@/components/forging/Select";
 import { Card } from "@/components/runes/Card";
 
-import type { ApplicationsInsert } from "@/lib/generated/types/themis-governance/applications";
+import type { ApplicationsInsert, ApplicationsRow } from "@/lib/generated/types/themis-governance/applications";
+import { APPLICATION_STATUS, isOpen } from "@/components/asgard/domains/themis/status";
 
 import { useCreateApplications } from "@/lib/generated/hooks/themis-governance/applications";
 import { useCommunityProfilesList } from "@/lib/generated/hooks/hestia-core/community_profiles";
@@ -190,9 +191,11 @@ export function ApplicationForm({
   useEffect(() => {
     const checkExistingApplication = async () => {
       try {
-        const response = await fetch(`/api/generated/themis-governance/applications?user_id=${userId}&status=pending`);
+        const params = new URLSearchParams({ user_id: userId, sort: 'created_at', order: 'desc', limit: '20' });
+        const response = await fetch(`/api/generated/themis-governance/applications?${params.toString()}`);
         const result = await response.json();
-        if (result.success && result.data && result.data.length > 0) {
+        const rows: ApplicationsRow[] = result.success ? (result.data?.data ?? []) : [];
+        if (rows.some((row) => isOpen(row.status))) {
           setHasPendingApplication(true);
         }
       } catch (error) {
@@ -292,8 +295,10 @@ export function ApplicationForm({
     }
 
     const form_data = applicationType === "artisan" ? {
+      artisan_name: formData.business_name,
       creative_categories: formData.creative_categories,
       portfolio_url: formData.portfolio_url,
+      website_url: formData.website_url,
       creative_description: formData.description,
       experience: formData.experience,
       goals: formData.motivation,
@@ -313,7 +318,7 @@ export function ApplicationForm({
       application_type: applicationType,
       form_data,
       user_id: userId,
-      status: "submitted",
+      status: APPLICATION_STATUS.SUBMITTED,
     };
 
     const result = await create(applicationData);
@@ -366,11 +371,13 @@ export function ApplicationForm({
         className="p-8 text-center"
       >
         <div className="text-6xl mb-4">⏳</div>
-        <h2 className="text-xl font-bold text-star-dust mb-2">Application Already Submitted</h2>
+        <h2 className="text-xl font-bold text-star-dust mb-2">Application Submitted</h2>
         <p className="text-star-dust/60 mb-6">
-          You already have a pending application. Our council will review it shortly.
+          One application stands open in your name. The Council is reading it.
         </p>
-        <Button onClick={onCancel}>Return to your realms</Button>
+        <Button onClick={() => (onCancel ? onCancel() : router.push('/council/applications'))}>
+          See your applications
+        </Button>
       </Card>
     );
   }

@@ -39,6 +39,8 @@ export function SanctumContent() {
   const [bubbleHourlyMax, setBubbleHourlyMax] = useState(100);
   const [bubbleVesselButton, setBubbleVesselButton] = useState(false);
   const [bubbleTouched, setBubbleTouched] = useState(false);
+  const [statusLine, setStatusLine] = useState('');
+  const [statusSaved, setStatusSaved] = useState(false);
 
   useEffect(() => {
     refreshProfile();
@@ -70,6 +72,7 @@ export function SanctumContent() {
           if (typeof raw.bubble_daily_max === 'number') setBubbleDailyMax(raw.bubble_daily_max);
           if (typeof raw.bubble_hourly_max === 'number') setBubbleHourlyMax(raw.bubble_hourly_max);
           setBubbleVesselButton(raw.bubble_vessel_button === true);
+          if (typeof raw.status_line === 'string') setStatusLine(raw.status_line);
         }
       })
       .catch(() => {});
@@ -114,6 +117,13 @@ export function SanctumContent() {
     value: '',
   };
 
+  const statusCardData: CardData = {
+    id: `${user.id}-sanctum-status-line`,
+    title: 'Your Line',
+    type: 'value',
+    value: statusLine,
+  };
+
   const covenantCardData: CardData = {
     id: `${user.id}-sanctum-covenant`,
     title: 'The Covenant',
@@ -147,6 +157,13 @@ export function SanctumContent() {
     } catch (err) {
       console.error('Failed to update vessel config:', err);
     }
+  };
+
+  const saveStatusLine = async () => {
+    const next = statusLine.trim();
+    await updateConfigField('status_line', next.length > 0 ? next : null);
+    setStatusSaved(true);
+    setTimeout(() => setStatusSaved(false), 2000);
   };
 
   const handleSave = async (data: Record<string, any>) => {
@@ -237,6 +254,26 @@ export function SanctumContent() {
               />
             </FormField>
           </Form>
+        </SanctumSection>
+
+        <SanctumSection id="your-line" title="Your Line" data={statusCardData}>
+          <p className="text-sm text-star-dust/70 mb-4">
+            One line of your own, carried in the status bar beside the Sanctuary&rsquo;s
+            voice. Up to 80 characters. Leave it empty and the bar shows nothing.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
+            <Input
+              name="status_line"
+              maxLength={80}
+              value={statusLine}
+              onChange={(e) => setStatusLine(e.target.value)}
+              placeholder="What is true for you today?"
+            />
+            <Button type="button" variant="secondary" size="md" onClick={saveStatusLine}>
+              Set
+            </Button>
+          </div>
+          {statusSaved && <p className="text-xs text-neurospark mt-2">Your line stands.</p>}
         </SanctumSection>
 
         <SanctumSection id="accessibility" title="Accessibility" data={preferencesCardData}>

@@ -35,7 +35,7 @@ export function TimelineSpiral() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=50`)
+    fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&sort=event_at&order=desc&limit=50`)
       .then(r => r.json()).then(res => { if (res.success) setEvents(res.data?.data || []); }).catch(() => {})
       .finally(() => setLoading(false));
   }, [user]);

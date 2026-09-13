@@ -24,7 +24,7 @@ export function ArtisansGallery() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('/api/generated/hermes-social/artisan_profiles?status=active&order=artisan_name.asc')
+    fetch('/api/generated/hermes-social/artisan_profiles?status=active&sort=artisan_name&order=asc')
       .then((r) => r.json())
       .then((result) => {
         if (result.success) setArtisans(result.data?.data || result.data || []);

@@ -573,15 +573,20 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
   },
   
   // COSMIC (Design)
+  '/cosmic': {
+    default: 'architecture',
+    title: 'The Design Playground',
+    subtitle: 'The rooms where the Sanctuary shows its own dress'
+  },
   '/environments': { 
     default: 'home',
-    title: 'The Realms',
-    subtitle: 'Choose the environment that calls to you'
+    title: 'The Crossing Hall',
+    subtitle: 'Eleven doorways into the rooms the house built'
   },
   '/environments/*': { 
     default: 'home',
-    title: 'Realm Detail',
-    subtitle: 'Experience the environment'
+    title: 'Being There',
+    subtitle: 'The room is the place'
   },
   '/playground': { 
     default: 'architecture',
@@ -591,12 +596,17 @@ export const PAGE_ENVIRONMENT_MAP: PageEnvironmentMap = {
   '/theater': { 
     default: 'architecture',
     title: 'The Theater',
-    subtitle: 'Witness the dance of consciousness'
+    subtitle: 'The moving stylesheets, each effect on a sample'
   },
   '/effects': { 
     default: 'music',
     title: 'The Grimoire',
-    subtitle: 'Ancient effects for the modern weaver'
+    subtitle: 'The glows, shadows, backdrops and classes the tokens emit'
+  },
+  '/colors': { 
+    default: 'observatory',
+    title: 'The Colours',
+    subtitle: 'Every named colour and gradient the tokens hold'
   },
   
   // SUPPORTING

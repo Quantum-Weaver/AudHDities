@@ -11,6 +11,7 @@ import { ArrowLeft, Droplets, Star, Heart, Pause, Play, Sparkles } from 'lucide-
 import { BubbleLimitSlider } from './BubbleLimitSlider';
 import { pageTheDoor } from './pageTheDoor';
 import { paintStar, readStarColours } from './starPaint';
+import { claimSigils } from '@/lib/sigils/earned';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TYPES
@@ -144,6 +145,7 @@ export function BubblePopGame() {
   const [collections, setCollections] = useState<CollectionFinds[]>([]);
   const [loading, setLoading] = useState(true);
   const [customDailyMax, setCustomDailyMax] = useState<number>(DEFAULT_DAILY_MAX);
+  const [earned, setEarned] = useState(0);
 
   // ─── Fetch bubble definitions ────────────────────────────────────────
   useEffect(() => {
@@ -325,6 +327,8 @@ export function BubblePopGame() {
           collection_method: 'popped',
         }),
       });
+      const awarded = await claimSigils();
+      if (awarded.length > 0) setEarned((prev) => prev + awarded.length);
     } catch (err) { console.error('Failed to record pop:', err); }
 
     if (totalPopsRef.current === BREATH_AFTER_POPS) {
@@ -398,6 +402,12 @@ export function BubblePopGame() {
             </Link>
             <h1 className="text-2xl font-bold text-star-dust">Pop the Stars</h1>
             <p className="text-sm text-star-dust/70 mt-1">Tap bubbles to collect them</p>
+            {earned > 0 && (
+              <p role="status" className="text-sm text-star-dust/70 mt-1">
+                {earned === 1 ? 'A mark landed on ' : `${earned} marks landed on `}
+                <Link href="/library/sigils" className="underline underline-offset-2 hover:text-neurospark">the Honors</Link>.
+              </p>
+            )}
           </div>
           <div className="flex items-center gap-4">
             <div className="text-right">

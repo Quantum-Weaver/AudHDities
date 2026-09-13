@@ -10,12 +10,12 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Clock, MapPin, User } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface EventItem {
-  id: string; title: string; description: string | null;
-  event_type: string; genre: string | null; scheduled_for: string | null;
-  performer_id: string; is_live: boolean;
-}
+type EventItem = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'event_type' | 'genre' | 'scheduled_for' | 'performer_id' | 'is_live'
+>;
 
 export function EventDetail() {
   const params = useParams(); const router = useRouter();
@@ -47,7 +47,7 @@ export function EventDetail() {
       <Card data={cd} variant="sanctuary" radius="xl" shadow="md" className="p-8">
         <div className="flex items-center gap-2 mb-4">
           {event.is_live && <Badge variant="outline" size="sm" className="text-[10px] bg-red-500/20 text-red-400 border-red-500/30">LIVE</Badge>}
-          <Badge variant="outline" size="sm" className="text-[10px] capitalize">{event.event_type}</Badge>
+          {event.event_type && <Badge variant="outline" size="sm" className="text-[10px] capitalize">{event.event_type}</Badge>}
           {event.genre && <Badge variant="outline" size="sm" className="text-[10px]">{event.genre}</Badge>}
         </div>
         <h1 className="text-2xl font-bold text-star-dust mb-4">{event.title}</h1>

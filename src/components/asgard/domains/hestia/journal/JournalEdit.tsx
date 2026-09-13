@@ -14,15 +14,9 @@ import { Input } from '@/components/forging/Input';
 import { Select } from '@/components/forging/Select';
 import { ArrowLeft, Save } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { JournalEntriesRow } from '@/lib/generated/types/hestia-core/journal_entries';
 
-interface JournalEntry {
-  journal_entries_id: string;
-  title: string;
-  content: string;
-  mood?: string | null;
-  tags?: string[] | null;
-  created_at: string;
-}
+type JournalEntry = Pick<JournalEntriesRow, 'id' | 'title' | 'body' | 'mood' | 'tags' | 'created_at'>;
 
 const MOOD_OPTIONS = [
   { value: 'contemplative', label: 'Contemplative' },
@@ -71,7 +65,7 @@ export function JournalEdit() {
     try {
       const updates: Record<string, any> = {};
       if (data.title && data.title !== entry.title) updates.title = data.title;
-      if (data.content && data.content !== entry.content) updates.content = data.content;
+      if (data.content && data.content !== entry.body) updates.body = data.content;
       if (data.mood !== undefined && data.mood !== entry.mood) updates.mood = data.mood || null;
       if (data.tags !== undefined) {
         const newTags = data.tags
@@ -86,7 +80,7 @@ export function JournalEdit() {
         return;
       }
 
-      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.journal_entries_id}`, {
+      const response = await fetch(`/api/generated/hestia-core/journal_entries/${entry.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updates),
@@ -96,7 +90,7 @@ export function JournalEdit() {
       if (result.success) {
         setSaveMessage('Thread rewoven.');
         setTimeout(() => {
-          router.push(`/vessel/journal/${entry.journal_entries_id}`);
+          router.push(`/vessel/journal/${entry.id}`);
         }, 800);
       } else {
         setSaveMessage('Failed to save. Please try again.');
@@ -139,9 +133,9 @@ export function JournalEdit() {
   }
 
   const cardData: CardData = {
-    id: entry.journal_entries_id,
+    id: entry.id,
     type: 'value',
-    title: entry.title,
+    title: entry.title ?? 'Untitled',
     value: entry.mood || 'entry',
   };
 
@@ -150,7 +144,7 @@ export function JournalEdit() {
       <div className="container max-w-3xl mx-auto px-6">
 
         <Link
-          href={`/vessel/journal/${entry.journal_entries_id}`}
+          href={`/vessel/journal/${entry.id}`}
           className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -170,7 +164,7 @@ export function JournalEdit() {
             <FormField label="Title" required>
               <Input
                 name="title"
-                defaultValue={entry.title}
+                defaultValue={entry.title ?? ''}
                 placeholder="What truth wants to be told?"
               />
             </FormField>
@@ -178,7 +172,7 @@ export function JournalEdit() {
             <FormField label="Your Words" required>
               <Input
                 name="content"
-                defaultValue={entry.content}
+                defaultValue={entry.body ?? ''}
                 placeholder="Let the words flow..."
               />
             </FormField>

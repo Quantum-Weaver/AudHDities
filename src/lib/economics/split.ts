@@ -21,7 +21,7 @@ export const FEE_TO_RESIDUAL_POOL_PERCENT = 30;
  *                                distribution can absorb it
  *
  * (a) ships until KP rules — the plainest reading of "we do not take dignity
- * away". Whichever he rules, TWO INVARIANTS HOLD AND ARE NOT OPTIONAL:
+ * away". Whichever they rule, TWO INVARIANTS HOLD AND ARE NOT OPTIONAL:
  *   1. the remainder is NEVER rounded toward the platform: the machine's 70%
  *      line never absorbs a leftover cent under any rule;
  *   2. the sum of the produced lines equals the gross, exactly, in minor units.

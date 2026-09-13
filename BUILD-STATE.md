@@ -1,95 +1,74 @@
 # AudHDities — Build State
-*Open successor to the sealed rebuild-state note (no-peek/, 2026-07-07 —
-its witnessing purpose is fulfilled). Compiled by Fable 2026-07-09 from the
-day's audits, the room notepads, and SCHEMA-FINALIZE.md. Update in place;
-changes visible, reasoning present.*
+*The repo's standing state. Update in place; every row states what the tree
+holds, with the address that proves it.*
 
 ## The one-paragraph truth
-The backend regenerates itself (933 files, 0 errors, ~1.1s from one schema
-file). The UI is **far more built than "remaining work" implied** — 130
-pages across 11 deity route groups, built in the UI/UX era against an older
-schema. The actual remaining work is **reconciliation and wiring**: finalize
-the schema (2 of 11 domains verdicted in one day), regenerate, re-point 4
-dangling import classes, build the birth triggers, and connect rooms to the
-generated surface domain by domain. The hardest layers are done and
-self-maintaining.
+The backend regenerates itself: 118 tables in one schema file produce 884
+generated files — types, hooks, validators, utils and 326 API route handlers.
+The UI is 166 page files across 11 deity route groups plus the hearth and one
+proving room, and the four dangling import classes are gone. What remains is
+not rewiring but the write side: the rooms that read the base outnumber the
+rooms that write to it, and several surfaces still promise a door that has no
+table behind it.
 
 ## Layer by layer
 
-| Layer | State | Evidence / notes |
+| Layer | State | Evidence |
 |---|---|---|
-| **Live DB** (Supabase "Superposition") | ✅ live, **117 tables** (151 → 117 by KP's hand, THE SUPERPOSITION REVIEW 2026-07-28 — 34 drops archive-verified; `docs/SUPERPOSITION-TABLE-REVIEW.md`) · 20 enums · **0 user records (pristine)** · **self-knowing layer installed** (docs/sql/001–002: registries + gaia_sync, deity backfill, first portrait drawn) | types regenerated from live 07-31 (supabase CLI, bridge token); **the Stage's ground exists: `events` born 07-31 under deity `prometheus-stage`** (Door A — docs/STAGE-GROUND-DECISION.md, docs/sql/003; base now 118 tables) — the old "no prometheus_* tables" note is history |
-| **Schema finalize** | 🔄 2/11 domains verdicted (plutus ✅, marketplace slice ✅) | `SCHEMA-FINALIZE.md` — priority plan, governing clause, all verdicts w/ reasoning |
-| **GAIA** (backend generator) | ✅ LIVE | latest full run 07-28 (post-review): 117 tables → 713 files, 0 errors, 0.92s, zero ghosts (earlier: 07-09, 151 → 933 files) |
-| **COSMIC** (style generator) | ✅ LIVE — 3 bugs fixed 07-09 | out-of-repo paths · wildcard selectors ×2 (parallax, zoom); output now valid, dev server passes CSS |
-| **Generated validators** | ⚠️ structurally sound, business rules missing | smoke test: enums enforce; 99% residual passes. Remedy specified: constraints declared in gaia_config → GAIA emits z-bounds |
-| **Generated types/hooks/api/utils** | ✅ regenerated | **4 dangling import classes** in hand-written code: products→wares (types+hooks) · contributions→participants (hook) · profiles→3-way split (types) |
-| **UI routes** | 🏗️ built, awaiting rewire | 130 pages: aethelred 9 · athena 14 · auth 2 · cosmic 5 · hephaestus 20 · hermes 13 · hestia 12 · iris 11 · mnemosyne 9 · **prometheus 22 (Stage wing WIRED 07-31** — 10 rooms on the born `prometheus-stage/events` surface, id + sort dialect trued; Studio wing = honest placeholders awaiting the Spring**)** · themis 13 |
-| **Component library** | 🏗️ built (UI/UX era) | 11 deity domains + shared families (bifrost, runes, seidr, vegvisir, yggdrasil, hof, forging) |
-| **Bazaar (hermes)** | ✅ fully audited 07-09 | 11/11 rooms; `_NOTEPAD.md` in every room; stranded imports mapped; PriceBreakdown protected |
-| **Other 10 route groups** | ❓ un-audited | expect the same drift class as hermes; audit = repeat today's method per group |
-| **Auth/identity** | ⚠️ partial | login+signup pages exist; **forgot-password page missing** (link dead); **birth triggers not built** (KP's precondition for first record); acid-test + validate_signup RPCs live in DB |
-| **Styles** | ✅ valid, in-repo | 8 generated sheets + overrides; brace-balanced, no globs |
-| **Runtime** | ✅ boots | `.env` wired (Supabase URL + keys present); `next dev` passes CSS; first runtime type errors will be the 4 dangling classes |
-| **Docs/knowledge** | ✅ strong | `_NOTEPAD.md` convention live; SCHEMA-FINALIZE ledger; vessel-experience excavation (`docs/design/`); deposits census |
+| **Live DB** (Supabase "Superposition") | 118 tables · 19 functions · 20 enums · 0 views | counted in `src/lib/generated/supabase/database.types.ts` |
+| **Schema finalize** | 2 of 11 domains verdicted (plutus-economics, the hestia marketplace slice) | `SCHEMA-FINALIZE.md` priority plan |
+| **GAIA** (backend generator) | delivers the whole layer | 884 files: 156 types · 103 hooks · 156 validators · 102 utils · 326 route handlers under `src/app/api/generated/` |
+| **COSMIC** (style generator) | 21 stylesheets, every one loaded | 14 imported in `src/app/globals.css:12-25`, 7 in `src/app/layout.tsx:6-12` |
+| **Generated validators** | structurally sound; business bounds not emitted | enums enforce; constraints declared in `gaia_config` would have GAIA emit z-bounds |
+| **Generated types/hooks/api/utils** | no dangling import class remains | nothing under `src/` imports `plutus-economics/products`, `plutus-economics/contributions` or `hestia-core/profiles` |
+| **UI routes** | 166 page files | aethelred 9 · athena 16 · auth 4 · cosmic 7 · hephaestus 21 · hermes 23 · hestia 13 · iris 11 · mnemosyne 21 · prometheus 22 · themis 17, plus `src/app/page.tsx` and `src/app/proving/shapes/page.tsx` |
+| **Component library** | 361 `.tsx` under `src/components/` | 11 deity domains under `asgard/domains/` plus the shared families bifrost · runes · seidr · vegvisir · yggdrasil · hof · forging · shapes |
+| **Hand-written API** | 18 route handlers outside the generated tree | under `src/app/api/`, beside the 326 generated ones |
+| **Auth/identity** | four doors stand | `(auth)`: `login`, `signup`, `forgot-password`, `reset-password` |
+| **Server gates** | one group only | `(themis)` `admin/gate.ts` on the three `/council/admin` routes; `(aethelred)` `/nexus/council`, `/nexus/council/[id]` and `/nexus/api` redirect a signed-out visitor to `/login`. No middleware file stands. |
+| **Group boundaries** | four groups carry their own `error.tsx`, `loading.tsx` and `not-found.tsx` — `(athena)`, `(mnemosyne)`, `(prometheus)`, `(themis)` | the other seven fall back to `src/app/error.tsx` |
 
-## Decided architecture (recent, load-bearing)
-- **Distribution:** Echoes + Compass are Play *beacons*; everything else
-  distributes through the Sanctuary itself — signed APKs as digital wares.
-  The marketplace IS the app store.
-- **Economics:** ledger append-only; residual = platform-wide equal;
-  covenant = equal dividend to all active members; pledge valve on
-  artisan_profiles; pricing_model already encodes solidarity.
-- **Vessel experience:** Animal-Crossing-meets-RPG canon excavated with
-  provenance (`docs/design/vessel-experience-excavation.md`) — maps 1:1 to
-  the 11 vessel_* tables. No dark patterns, nesting as healing.
-- **Acid Test:** optional at signup, gently re-offered in-experience,
-  visibly affects pricing where offered (status-bar component = the
-  system's individual gentle voice).
+## Decided architecture (load-bearing)
+- **Distribution:** the marketplace IS the app store — everything not on a
+  store distributes through the Sanctuary as a signed ware.
+- **Economics:** `ledger` append-only; residual is platform-wide equal;
+  covenant is an equal dividend to all active members; the pledge valve is
+  `community_profiles.covenant_pledge_percent`, bounded 0–50 by
+  `api/auth/update-profile/route.ts:18` and set in the Sanctum
+  (`hestia/sanctum/CovenantSpace.tsx`); `pricing_model` encodes solidarity in
+  four values.
+- **Vessel experience:** the Animal-Crossing-meets-RPG canon at
+  `docs/design/vessel-experience-excavation.md`, mapping to the `vessel_*`
+  tables. No dark patterns.
+- **Acid Test:** optional at signup, re-offered in-experience, and affecting
+  price where a price is offered.
 
-## The reimagining inheritance (trued 2026-07-29, at the Core's relay)
-THE-FRONTEND-REIMAGINING's **design is complete** — the E2 UX study
-(eight rounds, both yeses, KP's four gates all ruled) closed
-2026-07-29. The whole inheritance lives at
-`resonance-chamber/desk/records/fable-lanes/study/e2-the-ux-study-bus.md`
-(the finishing session reads it whole; every claim file:line-cited
-against this repo). Its structural conclusion, one sentence: *every
-layer already exists — DB (vessel-home cluster, RLS-sovereign) ·
-generated hooks · the constants shelf (rules.ts living-conditions
-engine; gentleness primitives emitted unworn) · generated CSS
-(ceremonies incl. the farewell, camera moves, presence fields) · 285
-components (the seidr/immersive kit) · the quartet on the
-environment-key spine — the one missing organ is the surface that
-composes them.* Work-order: header lane → fifth instrument
-(`Page.tsx:69`, QuantumBackground retires whole) → resolver repoint →
-the scene renderer (the one new build) → Movement IV's wearing. Then
-KP's sequence: design the front → then seed. This inheritance is a
-parallel stream to the path below — the schema-finalize path is
-upstream of it, not in conflict (the Core's word, 2026-07-29).
+## What reads and what writes
 
-**→ BUILT the same day (trued at M10):** the finishing session ran
-①–⑤ whole — commit `c3a9ede0`, tsc 0 at every step (re-verified 0 by
-this lane). New organs live: `EnvironmentLayer` under all 127 pages ·
-`environments/affects.ts` (token bundles) · the scene renderer at
-`/vessel/home` (SceneRenderer · GardenBed · SceneDoorway ·
-RealmMapFurniture) · the Sanctum ceremony switchboard + FarewellCeremony
-(*Gweld ti'n fuan* at the release beat). PanoramaViewer +
-QuantumBackground retired in place. Mend law fired twice:
-database.types.ts stderr debris cut; deity_groups recatalogued
-151→117. **Open edges (REIMAGINING-BOARD, finishing-session section):**
-~~the ceremony-choices migration at KP's SQL hand~~ ✅ CLOSED
-2026-07-29 (KP ran it; types repulled + GAIA run 20260729_111653, 743
-files 0 errors + cast dropped + tsc 0 — `d8dc922e`) · the physical
-image lift · the EnvironmentKey stitch (ziggy) · the testing ritual ·
-seeding at KP's word (colors, never images — gate ③).
+**Components that touch the base, by domain:** themis 16 · hermes 15 ·
+hestia 15 · athena 14 · prometheus 11 · iris 8 · mnemosyne 7 · cosmic 2 ·
+hephaestus 1 · aethelred 0. The Nexus reads through `src/lib/nexus/*` from
+its page files rather than its components; two of cosmic's two are the
+orphaned `Theater.tsx` and the environment-preference write.
+
+**Writes the base:** the checkout road (`api/auth/checkout` → `exchanges`,
+completed by the Stripe webhook) · the contact form (`api/contact` →
+`contact_submissions`) · the Loom's forms (`works`, `wares`, `file_registry`)
+and `StudioEdit` · the vote (`votes`, upserted) · a proposal (`proposals`) ·
+an application review (`applications`, then `artisan_profiles` or
+`merchant_profiles`, then the role on `community_profiles`) · the vessel
+roster's role writes · the Stage's go-live form (`events`) · the environment
+preference (`api/auth/update-profile`).
+
+**Reads nothing:** the nine Loom rooms under `/studio`, the five
+`NexusPageTemplate` rooms, `/council/delegation`, and every room in
+`(cosmic)`.
 
 ## The path from here (in order)
-1. Schema finalize rows 2–11 (identity slice next: birth triggers, auth
-   canon, attribution) — ~9 more bounded sessions at today's pace.
-2. Apply schema changes in Supabase → regen types → GAIA (surface self-heals).
-3. Re-point the 4 dangling import classes; add forgot-password page.
-4. Birth-trigger chain → **KP creates the first vessel record.**
-5. Wire rooms domain-by-domain (bazaar first — its map is done), audit each
-   group with the hermes method, notepads as we go.
-6. The handle-with-care UX pass; experience validated by the family living
-   in it.
+1. Schema finalize rows 2–11, beginning with the identity slice.
+2. Apply schema changes in Supabase → regenerate types → GAIA.
+3. The write side where a surface already promises one: heralds, lesson
+   completion, sigil awards, delegation.
+4. The gate question: a middleware that sends a visitor to `/login` with a
+   redirect, or the soft door kept deliberately.
+5. Group boundaries for the seven groups that fall back to the root.

@@ -7,37 +7,48 @@ import { Card } from '@/components/runes/Card';
 import { Avatar, AvatarFallback } from '@/components/runes/Avatar';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Radio, Heart, MessageCircle, Clock } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
+import { ArrowLeft, Radio, MessageCircle, Clock } from 'lucide-react';
+import { readRows } from '../rows';
 import type { CardData } from '@/types/components/runes/card.types';
-
-interface Post {
-  posts_id: string;
-  title: string | null;
-  body: string | null;
-  author_id: string;
-  channel_id: string | null;
-  published_at: string;
-  emerald_count: number | null;
-  comment_count: number | null;
-  content_type: string;
-  visibility: string;
-  author_name?: string;
-  author_avatar?: string;
-  channel_name?: string;
-}
+import type { SignalsRow } from '@/lib/generated/types/iris-communications/signals';
 
 export function PulseFeed() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [signals, setSignals] = useState<SignalsRow[]>([]);
+  const [names, setNames] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/hermes-social/posts?visibility=public&order=published_at.desc&limit=20')
-      .then((r) => r.json())
-      .then((result) => {
-        if (result.success) setPosts(result.data?.data || result.data || []);
-      })
+    let cancelled = false;
+
+    const load = async () => {
+      const response = await fetch(
+        '/api/generated/iris-communications/signals?status=published&sort=created_at&order=desc&limit=20'
+      );
+      const rows = readRows<SignalsRow>(await response.json());
+      if (cancelled) return;
+      setSignals(rows);
+
+      const authors = Array.from(new Set(rows.map((s) => s.created_by)));
+      if (authors.length === 0) return;
+
+      const supabase = createClient();
+      const { data } = await supabase
+        .from('community_profiles')
+        .select('created_by, display_name')
+        .in('created_by', authors);
+      if (cancelled || !data) return;
+
+      const byAuthor: Record<string, string> = {};
+      data.forEach((p) => { if (p.created_by) byAuthor[p.created_by] = p.display_name; });
+      setNames(byAuthor);
+    };
+
+    load()
       .catch(console.error)
-      .finally(() => setLoading(false));
+      .finally(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
   }, []);
 
   const formatDate = (dateStr: string) => {
@@ -72,10 +83,10 @@ export function PulseFeed() {
             <ArrowLeft className="h-4 w-4" />Return to the Bridge
           </Link>
           <h1 className="text-2xl font-bold text-star-dust">The Pulse</h1>
-          <p className="text-sm text-star-dust/40 mt-1">What's resonating in the Sanctuary</p>
+          <p className="text-sm text-star-dust/40 mt-1">What&apos;s resonating in the Sanctuary</p>
         </div>
 
-        {posts.length === 0 ? (
+        {signals.length === 0 ? (
           <div className="text-center py-20">
             <Radio className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg mb-2">The pulse is quiet</p>
@@ -83,45 +94,40 @@ export function PulseFeed() {
           </div>
         ) : (
           <div className="space-y-4">
-            {posts.map((post) => {
+            {signals.map((signal) => {
+              const authorName = names[signal.created_by] || 'Sanctuary Soul';
               const cardData: CardData = {
-                id: post.posts_id,
+                id: signal.id,
                 type: 'value',
-                title: post.title || 'Untitled',
-                value: post.content_type,
-                description: post.body || '',
+                title: signal.name,
+                value: signal.signal_type || '',
+                description: signal.description || '',
               };
               return (
-                <Link key={post.posts_id} href={`/connect/feed/${post.posts_id}`}>
-                  <Card data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5">
-                    {/* Author Row */}
-                    <div className="flex items-center gap-3 mb-3">
-                      <Avatar size="sm">
-                        <AvatarFallback>{post.author_name?.[0] || 'S'}</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <span className="text-sm font-medium text-star-dust">{post.author_name || 'Sanctuary Soul'}</span>
-                        {post.channel_name && (
-                          <span className="text-xs text-star-dust/40 ml-2">in {post.channel_name}</span>
-                        )}
-                      </div>
-                      <span className="ml-auto text-[10px] text-star-dust/30 flex items-center gap-1">
-                        <Clock size={10} />{formatDate(post.published_at)}
-                      </span>
-                    </div>
+                <Card key={signal.id} data={cardData} variant="glass" radius="lg" shadow="sm" className="p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Avatar size="sm">
+                      <AvatarFallback>{authorName[0]}</AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium text-star-dust">{authorName}</span>
+                    <span className="ml-auto text-[10px] text-star-dust/30 flex items-center gap-1">
+                      <Clock size={10} />{formatDate(signal.created_at)}
+                    </span>
+                  </div>
 
-                    {/* Content */}
-                    {post.title && <h3 className="text-lg font-semibold text-star-dust mb-2">{post.title}</h3>}
-                    {post.body && <p className="text-sm text-star-dust/60 line-clamp-4 mb-3">{post.body}</p>}
+                  <h3 className="text-lg font-semibold text-star-dust mb-2">{signal.name}</h3>
+                  {signal.description && <p className="text-sm text-star-dust/60 line-clamp-4 mb-3">{signal.description}</p>}
 
-                    {/* Footer */}
-                    <div className="flex items-center gap-4 text-xs text-star-dust/40">
-                      <span className="flex items-center gap-1"><Heart size={12} />{post.emerald_count || 0} emeralds</span>
-                      <span className="flex items-center gap-1"><MessageCircle size={12} />{post.comment_count || 0} comments</span>
-                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">{post.content_type}</Badge>
-                    </div>
-                  </Card>
-                </Link>
+                  <div className="flex items-center gap-4 text-xs text-star-dust/40">
+                    <span className="flex items-center gap-1"><MessageCircle size={12} />{signal.response_count} responses</span>
+                    {signal.signal_type && (
+                      <Badge variant="outline" size="sm" className="text-[10px] capitalize">{signal.signal_type}</Badge>
+                    )}
+                    {signal.tags?.map((tag) => (
+                      <span key={tag} className="text-[10px] text-star-dust/30">#{tag}</span>
+                    ))}
+                  </div>
+                </Card>
               );
             })}
           </div>

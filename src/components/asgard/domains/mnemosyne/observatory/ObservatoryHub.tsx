@@ -41,9 +41,9 @@ export function ObservatoryHub() {
   useEffect(() => {
     if (!user) { setLoading(false); return; }
     Promise.all([
-      fetch(`/api/generated/athena-gamification/sigils?status=published&order=name.asc&limit=6`)
+      fetch(`/api/generated/athena-gamification/sigils?status=published&sort=name&order=asc&limit=6`)
         .then(r => r.json()),
-      fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&order=event_at.desc&limit=3`)
+      fetch(`/api/generated/hestia-core/current?sovereign_id=${user.id}&sort=event_at&order=desc&limit=3`)
         .then(r => r.json()),
     ]).then(([sigilRes, currentRes]) => {
       if (sigilRes.success) setSigils(sigilRes.data?.data || []);

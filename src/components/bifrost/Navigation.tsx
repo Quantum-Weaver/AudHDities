@@ -15,8 +15,10 @@ import { useCallback, useState, useEffect } from 'react';
 import {
   Menu, X, Store, Shield, Compass, User,
   Library,
+  UserRound,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { profileHref } from '@/components/asgard/domains/iris/profile/href';
 import { useAuth } from '@/hooks/useAuth';
 import { useHouseHref } from '@/hooks/useHouseHref';
 import StreetTree, { FOCUS_RING } from '@/components/bifrost/StreetTree';
@@ -58,7 +60,7 @@ interface BarItem {
 }
 
 const THE_FOUR: BarItem[] = [
-  // community — public profiles — takes this slot when designed (KP, 2026-08-27); only the private vessel and settings exist today.
+  // The public profile link stands beside the vessel's name at the right of the bar.
   { label: 'Bazaar', href: realmDoor('hermes'), visitorHref: realmDoor('hermes'), icon: Store },
   { label: 'Library', href: realmDoor('athena'), visitorHref: realmDoor('athena'), icon: Library},
   {
@@ -172,6 +174,7 @@ export function Navigation({ className }: { className?: string }) {
           {/* Right: who you are — not the same control as the Vessel item */}
           <div className="ml-auto flex items-center gap-3 pr-2">
             {user ? (
+              <>
               <Link
                 href={houseHref(realmDoor('hestia'))}
                 className={cn(
@@ -182,6 +185,19 @@ export function Navigation({ className }: { className?: string }) {
                 <User className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>{profile?.display_name || 'Vessel'}</span>
               </Link>
+              {profile?.slug && (
+                <Link
+                  href={profileHref(profile.slug)}
+                  className={cn(
+                    'flex items-center gap-1.5 rounded-lg px-1.5 py-1 text-xs text-star-dust/62 hover:text-neurospark transition-colors motion-reduce:transition-none',
+                    FOCUS_RING
+                  )}
+                >
+                  <UserRound className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span>Your profile</span>
+                </Link>
+              )}
+              </>
             ) : (
               <Link
                 href={houseHref(AUTH_DOOR)}

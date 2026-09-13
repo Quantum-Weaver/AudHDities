@@ -107,6 +107,11 @@ function parseReadings(raw: unknown): AcidTestReading[] {
     .filter((r): r is AcidTestReading => !!r);
 }
 
+/** True when a parsed result carries nothing to show. */
+export function isEmptyResult(result: AcidTestResult): boolean {
+  return !result.persona && !result.summary && !result.personaDescription && result.readings.length === 0;
+}
+
 /** submit_acid_test and preview_acid_test return Json whose exact shape the server owns — read it kindly. */
 export function parseResult(raw: unknown): AcidTestResult {
   const r = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>;
@@ -277,7 +282,8 @@ function ProgressIndicator({ current, total }: { current: number; total: number 
 // RESULT VIEW
 // ============================================================================
 
-function ResultView({
+/** The reading itself. With no handler given it renders as a reading room, no buttons. */
+export function ResultView({
   result,
   signedIn = false,
   onContinue,
@@ -285,7 +291,7 @@ function ResultView({
 }: {
   result: AcidTestResult;
   signedIn?: boolean;
-  onContinue: () => void;
+  onContinue?: () => void;
   onKeep?: () => void;
 }) {
   const personaDisplay = result.persona || 'Sovereign';
@@ -343,25 +349,29 @@ function ResultView({
         </div>
       )}
 
-      <div className="flex flex-col items-center gap-3">
-        {onKeep && (
-          <p className="text-star-dust/50 text-sm text-center">
-            {signedIn
-              ? 'Nothing is stored until you choose. Keep it, and this result stays with your vessel.'
-              : 'Sign in and this result stays with your vessel.'}
-          </p>
-        )}
-        <div className="flex justify-center gap-3 w-full">
+      {(onKeep || onContinue) && (
+        <div className="flex flex-col items-center gap-3">
           {onKeep && (
-            <Button type="button" variant="primary" size="lg" className="w-full sm:w-44" onClick={onKeep}>
-              Keep ✨
-            </Button>
+            <p className="text-star-dust/50 text-sm text-center">
+              {signedIn
+                ? 'Nothing is stored until you choose. Keep it, and this result stays with your vessel.'
+                : 'Sign in and this result stays with your vessel.'}
+            </p>
           )}
-          <Button type="button" variant={onKeep ? 'outline' : 'primary'} size="lg" className="w-full sm:w-44" onClick={onContinue}>
-            {onKeep ? 'Continue' : 'Continue ✨'}
-          </Button>
+          <div className="flex justify-center gap-3 w-full">
+            {onKeep && (
+              <Button type="button" variant="primary" size="lg" className="w-full sm:w-44" onClick={onKeep}>
+                Keep ✨
+              </Button>
+            )}
+            {onContinue && (
+              <Button type="button" variant={onKeep ? 'outline' : 'primary'} size="lg" className="w-full sm:w-44" onClick={onContinue}>
+                {onKeep ? 'Continue' : 'Continue ✨'}
+              </Button>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </Card>
   );
 }

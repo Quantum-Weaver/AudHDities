@@ -42,6 +42,7 @@ const configUpdateSchema = z.object({
   bubble_vessel_button: z.boolean().optional(),
   environment_preference: z.string().regex(/^[a-z_]+:[1-4]$/).optional(),
   interior_url: z.string().max(300).optional().nullable(),
+  status_line: z.string().max(80).optional().nullable(),
 });
 
 export async function PATCH(request: NextRequest) {

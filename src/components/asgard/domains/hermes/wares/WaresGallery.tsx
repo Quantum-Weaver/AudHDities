@@ -3,9 +3,11 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
+import { Carousel, type CarouselStop } from '@/components/shapes';
 import { ArrowLeft, Package, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -52,7 +54,18 @@ type SquareItem = {
   href: string;
 };
 
+type Shape = 'grid' | 'carousel';
+
+interface SquareStop extends CarouselStop {
+  description: string | null;
+  typeLabel: string;
+  icon_emoji: string | null;
+  isGifted: boolean;
+  href: string;
+}
+
 export function WaresGallery() {
+  const router = useRouter();
   const [items, setItems] = useState<SquareItem[]>([]);
   // A rung is a ware that repeats. Five of them are one ladder, not five stalls.
   const [rungs, setRungs] = useState<WareRow[]>([]);
@@ -60,32 +73,45 @@ export function WaresGallery() {
   const [readFailed, setReadFailed] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState<string | null>(null);
+  const [shape, setShape] = useState<Shape>('grid');
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const fetchSquare = async () => {
       try {
-        const makerId =
-          searchParams.get('artisan_id') ||
-          searchParams.get('merchant_id') ||
-          searchParams.get('creator_id') ||
-          searchParams.get('vendor_id');
+        // Each parameter carries the profile id it names.
+        const artisanProfileId =
+          searchParams.get('artisan_id') || searchParams.get('creator_id');
+        const merchantProfileId =
+          searchParams.get('merchant_id') || searchParams.get('vendor_id');
 
-        const build = () => {
+        const waresQuery = () => {
           const p = new URLSearchParams();
           p.set('status', 'published');
           p.set('order', 'created_at.desc');
-          if (makerId) p.set('created_by', makerId);
+          if (artisanProfileId) p.set('artisan_profile_id', artisanProfileId);
+          if (merchantProfileId) p.set('merchant_profile_id', merchantProfileId);
           return p.toString();
         };
 
+        const worksQuery = () => {
+          const p = new URLSearchParams();
+          p.set('status', 'published');
+          p.set('order', 'created_at.desc');
+          if (artisanProfileId) p.set('artisan_profile_id', artisanProfileId);
+          return p.toString();
+        };
+
+        // A work carries no merchant column, so a merchant's stall holds wares only.
+        const worksAsked = !(merchantProfileId && !artisanProfileId);
+
         const [waresRes, worksRes] = await Promise.all([
-          fetch(`/api/generated/plutus-economics/wares?${build()}`),
-          fetch(`/api/generated/hermes-social/works?${build()}`),
+          fetch(`/api/generated/plutus-economics/wares?${waresQuery()}`),
+          worksAsked ? fetch(`/api/generated/hermes-social/works?${worksQuery()}`) : null,
         ]);
         const [waresJson, worksJson] = await Promise.all([
           waresRes.json().catch(() => null),
-          worksRes.json().catch(() => null),
+          worksRes ? worksRes.json().catch(() => null) : null,
         ]);
 
         if (!waresJson?.success && !worksJson?.success) {
@@ -158,6 +184,21 @@ export function WaresGallery() {
     });
   }, [items, searchTerm, selectedType]);
 
+  const stops = useMemo<SquareStop[]>(
+    () => filtered.map((i) => ({
+      id: `${i.kind}-${i.id}`,
+      title: i.name,
+      form: i.kind,
+      at: Date.parse(i.created_at) || undefined,
+      description: i.description,
+      typeLabel: i.typeLabel,
+      icon_emoji: i.icon_emoji,
+      isGifted: i.isGifted,
+      href: i.href,
+    })),
+    [filtered],
+  );
+
   // The finite-list sentence, drawn from what arrived — never a stored count.
   const finiteLine = useMemo(() => {
     const wares = items.filter((i) => i.kind === 'ware').length;
@@ -223,7 +264,27 @@ export function WaresGallery() {
           )}
         </div>
 
-        {!readFailed && <RungLadder rungs={rungs} />}
+        {filtered.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2 mb-6" role="group" aria-label="How the Tapestry is laid out">
+            <button
+              onClick={() => setShape('grid')}
+              aria-pressed={shape === 'grid'}
+              className={cn('px-3 py-1.5 rounded-full text-xs font-medium border focus:outline-none focus-visible:ring-2 focus-visible:ring-neurospark', shape === 'grid' ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
+            >
+              All at once
+            </button>
+            <button
+              onClick={() => setShape('carousel')}
+              aria-pressed={shape === 'carousel'}
+              className={cn('px-3 py-1.5 rounded-full text-xs font-medium border focus:outline-none focus-visible:ring-2 focus-visible:ring-neurospark', shape === 'carousel' ? 'bg-neurospark/20 text-neurospark border-neurospark/40' : 'bg-white/5 text-star-dust/50 border-white/10')}
+            >
+              One at a time
+            </button>
+          </div>
+        )}
+
+        {/* The ladder stands on the unfiltered Tapestry and nowhere else. */}
+        {!readFailed && !isFiltered && <RungLadder rungs={rungs} />}
 
         {readFailed && (
           <div className="text-center py-20">
@@ -254,29 +315,53 @@ export function WaresGallery() {
           </div>
         )}
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((item) => {
-            const cardData: CardData = { id: item.id, type: 'product', title: item.name, description: item.description || '' };
-            return (
-              <Link key={`${item.kind}-${item.id}`} href={item.href}>
-                <Card data={cardData} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge variant="outline" size="sm" className="text-[10px]">{item.typeLabel}</Badge>
-                    {item.icon_emoji && <span aria-hidden="true">{item.icon_emoji}</span>}
-                  </div>
-                  <h3 className="text-lg font-semibold text-star-dust mb-2">{item.name}</h3>
-                  {item.description && <p className="text-sm text-star-dust/50 line-clamp-2 mb-4">{item.description}</p>}
-                  {item.kind === 'work' && (
-                    <span className="text-xs text-star-dust/50 mt-auto">a work · it has a door of its own</span>
-                  )}
-                  {item.kind === 'ware' && item.isGifted && (
-                    <span className="text-xs text-sanctuary-green mt-auto">gifted</span>
-                  )}
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
+        {shape === 'carousel' && filtered.length > 0 && (
+          <Carousel
+            stops={stops}
+            bearing="newest"
+            height={208}
+            label="the Tapestry, one at a time"
+            onSelect={(stop) => router.push(stop.href)}
+          >
+            {(stop) => (
+              <div className="flex h-full flex-col gap-2 overflow-hidden">
+                <div className="flex items-center justify-between">
+                  <Badge variant="outline" size="sm" className="text-[10px]">{stop.typeLabel}</Badge>
+                  {stop.icon_emoji && <span aria-hidden="true">{stop.icon_emoji}</span>}
+                </div>
+                <h3 className="line-clamp-2 text-lg font-semibold text-star-dust">{stop.title}</h3>
+                {stop.description && <p className="text-sm text-star-dust/50 line-clamp-2">{stop.description}</p>}
+                {stop.isGifted && <span className="text-xs text-sanctuary-green mt-auto">gifted</span>}
+              </div>
+            )}
+          </Carousel>
+        )}
+
+        {shape === 'grid' && (
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((item) => {
+              const cardData: CardData = { id: item.id, type: 'product', title: item.name, description: item.description || '' };
+              return (
+                <Link key={`${item.kind}-${item.id}`} href={item.href}>
+                  <Card data={cardData} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
+                    <div className="flex items-center justify-between mb-3">
+                      <Badge variant="outline" size="sm" className="text-[10px]">{item.typeLabel}</Badge>
+                      {item.icon_emoji && <span aria-hidden="true">{item.icon_emoji}</span>}
+                    </div>
+                    <h3 className="text-lg font-semibold text-star-dust mb-2">{item.name}</h3>
+                    {item.description && <p className="text-sm text-star-dust/50 line-clamp-2 mb-4">{item.description}</p>}
+                    {item.kind === 'work' && (
+                      <span className="text-xs text-star-dust/50 mt-auto">a work · it has a door of its own</span>
+                    )}
+                    {item.kind === 'ware' && item.isGifted && (
+                      <span className="text-xs text-sanctuary-green mt-auto">gifted</span>
+                    )}
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        )}
 
         {!readFailed && !isFiltered && finiteLine && (
           <p className="text-center text-xs text-star-dust/30 mt-10">{finiteLine}</p>

@@ -4,13 +4,15 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useUser } from '@/hooks/useUser';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, ArrowRight, Clock, GraduationCap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Clock, GraduationCap } from 'lucide-react';
 import { Procession } from '@/components/shapes';
 import type { Geometry, Section } from '@/lib/procession';
 import { useLearningPathsList } from '@/lib/generated/hooks/athena-gamification/learning_paths';
 import { useLessonsList } from '@/lib/generated/hooks/athena-gamification/lessons';
+import { readIds, readMarks } from '@/lib/lessons/marks';
 import type { LessonsRow } from '@/lib/generated/types/athena-gamification/lessons';
 
 const DIFFICULTY_COLORS: Record<string, string> = {
@@ -33,8 +35,11 @@ interface PathStep {
   is_required: boolean;
 }
 
+const EMPTY_IDS = new Set<string>();
+
 export function CourseDetail() {
   const params = useParams();
+  const { user } = useUser();
   const slug = typeof params.slug === 'string' ? params.slug : '';
 
   // Held on the slug: the list hook refetches on params identity.
@@ -57,10 +62,31 @@ export function CourseDetail() {
       .catch(() => {});
   }, [course?.id]);
 
+  const [marked, setMarked] = useState<{ key: string; ids: Set<string> } | null>(null);
+  useEffect(() => {
+    if (!user) return;
+    const key = user.id;
+    let alive = true;
+    readMarks().then((res) => {
+      if (alive && res) setMarked({ key, ids: readIds(res.marks) });
+    });
+    return () => { alive = false; };
+  }, [user]);
+
+  const readLessons = user && marked?.key === user.id ? marked.ids : EMPTY_IDS;
+
   const lessonById = useMemo(
     () => new Map(lessons.map((l) => [l.id, l] as const)),
     [lessons]
   );
+
+  // The course is counted over the steps path_lessons marks required.
+  const required = useMemo(() => steps.filter((s) => s.is_required), [steps]);
+  const readRequired = useMemo(
+    () => required.filter((s) => readLessons.has(s.lesson_id)).length,
+    [required, readLessons]
+  );
+  const complete = required.length > 0 && readRequired === required.length;
 
   const walk = useMemo(
     () =>
@@ -125,6 +151,16 @@ export function CourseDetail() {
                 {sections.length} {sections.length === 1 ? 'lesson' : 'lessons'}, one press each
               </span>
             )}
+            {user && required.length > 0 && (
+              <span className="text-xs text-star-dust/70">
+                {readRequired} of {required.length} required read
+              </span>
+            )}
+            {complete && (
+              <Badge variant="outline" size="sm" className="text-[10px] text-neurospark border-neurospark/40">
+                walked
+              </Badge>
+            )}
           </div>
           <h1 className="text-2xl font-bold text-star-dust">{course.name}</h1>
           {course.description && (
@@ -143,8 +179,14 @@ export function CourseDetail() {
               return (
                 <>
                   <div className="mb-3! flex items-center justify-between gap-2">
-                    <span className="text-xs uppercase tracking-wide text-hearth-gold">
+                    <span className="flex items-center gap-2 text-xs uppercase tracking-wide text-hearth-gold">
                       Lesson {deck.ordinal} of {sections.length}
+                      {readLessons.has(room.id) && (
+                        <span className="flex items-center gap-1 text-neurospark">
+                          <Check size={12} aria-hidden="true" />
+                          read
+                        </span>
+                      )}
                     </span>
                     {lesson?.estimated_duration && (
                       <span className="flex items-center gap-1 text-xs text-star-dust/70">

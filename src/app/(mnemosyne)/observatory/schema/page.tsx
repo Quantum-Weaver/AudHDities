@@ -39,7 +39,7 @@ export default async function DatabaseSchemaPage() {
                 <SchemaTableCard 
                   key={table.name} 
                   table={table}
-                  defaultOpen={table.name === 'profiles' || table.name === 'products'}
+                  defaultOpen={table.name === 'community_profiles' || table.name === 'wares'}
                 />
               ))}
             </div>

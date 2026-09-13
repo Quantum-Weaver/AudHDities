@@ -3,8 +3,6 @@
 
 import Link from 'next/link';
 import { Card } from '@/components/runes/Card';
-import { Badge } from '@/components/runes/Badge';
-import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { useUser } from '@/hooks/useUser';
 import { 
@@ -73,17 +71,16 @@ const SECTIONS = [
   },
   {
     title: 'Applications',
-    description: 'Review artisan, merchant, and curator applications',
+    description: 'Apply to the Sanctuary, or review the applications',
     href: '/council/applications',
     icon: UserCheck,
     color: 'text-indigo-400',
     bg: 'bg-indigo-500/10',
-    restricted: true,
   },
 ];
 
 export function CouncilHub() {
-  const { user, profile, isLoading: loading, roles } = useUser();
+  const { isLoading: loading, roles } = useUser();
 
   if (loading) {
     return (
@@ -101,8 +98,8 @@ export function CouncilHub() {
     );
   }
 
-  const isAdmin = roles.includes('admin') || roles.includes('council');
-  const isCouncilTier = roles.includes('council') || roles.includes('admin');
+  const isAdmin = roles.includes('admin');
+  const isCouncil = roles.includes('council');
 
   return (
     <main className="min-h-screen py-12">
@@ -120,11 +117,11 @@ export function CouncilHub() {
           </p>
 
           {/* Tier indicator */}
-          {!isCouncilTier && (
-            <div className="mt-4 inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-2">
-              <Shield size={14} className="text-amber-400" />
-              <span className="text-sm text-amber-400">
-                Council tier required for voting and proposals. Your voice matters — reach 500 sovereignty to join.
+          {!isCouncil && (
+            <div className="mt-4 inline-flex items-center gap-2 bg-hearth-gold/10 border border-hearth-gold/20 rounded-xl px-4 py-2">
+              <Shield size={14} className="text-hearth-gold" />
+              <span className="text-sm text-hearth-gold">
+                Voting and proposals are held by the Council role. Every room here is open to read.
               </span>
             </div>
           )}

@@ -1,0 +1,216 @@
+{
+  "passed": 42,
+  "total": 42,
+  "checks": [
+    {
+      "check": "a one-time ware reads no recurrence",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "a one-time ware reads the once cadence",
+      "result": "once",
+      "passed": true
+    },
+    {
+      "check": "a monthly ware reads the month interval",
+      "result": "month",
+      "passed": true
+    },
+    {
+      "check": "a monthly ware reads its own Price id",
+      "result": "price_rung",
+      "passed": true
+    },
+    {
+      "check": "a monthly ware reads no end",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "a monthly ware reads no cancel second",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "a monthly ware reads the month cadence",
+      "result": "month",
+      "passed": true
+    },
+    {
+      "check": "a monthly-until ware reads the month interval",
+      "result": "month",
+      "passed": true
+    },
+    {
+      "check": "a monthly-until ware reads its end as ISO",
+      "result": "2027-01-01T00:00:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "a monthly-until ware reads its end in whole seconds",
+      "result": "1798761600",
+      "passed": true
+    },
+    {
+      "check": "a monthly-until ware reads the month_until cadence",
+      "result": "month_until",
+      "passed": true
+    },
+    {
+      "check": "the form offers the three cadences",
+      "result": "once,month,month_until",
+      "passed": true
+    },
+    {
+      "check": "once takes the payment mode",
+      "result": "mode=payment",
+      "passed": true
+    },
+    {
+      "check": "monthly takes the subscription mode with no end",
+      "result": "mode=subscription · subscription_data={metadata}",
+      "passed": true
+    },
+    {
+      "check": "monthly-until takes the subscription mode carrying its end",
+      "result": "mode=subscription · subscription_data={metadata + supportEndsAt=2027-01-01T00:00:00.000Z cancelAt=1798761600}",
+      "passed": true
+    },
+    {
+      "check": "the end is read from the metadata when no column carries it",
+      "result": "2027-01-01T00:00:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "the end is read from the metadata recurring block",
+      "result": "2027-06-30T00:00:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "the column wins over the metadata",
+      "result": "2027-01-01T00:00:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "an unreadable end reads as none",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "an empty date field reads as none",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "a date field becomes the ISO moment",
+      "result": "2027-01-01T00:00:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "the ISO moment becomes the date field again",
+      "result": "2027-01-01",
+      "passed": true
+    },
+    {
+      "check": "no end leaves the date field empty",
+      "result": "\"\"",
+      "passed": true
+    },
+    {
+      "check": "an end still ahead has not passed",
+      "result": "false",
+      "passed": true
+    },
+    {
+      "check": "an end already behind has passed",
+      "result": "true",
+      "passed": true
+    },
+    {
+      "check": "a monthly ware with no end never passes",
+      "result": "false",
+      "passed": true
+    },
+    {
+      "check": "a work exchange is no longer skipped",
+      "result": "null",
+      "passed": true
+    },
+    {
+      "check": "a work exchange with two participants writes seven rows",
+      "result": "7",
+      "passed": true
+    },
+    {
+      "check": "the seven rows are the flow’s own lines",
+      "result": "platform_fee, fee_to_residual_pool, fee_to_machine, residual_pledge, contributor_share, contributor_share, covenant_pledge",
+      "passed": true
+    },
+    {
+      "check": "the amounts are the split of forty",
+      "result": "4.00 · 1.20 · 2.80 · 3.60 · 16.20 · 16.20 · 1.62",
+      "passed": true
+    },
+    {
+      "check": "the leaves sum to the gross exactly",
+      "result": "40.00 of 40.00",
+      "passed": true
+    },
+    {
+      "check": "both participants hold a share",
+      "result": "vessel-a,vessel-b",
+      "passed": true
+    },
+    {
+      "check": "the covenant comes out of the second vessel’s own share",
+      "result": "vessel-b → covenant-pool-1 · 1.62",
+      "passed": true
+    },
+    {
+      "check": "the platform fee comes from the buyer",
+      "result": "vessel-buyer",
+      "passed": true
+    },
+    {
+      "check": "every row carries the exchange as its key",
+      "result": "exchanges · exchange-work-1",
+      "passed": true
+    },
+    {
+      "check": "every row carries the event moment it was handed",
+      "result": "2026-09-13T12:00:00.000Z",
+      "passed": true
+    },
+    {
+      "check": "the breakdown names the work, not a ware",
+      "result": "subject_kind=work work_id=work-1 ware_id=null",
+      "passed": true
+    },
+    {
+      "check": "a ware exchange still writes seven rows",
+      "result": "7",
+      "passed": true
+    },
+    {
+      "check": "the ware breakdown still names the ware",
+      "result": "ware_id=ware-1 work_id=null",
+      "passed": true
+    },
+    {
+      "check": "a work exchange already written writes nothing twice",
+      "result": "already-written · 0 rows",
+      "passed": true
+    },
+    {
+      "check": "an exchange with neither ware nor work writes nothing",
+      "result": "no-subject · 0 rows",
+      "passed": true
+    },
+    {
+      "check": "an exchange whose work is gone writes nothing",
+      "result": "no-subject · 0 rows",
+      "passed": true
+    }
+  ]
+}

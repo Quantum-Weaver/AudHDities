@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
+import { REFUSED, refusalNext } from '@/lib/nexus/read';
 import { Stamp, formatStamp } from './Stamp';
 import { withHouseWords } from './HouseWords';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -33,6 +34,10 @@ export interface RegisterSection {
   fault?: string | null;
   /** The table the refusal names. */
   faultTable?: string | null;
+  /** What happened, when it was not a refused read. */
+  faultWhat?: string | null;
+  /** The next step, when it is not a read policy. */
+  faultNext?: string | null;
   /** A counted line under the rows. */
   tally?: string | null;
 }
@@ -79,14 +84,26 @@ function SourceLine({ source }: { source: string }) {
 }
 
 /** What happened, why, the next step. */
-function Fault({ table, message }: { table: string; message: string }) {
+function Fault({
+  table,
+  message,
+  what,
+  next,
+}: {
+  table: string;
+  message: string;
+  what?: string | null;
+  next?: string | null;
+}) {
   return (
     <div className="flex flex-col gap-1 pt-3 pb-1 text-[13px]">
-      <span className="text-star-dust/80">the base refused this read</span>
+      <span className="text-star-dust/80">{what || REFUSED}</span>
       <span className="text-star-dust/50">
         {table} · {message}
       </span>
-      <span className="text-star-dust/40">next · a read policy on {table} for this visitor</span>
+      <span className="text-star-dust/40">
+        {next || refusalNext(table)}
+      </span>
     </div>
   );
 }
@@ -159,7 +176,12 @@ export function Register({ sections, rows, className }: RegisterProps) {
             </div>
 
             {section.fault ? (
-              <Fault table={section.faultTable ?? section.source} message={section.fault} />
+              <Fault
+                table={section.faultTable ?? section.source}
+                message={section.fault}
+                what={section.faultWhat}
+                next={section.faultNext}
+              />
             ) : null}
 
             {own.length === 0 ? (

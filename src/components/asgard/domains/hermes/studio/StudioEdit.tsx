@@ -18,6 +18,13 @@ import { ArrowLeft, Save, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables, TablesUpdate } from '@/lib/generated/supabase/database.helpers.js';
+import {
+  SUPPORT_CADENCES,
+  cadenceOf,
+  dateInputFromSupportEndsAt,
+  supportEndsAtFromDateInput,
+  supportEndsAtOf,
+} from '@/lib/economics/recurrence';
 
 // ══════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -103,10 +110,27 @@ export function StudioEdit() {
         const percent = parseInt(data.residual_pool_percent);
         if (percent !== ware.residual_pool_percent) updates.residual_pool_percent = percent;
       }
+      const currentEnd = supportEndsAtOf(ware);
+      let supportEndsAt: string | null = currentEnd;
+      if (data.billing_interval !== undefined) {
+        const cadence = String(data.billing_interval);
+        const interval = cadence === 'once' ? null : 'month';
+        if (interval !== ware.billing_interval) updates.billing_interval = interval;
+        supportEndsAt = cadence === 'month_until'
+          ? supportEndsAtFromDateInput(String(data.support_ends_at ?? ''))
+          : null;
+      }
+      if (data.stripe_price_id !== undefined) {
+        const typed = String(data.stripe_price_id ?? '').trim();
+        const priceId = typed.length > 0 ? typed : null;
+        if (priceId !== ware.stripe_price_id) updates.stripe_price_id = priceId;
+      }
+      // support_ends_at stands on wares in docs/sql/053; it rides only when the day moved.
+      const endMoved = supportEndsAt !== currentEnd;
       const newStatus = isPublished ? 'published' : 'draft';
       if (newStatus !== ware.status) updates.status = newStatus;
 
-      if (Object.keys(updates).length === 0) {
+      if (Object.keys(updates).length === 0 && !endMoved) {
         setSaveMessage('Nothing changed.');
         setTimeout(() => setSaveMessage(null), 3000);
         return;
@@ -117,7 +141,7 @@ export function StudioEdit() {
       const response = await fetch(`/api/generated/plutus-economics/wares/${ware.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updates),
+        body: JSON.stringify(endMoved ? { ...updates, support_ends_at: supportEndsAt } : updates),
       });
 
       const result = await response.json();
@@ -277,6 +301,49 @@ export function StudioEdit() {
                   type="number"
                   defaultValue={ware.price?.toString() || ''}
                   placeholder="0.00"
+                  disabled={isSaving}
+                />
+              </FormField>
+            </div>
+
+            {/* Standing support */}
+            <div className="border-t border-white/10 pt-6 mt-2 mb-4">
+              <h3 className="text-lg font-semibold text-star-dust mb-1">Standing support</h3>
+              <p className="text-sm text-star-dust/40 mb-4">
+                A ware that repeats is a rung on your ladder. No rung buys anything another does not.
+              </p>
+
+              <FormField label="How often" optional>
+                <Select
+                  name="billing_interval"
+                  options={SUPPORT_CADENCES}
+                  defaultValue={cadenceOf(ware)}
+                  disabled={isSaving}
+                />
+              </FormField>
+
+              <FormField
+                label="Until"
+                optional
+                helper="The day the support is set to stop. Read only when the cadence is each month until a date."
+              >
+                <Input
+                  name="support_ends_at"
+                  type="date"
+                  defaultValue={dateInputFromSupportEndsAt(supportEndsAtOf(ware))}
+                  disabled={isSaving}
+                />
+              </FormField>
+
+              <FormField
+                label="Stripe Price id"
+                optional
+                helper="The Price made by your own hand in Stripe. A rung that repeats needs one before anyone can stand on it."
+              >
+                <Input
+                  name="stripe_price_id"
+                  defaultValue={ware.stripe_price_id || ''}
+                  placeholder="price_..."
                   disabled={isSaving}
                 />
               </FormField>

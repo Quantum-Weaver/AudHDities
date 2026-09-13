@@ -7,36 +7,33 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Users, Search, MessageCircle } from 'lucide-react';
+import { readRows } from '../rows';
 import type { CardData } from '@/types/components/runes/card.types';
-
-interface Channel {
-  channels_id: string;
-  display_name: string;
-  handle: string;
-  description: string | null;
-  subscriber_count: number | null;
-}
+import type { ChannelsRow } from '@/lib/generated/types/iris-communications/channels';
 
 export function ChannelsGallery() {
-  const [channels, setChannels] = useState<Channel[]>([]);
+  const [channels, setChannels] = useState<ChannelsRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('/api/generated/hermes-social/channels?order=display_name.asc')
+    let cancelled = false;
+    fetch('/api/generated/iris-communications/channels?is_public=true&sort=display_order&order=asc&limit=50')
       .then((r) => r.json())
-      .then((result) => {
-        if (result.success) setChannels(result.data?.data || result.data || []);
-      })
+      .then((result) => { if (!cancelled) setChannels(readRows<ChannelsRow>(result)); })
       .catch(console.error)
-      .finally(() => setLoading(false));
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
   }, []);
 
-  const filtered = useMemo(() =>
-    channels.filter((c) =>
-      c.display_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (c.description || '').toLowerCase().includes(searchTerm.toLowerCase())
-    ), [channels, searchTerm]);
+  const filtered = useMemo(() => {
+    const term = searchTerm.toLowerCase();
+    return channels.filter((c) =>
+      c.name.toLowerCase().includes(term) ||
+      c.slug.toLowerCase().includes(term) ||
+      (c.description || '').toLowerCase().includes(term)
+    );
+  }, [channels, searchTerm]);
 
   if (loading) {
     return (
@@ -75,21 +72,23 @@ export function ChannelsGallery() {
           <div className="text-center py-20">
             <Users className="h-12 w-12 text-star-dust/20 mx-auto mb-4" />
             <p className="text-star-dust/40 text-lg mb-2">{searchTerm ? 'No channels match' : 'Channels are forming'}</p>
-            <p className="text-star-dust/30 text-sm">Be the first to create a channel and build your community.</p>
+            <p className="text-star-dust/30 text-sm">When a public channel opens, it will stand here.</p>
           </div>
         ) : (
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
             {filtered.map((channel) => {
-              const cardData: CardData = { id: channel.channels_id, type: 'value', title: channel.display_name, value: channel.handle };
+              const cardData: CardData = { id: channel.id, type: 'value', title: channel.name, value: channel.slug };
               return (
-                <Link key={channel.channels_id} href={`/connect/channels/${channel.channels_id}`}>
+                <Link key={channel.id} href={`/connect/channels/${channel.id}`}>
                   <Card data={cardData} variant="interactive" radius="lg" shadow="sm" className="p-5 h-full">
-                    <h3 className="text-lg font-semibold text-star-dust mb-1">@{channel.handle}</h3>
-                    <p className="text-sm text-star-dust/60 mb-3">{channel.display_name}</p>
+                    <h3 className="text-lg font-semibold text-star-dust mb-1">{channel.name}</h3>
+                    <p className="text-sm text-star-dust/60 mb-3">@{channel.slug}</p>
                     {channel.description && <p className="text-sm text-star-dust/50 line-clamp-2 mb-4">{channel.description}</p>}
                     <div className="flex items-center gap-3 text-xs text-star-dust/40">
-                      <span className="flex items-center gap-1"><Users size={12} />{channel.subscriber_count || 0} subscribers</span>
-                      <span className="flex items-center gap-1"><MessageCircle size={12} />View Channel</span>
+                      {channel.channel_type && (
+                        <Badge variant="outline" size="sm" className="text-[10px] capitalize">{channel.channel_type}</Badge>
+                      )}
+                      <span className="flex items-center gap-1"><MessageCircle size={12} />Open the channel</span>
                     </div>
                   </Card>
                 </Link>

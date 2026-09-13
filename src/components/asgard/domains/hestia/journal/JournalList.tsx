@@ -17,19 +17,13 @@ import { Procession } from '@/components/shapes';
 import type { Section } from '@/lib/procession';
 import { ArrowLeft, Plus, Feather, Clock, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import type { JournalEntriesRow } from '@/lib/generated/types/hestia-core/journal_entries';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TYPES
 // ═══════════════════════════════════════════════════════════════════════════
 
-interface JournalEntry {
-  journal_entries_id: string;
-  title: string;
-  content: string;
-  mood?: string | null;
-  tags?: string[] | null;
-  created_at: string;
-}
+type JournalEntry = Pick<JournalEntriesRow, 'id' | 'title' | 'body' | 'mood' | 'tags' | 'created_at'>;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -80,7 +74,7 @@ export function JournalList() {
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/generated/hestia-core/journal_entries?user_id=${user.id}&order=created_at.desc`
+        `/api/generated/hestia-core/journal_entries?created_by=${user.id}&sort=created_at&order=desc`
       );
       const result = await response.json();
       if (result.success) {
@@ -105,12 +99,11 @@ export function JournalList() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          user_id: user.id,
+          created_by: user.id,
           title: data.title,
-          content: data.content,
+          body: data.content,
           mood: data.mood || null,
           tags: data.tags ? data.tags.split(',').map((t: string) => t.trim()) : null,
-          slug: data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Date.now(),
         }),
       });
       const result = await response.json();
@@ -138,15 +131,15 @@ export function JournalList() {
   const sections = useMemo<Section[]>(
     () =>
       entries.map((entry) => ({
-        id: entry.journal_entries_id,
-        title: entry.title,
-        rooms: [{ id: entry.journal_entries_id, name: entry.title }],
+        id: entry.id,
+        title: entry.title ?? 'Untitled',
+        rooms: [{ id: entry.id, name: entry.title ?? 'Untitled' }],
       })),
     [entries]
   );
 
   const byId = useMemo(
-    () => new Map(entries.map((entry) => [entry.journal_entries_id, entry])),
+    () => new Map(entries.map((entry) => [entry.id, entry])),
     [entries]
   );
 
@@ -308,7 +301,7 @@ export function JournalList() {
                         </div>
                       </div>
                       <Link
-                        href={`/vessel/journal/${entry.journal_entries_id}`}
+                        href={`/vessel/journal/${entry.id}`}
                         className="flex-none text-sm text-star-dust/60 hover:text-star-dust transition-colors"
                       >
                         open
@@ -316,7 +309,7 @@ export function JournalList() {
                     </div>
 
                     <p className="whitespace-pre-wrap leading-relaxed text-star-dust/80 mt-5!">
-                      {entry.content}
+                      {entry.body}
                     </p>
 
                     {entry.tags && entry.tags.length > 0 && (

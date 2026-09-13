@@ -10,15 +10,12 @@ import { Gallery } from '@/components/shapes';
 import type { GalleryConfig } from '@/lib/gallery';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface ScheduledEvent {
-  id: string;
-  title: string;
-  description: string | null;
-  event_type: string;
-  scheduled_for: string | null;
-  genre: string | null;
-}
+type ScheduledEvent = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'event_type' | 'scheduled_for' | 'genre'
+>;
 
 const formatDate = (d: string | null) => {
   if (!d) return 'TBA';
@@ -45,7 +42,7 @@ export function ScheduleGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?sort=scheduled_for&order=asc')
+    fetch('/api/generated/prometheus-stage/events?status=published&sort=scheduled_for&order=asc')
       .then(r => r.json())
       .then(result => { if (result.success) setEvents(result.data?.data || result.data || []); })
       .catch(console.error)

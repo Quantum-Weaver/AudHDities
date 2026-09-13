@@ -8,9 +8,10 @@ import { Card } from '@/components/runes/Card';
 import { Badge } from '@/components/runes/Badge';
 import { Avatar, AvatarFallback } from '@/components/runes/Avatar';
 import { Skeleton } from '@/components/runes/Skeleton';
-import { ArrowLeft, Shield, Package, Globe } from 'lucide-react';
+import { ArrowLeft, Shield, Package, Globe, UserRound } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
+import { profileHref } from '@/components/asgard/domains/iris/profile/href';
 
 type ArtisanItem = Tables<'artisan_profiles'>;
 type WorkItem = Tables<'works'>;
@@ -35,12 +36,12 @@ export function ArtisanDetail() {
   }, [params.id]);
 
   useEffect(() => {
-    if (!artisan?.created_by) return;
-    fetch(`/api/generated/hermes-social/works?created_by=${artisan.created_by}&status=published&order=updated_at.desc&limit=6`)
+    if (!artisan?.id) return;
+    fetch(`/api/generated/hermes-social/works?artisan_profile_id=${artisan.id}&status=published&sort=updated_at&order=desc&limit=6`)
       .then((r) => r.json())
       .then((result) => { if (result.success) setWorks(result.data?.data || result.data || []); })
       .catch(console.error);
-  }, [artisan?.created_by]);
+  }, [artisan?.id]);
 
   if (loading) {
     return (
@@ -74,9 +75,16 @@ export function ArtisanDetail() {
   return (
     <main className="min-h-screen py-12">
       <div className="container max-w-3xl mx-auto px-6">
-        <Link href="/bazaar/artisans" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm mb-6">
-          <ArrowLeft className="h-4 w-4" aria-hidden="true" />Return to the Weavers
-        </Link>
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <Link href="/bazaar/artisans" className="flex items-center gap-2 text-star-dust/60 hover:text-star-dust transition-colors text-sm">
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />Return to the Weavers
+          </Link>
+          {artisan.created_by && (
+            <Link href={profileHref(artisan.created_by)} className="flex items-center gap-2 text-sm text-neurospark hover:underline">
+              <UserRound className="h-4 w-4" aria-hidden="true" />{artisan.artisan_name}
+            </Link>
+          )}
+        </div>
 
         <Card data={cardData} variant="sanctuary" radius="xl" shadow="md" className="p-8">
           <div className="flex items-center gap-4 mb-6">
@@ -112,7 +120,7 @@ export function ArtisanDetail() {
           )}
 
           <Link
-            href={`/bazaar/wares?artisan_id=${artisan.created_by}`}
+            href={`/bazaar/wares?artisan_id=${artisan.id}`}
             className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline mt-4"
           >
             <Package size={14} aria-hidden="true" />

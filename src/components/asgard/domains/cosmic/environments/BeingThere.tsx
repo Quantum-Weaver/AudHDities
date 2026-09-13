@@ -14,11 +14,13 @@ import { Badge } from '@/components/runes/Badge';
 import { Button } from '@/components/yggdrasil/Button';
 import { useContinuityBeam } from '@/contexts/ContinuityBeamContext';
 import { getEnvironmentAffect } from '@/lib/constants/systems/environments/affects';
-import { PLACE_DISPLAY, VARIANT_NAMES } from '@/lib/constants/systems/environments/places';
+import { HALL_ORDER, PLACE_DISPLAY, VARIANT_NAMES } from '@/lib/constants/systems/environments/places';
 import type { EnvironmentKey } from '@/lib/constants/systems/assets/mapper';
 import { ArrowLeft, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+
+type SaveState = 'idle' | 'saving' | 'saved' | 'failed';
 
 export function BeingThere() {
   const params = useParams();
@@ -26,34 +28,67 @@ export function BeingThere() {
   const { setEnvironment, environmentVariant } = useContinuityBeam();
   const [selectedVariant, setSelectedVariant] = useState(environmentVariant || 1);
   const prefersReducedMotion = useReducedMotion();
-  const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'failed'>('idle');
+  const [save, setSave] = useState<{ crossing: string; state: SaveState } | null>(null);
 
-  const rawId = params.id as string;
-  const envId: EnvironmentKey = (rawId in PLACE_DISPLAY ? rawId : 'home') as EnvironmentKey;
-  const affect = getEnvironmentAffect(envId);
+  const rawId = typeof params.id === 'string' ? params.id : '';
+  const known = rawId in PLACE_DISPLAY;
+  const envId = (known ? rawId : 'home') as EnvironmentKey;
+  const affect = getEnvironmentAffect(envId, selectedVariant);
   const place = PLACE_DISPLAY[envId];
+  const crossing = `${envId}:${selectedVariant}`;
+  const saveState: SaveState = save?.crossing === crossing ? save.state : 'idle';
 
   const setAsMyRealm = async () => {
-    setSaveState('saving');
+    setSave({ crossing, state: 'saving' });
     try {
       const res = await fetch('/api/auth/update-profile', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          config: { environment_preference: `${envId}:${selectedVariant}` },
-        }),
+        body: JSON.stringify({ config: { environment_preference: crossing } }),
       });
       const result = await res.json();
-      setSaveState(result?.success ? 'saved' : 'failed');
+      setSave({ crossing, state: result?.success ? 'saved' : 'failed' });
     } catch {
-      setSaveState('failed');
+      setSave({ crossing, state: 'failed' });
     }
   };
 
   useEffect(() => {
-    setEnvironment(envId, selectedVariant);
-    setSaveState('idle');
-  }, [envId, selectedVariant, setEnvironment]);
+    if (known) setEnvironment(envId, selectedVariant);
+  }, [known, envId, selectedVariant, setEnvironment]);
+
+  if (!known) {
+    return (
+      <main className="min-h-screen py-12">
+        <div className="container max-w-3xl mx-auto px-6">
+          <Card
+            data={{ id: 'no-such-place', type: 'value', title: 'No such place', value: '' }}
+            variant="glass"
+            radius="xl"
+            shadow="sm"
+            className="p-8"
+          >
+            <h1 className="text-2xl font-bold text-star-dust mb-3">No such place</h1>
+            <p className="text-star-dust/60 mb-2">
+              The Crossing Hall holds no doorway called{' '}
+              <span className="text-star-dust">{rawId || '(nothing)'}</span>. The sky
+              has not changed.
+            </p>
+            <p className="text-xs text-star-dust/40 mb-6">
+              The eleven that stand: {HALL_ORDER.map((id) => PLACE_DISPLAY[id].name).join(' · ')}
+            </p>
+            <Link
+              href="/environments"
+              className="inline-flex items-center gap-2 text-sm text-neurospark hover:underline"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Return to the Crossing Hall
+            </Link>
+          </Card>
+        </div>
+      </main>
+    );
+  }
 
   const cardData: CardData = {
     id: envId,
@@ -86,7 +121,7 @@ export function BeingThere() {
               <div>
                 <h1 className="text-2xl font-bold text-star-dust">{place.name}</h1>
                 <p className="text-xs text-star-dust/40 mt-1">
-                  You are here — the sky above is this place's own.
+                  You are here — the sky above is this place&apos;s own.
                 </p>
               </div>
             </div>

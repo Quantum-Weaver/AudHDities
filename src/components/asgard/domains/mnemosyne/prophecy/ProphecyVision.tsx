@@ -12,8 +12,8 @@ import { ArrowLeft, Star, Award, Compass } from 'lucide-react';
 import { reliefPanelVariants, reliefGlossVariants } from '@/lib/constants/components/asgard/relief.variants';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { QuestsRow } from '@/lib/generated/types/athena-gamification/quests';
 
-interface Quest { quests_id: string; title: string; description: string; }
 interface SigilItem { id: string; name: string; slug: string; rarity: string; description: string; }
 
 const RARITY_COLORS: Record<string, string> = {
@@ -22,24 +22,17 @@ const RARITY_COLORS: Record<string, string> = {
 };
 
 export function ProphecyVision() {
-  const { user, profile, sovereignTier } = useUser();
-  const [availableQuests, setAvailableQuests] = useState<Quest[]>([]);
+  const { sovereignTier } = useUser();
+  const [availableQuests, setAvailableQuests] = useState<QuestsRow[]>([]);
   const [unearnedSigils, setUnearnedSigils] = useState<SigilItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/generated/athena-gamification/quests?status=published&order=name.asc').then(r => r.json()),
-      fetch('/api/generated/athena-gamification/sigils?status=published&order=name.asc').then(r => r.json()),
+      fetch('/api/generated/athena-gamification/quests?status=published&sort=name&order=asc').then(r => r.json()),
+      fetch('/api/generated/athena-gamification/sigils?status=published&sort=name&order=asc').then(r => r.json()),
     ]).then(([qRes, sRes]) => {
-      if (qRes.success) {
-        const rawQuests = qRes.data?.data || [];
-        setAvailableQuests(rawQuests.map((q: any) => ({
-          quests_id: q.id,
-          title: q.name,
-          description: q.description,
-        })));
-      }
+      if (qRes.success) setAvailableQuests(qRes.data?.data || []);
       if (sRes.success) setUnearnedSigils(sRes.data?.data || []);
     }).catch(() => {}).finally(() => setLoading(false));
   }, []);
@@ -80,9 +73,9 @@ export function ProphecyVision() {
           <div className="flex items-center gap-3 mb-4"><Compass className="h-5 w-5 text-amber-400" /><h3 className="text-lg font-semibold text-star-dust">Available Quests</h3></div>
           <div className="space-y-2">
             {availableQuests.slice(0, 5).map(q => (
-              <Link key={q.quests_id} href={`/library/quests/${q.quests_id}`}>
+              <Link key={q.id} href={`/library/quests/${encodeURIComponent(q.slug)}`}>
                 <div className="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
-                  <div><p className="text-sm text-star-dust font-medium">{q.title}</p></div>
+                  <div><p className="text-sm text-star-dust font-medium">{q.name}</p></div>
                 </div>
               </Link>
             ))}

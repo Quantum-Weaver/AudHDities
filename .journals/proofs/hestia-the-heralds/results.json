@@ -1,0 +1,234 @@
+{
+  "checks": 38,
+  "failed": 0,
+  "rows": [
+    {
+      "set": "the row",
+      "check": "a herald with no readable settings is written",
+      "result": "true",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "one row lands, on heralds",
+      "result": "\"heralds\"",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "the row carries every column the seam names",
+      "result": "[\"body\",\"channel\",\"created_by\",\"herald_type\",\"recipient\",\"reference_id\",\"reference_table\",\"table\",\"title\"]",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "the recipient is the vessel told",
+      "result": "\"11111111-1111-4111-8111-111111111111\"",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "created_by falls to the recipient when no actor acts",
+      "result": "\"11111111-1111-4111-8111-111111111111\"",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "the type is the kind handed",
+      "result": "\"order_receipt\"",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "the channel falls to the house default",
+      "result": "\"in_app\"",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "the reference names the row behind it",
+      "result": "[\"exchanges\",\"33333333-3333-4333-8333-333333333333\"]",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "a herald with no reference carries nulls",
+      "result": "[null,null]",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "an actor signs the row they caused",
+      "result": "\"22222222-2222-4222-8222-222222222222\"",
+      "pass": true
+    },
+    {
+      "set": "the row",
+      "check": "eight kinds are named, and no more",
+      "result": "[\"order_receipt\",\"sale_made\",\"renewal_receipt\",\"payouts_live\",\"message_received\",\"quest_completed\",\"application_reviewed\",\"badge_earned\"]",
+      "pass": true
+    },
+    {
+      "set": "the channel",
+      "check": "the vessel’s own setting is honoured",
+      "result": "\"email\"",
+      "pass": true
+    },
+    {
+      "set": "the channel",
+      "check": "a channel handed by the caller stands over the setting",
+      "result": "\"in_app\"",
+      "pass": true
+    },
+    {
+      "set": "the channel",
+      "check": "a vessel that keeps heralds off is not written to",
+      "result": "[false,0]",
+      "pass": true
+    },
+    {
+      "set": "the channel",
+      "check": "the silence says why",
+      "result": "\"muted\"",
+      "pass": true
+    },
+    {
+      "set": "the channel",
+      "check": "an unreadable setting falls to the default and still writes",
+      "result": "\"in_app\"",
+      "pass": true
+    },
+    {
+      "set": "the fall",
+      "check": "a refused insert is reported, not thrown",
+      "result": "false",
+      "pass": true
+    },
+    {
+      "set": "the fall",
+      "check": "the fault carries the base’s own words",
+      "result": "\"new row violates row-level security policy\"",
+      "pass": true
+    },
+    {
+      "set": "the fall",
+      "check": "a client that throws does not throw into the caller",
+      "result": "false",
+      "pass": true
+    },
+    {
+      "set": "the fall",
+      "check": "the throw is carried as a note",
+      "result": "\"the base refused the connection\"",
+      "pass": true
+    },
+    {
+      "set": "the fall",
+      "check": "a fallen herald is never counted written",
+      "result": "\"not-written\"",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "an in-app herald sends nothing",
+      "result": "{\"sent\":false,\"reason\":\"in-app-only\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "a channel of none sends nothing",
+      "result": "{\"sent\":false,\"reason\":\"channel-silent\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "no send was attempted for either",
+      "result": "0",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "an email herald with no readable address is not sent",
+      "result": "{\"sent\":false,\"reason\":\"no-address\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "an address the caller holds is used",
+      "result": "{\"sent\":true,\"reason\":\"sent\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "the mail goes to Resend",
+      "result": "\"https://api.resend.com/emails\"",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "the letter carries the herald whole",
+      "result": "{\"from\":\"AudHDities <contact@audhdities.com>\",\"to\":[\"kin@audhdities.test\"],\"subject\":\"Receipt: The Loom\",\"text\":\"The Loom is yours.\\n\\nYour heralds: https://audhdities.test/notifications\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "the key rides in the header alone",
+      "result": "true",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "the base’s own key may read the address",
+      "result": "{\"sent\":true,\"reason\":\"sent\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "the looked-up address is the one written to",
+      "result": "{\"from\":\"AudHDities <contact@audhdities.com>\",\"to\":[\"looked-up@audhdities.test\"],\"subject\":\"Receipt: The Loom\",\"text\":\"The Loom is yours.\\n\\nYour heralds: https://audhdities.test/notifications\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "a refused lookup leaves the herald standing and the mail unsent",
+      "result": "{\"sent\":false,\"reason\":\"no-address\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "a road that throws is carried, not raised",
+      "result": "{\"sent\":false,\"reason\":\"send-failed\",\"note\":\"the network is gone\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "a refusal from Resend is recorded by its status",
+      "result": "{\"sent\":false,\"reason\":\"send-failed\",\"note\":\"422\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "no key means no mail and no throw",
+      "result": "{\"sent\":false,\"reason\":\"no-key\"}",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "the writer and the road run as one act",
+      "result": "[true,{\"sent\":true,\"reason\":\"sent\"}]",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "that act wrote exactly one row",
+      "result": "1",
+      "pass": true
+    },
+    {
+      "set": "the road",
+      "check": "a muted vessel is neither written to nor mailed",
+      "result": "[false,null,0]",
+      "pass": true
+    }
+  ]
+}

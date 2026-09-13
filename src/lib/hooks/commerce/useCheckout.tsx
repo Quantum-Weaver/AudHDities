@@ -7,6 +7,8 @@ import { useAuth } from '@/hooks/useAuth';
 
 interface CheckoutParams {
   id: string;
+  /** which table the id belongs to; a ware when unsaid */
+  kind?: 'ware' | 'work';
   quantity?: number;
   amount?: number; // pay_what_you_want offers (floor enforced server-side)
 }
@@ -46,10 +48,10 @@ export function useCheckout(): UseCheckoutReturn {
   const { user } = useAuth();
 
   const initiateCheckout = useCallback(async (params: CheckoutParams) => {
-    const { id, quantity = 1, amount } = params;
+    const { id, kind = 'ware', quantity = 1, amount } = params;
 
     if (!user) {
-      sessionStorage.setItem('pendingPurchase', JSON.stringify({ id, quantity, amount }));
+      sessionStorage.setItem('pendingPurchase', JSON.stringify({ id, kind, quantity, amount }));
       router.push(`/login?redirect=${encodeURIComponent(window.location.pathname)}`);
       return;
     }
@@ -61,7 +63,9 @@ export function useCheckout(): UseCheckoutReturn {
       const checkoutResponse = await fetch('/api/auth/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ wareId: id, quantity, amount }),
+        body: JSON.stringify(
+          kind === 'work' ? { workId: id, quantity, amount } : { wareId: id, quantity, amount },
+        ),
       });
 
       const checkoutData = await checkoutResponse.json();
@@ -107,6 +111,24 @@ export function useCheckout(): UseCheckoutReturn {
   return { initiateCheckout, loading, error, heldCrossing, goOnToPayment, notNow };
 }
 
+/** The held crossing as it was stored: an id, and the kind of thing it names. */
+function readHeld(stored: string): CheckoutParams | null {
+  try {
+    const parsed: unknown = JSON.parse(stored);
+    if (!parsed || typeof parsed !== 'object') return null;
+    const row = parsed as Record<string, unknown>;
+    if (typeof row.id !== 'string' || row.id.length === 0) return null;
+    return {
+      id: row.id,
+      kind: row.kind === 'work' ? 'work' : 'ware',
+      quantity: typeof row.quantity === 'number' ? row.quantity : 1,
+      ...(typeof row.amount === 'number' ? { amount: row.amount } : {}),
+    };
+  } catch {
+    return null;
+  }
+}
+
 export function usePendingPurchase() {
   const [pendingPurchase, setPendingPurchase] = useState<CheckoutParams | null>(null);
   const { user } = useAuth();
@@ -124,11 +146,9 @@ export function usePendingPurchase() {
   useEffect(() => {
     const stored = sessionStorage.getItem('pendingPurchase');
     if (stored) {
-      try {
-        setPendingPurchase(JSON.parse(stored));
-      } catch {
-        sessionStorage.removeItem('pendingPurchase');
-      }
+      const held = readHeld(stored);
+      if (held) setPendingPurchase(held);
+      else sessionStorage.removeItem('pendingPurchase');
     }
   }, []);
 

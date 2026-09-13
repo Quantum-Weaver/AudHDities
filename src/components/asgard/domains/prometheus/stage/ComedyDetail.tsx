@@ -10,11 +10,12 @@ import { Button } from '@/components/yggdrasil/Button';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Mic, Clock, User } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface ComedyEvent {
-  id: string; title: string; description: string | null;
-  scheduled_for: string | null; performer_id: string; is_live: boolean;
-}
+type ComedyEvent = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'scheduled_for' | 'performer_id' | 'is_live'
+>;
 
 export function ComedyDetail() {
   const params = useParams(); const router = useRouter();

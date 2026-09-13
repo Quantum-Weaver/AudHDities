@@ -2,6 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { readObjectives, type QuestWalk, type WalkAction } from '@/lib/quests/walk';
+import { heraldAndDeliver } from '@/lib/heralds/dispatch';
+import { HERALD_TYPE } from '@/lib/heralds/write';
 
 type Supabase = Awaited<ReturnType<typeof createServerSupabase>>;
 
@@ -15,7 +17,51 @@ async function open() {
   const supabase = await createServerSupabase();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: fail('Authentication required', 401) };
-  return { supabase, uid: user.id };
+  return { supabase, uid: user.id, email: user.email ?? null };
+}
+
+/** The herald and the spiral mark one finished quest earns, once. */
+async function tellQuestFinished(
+  supabase: Supabase,
+  uid: string,
+  email: string | null,
+  questId: string,
+  at: string,
+) {
+  const { data: marked } = await supabase
+    .from('current')
+    .select('id')
+    .eq('sovereign_id', uid)
+    .eq('event_type', 'quest_completed')
+    .eq('reference_id', questId)
+    .maybeSingle();
+  if (marked) return;
+
+  const { data: quest } = await supabase.from('quests').select('name').eq('id', questId).maybeSingle();
+  const name = quest?.name ?? 'a quest';
+
+  await heraldAndDeliver(
+    supabase,
+    {
+      recipient: uid,
+      type: HERALD_TYPE.QUEST_COMPLETED,
+      title: `Quest completed: ${name}`,
+      body: `${name} is finished, and marked on your spiral.`,
+      referenceTable: 'vessel_quests',
+      referenceId: questId,
+    },
+    { email },
+  );
+
+  const { error } = await supabase.from('current').insert({
+    sovereign_id: uid,
+    event_type: 'quest_completed',
+    description: `Completed ${name}.`,
+    event_at: at,
+    reference_table: 'vessel_quests',
+    reference_id: questId,
+  });
+  if (error) console.error('Quest timeline mark not written:', error.message);
 }
 
 async function walksFor(supabase: Supabase, uid: string, questId?: string): Promise<QuestWalk[]> {
@@ -99,7 +145,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const opened = await open();
   if ('error' in opened) return opened.error;
-  const { supabase, uid } = opened;
+  const { supabase, uid, email } = opened;
   try {
     const body = (await request.json().catch(() => ({}))) as {
       quest_id?: unknown;
@@ -141,7 +187,10 @@ export async function POST(request: NextRequest) {
       }
       const [walk] = await walksFor(supabase, uid, questId);
       const allDone = objectives.every((o) => walk?.done.includes(o));
-      if (allDone && walk?.status !== 'completed') await setStatus(supabase, uid, questId, 'completed', now);
+      if (allDone && walk?.status !== 'completed') {
+        await setStatus(supabase, uid, questId, 'completed', now);
+        await tellQuestFinished(supabase, uid, email, questId, now);
+      }
       if (!allDone && walk?.status === 'completed') await setStatus(supabase, uid, questId, 'active', null);
     }
 

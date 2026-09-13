@@ -8,23 +8,19 @@ import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { ArrowLeft, Radio } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface LiveEvent {
-  id: string;
-  title: string;
-  description: string | null;
-  event_type: string;
-  performer_id: string;
-  is_live: boolean;
-  started_at: string | null;
-}
+type LiveEvent = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'event_type' | 'performer_id' | 'is_live' | 'started_at'
+>;
 
 export function LiveGallery() {
   const [events, setEvents] = useState<LiveEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?is_live=true&sort=started_at&order=desc')
+    fetch('/api/generated/prometheus-stage/events?status=published&is_live=true&sort=started_at&order=desc')
       .then(r => r.json())
       .then(result => { if (result.success) setEvents(result.data?.data || result.data || []); })
       .catch(console.error)

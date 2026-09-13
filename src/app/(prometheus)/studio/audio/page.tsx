@@ -1,22 +1,25 @@
-// app/(prometheus)/studio/audio/page.tsx
-
+// src/app/(prometheus)/studio/audio/page.tsx
 import { Page } from '@/components/bifrost/Page';
+import { StudioPageTemplate } from '@/components/asgard/domains/prometheus/studio/StudioPageTemplate';
+import { Mic } from 'lucide-react';
 
 export const metadata = {
-  title: 'Audio Studio | Sovereign Sanctuary',
-  description: 'Shape sound with precision'
+  title: 'Audio Studio | The Loom | Sovereign Sanctuary',
+  description: 'Where silence finds its voice',
 };
 
-export default async function AudioStudioPage() {
+export default function AudioStudioRoomPage() {
   return (
-    <Page 
-      showForeground={false}
-      showContinuityBeam={true}
-    >
-      <main className="min-h-screen py-12">
-        <div className="container max-w-7xl mx-auto px-6">
-        </div>
-      </main>
+    <Page showForeground={false} showContinuityBeam={true}>
+      <StudioPageTemplate
+        title="Audio Studio"
+        description="This room will be where a vessel records and shapes sound."
+        icon={Mic}
+        color="text-emerald-400"
+        backHref="/studio"
+        backLabel="Return to the Loom"
+        standing="Nothing is built in this room yet."
+      />
     </Page>
   );
 }

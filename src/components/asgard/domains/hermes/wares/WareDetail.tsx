@@ -12,7 +12,7 @@ import { PriceBreakdown } from '@/components/asgard/domains/hermes/checkout/Pric
 import { TheBodies } from '@/components/asgard/domains/hermes/wares/TheBodies';
 import { WareLicence } from '@/components/asgard/domains/hermes/wares/WareLicence';
 import { formatMinorUnits } from '@/lib/economics/split';
-import { recurrenceOf, intervalPhrase } from '@/lib/economics/recurrence';
+import { recurrenceOf, intervalPhrase, dateInputFromSupportEndsAt } from '@/lib/economics/recurrence';
 import { sphragisOf } from '@/lib/wares/sphragis';
 import { ArrowLeft, Package, TrendingUp } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
@@ -40,6 +40,8 @@ export function WareDetail() {
   const [standing, setStanding] = useState<boolean>(false);
   const [held, setHeld] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
+  const [openingPortal, setOpeningPortal] = useState(false);
+  const [portalError, setPortalError] = useState<string | null>(null);
 
   useEffect(() => {
     let alive = true;
@@ -77,6 +79,29 @@ export function WareDetail() {
       .catch(() => { /* the page simply offers the verb */ });
     return () => { alive = false; };
   }, [ware]);
+
+  /** Sends the vessel to Stripe's own billing portal, where the standing is ended. */
+  const endIt = async () => {
+    setOpeningPortal(true);
+    setPortalError(null);
+    try {
+      const response = await fetch('/api/auth/billing-portal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ returnTo: ware ? `/bazaar/wares/${ware.id}` : '/bazaar/wares' }),
+      });
+      const result = await response.json();
+      if (result?.success && result.data?.url) {
+        window.location.href = result.data.url;
+        return;
+      }
+      setPortalError(result?.error || 'The billing room did not open. Nothing was changed.');
+    } catch {
+      setPortalError('The billing room did not open. Nothing was changed.');
+    } finally {
+      setOpeningPortal(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -158,8 +183,10 @@ export function WareDetail() {
             )}
             {recurrence && (
               <p className="text-xs text-star-dust/40 mt-2">
-                It renews {intervalPhrase(recurrence.interval)} until you end it, and ending it takes
-                one press. Nothing is charged before a renewal and nothing is charged after it ends.
+                {recurrence.endsAt
+                  ? `It renews ${intervalPhrase(recurrence.interval)} until ${dateInputFromSupportEndsAt(recurrence.endsAt)}, then stops on its own, and ending it sooner takes one press.`
+                  : `It renews ${intervalPhrase(recurrence.interval)} until you end it, and ending it takes one press.`}{' '}
+                Nothing is charged before a renewal and nothing is charged after it ends.
               </p>
             )}
           </div>
@@ -193,8 +220,16 @@ export function WareDetail() {
             {standing ? (
               <>
                 <p className="text-sm text-star-dust" role="status">You are standing with this.</p>
-                <Link href="/vessel/home" className="text-sm text-neurospark hover:underline">End it</Link>
+                <button
+                  type="button"
+                  onClick={endIt}
+                  disabled={openingPortal}
+                  className="text-sm text-neurospark hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-neurospark rounded disabled:opacity-60"
+                >
+                  {openingPortal ? 'Opening…' : 'End it'}
+                </button>
                 <Link href="/bazaar/wares" className="text-sm text-neurospark hover:underline">Change the rung</Link>
+                {portalError && <p className="text-sm text-error w-full">{portalError}</p>}
               </>
             ) : settled ? (
               <p className="text-sm text-star-dust/60 italic">

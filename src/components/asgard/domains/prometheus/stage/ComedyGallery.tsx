@@ -8,11 +8,12 @@ import { Badge } from '@/components/runes/Badge';
 import { Skeleton } from '@/components/runes/Skeleton';
 import { Carousel, type CarouselStop } from '@/components/shapes';
 import { ArrowLeft, Mic } from 'lucide-react';
+import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 
-interface ComedyEvent {
-  id: string; title: string; description: string | null;
-  scheduled_for: string | null; is_live: boolean;
-}
+type ComedyEvent = Pick<
+  Tables<'events'>,
+  'id' | 'title' | 'description' | 'scheduled_for' | 'is_live'
+>;
 
 interface ComedyStop extends CarouselStop {
   description: string | null;
@@ -25,7 +26,7 @@ export function ComedyGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/generated/prometheus-stage/events?genre=comedy&sort=scheduled_for&order=asc')
+    fetch('/api/generated/prometheus-stage/events?status=published&genre=comedy&sort=scheduled_for&order=asc')
       .then(r => r.json())
       .then(result => { if (result.success) setEvents(result.data?.data || result.data || []); })
       .catch(console.error)

@@ -103,8 +103,8 @@ export default function RealmMapFurniture({
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
-            <div className="mb-5 shrink-0">
-              <Learscail onTravel={close} />
+            <div className="mb-5 min-h-0 flex-1">
+              <Learscail onTravel={close} className="h-full" />
             </div>
 
             {/* One geometry, everywhere, forever — the order never shuffles */}

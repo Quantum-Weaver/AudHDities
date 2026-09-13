@@ -2,11 +2,10 @@ import type { MetadataRoute } from 'next';
 
 // THE MAP OF THE PUBLIC ROOMS — base item 222, landed 2026-09-01.
 //
-// Only rooms anyone may enter without signing in are listed. The law is the
-// site's own: src/lib/constants/systems/environments/navigation.ts marks a
-// door `requiresAuth`, `userTiers` or `minSovereignty`, and a room behind such
-// a door is not here — the vessel, notifications, dashboard, contributions,
-// the council, the nexus, the studio, the observatory. Nor are the auth doors,
+// Only rooms anyone may enter without signing in are listed. A room whose page
+// sends a signed-out visitor to `/login` is not here — the vessel,
+// notifications, dashboard, contributions, the council, the nexus's council and
+// gateway, the studio, the observatory. Nor are the auth doors,
 // the API, checkout, the artisan's own loom, the stage's studio, or the
 // Bridge's inbox rooms (messages, invitations, emeralds). The older names
 // KP's 2026-08-24 wording ruling replaced (creations, creators, vendors) are
@@ -48,6 +47,7 @@ const PUBLIC_ROUTES: readonly string[] = [
   '/bazaar/artisans',
   '/bazaar/merchants',
   '/bazaar/wares',
+  '/bazaar/works',
   // athena — the library
   '/library',
   '/library/sigils',
@@ -72,6 +72,8 @@ const PUBLIC_ROUTES: readonly string[] = [
   '/connect/support',
   '/connect/translations',
   // cosmic — ungated, unlisted in the navigation
+  '/colors',
+  '/cosmic',
   '/effects',
   '/environments',
   '/playground',

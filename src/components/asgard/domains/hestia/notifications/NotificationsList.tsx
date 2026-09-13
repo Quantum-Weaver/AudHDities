@@ -10,15 +10,9 @@ import { Button } from '@/components/yggdrasil/Button';
 import { ArrowLeft, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
+import type { HeraldsRow } from '@/lib/generated/types/hestia-core/heralds';
 
-interface Notification {
-  id: string;
-  herald_type: string;
-  title: string | null;
-  body: string | null;
-  is_read: boolean;
-  created_at: string;
-}
+type Notification = Pick<HeraldsRow, 'id' | 'herald_type' | 'title' | 'body' | 'is_read' | 'created_at'>;
 
 const TYPE_EMOJI: Record<string, string> = {
   welcome: '🏛️',
@@ -36,7 +30,7 @@ export function NotificationsList() {
 
   useEffect(() => {
     if (!user) { setLoading(false); return; }
-    fetch(`/api/generated/hestia-core/heralds?created_by=${user.id}&sort=created_at&order=desc&limit=50`)
+    fetch(`/api/generated/hestia-core/heralds?recipient=${user.id}&sort=created_at&order=desc&limit=50`)
       .then(r => r.json())
       .then(result => { if (result.success) setNotifications(result.data?.data || result.data || []); })
       .catch(console.error)

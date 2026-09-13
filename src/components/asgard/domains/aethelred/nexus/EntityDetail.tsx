@@ -9,6 +9,7 @@ import {
   domainWords,
   sigilFill,
   NO_ROW_YET,
+  NO_SLEEPER,
   NO_TASK,
   REFUSED,
   type CouncilChair,
@@ -121,6 +122,8 @@ export function EntityDetail({ chair, sections, rows }: EntityDetailProps) {
         </Card>
 
         <Register sections={sections} rows={rows} />
+
+        <div className="text-[13px] text-star-dust/50">{NO_SLEEPER}</div>
 
         <HouseWordsFooter />
       </div>

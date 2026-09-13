@@ -15,9 +15,7 @@ import { cn } from "@/lib/utils";
 export interface EnvironmentLayerProps {
   /** Environment key (home, council, library, music, …). */
   environment: EnvironmentKey;
-  /** Variant (1–4) — accepted for API continuity with the image era; the
-   *  token era currently wears one dress per environment. Kept so callers
-   *  and the resolver's variant arithmetic need no change. */
+  /** Register 1–4: the place's own wash, or one of its three deepenings. */
   variant?: number;
   /** Enable the breathing (system reduced-motion preference always wins). */
   animated?: boolean;
@@ -31,12 +29,12 @@ export interface EnvironmentLayerProps {
 
 export default function EnvironmentLayer({
   environment,
-  variant: _variant = 1,
+  variant = 1,
   animated = true,
   washOpacity = 0.3,
   className,
 }: EnvironmentLayerProps) {
-  const affect = getEnvironmentAffect(environment);
+  const affect = getEnvironmentAffect(environment, variant);
   const prefersReducedMotion = useReducedMotion();
   const breathes = animated && !prefersReducedMotion;
 

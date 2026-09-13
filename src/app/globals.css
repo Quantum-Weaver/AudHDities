@@ -8,6 +8,22 @@
 @import "tailwindcss";
 @import "tailwindcss/utilities" layer(utilities);
 
+/* ─── The generated sheets the root layout does not import ─────────────── */
+@import "../styles/generated/attention-modes.css";
+@import "../styles/generated/attention-selector.css";
+@import "../styles/generated/ceremonies.css";
+@import "../styles/generated/ceremonies-refuge.css";
+@import "../styles/generated/consciousness-depth.css";
+@import "../styles/generated/deity-voices.css";
+@import "../styles/generated/ensemble.css";
+@import "../styles/generated/eternal-witness.css";
+@import "../styles/generated/gates.css";
+@import "../styles/generated/glow-field.css";
+@import "../styles/generated/pause-state.css";
+@import "../styles/generated/scene.css";
+@import "../styles/generated/supportive-affordances.css";
+@import "../styles/generated/transcendence.css";
+
 /* ─── The tokens set, told to Tailwind ─────────────────────────────────── */
 /* The colours (and cosmic's screens/spacing/fontSize/shadows) already stand in
    tailwind.generated.config.mjs, generated from the cosmic constants. Tailwind 4
