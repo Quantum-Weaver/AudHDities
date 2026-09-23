@@ -18,7 +18,11 @@ import { ArrowLeft, Sparkles, Save, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { TablesInsert } from '@/lib/generated/supabase/database.helpers.js';
-import { SUPPORT_CADENCES, supportEndsAtFromDateInput } from '@/lib/economics/recurrence';
+import {
+  SUPPORT_CADENCES,
+  SUPPORT_END_DATE_NEEDED,
+  supportEndsAtForCadence,
+} from '@/lib/economics/recurrence';
 
 export type LoomKind = 'work' | 'ware';
 
@@ -175,9 +179,11 @@ export function StudioForm({ initialKind }: StudioFormProps) {
       } else {
         const cadence = String(data.billing_interval ?? 'once');
         const priceId = data.stripe_price_id ? String(data.stripe_price_id).trim() : '';
-        const supportEndsAt = cadence === 'month_until'
-          ? supportEndsAtFromDateInput(String(data.support_ends_at ?? ''))
-          : null;
+        const supportEndsAt = supportEndsAtForCadence(cadence, String(data.support_ends_at ?? ''));
+        if (supportEndsAt === undefined) {
+          setSaveMessage(SUPPORT_END_DATE_NEEDED);
+          return;
+        }
         const body: TablesInsert<'wares'> = {
           name,
           slug: slugify(name || 'ware'),
@@ -198,7 +204,7 @@ export function StudioForm({ initialKind }: StudioFormProps) {
         response = await fetch('/api/generated/plutus-economics/wares', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          // support_ends_at stands on wares in docs/sql/053; it rides only when a date was named.
+          // support_ends_at rides only when a date was named.
           body: JSON.stringify(supportEndsAt ? { ...body, support_ends_at: supportEndsAt } : body),
         });
       }

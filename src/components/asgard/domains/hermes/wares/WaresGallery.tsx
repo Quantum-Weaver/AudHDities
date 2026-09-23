@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 import { useSearchParams } from 'next/navigation';
-import { RungLadder, isRung } from '@/components/asgard/domains/hermes/wares/RungLadder';
+import { isRung } from '@/components/asgard/domains/hermes/wares/RungLadder';
 
 type WareRow = Tables<'wares'>;
 type WorkRow = Tables<'works'>;
@@ -67,8 +67,6 @@ interface SquareStop extends CarouselStop {
 export function WaresGallery() {
   const router = useRouter();
   const [items, setItems] = useState<SquareItem[]>([]);
-  // A rung is a ware that repeats. Five of them are one ladder, not five stalls.
-  const [rungs, setRungs] = useState<WareRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [readFailed, setReadFailed] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -126,9 +124,7 @@ export function WaresGallery() {
           ? (worksJson.data?.data || worksJson.data || [])
           : [];
 
-        const rungRows = wares.filter(isRung);
         const plainWares = wares.filter((w) => !isRung(w));
-        setRungs(rungRows);
 
         const merged: SquareItem[] = [
           ...plainWares.map((w) => ({
@@ -283,9 +279,6 @@ export function WaresGallery() {
           </div>
         )}
 
-        {/* The ladder stands on the unfiltered Tapestry and nowhere else. */}
-        {!readFailed && !isFiltered && <RungLadder rungs={rungs} />}
-
         {readFailed && (
           <div className="text-center py-20">
             <Package className="h-12 w-12 text-star-dust/20 mx-auto mb-4" aria-hidden="true" />
@@ -296,7 +289,7 @@ export function WaresGallery() {
           </div>
         )}
 
-        {!readFailed && filtered.length === 0 && !(rungs.length > 0 && !isFiltered) && (
+        {!readFailed && filtered.length === 0 && (
           <div className="text-center py-20">
             <Package className="h-12 w-12 text-star-dust/20 mx-auto mb-4" aria-hidden="true" />
             {isFiltered ? (

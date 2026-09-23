@@ -402,6 +402,7 @@ export type Database = {
           avatar_url: string | null
           banner_url: string | null
           bio: string | null
+          booking_url: string | null
           created_at: string
           created_by: string
           icon_emoji: string | null
@@ -428,6 +429,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          booking_url?: string | null
           created_at?: string
           created_by: string
           icon_emoji?: string | null
@@ -454,6 +456,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          booking_url?: string | null
           created_at?: string
           created_by?: string
           icon_emoji?: string | null
@@ -703,6 +706,51 @@ export type Database = {
           template_id?: string | null
           updated_at?: string
           updated_by?: string | null
+        }
+        Relationships: []
+      }
+      bookings: {
+        Row: {
+          cancel_token: string
+          created_at: string
+          end_utc: string
+          guest_email: string
+          guest_name: string
+          guest_tz: string
+          host_email: string
+          id: string
+          notes: string
+          room: string
+          start_utc: string
+          status: string
+        }
+        Insert: {
+          cancel_token: string
+          created_at?: string
+          end_utc: string
+          guest_email: string
+          guest_name: string
+          guest_tz: string
+          host_email?: string
+          id: string
+          notes?: string
+          room: string
+          start_utc: string
+          status?: string
+        }
+        Update: {
+          cancel_token?: string
+          created_at?: string
+          end_utc?: string
+          guest_email?: string
+          guest_name?: string
+          guest_tz?: string
+          host_email?: string
+          id?: string
+          notes?: string
+          room?: string
+          start_utc?: string
+          status?: string
         }
         Relationships: []
       }
@@ -1122,6 +1170,7 @@ export type Database = {
           avatar_url: string | null
           banner_url: string | null
           bio: string | null
+          council_house_id: string | null
           covenant_pledge_percent: number | null
           created_at: string
           created_by: string | null
@@ -1143,6 +1192,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          council_house_id?: string | null
           covenant_pledge_percent?: number | null
           created_at?: string
           created_by?: string | null
@@ -1164,6 +1214,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          council_house_id?: string | null
           covenant_pledge_percent?: number | null
           created_at?: string
           created_by?: string | null
@@ -1181,7 +1232,15 @@ export type Database = {
           updated_by?: string | null
           website_url?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "community_profiles_council_house_id_fkey"
+            columns: ["council_house_id"]
+            isOneToOne: false
+            referencedRelation: "council_houses"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       companion_cues: {
         Row: {
@@ -1620,6 +1679,36 @@ export type Database = {
           solution?: string
           source_emoji?: string | null
           status?: Database["public"]["Enums"]["content_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      delegations: {
+        Row: {
+          created_at: string
+          delegate_id: string
+          delegator_id: string
+          id: string
+          revoked_at: string | null
+          scope: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          delegate_id: string
+          delegator_id: string
+          id?: string
+          revoked_at?: string | null
+          scope?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          delegate_id?: string
+          delegator_id?: string
+          id?: string
+          revoked_at?: string | null
+          scope?: string
           updated_at?: string
         }
         Relationships: []
@@ -3037,6 +3126,8 @@ export type Database = {
           entry_date: string
           id: string
           mood: string | null
+          source: string | null
+          source_id: string | null
           status: Database["public"]["Enums"]["content_status"]
           tags: string[] | null
           title: string | null
@@ -3051,6 +3142,8 @@ export type Database = {
           entry_date?: string
           id?: string
           mood?: string | null
+          source?: string | null
+          source_id?: string | null
           status?: Database["public"]["Enums"]["content_status"]
           tags?: string[] | null
           title?: string | null
@@ -3065,6 +3158,8 @@ export type Database = {
           entry_date?: string
           id?: string
           mood?: string | null
+          source?: string | null
+          source_id?: string | null
           status?: Database["public"]["Enums"]["content_status"]
           tags?: string[] | null
           title?: string | null
@@ -3326,6 +3421,7 @@ export type Database = {
           avatar_url: string | null
           banner_url: string | null
           bio: string | null
+          booking_url: string | null
           business_type: string | null
           created_at: string
           created_by: string
@@ -3356,6 +3452,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          booking_url?: string | null
           business_type?: string | null
           created_at?: string
           created_by: string
@@ -3386,6 +3483,7 @@ export type Database = {
           avatar_url?: string | null
           banner_url?: string | null
           bio?: string | null
+          booking_url?: string | null
           business_type?: string | null
           created_at?: string
           created_by?: string
@@ -5395,6 +5493,7 @@ export type Database = {
           collection_id: string
           created_at: string
           display_order: number
+          found_at: string | null
           id: string
           is_displayed: boolean
           updated_at: string
@@ -5404,6 +5503,7 @@ export type Database = {
           collection_id: string
           created_at?: string
           display_order?: number
+          found_at?: string | null
           id?: string
           is_displayed?: boolean
           updated_at?: string
@@ -5413,12 +5513,21 @@ export type Database = {
           collection_id?: string
           created_at?: string
           display_order?: number
+          found_at?: string | null
           id?: string
           is_displayed?: boolean
           updated_at?: string
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "vessel_collections_collection_id_fkey"
+            columns: ["collection_id"]
+            isOneToOne: false
+            referencedRelation: "collection_sets"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       vessel_companions: {
         Row: {
@@ -5509,6 +5618,7 @@ export type Database = {
           language: string
           reduce_motion: boolean
           reduce_transparency: boolean
+          status_line: string | null
           storage_limit_bytes: number
           theme: Database["public"]["Enums"]["display_theme"]
           timezone: string
@@ -5546,6 +5656,7 @@ export type Database = {
           language?: string
           reduce_motion?: boolean
           reduce_transparency?: boolean
+          status_line?: string | null
           storage_limit_bytes?: number
           theme?: Database["public"]["Enums"]["display_theme"]
           timezone?: string
@@ -5583,6 +5694,7 @@ export type Database = {
           language?: string
           reduce_motion?: boolean
           reduce_transparency?: boolean
+          status_line?: string | null
           storage_limit_bytes?: number
           theme?: Database["public"]["Enums"]["display_theme"]
           timezone?: string
@@ -5743,6 +5855,44 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      vessel_lessons: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          id: string
+          lesson_id: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          lesson_id: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          lesson_id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vessel_lessons_lesson_id_fkey"
+            columns: ["lesson_id"]
+            isOneToOne: false
+            referencedRelation: "lessons"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       vessel_quests: {
         Row: {
@@ -6027,6 +6177,7 @@ export type Database = {
           sphragis: Json | null
           status: Database["public"]["Enums"]["content_status"]
           stripe_price_id: string | null
+          support_ends_at: string | null
           updated_at: string
           updated_by: string | null
           ware_type: Database["public"]["Enums"]["ware_type"]
@@ -6056,6 +6207,7 @@ export type Database = {
           sphragis?: Json | null
           status?: Database["public"]["Enums"]["content_status"]
           stripe_price_id?: string | null
+          support_ends_at?: string | null
           updated_at?: string
           updated_by?: string | null
           ware_type?: Database["public"]["Enums"]["ware_type"]
@@ -6085,6 +6237,7 @@ export type Database = {
           sphragis?: Json | null
           status?: Database["public"]["Enums"]["content_status"]
           stripe_price_id?: string | null
+          support_ends_at?: string | null
           updated_at?: string
           updated_by?: string | null
           ware_type?: Database["public"]["Enums"]["ware_type"]
@@ -6235,6 +6388,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      bookings_guard_window: {
+        Args: { p_end: string; p_start: string }
+        Returns: unknown
+      }
       build_search_text: { Args: { fields: string[] }; Returns: string }
       calculate_sovereign_price: {
         Args: { p_base_price: number; p_user_id: string }

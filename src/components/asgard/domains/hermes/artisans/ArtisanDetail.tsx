@@ -12,9 +12,12 @@ import { ArrowLeft, Shield, Package, Globe, UserRound } from 'lucide-react';
 import type { CardData } from '@/types/components/runes/card.types';
 import type { Tables } from '@/lib/generated/supabase/database.helpers.js';
 import { profileHref } from '@/components/asgard/domains/iris/profile/href';
+import { isRung } from '@/components/asgard/domains/hermes/wares/RungLadder';
+import { ArtisanTiers } from '@/components/asgard/domains/hermes/artisans/ArtisanTiers';
 
 type ArtisanItem = Tables<'artisan_profiles'>;
 type WorkItem = Tables<'works'>;
+type WareItem = Tables<'wares'>;
 
 const WORK_TYPE_LABELS: Record<string, string> = {
   music: 'Music', writing: 'Writing', vision: 'Vision',
@@ -25,6 +28,7 @@ export function ArtisanDetail() {
   const params = useParams();
   const [artisan, setArtisan] = useState<ArtisanItem | null>(null);
   const [works, setWorks] = useState<WorkItem[]>([]);
+  const [rungs, setRungs] = useState<WareItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,6 +44,18 @@ export function ArtisanDetail() {
     fetch(`/api/generated/hermes-social/works?artisan_profile_id=${artisan.id}&status=published&sort=updated_at&order=desc&limit=6`)
       .then((r) => r.json())
       .then((result) => { if (result.success) setWorks(result.data?.data || result.data || []); })
+      .catch(console.error);
+  }, [artisan?.id]);
+
+  useEffect(() => {
+    if (!artisan?.id) return;
+    fetch(`/api/generated/plutus-economics/wares?artisan_profile_id=${artisan.id}&status=published&order=created_at.desc`)
+      .then((r) => r.json())
+      .then((result) => {
+        if (!result.success) return;
+        const wares: WareItem[] = result.data?.data || result.data || [];
+        setRungs(wares.filter(isRung));
+      })
       .catch(console.error);
   }, [artisan?.id]);
 
@@ -127,6 +143,8 @@ export function ArtisanDetail() {
             See everything at this loom →
           </Link>
         </Card>
+
+        <ArtisanTiers rungs={rungs} />
 
         {works.length === 0 && (
           <div className="mt-8">

@@ -228,7 +228,7 @@ export function WareDetail() {
                 >
                   {openingPortal ? 'Opening…' : 'End it'}
                 </button>
-                <Link href="/bazaar/wares" className="text-sm text-neurospark hover:underline">Change the rung</Link>
+                {ware.artisan_profile_id && <Link href={`/bazaar/artisans/${ware.artisan_profile_id}`} className="text-sm text-neurospark hover:underline">Change the rung</Link>}
                 {portalError && <p className="text-sm text-error w-full">{portalError}</p>}
               </>
             ) : settled ? (

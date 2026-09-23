@@ -24,10 +24,19 @@ type MetadataBearing = {
 
 /** The cadence options a form offers, said the same way in every form. */
 export const SUPPORT_CADENCES: Array<{ value: SupportCadence; label: string }> = [
-  { value: 'once', label: 'Once — one crossing, nothing repeats' },
-  { value: 'month', label: 'Each month — a rung on the ladder' },
-  { value: 'month_until', label: 'Each month, until a date' },
+  { value: 'once', label: 'One time — nothing repeats' },
+  { value: 'month', label: 'Each month, until it is ended' },
+  { value: 'month_until', label: 'Each month, until a date you set' },
 ];
+
+/** The words a form says when the cadence is until a date and no date was named. */
+export const SUPPORT_END_DATE_NEEDED = 'Name the day the support stops, or choose another cadence.';
+
+/** The end moment a cadence carries: a date's ISO for month_until, null otherwise, undefined when month_until has no date. */
+export function supportEndsAtForCadence(cadence: string, dateInput: string): string | null | undefined {
+  if (cadence !== 'month_until') return null;
+  return supportEndsAtFromDateInput(dateInput) ?? undefined;
+}
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return null;

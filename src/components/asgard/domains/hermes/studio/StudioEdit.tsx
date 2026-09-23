@@ -21,8 +21,9 @@ import type { Tables, TablesUpdate } from '@/lib/generated/supabase/database.hel
 import {
   SUPPORT_CADENCES,
   cadenceOf,
+  SUPPORT_END_DATE_NEEDED,
   dateInputFromSupportEndsAt,
-  supportEndsAtFromDateInput,
+  supportEndsAtForCadence,
   supportEndsAtOf,
 } from '@/lib/economics/recurrence';
 
@@ -116,16 +117,19 @@ export function StudioEdit() {
         const cadence = String(data.billing_interval);
         const interval = cadence === 'once' ? null : 'month';
         if (interval !== ware.billing_interval) updates.billing_interval = interval;
-        supportEndsAt = cadence === 'month_until'
-          ? supportEndsAtFromDateInput(String(data.support_ends_at ?? ''))
-          : null;
+        const named = supportEndsAtForCadence(cadence, String(data.support_ends_at ?? ''));
+        if (named === undefined) {
+          setSaveMessage(SUPPORT_END_DATE_NEEDED);
+          return;
+        }
+        supportEndsAt = named;
       }
       if (data.stripe_price_id !== undefined) {
         const typed = String(data.stripe_price_id ?? '').trim();
         const priceId = typed.length > 0 ? typed : null;
         if (priceId !== ware.stripe_price_id) updates.stripe_price_id = priceId;
       }
-      // support_ends_at stands on wares in docs/sql/053; it rides only when the day moved.
+      // support_ends_at rides only when the day moved.
       const endMoved = supportEndsAt !== currentEnd;
       const newStatus = isPublished ? 'published' : 'draft';
       if (newStatus !== ware.status) updates.status = newStatus;
@@ -434,7 +438,7 @@ export function StudioEdit() {
                 {saveMessage && (
                   <span className={cn(
                     'text-sm',
-                    saveMessage.includes('Failed') ? 'text-error' : 'text-sanctuary-green'
+                    saveMessage.includes('Failed') || saveMessage === SUPPORT_END_DATE_NEEDED ? 'text-error' : 'text-sanctuary-green'
                   )}>
                     {saveMessage}
                   </span>
